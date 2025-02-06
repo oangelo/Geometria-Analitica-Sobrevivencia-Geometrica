@@ -1,157 +1,177 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <!-- Include MathJax -->
+    <!-- Include MathJax -->
     <script type="text/javascript" async
             src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
     <title>Capítulo: O Espaço Vetorial R²</title>
     <style>
-        body {
-            background-color: #2b2b2b;
-            color: #e6e6e6;
-            font-family: "Courier New", Courier, monospace;
-            margin: 20px;
-            padding: 20px;
-            border: 3px solid #4caf50;
-            border-radius: 10px;
-            max-width: 800px;
-            margin: auto;
-            background-image: url('img/asfalt-light.png');
-        }
+body {
+  background-color: #2b2b2b;
+  color: #e6e6e6;
+  font-family: "Courier New", Courier, monospace;
+  margin: 20px;
+  padding: 20px;
+  border: 3px solid #4caf50;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: auto;
+  background-image: url('img/asfalt-light.png');
+}
 
         h1, h2, h3 {
-            color: #4caf50;
-            text-shadow: 1px 1px 2px black;
+          color: #4caf50;
+          text-shadow: 1px 1px 2px black;
         }
 
         .exercise {
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 15px;
-            border: 2px dashed #4caf50;
-            border-radius: 5px;
-            margin-bottom: 20px;
+          background-color: rgba(0, 0, 0, 0.8);
+          padding: 15px;
+          border: 2px dashed #4caf50;
+          border-radius: 5px;
+          margin-bottom: 20px;
         }
 
         details {
-            background-color: #1c1c1c;
-            padding: 10px;
-            border: 1px solid #4caf50;
-            border-radius: 5px;
-            margin-top: 10px;
+          background-color: #1c1c1c;
+          padding: 10px;
+          border: 1px solid #4caf50;
+          border-radius: 5px;
+          margin-top: 10px;
         }
 
         summary {
-            font-weight: bold;
-            cursor: pointer;
-            color: #4caf50;
+          font-weight: bold;
+          cursor: pointer;
+          color: #4caf50;
         }
 
         code {
-            background-color: #333;
-            padding: 3px 5px;
-            border-radius: 3px;
-            color: #ffeb3b;
+          background-color: #333;
+          padding: 3px 5px;
+          border-radius: 3px;
+          color: #ffeb3b;
         }
 
         .footer {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 0.9em;
-            color: #757575;
+          text-align: center;
+          margin-top: 30px;
+          font-size: 0.9em;
+          color: #757575;
         }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Capítulo: O Espaço Vetorial R²</h1>
     <h2>Subtópico: Igualdade e Operações com Pares Ordenados</h2>
 
     <div class="exercise">
-        <h3>Exercício 1: Pontos nos Eixos</h3>
-        <p>Entre os pontos \(A(4, 0)\), \(B(-3, 1)\), \(C(0, -7)\), \(D(\frac{1}{2}, 0)\), \(E(0, \sqrt{3})\) e \(F(0, 0)\):</p>
-        <p>a) Quais estão no eixo das abscissas (eixo dos x)?</p>
-        <p>b) Quais estão no eixo das ordenadas (eixo dos y)?</p>
-        <details>
-            <summary>Ver Solução</summary>
-            <p>Um ponto está no eixo x se \(y = 0\) e no eixo y se \(x = 0\).</p>
-            <p>a) Eixo x: A(4, 0), D(1/2, 0), F(0, 0)</p>
-            <p>b) Eixo y: C(0, -7), E(0, √3), F(0, 0)</p>
-        </details>
+      <h3>Exercício 1: Pontos Estratégicos nos Eixos</h3>
+      <p>
+      Em meio aos destroços da civilização, precisamos localizar pontos vitais em nosso mapa de sobrevivência. Considere as coordenadas:
+      \(A(4, 0)\), \(B(-3, 1)\), \(C(0, -7)\), \(D\left(\frac{1}{2}, 0\right)\), \(E(0, \sqrt{3})\) e \(F(0, 0)\).
+      </p>
+      <p>a) Quais destes pontos podem ser usados como postos de observação no eixo das abscissas (eixo x)?</p>
+      <p>b) Quais podem servir como marcos de orientação no eixo das ordenadas (eixo y)?</p>
+      <details>
+        <summary>Ver Solução</summary>
+        <p>Lembre-se de que um ponto está no eixo x se \(y = 0\) e no eixo y se \(x = 0\).</p>
+        <p>
+        a) <strong>Eixo x</strong>: A(4, 0), D(1/2, 0), F(0, 0)<br>
+        b) <strong>Eixo y</strong>: C(0, -7), E(0, √3), F(0, 0)
+        </p>
+        <p>O ponto F(0,0) é o cruzamento de ambos — uma espécie de bunker central para as operações de sobrevivência.</p>
+      </details>
     </div>
 
     <div class="exercise">
-        <h3>Exercício 2: Determinação do Quadrante</h3>
-        <p>Determinar o quadrante onde está o ponto \(P(x, y)\) em cada caso:</p>
-        <p>a) \(P(-7, 2)\)</p>
-        <p>b) \(P(\sqrt{2}, -5)\)</p>
-        <p>c) \(P(-\frac{1}{2}, -\frac{2}{3})\)</p>
-        <p>d) \(P(-\sqrt{2}, \sqrt{3} - 2)\)</p>
-        <p>e) \(P(\frac{\sqrt{3}}{3}, \frac{-1+\sqrt{2}}{2})\)</p>
-        <details>
-            <summary>Ver Solução</summary>
-            <p>Analisando o sinal de \(x\) e \(y\):</p>
-            <ul>
-                <li>a) 2º Quadrante (\(x < 0\), \(y > 0\))</li>
-                <li>b) 4º Quadrante (\(x > 0\), \(y < 0\))</li>
-                <li>c) 3º Quadrante (\(x < 0\), \(y < 0\))</li>
-                <li>d) Depende do valor de \(\sqrt{3} - 2\). Se positivo, 2º quadrante; se negativo, 3º quadrante.</li>
-                <li>e) Como \(\frac{-1+\sqrt{2}}{2} \approx -0.15\), o ponto está no 4º quadrante.</li>
-            </ul>
-        </details>
+      <h3>Exercício 2: Determinação de Territórios (Quadrantes)</h3>
+      <p>
+      Nos mapas do mundo em reconstrução, identificar o quadrante pode salvar sua rota de expedição. Determine onde se localiza o ponto \(P(x, y)\) em cada caso:
+      </p>
+      <p>a) \(P(-7, 2)\)</p>
+      <p>b) \(P(\sqrt{2}, -5)\)</p>
+      <p>c) \(P\left(-\frac{1}{2}, -\frac{2}{3}\right)\)</p>
+      <p>d) \(P\left(-\sqrt{2}, \sqrt{3} - 2\right)\)</p>
+      <p>e) \(P\left(\frac{\sqrt{3}}{3}, \frac{-1+\sqrt{2}}{2}\right)\)</p>
+      <details>
+        <summary>Ver Solução</summary>
+        <p>Para definir o quadrante, analisamos os sinais de \(x\) e \(y\):</p>
+        <ul>
+          <li>a) 2º Quadrante (\(x < 0\), \(y > 0\))</li>
+          <li>b) 4º Quadrante (\(x > 0\), \(y < 0\))</li>
+          <li>c) 3º Quadrante (\(x < 0\), \(y < 0\))</li>
+          <li>d) Depende do valor de \(\sqrt{3} - 2\). Se positivo, 2º Quadrante; se negativo, 3º Quadrante.</li>
+          <li>e) \(\frac{-1+\sqrt{2}}{2} \approx -0,15\), então \(y < 0\). Como \(x > 0\), o ponto está no 4º Quadrante.</li>
+        </ul>
+        <p>Não esqueça de verificar se as radiações numéricas de \(\sqrt{3} - 2\) não mudam sua análise!</p>
+      </details>
     </div>
 
     <div class="exercise">
-        <h3>Exercício 3: Produto de Coordenadas Negativo</h3>
-        <p>Se \(xy < 0\), em quais quadrantes pode estar situado o ponto \(P(x, y)\)?</p>
-        <details>
-            <summary>Ver Solução</summary>
-            <p>O produto \(xy < 0\) significa que \(x\) e \(y\) têm sinais opostos:</p>
-            <ul>
-                <li>2º Quadrante: \(x < 0, y > 0 \Rightarrow xy < 0\)</li>
-                <li>4º Quadrante: \(x > 0, y < 0 \Rightarrow xy < 0\)</li>
-            </ul>
-        </details>
+      <h3>Exercício 3: Produto de Coordenadas e Sobrevivência</h3>
+      <p>
+      Em um mapa perigoso, saber se as coordenadas têm sinais opostos pode significar escapar de uma área hostil. Se \(xy < 0\), em quais quadrantes pode estar situado o ponto \(P(x, y)\)?
+      </p>
+      <details>
+        <summary>Ver Solução</summary>
+        <p>
+        O produto \(xy < 0\) indica que \(x\) e \(y\) possuem sinais opostos:
+        </p>
+        <ul>
+          <li>2º Quadrante: \(x < 0\), \(y > 0\) \(\Rightarrow xy < 0\)</li>
+          <li>4º Quadrante: \(x > 0\), \(y < 0\) \(\Rightarrow xy < 0\)</li>
+        </ul>
+        <p>Ou seja, é onde encontramos combinações que podem surpreender até o mais preparado dos viajantes.</p>
+      </details>
     </div>
 
     <div class="exercise">
-        <h3>Exercício 4: Igualdade de Pares Ordenados</h3>
-        <p>Em cada caso, calcular \(x\) e \(y\) de modo que seja verdadeira a igualdade:</p>
-        <p>a) \((x, y) = (3, 0)\)</p>
-        <p>b) \((x, 1) = (-2, y)\)</p>
-        <p>c) \((2x, y + 3) = (10, 10)\)</p>
-        <p>d) \((x + y, x - y) = (5, 1)\)</p>
-        <details>
-            <summary>Ver Solução</summary>
-            <p>a) \(x = 3\), \(y = 0\)</p>
-            <p>b) \(x = -2\), \(y = 1\)</p>
-            <p>c) \(2x = 10 \Rightarrow x = 5\) e \(y + 3 = 10 \Rightarrow y = 7\)</p>
-            <p>d) Sistema: \(x + y = 5\) e \(x - y = 1\)</p>
-            <p>Somando: \(2x = 6 \Rightarrow x = 3\)</p>
-            <p>Substituindo: \(3 + y = 5 \Rightarrow y = 2\)</p>
-        </details>
+      <h3>Exercício 4: Igualdade de Pares Ordenados</h3>
+      <p>
+      Em meio aos registros de coordenadas antigas, precisamos completar dados para reconstruir rotas. Calcule \(x\) e \(y\) para tornar verdadeiras as igualdades:
+      </p>
+      <p>a) \((x, y) = (3, 0)\)</p>
+      <p>b) \((x, 1) = (-2, y)\)</p>
+      <p>c) \((2x, y + 3) = (10, 10)\)</p>
+      <p>d) \((x + y, x - y) = (5, 1)\)</p>
+      <details>
+        <summary>Ver Solução</summary>
+        <p>a) \(x = 3\), \(y = 0\)</p>
+        <p>b) \(x = -2\), \(y = 1\)</p>
+        <p>c) \(2x = 10 \Rightarrow x = 5\) e \(y + 3 = 10 \Rightarrow y = 7\)</p>
+        <p>d) Sistema: \(x + y = 5\) e \(x - y = 1\)</p>
+        <p>Somando: \(2x = 6 \Rightarrow x = 3\)</p>
+        <p>Substituindo: \(3 + y = 5 \Rightarrow y = 2\)</p>
+        <p>Agora você tem as coordenadas exatas para seguir adiante sem se perder nas ruínas.</p>
+      </details>
     </div>
 
     <div class="exercise">
-        <h3>Exercício 5: Operações com Vetores</h3>
-        <p>Dados \(A = (3, 2)\) e \(B = (7, 5)\), calcular:</p>
-        <p>a) \(A + B\)</p>
-        <p>b) \(5A\)</p>
-        <p>c) \(-2B\)</p>
-        <p>d) \(2A + 3B\)</p>
-        <details>
-            <summary>Ver Solução</summary>
-            <p>a) \(A + B = (3+7, 2+5) = (10, 7)\)</p>
-            <p>b) \(5A = 5(3, 2) = (15, 10)\)</p>
-            <p>c) \(-2B = -2(7, 5) = (-14, -10)\)</p>
-            <p>d) \(2A + 3B = 2(3, 2) + 3(7, 5) = (6+21, 4+15) = (27, 19)\)</p>
-        </details>
+      <h3>Exercício 5: Operações com Vetores de Suprimentos</h3>
+      <p>
+      Sejam os “vetores” de suprimentos \(A = (3, 2)\) e \(B = (7, 5)\). Determine:
+      </p>
+      <p>a) \(A + B\)</p>
+      <p>b) \(5A\)</p>
+      <p>c) \(-2B\)</p>
+      <p>d) \(2A + 3B\)</p>
+      <details>
+        <summary>Ver Solução</summary>
+        <p>a) \(A + B = (3+7, 2+5) = (10, 7)\)</p>
+        <p>b) \(5A = 5(3, 2) = (15, 10)\)</p>
+        <p>c) \(-2B = -2(7, 5) = (-14, -10)\)</p>
+        <p>d) \(2A + 3B = 2(3, 2) + 3(7, 5) = (6+21, 4+15) = (27, 19)\)</p>
+        <p>Assim, você pode combinar seus recursos de maneira ótima para enfrentar as ameaças além dos portões.</p>
+      </details>
     </div>
 
     <div class="footer">
-        Geometria Analítica: Sobrevivência Geométrica - Mantenha o foco, ou fique perdido para sempre.
+      Geometria Analítica: Sobrevivência Geométrica - Mantenha o foco, ou fique perdido para sempre.
     </div>
-</body>
+  </body>
 </html>
 
