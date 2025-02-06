@@ -1,0 +1,105 @@
+<!-- Reveal.js Template for 'Geometria Analítica: Sobrevivência Geométrica' -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Geometria Analítica: Sobrevivência Geométrica</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Reveal.js Styles -->
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" />
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css" />
+
+    <!-- Custom styles (if needed) -->
+    <style>
+      /* Customize as desired */
+      .reveal h1,
+      .reveal h2,
+      .reveal h3 {
+        color: #FFD700; /* Example color for headings */
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      }
+      .reveal section p {
+        font-size: 1.2rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Horizontal Slide 1 (Secão 1) -->
+        <section>
+          <!-- Vertical Slides for Secão 1 -->
+          <section>
+            <h2>Bem-vindos ao Colapso</h2>
+            <p>Introdução à Geometria Analítica numa terra devastada.</p>
+          </section>
+
+          <section>
+            <h3>Equipe de Reconstrução</h3>
+            <p>A mentalidade do <em>Vault</em>: organizar, planejar e reconstruir.</p>
+          </section>
+        </section>
+
+        <!-- Horizontal Slide 2 (Secão 2) -->
+        <section>
+          <!-- Vertical Slides for Secão 2 -->
+          <section>
+            <h2>Fórmulas e Sobrevivência</h2>
+            <p>Aplicando fórmulas como se fossem manuais de sobrevivência.</p>
+            <p>Exemplo de fórmula usando MathJax:</p>
+            <p>\( y = mx + b \)</p>
+          </section>
+
+          <section>
+            <h3>Mais detalhes sobre a Reta</h3>
+            <p>\( m \) é a inclinação ("Mire"), \( b \) é a interceptação ("Base").</p>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <!-- Reveal.js -->
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+
+    <!-- Reveal Plugins -->
+    <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+
+    <!-- MathJax -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['\\(','\\)']],
+          displayMath: [['\\[','\\]']],
+        },
+        svg: { fontCache: 'global' }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+    <script>
+      Reveal.initialize({
+        hash: true,
+        slideNumber: true,
+        plugins: [ RevealNotes, RevealHighlight ]
+      });
+    </script>
+
+    <!-- Como utilizar este modelo:
+      1. Cada "<section>" dentro de <div class="slides"> representa um slide horizontal.
+      2. Para criar slides verticais (subseções), aninhe <section> dentro de outro <section>.
+      3. Insira fórmulas LaTeX usando MathJax com a sintaxe \( ... \) ou \[ ... \].
+      4. Customize o tema (black.css) trocando o import no <head> ou usando outro tema.
+      5. Edite o CSS interno para atender à estética pós-apocalíptica.
+      6. Adicione novos slides conforme necessário para cada parte do curso.
+      7. Para ver as notas, pressione 's' durante a apresentação (necessário plugin notes).
+    -->
+
+  </body>
+</html>
+
