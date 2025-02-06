@@ -2,144 +2,156 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>CAPÍTULO I - O ESPAÇO VETORIAL R² - Seção 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Include MathJax -->
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <title>Capítulo: O Espaço Vetorial R²</title>
+    <style>
+        body {
+            background-color: #2b2b2b;
+            color: #e6e6e6;
+            font-family: "Courier New", Courier, monospace;
+            margin: 20px;
+            padding: 20px;
+            border: 3px solid #4caf50;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: auto;
+            background-image: url('img/asfalt-light.png');
+        }
+
+        h1, h2, h3 {
+            color: #4caf50;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        .exercise {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border: 2px dashed #4caf50;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        details {
+            background-color: #1c1c1c;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #4caf50;
+        }
+
+        code {
+            background-color: #333;
+            padding: 3px 5px;
+            border-radius: 3px;
+            color: #ffeb3b;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #757575;
+        }
+    </style>
 </head>
 <body>
-    <h1>CAPÍTULO I - O ESPAÇO VETORIAL R²</h1>
-    <h2>Seção 2: igualdade-e-operacoes-com-pares-ordenados</h2>
+    <h1>Capítulo: O Espaço Vetorial R²</h1>
+    <h2>Subtópico: Igualdade e Operações com Pares Ordenados</h2>
 
-    <div class="question">
-  <p>2. Entre os pontos  \(A(4, 0)\), \(B(-3, 1)\), \(C(0, -7)\), \(D\left(\frac{1}{2}, 0\right)\), \(E(0, \sqrt{3})\) e \(F(0, 0)\).</p>
-  <div class="subquestion">
-    <p>a) quais estão no eixo das abscissas (eixo dos x)?</p>
-  </div>
-  <div class="subquestion">
-    <p>b) quais estão no eixo das ordenadas (eixo dos y)?</p>
-  </div>
-</div>
+    <div class="exercise">
+        <h3>Exercício 1: Pontos nos Eixos</h3>
+        <p>Entre os pontos \(A(4, 0)\), \(B(-3, 1)\), \(C(0, -7)\), \(D(\frac{1}{2}, 0)\), \(E(0, \sqrt{3})\) e \(F(0, 0)\):</p>
+        <p>a) Quais estão no eixo das abscissas (eixo dos x)?</p>
+        <p>b) Quais estão no eixo das ordenadas (eixo dos y)?</p>
+        <details>
+            <summary>Ver Solução</summary>
+            <p>Um ponto está no eixo x se \(y = 0\) e no eixo y se \(x = 0\).</p>
+            <p>a) Eixo x: A(4, 0), D(1/2, 0), F(0, 0)</p>
+            <p>b) Eixo y: C(0, -7), E(0, √3), F(0, 0)</p>
+        </details>
+    </div>
 
-<div class="question">
-  <p>3. Dizemos que um ponto \(P(x, y)\) está</p>
-  <ul>
-      <li>no 1º quadrante quando  \(x > 0\) e \(y > 0\)</li>
-      <li>no 2º quadrante quando  \(x \le 0\) e \(y > 0\)</li>
-      <li>no 3º quadrante quando  \(x \le 0\) e \(y \le 0\)</li>
-      <li>no 4º quadrante quando  \(x > 0\) e \(y < 0\)</li>
-  </ul>
-  <p>Dar o quadrante onde está o ponto P em cada caso:</p>
-  <div class="subquestion">
-    <p>a) \(P(-7, 2)\)</p>
-  </div>
-  <div class="subquestion">
-    <p>b) \(P(\sqrt{2}, -5)\)</p>
-  </div>
-   <div class="subquestion">
-    <p>c) \(P\left(-\frac{1}{2}, -\frac{2}{3}\right)\)</p>
-  </div>
-  <div class="subquestion">
-    <p>d) \(P(-\sqrt{2}, \sqrt{3} - 2)\)</p>
-  </div>
-    <div class="subquestion">
-    <p>e) \(P\left(\frac{\sqrt{3}}{3}, \frac{-1+\sqrt{2}}{2}\right)\)</p>
-  </div>
-</div>
+    <div class="exercise">
+        <h3>Exercício 2: Determinação do Quadrante</h3>
+        <p>Determinar o quadrante onde está o ponto \(P(x, y)\) em cada caso:</p>
+        <p>a) \(P(-7, 2)\)</p>
+        <p>b) \(P(\sqrt{2}, -5)\)</p>
+        <p>c) \(P(-\frac{1}{2}, -\frac{2}{3})\)</p>
+        <p>d) \(P(-\sqrt{2}, \sqrt{3} - 2)\)</p>
+        <p>e) \(P(\frac{\sqrt{3}}{3}, \frac{-1+\sqrt{2}}{2})\)</p>
+        <details>
+            <summary>Ver Solução</summary>
+            <p>Analisando o sinal de \(x\) e \(y\):</p>
+            <ul>
+                <li>a) 2º Quadrante (\(x < 0\), \(y > 0\))</li>
+                <li>b) 4º Quadrante (\(x > 0\), \(y < 0\))</li>
+                <li>c) 3º Quadrante (\(x < 0\), \(y < 0\))</li>
+                <li>d) Depende do valor de \(\sqrt{3} - 2\). Se positivo, 2º quadrante; se negativo, 3º quadrante.</li>
+                <li>e) Como \(\frac{-1+\sqrt{2}}{2} \approx -0.15\), o ponto está no 4º quadrante.</li>
+            </ul>
+        </details>
+    </div>
 
-<div class="question">
-  <p>4. Se \(xy < 0\) em quais quadrantes pode estar situado o ponto \(P(x, y)\)?</p>
-</div>
+    <div class="exercise">
+        <h3>Exercício 3: Produto de Coordenadas Negativo</h3>
+        <p>Se \(xy < 0\), em quais quadrantes pode estar situado o ponto \(P(x, y)\)?</p>
+        <details>
+            <summary>Ver Solução</summary>
+            <p>O produto \(xy < 0\) significa que \(x\) e \(y\) têm sinais opostos:</p>
+            <ul>
+                <li>2º Quadrante: \(x < 0, y > 0 \Rightarrow xy < 0\)</li>
+                <li>4º Quadrante: \(x > 0, y < 0 \Rightarrow xy < 0\)</li>
+            </ul>
+        </details>
+    </div>
 
-<div class="question">
-  <p>5. Em cada caso calcular \(x\) e \(y\) de modo que seja verdadeira a igualdade:</p>
-  <div class="subquestion">
-    <p>a) \((x, y) = (3, 0)\)</p>
-  </div>
-  <div class="subquestion">
-    <p>b) \((x, 1) = (-2, y)\)</p>
-  </div>
-  <div class="subquestion">
-    <p>c) \((2x, y + 3) = (10, 10)\)</p>
-  </div>
-  <div class="subquestion">
-    <p>d) \((x + y, x - y) = (5, 1)\)</p>
-  </div>
-</div>
+    <div class="exercise">
+        <h3>Exercício 4: Igualdade de Pares Ordenados</h3>
+        <p>Em cada caso, calcular \(x\) e \(y\) de modo que seja verdadeira a igualdade:</p>
+        <p>a) \((x, y) = (3, 0)\)</p>
+        <p>b) \((x, 1) = (-2, y)\)</p>
+        <p>c) \((2x, y + 3) = (10, 10)\)</p>
+        <p>d) \((x + y, x - y) = (5, 1)\)</p>
+        <details>
+            <summary>Ver Solução</summary>
+            <p>a) \(x = 3\), \(y = 0\)</p>
+            <p>b) \(x = -2\), \(y = 1\)</p>
+            <p>c) \(2x = 10 \Rightarrow x = 5\) e \(y + 3 = 10 \Rightarrow y = 7\)</p>
+            <p>d) Sistema: \(x + y = 5\) e \(x - y = 1\)</p>
+            <p>Somando: \(2x = 6 \Rightarrow x = 3\)</p>
+            <p>Substituindo: \(3 + y = 5 \Rightarrow y = 2\)</p>
+        </details>
+    </div>
 
-<div class="question">
-    <p>6. Dados \(A = (3, 2)\) e \(B = (7, 5)\), calcular</p>
-    <div class="subquestion">
+    <div class="exercise">
+        <h3>Exercício 5: Operações com Vetores</h3>
+        <p>Dados \(A = (3, 2)\) e \(B = (7, 5)\), calcular:</p>
         <p>a) \(A + B\)</p>
-    </div>
-    <div class="subquestion">
         <p>b) \(5A\)</p>
-    </div>
-    <div class="subquestion">
         <p>c) \(-2B\)</p>
-    </div>
-    <div class="subquestion">
         <p>d) \(2A + 3B\)</p>
+        <details>
+            <summary>Ver Solução</summary>
+            <p>a) \(A + B = (3+7, 2+5) = (10, 7)\)</p>
+            <p>b) \(5A = 5(3, 2) = (15, 10)\)</p>
+            <p>c) \(-2B = -2(7, 5) = (-14, -10)\)</p>
+            <p>d) \(2A + 3B = 2(3, 2) + 3(7, 5) = (6+21, 4+15) = (27, 19)\)</p>
+        </details>
     </div>
-</div>
 
-<div class="question">
-    <p>7. Dados \(A = (-3, -1)\) e \(B = (4, 0)\), calcular</p>
-     <div class="subquestion">
-        <p>a) \(5A + 4B\)</p>
+    <div class="footer">
+        Geometria Analítica: Sobrevivência Geométrica - Mantenha o foco, ou fique perdido para sempre.
     </div>
-    <div class="subquestion">
-        <p>b) \(7B - 3A\)</p>
-    </div>
-    <div class="subquestion">
-        <p>c) \(3(2A) - B\)</p>
-    </div>
-    <div class="subquestion">
-        <p>d) \(5(3B - 2A)\)</p>
-    </div>
-</div>
-<div class="question">
-  <p>8. Dados \(A = (-1,4)\), \(B = (-3, -2)\) e \(C = (0, 5)\), calcular</p>
-  <div class="subquestion">
-      <p>a) \(A+B+C\)</p>
-  </div>
-   <div class="subquestion">
-      <p>b) \(2A+B-C\)</p>
-  </div>
-   <div class="subquestion">
-      <p>c) \(3A-2B+C\)</p>
-  </div>
-   <div class="subquestion">
-      <p>d) \(4(A+2B)-3(C-B)\)</p>
-  </div>
-</div>
-
-<div class="question">
-  <p>9. Dados \(A=(3,7)\), \(B=(-1,2)\) e \(C=(11,4)\), determinar os números \(x\) e \(y\) que tornam verdadeira a igualdade \(xA + yB = C\). </p>
-</div>
-
-<div class="question">
-  <p>De ① vem \(y=3x-11\), que substituímos em ② :</p>
-  <p>\(7x+2(3x-11) = 4 \implies 7x + 6x - 22 = 4 \implies 13x = 26 \implies x=2\)</p>
-    <p>\(y = 3x - 11 = 3(2) - 11 = -5\)</p>
-
-</div>
-<div class="question">
-<p>10. Calcular \(x\) e \(y\) para que seja verdadeira a igualdade  \(x(1, 0) + y(0, 1) = (4, 7)\).</p>
-</div>
-<div class="question">
- <p>11. Determinar x e y em cada equação.</p>
-  <div class="subquestion">
-      <p>a) \((x, 0) + 3(1, y) = (0, 0)\)</p>
-  </div>
-  <div class="subquestion">
-      <p>b)  \(3(7, 2) - 2(x, y) = (6, 0)\)</p>
-  </div>
-   <div class="subquestion">
-      <p>c) \(x(3, -1) + y(7, 5) = (4, 6)\)</p>
-  </div>
-
-</div>
-<div class="question">
-  <p>12. Calcular \(x\) e \(y\) na equação  \(x(1, -2) + y(-2, 0) = 2(x, y) - 3(y, -x)\).</p>
-</div>
-
 </body>
 </html>
+
