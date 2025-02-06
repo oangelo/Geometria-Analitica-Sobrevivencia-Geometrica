@@ -1,11 +1,180 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>CAPÍTULO I - O ESPAÇO VETORIAL R² - Seção 3</title>
+    <!-- Include MathJax -->
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
 </head>
 <body>
     <h1>CAPÍTULO I - O ESPAÇO VETORIAL R²</h1>
     <h2>Seção 3: vetores-no-plano</h2>
+
+    <h1>EXERCÍCIOS</h1>
+
+    <p><b>13.</b> Dar o par ordenado associado ao vetor v nos casos:</p>
+
+    <div style="display: flex; flex-direction: row;">
+      <div style="margin-right: 20px;">
+        <p>(a)</p>
+        <canvas id="canvas_13a" width="100" height="100" style="border:1px solid black;"></canvas>
+        <script>
+          const canvas_13a = document.getElementById('canvas_13a');
+          const ctx_13a = canvas_13a.getContext('2d');
+          ctx_13a.beginPath();
+          ctx_13a.moveTo(10, 90);
+          ctx_13a.lineTo(90, 10);
+          ctx_13a.lineTo(80, 20);
+          ctx_13a.moveTo(90, 10);
+          ctx_13a.lineTo(100, 15);
+          ctx_13a.strokeStyle = 'black';
+          ctx_13a.stroke();
+          ctx_13a.font = "12px Arial";
+          ctx_13a.fillText("v", 70, 30);
+          ctx_13a.fillText("x", 90, 95);
+          ctx_13a.fillText("y", 5, 10);
+        </script>
+      </div>
+     <div style="margin-right: 20px;">
+        <p>(b)</p>
+        <canvas id="canvas_13b" width="100" height="100" style="border:1px solid black;"></canvas>
+        <script>
+          const canvas_13b = document.getElementById('canvas_13b');
+          const ctx_13b = canvas_13b.getContext('2d');
+          ctx_13b.beginPath();
+          ctx_13b.moveTo(10, 90);
+          ctx_13b.lineTo(90, 50);
+          ctx_13b.lineTo(85, 40);
+          ctx_13b.moveTo(90, 50);
+          ctx_13b.lineTo(95, 60);
+
+          ctx_13b.strokeStyle = 'black';
+          ctx_13b.stroke();
+            ctx_13b.font = "12px Arial";
+          ctx_13b.fillText("v", 70, 40);
+            ctx_13b.fillText("x", 90, 95);
+          ctx_13b.fillText("y", 5, 10);
+        </script>
+      </div>
+
+    <div style="margin-right: 20px;">
+
+        <p>(c)</p>
+        <canvas id="canvas_13c" width="100" height="100" style="border:1px solid black;"></canvas>
+        <script>
+          const canvas_13c = document.getElementById('canvas_13c');
+          const ctx_13c = canvas_13c.getContext('2d');
+          ctx_13c.beginPath();
+          ctx_13c.moveTo(90, 90);
+          ctx_13c.lineTo(10, 10);
+          ctx_13c.lineTo(20, 20);
+           ctx_13c.moveTo(10, 10);
+          ctx_13c.lineTo(0, 15);
+          ctx_13c.strokeStyle = 'black';
+          ctx_13c.stroke();
+          ctx_13c.font = "12px Arial";
+          ctx_13c.fillText("v", 30, 30);
+            ctx_13c.fillText("x", 90, 95);
+          ctx_13c.fillText("y", 5, 10);
+        </script>
+      </div>
+    </div>
+
+     <div style="display: flex; flex-direction: row; margin-top: 20px">
+
+        <div style="margin-right: 20px;">
+        <p>(d)</p>
+        <canvas id="canvas_13d" width="100" height="100" style="border:1px solid black;"></canvas>
+        <script>
+          const canvas_13d = document.getElementById('canvas_13d');
+          const ctx_13d = canvas_13d.getContext('2d');
+          ctx_13d.beginPath();
+          ctx_13d.moveTo(10, 90);
+          ctx_13d.lineTo(50, 10);
+           ctx_13d.lineTo(40, 20);
+           ctx_13d.moveTo(50, 10);
+          ctx_13d.lineTo(60, 15);
+          ctx_13d.strokeStyle = 'black';
+          ctx_13d.stroke();
+        ctx_13d.font = "12px Arial";
+          ctx_13d.fillText("v", 30, 30);
+            ctx_13d.fillText("x", 90, 95);
+          ctx_13d.fillText("y", 5, 10);
+        </script>
+      </div>
+      <div style="margin-right: 20px">
+
+        <p>(e)</p>
+          <canvas id="canvas_13e" width="100" height="100" style="border:1px solid black;"></canvas>
+        <script>
+          const canvas_13e = document.getElementById('canvas_13e');
+          const ctx_13e = canvas_13e.getContext('2d');
+
+          ctx_13e.beginPath();
+          ctx_13e.moveTo(90, 90);
+          ctx_13e.lineTo(40, 50);
+          ctx_13e.lineTo(50, 40);
+          ctx_13e.moveTo(40, 50);
+          ctx_13e.lineTo(35, 60);
+
+          ctx_13e.strokeStyle = 'black';
+          ctx_13e.stroke();
+            ctx_13e.font = "12px Arial";
+          ctx_13e.fillText("v", 50, 40);
+            ctx_13e.fillText("x", 90, 95);
+          ctx_13e.fillText("y", 5, 10);
+
+        </script>
+      </div>
+
+        <div style="margin-right: 20px;">
+        <p>(f)</p>
+        <canvas id="canvas_13f" width="100" height="100" style="border:1px solid black;"></canvas>
+        <script>
+          const canvas_13f = document.getElementById('canvas_13f');
+          const ctx_13f = canvas_13f.getContext('2d');
+          ctx_13f.beginPath();
+          ctx_13f.moveTo(10, 90);
+          ctx_13f.lineTo(70, 20);
+            ctx_13f.lineTo(60, 30);
+            ctx_13f.moveTo(70, 20);
+            ctx_13f.lineTo(80, 25);
+          ctx_13f.strokeStyle = 'black';
+          ctx_13f.stroke();
+        ctx_13f.font = "12px Arial";
+          ctx_13f.fillText("v", 50, 30);
+            ctx_13f.fillText("x", 90, 95);
+          ctx_13f.fillText("y", 5, 10);
+        </script>
+        </div>
+    </div>
+
+    <p><b>14.</b> Determinar as componentes (coordenadas) ao vetor \( \vec{AB} \) nos casos</p>
+
+    <p>(a) A = (2, 1) e B = (4, 6)  \( \qquad \)
+    (b) A = (7, 5) e B = (1, 2) \( \qquad \)
+    (c) A = (-2, 0) e B = (3, -1) \( \qquad \)
+    (d) A = (1, 0) e B = (0, 3)  </p>
+    <p>(e) A = (4, 3) e B = (4, 5) \( \qquad \)
+    (f) A = (2, 5) e B = (2, 2) \( \qquad \)
+     (g) A = (3, -1) e B = (10, -1) \( \qquad \)
+    (h) A = (0, 0) e B = (x, y)
+    </p>
+
+    <p><b>15.</b> Dados A = (-2, 3), B = (2, 0), C = (0, -5) e D = (-4, -2), verificar que os vetores \( \vec{AB} \) e \( \vec{DC} \) são iguais e que os vetores \( \vec{AD} \) e \( \vec{CB} \) são opostos. Os pontos A, B, C e D são os vértices de que quadrilátero?</p>
+
+    <p><b>16.</b> Dados A = (2, 1), B = (5, -1) e C = (-4, 0), calcular o vetor soma dos vetores \( \vec{AB} \) e \( \vec{AC} \).</p>
+
+    <p><b>17.</b> Dados A = (0, 1), B = (-3, 1), C = (4, 4) e D = (5, -2), calcular os seguintes vetores:</p>
+     <p> a) \( \vec{AB} + 2\vec{CD} \)  \( \qquad \) b) \( 3\vec{AC} - 2\vec{DB} \)  \( \qquad \) c) \( \vec{AB} + 2\vec{AC} -3\vec{AD} \)  \( \qquad \) d)  \( \vec{AB} + \vec{BC} + \vec{CD} + \vec{DA} \) </p>
+
+    <p><b>18.</b> Se \( \vec{v} = \vec{AB} \), A = (3, 2) e v = (5, 8), então qual é o ponto B?</p>
+
+    <p><b>19.</b> Dados A = (3, 7) e B = (11, 19), determinar o ponto C tal que \( \vec{AC} = \frac{1}{4}\vec{AB} \).</p>
+
+    <p><b>20.</b> Os vetores u = (3, 4), v = (2a, 7) e w = (1, 3b) satisfazem à equação 2u - v + 3w = O, onde O indica o vetor nulo. Calcular a e b.</p>
+
 </body>
 </html>

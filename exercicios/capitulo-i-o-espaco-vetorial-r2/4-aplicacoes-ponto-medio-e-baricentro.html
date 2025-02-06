@@ -2,10 +2,235 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+</head>
+<body>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <title>CAPÍTULO I - O ESPAÇO VETORIAL R² - Seção 4</title>
+    <!-- Include MathJax -->
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
 </head>
 <body>
     <h1>CAPÍTULO I - O ESPAÇO VETORIAL R²</h1>
     <h2>Seção 4: aplicacoes-ponto-medio-e-baricentro</h2>
+
+    <p><b>21.</b> Determinar as coordenadas do ponto médio M do segmento de extremidades \( A = (x_1, y_1) \) e \( B = (x_2, y_2) \).</p>
+
+     <p><b>Resolução</b></p>
+    <p>Sendo M o ponto médio de AB, os vetores \( \vec{AM} \) e \( \vec{MB} \) possuem comprimentos iguais, mesma direção e mesmo sentido.</p>
+    <p>Logo, \( \vec{AM} = \vec{MB} \).  Temos então:</p>
+     <p> M - A = B - M</p>
+      <p> 2M = A + B</p>
+    \[ M = \frac{A + B}{2} \]
+    <p>ou seja:</p>
+    \[ M = \frac{(x_1, y_1) + (x_2, y_2)}{2} = \left(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}\right) \]
+
+      <canvas id="canvas_21" width="150" height="120" style="border:1px solid black;"></canvas>
+        <script>
+          const canvas_21 = document.getElementById('canvas_21');
+          const ctx_21 = canvas_21.getContext('2d');
+          ctx_21.beginPath();
+          ctx_21.moveTo(20, 100);
+          ctx_21.lineTo(130, 20);
+
+          ctx_21.moveTo(20,20);
+          ctx_21.lineTo(20,100);
+          ctx_21.lineTo(130,100);
+
+          ctx_21.moveTo(20, 40);
+          ctx_21.lineTo(50, 40);
+          ctx_21.lineTo(50, 100);
+
+
+          ctx_21.moveTo(85, 60);
+          ctx_21.lineTo(85, 100);
+          ctx_21.lineTo(130,60);
+
+          ctx_21.strokeStyle = 'black';
+            ctx_21.setLineDash([3, 3]);
+          ctx_21.stroke();
+          ctx_21.setLineDash([]);
+
+           ctx_21.beginPath();
+          ctx_21.moveTo(20, 100);
+          ctx_21.lineTo(130, 20);
+           ctx_21.stroke();
+
+            ctx_21.font = "12px Arial";
+          ctx_21.fillText("A", 25, 40);
+          ctx_21.fillText("M", 80, 65);
+          ctx_21.fillText("B", 125, 25);
+          ctx_21.fillText("x", 135, 105);
+          ctx_21.fillText("y", 5, 10);
+
+           ctx_21.fillText("0", 10, 110);
+           ctx_21.fillText("x\u2081", 45, 110);
+            ctx_21.fillText("x\u2082", 125, 110);
+             ctx_21.fillText("y\u2081", 5, 40);
+              ctx_21.fillText("y\u2082", 5, 95);
+
+
+        </script>
+
+     <p><b>22.</b> Dar o ponto médio do segmento de extremidades \( A = (3, 7) \) e \( B = (11, -1) \).</p>
+
+    <p><b>Resolução</b></p>
+    \[ M = \frac{A + B}{2} = \frac{(3, 7) + (11, -1)}{2} = \frac{(3+11, 7-1)}{2} = (7, 3) \]
+
+    <p><b>23.</b> Dar o ponto médio do segmento AB nos casos:</p>
+
+    <p> a) \( A = (2, 1) \) e \( B = (6, 9) \) \( \qquad \) b) \( A = (-1, -4) \) e \( B = (7, -1) \) </p>
+    <p> c) \( A = (3, 0) \) e \( B = (-3, 0) \) \( \qquad \) d) \( A = \left(\frac{1}{2}, -1\right) \) e \( B = (5, -1) \) </p>
+    <p> e) \( A = \left(-21, \frac{1}{3}\right) \) e \( B = \left(12, -\frac{2}{9}\right) \) </p>
+
+    <p><b>24.</b> Determinar os pontos médios dos lados do triângulo de vértices \( A(-11, 1) \), \( B(-1, 7) \) e \( C(5, -9) \).</p>
+
+    <p><b>25.</b> Obter os pontos que dividem o segmento de extremidades A(2,4) e B(14,13) em três partes iguais.</p>
+   <p><b>Resolução</b></p>
+    <p>Devemos obter os pontos C e D tais que</p>
+
+   <p>\( \vec{AC} = \frac{1}{3}\vec{AB} \) e \( \vec{AD} = \frac{2}{3}\vec{AB} \).</p>
+   <p>Temos:</p>
+   <p>\( \vec{AC} = \frac{1}{3}\vec{AB} \implies C - A =  \frac{1}{3}(B - A) \)</p>
+   <p>\( C  = \frac{1}{3}(B - A) + A = \frac{1}{3}B + \frac{2}{3}A  \)</p>
+
+<p>logo:</p>
+\[ C = \frac{(14, 13) + 2(2, 4)}{3} = \frac{(14, 13) + (4, 8)}{3} = (6, 7) \]
+
+<p>Notando que D é o ponto médio de CB podemos obter D como segue</p>
+
+\[D = \frac{C + B}{2} = \frac{(6, 7) + (14, 13)}{2} = (10, 10) \]
+
+  <canvas id="canvas_25" width="150" height="120" style="border:1px solid black;"></canvas>
+        <script>
+          const canvas_25 = document.getElementById('canvas_25');
+          const ctx_25 = canvas_25.getContext('2d');
+
+        ctx_25.beginPath();
+        ctx_25.moveTo(20,100);
+        ctx_25.lineTo(130,20);
+        ctx_25.stroke();
+
+          ctx_25.font = "12px Arial";
+          ctx_25.fillText("A", 20, 100);
+          ctx_25.fillText("C", 50, 80);
+          ctx_25.fillText("D", 80, 55);
+          ctx_25.fillText("B", 130, 20);
+
+           ctx_25.beginPath();
+            ctx_25.arc(55, 73, 2, 0, 2 * Math.PI);
+            ctx_25.fill();
+
+            ctx_25.beginPath();
+            ctx_25.arc(90, 50, 2, 0, 2 * Math.PI);
+            ctx_25.fill();
+        </script>
+
+    <p><b>26.</b> Obter os pontos que dividem em três partes iguais o segmento de extremidades \( A(-3, 2) \) e \( B(12, -7) \).</p>
+
+    <p><b>27.</b> Obter os pontos que dividem em cinco partes iguais o segmento de extremidades A(1, 0) e B(-9, 8).</p>
+
+    <p><b>28.</b> Entre os pontos que dividem o segmento AB, A(7, -1) e B(-5, 5), em seis partes iguais, determinar aquele que está mais próximo de A.</p>
+
+    <p><b>29.</b> Prolonga-se o segmento AB, A(1, 2) e B(5, 4), no sentido de A para B, até o ponto P tal que o comprimento de AP é o triplo de AB. Determinar o ponto P.</p>
+
+   <p><b>30.</b> O segmento AB é prolongado, no sentido de A para B, até um ponto C tal que o comprimento de BC é o quíntuplo de AB. Dados A(3, -1) e B(4, -3), obter C.</p>
+
+    <p><b>31.</b> O ponto simétrico do ponto A, relativamente ao ponto B, é o ponto C tal que B é o ponto médio de AC.  Dados A(3, 11) e B(5, 8), obter C.</p>
+
+     <canvas id="canvas_31" width="150" height="120" style="border:1px solid black;"></canvas>
+        <script>
+          const canvas_31 = document.getElementById('canvas_31');
+          const ctx_31 = canvas_31.getContext('2d');
+
+        ctx_31.beginPath();
+        ctx_31.moveTo(20,80);
+        ctx_31.lineTo(130,80);
+
+        ctx_31.moveTo(57,75);
+        ctx_31.lineTo(57,85);
+
+        ctx_31.moveTo(93,75);
+        ctx_31.lineTo(93,85);
+        ctx_31.stroke();
+
+          ctx_31.font = "12px Arial";
+          ctx_31.fillText("A", 20, 75);
+          ctx_31.fillText("B", 55, 75);
+          ctx_31.fillText("C", 130, 75);
+
+        </script>
+
+     <p><b>32.</b> Dois vértices de um paralelogramo são A(3, 5) e B(5, 3). Sendo M(1, -1) o ponto médio das diagonais, obter os outros vértices.</p>
+
+     <p><b>33.</b> Os pontos A(3, 0) e C(0, 7) são extremidades de uma diagonal de um paralelogramo. Dado também o vértice B(4, 4), obter o vértice D do paralelogramo.</p>
+
+      <p><b>34.</b> Determinar as coordenadas do baricentro do triângulo ABC, dados \( A(x_1, y_1) \), \( B(x_2, y_2) \) e \( C(x_3, y_3) \).</p>
+
+    <p><b>Resolução</b></p>
+    <p>O baricentro G é o ponto de intersecção das medianas do triângulo. G divide cada mediana na razão de 2 para 1, no sentido do vértice para o ponto médio do lado oposto. Sendo M o ponto médio de BC temos:</p>
+    <p> \( \vec{AG} = 2\vec{GM} \)</p>
+    <p>\( G - A = 2(M - G) \)</p>
+    <p>\( G - A = 2M - 2G \)</p>
+   <p> \( 3G = A + 2M  \)</p>
+   <p>\(  3G = A + 2\left(\frac{B+C}{2}\right) \)</p>
+
+   \[ G = \frac{A + B + C}{3} \]
+    <p>logo:</p>
+    \[ G = \frac{(x_1, y_1) + (x_2, y_2) + (x_3, y_3)}{3} = \left(\frac{x_1 + x_2 + x_3}{3}, \frac{y_1 + y_2 + y_3}{3}\right) \]
+
+   <canvas id="canvas_34" width="150" height="120" style="border:1px solid black;"></canvas>
+    <script>
+      const canvas_34 = document.getElementById('canvas_34');
+      const ctx_34 = canvas_34.getContext('2d');
+        ctx_34.beginPath();
+        ctx_34.moveTo(20,100); // B
+        ctx_34.lineTo(130,100); // C
+        ctx_34.lineTo(75, 20);  //A
+        ctx_34.closePath();
+
+         ctx_34.moveTo(75, 20); // A
+         ctx_34.lineTo(75, 100); // M
+
+        ctx_34.moveTo(20,100); //B
+        ctx_34.lineTo(102, 60); // N
+
+        ctx_34.moveTo(130,100); // C
+        ctx_34.lineTo(48, 60); //
+
+        ctx_34.strokeStyle = 'black';
+        ctx_34.stroke();
+
+        ctx_34.beginPath();
+        ctx_34.arc(75, 73, 2, 0, 2 * Math.PI);
+        ctx_34.fill();
+
+        ctx_34.font = "12px Arial";
+        ctx_34.fillText("A", 75, 15);
+        ctx_34.fillText("B", 15, 100);
+        ctx_34.fillText("C", 135, 100);
+        ctx_34.fillText("G", 70, 70);
+        ctx_34.fillText("M", 75, 110);
+         ctx_34.fillText("N", 105, 60);
+          ctx_34.fillText("2", 75, 50);
+        ctx_34.fillText("1", 75, 90);
+    </script>
+
+    <p><b>35.</b> Usando a fórmula encontrada no exercício anterior, obter o baricentro do triângulo ABC nos casos: </p>
+
+     <p> a) \( A(1, 0) \), \( B(9, 0) \), \( C(0, 6) \) \( \qquad \) b) \( A(3, 2) \), \( B(7, 7) \), \( C(5, -3) \)  </p>
+     <p> c)  \( A(-1, -2) \), \( B(0, -4) \), \( C(1, 6) \)\( \qquad \) d) \( A(a+1, a-1) \), \( B(-1, 1) \), \( C(1 - a, 1 + a) \)  </p>
+
+    <p><b>36.</b> Num triângulo de baricentro \( G\left(0, \frac{1}{2}\right) \), dois dos vértices são \( A(1, 1) \) e \( B\left(-2, \frac{2}{3}\right) \).  Obter o outro vértice.</p>
+
+    <p><b>37.</b> Num triângulo de baricentro \( G(6, 2) \), dois dos lados têm pontos médios \( M(7, 4) \) e \( N\left(\frac{7}{2}, \frac{5}{2}\right) \).  Obter os vértices do triângulo.</p>
+
 </body>
 </html>
