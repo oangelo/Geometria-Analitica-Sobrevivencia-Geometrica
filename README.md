@@ -46,10 +46,3 @@ Bem-vindo ao repositório do curso "Geometria Analítica: Sobrevivência Geomét
 6. [Equações da reta](/exercicios/capitulo-vi-o-r3-e-a-geometria-analitica-no-espaco/6-equacoes-da-reta.html)
 7. [Sistemas de equações lineares a três incógnitas](/exercicios/capitulo-vi-o-r3-e-a-geometria-analitica-no-espaco/7-sistemas-de-equacoes-lineares-a-tres-incognitas.html)
 8. [Equação da superfície esférica](/exercicios/capitulo-vi-o-r3-e-a-geometria-analitica-no-espaco/8-equacao-da-superficie-esferica.html)
-
-## [Capítulo VII - Dependência Linear, Subespaços e Transformações Lineares](/exercicios/capitulo-vii-dependencia-linear-subespacos-e-transformacoes-lineares/index.html)
-1. [Combinações lineares](/exercicios/capitulo-vii-dependencia-linear-subespacos-e-transformacoes-lineares/1-combinacoes-lineares.html)
-2. [Dependência linear](/exercicios/capitulo-vii-dependencia-linear-subespacos-e-transformacoes-lineares/2-dependencia-linear.html)
-3. [Bases](/exercicios/capitulo-vii-dependencia-linear-subespacos-e-transformacoes-lineares/3-bases.html)
-4. [Subespaços vetoriais](/exercicios/capitulo-vii-dependencia-linear-subespacos-e-transformacoes-lineares/4-subespacos-vetoriais.html)
-5. [Transformações lineares](/exercicios/capitulo-vii-dependencia-linear-subespacos-e-transformacoes-lineares/5-transformacoes-lineares.html)
