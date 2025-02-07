@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Geometria Analítica: Sobrevivência Geométrica – Capítulo II</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Reveal.js Styles -->
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" />
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css" />
+
+    <!-- Custom styles (if needed) -->
+    <style>
+      .reveal h1,
+      .reveal h2,
+      .reveal h3 {
+        color: #FFD700; /* Exemplo de cor para títulos */
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      }
+      .reveal section p {
+        font-size: 1.2rem;
+      }
+      .reveal .formula {
+        color: #ADFF2F;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <!-- ========================= -->
+        <!-- CAPÍTULO II - PRODUTO INTERNO NO R² -->
+        <!-- ========================= -->
+
+        <!-- Slide Horizontal 1: Título -->
+        <section>
+          <h1>Capítulo II – Produto Interno no R²</h1>
+          <p>Em terras arruinadas, às vezes a melhor forma de sobreviver é entender como forças aparentemente opostas podem se alinhar ou coexistir.</p>
+        </section>
+
+        <!-- Slide Horizontal 2: Notação -->
+        <section>
+          <h2>Notação de Pontos, Vetores e Escalares</h2>
+          <p>Em <strong>R²</strong>, tanto pontos quanto vetores são pares ordenados <code>(x, y)</code>. Entretanto, o que muda é a forma de rotular e interpretar:</p>
+          <ul>
+            <li><strong>Pontos</strong>: Letras maiúsculas (p. ex. <code>A, B</code>), indicando posições específicas no plano. Ex.: <code>A(2,3)</code>, <code>B(-1,4)</code>.</li>
+            <li><strong>Vetores</strong>: Letras minúsculas com a notação de seta, p. ex. <code>\vec{u}, \vec{v}</code>. Ex.: <code>\vec{u} = (2,3)</code> pode representar um deslocamento.</li>
+            <li><strong>Escalares</strong>: Letras gregas minúsculas (p. ex. <code>\alpha, \beta, \theta</code>), representando valores numéricos que podem escalonar vetores. Ex.: <code>\alpha = 2</code>.</li>
+          </ul>
+        </section>
+
+        <!-- Slide Horizontal 3: Produto Escalar & Reflexão Rápida -->
+        <section>
+          <!-- Slide Vertical: Reflexão Rápida (Teoria dos Jogos) -->
+          <section>
+            <h2>Reflexão Rápida</h2>
+            <p>
+              Nesses tempos hostis, aprender a medir "afinidade" ou "desalinhamento" entre vetores é como negociar com facções rivais: às vezes um simples acordo (produto escalar positivo) evita catástrofes nucleares.
+            </p>
+            <p><em>Teoria dos Jogos</em> (versão pós-apocalipse):</p>
+            <ul>
+              <li>Vetores cooperativos (ângulo menor que 90°) tendem a somar forças.</li>
+              <li>Vetores concorrentes (ângulo maior que 90°) podem se anular ou destruir.</li>
+            </ul>
+            <!-- Pergunta Filosófica -->
+            </section>
+            <section>
+              <h3>Pergunta Filosófica</h3>
+              <p><em>Em que ponto a competição extrema entre grupos (vetores concorrentes) deixa de ser produtiva e passa a ser destrutiva?</em></p>
+            </section>
+          </section>
+
+          <!-- Slide Vertical: Definição do Produto Escalar -->
+          <section>
+            <section>
+              <h2>Definição do Produto Escalar</h2>
+              <p>
+              O <strong>Produto Interno</strong> (ou escalar) de dois vetores \(\vec{u}\) e <code>\(\vec{v}\)</code> em <code>\(\mathbb{R}^2\)</code> é:
+              </p>
+              <p class="formula">\[
+              \vec{u} \cdot \vec{v} = x_u x_v + y_u y_v
+              \]</p>
+              <p>Interpretação: quanto maior o valor, mais “alinhados” (menos atrito) os vetores estão.</p>
+              <!-- Exercício: Produto Escalar -->
+            </section>
+            <section>
+              <h3>Exercício</h3>
+              <p>
+              Sejam <code>\(\vec{u} = (1,2)\)</code> e <code>\(\vec{v} = (3,-1)\)</code>. Calcule o produto escalar e interprete o resultado em termos de “alinhamento” ou “oposição” desses vetores.
+              </p>
+            </section>
+          </section>
+
+        <!-- Slide Horizontal 4: Módulo & Distância -->
+        <section>
+          <!-- Slide Vertical: Módulo do Vetor -->
+          <section>
+            <h2>Módulo (Comprimento) de um Vetor</h2>
+            <p>
+              Para medir a “força” de cada vetor, usamos o módulo:
+            </p>
+            <p class="formula">\[
+              \|\vec{v}\| = \sqrt{x^2 + y^2}
+            \]</p>
+            <p>
+              Em termos de reconstrução, pense em <code>\(\|\vec{v}\|\)</code> como o “poder de fogo” disponível num arsenal.
+            </p>
+            </section>
+            <!-- Exercício: Módulo -->
+            <section>
+              <h3>Exercício</h3>
+              <p>
+                Determine o módulo de <code>\(\vec{u} = (4, -2)\)</code> e dê um exemplo temático de como interpretar esse valor.
+              </p>
+            </section>
+          </section>
+
+          <!-- Slide Vertical: Distância entre Pontos -->
+          <section>
+            <section>
+              <h2>Distância entre Pontos</h2>
+              <p>
+              Dois pontos <code>\(A(x_1, y_1)\)</code> e <code>\(B(x_2, y_2)\)</code> no plano podem estar longe ou perto, assim como colônias sobreviventes.
+              </p>
+              <p class="formula">\[
+              d(A,B) = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
+              \]</p>
+              <p>
+              Entender essa distância ajuda a planejar rotas seguras ou evitar regiões contaminadas.
+              </p>
+            </section>
+            <!-- Exercício: Distância -->
+            <section>
+              <h3>Exercício</h3>
+              <p>
+              Calcule a distância entre <code>\(A(3,4)\)</code> e <code>\(B(-1,0)\)</code>. Se fossem duas colônias, que fatores além da medição pura poderiam influenciar essa distância?
+              </p>
+            </section>
+          </section>
+
+          <!-- Slide Horizontal 5: Paralelismo, Ortogonalidade & Área de Triângulos -->
+          <section>
+            <!-- Slide Vertical: Paralelismo & Ortogonalidade -->
+            <section>
+              <h2>Paralelismo e Ortogonalidade</h2>
+              <p>
+              Em um cenário arrasado, reconhecer vetores paralelos ou ortogonais ajuda a decidir rotas de fuga e formações defensivas.
+              </p>
+              <p>
+              <strong>Paralelos:</strong> <code>\(\vec{u}\)</code> e <code>\(\vec{v}\)</code> são paralelos se <code>\(\vec{u} = k\,\vec{v}\)</code>. É como dizer que um é múltiplo do outro.
+              </p>
+              <p>
+              <strong>Ortogonais:</strong> <code>\(\vec{u} \cdot \vec{v} = 0\)</code>. É como dois grupos sem interesses em comum, seguindo rumos totalmente diferentes.
+              </p>
+            </section>
+            <!-- Exercício: Ortogonalidade -->
+            <section>
+              <h3>Exercício</h3>
+              <p>
+              Explique por que <code>\(\vec{u} \cdot \vec{v} = 0\)</code> implica que os vetores são ortogonais. Quais as consequências práticas disso num cenário pós-apocalíptico?
+              </p>
+            </section>
+            <!-- Pergunta Filosófica -->
+            <section>
+              <h3>Pergunta Filosófica</h3>
+              <p>Que lições podemos tirar do conceito de ortogonalidade para a vida em sociedade, mesmo em circunstâncias severas?</p>
+            </section>
+          </section>
+
+          <!-- Slide Vertical: Área de Triângulos -->
+          <section>
+            <section>
+              <h2>Área de Triângulos</h2>
+              <p>
+              Podemos usar dois vetores <code>\(\vec{u}\)</code> e <code>\(\vec{v}\)</code> como lados de um triângulo e calcular a área:
+              </p>
+              <p class="formula">\[
+              \text{Área} = \frac{1}{2} \|\vec{u}\| \|\vec{v}\| \sin(\theta)
+              \]</p>
+              <p>
+              Onde <code>\(\theta\)</code> é o ângulo entre os vetores. Em termos de sobrevivência, é como medir o “terreno” que conseguimos vigiar com dois postos avançados.
+              </p>
+            </section>
+            <!-- Exercício: Área de Triângulos -->
+            <section>
+              <h3>Exercício</h3>
+              <p>
+              Se <code>\(\vec{u}\)</code> e <code>\(\vec{v}\)</code> formam um triângulo cuja área corresponde a uma “base” operacional, como o valor de <code>\(\sin(\theta)\)</code> influencia a extensão dessa base?
+              </p>
+            </section>
+          </section>
+
+        <!-- Slide Horizontal 6: Fechamento -->
+        <section>
+          <h2>Fechamento</h2>
+          <p>
+            No fim do dia, nem todo confronto precisa explodir um bunker; às vezes, descobrir o alinhamento (produto escalar) entre facções pode ser o início de uma negociação viável.
+          </p>
+          <p>
+            <em>Reflexão:</em> Em um mundo devastado, cooperação e respeito aos limites alheios (ortogonais) podem evitar <strong>jogos de soma zero</strong>. A soma das forças pode ser mais valiosa que um embate destrutivo.
+          </p>
+        </section>
+
+      </div> <!-- .slides -->
+    </div> <!-- .reveal -->
+
+    <!-- Reveal.js -->
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+
+    <!-- Reveal Plugins -->
+    <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+
+    <!-- MathJax -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["\\(","\\)"]],
+          displayMath: [["\\[","\\]"]],
+        },
+        svg: { fontCache: 'global' }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+    <script>
+      Reveal.initialize({
+        hash: true,
+        slideNumber: true,
+        plugins: [ RevealNotes, RevealHighlight ]
+      });
+    </script>
+
+    <!-- COMO UTILIZAR ESTE MODELO
+      1. Cada "<section>" dentro de <div class=\"slides\"> representa um slide horizontal.
+      2. Para criar slides verticais (subseções), aninhe <section> dentro de outro <section>.
+      3. Insira fórmulas LaTeX usando MathJax com a sintaxe \( ... \) ou \[ ... \].
+      4. Customize o tema (black.css) trocando o import no <head> ou usando outro tema.
+      5. Edite o CSS interno para adequar à estética pós-apocalíptica.
+      6. Adicione novos slides conforme necessário para cada parte do curso.
+      7. Para ver as notas, pressione 's' durante a apresentação (necessário plugin notes).
+      8. Use emojis (ex: ☢, ⚠, 🏜) de forma pontual para não poluir os slides.
+    -->
+  </body>
+</html>
+
