@@ -1,0 +1,133 @@
+<!-- Reveal.js Template for 'Geometria Analítica: Sobrevivência Geométrica' -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Geometria Analítica: Sobrevivência Geométrica</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Reveal.js Styles -->
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" />
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css" />
+
+    <!-- Custom styles (if needed) -->
+    <style>
+      /* Customize as desired */
+      .reveal h1,
+      .reveal h2,
+      .reveal h3 {
+        color: #FFD700; /* Example color for headings */
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      }
+      .reveal section p {
+        font-size: 1.2rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+  <section>
+    <h2>Capítulo V — Lugares Geométricos: As Cônicas ⚛️</h2>
+    <p>Trajetórias que mudaram o mundo: do voo de um míssil à órbita de um satélite.</p>
+  </section>
+
+  <section>
+    <h3>O Que São Cônicas? 🔭</h3>
+    <p>Curvas obtidas pela interseção de um cone com um plano:</p>
+    <ul>
+      <li>Parábola 🛰️: Trajetória de projéteis e foguetes.</li>
+      <li>Elipse 🌍: Órbitas planetárias e de satélites.</li>
+      <li>Hipérbole 📡: Comunicação interestelar e rotas de fuga.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Parábola: O Arco de um Lançamento 🚀</h3>
+    <p>Definida como o conjunto de pontos equidistantes de um foco e uma diretriz:</p>
+    <p>\[
+    y = ax^2 + bx + c
+    \]</p>
+    <p>Perfeita para modelar o voo de mísseis e o salto da esperança em tempos sombrios.</p>
+  </section>
+
+  <section>
+    <h3>Elipse: O Ciclo da Sobrevivência 🌐</h3>
+    <p>Conjunto de pontos cuja soma das distâncias a dois focos é constante:</p>
+    <p>\[
+    \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1
+    \]</p>
+    <p>Das órbitas celestes aos projetos de engenharia em abrigos subterrâneos.</p>
+  </section>
+
+  <section>
+    <h3>Hipérbole: O Limite da Comunicação 📡</h3>
+    <p>Conjunto de pontos cuja diferença das distâncias a dois focos é constante:</p>
+    <p>\[
+    \frac{x^2}{a^2} - \frac{y^2}{b^2} = 1
+    \]</p>
+    <p>Modela sinais de rádio atravessando o vazio entre abrigos distantes.</p>
+  </section>
+
+  <section>
+    <h3>Aplicações das Cônicas 🛠️</h3>
+    <ul>
+      <li>Trajetórias balísticas para defesa (ou ataque) ⚔️</li>
+      <li>Órbitas de satélites espiões 🛰️</li>
+      <li>Antenas parabólicas para comunicação 📡</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Reflexão Final 🔦</h3>
+    <p>Entender as cônicas é compreender o poder de construir — ou destruir.</p>
+    <p>Em um mundo devastado, o conhecimento é a verdadeira arma de sobrevivência.</p>
+  </section>
+      </div>
+    </div>
+
+    <!-- Reveal.js -->
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+
+    <!-- Reveal Plugins -->
+    <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+
+    <!-- MathJax -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['\\(','\\)']],
+          displayMath: [['\\[','\\]']],
+        },
+        svg: { fontCache: 'global' }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+    <script>
+      Reveal.initialize({
+        hash: true,
+        slideNumber: true,
+        plugins: [ RevealNotes, RevealHighlight ]
+      });
+    </script>
+
+    <!-- Como utilizar este modelo:
+      1. Cada "<section>" dentro de <div class="slides"> representa um slide horizontal.
+      2. Para criar slides verticais (subseções), aninhe <section> dentro de outro <section>.
+      3. Insira fórmulas LaTeX usando MathJax com a sintaxe \( ... \) ou \[ ... \].
+      4. Customize o tema (black.css) trocando o import no <head> ou usando outro tema.
+      5. Edite o CSS interno para atender à estética pós-apocalíptica.
+      6. Adicione novos slides conforme necessário para cada parte do curso.
+      7. Para ver as notas, pressione 's' durante a apresentação (necessário plugin notes).
+      8. Você pode inserir emojis (ex: ☢️, ⚠️, 🏜️) para reforçar a temática, mas use-os de forma pontual para não poluir os slides.
+    -->
+
+  </body>
+</html>
+
