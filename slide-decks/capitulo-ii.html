@@ -14,6 +14,27 @@
 
     <!-- Custom styles (if needed) -->
     <style>
+/* Ajusta os tamanhos dos títulos */
+.reveal h1 {
+  font-size: 3.2rem;  /* Antes poderia estar bem maior */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.reveal h2 {
+  font-size: 2.8rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.reveal h3 {
+  font-size: 2.4rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Ajusta o texto normal */
+.reveal section p {
+  font-size: 1.6rem;  /* Pode alterar conforme preferir */
+  line-height: 1.4;
+}
       .reveal h1,
       .reveal h2,
       .reveal h3 {
@@ -27,6 +48,49 @@
         color: #ADFF2F;
         font-weight: bold;
       }
+
+      /* Estilizando UL */
+      .reveal section ul {
+        list-style: none;
+        padding-left: 2rem;
+        margin: 1em 0;
+      }
+      .reveal section ul li {
+        font-size: 1.6rem;
+        line-height: 1.4;
+        position: relative;
+        margin-bottom: 0.6em;
+      }
+      .reveal section ul li::before {
+        content: '☢️'; /* Apenas o ícone para UL */
+        position: absolute;
+        left: -2.5rem;
+        font-size: 1.6rem;
+        line-height: 1.4;
+      }
+
+      /* Estilizando OL com contador */
+      .reveal section ol {
+        list-style: none;
+        counter-reset: radCounter; /* Inicia contador */
+        padding-left: 2rem;
+        margin: 1em 0;
+      }
+      .reveal section ol li {
+        counter-increment: radCounter; /* Incrementa o contador a cada li */
+        font-size: 1.6rem;
+        line-height: 1.4;
+        position: relative;
+        margin-bottom: 0.6em;
+      }
+      .reveal section ol li::before {
+        content: '☢️' counter(radCounter) '. '; /* Ícone + número. Ex: ☢️1. */
+        position: absolute;
+        left: -3.0rem;
+        font-size: 1.6rem;
+        line-height: 1.4;
+      }
+
     </style>
   </head>
 
@@ -57,45 +121,108 @@
 
         <!-- Slide Horizontal 3: Produto Escalar & Reflexão Rápida -->
         <section>
-          <!-- Slide Vertical: Reflexão Rápida (Teoria dos Jogos) -->
+          <section>
+            <h2>Definição do Produto Escalar</h2>
+            <p>
+            O <strong>Produto Interno</strong> (ou escalar) de dois vetores \(\vec{u}\) e \(\vec{v}\) em \(\mathbb{R}^2\) é dado por:
+            </p>
+            <p class="formula">\[
+            \vec{u} \cdot \vec{v} = x_u\,x_v + y_u\,y_v
+            \]</p>
+            <p>Interpretação: quanto maior o valor, mais “alinhados” (menos atrito) os vetores estão.</p>
+          </section>
+
+          <section>
+            <h3>Exercício</h3>
+            <p>
+            Um exercício simples num mundo difícil: sejam \(\vec{u} = (1,2)\) e \(\vec{v} = (3,-1)\). Calcule o produto escalar.
+            </p>
+          </section>
+          <section>
+            <h2>Propriedades do Produto Escalar</h2>
+            <p>Há certas “leis” que nem mesmo o apocalipse consegue revogar:</p>
+            <ul>
+              <li><strong>Comutatividade:</strong> \(\vec{u} \cdot \vec{v} = \vec{v} \cdot \vec{u}\)</li>
+              <li><strong>Distributividade:</strong> \(\vec{u} \cdot (\vec{v} + \vec{w}) = \vec{u} \cdot \vec{v} + \vec{u} \cdot \vec{w}\)</li>
+              <li><strong>Associatividade com escalar:</strong> \((\alpha \vec{u}) \cdot \vec{v} = \alpha (\vec{u} \cdot \vec{v})\)</li>
+              <li><strong>Auto produto:</strong> \(\vec{v} \cdot \vec{v} = \|\vec{v}\|^2\), a “potência” ou “força” do vetor medido ao quadrado.</li>
+            </ul>
+            <p>
+            Em termos de ângulo, \(\vec{u} \cdot \vec{v} = \|\vec{u}\|\|\vec{v}\|\cos(\theta)\). Um valor positivo indica vetores “cooperando”, enquanto um negativo sugere competição intensa.
+            </p>
+          </section>
+
           <section>
             <h2>Reflexão Rápida</h2>
             <p>
-              Nesses tempos hostis, aprender a medir "afinidade" ou "desalinhamento" entre vetores é como negociar com facções rivais: às vezes um simples acordo (produto escalar positivo) evita catástrofes nucleares.
+            Nesses tempos hostis, aprender a medir “afinidade” ou “desalinhamento” entre vetores é como negociar com facções rivais: às vezes um simples acordo (produto escalar positivo) evita catástrofes nucleares.
             </p>
             <p><em>Teoria dos Jogos</em> (versão pós-apocalipse):</p>
             <ul>
               <li>Vetores cooperativos (ângulo menor que 90°) tendem a somar forças.</li>
               <li>Vetores concorrentes (ângulo maior que 90°) podem se anular ou destruir.</li>
             </ul>
-            <!-- Pergunta Filosófica -->
-            </section>
-            <section>
-              <h3>Pergunta Filosófica</h3>
-              <p><em>Em que ponto a competição extrema entre grupos (vetores concorrentes) deixa de ser produtiva e passa a ser destrutiva?</em></p>
-            </section>
           </section>
 
-          <!-- Slide Vertical: Definição do Produto Escalar -->
           <section>
-            <section>
-              <h2>Definição do Produto Escalar</h2>
-              <p>
-              O <strong>Produto Interno</strong> (ou escalar) de dois vetores \(\vec{u}\) e <code>\(\vec{v}\)</code> em <code>\(\mathbb{R}^2\)</code> é:
-              </p>
-              <p class="formula">\[
-              \vec{u} \cdot \vec{v} = x_u x_v + y_u y_v
-              \]</p>
-              <p>Interpretação: quanto maior o valor, mais “alinhados” (menos atrito) os vetores estão.</p>
-              <!-- Exercício: Produto Escalar -->
-            </section>
-            <section>
-              <h3>Exercício</h3>
-              <p>
-              Sejam <code>\(\vec{u} = (1,2)\)</code> e <code>\(\vec{v} = (3,-1)\)</code>. Calcule o produto escalar e interprete o resultado em termos de “alinhamento” ou “oposição” desses vetores.
-              </p>
-            </section>
+            <h3>Pergunta Filosófica</h3>
+            <p><em>Em que ponto a competição extrema entre grupos (vetores concorrentes) deixa de ser produtiva e passa a ser destrutiva?</em></p>
           </section>
+
+          <section>
+            <h2>Exemplos e Reflexões</h2>
+            <p>
+            Vamos analisar alguns cenários clássicos (como investigar ruínas diferentes em busca de suprimentos):
+            </p>
+            <ol>
+              <li><strong>Vetores no eixo x e no eixo y:</strong><br>
+                <em>Pergunta:</em> Se \(\vec{u} = (a,0)\) e \(\vec{v} = (0,b)\), qual o valor de \(\vec{u} \cdot \vec{v}\)?<br>
+                <em>Reflexão:</em> O que esse resultado diz sobre o “alinhamento” desses vetores?
+              </li>
+              <li><strong>Vetores na mesma reta (colineares):</strong><br>
+                <em>Pergunta:</em> Se \(\vec{u} = (2,0)\) e \(\vec{v} = (3,0)\), qual o valor de \(\vec{u} \cdot \vec{v}\)?<br>
+                <em>Reflexão:</em> Como interpretar esse número em termos de cooperação ou competição?
+              </li>
+              <li><strong>Produto escalar de um vetor consigo mesmo:</strong><br>
+                <em>Pergunta:</em> Se \(\vec{w} = (4,0)\), qual o valor de \(\vec{w} \cdot \vec{w}\)?<br>
+                <em>Reflexão:</em> Consegue ver uma relação entre esse valor e o comprimento do vetor?
+              </li>
+            </ol>
+            <p>
+            Use esses exemplos para notar padrões: vetores perpendiculares <em>(nada a acrescentar)</em>, vetores alinhados <em>(reforçando o mesmo rumo)</em> e a conexão entre o produto escalar e o comprimento do vetor <em>(sua “força” intrínseca)</em>.
+            </p>
+          </section>
+          <section>
+            <h2>O Produto Escalar e a Física Pós-Apocalíptica</h2>
+            <p>
+            Em um mundo onde cada gota de energia é vital, compreender como o produto escalar funciona na Física é questão de sobrevivência.  
+            Afinal, mover entulhos e abrir bunkers exige um planejamento preciso dos esforços.
+            </p>
+            <p>
+            <strong>Trabalho (Work) em Física:</strong><br>
+            \( W = \vec{F} \cdot \vec{d} = \|\vec{F}\|\|\vec{d}\|\cos(\theta) \)<br>
+            Se a força estiver “alinhada” ao deslocamento, o trabalho é positivo (contribui para o progresso).  
+            Se estiver na direção oposta, é como remar contra a maré radioativa.
+            </p>
+            <p>
+            Essa mesma ideia de alinhamento (ou desalinhamento) se aplica em diversas grandezas físicas,  
+            pois o produto escalar aparece em contextos como energia, potência e até em eletromagnetismo.  
+            Em última análise, você está medindo quão “úteis” (ou não) forças e campos podem ser em relação a um determinado movimento ou direção.
+            </p>
+          </section>
+          <section>
+            <h3>Reflexão Estratégica</h3>
+            <p>
+            Se o seu objetivo é empurrar uma barricada até o abrigo, use a força no mesmo sentido do deslocamento.  
+            Forças perpendiculares (ou contrárias) resultam em perda de esforços preciosos — e nenhum sobrevivente quer desperdiçar recursos em tempos tão austeros.
+            </p>
+            <p>
+            <em>Dica de Sobrevivência:</em> ao planejar qualquer movimento, avalie o ângulo entre força e deslocamento.  
+            Um simples cálculo de produto escalar pode ser a diferença entre encontrar suprimentos ou ficar à deriva no ermo.
+            </p>
+          </section>
+        </section>
+
 
         <!-- Slide Horizontal 4: Módulo & Distância -->
         <section>
@@ -103,107 +230,107 @@
           <section>
             <h2>Módulo (Comprimento) de um Vetor</h2>
             <p>
-              Para medir a “força” de cada vetor, usamos o módulo:
+            Para medir a “força” de cada vetor, usamos o módulo:
             </p>
             <p class="formula">\[
-              \|\vec{v}\| = \sqrt{x^2 + y^2}
+            \|\vec{v}\| = \sqrt{x^2 + y^2}
             \]</p>
             <p>
-              Em termos de reconstrução, pense em <code>\(\|\vec{v}\|\)</code> como o “poder de fogo” disponível num arsenal.
+            Em termos de reconstrução, pense em <code>\(\|\vec{v}\|\)</code> como o “poder de fogo” disponível num arsenal.
             </p>
-            </section>
-            <!-- Exercício: Módulo -->
-            <section>
-              <h3>Exercício</h3>
-              <p>
-                Determine o módulo de <code>\(\vec{u} = (4, -2)\)</code> e dê um exemplo temático de como interpretar esse valor.
-              </p>
-            </section>
           </section>
-
-          <!-- Slide Vertical: Distância entre Pontos -->
+          <!-- Exercício: Módulo -->
           <section>
-            <section>
-              <h2>Distância entre Pontos</h2>
-              <p>
-              Dois pontos <code>\(A(x_1, y_1)\)</code> e <code>\(B(x_2, y_2)\)</code> no plano podem estar longe ou perto, assim como colônias sobreviventes.
-              </p>
-              <p class="formula">\[
-              d(A,B) = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
-              \]</p>
-              <p>
-              Entender essa distância ajuda a planejar rotas seguras ou evitar regiões contaminadas.
-              </p>
-            </section>
-            <!-- Exercício: Distância -->
-            <section>
-              <h3>Exercício</h3>
-              <p>
-              Calcule a distância entre <code>\(A(3,4)\)</code> e <code>\(B(-1,0)\)</code>. Se fossem duas colônias, que fatores além da medição pura poderiam influenciar essa distância?
-              </p>
-            </section>
+            <h3>Exercício</h3>
+            <p>
+            Determine o módulo de <code>\(\vec{u} = (4, -2)\)</code> e dê um exemplo temático de como interpretar esse valor.
+            </p>
           </section>
+        </section>
 
-          <!-- Slide Horizontal 5: Paralelismo, Ortogonalidade & Área de Triângulos -->
+        <!-- Slide Vertical: Distância entre Pontos -->
+        <section>
           <section>
-            <!-- Slide Vertical: Paralelismo & Ortogonalidade -->
-            <section>
-              <h2>Paralelismo e Ortogonalidade</h2>
-              <p>
-              Em um cenário arrasado, reconhecer vetores paralelos ou ortogonais ajuda a decidir rotas de fuga e formações defensivas.
-              </p>
-              <p>
-              <strong>Paralelos:</strong> <code>\(\vec{u}\)</code> e <code>\(\vec{v}\)</code> são paralelos se <code>\(\vec{u} = k\,\vec{v}\)</code>. É como dizer que um é múltiplo do outro.
-              </p>
-              <p>
-              <strong>Ortogonais:</strong> <code>\(\vec{u} \cdot \vec{v} = 0\)</code>. É como dois grupos sem interesses em comum, seguindo rumos totalmente diferentes.
-              </p>
-            </section>
-            <!-- Exercício: Ortogonalidade -->
-            <section>
-              <h3>Exercício</h3>
-              <p>
-              Explique por que <code>\(\vec{u} \cdot \vec{v} = 0\)</code> implica que os vetores são ortogonais. Quais as consequências práticas disso num cenário pós-apocalíptico?
-              </p>
-            </section>
-            <!-- Pergunta Filosófica -->
-            <section>
-              <h3>Pergunta Filosófica</h3>
-              <p>Que lições podemos tirar do conceito de ortogonalidade para a vida em sociedade, mesmo em circunstâncias severas?</p>
-            </section>
+            <h2>Distância entre Pontos</h2>
+            <p>
+            Dois pontos <code>\(A(x_1, y_1)\)</code> e <code>\(B(x_2, y_2)\)</code> no plano podem estar longe ou perto, assim como colônias sobreviventes.
+            </p>
+            <p class="formula">\[
+            d(A,B) = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
+            \]</p>
+            <p>
+            Entender essa distância ajuda a planejar rotas seguras ou evitar regiões contaminadas.
+            </p>
           </section>
+          <!-- Exercício: Distância -->
+          <section>
+            <h3>Exercício</h3>
+            <p>
+            Calcule a distância entre <code>\(A(3,4)\)</code> e <code>\(B(-1,0)\)</code>. Se fossem duas colônias, que fatores além da medição pura poderiam influenciar essa distância?
+            </p>
+          </section>
+        </section>
 
-          <!-- Slide Vertical: Área de Triângulos -->
+        <!-- Slide Horizontal 5: Paralelismo, Ortogonalidade & Área de Triângulos -->
+        <section>
+          <!-- Slide Vertical: Paralelismo & Ortogonalidade -->
           <section>
-            <section>
-              <h2>Área de Triângulos</h2>
-              <p>
-              Podemos usar dois vetores <code>\(\vec{u}\)</code> e <code>\(\vec{v}\)</code> como lados de um triângulo e calcular a área:
-              </p>
-              <p class="formula">\[
-              \text{Área} = \frac{1}{2} \|\vec{u}\| \|\vec{v}\| \sin(\theta)
-              \]</p>
-              <p>
-              Onde <code>\(\theta\)</code> é o ângulo entre os vetores. Em termos de sobrevivência, é como medir o “terreno” que conseguimos vigiar com dois postos avançados.
-              </p>
-            </section>
-            <!-- Exercício: Área de Triângulos -->
-            <section>
-              <h3>Exercício</h3>
-              <p>
-              Se <code>\(\vec{u}\)</code> e <code>\(\vec{v}\)</code> formam um triângulo cuja área corresponde a uma “base” operacional, como o valor de <code>\(\sin(\theta)\)</code> influencia a extensão dessa base?
-              </p>
-            </section>
+            <h2>Paralelismo e Ortogonalidade</h2>
+            <p>
+            Em um cenário arrasado, reconhecer vetores paralelos ou ortogonais ajuda a decidir rotas de fuga e formações defensivas.
+            </p>
+            <p>
+            <strong>Paralelos:</strong> <code>\(\vec{u}\)</code> e <code>\(\vec{v}\)</code> são paralelos se <code>\(\vec{u} = k\,\vec{v}\)</code>. É como dizer que um é múltiplo do outro.
+            </p>
+            <p>
+            <strong>Ortogonais:</strong> <code>\(\vec{u} \cdot \vec{v} = 0\)</code>. É como dois grupos sem interesses em comum, seguindo rumos totalmente diferentes.
+            </p>
           </section>
+          <!-- Exercício: Ortogonalidade -->
+          <section>
+            <h3>Exercício</h3>
+            <p>
+            Explique por que <code>\(\vec{u} \cdot \vec{v} = 0\)</code> implica que os vetores são ortogonais. Quais as consequências práticas disso num cenário pós-apocalíptico?
+            </p>
+          </section>
+          <!-- Pergunta Filosófica -->
+          <section>
+            <h3>Pergunta Filosófica</h3>
+            <p>Que lições podemos tirar do conceito de ortogonalidade para a vida em sociedade, mesmo em circunstâncias severas?</p>
+          </section>
+        </section>
+
+        <!-- Slide Vertical: Área de Triângulos -->
+        <section>
+          <section>
+            <h2>Área de Triângulos</h2>
+            <p>
+            Podemos usar dois vetores <code>\(\vec{u}\)</code> e <code>\(\vec{v}\)</code> como lados de um triângulo e calcular a área:
+            </p>
+            <p class="formula">\[
+            \text{Área} = \frac{1}{2} \|\vec{u}\| \|\vec{v}\| \sin(\theta)
+            \]</p>
+            <p>
+            Onde <code>\(\theta\)</code> é o ângulo entre os vetores. Em termos de sobrevivência, é como medir o “terreno” que conseguimos vigiar com dois postos avançados.
+            </p>
+          </section>
+          <!-- Exercício: Área de Triângulos -->
+          <section>
+            <h3>Exercício</h3>
+            <p>
+            Se <code>\(\vec{u}\)</code> e <code>\(\vec{v}\)</code> formam um triângulo cuja área corresponde a uma “base” operacional, como o valor de <code>\(\sin(\theta)\)</code> influencia a extensão dessa base?
+            </p>
+          </section>
+        </section>
 
         <!-- Slide Horizontal 6: Fechamento -->
         <section>
           <h2>Fechamento</h2>
           <p>
-            No fim do dia, nem todo confronto precisa explodir um bunker; às vezes, descobrir o alinhamento (produto escalar) entre facções pode ser o início de uma negociação viável.
+          No fim do dia, nem todo confronto precisa explodir um bunker; às vezes, descobrir o alinhamento (produto escalar) entre facções pode ser o início de uma negociação viável.
           </p>
           <p>
-            <em>Reflexão:</em> Em um mundo devastado, cooperação e respeito aos limites alheios (ortogonais) podem evitar <strong>jogos de soma zero</strong>. A soma das forças pode ser mais valiosa que um embate destrutivo.
+          <em>Reflexão:</em> Em um mundo devastado, cooperação e respeito aos limites alheios (ortogonais) podem evitar <strong>jogos de soma zero</strong>. A soma das forças pode ser mais valiosa que um embate destrutivo.
           </p>
         </section>
 

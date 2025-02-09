@@ -15,17 +15,84 @@
 
     <!-- Custom styles (if needed) -->
     <style>
-      /* Customize as desired */
+/* Ajusta os tamanhos dos títulos */
+.reveal h1 {
+  font-size: 3.2rem;  /* Antes poderia estar bem maior */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.reveal h2 {
+  font-size: 2.8rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.reveal h3 {
+  font-size: 2.4rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Ajusta o texto normal */
+.reveal section p {
+  font-size: 1.6rem;  /* Pode alterar conforme preferir */
+  line-height: 1.4;
+}
       .reveal h1,
       .reveal h2,
       .reveal h3 {
-        color: #FFD700; /* Example color for headings */
+        color: #FFD700; /* Exemplo de cor para títulos */
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
       }
       .reveal section p {
         font-size: 1.2rem;
       }
-    </style>
+      .reveal .formula {
+        color: #ADFF2F;
+        font-weight: bold;
+      }
+
+      /* Estilizando UL */
+      .reveal section ul {
+        list-style: none;
+        padding-left: 2rem;
+        margin: 1em 0;
+      }
+      .reveal section ul li {
+        font-size: 1.6rem;
+        line-height: 1.4;
+        position: relative;
+        margin-bottom: 0.6em;
+      }
+      .reveal section ul li::before {
+        content: '☢️'; /* Apenas o ícone para UL */
+        position: absolute;
+        left: -2.5rem;
+        font-size: 1.6rem;
+        line-height: 1.4;
+      }
+
+      /* Estilizando OL com contador */
+      .reveal section ol {
+        list-style: none;
+        counter-reset: radCounter; /* Inicia contador */
+        padding-left: 2rem;
+        margin: 1em 0;
+      }
+      .reveal section ol li {
+        counter-increment: radCounter; /* Incrementa o contador a cada li */
+        font-size: 1.6rem;
+        line-height: 1.4;
+        position: relative;
+        margin-bottom: 0.6em;
+      }
+      .reveal section ol li::before {
+        content: '☢️' counter(radCounter) '. '; /* Ícone + número. Ex: ☢️1. */
+        position: absolute;
+        left: -3.0rem;
+        font-size: 1.6rem;
+        line-height: 1.4;
+      }
+
+ 
   </head>
 
   <body>
