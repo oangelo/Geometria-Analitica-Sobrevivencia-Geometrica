@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>Capítulo I - O Espaço Vetorial R²</title>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Slide de Introdução (Tópico horizontal principal) -->
+      <section>
+        <!-- Subslide 1 -->
+        <section>
+          <h2>Capítulo I: O Espaço Vetorial \( \mathbb{R}^2 \)</h2>
+          <p>"Antes das cinzas, havia a corrida armamentista. Agora, precisamos entender onde pisamos."</p>
+        </section>
+        <!-- Subslide 2 -->
+        <section>
+          <h3>Reflexão Inicial</h3>
+          <p><em>"Se você não sabe onde está, como saberá para onde ir?"</em></p>
+          <p>O \( \mathbb{R}^2 \) é o mapa do nosso mundo reconstruído, o solo firme para nossa jornada geométrica.</p>
+        </section>
+      </section>
+
+      <!-- SEÇÃO: O Conjunto R^2 (Horizontal) -->
+      <section>
+        <!-- Subslide 1: Conceito Básico -->
+        <section>
+          <h3>O Conjunto \( \mathbb{R}^2 \)</h3>
+          <p>Imagine um vasto deserto 🏜️, onde cada ponto é uma coordenada \((x, y)\).  
+          Formalmente:
+          \[
+            \mathbb{R}^2 = \{(x, y)\,\mid\, x, y \in \mathbb{R}\}.
+          \]
+          É como ter um <em>mapa infinito</em> para explorar.</p>
+          <p>
+            Se você está no ponto (3, 4) e um abrigo está em (7, 8), pode traçar uma rota direta — sem desperdiçar recursos. 💀
+          </p>
+        </section>
+
+        <!-- Subslide 2: Definição de Conjuntos -->
+        <section>
+          <h4>Definição de Conjunto ⚛️</h4>
+          <p>Um <strong>conjunto</strong> é uma coleção de elementos bem definidos.  
+          Representamos por chaves: \(\{\}\).  
+          Exemplo: \(\{\text{água}, \text{comida}, \text{kit médico}\}\).</p>
+          <p><strong>Dica 🔦:</strong> Use a notação de conjunto para organizar itens de sobrevivência.</p>
+        </section>
+
+        <!-- Subslide 3: Conjunto Vazio -->
+        <section>
+          <h4>O Conjunto Vazio ⚠️</h4>
+          <p>Há conjuntos sem elementos, como um abrigo saqueado: \(\varnothing\) ou \(\{\}\).  
+          <small>Um kit vazio pode custar caro no apocalipse… 💀</small></p>
+        </section>
+
+        <!-- Subslide 4: Par Ordenado -->
+        <section>
+          <h4>Par Ordenado 🏜️</h4>
+          <p>Um <strong>par ordenado</strong> \((x, y)\) define uma posição única.  
+          A ordem importa, pois (3, 5) não é o mesmo que (5, 3).  
+          Se o primeiro número for “litros de água” e o segundo, “unidades de comida”, inverter pode causar confusão fatal.</p>
+        </section>
+
+        <!-- Subslide 5: O Plano Cartesiano -->
+        <section>
+          <h4>O Plano Cartesiano 📡</h4>
+          <p>É onde “desenhamos” \(\mathbb{R}^2\):  
+          <ul>
+            <li>Eixo x (horizontal)</li>
+            <li>Eixo y (vertical)</li>
+          </ul>
+          Cada ponto \((x, y)\) é como um local no deserto.  
+          <em>Evite se perder!</em></p>
+        </section>
+
+        <!-- Subslide 6: A Origem (0,0) -->
+        <section>
+          <h4>A Origem (0,0) 🔦</h4>
+          <p>O ponto \((0,0)\) é onde tudo começa.  
+          É a referência para distâncias e direções no plano.  
+          Se estiver confuso, volte à origem — ou seja, ao marco zero. ☢️</p>
+        </section>
+
+        <!-- Subslide 7: Exercício Rápido -->
+        <section>
+          <h4>Exercício Rápido 🔥</h4>
+          <p>1. Liste três conjuntos relevantes no apocalipse (ex.: locais seguros, recursos...).</p>
+          <p>2. Escolha um ponto (x, y) e descreva o que ele representa no seu “mapa de sobrevivência”.</p>
+          <p><strong>Obs.:</strong> Lembre-se de como (0,0) pode ajudar na orientação. 🏜️</p>
+        </section>
+      </section>
+
+      <!-- SEÇÃO: Igualdade e Operações com Pares Ordenados (Horizontal) -->
+      <section>
+        <!-- Subslide 1 -->
+        <section>
+          <h3>Igualdade e Operações com Pares Ordenados</h3>
+          <p>Dois pares \((a, b)\) e \((c, d)\) são iguais se \(a=c\) e \(b=d\).  
+          As operações em \(\mathbb{R}^2\) são essenciais para combinar rotas e recursos:</p>
+          <ul>
+            <li><strong>Soma:</strong> \((a, b) + (c, d) = (a+c, b+d)\)</li>
+            <li><strong>Subtração:</strong> \((a, b) - (c, d) = (a-c, b-d)\)</li>
+            <li><strong>Escalar:</strong> \(\lambda(a, b) = (\lambda a, \lambda b)\)</li>
+          </ul>
+        </section>
+        <!-- Subslide 2 -->
+        <section>
+          <h4>Exemplo Prático 🔦</h4>
+          <p>(5,3) + (2,6) = (7,9). Suprimentos de duas bases se somam para formar um estoque maior. 💀</p>
+        </section>
+        <!-- Subslide 3 -->
+        <section>
+          <h4 class="exercise-title">Exercícios e Questões</h4>
+          <ul>
+            <li>Mostre que (1,5) + (2,-1) = (3,4), interpretando no cenário de sobrevivência.</li>
+            <li>Dado (4,-2), multiplique por 3. Como usar esse conceito no apocalipse?</li>
+            <li>Por que (a,b) ≠ (b,a)? Invente um exemplo de confusão de suprimentos.</li>
+          </ul>
+        </section>
+      </section>
+
+      <!-- SEÇÃO: Vetores no Plano (Horizontal) -->
+      <section>
+        <!-- Subslide 1 -->
+        <section>
+          <h3>Vetores no Plano</h3>
+          <p>Um <strong>vetor</strong> \(\vec{v} = (x, y)\) é como uma flecha indicando direção, sentido e intensidade.  
+          <em>Representa seu deslocamento ou rota de fuga.</em></p>
+        </section>
+        <!-- Subslide 2 -->
+        <section>
+          <h4>Magnitude (Norma) ⚛️</h4>
+          <p>\(\|\vec{v}\| = \sqrt{x^2 + y^2}\).  
+          Se \(\vec{v} = (3,4)\), a norma é 5 — o “custo” total do percurso.</p>
+        </section>
+        <!-- Subslide 3 -->
+        <section>
+          <h4 class="exercise-title">Exercícios e Questões</h4>
+          <ul>
+            <li>Calcule a norma de (6,8). O que isso significa em termos de “gasto de energia”?</li>
+            <li>Crie três vetores diferentes com mesma norma 5. Cite cenários de fuga.</li>
+            <li>Vetor nulo (0,0): andando em círculos ou parado? Discuta.</li>
+          </ul>
+        </section>
+      </section>
+
+      <!-- SEÇÃO: Aplicações: Ponto Médio (Horizontal) -->
+      <section>
+        <!-- Subslide 1 -->
+        <section>
+          <h3>Aplicações: Ponto Médio</h3>
+          <p>Para encontrar o meio entre (x1, y1) e (x2, y2):  
+          \[
+            M = \left(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}\right).
+          \]  
+          Ideal para negociações e acordos justos no deserto. 🏜️</p>
+        </section>
+        <!-- Subslide 2 -->
+        <section>
+          <h4>Exemplo Prático 💀</h4>
+          <p>Entre (2,4) e (6,8), o ponto médio é (4,6).  
+          Pode ser o local neutro para troca de suprimentos — seguro para ambas as partes.</p>
+        </section>
+        <!-- Subslide 3 -->
+        <section>
+          <h4 class="exercise-title">Exercícios e Questões</h4>
+          <ul>
+            <li>Calcule o ponto médio entre (0,0) e (10,2). Interprete geometricamente.</li>
+            <li>Crie um cenário em que duas bases precisam se encontrar no meio do caminho.</li>
+            <li>"O equilíbrio está exatamente no meio ou é o que você decide ser?"</li>
+          </ul>
+        </section>
+      </section>
+
+      <!-- SEÇÃO: Aplicações: Baricentro (Horizontal) -->
+      <section>
+        <!-- Subslide 1 -->
+        <section>
+          <h3>Aplicações: Baricentro</h3>
+          <p>Em um triângulo com vértices (x1, y1), (x2, y2), (x3, y3), o <strong>baricentro</strong>:
+          \[
+            G = \left(\frac{x_1 + x_2 + x_3}{3}, \frac{y_1 + y_2 + y_3}{3}\right).
+          \]
+          É o “centro de massa”, ponto de equilíbrio para coordenar três postos. ⚠️</p>
+        </section>
+        <!-- Subslide 2 -->
+        <section>
+          <h4>Exemplo Prático 📡</h4>
+          <p>Se os abrigos formam um triângulo em (1,2), (4,5), (7,8), o baricentro é (4,5).  
+          Perfeito para gerenciar suprimentos sem que alguém fique em desvantagem.</p>
+        </section>
+        <!-- Subslide 3 -->
+        <section>
+          <h4 class="exercise-title">Exercícios e Questões</h4>
+          <ul>
+            <li>Encontre o baricentro de (0,0), (6,0) e (3,9). Qual a interpretação prática?</li>
+            <li>Por que o baricentro é um ponto “justo” de reunião?</li>
+            <li>"O que te mantém equilibrado quando tudo ao redor está em ruínas?"</li>
+          </ul>
+        </section>
+      </section>
+
+      <!-- Slide Final de Encerramento -->
+      <section>
+        <h2>Bases Sólidas para um Novo Mundo</h2>
+        <p>"Assim como precisamos de terra firme para caminhar, o \( \mathbb{R}^2 \) é o chão onde construímos toda a nossa matemática."</p>
+        <p><strong>Reflexão Final 🔦:</strong> "O que você constrói quando tudo o que restou foi o essencial? Talvez um novo alicerce para reerguer a civilização."</p>
+        <p><em>Boa sorte! E não se esqueça de verificar seus suprimentos... 💀</em></p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(','\\)']],
+        displayMath: [['\\[','\\]']]
+      }
+    };
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true
+    });
+  </script>
+</body>
+</html>
+
