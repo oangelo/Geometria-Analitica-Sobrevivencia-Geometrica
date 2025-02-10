@@ -404,28 +404,129 @@
           </section>
         </section>
 
-        <!-- Slide Vertical: Área de Triângulos -->
+        <section>
+          <h1>Área de Triângulos Vetoriais</h1>
+          <h2>Decodificando Espaços, Revelando Estratégias</h2>
+        </section>
+
         <section>
           <section>
-            <h2>Área de Triângulos</h2>
-            <p>
-            Podemos usar dois vetores \(\vec{u}\) e \(\vec{v}\) como lados de um triângulo e calcular a área:
-            </p>
-            <p class="formula">\[
-            \text{Área} = \frac{1}{2} \|\vec{u}\| \|\vec{v}\| \sin(\theta)
-            \]</p>
-            <p>
-            Onde \(\theta\) é o ângulo entre os vetores. Em termos de sobrevivência, é como medir o “terreno” que conseguimos vigiar com dois postos avançados.
-            </p>
+            <h2>Territórios Delimitados por Vetores</h2>
+            <p>Imagine dois vetores, \(\vec{u}\) e \(\vec{v}\), como <strong>fronteiras invisíveis</strong> traçando os limites de um território em disputa.</p>
+
+            <div class="fragment formula">
+              <h3>Fórmula Fundamental</h3>
+              <p>\[\text{Área} = \frac{1}{2} |\vec{u}| |\vec{v}| \sin(\theta)\]</p>
+              <p>🔍 <em>Intuição Estratégica</em>: A área emerge da combinação da força (magnitude) e do ângulo (desalinhamento) entre os vetores.</p>
+            </div>
+
+            <div class="fragment">
+              <p>📐 <strong>Elementos Essenciais</strong>:</p>
+              <ul>
+                <li>\(|\vec{u}|\) e \(|\vec{v}|\): Intensidade dos "movimentos"</li>
+                <li>\(\sin(\theta)\): O grau de divergência entre as direções</li>
+              </ul>
+            </div>
           </section>
-          <!-- Exercício: Área de Triângulos -->
+
           <section>
-            <h3>Exercício</h3>
-            <p>
-            Se \(\vec{u}\) e \(\vec{v}\) formam um triângulo cuja área corresponde a uma “base” operacional, como o valor de \(\sin(\theta)\) influencia a extensão dessa base?
-            </p>
+            <h2>Relacionando Fórmulas Conhecidas</h2>
+            <p>Lembre-se da fórmula clássica da área de um triângulo:</p>
+            <p>\[ \text{Área} = \frac{\text{base} \times \text{altura}}{2} \]</p>
+            <p>Se considerarmos \(|\vec{u}|\) como a base, então \(|\vec{v}| \sin(\theta)|\) é a altura — afinal, o módulo de um vetor vezes o seno do ângulo entre eles nos dá a altura do triângulo.</p>
+
+            <div class="fragment">
+              <p>📏 <strong>Conexão com Vetores:</strong></p>
+              <ul>
+                <li>\( \text{base} = |\vec{u}| \)</li>
+                <li>\( \text{altura} = |\vec{v}| \sin(\theta) \)</li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <h2>Determinantes e Áreas</h2>
+            <p>A área do <strong>paralelogramo</strong> definido por dois vetores \(\vec{u}\) e \(\vec{v}\) pode ser calculada usando o determinante da matriz formada por esses vetores:</p>
+            <p>\[ \text{Área do Paralelogramo} = | \det \begin{bmatrix} u_x & v_x \\ u_y & v_y \end{bmatrix} | \]</p>
+            <p>Para encontrar a área do triângulo formado por esses vetores, basta dividir o resultado por 2:</p>
+            <p>\[ \text{Área do Triângulo} = \frac{1}{2} | \det \begin{bmatrix} u_x & v_x \\ u_y & v_y \end{bmatrix} | \]</p>
+
+            <div class="fragment">
+              <blockquote>
+                "O determinante não é só um número — é a medida do "espaço" criado por dois vetores."
+              </blockquote>
+            </div>
+          </section>
+
+          <section>
+            <h2>Missão de Reconhecimento</h2>
+            <p>Vetores em campo:</p>
+            <ul>
+              <li>\(\vec{u} = (3, 4)\) com módulo \(|\vec{u}| = 5\)</li>
+              <li>\(\vec{v} = (1, 2)\) com módulo \(|\vec{v}| = \sqrt{5}\)</li>
+            </ul>
+
+            <div class="fragment">
+              <h3>Plano de Ação</h3>
+              <ol>
+                <li>Calcular o determinante da matriz formada pelos vetores</li>
+                <li>Aplicar a fórmula \( \text{Área} = \frac{1}{2} |\det| \)</li>
+                <li>Comparar o resultado com a fórmula \( \frac{1}{2} |\vec{u}| |\vec{v}| \sin(\theta) \)</li>
+              </ol>
+            </div>
+          </section>
+
+          <section>
+            <h2>Decodificação Matemática</h2>
+            <p>Etapas do cálculo:</p>
+            <ul>
+              <li>Produto escalar para encontrar \(\cos(\theta)\)</li>
+              <li>\(\sin(\theta) = \sqrt{1 - \cos^2(\theta)}\)</li>
+              <li>Área = \(\frac{1}{2} |\vec{u}| |\vec{v}| \sin(\theta)\) <strong>ou</strong> \(\frac{1}{2} |\det|\)</li>
+            </ul>
+
+            <div class="fragment">
+              <p>🎯 <strong>Resultado:</strong> O mesmo "território", apenas medido de formas diferentes.</p>
+            </div>
+          </section>
+
+          <section>
+            <h2>Desafio de Campo</h2>
+            <p>Vetores em jogo:</p>
+            <ul>
+              <li>\(\vec{a} = (2, 2)\)</li>
+              <li>\(\vec{b} = (3, -3)\)</li>
+            </ul>
+            <p>Tarefas:</p>
+            <ol>
+              <li>Calcular a área do triângulo usando o determinante</li>
+              <li>Confirmar o resultado com a fórmula da área \( \frac{1}{2} |\vec{a}| |\vec{b}| \sin(\theta) \)</li>
+              <li>Interpretar o significado geométrico do resultado (o que esse "território" representa?)</li>
+            </ol>
+          </section>
+
+          <section>
+            <h2>Reflexões Táticas</h2>
+            <p>O que a área de um triângulo vetorial pode simbolizar?</p>
+            <ul>
+              <li>Zonas de influência entre forças</li>
+              <li>Potencial de cobertura territorial</li>
+              <li>Pontos críticos de interseção estratégica</li>
+            </ul>
+
+            <div class="fragment">
+              <blockquote>
+                "Na geometria, cada área é um espaço de possibilidades — e cada fórmula, uma nova perspectiva." 
+              </blockquote>
+            </div>
+          </section>
+
+          <section>
+            <h2>Conclusão Estratégica</h2>
+            <p>A área de um triângulo vetorial não é apenas um número. É a <strong>síntese de forças, direções e possibilidades</strong>. Seja através do determinante ou da fórmula clássica, o importante é compreender que tudo se conecta, como diferentes peças do mesmo quebra-cabeça.</p>
           </section>
         </section>
+
 
         <!-- Slide Horizontal 6: Fechamento -->
         <section>
