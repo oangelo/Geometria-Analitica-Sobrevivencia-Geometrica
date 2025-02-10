@@ -39,7 +39,7 @@
 .reveal section ul {
 	list-style: none;
 	padding-left: 2rem;
-	margin: 1em 0;
+	margin: 0.3em 0;
 }
 .reveal section ul li {
 	font-size: 1.6rem;
@@ -60,7 +60,7 @@
 	list-style: none;
 	counter-reset: radCounter; /* Inicia contador */
 	padding-left: 2rem;
-	margin: 1em 0;
+	margin: 0.3em 0;
 }
 .reveal section ol li {
 	counter-increment: radCounter; /* Incrementa o contador a cada li */
@@ -72,7 +72,7 @@
 .reveal section ol li::before {
 	content: '☢️' counter(radCounter) '. '; /* Ícone + número. Ex: ☢️1. */
 	position: absolute;
-	left: -3.0rem;
+	left: -3.5rem;
 	font-size: 1.6rem;
 	line-height: 1.4;
 }
