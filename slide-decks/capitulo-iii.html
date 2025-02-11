@@ -55,66 +55,225 @@
           </p>
         </section>
 
-        <!-- ======================================== -->
-        <!-- SLIDE 3: FORMAS DA EQUAÇÃO DA RETA -->
-        <!-- ======================================== -->
-        <section>
-          <!-- Subslide 3.1: Forma Geral -->
-          <section>
-            <h2>Equações da Reta</h2>
-            <h3>Forma Geral</h3>
-            <p>
-              A forma mais conhecida, como vocês já devem ter ouvido em algum
-              abrigo matemático, é a <em>forma explícita</em>:
-            </p>
-            <p>\( y = mx + b \)</p>
-            <ul>
-              <li>
-                \( m \): <strong>Mire</strong> – indica a inclinação (a direção que você
-                "mira" ao avançar).
-              </li>
-              <li>
-                \( b \): <strong>Base</strong> – o ponto seguro no eixo <em>y</em>,
-                onde a reta toca o abrigo vertical (intercepto).
-              </li>
-            </ul>
-            <p>
-              <em>Mnemônico:</em> Mire (m) sua arma, Base (b) de apoio.
-            </p>
-          </section>
+<!-- Visão Geral - Horizontal -->
+<section data-transition="slide">
+    <section>
+        <h2>As Três Faces da Reta</h2>
+        <p style="margin-top: 20px;">
+            No deserto matemático do pós-apocalipse, cada reta é como um caminho
+            que nos guia rumo à reconstrução. Porém, essa sobrevivente da Geometria
+            Analítica pode assumir diferentes identidades, dependendo de como a
+            observamos.
+        </p>
+        <div style="display: flex; justify-content: space-around; margin-top: 40px;">
+            <div style="flex: 1; text-align: center;">
+                <h3>Função</h3>
+                <p>\[y = mx + b\]</p>
+            </div>
+            <div style="flex: 1; text-align: center;">
+                <h3>Geral</h3>
+                <p>\[ax + by + c = 0\]</p>
+            </div>
+            <div style="flex: 1; text-align: center;">
+                <h3>Paramétrica</h3>
+                <p>
+                    \[\begin{cases}
+                        x = x_0 + at \\
+                        y = y_0 + bt
+                    \end{cases}\]
+                </p>
+            </div>
+        </div>
+    </section>
+</section>
 
-          <!-- Subslide 3.2: Outras Formas -->
-          <section>
-            <h3>Outras Formas de Equação</h3>
-            <p>
-              Nem todo caminho aparece de forma tão simples. Podemos ter:
-            </p>
-            <ul>
-              <li>
-                <strong>Forma Paramétrica</strong>:
-                \[
-                  \begin{cases}
-                    x = x_0 + at \\
-                    y = y_0 + bt
-                  \end{cases}
-                \]
-                onde \((x_0, y_0)\) é um ponto inicial (o bunker) e \((a, b)\) é
-                a direção de avanço.
-              </li>
-              <li>
-                <strong>Forma Reduzida</strong> (ou "inclinação e intercepto"):
-                \[
-                  y - y_0 = m (x - x_0)
-                \]
-                para destacar o ponto \((x_0, y_0)\).
-              </li>
-            </ul>
-            <p>
-              Quanto mais mapas (formas) tivermos, melhor preparamos nossa fuga.
-            </p>
-          </section>
-        </section>
+<!-- Função da Reta - Vertical -->
+<section>
+    <section>
+        <h2>A Função da Reta</h2>
+        <p>\[y = mx + b\]</p>
+        <p>
+            A chamada <strong>Função da Reta</strong> é o rosto mais “amigável”
+            dessa entidade geométrica. Revela claramente onde a reta cruza o eixo y
+            (o ponto de respiro no meio da radiação), além de mostrar como ela se
+            inclina, qual um viaduto que resiste em meio aos escombros.
+        </p>
+        <div class="col">
+            <h4>Coeficiente Angular (m)</h4>
+            <p>\[m = \tan(\theta)\]</p>
+            <p>Onde θ é o ângulo com o eixo x.</p>
+        </div>
+        <div class="col">
+            <h4>Coeficiente Linear (b)</h4>
+            <p>Intersecção com o eixo y:</p>
+            <p>\[y(0) = b\]</p>
+        </div>
+    </section>
 
+    <section>
+        <h3>Exercício: Ângulo e Ponto</h3>
+        <p>
+            Encontre a equação da reta que passa por \(P(2,3)\) e forma 60° com o eixo x.
+            Imagine que esse ponto é nosso abrigo provisório, e precisamos de uma
+            estrada que saia dele exatamente nesse ângulo.
+        </p>
+        <div class="fragment">
+            <p><strong>Solução:</strong></p>
+            <ol>
+                <li>\[m = \tan(60°) = \sqrt{3}\]</li>
+                <li>\[y - 3 = \sqrt{3}(x - 2)\]</li>
+                <li>\[y = \sqrt{3}x - 2\sqrt{3} + 3\]</li>
+            </ol>
+            <p>
+                Assim, traçamos nossa rota estratégica rumo à próxima cidade
+                (ou o que sobrou dela).
+            </p>
+        </div>
+    </section>
+</section>
+
+<!-- Forma Geral - Vertical -->
+<section>
+    <section>
+        <h2>A Forma Geral</h2>
+        <p>\[ax + by + c = 0\]</p>
+        <p>
+            Este é outro ponto de vista da reta, mostrando sua robustez e
+            versatilidade. Por meio de um vetor normal
+            <strong>\(\vec{n} = (a,b)\)</strong>, conseguimos identificá-la
+            de forma clara, o que permite abordar diversos problemas com
+            facilidade.
+        </p>
+        <div style="margin-top: 30px;">
+            <p>
+                Se \(\vec{n} = (a,b)\) é normal à reta, então qualquer
+                <strong>vetor diretor</strong> (que percorre a reta) será
+                \(\vec{v} = (-b,a)\). Assim, é possível prever como a reta
+                se estende no plano, mesmo que ainda estejamos nos adaptando
+                a este novo mundo.
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <h3>Exercício: Vetor Normal</h3>
+        <p>
+            Determine a equação da reta com vetor normal \(\vec{n} = (2,3)\)
+            que passa por \(P(1,1)\). Use esse “guardião” normal para erguer
+            suas defesas no local certo.
+        </p>
+        <div class="fragment">
+            <p><strong>Solução:</strong></p>
+            <ol>
+                <li>\[2x + 3y + c = 0\]</li>
+                <li>Substituindo \(P(1,1)\): \[2(1) + 3(1) + c = 0\]</li>
+                <li>\[2 + 3 + c = 0 \implies c = -5\]</li>
+                <li>Equação: \[2x + 3y - 5 = 0\]</li>
+            </ol>
+            <p>
+                Portanto, nossa barreira está erguida: ela será definida
+                por \(2x + 3y - 5 = 0\).
+            </p>
+        </div>
+    </section>
+</section>
+
+<!-- Forma Paramétrica - Vertical -->
+<section>
+    <section>
+        <h2>A Forma Paramétrica</h2>
+        <p>
+            \[\begin{cases}
+                x = x_0 + at \\
+                y = y_0 + bt
+            \end{cases}\]
+        </p>
+        <p>
+            Eis a face mais “livre” da reta, como um explorador nômade que se
+            desloca sem amarras. Podemos partir de um ponto
+            \((x_0, y_0)\) conhecido (nosso posto avançado) e nos mover na direção
+            do vetor \((a,b)\), ajustando o parâmetro \(t\) como quisermos.
+        </p>
+        <div style="margin-top: 30px;">
+            <p><strong>Lembrete:</strong></p>
+            <ul>
+                <li>\((x_0, y_0)\): ponto inicial</li>
+                <li>\((a,b)\): vetor diretor (a “bússola” da reta)</li>
+                <li>\(t\): parâmetro de deslocamento</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h3>Aplicação Física: Movimento Uniforme</h3>
+        <div style="text-align: center;">
+            <p>
+                \[\begin{cases}
+                    x = x_0 + v_x t \\
+                    y = y_0 + v_y t
+                \end{cases}\]
+            </p>
+        </div>
+        <p>
+            Esta mesma ideia paramétrica modela o movimento uniforme, onde
+            \((v_x, v_y)\) é o vetor velocidade. Aqui, \(t\) significa tempo
+            real, e a Reta Paramétrica se torna sua trajetória em um mundo
+            que ainda se move, apesar de tudo.
+        </p>
+    </section>
+
+    <section>
+        <h3>Exercício: Interceptação</h3>
+        <p>
+            Um objeto parte de \((0,5)\) com velocidade \((3,2)\). Calcule a
+            velocidade necessária para interceptá-lo partindo de \((2,0)\)
+            em 1 hora. Imagine que você precisa correr até esse objeto antes
+            que ele caia em mãos erradas.
+        </p>
+        <div class="fragment">
+            <p><strong>Solução:</strong></p>
+            <ol>
+                <li>
+                    Posição final do objeto após 1 hora:
+                    \((0 + 3 \cdot 1,\; 5 + 2 \cdot 1) = (3,7)\).
+                </li>
+                <li>
+                    Deslocamento necessário para interceptar, saindo de \((2,0)\):
+                    \(\vec{d} = (3 - 2,\; 7 - 0) = (1,7)\).
+                </li>
+                <li>
+                    Velocidade de interceptação em 1 hora:
+                    \[\vec{v} = (1,7)\text{ km/h}\].
+                </li>
+            </ol>
+            <p>
+                Dessa forma, você consegue alcançá-lo a tempo, recuperando
+                suprimentos valiosos para a reconstrução.
+            </p>
+        </div>
+    </section>
+
+<!-- Exercício Extra - Todas as Formas -->
+    <section>
+        <h2>Exercício Final: Uma Reta, Três Visões</h2>
+        <p>
+            Dado dois pontos \(A(x_1, y_1)\) e \(B(x_2, y_2)\), encontre as três
+            diferentes formas de sua equação:
+        </p>
+        <ul>
+            <li>Função: \(y = mx + b\)</li>
+            <li>Geral: \(ax + by + c = 0\)</li>
+            <li>Paramétrica: \(\begin{cases} x = x_0 + at \\ y = y_0 + bt \end{cases}\)</li>
+        </ul>
+        <p>
+            Assim, você poderá comparar como cada “face” descreve a mesma reta
+            — seja para planejar rotas, construir barreiras ou simular
+            movimentos em seu mundo reconstruído.
+        </p>
+    </section>
+</section>
+
+    
         <!-- ======================================== -->
         <!-- SLIDE 4: POSIÇÕES DE RETAS (PARALELISMO E PERPENDICULARIDADE) -->
         <!-- ======================================== -->
