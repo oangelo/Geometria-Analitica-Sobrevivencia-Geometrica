@@ -1,81 +1,785 @@
 <!-- Reveal.js Template for 'Geometria Analítica: Sobrevivência Geométrica' -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
     <title>Geometria Analítica: Sobrevivência Geométrica</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
     <!-- Reveal.js Styles -->
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
-    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/reveal.js/dist/theme/black.css"
+      id="theme"
+    />
 
     <!-- For syntax highlighting -->
-    <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css"
+    />
 
-    <!-- Custom styles (if needed) -->
-    <link rel="stylesheet" href="styles.css">
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+      /* Estilos específicos para visualizações interativas */
+      .interactive-canvas {
+        width: 600px;
+        height: 400px;
+        background-color: #111;
+        border: 2px solid #ffd700;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .control-panel {
+        width: 600px;
+        margin: 10px auto;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.7);
+        border: 1px solid #555;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .slider-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .slider-label {
+        color: #adff2f;
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+      }
+
+      input[type="range"] {
+        -webkit-appearance: none;
+        width: 150px;
+        height: 10px;
+        background: #333;
+        border: 1px solid #666;
+        border-radius: 5px;
+      }
+
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 20px;
+        height: 20px;
+        background: #ffd700;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      .value-display {
+        color: #fff;
+        font-family: monospace;
+        font-size: 1.2rem;
+        margin-top: 5px;
+        min-width: 40px;
+        text-align: center;
+      }
+
+      .pipboy-info {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        color: #adff2f;
+        font-family: monospace;
+        font-size: 1.2rem;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 5px 10px;
+        border: 1px solid #adff2f;
+      }
+
+      /* Estilos para hover em elementos interativos */
+      .interactive-element {
+        cursor: pointer;
+        transition: filter 0.3s ease;
+      }
+
+      .interactive-element:hover {
+        filter: brightness(1.5);
+        animation: pulse 1.5s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          filter: brightness(1);
+        }
+        50% {
+          filter: brightness(1.5);
+        }
+        100% {
+          filter: brightness(1);
+        }
+      }
+
+      /* Estilo para dica visual */
+      .interaction-hint {
+        position: absolute;
+        color: #ffd700;
+        font-size: 1.2rem;
+        text-shadow: 0 0 5px #ffd700;
+        animation: fadeInOut 2s infinite;
+      }
+
+      @keyframes fadeInOut {
+        0% {
+          opacity: 0.3;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.3;
+        }
+      }
+    </style>
   </head>
 
   <body>
     <div class="reveal">
       <div class="slides">
-  <section>
-    <h2>Capítulo V — Lugares Geométricos: As Cônicas ⚛️</h2>
-    <p>Trajetórias que mudaram o mundo: do voo de um míssil à órbita de um satélite.</p>
-  </section>
+        <!-- Slide de abertura do capítulo -->
+        <section>
+          <h2>Capítulo V — Lugares Geométricos: As Cônicas ⚛️</h2>
+          <p>
+            Manual de Sobrevivência Vault-Tec: Trajetórias que Determinam Vida
+            ou Morte na Wasteland
+          </p>
+          <p>
+            <small
+              >Classificação: Apenas para Supervisores de Vault e Exploradores
+              Certificados</small
+            >
+          </p>
+        </section>
 
-  <section>
-    <h3>O Que São Cônicas? 🔭</h3>
-    <p>Curvas obtidas pela interseção de um cone com um plano:</p>
-    <ul>
-      <li>Parábola 🛰️: Trajetória de projéteis e foguetes.</li>
-      <li>Elipse 🌍: Órbitas planetárias e de satélites.</li>
-      <li>Hipérbole 📡: Comunicação interestelar e rotas de fuga.</li>
-    </ul>
-  </section>
+        <!-- ESTRUTURA: BRIEFING DE MISSÃO -->
+        <section>
+          <section>
+            <h3>Briefing de Missão: Cônicas</h3>
+            <p>
+              As cônicas são ferramentas de sobrevivência indispensáveis para
+              qualquer explorador da wasteland que deseja evitar radiação e
+              encontrar recursos.
+            </p>
+            <div class="formula">
+              <p>
+                Uma cônica é o lugar geométrico dos pontos P do plano que
+                satisfazem uma relação específica de distância em relação a um
+                ponto fixo (foco) e/ou uma reta fixa (diretriz).
+              </p>
+            </div>
+            <p>
+              <em
+                >"Em um mundo de caos, as cônicas são a ordem matemática que
+                permite prever trajetórias, criar estruturas e estabelecer
+                comunicações."</em
+              >
+              - Overseer, Vault 314
+            </p>
+          </section>
 
-  <section>
-    <h3>Parábola: O Arco de um Lançamento 🚀</h3>
-    <p>Definida como o conjunto de pontos equidistantes de um foco e uma diretriz:</p>
-    <p>\[
-    y = ax^2 + bx + c
-    \]</p>
-    <p>Perfeita para modelar o voo de mísseis e o salto da esperança em tempos sombrios.</p>
-  </section>
+          <section>
+            <h3>Por que Cônicas na Wasteland?</h3>
+            <ul>
+              <li>
+                Parábolas: cálculo preciso de trajetórias de projéteis e design
+                de antenas para comunicação
+              </li>
+              <li>
+                Elipses: planejamento de rotas eficientes entre assentamentos e
+                design de estruturas resistentes
+              </li>
+              <li>
+                Hipérboles: sistemas de navegação por triangulação e
+                monitoramento de ameaças distantes
+              </li>
+            </ul>
+            <p>
+              Mnemônico da Wasteland:
+              <span class="formula"
+                >"PEH: Projéteis, Estruturas, Horizonte"</span
+              >
+              - as três aplicações vitais das cônicas para sobreviventes.
+            </p>
+          </section>
+        </section>
 
-  <section>
-    <h3>Elipse: O Ciclo da Sobrevivência 🌐</h3>
-    <p>Conjunto de pontos cuja soma das distâncias a dois focos é constante:</p>
-    <p>\[
-    \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1
-    \]</p>
-    <p>Das órbitas celestes aos projetos de engenharia em abrigos subterrâneos.</p>
-  </section>
+        <!-- ESTRUTURA: RELATÓRIO DE CAMPO - PARÁBOLA -->
+        <section>
+          <section>
+            <h3>Relatório de Campo: Parábola</h3>
+            <p>
+              A parábola é a primeira linha de defesa na wasteland.
+              Compreendê-la significa dominar trajetórias e reflexões.
+            </p>
+            <div class="formula">
+              <p>
+                Definição: Lugar geométrico dos pontos que equidistam de um
+                ponto fixo (foco) e uma reta fixa (diretriz).
+              </p>
+              <p>
+                \( y = ax^2 + bx + c \) — Forma canônica quando o eixo é
+                paralelo ao eixo y
+              </p>
+              <p>
+                \( x = ay^2 + by + c \) — Forma canônica quando o eixo é
+                paralelo ao eixo x
+              </p>
+            </div>
+            <p>
+              <small
+                >* Nota de campo: Um antigo sistema armamentista chamado
+                V.A.T.S. utilizava cálculos parabólicos para determinar
+                trajetórias de tiros com precisão de 95% em condições
+                ideais.</small
+              >
+            </p>
+          </section>
 
-  <section>
-    <h3>Hipérbole: O Limite da Comunicação 📡</h3>
-    <p>Conjunto de pontos cuja diferença das distâncias a dois focos é constante:</p>
-    <p>\[
-    \frac{x^2}{a^2} - \frac{y^2}{b^2} = 1
-    \]</p>
-    <p>Modela sinais de rádio atravessando o vazio entre abrigos distantes.</p>
-  </section>
+          <section>
+            <h3>Anatomia de uma Parábola</h3>
+            <ul>
+              <li>
+                Vértice (V): ponto mais baixo/alto da curva — seu abrigo ou
+                posto de observação ideal
+              </li>
+              <li>
+                Foco (F): ponto onde todos os raios paralelos ao eixo convergem
+                — ponto de máxima concentração
+              </li>
+              <li>
+                Diretriz: linha de referência — a fronteira que define seu
+                território seguro
+              </li>
+              <li>
+                Eixo de simetria: linha de equilíbrio — sua rota principal de
+                evacuação
+              </li>
+            </ul>
+            <p>
+              Propriedade Reflexiva:
+              <span class="formula"
+                >"Tudo que vem paralelo ao eixo, reflete para o foco."</span
+              >
+              — Princípio vital para antenas de comunicação improvisadas.
+            </p>
+          </section>
+        </section>
 
-  <section>
-    <h3>Aplicações das Cônicas 🛠️</h3>
-    <ul>
-      <li>Trajetórias balísticas para defesa (ou ataque) ⚔️</li>
-      <li>Órbitas de satélites espiões 🛰️</li>
-      <li>Antenas parabólicas para comunicação 📡</li>
-    </ul>
-  </section>
+        <!-- ESTRUTURA: SIMULADOR VAULT-TEC - PARÁBOLA -->
+        <section>
+          <h3>Simulador Vault-Tec: Parábola Interativa</h3>
+          <div class="interactive-canvas" id="parabola-canvas">
+            <!-- Canvas para visualização da parábola -->
+            <div class="interaction-hint" style="top: 50%; left: 50%">
+              Arraste os controles para ajustar a parábola
+            </div>
+            <div class="pipboy-info">y = ax² + bx + c</div>
+          </div>
+          <div class="control-panel">
+            <div class="slider-container">
+              <div class="slider-label">Coeficiente a</div>
+              <input
+                type="range"
+                min="-2"
+                max="2"
+                step="0.1"
+                value="1"
+                id="a-slider"
+              />
+              <div class="value-display" id="a-value">1.0</div>
+            </div>
+            <div class="slider-container">
+              <div class="slider-label">Coeficiente b</div>
+              <input
+                type="range"
+                min="-5"
+                max="5"
+                step="0.5"
+                value="0"
+                id="b-slider"
+              />
+              <div class="value-display" id="b-value">0.0</div>
+            </div>
+            <div class="slider-container">
+              <div class="slider-label">Coeficiente c</div>
+              <input
+                type="range"
+                min="-5"
+                max="5"
+                step="0.5"
+                value="0"
+                id="c-slider"
+              />
+              <div class="value-display" id="c-value">0.0</div>
+            </div>
+          </div>
+        </section>
 
-  <section>
-    <h3>Reflexão Final 🔦</h3>
-    <p>Entender as cônicas é compreender o poder de construir — ou destruir.</p>
-    <p>Em um mundo devastado, o conhecimento é a verdadeira arma de sobrevivência.</p>
-  </section>
+        <!-- ESTRUTURA: TREINAMENTO DE SOBREVIVÊNCIA - PARÁBOLA -->
+        <section>
+          <section>
+            <h3>Treinamento de Sobrevivência: Parábola</h3>
+            <p>
+              Problema: Você precisa construir uma antena parabólica para
+              interceptar sinais de rádio na wasteland. Com recursos limitados,
+              você precisa otimizar o design.
+            </p>
+            <ul>
+              <li>A equação da sua parábola é \( y = 0.5x^2 \)</li>
+              <li>Onde está o foco dessa parábola?</li>
+              <li>
+                Se você posicionar o receptor no foco, qual a distância dele até
+                o vértice?
+              </li>
+              <li>
+                Como essa distância muda se você ajustar a equação para \( y =
+                0.25x^2 \)?
+              </li>
+            </ul>
+            <p>
+              <small
+                >* Tempo estimado de resolução: 5 minutos. Raiders se
+                aproximando em 7 minutos.</small
+              >
+            </p>
+          </section>
+
+          <section>
+            <h3>Manual de Sobrevivência: Solução</h3>
+            <p>Para uma parábola da forma \( y = ax^2 \):</p>
+            <ul>
+              <li>O vértice está na origem (0,0)</li>
+              <li>O foco está em \( (0, \frac{1}{4a}) \)</li>
+              <li>
+                Para \( y = 0.5x^2 \), o foco está em \( (0, \frac{1}{4 \cdot
+                0.5}) = (0, 0.5) \)
+              </li>
+              <li>A distância do vértice ao foco é 0.5 unidades</li>
+              <li>
+                Para \( y = 0.25x^2 \), o foco estará em \( (0, 1) \) — o dobro
+                da distância!
+              </li>
+            </ul>
+            <p class="formula">
+              Relação Inversa: "Quanto menor o coeficiente a, mais aberta a
+              parábola e mais distante o foco."
+            </p>
+            <p>
+              Conclusão: Use \( y = 0.25x^2 \) para captar sinais mais
+              distantes, \( y = 0.5x^2 \) para melhor precisão em sinais
+              próximos.
+            </p>
+          </section>
+        </section>
+
+        <!-- ESTRUTURA: RELATÓRIO DE CAMPO - ELIPSE -->
+        <section>
+          <section>
+            <h3>Relatório de Campo: Elipse</h3>
+            <p>
+              A elipse é a forma definitiva da conservação na wasteland — seja
+              conservação de espaço, energia ou tempo de viagem.
+            </p>
+            <div class="formula">
+              <p>
+                Definição: Lugar geométrico dos pontos cuja soma das distâncias
+                a dois pontos fixos (focos) é constante.
+              </p>
+              <p>
+                \( \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1 \) — Forma canônica
+                quando centrada na origem
+              </p>
+            </div>
+            <p>
+              <small
+                >* Nota de campo: As antigas civilizações construíam "abóbadas"
+                elípticas que resistiam ao tempo e às intempéries. Esta
+                propriedade estrutural é vital para construções na wasteland com
+                materiais escassos.</small
+              >
+            </p>
+          </section>
+
+          <section>
+            <h3>Anatomia de uma Elipse</h3>
+            <ul>
+              <li>
+                Semi-eixo maior (a): metade do eixo mais longo — determina o
+                alcance máximo
+              </li>
+              <li>
+                Semi-eixo menor (b): metade do eixo mais curto — determina a
+                largura da área segura
+              </li>
+              <li>
+                Focos (F₁, F₂): dois pontos interiores especiais — seus pontos
+                de referência essenciais
+              </li>
+              <li>
+                Excentricidade (e = c/a): quanto a elipse se desvia de um
+                círculo — seu índice de eficiência
+              </li>
+            </ul>
+            <p>
+              Lei da Elipse:
+              <span class="formula"
+                >"A soma das distâncias aos focos é sempre 2a."</span
+              >
+              — Como um explorador que sempre percorre a mesma distância total
+              independente da rota escolhida.
+            </p>
+          </section>
+        </section>
+
+        <!-- ESTRUTURA: SIMULADOR VAULT-TEC - ELIPSE -->
+        <section>
+          <h3>Simulador Vault-Tec: Elipse Interativa</h3>
+          <div class="interactive-canvas" id="ellipse-canvas">
+            <!-- Canvas para visualização da elipse -->
+            <div class="interaction-hint" style="top: 50%; left: 30%">
+              Arraste os focos para ver a elipse mudar
+            </div>
+            <div class="pipboy-info">Excentricidade: 0.5</div>
+          </div>
+          <div class="control-panel">
+            <div class="slider-container">
+              <div class="slider-label">Semi-eixo a</div>
+              <input
+                type="range"
+                min="50"
+                max="250"
+                step="10"
+                value="200"
+                id="a-ellipse-slider"
+              />
+              <div class="value-display" id="a-ellipse-value">200</div>
+            </div>
+            <div class="slider-container">
+              <div class="slider-label">Semi-eixo b</div>
+              <input
+                type="range"
+                min="50"
+                max="250"
+                step="10"
+                value="100"
+                id="b-ellipse-slider"
+              />
+              <div class="value-display" id="b-ellipse-value">100</div>
+            </div>
+            <div class="slider-container">
+              <div class="slider-label">Rotação</div>
+              <input
+                type="range"
+                min="0"
+                max="180"
+                step="5"
+                value="0"
+                id="rotation-slider"
+              />
+              <div class="value-display" id="rotation-value">0°</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ESTRUTURA: TREINAMENTO DE SOBREVIVÊNCIA - ELIPSE -->
+        <section>
+          <section>
+            <h3>Treinamento de Sobrevivência: Elipse</h3>
+            <p>
+              Problema: Você precisa planejar uma rota de patrulha em torno de
+              dois assentamentos (os focos) que deve ter exatamente 10km de
+              percurso total.
+            </p>
+            <ul>
+              <li>Os assentamentos estão a 6km de distância um do outro</li>
+              <li>
+                Qual deve ser o valor do semi-eixo maior (a) para garantir o
+                percurso de 10km?
+              </li>
+              <li>Qual será o valor do semi-eixo menor (b)?</li>
+              <li>Qual a largura máxima da área patrulhada?</li>
+            </ul>
+            <p>
+              <small
+                >* Recomendação Vault-Tec: Lembre-se que elipses otimizam
+                recursos e aumentam a eficiência em 42.7% comparado a rotas
+                circulares.</small
+              >
+            </p>
+          </section>
+
+          <section>
+            <h3>Manual de Sobrevivência: Solução</h3>
+            <p>Para uma rota elíptica com percurso total de 10km:</p>
+            <ul>
+              <li>Sabemos que 2a = 10km, portanto a = 5km (semi-eixo maior)</li>
+              <li>A distância entre os focos é 2c = 6km, portanto c = 3km</li>
+              <li>
+                Usando a relação \( b^2 = a^2 - c^2 \): \( b^2 = 5^2 - 3^2 = 25
+                - 9 = 16 \)
+              </li>
+              <li>Portanto, b = 4km (semi-eixo menor)</li>
+              <li>A largura máxima da área patrulhada será 2b = 8km</li>
+            </ul>
+            <p class="formula">
+              Fórmula da Wasteland: "Se a distância focal (2c) e o percurso
+              total (2a) são conhecidos, b é sua margem de manobra."
+            </p>
+            <p>
+              Dica Tática: Patrulhas elípticas maximizam visibilidade enquanto
+              minimizam exposição a áreas radioativas.
+            </p>
+          </section>
+        </section>
+
+        <!-- ESTRUTURA: RELATÓRIO DE CAMPO - HIPÉRBOLE -->
+        <section>
+          <section>
+            <h3>Relatório de Campo: Hipérbole</h3>
+            <p>
+              A hipérbole é a curva de escape e aproximação — seja para calcular
+              a rota de fuga de radiação ou interceptar sinais de outros
+              sobreviventes.
+            </p>
+            <div class="formula">
+              <p>
+                Definição: Lugar geométrico dos pontos cuja diferença das
+                distâncias a dois pontos fixos (focos) é constante.
+              </p>
+              <p>
+                \( \frac{x^2}{a^2} - \frac{y^2}{b^2} = 1 \) — Quando o eixo
+                transverso é paralelo ao eixo x
+              </p>
+              <p>
+                \( \frac{y^2}{a^2} - \frac{x^2}{b^2} = 1 \) — Quando o eixo
+                transverso é paralelo ao eixo y
+              </p>
+            </div>
+            <p>
+              <small
+                >* Nota de campo: Os relógios de precisão antigos usavam
+                engrenagens hiperbólicas para manter o tempo. Na wasteland,
+                saber a hora exata pode separar vida e morte durante incursões
+                noturnas.</small
+              >
+            </p>
+          </section>
+
+          <section>
+            <h3>Anatomia de uma Hipérbole</h3>
+            <ul>
+              <li>
+                Semi-eixo real (a): define a distância do centro ao vértice —
+                seu limite de aproximação segura
+              </li>
+              <li>
+                Semi-eixo imaginário (b): define a "abertura" das curvas — seu
+                ângulo de aproximação
+              </li>
+              <li>
+                Focos (F₁, F₂): pontos de referência — seus pontos de
+                triangulação
+              </li>
+              <li>
+                Assíntotas: linhas que a curva se aproxima infinitamente — seus
+                caminhos de fuga ideais
+              </li>
+            </ul>
+            <p>
+              Propriedade crucial:
+              <span class="formula"
+                >"A diferença das distâncias aos focos é sempre 2a."</span
+              >
+              — O princípio da localização LORAN usado por exploradores da
+              wasteland.
+            </p>
+          </section>
+        </section>
+
+        <!-- ESTRUTURA: SIMULADOR VAULT-TEC - HIPÉRBOLE -->
+        <section>
+          <h3>Simulador Vault-Tec: Hipérbole Interativa</h3>
+          <div class="interactive-canvas" id="hyperbola-canvas">
+            <!-- Canvas para visualização da hipérbole -->
+            <div class="interaction-hint" style="top: 30%; left: 50%">
+              Ajuste os parâmetros para ver as assíntotas
+            </div>
+            <div class="pipboy-info">x²/a² - y²/b² = 1</div>
+          </div>
+          <div class="control-panel">
+            <div class="slider-container">
+              <div class="slider-label">Semi-eixo a</div>
+              <input
+                type="range"
+                min="20"
+                max="150"
+                step="5"
+                value="80"
+                id="a-hyper-slider"
+              />
+              <div class="value-display" id="a-hyper-value">80</div>
+            </div>
+            <div class="slider-container">
+              <div class="slider-label">Semi-eixo b</div>
+              <input
+                type="range"
+                min="20"
+                max="150"
+                step="5"
+                value="60"
+                id="b-hyper-slider"
+              />
+              <div class="value-display" id="b-hyper-value">60</div>
+            </div>
+            <div class="slider-container">
+              <div class="slider-label">Orientação</div>
+              <input
+                type="range"
+                min="0"
+                max="1"
+                step="1"
+                value="0"
+                id="orientation-slider"
+              />
+              <div class="value-display" id="orientation-value">x/y</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ESTRUTURA: TREINAMENTO DE SOBREVIVÊNCIA - HIPÉRBOLE -->
+        <section>
+          <section>
+            <h3>Treinamento de Sobrevivência: Hipérbole</h3>
+            <p>
+              Problema: Você capturou dois sinais de rádio de estações
+              conhecidas na wasteland, localizadas a 50km uma da outra. A
+              diferença nos tempos de recepção indica que você está 30km mais
+              próximo da segunda estação que da primeira.
+            </p>
+            <ul>
+              <li>
+                Modelando sua posição usando uma hipérbole com focos nas
+                estações emissoras, qual é o valor de a?
+              </li>
+              <li>
+                Se você seguir exatamente a curva da hipérbole, manterá a mesma
+                diferença de distância. Qual equação descreve sua rota?
+              </li>
+              <li>
+                Quais são as assíntotas desta hipérbole e o que elas significam
+                para sua navegação?
+              </li>
+            </ul>
+            <p>
+              <small
+                >* Aviso Vault-Tec: Esta técnica é usada por comerciantes para
+                localizar compradores em potencial na wasteland.</small
+              >
+            </p>
+          </section>
+
+          <section>
+            <h3>Manual de Sobrevivência: Solução</h3>
+            <p>Para uma hipérbole baseada em diferença de distâncias:</p>
+            <ul>
+              <li>
+                A diferença constante entre as distâncias é 2a = 30km, portanto
+                a = 15km
+              </li>
+              <li>A distância entre os focos é 2c = 50km, portanto c = 25km</li>
+              <li>
+                Usando a relação \( b^2 = c^2 - a^2 \): \( b^2 = 25^2 - 15^2 =
+                625 - 225 = 400 \)
+              </li>
+              <li>Portanto, b = 20km</li>
+              <li>
+                Colocando na equação: \( \frac{x^2}{15^2} - \frac{y^2}{20^2} = 1
+                \) ou \( \frac{x^2}{225} - \frac{y^2}{400} = 1 \)
+              </li>
+              <li>
+                As assíntotas são \( y = \pm \frac{b}{a}x = \pm \frac{20}{15}x =
+                \pm \frac{4}{3}x \)
+              </li>
+            </ul>
+            <p class="formula">
+              Significado na Wasteland: "Seguir uma assíntota significa
+              eventualmente fugir para longe de ambas as estações, útil para
+              evitar territories hostis."
+            </p>
+          </section>
+        </section>
+
+        <!-- ESTRUTURA: DEBRIEFING - SEÇÃO FINAL -->
+        <section>
+          <section>
+            <h3>Debriefing: O Poder das Cônicas</h3>
+            <p>
+              As cônicas não são apenas curiosidades matemáticas, mas
+              ferramentas de sobrevivência:
+            </p>
+            <ul>
+              <li>
+                Parábolas: Aperfeiçoam seus sistemas de comunicação e defesa
+              </li>
+              <li>
+                Elipses: Otimizam suas rotas e estruturas para economizar
+                recursos
+              </li>
+              <li>
+                Hipérboles: Permitem navegação precisa mesmo com informação
+                limitada
+              </li>
+            </ul>
+            <p>
+              Mnemônico Final:
+              <span class="formula"
+                >"Parábolas Projetam, Elipses Economizam, Hipérboles
+                Localizam"</span
+              >
+            </p>
+            <p>
+              <small
+                >* Mensagem do Overseer: "A geometria analítica pode parecer
+                abstrata, mas na wasteland, ela é tão vital quanto água
+                purificada."</small
+              >
+            </p>
+          </section>
+
+          <section>
+            <h3>Conexão com o Próximo Capítulo</h3>
+            <p>
+              Agora que você domina as cônicas individuais, preparese para o
+              Capítulo VI: Sistemas de Coordenadas Avançados, onde aprenderá a
+              navegar em múltiplos sistemas de referência.
+            </p>
+            <p>
+              Pense nisso como aprender a calibrar seu Pip-Boy para funcionar em
+              áreas de alta radiação, onde as leis convencionais da física
+              parecem distorcidas...
+            </p>
+            <p>
+              <small
+                >* Aviso de segurança: O conhecimento contido neste manual é
+                propriedade da Vault-Tec Corporation. Qualquer utilização
+                indevida será severamente... bem, na verdade, não importa mais,
+                não é?</small
+              >
+            </p>
+          </section>
+        </section>
       </div>
     </div>
 
@@ -90,33 +794,940 @@
     <script>
       window.MathJax = {
         tex: {
-          inlineMath: [['\\(','\\)']],
-          displayMath: [['\\[','\\]']],
+          inlineMath: [["\\(", "\\)"]],
+          displayMath: [["\\[", "\\]"]],
         },
-        svg: { fontCache: 'global' }
+        svg: { fontCache: "global" },
       };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
     <script>
+      // Configuração do Reveal.js
       Reveal.initialize({
         hash: true,
         slideNumber: true,
-        plugins: [ RevealNotes, RevealHighlight ]
+        plugins: [RevealNotes, RevealHighlight],
+      });
+
+      // Função para configurar a visualização de parábola
+      function setupParabolaSimulator() {
+        const canvasContainer = document.getElementById("parabola-canvas");
+        if (!canvasContainer) return;
+
+        // Criar o elemento canvas
+        const canvas = document.createElement("canvas");
+        canvas.width = 600;
+        canvas.height = 400;
+        canvas.style.position = "absolute";
+        canvas.style.top = "0";
+        canvas.style.left = "0";
+        canvasContainer.appendChild(canvas);
+
+        const ctx = canvas.getContext("2d");
+
+        // Referências aos sliders e displays
+        const aSlider = document.getElementById("a-slider");
+        const bSlider = document.getElementById("b-slider");
+        const cSlider = document.getElementById("c-slider");
+        const aValue = document.getElementById("a-value");
+        const bValue = document.getElementById("b-value");
+        const cValue = document.getElementById("c-value");
+        const pipboyInfo = canvasContainer.querySelector(".pipboy-info");
+
+        // Remover dica após 5 segundos
+        setTimeout(() => {
+          const hint = canvasContainer.querySelector(".interaction-hint");
+          if (hint) hint.style.opacity = "0";
+        }, 5000);
+
+        // Adicionar efeito de scanner
+        let scannerY = 0;
+        let scannerDirection = 1;
+
+        // Animação do scanner
+        function animateScanner() {
+          scannerY += scannerDirection * 2;
+          if (scannerY > canvas.height) {
+            scannerY = canvas.height;
+            scannerDirection = -1;
+          } else if (scannerY < 0) {
+            scannerY = 0;
+            scannerDirection = 1;
+          }
+          requestAnimationFrame(animateScanner);
+        }
+
+        animateScanner();
+
+        // Função para atualizar a visualização da parábola
+        function updateParabola() {
+          const a = parseFloat(aSlider.value);
+          const b = parseFloat(bSlider.value);
+          const c = parseFloat(cSlider.value);
+
+          aValue.textContent = a.toFixed(1);
+          bValue.textContent = b.toFixed(1);
+          cValue.textContent = c.toFixed(1);
+
+          // Atualizar a equação no display do Pip-Boy
+          const aSign =
+            a >= 0 ? (a === 0 ? "" : a === 1 ? "" : a) : "−" + Math.abs(a);
+          const bSign =
+            b >= 0 ? " + " + (b === 1 ? "" : b) : " − " + Math.abs(b);
+          const cSign = c >= 0 ? " + " + c : " − " + Math.abs(c);
+
+          let equation = "y = ";
+          if (a !== 0) equation += aSign + "x²";
+          if (b !== 0) equation += bSign + "x";
+          if (c !== 0 || (a === 0 && b === 0)) equation += cSign;
+          else if (a === 0 && b === 0) equation += "0";
+
+          pipboyInfo.textContent = equation;
+
+          // Limpar o canvas
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+          // Definir a origem no centro do canvas
+          const originX = canvas.width / 2;
+          const originY = canvas.height / 2;
+
+          // Desenhar grid
+          drawGrid(ctx, originX, originY, canvas.width, canvas.height);
+
+          // Desenhar efeito de scanner
+          ctx.fillStyle = "rgba(173, 255, 47, 0.1)";
+          ctx.fillRect(0, scannerY, canvas.width, 2);
+
+          // Calcular e desenhar a parábola
+          ctx.beginPath();
+          ctx.strokeStyle = "#ADFF2F";
+          ctx.lineWidth = 2;
+
+          // Escala para melhor visualização
+          const scale = 20;
+
+          // Desenhar a parábola ponto a ponto
+          for (let pixelX = -originX; pixelX <= originX; pixelX++) {
+            const x = pixelX / scale;
+            const y = a * x * x + b * x + c;
+            const pixelY = originY - y * scale;
+
+            if (pixelX === -originX) {
+              ctx.moveTo(pixelX + originX, pixelY);
+            } else {
+              ctx.lineTo(pixelX + originX, pixelY);
+            }
+          }
+
+          ctx.stroke();
+
+          // Calcular e desenhar o vértice
+          if (a !== 0) {
+            const vertexX = -b / (2 * a);
+            const vertexY = a * vertexX * vertexX + b * vertexX + c;
+            const pixelVertexX = originX + vertexX * scale;
+            const pixelVertexY = originY - vertexY * scale;
+
+            // Desenhar vértice
+            ctx.beginPath();
+            ctx.arc(pixelVertexX, pixelVertexY, 5, 0, Math.PI * 2);
+            ctx.fillStyle = "#FFD700";
+            ctx.fill();
+
+            // Rótulo do vértice
+            ctx.fillStyle = "#FFFFFF";
+            ctx.font = "14px monospace";
+            ctx.fillText("V", pixelVertexX + 8, pixelVertexY - 8);
+
+            // Calcular e desenhar o foco
+            const p = 1 / (4 * a);
+            const focusX = vertexX;
+            const focusY = vertexY + p;
+            const pixelFocusX = originX + focusX * scale;
+            const pixelFocusY = originY - focusY * scale;
+
+            // Desenhar foco
+            ctx.beginPath();
+            ctx.arc(pixelFocusX, pixelFocusY, 4, 0, Math.PI * 2);
+            ctx.fillStyle = "#FF6347";
+            ctx.fill();
+
+            // Rótulo do foco
+            ctx.fillStyle = "#FFFFFF";
+            ctx.fillText("F", pixelFocusX + 8, pixelFocusY - 8);
+
+            // Desenhar eixo de simetria
+            ctx.beginPath();
+            ctx.setLineDash([5, 5]);
+            ctx.strokeStyle = "#FFD700";
+            ctx.moveTo(pixelVertexX, 0);
+            ctx.lineTo(pixelVertexX, canvas.height);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Desenhar diretriz
+            const diretrizY = vertexY - p;
+            const pixelDiretrizY = originY - diretrizY * scale;
+
+            ctx.beginPath();
+            ctx.setLineDash([5, 5]);
+            ctx.strokeStyle = "#87CEFA";
+            ctx.moveTo(0, pixelDiretrizY);
+            ctx.lineTo(canvas.width, pixelDiretrizY);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Adicionar rótulo da diretriz
+            ctx.fillStyle = "#87CEFA";
+            ctx.fillText("Diretriz", 10, pixelDiretrizY - 5);
+
+            // Mostrar valores calculados
+            ctx.fillStyle = "#ADFF2F";
+            ctx.font = "12px monospace";
+            ctx.fillText(
+              `Vértice: (${vertexX.toFixed(2)}, ${vertexY.toFixed(2)})`,
+              10,
+              20,
+            );
+            ctx.fillText(
+              `Foco: (${focusX.toFixed(2)}, ${focusY.toFixed(2)})`,
+              10,
+              40,
+            );
+            ctx.fillText(`Distância focal: ${Math.abs(p).toFixed(2)}`, 10, 60);
+          }
+        }
+
+        // Adicionar event listeners aos sliders
+        aSlider.addEventListener("input", updateParabola);
+        bSlider.addEventListener("input", updateParabola);
+        cSlider.addEventListener("input", updateParabola);
+
+        // Inicializar a visualização
+        updateParabola();
+      }
+
+      // Função para configurar a visualização de elipse
+      function setupEllipseSimulator() {
+        const canvasContainer = document.getElementById("ellipse-canvas");
+        if (!canvasContainer) return;
+
+        // Criar o elemento canvas
+        const canvas = document.createElement("canvas");
+        canvas.width = 600;
+        canvas.height = 400;
+        canvas.style.position = "absolute";
+        canvas.style.top = "0";
+        canvas.style.left = "0";
+        canvasContainer.appendChild(canvas);
+
+        const ctx = canvas.getContext("2d");
+
+        // Referências aos sliders e displays
+        const aSlider = document.getElementById("a-ellipse-slider");
+        const bSlider = document.getElementById("b-ellipse-slider");
+        const rotationSlider = document.getElementById("rotation-slider");
+        const aValue = document.getElementById("a-ellipse-value");
+        const bValue = document.getElementById("b-ellipse-value");
+        const rotationValue = document.getElementById("rotation-value");
+        const pipboyInfo = canvasContainer.querySelector(".pipboy-info");
+
+        // Remover dica após 5 segundos
+        setTimeout(() => {
+          const hint = canvasContainer.querySelector(".interaction-hint");
+          if (hint) hint.style.opacity = "0";
+        }, 5000);
+
+        // Variáveis de interação
+        let draggingFocus = null;
+        let focusPositions = [
+          { x: -100, y: 0 },
+          { x: 100, y: 0 },
+        ];
+
+        // Função para verificar se um ponto está próximo de um foco
+        function isNearFocus(x, y, focusIndex) {
+          const focus = focusPositions[focusIndex];
+          const dx = x - (focus.x + canvas.width / 2);
+          const dy = y - (focus.y + canvas.height / 2);
+          return Math.sqrt(dx * dx + dy * dy) < 15;
+        }
+
+        // Adicionar event listeners de mouse para os focos
+        canvas.addEventListener("mousedown", function (e) {
+          const rect = canvas.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+
+          if (isNearFocus(x, y, 0)) {
+            draggingFocus = 0;
+          } else if (isNearFocus(x, y, 1)) {
+            draggingFocus = 1;
+          }
+        });
+
+        canvas.addEventListener("mousemove", function (e) {
+          if (draggingFocus !== null) {
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left - canvas.width / 2;
+            const y = e.clientY - rect.top - canvas.height / 2;
+
+            // Limitar o movimento dos focos
+            focusPositions[draggingFocus] = { x, y };
+
+            // Recalcular a, b baseado na posição dos focos
+            recalculateEllipseFromFoci();
+            updateEllipse();
+          }
+
+          // Atualizar cursor
+          const rect = canvas.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+
+          if (isNearFocus(x, y, 0) || isNearFocus(x, y, 1)) {
+            canvas.style.cursor = "pointer";
+          } else {
+            canvas.style.cursor = "default";
+          }
+        });
+
+        canvas.addEventListener("mouseup", function () {
+          draggingFocus = null;
+        });
+
+        canvas.addEventListener("mouseleave", function () {
+          draggingFocus = null;
+        });
+
+        // Função para recalcular valores de a e b baseados na posição dos focos
+        function recalculateEllipseFromFoci() {
+          const dx = focusPositions[1].x - focusPositions[0].x;
+          const dy = focusPositions[1].y - focusPositions[0].y;
+          const fociDistance = Math.sqrt(dx * dx + dy * dy);
+
+          // Calcular rotação baseado na posição dos focos
+          const angle = (Math.atan2(dy, dx) * 180) / Math.PI;
+          rotationSlider.value = angle;
+
+          // Calcular 2c
+          const c = fociDistance / 2;
+
+          // Garantir que a > c
+          const currentA = parseInt(aSlider.value);
+          if (currentA <= c) {
+            aSlider.value = Math.ceil(c) + 20;
+          }
+
+          // Atualizar focusPositions para manter a distância
+          const newC = c;
+          const rotation = (angle * Math.PI) / 180;
+          focusPositions[0] = {
+            x: -newC * Math.cos(rotation),
+            y: -newC * Math.sin(rotation),
+          };
+          focusPositions[1] = {
+            x: newC * Math.cos(rotation),
+            y: newC * Math.sin(rotation),
+          };
+        }
+
+        // Função para atualizar a visualização da elipse
+        function updateEllipse() {
+          const a = parseInt(aSlider.value);
+          const b = parseInt(bSlider.value);
+          const rotation = parseInt(rotationSlider.value);
+
+          aValue.textContent = a;
+          bValue.textContent = b;
+          rotationValue.textContent = rotation + "°";
+
+          // Calcular a excentricidade
+          const c = Math.sqrt(Math.abs(a * a - b * b));
+          const e = a > b ? c / a : c / b;
+
+          pipboyInfo.textContent = `Excentricidade: ${e.toFixed(2)}`;
+
+          // Atualizar posição dos focos se não estiver arrastando
+          if (draggingFocus === null) {
+            const rotationRad = (rotation * Math.PI) / 180;
+            const majorAxis = a > b ? a : b;
+            const minorAxis = a > b ? b : a;
+            const c = Math.sqrt(majorAxis * majorAxis - minorAxis * minorAxis);
+
+            focusPositions[0] = {
+              x: -c * Math.cos(rotationRad),
+              y: -c * Math.sin(rotationRad),
+            };
+
+            focusPositions[1] = {
+              x: c * Math.cos(rotationRad),
+              y: c * Math.sin(rotationRad),
+            };
+          }
+
+          // Limpar o canvas
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+          // Definir a origem no centro do canvas
+          const originX = canvas.width / 2;
+          const originY = canvas.height / 2;
+
+          // Desenhar grid
+          drawGrid(ctx, originX, originY, canvas.width, canvas.height);
+
+          // Desenhar a elipse
+          ctx.save();
+          ctx.translate(originX, originY);
+          ctx.rotate((rotation * Math.PI) / 180);
+
+          ctx.beginPath();
+          ctx.strokeStyle = "#ADFF2F";
+          ctx.lineWidth = 2;
+          ctx.ellipse(0, 0, a, b, 0, 0, Math.PI * 2);
+          ctx.stroke();
+
+          // Desenhar eixos
+          ctx.beginPath();
+          ctx.setLineDash([5, 5]);
+          ctx.strokeStyle = "#FFD700";
+          ctx.moveTo(-a, 0);
+          ctx.lineTo(a, 0);
+          ctx.moveTo(0, -b);
+          ctx.lineTo(0, b);
+          ctx.stroke();
+          ctx.setLineDash([]);
+
+          ctx.restore(); // Restaurar a transformação
+
+          // Desenhar focos
+          for (let i = 0; i < 2; i++) {
+            const focusX = focusPositions[i].x + originX;
+            const focusY = focusPositions[i].y + originY;
+
+            ctx.beginPath();
+            ctx.arc(focusX, focusY, 6, 0, Math.PI * 2);
+            ctx.fillStyle = "#FF6347";
+            ctx.fill();
+            ctx.stroke();
+
+            // Rótulo do foco
+            ctx.fillStyle = "#FFFFFF";
+            ctx.font = "14px monospace";
+            ctx.fillText(`F${i + 1}`, focusX + 10, focusY);
+          }
+
+          // Mostrar valores calculados
+          ctx.fillStyle = "#ADFF2F";
+          ctx.font = "12px monospace";
+          ctx.fillText(`Semi-eixo maior: ${Math.max(a, b)}`, 10, 20);
+          ctx.fillText(`Semi-eixo menor: ${Math.min(a, b)}`, 10, 40);
+          ctx.fillText(`Excentricidade: ${e.toFixed(2)}`, 10, 60);
+
+          // Desenhar linha mostrando a propriedade da soma constante
+          if (draggingFocus !== null) {
+            const point = {
+              x: canvas.width * 0.75 - originX,
+              y: -50,
+            };
+
+            const pointX = point.x + originX;
+            const pointY = point.y + originY;
+
+            // Desenhar o ponto P
+            ctx.beginPath();
+            ctx.arc(pointX, pointY, 4, 0, Math.PI * 2);
+            ctx.fillStyle = "#FFFFFF";
+            ctx.fill();
+            ctx.fillText("P", pointX + 8, pointY);
+
+            // Desenhar linhas até os focos
+            ctx.beginPath();
+            ctx.strokeStyle = "rgba(255, 255, 255, 0.5)";
+            ctx.setLineDash([2, 2]);
+
+            const focus1X = focusPositions[0].x + originX;
+            const focus1Y = focusPositions[0].y + originY;
+            const focus2X = focusPositions[1].x + originX;
+            const focus2Y = focusPositions[1].y + originY;
+
+            ctx.moveTo(pointX, pointY);
+            ctx.lineTo(focus1X, focus1Y);
+            ctx.moveTo(pointX, pointY);
+            ctx.lineTo(focus2X, focus2Y);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Calcular distâncias
+            const d1 = Math.sqrt(
+              (pointX - focus1X) * (pointX - focus1X) +
+                (pointY - focus1Y) * (pointY - focus1Y),
+            );
+            const d2 = Math.sqrt(
+              (pointX - focus2X) * (pointX - focus2X) +
+                (pointY - focus2Y) * (pointY - focus2Y),
+            );
+
+            // Mostrar a soma
+            ctx.fillStyle = "#FFFFFF";
+            ctx.fillText(
+              `d1 + d2 = ${d1.toFixed(1)} + ${d2.toFixed(1)} = ${(d1 + d2).toFixed(1)}`,
+              pointX - 100,
+              pointY + 20,
+            );
+          }
+        }
+
+        // Adicionar event listeners aos sliders
+        aSlider.addEventListener("input", updateEllipse);
+        bSlider.addEventListener("input", updateEllipse);
+        rotationSlider.addEventListener("input", updateEllipse);
+
+        // Inicializar a visualização
+        updateEllipse();
+      }
+
+      // Função para configurar a visualização de hipérbole
+      function setupHyperbolaSimulator() {
+        const canvasContainer = document.getElementById("hyperbola-canvas");
+        if (!canvasContainer) return;
+
+        // Criar o elemento canvas
+        const canvas = document.createElement("canvas");
+        canvas.width = 600;
+        canvas.height = 400;
+        canvas.style.position = "absolute";
+        canvas.style.top = "0";
+        canvas.style.left = "0";
+        canvasContainer.appendChild(canvas);
+
+        const ctx = canvas.getContext("2d");
+
+        // Referências aos sliders e displays
+        const aSlider = document.getElementById("a-hyper-slider");
+        const bSlider = document.getElementById("b-hyper-slider");
+        const orientationSlider = document.getElementById("orientation-slider");
+        const aValue = document.getElementById("a-hyper-value");
+        const bValue = document.getElementById("b-hyper-value");
+        const orientationValue = document.getElementById("orientation-value");
+        const pipboyInfo = canvasContainer.querySelector(".pipboy-info");
+
+        // Remover dica após 5 segundos
+        setTimeout(() => {
+          const hint = canvasContainer.querySelector(".interaction-hint");
+          if (hint) hint.style.opacity = "0";
+        }, 5000);
+
+        // Função para atualizar a visualização da hipérbole
+        function updateHyperbola() {
+          const a = parseInt(aSlider.value);
+          const b = parseInt(bSlider.value);
+          const orientation = parseInt(orientationSlider.value);
+
+          aValue.textContent = a.toFixed(0);
+          bValue.textContent = b.toFixed(0);
+          orientationValue.textContent = orientation === 0 ? "x/y" : "y/x";
+
+          // Atualizar equação no display do Pip-Boy
+          if (orientation === 0) {
+            pipboyInfo.textContent = `x²/${a}² - y²/${b}² = 1`;
+          } else {
+            pipboyInfo.textContent = `y²/${a}² - x²/${b}² = 1`;
+          }
+
+          // Limpar o canvas
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+          // Definir a origem no centro do canvas
+          const originX = canvas.width / 2;
+          const originY = canvas.height / 2;
+
+          // Desenhar grid
+          drawGrid(ctx, originX, originY, canvas.width, canvas.height);
+
+          // Calcular c
+          const c = Math.sqrt(a * a + b * b);
+
+          // Desenhar hipérbole
+          ctx.strokeStyle = "#ADFF2F";
+          ctx.lineWidth = 2;
+
+          if (orientation === 0) {
+            // Hipérbole horizontal (x²/a² - y²/b² = 1)
+            // Desenhar ramo direito
+            drawHyperbolaBranch(ctx, a, b, 1, originX, originY, false);
+
+            // Desenhar ramo esquerdo
+            drawHyperbolaBranch(ctx, a, b, -1, originX, originY, false);
+
+            // Desenhar focos
+            drawFocus(ctx, c, 0, originX, originY, "F₁");
+            drawFocus(ctx, -c, 0, originX, originY, "F₂");
+
+            // Desenhar assíntotas
+            ctx.beginPath();
+            ctx.setLineDash([5, 5]);
+            ctx.strokeStyle = "#FFD700";
+
+            // Assíntota: y = (b/a)x
+            ctx.moveTo(0, originY + (b / a) * -originX);
+            ctx.lineTo(
+              canvas.width,
+              originY + (b / a) * (canvas.width - originX),
+            );
+
+            // Assíntota: y = -(b/a)x
+            ctx.moveTo(0, originY - (b / a) * -originX);
+            ctx.lineTo(
+              canvas.width,
+              originY - (b / a) * (canvas.width - originX),
+            );
+
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Adicionar rótulos das assíntotas
+            ctx.fillStyle = "#FFD700";
+            ctx.font = "12px monospace";
+            ctx.fillText(
+              `y = ${(b / a).toFixed(2)}x`,
+              canvas.width - 100,
+              originY + (b / a) * (canvas.width / 2 - originX) - 10,
+            );
+            ctx.fillText(
+              `y = -${(b / a).toFixed(2)}x`,
+              canvas.width - 100,
+              originY - (b / a) * (canvas.width / 2 - originX) + 20,
+            );
+          } else {
+            // Hipérbole vertical (y²/a² - x²/b² = 1)
+            // Desenhar ramo superior
+            drawHyperbolaBranch(ctx, a, b, 1, originX, originY, true);
+
+            // Desenhar ramo inferior
+            drawHyperbolaBranch(ctx, a, b, -1, originX, originY, true);
+
+            // Desenhar focos
+            drawFocus(ctx, 0, c, originX, originY, "F₁");
+            drawFocus(ctx, 0, -c, originX, originY, "F₂");
+
+            // Desenhar assíntotas
+            ctx.beginPath();
+            ctx.setLineDash([5, 5]);
+            ctx.strokeStyle = "#FFD700";
+
+            // Assíntota: y = (a/b)x
+            ctx.moveTo(originX + -originY / (a / b), 0);
+            ctx.lineTo(
+              originX + (canvas.height - originY) / (a / b),
+              canvas.height,
+            );
+
+            // Assíntota: y = -(a/b)x
+            ctx.moveTo(originX - -originY / (a / b), 0);
+            ctx.lineTo(
+              originX - (canvas.height - originY) / (a / b),
+              canvas.height,
+            );
+
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Adicionar rótulos das assíntotas
+            ctx.fillStyle = "#FFD700";
+            ctx.font = "12px monospace";
+            ctx.fillText(
+              `x = ${(a / b).toFixed(2)}y`,
+              originX + canvas.height / 3 / (a / b) + 5,
+              canvas.height / 3,
+            );
+            ctx.fillText(
+              `x = -${(a / b).toFixed(2)}y`,
+              originX - canvas.height / 3 / (a / b) - 80,
+              canvas.height / 3,
+            );
+          }
+
+          // Mostrar valores calculados
+          ctx.fillStyle = "#ADFF2F";
+          ctx.font = "12px monospace";
+          ctx.fillText(`a = ${a}`, 10, 20);
+          ctx.fillText(`b = ${b}`, 10, 40);
+          ctx.fillText(`c = ${c.toFixed(2)}`, 10, 60);
+          ctx.fillText(`Excentricidade = ${(c / a).toFixed(2)}`, 10, 80);
+        }
+
+        // Função para desenhar um ramo da hipérbole
+        function drawHyperbolaBranch(
+          ctx,
+          a,
+          b,
+          sign,
+          originX,
+          originY,
+          isVertical,
+        ) {
+          ctx.beginPath();
+
+          if (!isVertical) {
+            // Hipérbole horizontal (x²/a² - y²/b² = 1)
+            const startX = sign * a;
+            const step = 0.5;
+
+            for (let x = startX; Math.abs(x) < canvas.width; x += sign * step) {
+              const term = (x * x) / (a * a) - 1;
+
+              // Garantir que estamos calculando um valor válido
+              if (term < 0) continue;
+
+              const y = b * Math.sqrt(term);
+
+              // Desenhar os dois lados do ramo (acima e abaixo do eixo x)
+              const pixelX = originX + x;
+              const pixelY1 = originY - y;
+              const pixelY2 = originY + y;
+
+              if (x === startX) {
+                ctx.moveTo(pixelX, pixelY1);
+              } else {
+                ctx.lineTo(pixelX, pixelY1);
+              }
+
+              // Armazenar o último ponto válido para conectar ao segundo lado
+              const lastValidX = pixelX;
+              const lastValidY = pixelY1;
+            }
+
+            ctx.stroke();
+
+            // Desenhar o segundo lado do ramo (abaixo do eixo x)
+            ctx.beginPath();
+
+            for (let x = startX; Math.abs(x) < canvas.width; x += sign * step) {
+              const term = (x * x) / (a * a) - 1;
+
+              // Garantir que estamos calculando um valor válido
+              if (term < 0) continue;
+
+              const y = b * Math.sqrt(term);
+
+              const pixelX = originX + x;
+              const pixelY = originY + y;
+
+              if (x === startX) {
+                ctx.moveTo(pixelX, pixelY);
+              } else {
+                ctx.lineTo(pixelX, pixelY);
+              }
+            }
+          } else {
+            // Hipérbole vertical (y²/a² - x²/b² = 1)
+            const startY = sign * a;
+            const step = 0.5;
+
+            for (
+              let y = startY;
+              Math.abs(y) < canvas.height;
+              y += sign * step
+            ) {
+              const term = (y * y) / (a * a) - 1;
+
+              // Garantir que estamos calculando um valor válido
+              if (term < 0) continue;
+
+              const x = b * Math.sqrt(term);
+
+              // Desenhar os dois lados do ramo (à esquerda e à direita do eixo y)
+              const pixelY = originY - y;
+              const pixelX1 = originX + x;
+              const pixelX2 = originX - x;
+
+              if (y === startY) {
+                ctx.moveTo(pixelX1, pixelY);
+              } else {
+                ctx.lineTo(pixelX1, pixelY);
+              }
+            }
+
+            ctx.stroke();
+
+            // Desenhar o segundo lado do ramo (à esquerda do eixo y)
+            ctx.beginPath();
+
+            for (
+              let y = startY;
+              Math.abs(y) < canvas.height;
+              y += sign * step
+            ) {
+              const term = (y * y) / (a * a) - 1;
+
+              // Garantir que estamos calculando um valor válido
+              if (term < 0) continue;
+
+              const x = b * Math.sqrt(term);
+
+              const pixelY = originY - y;
+              const pixelX = originX - x;
+
+              if (y === startY) {
+                ctx.moveTo(pixelX, pixelY);
+              } else {
+                ctx.lineTo(pixelX, pixelY);
+              }
+            }
+          }
+
+          ctx.stroke();
+        }
+
+        // Função para desenhar um foco
+        function drawFocus(ctx, x, y, originX, originY, label) {
+          const pixelX = originX + x;
+          const pixelY = originY - y;
+
+          ctx.beginPath();
+          ctx.arc(pixelX, pixelY, 6, 0, Math.PI * 2);
+          ctx.fillStyle = "#FF6347";
+          ctx.fill();
+          ctx.strokeStyle = "#000";
+          ctx.stroke();
+
+          // Rótulo do foco
+          ctx.fillStyle = "#FFFFFF";
+          ctx.font = "14px monospace";
+          ctx.fillText(label, pixelX + 10, pixelY);
+        }
+
+        // Adicionar event listeners aos sliders
+        aSlider.addEventListener("input", updateHyperbola);
+        bSlider.addEventListener("input", updateHyperbola);
+        orientationSlider.addEventListener("input", updateHyperbola);
+
+        // Inicializar a visualização
+        updateHyperbola();
+      }
+
+      // Função auxiliar para desenhar o grid
+      function drawGrid(ctx, originX, originY, width, height) {
+        const gridSize = 20;
+
+        // Desenhar linhas de grade mais claras
+        ctx.strokeStyle = "rgba(50, 50, 50, 0.5)";
+        ctx.lineWidth = 0.5;
+
+        // Linhas verticais
+        for (let x = 0; x <= width; x += gridSize) {
+          ctx.beginPath();
+          ctx.moveTo(x, 0);
+          ctx.lineTo(x, height);
+          ctx.stroke();
+        }
+
+        // Linhas horizontais
+        for (let y = 0; y <= height; y += gridSize) {
+          ctx.beginPath();
+          ctx.moveTo(0, y);
+          ctx.lineTo(width, y);
+          ctx.stroke();
+        }
+
+        // Desenhar eixos principais
+        ctx.strokeStyle = "rgba(255, 255, 255, 0.8)";
+        ctx.lineWidth = 1;
+
+        // Eixo X
+        ctx.beginPath();
+        ctx.moveTo(0, originY);
+        ctx.lineTo(width, originY);
+        ctx.stroke();
+
+        // Eixo Y
+        ctx.beginPath();
+        ctx.moveTo(originX, 0);
+        ctx.lineTo(originX, height);
+        ctx.stroke();
+
+        // Adicionar marcações nos eixos
+        ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
+        ctx.font = "10px monospace";
+
+        // Marcações no eixo X
+        for (let x = gridSize; x <= width / 2; x += gridSize) {
+          // Lado positivo
+          ctx.beginPath();
+          ctx.moveTo(originX + x, originY - 3);
+          ctx.lineTo(originX + x, originY + 3);
+          ctx.stroke();
+
+          if (x % (gridSize * 5) === 0) {
+            ctx.fillText(
+              (x / gridSize).toString(),
+              originX + x - 3,
+              originY + 15,
+            );
+          }
+
+          // Lado negativo
+          ctx.beginPath();
+          ctx.moveTo(originX - x, originY - 3);
+          ctx.lineTo(originX - x, originY + 3);
+          ctx.stroke();
+
+          if (x % (gridSize * 5) === 0) {
+            ctx.fillText(
+              (-x / gridSize).toString(),
+              originX - x - 5,
+              originY + 15,
+            );
+          }
+        }
+
+        // Marcações no eixo Y
+        for (let y = gridSize; y <= height / 2; y += gridSize) {
+          // Lado positivo (para baixo no canvas, mas para cima no sistema de coordenadas)
+          ctx.beginPath();
+          ctx.moveTo(originX - 3, originY + y);
+          ctx.lineTo(originX + 3, originY + y);
+          ctx.stroke();
+
+          if (y % (gridSize * 5) === 0) {
+            ctx.fillText(
+              (-y / gridSize).toString(),
+              originX + 8,
+              originY + y + 3,
+            );
+          }
+
+          // Lado negativo (para cima no canvas, mas para baixo no sistema de coordenadas)
+          ctx.beginPath();
+          ctx.moveTo(originX - 3, originY - y);
+          ctx.lineTo(originX + 3, originY - y);
+          ctx.stroke();
+
+          if (y % (gridSize * 5) === 0) {
+            ctx.fillText(
+              (y / gridSize).toString(),
+              originX + 8,
+              originY - y + 3,
+            );
+          }
+        }
+
+        // Marcar a origem
+        ctx.beginPath();
+        ctx.arc(originX, originY, 3, 0, Math.PI * 2);
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fill();
+        ctx.fillText("0", originX + 5, originY + 15);
+      }
+
+      // Inicializar visualizações quando o conteúdo for carregado
+      document.addEventListener("DOMContentLoaded", function () {
+        setupParabolaSimulator();
+        setupEllipseSimulator();
+        setupHyperbolaSimulator();
       });
     </script>
-
-    <!-- Como utilizar este modelo:
-      1. Cada "<section>" dentro de <div class="slides"> representa um slide horizontal.
-      2. Para criar slides verticais (subseções), aninhe <section> dentro de outro <section>.
-      3. Insira fórmulas LaTeX usando MathJax com a sintaxe \( ... \) ou \[ ... \].
-      4. Customize o tema (black.css) trocando o import no <head> ou usando outro tema.
-      5. Edite o CSS interno para atender à estética pós-apocalíptica.
-      6. Adicione novos slides conforme necessário para cada parte do curso.
-      7. Para ver as notas, pressione 's' durante a apresentação (necessário plugin notes).
-      8. Você pode inserir emojis (ex: ☢️, ⚠️, 🏜️) para reforçar a temática, mas use-os de forma pontual para não poluir os slides.
-    -->
-
   </body>
 </html>
-
