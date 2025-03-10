@@ -3,6 +3,24 @@ Bem-vindo ao repositório do curso "Geometria Analítica: Sobrevivência Geomét
 
 # Índice de Conteúdo
 
+## [Capítulo 0 - Preparação para a Wasteland](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-0.html)
+
+1. Introdução ao cenário pós-apocalíptico
+
+2. Sistema S.P.E.C.I.A.L. matemático
+
+3. Propriedades algébricas fundamentais
+
+4. Operações com frações e proporções
+
+5. Equações lineares e sistemas
+
+6. Geometria básica: ângulos e triângulos
+
+7. Trigonometria fundamental
+
+8. Revisão
+
 ## [Capítulo I - O Espaço Vetorial R²](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-i.html)
 1. [O conjunto R²](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-i-o-espaco-vetorial-r2/1-conjunto-r2.html)
 2. [Igualdade e operações com pares ordenados](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-i-o-espaco-vetorial-r2/2-igualdade-e-operacoes-com-pares-ordenados.html)
