@@ -602,78 +602,597 @@
           </section>
 
           <!-- Slide sobre propriedades distributivas -->
+          <!-- Slide 1: Forma Básica -->
           <section>
             <h3>Propriedade Distributiva: Tática de Desmontagem</h3>
-            <p>Como desarmar expressões complexas em componentes simples.</p>
+            <p>
+              Decomponha expressões complexas como desmontaria armadilhas na
+              wasteland.
+            </p>
 
-            <div class="flex-container">
-              <div class="concept-box">
-                <h3>Forma Básica</h3>
-                <p class="formula">a(b + c) = ab + ac</p>
-                <svg width="180" height="80" viewBox="0 0 180 80">
+            <div class="formula-container">
+              <p class="formula">\( a(b + c) = ab + ac \)</p>
+            </div>
+
+            <div class="visual-container">
+              <svg width="550" height="220" viewBox="0 0 550 220">
+                <!-- Lado esquerdo: a(b+c) -->
+                <g transform="translate(20,10)">
+                  <!-- Título -->
+                  <text
+                    x="100"
+                    y="30"
+                    fill="#FFD700"
+                    font-size="20"
+                    text-anchor="middle"
+                  >
+                    a(b + c)
+                  </text>
+
+                  <!-- Retângulo representando a(b+c) -->
                   <rect
-                    x="20"
-                    y="20"
+                    x="30"
+                    y="50"
                     width="140"
-                    height="40"
+                    height="120"
                     fill="none"
                     stroke="#33ff33"
+                    stroke-width="3"
+                  />
+
+                  <!-- Divisão entre b e c -->
+                  <line
+                    x1="100"
+                    y1="50"
+                    x2="100"
+                    y2="170"
+                    stroke="#33ff33"
+                    stroke-width="2"
+                    stroke-dasharray="5,5"
+                  />
+
+                  <!-- Barra horizontal com tics para b+c -->
+                  <line
+                    x1="30"
+                    y1="190"
+                    x2="170"
+                    y2="190"
+                    stroke="#FFD700"
                     stroke-width="2"
                   />
                   <line
-                    x1="80"
-                    y1="20"
-                    x2="80"
-                    y2="60"
-                    stroke="#33ff33"
+                    x1="30"
+                    y1="185"
+                    x2="30"
+                    y2="195"
+                    stroke="#FFD700"
                     stroke-width="2"
                   />
-                  <text x="45" y="45" fill="#33ff33" font-size="16">b</text>
-                  <text x="105" y="45" fill="#33ff33" font-size="16">c</text>
-                  <text x="5" y="45" fill="#33ff33" font-size="16">a</text>
-                  <text x="170" y="45" fill="#33ff33" font-size="16">×</text>
-                </svg>
-                <p class="formula">3(x + 2) = 3x + 6</p>
-              </div>
-              <div class="concept-box">
-                <h3>Aplicação Avançada</h3>
-                <p class="formula">(a + b)(c + d) = ac + ad + bc + bd</p>
-                <svg width="180" height="80" viewBox="0 0 180 80">
+                  <line
+                    x1="100"
+                    y1="185"
+                    x2="100"
+                    y2="195"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="170"
+                    y1="185"
+                    x2="170"
+                    y2="195"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <text
+                    x="65"
+                    y="210"
+                    fill="#FFD700"
+                    font-size="18"
+                    text-anchor="middle"
+                  >
+                    b
+                  </text>
+                  <text
+                    x="135"
+                    y="210"
+                    fill="#FFD700"
+                    font-size="18"
+                    text-anchor="middle"
+                  >
+                    c
+                  </text>
+
+                  <!-- Barra vertical para a -->
+                  <line
+                    x1="10"
+                    y1="50"
+                    x2="10"
+                    y2="170"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="5"
+                    y1="50"
+                    x2="15"
+                    y2="50"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="5"
+                    y1="170"
+                    x2="15"
+                    y2="170"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <text
+                    x="10"
+                    y="110"
+                    fill="#FFD700"
+                    font-size="18"
+                    text-anchor="middle"
+                    transform="rotate(-90,10,110)"
+                  >
+                    a
+                  </text>
+                </g>
+
+                <!-- Sinal de igual -->
+                <text
+                  x="275"
+                  y="120"
+                  fill="#FFD700"
+                  font-size="32"
+                  text-anchor="middle"
+                >
+                  =
+                </text>
+
+                <!-- Lado direito: ab + ac -->
+                <g transform="translate(300,10)">
+                  <!-- Título -->
+                  <text
+                    x="100"
+                    y="30"
+                    fill="#FFD700"
+                    font-size="20"
+                    text-anchor="middle"
+                  >
+                    ab + ac
+                  </text>
+
+                  <!-- Primeiro retângulo (ab) -->
                   <rect
-                    x="20"
-                    y="20"
-                    width="140"
-                    height="40"
-                    fill="none"
+                    x="30"
+                    y="50"
+                    width="70"
+                    height="120"
+                    fill="rgba(51, 255, 51, 0.3)"
                     stroke="#33ff33"
+                    stroke-width="3"
+                  />
+                  <text
+                    x="65"
+                    y="110"
+                    fill="#33ff33"
+                    font-size="24"
+                    text-anchor="middle"
+                  >
+                    ab
+                  </text>
+
+                  <!-- Segundo retângulo (ac) -->
+                  <rect
+                    x="130"
+                    y="50"
+                    width="70"
+                    height="120"
+                    fill="rgba(51, 255, 51, 0.3)"
+                    stroke="#33ff33"
+                    stroke-width="3"
+                  />
+                  <text
+                    x="165"
+                    y="110"
+                    fill="#33ff33"
+                    font-size="24"
+                    text-anchor="middle"
+                  >
+                    ac
+                  </text>
+
+                  <!-- Sinal de + -->
+                  <text
+                    x="110"
+                    y="110"
+                    fill="#FFD700"
+                    font-size="24"
+                    text-anchor="middle"
+                  >
+                    +
+                  </text>
+
+                  <!-- Barra horizontal com tics -->
+                  <line
+                    x1="30"
+                    y1="190"
+                    x2="200"
+                    y2="190"
+                    stroke="#FFD700"
                     stroke-width="2"
                   />
                   <line
-                    x1="80"
-                    y1="20"
-                    x2="80"
-                    y2="60"
-                    stroke="#33ff33"
+                    x1="30"
+                    y1="185"
+                    x2="30"
+                    y2="195"
+                    stroke="#FFD700"
                     stroke-width="2"
                   />
                   <line
-                    x1="20"
-                    y1="40"
-                    x2="160"
-                    y2="40"
-                    stroke="#33ff33"
+                    x1="100"
+                    y1="185"
+                    x2="100"
+                    y2="195"
+                    stroke="#FFD700"
                     stroke-width="2"
                   />
-                  <text x="45" y="35" fill="#33ff33" font-size="14">ac</text>
-                  <text x="45" y="55" fill="#33ff33" font-size="14">bc</text>
-                  <text x="105" y="35" fill="#33ff33" font-size="14">ad</text>
-                  <text x="105" y="55" fill="#33ff33" font-size="14">bd</text>
-                </svg>
-                <p class="formula">(x + 3)(x + 2) = x² + 5x + 6</p>
-              </div>
+                  <line
+                    x1="130"
+                    y1="185"
+                    x2="130"
+                    y2="195"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="200"
+                    y1="185"
+                    x2="200"
+                    y2="195"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <text
+                    x="65"
+                    y="210"
+                    fill="#FFD700"
+                    font-size="18"
+                    text-anchor="middle"
+                  >
+                    b
+                  </text>
+                  <text
+                    x="165"
+                    y="210"
+                    fill="#FFD700"
+                    font-size="18"
+                    text-anchor="middle"
+                  >
+                    c
+                  </text>
+
+                  <!-- Barra vertical para a -->
+                  <line
+                    x1="10"
+                    y1="50"
+                    x2="10"
+                    y2="170"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="5"
+                    y1="50"
+                    x2="15"
+                    y2="50"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="5"
+                    y1="170"
+                    x2="15"
+                    y2="170"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <text
+                    x="10"
+                    y="110"
+                    fill="#FFD700"
+                    font-size="18"
+                    text-anchor="middle"
+                    transform="rotate(-90,10,110)"
+                  >
+                    a
+                  </text>
+                </g>
+              </svg>
             </div>
           </section>
 
+          <!-- Slide 2: Aplicação Avançada -->
+          <section>
+            <h3>Propriedade Distributiva: Aplicação Avançada</h3>
+            <p>
+              Enfrentando expressões mais complexas na wasteland matemática.
+            </p>
+
+            <div class="formula-container">
+              <p class="formula">\( (a + b)(c + d) = ac + ad + bc + bd \)</p>
+            </div>
+
+            <div class="visual-container">
+              <svg width="600" height="290" viewBox="0 0 600 260">
+                <g transform="translate(100,30)">
+                  <!-- Título -->
+                  <text
+                    x="200"
+                    y="20"
+                    fill="#FFD700"
+                    font-size="18"
+                    text-anchor="middle"
+                  >
+                    (a + b)(c + d) = ac + ad + bc + bd
+                  </text>
+
+                  <!-- Grade principal -->
+                  <rect
+                    x="50"
+                    y="50"
+                    width="300"
+                    height="150"
+                    fill="none"
+                    stroke="#33ff33"
+                    stroke-width="3"
+                  />
+
+                  <!-- Divisão vertical -->
+                  <line
+                    x1="200"
+                    y1="50"
+                    x2="200"
+                    y2="200"
+                    stroke="#33ff33"
+                    stroke-width="2"
+                  />
+
+                  <!-- Divisão horizontal -->
+                  <line
+                    x1="50"
+                    y1="125"
+                    x2="350"
+                    y2="125"
+                    stroke="#33ff33"
+                    stroke-width="2"
+                  />
+
+                  <!-- Quadrantes com termos -->
+                  <g>
+                    <!-- ac -->
+                    <rect
+                      x="50"
+                      y="50"
+                      width="150"
+                      height="75"
+                      fill="rgba(51, 255, 51, 0.2)"
+                      stroke="#33ff33"
+                      stroke-width="1"
+                    />
+                    <text
+                      x="125"
+                      y="87"
+                      fill="#FFD700"
+                      font-size="24"
+                      text-anchor="middle"
+                    >
+                      ac
+                    </text>
+
+                    <!-- ad -->
+                    <rect
+                      x="200"
+                      y="50"
+                      width="150"
+                      height="75"
+                      fill="rgba(51, 255, 51, 0.2)"
+                      stroke="#33ff33"
+                      stroke-width="1"
+                    />
+                    <text
+                      x="275"
+                      y="87"
+                      fill="#FFD700"
+                      font-size="24"
+                      text-anchor="middle"
+                    >
+                      ad
+                    </text>
+
+                    <!-- bc -->
+                    <rect
+                      x="50"
+                      y="125"
+                      width="150"
+                      height="75"
+                      fill="rgba(51, 255, 51, 0.2)"
+                      stroke="#33ff33"
+                      stroke-width="1"
+                    />
+                    <text
+                      x="125"
+                      y="162"
+                      fill="#FFD700"
+                      font-size="24"
+                      text-anchor="middle"
+                    >
+                      bc
+                    </text>
+
+                    <!-- bd -->
+                    <rect
+                      x="200"
+                      y="125"
+                      width="150"
+                      height="75"
+                      fill="rgba(51, 255, 51, 0.2)"
+                      stroke="#33ff33"
+                      stroke-width="1"
+                    />
+                    <text
+                      x="275"
+                      y="162"
+                      fill="#FFD700"
+                      font-size="24"
+                      text-anchor="middle"
+                    >
+                      bd
+                    </text>
+                  </g>
+
+                  <!-- Barra vertical com tics para (a+b) -->
+                  <line
+                    x1="20"
+                    y1="50"
+                    x2="20"
+                    y2="200"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="15"
+                    y1="50"
+                    x2="25"
+                    y2="50"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="15"
+                    y1="125"
+                    x2="25"
+                    y2="125"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="15"
+                    y1="200"
+                    x2="25"
+                    y2="200"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <text x="35" y="87" fill="#FFD700" font-size="18">a</text>
+                  <text x="35" y="162" fill="#FFD700" font-size="18">b</text>
+
+                  <!-- Barra horizontal com tics para (c+d) -->
+                  <line
+                    x1="50"
+                    y1="220"
+                    x2="350"
+                    y2="220"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="50"
+                    y1="215"
+                    x2="50"
+                    y2="225"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="200"
+                    y1="215"
+                    x2="200"
+                    y2="225"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="350"
+                    y1="215"
+                    x2="350"
+                    y2="225"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <text
+                    x="125"
+                    y="240"
+                    fill="#FFD700"
+                    font-size="18"
+                    text-anchor="middle"
+                  >
+                    c
+                  </text>
+                  <text
+                    x="275"
+                    y="240"
+                    fill="#FFD700"
+                    font-size="18"
+                    text-anchor="middle"
+                  >
+                    d
+                  </text>
+                </g>
+              </svg>
+            </div>
+          </section>
+
+          <!-- Slide 3: Exemplos Práticos -->
+          <section>
+            <h3>Propriedade Distributiva: Exemplos de Sobrevivência</h3>
+            <p>Aplicações práticas para sua jornada na wasteland.</p>
+
+            <div class="examples-container">
+              <div class="example-box forma-basica">
+                <h4>Forma Básica</h4>
+                <div class="example-content">
+                  <p class="formula">
+                    \( 3(x + 2) = 3 \cdot x + 3 \cdot 2 = 3x + 6 \)
+                  </p>
+                </div>
+                <p class="explanation">
+                  Distribua o multiplicador externo (3) para cada termo dentro
+                  dos parênteses.
+                </p>
+              </div>
+
+              <div class="example-box prod-binomios">
+                <h4>Produto de Binômios</h4>
+                <div class="example-content">
+                  <p class="formula">
+                    \( (x + 3)(x + 2) = x \cdot x + x \cdot 2 + 3 \cdot x + 3
+                    \cdot 2 = x^2 + 2x + 3x + 6 =\)
+                  </p>
+                  <p class="formula">\(= x^2 + 5x + 6 \)</p>
+                </div>
+                <p class="explanation">
+                  Multiplique cada termo do primeiro parênteses por cada termo
+                  do segundo. Essencial para calcular áreas em planejamento de
+                  assentamentos.
+                </p>
+              </div>
+            </div>
+
+            <div class="tactical-tip">
+              <p>
+                <strong>DICA TÁTICA:</strong> Quando desmonta uma expressão
+                distributiva, sempre verifique seu trabalho multiplicando cada
+                termo externo por cada termo interno. Contabilize todos os
+                produtos - uma omissão pode ser fatal na wasteland matemática.
+              </p>
+            </div>
+          </section>
+
+          <!-- Slide sobre potências-->
           <section>
             <h3>Propriedades das Potências: Protocolos de Amplificação</h3>
 
@@ -764,7 +1283,6 @@
               complexos.
             </p>
 
-            <div class="flex-container">
               <div class="concept-box">
                 <h3>Quadrado da Soma</h3>
                 <p class="formula">(a + b)² = a² + 2ab + b²</p>
@@ -800,6 +1318,12 @@
                   <text x="85" y="90" fill="#33ff33" font-size="16">b²</text>
                 </svg>
               </div>
+          </section>
+          <section>
+            <h3>Produtos Notáveis: Quadrados de Binômios</h3>
+
+            <div class="flex-container">
+
               <div class="concept-box">
                 <h3>Quadrado da Diferença</h3>
                 <p class="formula">(a - b)² = a² - 2ab + b²</p>
