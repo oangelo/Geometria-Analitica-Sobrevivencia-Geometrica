@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Círculo Trigonométrico Pip-Boy</title>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #33ff33;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 20px;
+            text-shadow: 0 0 5px rgba(51, 255, 51, 0.7);
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #111;
+            border: 3px solid #33ff33;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(51, 255, 51, 0.5);
+        }
+        h1, h2 {
+            color: #FFD700;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+        .pip-boy-screen {
+            background-color: #0a0a0a;
+            border: 2px solid #33ff33;
+            border-radius: 5px;
+            padding: 0;
+            margin: 20px auto;
+            display: block;
+            position: relative;
+            max-width: 100%;
+            height: auto;
+        }
+        .control-panel {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .control-section {
+            flex: 1;
+            min-width: 230px;
+            background-color: #222;
+            border: 1px solid #33ff33;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .slider-container {
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="range"] {
+            width: 100%;
+            background-color: #444;
+            height: 5px;
+            outline: none;
+            -webkit-appearance: none;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 15px;
+            height: 15px;
+            background: #FFD700;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        button {
+            background-color: #222;
+            color: #33ff33;
+            border: 1px solid #33ff33;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            margin: 5px 0;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #33ff33;
+            color: #111;
+        }
+        .formula {
+            color: #ADFF2F;
+            font-weight: bold;
+            text-align: center;
+            margin: 15px 0;
+            font-size: 1.1em;
+        }
+        .quad-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+        .quad-button {
+            flex: 1;
+            min-width: 80px;
+            text-align: center;
+            padding: 5px 2px;
+            margin: 3px;
+            background-color: #333;
+            border: 1px solid #33ff33;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+        .quad-button.active {
+            background-color: #33ff33;
+            color: #111;
+        }
+        .scan-line {
+            position: absolute;
+            height: 2px;
+            background-color: rgba(51, 255, 51, 0.3);
+            top: 0;
+            left: 0;
+            right: 0;
+            animation: scan 4s linear infinite;
+        }
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+        .trig-values {
+            display: flex;
+            justify-content: space-between;
+        }
+        .trig-value {
+            flex: 1;
+            text-align: center;
+            padding: 5px;
+            margin: 5px;
+        }
+        .value-display {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .angle-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .angle-button {
+            background-color: #222;
+            color: #33ff33;
+            border: 1px solid #33ff33;
+            padding: 5px;
+            margin: 3px;
+            flex: 1;
+            min-width: 60px;
+            text-align: center;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8em;
+        }
+        .angle-button:hover {
+            background-color: #33ff33;
+            color: #111;
+        }
+        .radar-blip {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background-color: #ff3333;
+            border-radius: 50%;
+            box-shadow: 0 0 5px #ff0000;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 100;
+        }
+        .radar-sweep {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        .radar-line {
+            position: absolute;
+            width: 2px;
+            height: 50%;
+            background-color: rgba(51, 255, 51, 0.5);
+            top: 50%;
+            left: 50%;
+            transform-origin: top center;
+            animation: sweep 5s linear infinite;
+        }
+        @keyframes sweep {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .mnemonic-box {
+            background-color: #333;
+            border: 1px dashed #FFD700;
+            padding: 10px;
+            margin: 15px 0;
+        }
+        .coordinate-display {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            font-size: 0.8em;
+            color: #33ff33;
+        }
+        .geiger-sound {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 0.8em;
+            opacity: 0.7;
+        }
+        table.trig-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 0.85em;
+        }
+        table.trig-table th, table.trig-table td {
+            border: 1px solid #33ff33;
+            padding: 3px 5px;
+            text-align: center;
+        }
+        table.trig-table th {
+            background-color: #222;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SISTEMA DE NAVEGAÇÃO PIP-BOY</h1>
+        <p>Módulo T.R.I.G. (Tactical Ranging In Ground-operations) - Círculo Trigonométrico de Precisão.</p>
+        
+        <div style="position: relative;">
+            <canvas id="trigCircleCanvas" class="pip-boy-screen" width="760" height="400"></canvas>
+            <div class="scan-line"></div>
+            <div class="coordinate-display" id="coordDisplay">X: 0, Y: 0</div>
+            <div class="geiger-sound" id="geigerSound">*clique*</div>
+            <div class="radar-sweep">
+                <div class="radar-line"></div>
+            </div>
+        </div>
+        
+        <div class="control-panel">
+            <div class="control-section">
+                <h2>Controle de Ângulo</h2>
+                
+                <div class="slider-container">
+                    <label for="angleSlider">Ângulo: <span id="angleValue">0</span>°</label>
+                    <input type="range" id="angleSlider" min="0" max="360" value="0" step="1">
+                </div>
+                
+                <div class="quad-buttons">
+                    <div class="quad-button active" id="quadrant1">Quadrante I</div>
+                    <div class="quad-button" id="quadrant2">Quadrante II</div>
+                    <div class="quad-button" id="quadrant3">Quadrante III</div>
+                    <div class="quad-button" id="quadrant4">Quadrante IV</div>
+                </div>
+                
+                <h3>Ângulos Notáveis</h3>
+                <div class="angle-buttons">
+                    <div class="angle-button" data-angle="0">0°</div>
+                    <div class="angle-button" data-angle="30">30°</div>
+                    <div class="angle-button" data-angle="45">45°</div>
+                    <div class="angle-button" data-angle="60">60°</div>
+                    <div class="angle-button" data-angle="90">90°</div>
+                    <div class="angle-button" data-angle="120">120°</div>
+                    <div class="angle-button" data-angle="135">135°</div>
+                    <div class="angle-button" data-angle="150">150°</div>
+                    <div class="angle-button" data-angle="180">180°</div>
+                    <div class="angle-button" data-angle="270">270°</div>
+                </div>
+                
+                <button id="animateBtn">ROTAÇÃO AUTOMÁTICA</button>
+                <button id="resetBtn">RESETAR ÂNGULO</button>
+            </div>
+            
+            <div class="control-section">
+                <h2>Coordenadas e Valores</h2>
+                
+                <div class="trig-values">
+                    <div class="trig-value">
+                        <div>Seno (y)</div>
+                        <div id="sineValue" class="value-display">0.00</div>
+                    </div>
+                    <div class="trig-value">
+                        <div>Cosseno (x)</div>
+                        <div id="cosineValue" class="value-display">1.00</div>
+                    </div>
+                    <div class="trig-value">
+                        <div>Tangente</div>
+                        <div id="tangentValue" class="value-display">0.00</div>
+                    </div>
+                </div>
+                
+                <div class="mnemonic-box">
+                    <p style="text-align: center; margin: 0;">SOH-CAH-TOA</p>
+                    <p style="text-align: center; margin: 5px 0 0 0; font-size: 0.8em;">
+                        Seno = Oposto / Hipotenusa<br>
+                        Cosseno = Adjacente / Hipotenusa<br>
+                        Tangente = Oposto / Adjacente
+                    </p>
+                </div>
+                
+                <table class="trig-table">
+                    <tr>
+                        <th>Ângulo</th>
+                        <th>Seno</th>
+                        <th>Cosseno</th>
+                        <th>Tangente</th>
+                    </tr>
+                    <tr>
+                        <td>0°</td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>30°</td>
+                        <td>0.5</td>
+                        <td>0.866</td>
+                        <td>0.577</td>
+                    </tr>
+                    <tr>
+                        <td>45°</td>
+                        <td>0.707</td>
+                        <td>0.707</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>60°</td>
+                        <td>0.866</td>
+                        <td>0.5</td>
+                        <td>1.732</td>
+                    </tr>
+                    <tr>
+                        <td>90°</td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td>∞</td>
+                    </tr>
+                </table>
+                
+                <div class="formula">
+                    <div>sen²(θ) + cos²(θ) = 1</div>
+                    <div>tan(θ) = sen(θ) / cos(θ)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Canvas e contexto
+            const canvas = document.getElementById('trigCircleCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Elementos de controle
+            const angleSlider = document.getElementById('angleSlider');
+            const angleValue = document.getElementById('angleValue');
+            const sineValue = document.getElementById('sineValue');
+            const cosineValue = document.getElementById('cosineValue');
+            const tangentValue = document.getElementById('tangentValue');
+            const animateBtn = document.getElementById('animateBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const coordDisplay = document.getElementById('coordDisplay');
+            const geigerSound = document.getElementById('geigerSound');
+            
+            // Botões de quadrante
+            const quadrant1 = document.getElementById('quadrant1');
+            const quadrant2 = document.getElementById('quadrant2');
+            const quadrant3 = document.getElementById('quadrant3');
+            const quadrant4 = document.getElementById('quadrant4');
+            
+            // Constantes (agora variáveis para permitir redimensionamento)
+            let CENTER_X = canvas.width / 2;
+            let CENTER_Y = canvas.height / 2;
+            let RADIUS = Math.min(CENTER_X, CENTER_Y) - 50;
+            const POINT_RADIUS = 5;
+            
+            // Estado
+            let currentAngle = 0;
+            let isAnimating = false;
+            let animationId = null;
+            
+            // Inicialização
+            drawScene();
+            
+            // Event listeners
+            angleSlider.addEventListener('input', function() {
+                currentAngle = parseInt(this.value);
+                angleValue.textContent = currentAngle;
+                updateQuadrantButtons();
+                drawScene();
+                updateTrigValues();
+                playGeiger();
+            });
+            
+            // Adicionando evento click diretamente ao canvas para tornar a interação mais intuitiva
+            canvas.addEventListener('click', function(e) {
+                const rect = canvas.getBoundingClientRect();
+                // Calcular coordenadas clicadas relativas ao centro do círculo
+                const x = e.clientX - rect.left - CENTER_X;
+                // CORREÇÃO: Inverter o eixo Y para corresponder ao sistema de coordenadas matemático
+                // onde valores positivos vão para cima
+                const y = -(e.clientY - rect.top - CENTER_Y); 
+                
+                // Calcular ângulo a partir do clique (em graus)
+                let angle = Math.atan2(y, x) * 180 / Math.PI;
+                
+                // Converter para ângulo positivo (0-360)
+                if (angle < 0) {
+                    angle += 360;
+                }
+                
+                // Atualizar ângulo e controles
+                currentAngle = Math.round(angle);
+                angleSlider.value = currentAngle;
+                angleValue.textContent = currentAngle;
+                updateQuadrantButtons();
+                drawScene();
+                updateTrigValues();
+                playGeiger(true);
+            });
+            
+            // Botões de quadrante
+            quadrant1.addEventListener('click', function() {
+                setQuadrant(1); // Primeiro quadrante: 0° a 90°
+            });
+            
+            quadrant2.addEventListener('click', function() {
+                setQuadrant(2); // Segundo quadrante: 90° a 180°
+            });
+            
+            quadrant3.addEventListener('click', function() {
+                setQuadrant(3); // Terceiro quadrante: 180° a 270°
+            });
+            
+            quadrant4.addEventListener('click', function() {
+                setQuadrant(4); // Quarto quadrante: 270° a 360°
+            });
+            
+            // Botões de ângulos notáveis
+            document.querySelectorAll('.angle-button').forEach(function(button) {
+                button.addEventListener('click', function() {
+                    currentAngle = parseInt(this.dataset.angle);
+                    angleSlider.value = currentAngle;
+                    angleValue.textContent = currentAngle;
+                    updateQuadrantButtons();
+                    drawScene();
+                    updateTrigValues();
+                    playGeiger(true);
+                });
+            });
+            
+            // Botão de animação
+            animateBtn.addEventListener('click', function() {
+                isAnimating = !isAnimating;
+                this.textContent = isAnimating ? "PARAR ROTAÇÃO" : "ROTAÇÃO AUTOMÁTICA";
+                
+                if (isAnimating) {
+                    animateCircle();
+                } else {
+                    cancelAnimationFrame(animationId);
+                }
+                
+                playGeiger();
+            });
+            
+            // Botão de reset
+            resetBtn.addEventListener('click', function() {
+                currentAngle = 0;
+                angleSlider.value = 0;
+                angleValue.textContent = 0;
+                updateQuadrantButtons();
+                drawScene();
+                updateTrigValues();
+                playGeiger(true);
+            });
+            
+            // Event listener para interação com o mouse no canvas
+            // Adicionar listener para redimensionamento da janela
+            window.addEventListener('resize', function() {
+                drawScene();
+            });
+            
+            canvas.addEventListener('mousemove', function(e) {
+                const rect = canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left - CENTER_X;
+                const y = -(e.clientY - rect.top - CENTER_Y); // Invertido para sistema de coordenadas matemáticas
+                
+                // Atualizar display de coordenadas
+                coordDisplay.textContent = `X: ${Math.round(x)}, Y: ${Math.round(y)}`;
+            });
+            
+            // Remover função duplicada para evitar conflito
+            // canvas.addEventListener('click', function(e) {
+            //    ...
+            // });
+            
+            // Funções
+            function setQuadrant(quadrant) {
+                // Corrigindo os ângulos para representar fielmente os quadrantes
+                switch(quadrant) {
+                    case 1:
+                        currentAngle = 45;  // Primeiro quadrante: 0° a 90°
+                        break;
+                    case 2:
+                        currentAngle = 135; // Segundo quadrante: 90° a 180°
+                        break;
+                    case 3:
+                        currentAngle = 225; // Terceiro quadrante: 180° a 270°
+                        break;
+                    case 4:
+                        currentAngle = 315; // Quarto quadrante: 270° a 360°
+                        break;
+                }
+                
+                angleSlider.value = currentAngle;
+                angleValue.textContent = currentAngle;
+                
+                // Forçar a atualização do slider para garantir que o valor seja propagado
+                const event = new Event('input');
+                angleSlider.dispatchEvent(event);
+                
+                updateQuadrantButtons();
+                drawScene();
+                updateTrigValues();
+                playGeiger();
+            }
+            
+            function updateQuadrantButtons() {
+                // Remover classe ativa de todos os botões
+                quadrant1.classList.remove('active');
+                quadrant2.classList.remove('active');
+                quadrant3.classList.remove('active');
+                quadrant4.classList.remove('active');
+                
+                // Adicionar classe ativa ao quadrante atual
+                // CORREÇÃO: Ajustando a numeração correta dos quadrantes
+                if (currentAngle >= 0 && currentAngle < 90) {
+                    quadrant1.classList.add('active'); // Quadrante 1: 0° a 90°
+                } else if (currentAngle >= 90 && currentAngle < 180) {
+                    quadrant2.classList.add('active'); // Quadrante 2: 90° a 180°
+                } else if (currentAngle >= 180 && currentAngle < 270) {
+                    quadrant3.classList.add('active'); // Quadrante 3: 180° a 270°
+                } else {
+                    quadrant4.classList.add('active'); // Quadrante 4: 270° a 360°
+                }
+            }
+            
+            function updateTrigValues() {
+                const angleRad = currentAngle * Math.PI / 180;
+                const sin = Math.sin(angleRad);
+                const cos = Math.cos(angleRad);
+                const tan = Math.tan(angleRad);
+                
+                sineValue.textContent = sin.toFixed(3);
+                cosineValue.textContent = cos.toFixed(3);
+                
+                // Lidar com tangente próxima de infinito
+                if (Math.abs(Math.cos(angleRad)) < 0.001) {
+                    tangentValue.textContent = "∞";
+                } else {
+                    tangentValue.textContent = tan.toFixed(3);
+                }
+                
+                // Atualizar cores dos valores baseado em sinal
+                sineValue.style.color = sin >= 0 ? '#33ff33' : '#ff3333';
+                cosineValue.style.color = cos >= 0 ? '#33ff33' : '#ff3333';
+                tangentValue.style.color = tan >= 0 ? '#33ff33' : '#ff3333';
+            }
+            
+            function animateCircle() {
+                currentAngle = (currentAngle + 1) % 360;
+                angleSlider.value = currentAngle;
+                angleValue.textContent = currentAngle;
+                updateQuadrantButtons();
+                drawScene();
+                updateTrigValues();
+                
+                animationId = requestAnimationFrame(animateCircle);
+            }
+            
+            function drawScene() {
+                // Ajustar dimensões do canvas se necessário
+                const container = canvas.parentElement;
+                if (container.clientWidth !== canvas.width) {
+                    const originalWidth = canvas.width;
+                    canvas.width = container.clientWidth - 4; // 4px para compensar a borda
+                    
+                    // Se o canvas for redimensionado, ajustar as constantes
+                    if (canvas.width !== originalWidth) {
+                        // Redefinir as constantes para o novo tamanho
+                        CENTER_X = canvas.width / 2;
+                        CENTER_Y = canvas.height / 2;
+                        RADIUS = Math.min(CENTER_X, CENTER_Y) - 50;
+                    }
+                }
+                
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Desenhar grade de fundo
+                drawGrid();
+                
+                // Desenhar círculo unitário
+                drawUnitCircle();
+                
+                // Desenhar ponto no círculo
+                drawAnglePoint();
+                
+                // Desenhar projeções e valores
+                drawProjections();
+            }
+            
+            function drawGrid() {
+                // Desenhar eixos principais
+                ctx.beginPath();
+                ctx.moveTo(0, CENTER_Y);
+                ctx.lineTo(canvas.width, CENTER_Y);
+                ctx.moveTo(CENTER_X, 0);
+                ctx.lineTo(CENTER_X, canvas.height);
+                ctx.strokeStyle = '#33ff33';
+                ctx.lineWidth = 1;
+                ctx.stroke();
+                
+                // Desenhar grade secundária
+                ctx.beginPath();
+                
+                // Linhas verticais
+                for (let x = CENTER_X % 50; x < canvas.width; x += 50) {
+                    ctx.moveTo(x, 0);
+                    ctx.lineTo(x, canvas.height);
+                }
+                
+                // Linhas horizontais
+                for (let y = CENTER_Y % 50; y < canvas.height; y += 50) {
+                    ctx.moveTo(0, y);
+                    ctx.lineTo(canvas.width, y);
+                }
+                
+                ctx.strokeStyle = 'rgba(51, 255, 51, 0.1)';
+                ctx.stroke();
+                
+                // Rótulos dos eixos
+                ctx.font = '12px "Courier New"';
+                ctx.fillStyle = '#33ff33';
+                ctx.fillText('X (cosseno)', canvas.width - 100, CENTER_Y - 10);
+                ctx.fillText('Y (seno)', CENTER_X + 10, 20);
+                
+                // Marcar 1 e -1 nos eixos
+                const tickSize = 5;
+                
+                // Eixo X
+                ctx.beginPath();
+                // Marca em x = 1
+                ctx.moveTo(CENTER_X + RADIUS, CENTER_Y - tickSize);
+                ctx.lineTo(CENTER_X + RADIUS, CENTER_Y + tickSize);
+                ctx.fillText('1', CENTER_X + RADIUS - 5, CENTER_Y + 20);
+                
+                // Marca em x = -1
+                ctx.moveTo(CENTER_X - RADIUS, CENTER_Y - tickSize);
+                ctx.lineTo(CENTER_X - RADIUS, CENTER_Y + tickSize);
+                ctx.fillText('-1', CENTER_X - RADIUS - 10, CENTER_Y + 20);
+                
+                // Eixo Y
+                // Marca em y = 1
+                ctx.moveTo(CENTER_X - tickSize, CENTER_Y - RADIUS);
+                ctx.lineTo(CENTER_X + tickSize, CENTER_Y - RADIUS);
+                ctx.fillText('1', CENTER_X + 10, CENTER_Y - RADIUS + 5);
+                
+                // Marca em y = -1
+                ctx.moveTo(CENTER_X - tickSize, CENTER_Y + RADIUS);
+                ctx.lineTo(CENTER_X + tickSize, CENTER_Y + RADIUS);
+                ctx.fillText('-1', CENTER_X + 10, CENTER_Y + RADIUS + 5);
+                
+                ctx.strokeStyle = '#33ff33';
+                ctx.lineWidth = 1;
+                ctx.stroke();
+            }
+            
+            function drawUnitCircle() {
+                // Desenhar círculo
+                ctx.beginPath();
+                ctx.arc(CENTER_X, CENTER_Y, RADIUS, 0, 2 * Math.PI);
+                ctx.strokeStyle = '#FFD700';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+                
+                // Desenhar marcações de ângulos notáveis
+                const angles = [0, 30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330];
+                
+                for (const angle of angles) {
+                    const radians = angle * Math.PI / 180;
+                    const x = CENTER_X + (RADIUS + 15) * Math.cos(radians);
+                    const y = CENTER_Y + (RADIUS + 15) * Math.sin(radians);
+                    
+                    ctx.fillStyle = '#ffaa33';
+                    ctx.font = '10px "Courier New"';
+                    ctx.fillText(`${angle}°`, x - 10, y + 5);
+                    
+                    // Marcar no círculo
+                    const markX = CENTER_X + RADIUS * Math.cos(radians);
+                    const markY = CENTER_Y + RADIUS * Math.sin(radians);
+                    
+                    ctx.beginPath();
+                    ctx.arc(markX, markY, 2, 0, 2 * Math.PI);
+                    ctx.fillStyle = '#ffaa33';
+                    ctx.fill();
+                }
+                
+                // Desenhar quadrantes com numeração correta
+                ctx.font = '12px "Courier New"';
+                ctx.fillStyle = '#33ff33';
+                
+                ctx.fillText('Quadrante I (+,+)', CENTER_X + RADIUS/2 - 40, CENTER_Y - RADIUS/2);
+                ctx.fillText('Quadrante II (-,+)', CENTER_X - RADIUS/2 - 80, CENTER_Y - RADIUS/2);
+                ctx.fillText('Quadrante III (-,-)', CENTER_X - RADIUS/2 - 90, CENTER_Y + RADIUS/2);
+                ctx.fillText('Quadrante IV (+,-)', CENTER_X + RADIUS/2 - 40, CENTER_Y + RADIUS/2);
+            }
+            
+            function drawAnglePoint() {
+                const angleRad = currentAngle * Math.PI / 180;
+                
+                // Coordenadas do ponto no círculo
+                // Usando seno e cosseno conforme a convenção matemática padrão:
+                // Ângulo de 0° aponta para direita (1, 0)
+                // Ângulo de 90° aponta para cima (0, 1)
+                // Ângulo de 180° aponta para esquerda (-1, 0)
+                // Ângulo de 270° aponta para baixo (0, -1)
+                const x = CENTER_X + RADIUS * Math.cos(angleRad);
+                // No canvas, o eixo Y é invertido, então invertemos o sinal do seno
+                const y = CENTER_Y - RADIUS * Math.sin(angleRad);
+                
+                // Desenhar ponto
+                ctx.beginPath();
+                ctx.arc(x, y, POINT_RADIUS, 0, 2 * Math.PI);
+                ctx.fillStyle = '#ff3333';
+                ctx.fill();
+                
+                // Desenhar linha do centro até o ponto
+                ctx.beginPath();
+                ctx.moveTo(CENTER_X, CENTER_Y);
+                ctx.lineTo(x, y);
+                ctx.strokeStyle = '#ffaa33';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+                
+                // Desenhar arco do ângulo
+                ctx.beginPath();
+                ctx.arc(CENTER_X, CENTER_Y, RADIUS/4, 0, angleRad, false); // ângulo segue sentido anti-horário
+                ctx.strokeStyle = '#ffaa33';
+                ctx.lineWidth = 1;
+                ctx.stroke();
+                
+                // Texto do ângulo no arco
+                // Calculando um ponto médio no arco para posicionar o texto
+                const arcX = CENTER_X + (RADIUS/4) * Math.cos(angleRad/2);
+                const arcY = CENTER_Y - (RADIUS/4) * Math.sin(angleRad/2); // Invertido para sistema de coordenadas do canvas
+                ctx.font = '12px "Courier New"';
+                ctx.fillStyle = '#ffaa33';
+                ctx.fillText(`${currentAngle}°`, arcX - 15, arcY + 5);
+                
+                // Adicionar "blip" de radar (correção do posicionamento vertical)
+                const radarBlip = document.createElement('div');
+                radarBlip.className = 'radar-blip';
+                const rect = canvas.getBoundingClientRect();
+                const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                radarBlip.style.position = 'absolute';
+                radarBlip.style.left = (rect.left + scrollLeft + x) + 'px';
+                radarBlip.style.top = (rect.top + scrollTop + y) + 'px';
+                document.body.appendChild(radarBlip);
+                
+                // Remover após um curto período
+                setTimeout(() => {
+                    radarBlip.remove();
+                }, 1000);
+            }
+            
+            function drawProjections() {
+                const angleRad = currentAngle * Math.PI / 180;
+                
+                // Coordenadas do ponto no círculo (com Y invertido para o canvas)
+                const x = CENTER_X + RADIUS * Math.cos(angleRad);
+                const y = CENTER_Y - RADIUS * Math.sin(angleRad);
+                
+                // Coordenadas das projeções
+                const projX = x; // Projeção no eixo X (altura = coordenada y do centro)
+                const projY = y; // Projeção no eixo Y (largura = coordenada x do centro)
+                
+                // Desenhar linha pontilhada para projeção no eixo X (mostra COSSENO)
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+                ctx.lineTo(x, CENTER_Y);
+                ctx.setLineDash([5, 5]);
+                ctx.strokeStyle = '#33ff33';
+                ctx.lineWidth = 1;
+                ctx.stroke();
+                ctx.setLineDash([]);
+                
+                // Destacar valor do COSSENO no eixo X
+                ctx.beginPath();
+                ctx.moveTo(CENTER_X, CENTER_Y);
+                ctx.lineTo(x, CENTER_Y);
+                ctx.strokeStyle = '#33ff33';
+                ctx.lineWidth = 3;
+                ctx.stroke();
+                
+                // Texto do cosseno - ajustado para ficar sempre visível
+                ctx.font = '12px "Courier New"';
+                ctx.fillStyle = '#33ff33';
+                const cosText = `cos(${currentAngle}°) = ${Math.cos(angleRad).toFixed(3)}`;
+                const cosX = Math.min(Math.max((CENTER_X + x) / 2 - 60, 10), canvas.width - 150);
+                ctx.fillText(cosText, cosX, CENTER_Y + 20);
+                
+                // Desenhar linha pontilhada para projeção no eixo Y (mostra SENO)
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+                ctx.lineTo(CENTER_X, y);
+                ctx.setLineDash([5, 5]);
+                ctx.strokeStyle = '#ff3333';
+                ctx.lineWidth = 1;
+                ctx.stroke();
+                ctx.setLineDash([]);
+                
+                // Destacar valor do SENO no eixo Y
+                ctx.beginPath();
+                ctx.moveTo(CENTER_X, CENTER_Y);
+                ctx.lineTo(CENTER_X, y);
+                ctx.strokeStyle = '#ff3333';
+                ctx.lineWidth = 3;
+                ctx.stroke();
+                
+                // Texto do seno - ajustado para ficar sempre visível
+                ctx.font = '12px "Courier New"';
+                ctx.fillStyle = '#ff3333';
+                const senText = `sen(${currentAngle}°) = ${Math.sin(angleRad).toFixed(3)}`;
+                const senY = Math.min(Math.max((CENTER_Y + y) / 2, 20), canvas.height - 20);
+                ctx.fillText(senText, Math.min(CENTER_X + 10, canvas.width - 150), senY);
+                
+                // Visualizar a tangente (se o ângulo não for muito próximo de 90° ou 270°)
+                if (Math.abs(Math.cos(angleRad)) > 0.1) {
+                    // A tangente é visualizada como a distância do ponto onde o raio 
+                    // do ângulo cruza a linha x = 1 (para ângulos no primeiro quadrante)
+                    // ou x = -1 (para ângulos no segundo quadrante)
+                    
+                    let tanX, tanY;
+                    if (Math.cos(angleRad) > 0) {
+                        // Primeiro ou quarto quadrante
+                        tanX = CENTER_X + RADIUS;
+                        // Invertendo para o sistema do canvas
+                        tanY = CENTER_Y - RADIUS * Math.tan(angleRad);
+                    } else {
+                        // Segundo ou terceiro quadrante
+                        tanX = CENTER_X - RADIUS;
+                        // Invertendo para o sistema do canvas
+                        tanY = CENTER_Y + RADIUS * Math.tan(angleRad);
+                    }
+                    
+                    // Desenhar linha da tangente (com nova cor de maior contraste)
+                    ctx.beginPath();
+                    ctx.moveTo(tanX, CENTER_Y);
+                    ctx.lineTo(tanX, tanY);
+                    ctx.strokeStyle = '#FF00FF'; // Magenta brilhante para maior contraste
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+                    
+                    // Texto da tangente com a nova cor
+                    ctx.font = '12px "Courier New"';
+                    ctx.fillStyle = '#FF00FF';
+                    const tanText = `tan(${currentAngle}°) = ${Math.tan(angleRad).toFixed(3)}`;
+                    const tanTextX = Math.min(tanX + 10, canvas.width - 150);
+                    const tanTextY = Math.min(Math.max((CENTER_Y + tanY) / 2, 20), canvas.height - 20);
+                    ctx.fillText(tanText, tanTextX, tanTextY);
+                }
+            }
+            
+            function playGeiger(intensive = false) {
+                const clickSound = intensive ? "**CLIQUE* *CLIQUE* *CLIQUE**" : "*clique* *clique*";
+                geigerSound.textContent = clickSound;
+                
+                // Resetar após um curto período
+                setTimeout(() => {
+                    geigerSound.textContent = "*clique*";
+                }, 500);
+            }
+        });
+    </script>
+</body>
+</html>
