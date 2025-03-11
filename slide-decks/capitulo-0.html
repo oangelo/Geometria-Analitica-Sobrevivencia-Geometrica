@@ -4333,1609 +4333,489 @@
           </section>
         </section>
 
-        <!-- NAVEGAÇÃO TÁTICA (TRIGONOMETRIA) -->
-        <section>
-          <!-- Slide principal da seção -->
-          <section>
-            <h2>Navegação Tática</h2>
-            <h3>Sistema T.R.I.G. - Tactical Ranging In Ground-operations</h3>
-            <p>
-              Domine as técnicas de triangulação e medição necessárias para
-              sobreviver em terreno hostil.
-            </p>
+<!-- NAVEGAÇÃO TÁTICA (TRIGONOMETRIA) -->
+<section>
+  <!-- Slide principal da seção - Simplificado -->
+  <section>
+    <h2>Navegação Tática</h2>
+    <h3>Sistema T.R.I.G. - Tactical Ranging In Ground-operations</h3>
+    <p>
+      Domine as técnicas de triangulação e medição necessárias para
+      sobreviver em terreno hostil.
+    </p>
+
+    <svg
+      width="300"
+      height="200"
+      viewBox="0 0 300 200"
+      style="margin: 20px auto; display: block"
+    >
+      <!-- Círculo trigonométrico simplificado -->
+      <circle
+        cx="150"
+        cy="100"
+        r="80"
+        fill="none"
+        stroke="#33ff33"
+        stroke-width="2"
+      />
+      <line
+        x1="150"
+        y1="100"
+        x2="230"
+        y2="100"
+        stroke="#33ff33"
+        stroke-width="2"
+      />
+      <line
+        x1="150"
+        y1="100"
+        x2="150"
+        y2="20"
+        stroke="#33ff33"
+        stroke-width="2"
+      />
+      <line
+        x1="150"
+        y1="100"
+        x2="206"
+        y2="50"
+        stroke="#FFD700"
+        stroke-width="3"
+      />
+      <text x="235" y="100" fill="#33ff33" font-size="15">1</text>
+      <text x="150" y="15" fill="#33ff33" font-size="15">1</text>
+      <text x="185" y="65" fill="#FFD700" font-size="15">r=1</text>
+      <text x="206" y="50" fill="#ff3333" font-size="15">
+        (cos θ, sen θ)
+      </text>
+    </svg>
+  </section>
+
+  <!-- Slide sobre razões trigonométricas - Simplificado -->
+  <section>
+    <h3>Razões Trigonométricas: Calibragem de Mira</h3>
+    <p>As três razões fundamentais para navegação e mira:</p>
+
+    <svg
+      width="350"
+      height="200"
+      viewBox="0 0 350 200"
+      style="margin: 10px auto; display: block"
+    >
+      <polygon
+        points="50,150 200,150 200,50"
+        fill="none"
+        stroke="#33ff33"
+        stroke-width="2"
+      />
+      <text x="115" y="165" fill="#FFD700" font-size="12">
+        Adjacente (x)
+      </text>
+      <text x="205" y="100" fill="#FFD700" font-size="12">
+        Oposto (y)
+      </text>
+      <text x="115" y="90" fill="#FFD700" font-size="12">
+        Hipotenusa (r)
+      </text>
+      
+      <!-- Corrigido: Semicírculo para o ângulo θ -->
+      <path
+        d="M 60,150 A 15,15 0 0,1 72,138"
+        fill="none"
+        stroke="#FFD700"
+        stroke-width="1.5"
+      />
+      <text x="65" y="130" fill="#FFD700" font-size="12">θ</text>
+    </svg>
+
+    <div style="display: flex; justify-content: space-around; margin-top: 10px;">
+      <div style="width: 30%; background-color: rgba(40, 44, 52, 0.7); border: 1px solid #33ff33; padding: 10px; border-radius: 5px;">
+        <p class="formula">sen(θ) = oposto / hipotenusa</p>
+      </div>
+      <div style="width: 30%; background-color: rgba(40, 44, 52, 0.7); border: 1px solid #33ff33; padding: 10px; border-radius: 5px;">
+        <p class="formula">cos(θ) = adjacente / hipotenusa</p>
+      </div>
+      <div style="width: 30%; background-color: rgba(40, 44, 52, 0.7); border: 1px solid #33ff33; padding: 10px; border-radius: 5px;">
+        <p class="formula">tan(θ) = oposto / adjacente</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide com mnemônico SOH-CAH-TOA -->
+  <section>
+    <h3>Mnemônico para Sobrevivência</h3>
+    
+    <div style="width: 80%; margin: 20px auto; background-color: rgba(40, 44, 52, 0.7); border: 1px solid #33ff33; padding: 15px; border-radius: 5px;">
+      <h4 style="color: #FFD700; text-align: center; margin-top: 0;">SOH-CAH-TOA</h4>
+      
+      <div style="display: flex; justify-content: space-around; margin-top: 20px;">
+        <div>
+          <p style="color: #33ff33; text-align: center; font-weight: bold;">SOH</p>
+          <p style="margin: 5px 0; text-align: center;"><strong>S</strong>eno = <strong>O</strong>posto / <strong>H</strong>ipotenusa</p>
+          <p style="margin: 5px 0; font-size: 0.9em; text-align: center;">Para medir altura à distância</p>
+        </div>
+        
+        <div>
+          <p style="color: #33ff33; text-align: center; font-weight: bold;">CAH</p>
+          <p style="margin: 5px 0; text-align: center;"><strong>C</strong>osseno = <strong>A</strong>djacente / <strong>H</strong>ipotenusa</p>
+          <p style="margin: 5px 0; font-size: 0.9em; text-align: center;">Para medir distância horizontal</p>
+        </div>
+        
+        <div>
+          <p style="color: #33ff33; text-align: center; font-weight: bold;">TOA</p>
+          <p style="margin: 5px 0; text-align: center;"><strong>T</strong>angente = <strong>O</strong>posto / <strong>A</strong>djacente</p>
+          <p style="margin: 5px 0; font-size: 0.9em; text-align: center;">Para calcular inclinações</p>
+        </div>
+      </div>
+    </div>
+    
+    <p style="text-align: center; font-style: italic;">
+      "Na wasteland, quem memoriza SOH-CAH-TOA sobrevive para contar a história."
+    </p>
+  </section>
+
+  <!-- Identidades Trigonométricas Fundamentais (Slide 1) -->
+  <section>
+    <h3>Identidades Trigonométricas - Parte 1</h3>
+    <p>
+      Relações universais para navegação precisa em território hostil.
+    </p>
+
+    <div style="width: 80%; margin: 0 auto; background-color: rgba(40, 44, 52, 0.7); border: 1px solid #33ff33; padding: 15px; border-radius: 5px;">
+      <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+        <div style="width: 45%; min-width: 200px; margin: 15px 0">
+          <p class="formula" style=" text-align: center">
+            sen²θ + cos²θ = 1
+          </p>
+          <p style="text-align: center;  color: #aaa">
+            Relação pitagórica fundamental
+          </p>
+        </div>
+        <div style="width: 45%; min-width: 200px; margin: 15px 0">
+          <p class="formula" style=" text-align: center">
+            tanθ = senθ / cosθ
+          </p>
+          <p style="text-align: center;  color: #aaa">
+            Definição da tangente
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Identidades Trigonométricas Fundamentais (Slide 2) -->
+  <section>
+    <h3>Identidades Trigonométricas - Parte 2</h3>
+    <p>
+      Fórmulas essenciais para triangulação avançada.
+    </p>
+
+    <div style="width: 80%; margin: 0 auto; background-color: rgba(40, 44, 52, 0.7); border: 1px solid #33ff33; padding: 15px; border-radius: 5px;">
+      <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+        <div style="width: 45%; min-width: 200px; margin: 15px 0">
+          <p class="formula" style=" text-align: center">
+            secθ = 1 / cosθ
+          </p>
+          <p style="text-align: center;  color: #aaa">
+            Secante (inverso do cosseno)
+          </p>
+        </div>
+        <div style="width: 45%; min-width: 200px; margin: 15px 0">
+          <p class="formula" style=" text-align: center">
+            cscθ = 1 / senθ
+          </p>
+          <p style="text-align: center;  color: #aaa">
+            Cossecante (inverso do seno)
+          </p>
+        </div>
+        <div style="width: 45%; min-width: 200px; margin: 15px 0">
+          <p class="formula" style=" text-align: center">
+            cotθ = 1 / tanθ
+          </p>
+          <p style="text-align: center;  color: #aaa">
+            Cotangente (inverso da tangente)
+          </p>
+        </div>
+        <div style="width: 45%; min-width: 200px; margin: 15px 0">
+          <p class="formula" style=" text-align: center">
+            cotθ = cosθ / senθ
+          </p>
+          <p style="text-align: center; font-size: 0.9em; color: #aaa">
+            Forma alternativa da cotangente
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div style="width: 80%; margin: 15px auto; background-color: rgba(40, 44, 52, 0.7); border: 1px solid #FFD700; padding: 10px; border-radius: 5px;">
+      <p style="text-align: center; margin: 0;">
+        <span style="color: #FFD700;">DICA DE SOBREVIVÊNCIA:</span> Estas relações permitem calcular ângulos e distâncias quando os dados disponíveis são limitados.
+      </p>
+    </div>
+  </section>
+
+  <!-- Identidades de Adição e Subtração (Slide 1) -->
+  <section>
+    <h3>Identidades de Adição e Subtração - Parte 1</h3>
+    <p>Fórmulas para triangulação combinada em terreno complexo.</p>
+
+    <div style="width: 80%; margin: 0 auto; background-color: rgba(40, 44, 52, 0.7); border: 1px solid #33ff33; padding: 15px; border-radius: 5px;">
+      <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+        <div style="width: 100%; margin: 10px 0">
+          <p class="formula" style=" text-align: center">
+            sen(α + β) = senα·cosβ + cosα·senβ
+          </p>
+        </div>
+        <div style="width: 100%; margin: 10px 0">
+          <p class="formula" style=" text-align: center">
+            sen(α - β) = senα·cosβ - cosα·senβ
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div style="width: 80%; margin: 15px auto; background-color: rgba(40, 44, 52, 0.7); border: 1px solid #FFD700; padding: 10px; border-radius: 5px;">
+      <h4 style="margin-top: 0; color: #FFD700; text-align: center;">Aplicação na Wasteland</h4>
+      <p style="text-align: center; margin: 5px 0;">
+        Calcular a posição quando há múltiplos pontos de referência distribuídos em ângulos diferentes.
+      </p>
+    </div>
+  </section>
+
+  <!-- Identidades de Adição e Subtração (Slide 2) -->
+  <section>
+    <h3>Identidades de Adição e Subtração - Parte 2</h3>
+    <p>Fórmulas para triangulação combinada em terreno complexo.</p>
+
+    <div style="width: 80%; margin: 0 auto; background-color: rgba(40, 44, 52, 0.7); border: 1px solid #33ff33; padding: 15px; border-radius: 5px;">
+      <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+        <div style="width: 100%; margin: 10px 0">
+          <p class="formula" style="; text-align: center">
+            cos(α + β) = cosα·cosβ - senα·senβ
+          </p>
+        </div>
+        <div style="width: 100%; margin: 10px 0">
+          <p class="formula" style=" text-align: center">
+            cos(α - β) = cosα·cosβ + senα·senβ
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div style="width: 80%; margin: 15px auto; background-color: rgba(40, 44, 52, 0.7); border: 1px solid #FFD700; padding: 10px; border-radius: 5px;">
+      <h4 style="margin-top: 0; color: #FFD700; text-align: center;">Aplicação na Wasteland</h4>
+      <p style="text-align: center; margin: 5px 0;">
+        Ajuste de rotas quando visibilidade é limitada por radiação ou condições climáticas adversas.
+      </p>
+    </div>
+  </section>
+
+  <!-- Identidades de Adição e Subtração (Slide 3) -->
+  <section>
+    <h3>Identidades de Adição e Subtração - Parte 3</h3>
+    <p>Fórmulas para triangulação combinada em terreno complexo.</p>
+
+    <div style="width: 80%; margin: 0 auto; background-color: rgba(40, 44, 52, 0.7); border: 1px solid #33ff33; padding: 15px; border-radius: 5px;">
+      <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+        <div style="width: 100%; margin: 10px 0">
+          <p class="formula" style=" text-align: center">
+            \(tan(α + β) = \frac{tanα + tanβ}{1 - tanα·tanβ}\)
+          </p>
+        </div>
+        <div style="width: 100%; margin: 10px 0">
+          <p class="formula" style=" text-align: center">
+            \(tan(α - β) = \frac{tanα - tanβ}{1 + tanα·tanβ}\)
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div style="width: 80%; margin: 15px auto; background-color: rgba(40, 44, 52, 0.7); border: 1px solid #FFD700; padding: 10px; border-radius: 5px;">
+      <h4 style="margin-top: 0; color: #FFD700; text-align: center;">Aplicação na Wasteland</h4>
+      <ul style="margin: 5px 0;">
+        <li>Cálculos de triangulação em terrenos acidentados</li>
+        <li>Navegação com múltiplos marcos visuais</li>
+        <li>Mapeamento por etapas em áreas hostis</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Lei dos Senos - Explicação -->
+  <section>
+    <h3>Lei dos Senos: Triangulação à Distância</h3>
+    <p>
+      Relaciona os lados de um triângulo com os senos dos ângulos opostos.
+    </p>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin: 15px 0;">
+      <div style="width: 40%">
+        <svg
+          width="200"
+          height="200"
+          viewBox="0 0 200 200"
+          style="margin: 0 auto; display: block"
+        >
+          <polygon
+            points="30,160 170,160 100,40"
+            fill="rgba(51, 255, 51, 0.1)"
+            stroke="#33ff33"
+            stroke-width="3"
+          />
+          <!-- Lados -->
+          <text x="90" y="175" fill="#FFD700" font-size="16">c</text>
+          <text x="40" y="100" fill="#FFD700" font-size="16">b</text>
+          <text x="130" y="100" fill="#FFD700" font-size="16">a</text>
+          
+          <!-- Corrigidos: Semicírculos para os ângulos -->
+          <path
+            d="M 40,155 A 15,15 0 0,1 55,145"
+            fill="none"
+            stroke="#FFD700"
+            stroke-width="2"
+          />
+          <text x="45" y="135" fill="#FFD700" font-size="16">A</text>
+          
+          <path
+            d="M 160,155 A 15,15 0 0,0 145,145"
+            fill="none"
+            stroke="#FFD700"
+            stroke-width="2"
+          />
+          <text x="145" y="135" fill="#FFD700" font-size="16">B</text>
+          
+          <path
+            d="M 95,50 A 15,15 0 0,0 110,50"
+            fill="none"
+            stroke="#FFD700"
+            stroke-width="2"
+          />
+          <text x="95" y="45" fill="#FFD700" font-size="16">C</text>
+        </svg>
+      </div>
+
+      <div style="width: 55%; background-color: rgba(40, 44, 52, 0.7); border: 1px solid #33ff33; padding: 15px; border-radius: 5px;">
+        <p class="formula" style=" text-align: center; margin-bottom: 20px;">
+          \(\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}\)
+        </p>
+
+        <p>
+          <strong>Princípio:</strong> Em qualquer triângulo, a razão entre o comprimento de um lado e o seno do ângulo oposto é constante.
+        </p>
+
+        <p><strong>Pré-requisitos para uso:</strong></p>
+        <ul>
+          <li>Conhecer pelo menos um lado e dois ângulos, ou</li>
+          <li>Conhecer dois lados e o ângulo oposto a um deles</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Lei dos Cossenos - Explicação -->
+  <section>
+    <h3>Lei dos Cossenos: Cálculo de Distâncias</h3>
+    <p>
+      Relaciona um lado com os outros dois lados e o ângulo entre eles.
+    </p>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin: 15px 0;">
+      <div style="width: 40%">
+        <svg
+          width="200"
+          height="200"
+          viewBox="0 0 200 200"
+          style="margin: 0 auto; display: block"
+        >
+          <polygon
+            points="30,160 170,160 100,40"
+            fill="rgba(51, 255, 51, 0.1)"
+            stroke="#33ff33"
+            stroke-width="3"
+          />
+          <!-- Lados -->
+          <text x="90" y="175" fill="#FFD700" font-size="16">c</text>
+          <text x="40" y="100" fill="#FFD700" font-size="16">b</text>
+          <text x="130" y="100" fill="#FFD700" font-size="16">a</text>
+          
+          <!-- Corrigidos: Semicírculos para os ângulos -->
+          <path
+            d="M 40,155 A 15,15 0 0,1 55,145"
+            fill="none"
+            stroke="#FFD700"
+            stroke-width="2"
+          />
+          <text x="45" y="135" fill="#FFD700" font-size="16">A</text>
+          
+          <path
+            d="M 160,155 A 15,15 0 0,0 145,145"
+            fill="none"
+            stroke="#FFD700"
+            stroke-width="2"
+          />
+          <text x="145" y="135" fill="#FFD700" font-size="16">B</text>
+          
+          <path
+            d="M 95,50 A 15,15 0 0,0 110,50"
+            fill="none"
+            stroke="#FFD700"
+            stroke-width="2"
+          />
+          <text x="95" y="45" fill="#FFD700" font-size="16">C</text>
+        </svg>
+      </div>
+
+      <div style="width: 55%; background-color: rgba(40, 44, 52, 0.7); border: 1px solid #33ff33; padding: 15px; border-radius: 5px;">
+        <div class="formula" style="margin-bottom: 15px">
+          <p style="text-align: center">
+            a² = b² + c² - 2bc·cosA
+          </p>
+          <p style=" text-align: center">
+            b² = a² + c² - 2ac·cosB
+          </p>
+          <p style=" text-align: center">
+            c² = a² + b² - 2ab·cosC
+          </p>
+        </div>
+
+        <p>
+          <strong>Princípio:</strong> Extensão do Teorema de Pitágoras para qualquer triângulo.
+        </p>
+      </div>
+    </div>
+  </section>
+<!-- Lei dos Cossenos - Pré-requisitos -->
+  <section>
+    <h3>Lei dos Cossenos: Pré-requisitos</h3>
+    
+    <div style="width: 80%; margin: 20px auto; background-color: rgba(40, 44, 52, 0.7); border: 1px solid #33ff33; padding: 15px; border-radius: 5px;">
+      <p><strong>Para usar a Lei dos Cossenos, você precisa:</strong></p>
+      <ul>
+        <li>
+          Conhecer dois lados e o ângulo entre eles (para calcular o terceiro lado)
+        </li>
+        <li>
+          OU conhecer os três lados (para calcular qualquer ângulo)
+        </li>
+      </ul>
+      
+      <div class="formula" style="margin: 15px 0; text-align: center;">
+        <p>Para encontrar um ângulo quando conhecemos os três lados:</p>
+        <p>
+          \(cosA = \frac{b^2 + c^2 - a^2}{2bc} \)
+        </p>
+      </div>
+      
+      <p style="font-style: italic; margin-top: 10px; text-align: center;">
+        Esta lei é fundamental para calcular rotas ótimas e realizar triangulações precisas.
+      </p>
+    </div>
+  </section>
+
+</section>
 
-            <svg
-              width="300"
-              height="200"
-              viewBox="0 0 300 200"
-              style="margin: 20px auto; display: block"
-            >
-              <!-- Círculo trigonométrico simplificado -->
-              <circle
-                cx="150"
-                cy="100"
-                r="80"
-                fill="none"
-                stroke="#33ff33"
-                stroke-width="2"
-              />
-              <line
-                x1="150"
-                y1="100"
-                x2="230"
-                y2="100"
-                stroke="#33ff33"
-                stroke-width="2"
-              />
-              <line
-                x1="150"
-                y1="100"
-                x2="150"
-                y2="20"
-                stroke="#33ff33"
-                stroke-width="2"
-              />
-              <line
-                x1="150"
-                y1="100"
-                x2="206"
-                y2="50"
-                stroke="#FFD700"
-                stroke-width="3"
-              />
-              <text x="235" y="100" fill="#33ff33" font-size="15">1</text>
-              <text x="150" y="15" fill="#33ff33" font-size="15">1</text>
-              <text x="185" y="65" fill="#FFD700" font-size="15">r=1</text>
-              <text x="206" y="50" fill="#ff3333" font-size="15">
-                (cos θ, sen θ)
-              </text>
-            </svg>
-
-            <a href="trig-circle.html" class="tool-link">
-              <img
-                src="https://i.imgur.com/JzMWDbQ.png"
-                alt="Pip-Boy Icon"
-                class="tool-icon"
-              />
-              Círculo Trigonométrico Pip-Boy
-            </a>
-          </section>
-
-          <!-- Slide sobre razões trigonométricas -->
-          <section>
-            <h3>Razões Trigonométricas: Calibragem de Mira</h3>
-            <p>As três razões fundamentais para navegação e mira:</p>
-
-            <svg
-              width="350"
-              height="200"
-              viewBox="0 0 350 200"
-              style="margin: 10px auto; display: block"
-            >
-              <polygon
-                points="50,150 200,150 200,50"
-                fill="none"
-                stroke="#33ff33"
-                stroke-width="2"
-              />
-              <text x="115" y="165" fill="#FFD700" font-size="12">
-                Adjacente (x)
-              </text>
-              <text x="205" y="100" fill="#FFD700" font-size="12">
-                Oposto (y)
-              </text>
-              <text x="115" y="90" fill="#FFD700" font-size="12">
-                Hipotenusa (r)
-              </text>
-              <path
-                d="M60,150 A20,20 0 0,1 69,132"
-                stroke="#FFD700"
-                stroke-width="1"
-                fill="none"
-              />
-              <text x="65" y="130" fill="#FFD700" font-size="12">θ</text>
-            </svg>
-
-            <div class="flex-container">
-              <div class="concept-box">
-                <p class="formula">sen(θ) = oposto / hipotenusa</p>
-                <p>Útil para medir altura quando se conhece a distância</p>
-              </div>
-              <div class="concept-box">
-                <p class="formula">cos(θ) = adjacente / hipotenusa</p>
-                <p>Útil para medir distância na linha do horizonte</p>
-              </div>
-              <div class="concept-box">
-                <p class="formula">tan(θ) = oposto / adjacente</p>
-                <p>Útil para medir inclinações e rampas</p>
-              </div>
-            </div>
-
-            <div class="mnemonic-box">
-              <p style="margin: 0">SOH-CAH-TOA</p>
-              <p style="margin: 5px 0 0 0; font-size: 0.8em">
-                <strong>S</strong>eno = <strong>O</strong>posto /
-                <strong>H</strong>ipotenusa<br />
-                <strong>C</strong>osseno = <strong>A</strong>djacente /
-                <strong>H</strong>ipotenusa<br />
-                <strong>T</strong>angente = <strong>O</strong>posto /
-                <strong>A</strong>djacente
-              </p>
-            </div>
-          </section>
-
-          <!-- Identidades trigonométricas fundamentais (Dividido em dois slides) -->
-          <section>
-            <h3>Identidades Trigonométricas Fundamentais</h3>
-            <p>
-              Estas relações são universais e servem como "leis físicas" da
-              trigonometria.
-            </p>
-
-            <div
-              style="
-                background-color: rgba(40, 44, 52, 0.7);
-                border: 1px solid #33ff33;
-                padding: 20px;
-                margin: 15px 0;
-                border-radius: 5px;
-              "
-            >
-              <div
-                style="
-                  display: flex;
-                  justify-content: space-around;
-                  flex-wrap: wrap;
-                "
-              >
-                <div style="width: 45%; min-width: 200px; margin: 15px 0">
-                  <p
-                    class="formula"
-                    style="font-size: 1.3em; text-align: center"
-                  >
-                    sen²θ + cos²θ = 1
-                  </p>
-                  <p style="text-align: center; font-size: 0.9em; color: #aaa">
-                    Relação pitagórica fundamental
-                  </p>
-                </div>
-                <div style="width: 45%; min-width: 200px; margin: 15px 0">
-                  <p
-                    class="formula"
-                    style="font-size: 1.3em; text-align: center"
-                  >
-                    tanθ = senθ / cosθ
-                  </p>
-                  <p style="text-align: center; font-size: 0.9em; color: #aaa">
-                    Definição da tangente
-                  </p>
-                </div>
-                <div style="width: 45%; min-width: 200px; margin: 15px 0">
-                  <p
-                    class="formula"
-                    style="font-size: 1.3em; text-align: center"
-                  >
-                    secθ = 1 / cosθ
-                  </p>
-                  <p style="text-align: center; font-size: 0.9em; color: #aaa">
-                    Secante (inverso do cosseno)
-                  </p>
-                </div>
-                <div style="width: 45%; min-width: 200px; margin: 15px 0">
-                  <p
-                    class="formula"
-                    style="font-size: 1.3em; text-align: center"
-                  >
-                    cscθ = 1 / senθ
-                  </p>
-                  <p style="text-align: center; font-size: 0.9em; color: #aaa">
-                    Cossecante (inverso do seno)
-                  </p>
-                </div>
-                <div style="width: 45%; min-width: 200px; margin: 15px 0">
-                  <p
-                    class="formula"
-                    style="font-size: 1.3em; text-align: center"
-                  >
-                    cotθ = 1 / tanθ
-                  </p>
-                  <p style="text-align: center; font-size: 0.9em; color: #aaa">
-                    Cotangente (inverso da tangente)
-                  </p>
-                </div>
-                <div style="width: 45%; min-width: 200px; margin: 15px 0">
-                  <p
-                    class="formula"
-                    style="font-size: 1.3em; text-align: center"
-                  >
-                    cotθ = cosθ / senθ
-                  </p>
-                  <p style="text-align: center; font-size: 0.9em; color: #aaa">
-                    Forma alternativa da cotangente
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <svg
-              width="160"
-              height="160"
-              viewBox="0 0 160 160"
-              style="margin: 10px auto; display: block"
-            >
-              <circle
-                cx="80"
-                cy="80"
-                r="70"
-                fill="none"
-                stroke="#33ff33"
-                stroke-width="2"
-              />
-              <line
-                x1="80"
-                y1="80"
-                x2="150"
-                y2="80"
-                stroke="#33ff33"
-                stroke-width="2"
-              />
-              <line
-                x1="80"
-                y1="80"
-                x2="80"
-                y2="10"
-                stroke="#33ff33"
-                stroke-width="2"
-              />
-              <line
-                x1="80"
-                y1="80"
-                x2="130"
-                y2="40"
-                stroke="#FFD700"
-                stroke-width="3"
-              />
-              <text x="140" y="70" fill="#FFD700" font-size="12">cos θ</text>
-              <text x="65" y="35" fill="#FFD700" font-size="12">sen θ</text>
-              <text x="110" y="55" fill="#FFD700" font-size="12">1</text>
-              <path
-                d="M80,70 A10,10 0 0,1 87,63"
-                stroke="#FFD700"
-                stroke-width="1"
-                fill="none"
-              />
-              <text x="90" y="70" fill="#FFD700" font-size="12">θ</text>
-            </svg>
-          </section>
-
-          <!-- Slide sobre identidades trigonométricas de adição e subtração -->
-          <section>
-            <h3>Identidades de Adição e Subtração</h3>
-            <p>Fórmulas essenciais para cálculos de triangulação combinada.</p>
-
-            <div
-              style="
-                background-color: rgba(40, 44, 52, 0.7);
-                border: 1px solid #33ff33;
-                padding: 20px;
-                margin: 15px 0;
-                border-radius: 5px;
-              "
-            >
-              <div
-                style="
-                  display: flex;
-                  justify-content: space-around;
-                  flex-wrap: wrap;
-                "
-              >
-                <div style="width: 45%; min-width: 200px; margin: 15px 0">
-                  <p
-                    class="formula"
-                    style="font-size: 1.2em; text-align: center"
-                  >
-                    sen(α + β) = senα·cosβ + cosα·senβ
-                  </p>
-                </div>
-                <div style="width: 45%; min-width: 200px; margin: 15px 0">
-                  <p
-                    class="formula"
-                    style="font-size: 1.2em; text-align: center"
-                  >
-                    sen(α - β) = senα·cosβ - cosα·senβ
-                  </p>
-                </div>
-                <div style="width: 45%; min-width: 200px; margin: 15px 0">
-                  <p
-                    class="formula"
-                    style="font-size: 1.2em; text-align: center"
-                  >
-                    cos(α + β) = cosα·cosβ - senα·senβ
-                  </p>
-                </div>
-                <div style="width: 45%; min-width: 200px; margin: 15px 0">
-                  <p
-                    class="formula"
-                    style="font-size: 1.2em; text-align: center"
-                  >
-                    cos(α - β) = cosα·cosβ + senα·senβ
-                  </p>
-                </div>
-                <div style="width: 45%; min-width: 200px; margin: 15px 0">
-                  <p
-                    class="formula"
-                    style="font-size: 1.2em; text-align: center"
-                  >
-                    tan(α + β) = \frac{tanα + tanβ}{1 - tanα·tanβ}
-                  </p>
-                </div>
-                <div style="width: 45%; min-width: 200px; margin: 15px 0">
-                  <p
-                    class="formula"
-                    style="font-size: 1.2em; text-align: center"
-                  >
-                    tan(α - β) = \frac{tanα - tanβ}{1 + tanα·tanβ}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div
-              style="display: flex; justify-content: center; margin-top: 10px"
-            >
-              <div
-                style="
-                  width: 80%;
-                  background-color: rgba(40, 44, 52, 0.7);
-                  border: 1px solid #33ff33;
-                  padding: 15px;
-                  border-radius: 5px;
-                "
-              >
-                <h4 style="color: #ffd700; margin-top: 0">
-                  Aplicações na Wasteland
-                </h4>
-                <ul>
-                  <li>
-                    Cálculos de triangulação quando há múltiplos pontos de
-                    referência
-                  </li>
-                  <li>Navegação complexa em terrenos acidentados</li>
-                  <li>
-                    Mapeamento por etapas quando visibilidade é limitada por
-                    radiação
-                  </li>
-                  <li>Ajuste de rotas baseado em múltiplos marcos visuais</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          <!-- Lei dos Senos Parte 1: Explicação -->
-          <section>
-            <h3>Lei dos Senos: Triangulação à Distância</h3>
-            <p>
-              Relaciona os lados de um triângulo com os senos dos ângulos
-              opostos.
-            </p>
-
-            <div
-              style="
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin: 15px 0;
-              "
-            >
-              <div style="width: 40%">
-                <svg
-                  width="200"
-                  height="200"
-                  viewBox="0 0 200 200"
-                  style="margin: 0 auto; display: block"
-                >
-                  <polygon
-                    points="30,160 170,160 100,40"
-                    fill="rgba(51, 255, 51, 0.1)"
-                    stroke="#33ff33"
-                    stroke-width="3"
-                  />
-                  <!-- Lados -->
-                  <text x="90" y="175" fill="#FFD700" font-size="16">c</text>
-                  <text x="40" y="100" fill="#FFD700" font-size="16">b</text>
-                  <text x="130" y="100" fill="#FFD700" font-size="16">a</text>
-                  <!-- Ângulos -->
-                  <path
-                    d="M35,155 A15,15 0 0,1 47,145"
-                    stroke="#FFD700"
-                    stroke-width="2"
-                    fill="none"
-                  />
-                  <text x="45" y="135" fill="#FFD700" font-size="16">A</text>
-                  <path
-                    d="M165,155 A15,15 0 0,0 153,145"
-                    stroke="#FFD700"
-                    stroke-width="2"
-                    fill="none"
-                  />
-                  <text x="145" y="135" fill="#FFD700" font-size="16">B</text>
-                  <path
-                    d="M100,50 A15,15 0 0,0 85,50"
-                    stroke="#FFD700"
-                    stroke-width="2"
-                    fill="none"
-                  />
-                  <text x="95" y="45" fill="#FFD700" font-size="16">C</text>
-                </svg>
-              </div>
-
-              <div
-                style="
-                  width: 55%;
-                  background-color: rgba(40, 44, 52, 0.7);
-                  border: 1px solid #33ff33;
-                  padding: 15px;
-                  border-radius: 5px;
-                "
-              >
-                <p
-                  class="formula"
-                  style="
-                    font-size: 1.4em;
-                    text-align: center;
-                    margin-bottom: 20px;
-                  "
-                >
-                  \frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}
-                </p>
-
-                <p>
-                  <strong>Princípio:</strong> Em qualquer triângulo, a razão
-                  entre o comprimento de um lado e o seno do ângulo oposto é
-                  constante.
-                </p>
-
-                <p><strong>Pré-requisitos para uso:</strong></p>
-                <ul>
-                  <li>Conhecer pelo menos um lado e dois ângulos, ou</li>
-                  <li>Conhecer dois lados e o ângulo oposto a um deles</li>
-                </ul>
-
-                <p style="font-style: italic; margin-top: 10px">
-                  Esta lei é crucial para medir distâncias inacessíveis e
-                  calcular ângulos de abordagem seguros.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <!-- Lei dos Senos Parte 2: Aplicação -->
-          <section>
-            <h3>Lei dos Senos: Aplicação Prática</h3>
-            <p>
-              Utilizando esta lei para medir distâncias seguras e calcular rotas
-              eficientes.
-            </p>
-
-            <div
-              style="
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-start;
-                margin: 15px 0;
-              "
-            >
-              <div
-                style="
-                  width: 55%;
-                  background-color: rgba(40, 44, 52, 0.7);
-                  border: 1px solid #33ff33;
-                  padding: 15px;
-                  border-radius: 5px;
-                "
-              >
-                <h4 style="color: #ffd700; margin-top: 0">
-                  Exemplo de Aplicação
-                </h4>
-
-                <p>
-                  <strong>Cenário:</strong> Você precisa calcular a distância
-                  até um posto avançado de Super Mutantes sem se aproximar
-                  demais.
-                </p>
-
-                <ul style="text-align: left">
-                  <li>De um ponto seguro A, você avista o posto (ponto C)</li>
-                  <li>Você se move 200m para um ponto B e mede os ângulos:</li>
-                  <li>Ângulo em A = 45°</li>
-                  <li>Ângulo em B = 60°</li>
-                  <li>Objetivo: Calcular a distância de A até C (lado b)</li>
-                </ul>
-
-                <div class="formula" style="margin: 15px 0">
-                  <p>\frac{b}{\sin B} = \frac{c}{\sin C}</p>
-                  <p>\frac{b}{\sin 60°} = \frac{200}{\sin 75°}</p>
-                  <p>
-                    b = \frac{200 \times \sin 60°}{\sin 75°} = \frac{200 \times
-                    0.866}{0.966} \approx 179\text{ metros}
-                  </p>
-                </div>
-              </div>
-
-              <div style="width: 40%">
-                <svg
-                  width="200"
-                  height="240"
-                  viewBox="0 0 200 240"
-                  style="margin: 0 auto; display: block"
-                >
-                  <!-- Terreno -->
-                  <rect
-                    x="0"
-                    y="170"
-                    width="200"
-                    height="70"
-                    fill="#555"
-                    stroke="none"
-                  />
-                  <path
-                    d="M0,170 Q50,150 100,170 Q150,190 200,170"
-                    fill="#666"
-                    stroke="none"
-                  />
-
-                  <!-- Triângulo -->
-                  <line
-                    x1="30"
-                    y1="150"
-                    x2="170"
-                    y2="150"
-                    stroke="#33ff33"
-                    stroke-width="3"
-                  />
-                  <line
-                    x1="30"
-                    y1="150"
-                    x2="100"
-                    y2="50"
-                    stroke="#33ff33"
-                    stroke-width="3"
-                  />
-                  <line
-                    x1="170"
-                    y1="150"
-                    x2="100"
-                    y2="50"
-                    stroke="#33ff33"
-                    stroke-width="3"
-                  />
-
-                  <!-- Pontos -->
-                  <circle cx="30" cy="150" r="5" fill="#FFD700" />
-                  <circle cx="170" cy="150" r="5" fill="#FFD700" />
-                  <circle cx="100" cy="50" r="5" fill="#ff3333" />
-
-                  <!-- Rótulos -->
-                  <text x="20" y="170" fill="#FFD700" font-size="12">A</text>
-                  <text x="175" y="170" fill="#FFD700" font-size="12">B</text>
-                  <text x="105" y="45" fill="#ff3333" font-size="12">
-                    C (Super Mutantes)
-                  </text>
-                  <text x="90" y="165" fill="#FFD700" font-size="12">
-                    c = 200m
-                  </text>
-                  <text x="50" y="100" fill="#FFD700" font-size="12">
-                    b = ?
-                  </text>
-                  <text x="25" y="135" fill="#FFD700" font-size="10">45°</text>
-                  <text x="165" y="135" fill="#FFD700" font-size="10">60°</text>
-                  <text x="100" y="65" fill="#FFD700" font-size="10">75°</text>
-                </svg>
-              </div>
-            </div>
-
-            <p style="text-align: center; margin-top: 10px">
-              A lei dos senos permite que você calcule distâncias mantendo-se
-              fora do campo de visão de inimigos.
-            </p>
-          </section>
-
-          <!-- Lei dos Cossenos Parte 1: Explicação -->
-          <section>
-            <h3>Lei dos Cossenos: Cálculo de Distâncias</h3>
-            <p>
-              Relaciona um lado de um triângulo com os outros dois lados e o
-              ângulo entre eles.
-            </p>
-
-            <div
-              style="
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin: 15px 0;
-              "
-            >
-              <div style="width: 40%">
-                <svg
-                  width="200"
-                  height="200"
-                  viewBox="0 0 200 200"
-                  style="margin: 0 auto; display: block"
-                >
-                  <polygon
-                    points="30,160 170,160 100,40"
-                    fill="rgba(51, 255, 51, 0.1)"
-                    stroke="#33ff33"
-                    stroke-width="3"
-                  />
-                  <!-- Lados -->
-                  <text x="90" y="175" fill="#FFD700" font-size="16">c</text>
-                  <text x="40" y="100" fill="#FFD700" font-size="16">b</text>
-                  <text x="130" y="100" fill="#FFD700" font-size="16">a</text>
-                  <!-- Ângulos -->
-                  <path
-                    d="M35,155 A15,15 0 0,1 47,145"
-                    stroke="#FFD700"
-                    stroke-width="2"
-                    fill="none"
-                  />
-                  <text x="45" y="135" fill="#FFD700" font-size="16">A</text>
-                  <path
-                    d="M165,155 A15,15 0 0,0 153,145"
-                    stroke="#FFD700"
-                    stroke-width="2"
-                    fill="none"
-                  />
-                  <text x="145" y="135" fill="#FFD700" font-size="16">B</text>
-                  <path
-                    d="M100,50 A15,15 0 0,0 85,50"
-                    stroke="#FFD700"
-                    stroke-width="2"
-                    fill="none"
-                  />
-                  <text x="95" y="45" fill="#FFD700" font-size="16">C</text>
-                </svg>
-              </div>
-
-              <div
-                style="
-                  width: 55%;
-                  background-color: rgba(40, 44, 52, 0.7);
-                  border: 1px solid #33ff33;
-                  padding: 15px;
-                  border-radius: 5px;
-                "
-              >
-                <div class="formula" style="margin-bottom: 15px">
-                  <p style="font-size: 1.2em; text-align: center">
-                    a² = b² + c² - 2bc·cosA
-                  </p>
-                  <p style="font-size: 1.2em; text-align: center">
-                    b² = a² + c² - 2ac·cosB
-                  </p>
-                  <p style="font-size: 1.2em; text-align: center">
-                    c² = a² + b² - 2ab·cosC
-                  </p>
-                </div>
-
-                <p>
-                  <strong>Princípio:</strong> Extensão do Teorema de Pitágoras
-                  para triângulos que não são retângulos.
-                </p>
-
-                <p><strong>Pré-requisitos para uso:</strong></p>
-                <ul>
-                  <li>
-                    Conhecer dois lados e o ângulo entre eles (para calcular o
-                    terceiro lado)
-                  </li>
-                  <li>
-                    Conhecer os três lados (para calcular qualquer ângulo)
-                  </li>
-                </ul>
-
-                <p style="font-style: italic; margin-top: 10px">
-                  Esta lei é fundamental para calcular rotas ótimas e realizar
-                  triangulações precisas.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <!-- Lei dos Cossenos Parte 2: Aplicação -->
-          <section>
-            <h3>Lei dos Cossenos: Aplicação Prática</h3>
-            <p>Calculando rotas de deslocamento e mapeando áreas de risco.</p>
-
-            <div
-              style="
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-start;
-                margin: 15px 0;
-              "
-            >
-              <div
-                style="
-                  width: 55%;
-                  background-color: rgba(40, 44, 52, 0.7);
-                  border: 1px solid #33ff33;
-                  padding: 15px;
-                  border-radius: 5px;
-                "
-              >
-                <h4 style="color: #ffd700; margin-top: 0">
-                  Exemplo de Aplicação
-                </h4>
-
-                <p>
-                  <strong>Cenário:</strong> Calcular a distância direta entre
-                  dois assentamentos quando a rota direta é perigosa.
-                </p>
-
-                <ul style="text-align: left">
-                  <li>Você está em Megaton (ponto A)</li>
-                  <li>Pretende chegar a Rivet City (ponto B)</li>
-                  <li>
-                    Conhece a distância de Megaton até a Torre GNR (ponto C): 8
-                    km
-                  </li>
-                  <li>Conhece a distância da Torre GNR até Rivet City: 6 km</li>
-                  <li>O ângulo medido na Torre GNR é de 60°</li>
-                  <li>Objetivo: Calcular a distância direta de A até B</li>
-                </ul>
-
-                <div class="formula" style="margin: 15px 0">
-                  <p>c² = a² + b² - 2ab·cosC</p>
-                  <p>c² = 8² + 6² - 2·8·6·cos(60°)</p>
-                  <p>c² = 64 + 36 - 96·0.5 = 100 - 48 = 52</p>
-                  <p>c = \sqrt{52} \approx 7.2\text{ km}</p>
-                </div>
-              </div>
-
-              <div style="width: 40%">
-                <svg
-                  width="200"
-                  height="240"
-                  viewBox="0 0 200 240"
-                  style="margin: 0 auto; display: block"
-                >
-                  <!-- Terreno com área perigosa -->
-                  <rect
-                    x="0"
-                    y="170"
-                    width="200"
-                    height="70"
-                    fill="#555"
-                    stroke="none"
-                  />
-                  <ellipse
-                    cx="100"
-                    cy="110"
-                    rx="70"
-                    ry="40"
-                    fill="rgba(255, 50, 50, 0.2)"
-                    stroke="#ff3333"
-                    stroke-width="2"
-                    stroke-dasharray="5,5"
-                  />
-                  <text x="70" y="115" fill="#ff3333" font-size="12">
-                    Zona Radioativa
-                  </text>
-
-                  <!-- Triângulo -->
-                  <line
-                    x1="30"
-                    y1="150"
-                    x2="170"
-                    y2="150"
-                    stroke="#FFD700"
-                    stroke-width="2"
-                    stroke-dasharray="5,5"
-                  />
-                  <line
-                    x1="30"
-                    y1="150"
-                    x2="100"
-                    y2="50"
-                    stroke="#33ff33"
-                    stroke-width="3"
-                  />
-                  <line
-                    x1="170"
-                    y1="150"
-                    x2="100"
-                    y2="50"
-                    stroke="#33ff33"
-                    stroke-width="3"
-                  />
-
-                  <!-- Pontos -->
-                  <circle cx="30" cy="150" r="5" fill="#FFD700" />
-                  <circle cx="170" cy="150" r="5" fill="#FFD700" />
-                  <circle cx="100" cy="50" r="5" fill="#33ff33" />
-
-                  <!-- Rótulos -->
-                  <text x="15" y="170" fill="#FFD700" font-size="12">
-                    A (Megaton)
-                  </text>
-                  <text x="175" y="170" fill="#FFD700" font-size="12">
-                    B (Rivet City)
-                  </text>
-                  <text x="105" y="45" fill="#33ff33" font-size="12">
-                    C (Torre GNR)
-                  </text>
-                  <text x="55" y="95" fill="#33ff33" font-size="12">
-                    a = 8km
-                  </text>
-                  <text x="125" y="95" fill="#33ff33" font-size="12">
-                    b = 6km
-                  </text>
-                  <text x="90" y="165" fill="#FFD700" font-size="12">
-                    c = ?
-                  </text>
-                  <path
-                    d="M100,65 A15,15 0 0,1 115,65"
-                    stroke="#FFD700"
-                    stroke-width="2"
-                    fill="none"
-                  />
-                  <text x="117" y="70" fill="#FFD700" font-size="12">60°</text>
-                </svg>
-              </div>
-            </div>
-
-            <p style="text-align: center; margin-top: 10px">
-              A lei dos cossenos permite calcular a rota mais curta entre pontos
-              quando há obstáculos perigosos no caminho.
-            </p>
-          </section>
-
-          <!-- Missão de Treinamento 1: Enunciado -->
-          <section>
-            <h3>Missão de Treinamento: Ângulo de Mira</h3>
-
-            <div
-              style="
-                background-color: rgba(40, 44, 52, 0.7);
-                border: 1px solid #ffd700;
-                padding: 20px;
-                margin: 15px 0;
-                border-radius: 5px;
-              "
-            >
-              <p
-                style="
-                  font-family: monospace;
-                  color: #ffd700;
-                  text-align: center;
-                  font-size: 1.2em;
-                  margin-bottom: 20px;
-                "
-              >
-                *** TRANSMISSÃO DE EMERGÊNCIA DA BROTHERHOOD OF STEEL ***
-              </p>
-
-              <p>
-                <strong>Situação:</strong> Um Sniper Raider está posicionado no
-                topo de uma torre a 30 metros de altura. Sua posição está a 70
-                metros da base da torre.
-              </p>
-
-              <p>
-                <strong>Missão:</strong> Calcular o ângulo de elevação
-                necessário para atingir o alvo com seu rifle de precisão.
-              </p>
-
-              <p><strong>Dados disponíveis:</strong></p>
-              <ul>
-                <li>Cateto oposto (altura da torre): 30 metros</li>
-                <li>Cateto adjacente (distância até a base): 70 metros</li>
-                <li>Você precisa determinar o ângulo θ</li>
-              </ul>
-
-              <p>
-                <strong>Pergunta:</strong> Qual função trigonométrica você deve
-                usar e qual é o ângulo de elevação correto?
-              </p>
-            </div>
-
-            <svg
-              width="350"
-              height="180"
-              viewBox="0 0 350 180"
-              style="margin: 10px auto; display: block"
-            >
-              <rect
-                x="0"
-                y="150"
-                width="350"
-                height="30"
-                fill="#555"
-                stroke="none"
-              />
-              <!-- Torre -->
-              <rect
-                x="270"
-                y="30"
-                width="20"
-                height="120"
-                fill="#777"
-                stroke="#555"
-                stroke-width="2"
-              />
-              <!-- Raider -->
-              <circle cx="280" cy="30" r="5" fill="#ff3333" />
-              <!-- Posição do jogador -->
-              <circle cx="200" cy="150" r="5" fill="#33ff33" />
-              <!-- Linhas de medida -->
-              <line
-                x1="200"
-                y1="150"
-                x2="280"
-                y2="30"
-                stroke="#FFD700"
-                stroke-width="2"
-                stroke-dasharray="5,5"
-              />
-              <line
-                x1="200"
-                y1="150"
-                x2="280"
-                y2="150"
-                stroke="#33ff33"
-                stroke-width="2"
-              />
-              <line
-                x1="280"
-                y1="30"
-                x2="280"
-                y2="150"
-                stroke="#33ff33"
-                stroke-width="2"
-              />
-              <!-- Marcação do ângulo -->
-              <path
-                d="M200,140 A20,20 0 0,0 213,125"
-                stroke="#FFD700"
-                stroke-width="2"
-                fill="none"
-              />
-              <text x="215" y="125" fill="#FFD700" font-size="16">θ = ?</text>
-              <!-- Medidas -->
-              <text x="230" y="170" fill="#33ff33" font-size="14">
-                70 metros
-              </text>
-              <text x="290" y="90" fill="#33ff33" font-size="14">
-                30 metros
-              </text>
-              <!-- Rótulos -->
-              <text x="175" y="145" fill="#33ff33" font-size="12">Você</text>
-              <text x="290" y="35" fill="#ff3333" font-size="12">Raider</text>
-            </svg>
-          </section>
-
-          <!-- Missão de Treinamento 1: Solução -->
-          <section>
-            <h3>Solução: Ângulo de Mira</h3>
-
-            <div
-              style="
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-start;
-                margin: 15px 0;
-              "
-            >
-              <div
-                style="
-                  width: 55%;
-                  background-color: rgba(40, 44, 52, 0.7);
-                  border: 1px solid #33ff33;
-                  padding: 15px;
-                  border-radius: 5px;
-                "
-              >
-                <h4 style="color: #ffd700; margin-top: 0">
-                  Análise da Situação
-                </h4>
-
-                <p>Estamos trabalhando com um triângulo retângulo onde:</p>
-                <ul>
-                  <li>Cateto oposto = 30 metros (altura da torre)</li>
-                  <li>Cateto adjacente = 70 metros (distância horizontal)</li>
-                  <li>Precisamos determinar o ângulo θ</li>
-                </ul>
-
-                <p>
-                  Para encontrar o ângulo a partir do cateto oposto e adjacente,
-                  usamos a tangente:
-                </p>
-
-                <div class="formula" style="margin: 15px 0">
-                  <p>
-                    \tan(\theta) = \frac{\text{cateto oposto}}{\text{cateto
-                    adjacente}}
-                  </p>
-                  <p>
-                    \tan(\theta) = \frac{30}{70} = \frac{3}{7} \approx 0.429
-                  </p>
-                  <p>\theta = \tan^{-1}(0.429) \approx 23.2°</p>
-                </div>
-
-                <p>
-                  Portanto, o ângulo de elevação necessário é de aproximadamente
-                  23.2 graus.
-                </p>
-              </div>
-
-              <div style="width: 40%">
-                <svg
-                  width="200"
-                  height="200"
-                  viewBox="0 0 200 200"
-                  style="margin: 0 auto; display: block"
-                >
-                  <rect
-                    x="0"
-                    y="150"
-                    width="200"
-                    height="30"
-                    fill="#555"
-                    stroke="none"
-                  />
-                  <!-- Triângulo retângulo -->
-                  <line
-                    x1="50"
-                    y1="150"
-                    x2="170"
-                    y2="150"
-                    stroke="#33ff33"
-                    stroke-width="3"
-                  />
-                  <line
-                    x1="170"
-                    y1="150"
-                    x2="170"
-                    y2="60"
-                    stroke="#33ff33"
-                    stroke-width="3"
-                  />
-                  <line
-                    x1="50"
-                    y1="150"
-                    x2="170"
-                    y2="60"
-                    stroke="#FFD700"
-                    stroke-width="3"
-                  />
-                  <!-- Marcação de ângulo reto -->
-                  <path
-                    d="M165,145 L165,150 L170,150"
-                    stroke="#FFD700"
-                    stroke-width="2"
-                    fill="none"
-                  />
-                  <!-- Marcação do ângulo de mira -->
-                  <path
-                    d="M50,140 A20,20 0 0,0 68,133"
-                    stroke="#FFD700"
-                    stroke-width="2"
-                    fill="none"
-                  />
-                  <text x="60" y="125" fill="#FFD700" font-size="16">
-                    θ = 23.2°
-                  </text>
-                  <!-- Medidas -->
-                  <text x="100" y="170" fill="#33ff33" font-size="14">
-                    70 m
-                  </text>
-                  <text x="180" y="105" fill="#33ff33" font-size="14">
-                    30 m
-                  </text>
-                  <text x="95" y="90" fill="#FFD700" font-size="14">
-                    76.2 m
-                  </text>
-                  <!-- Trajetória da bala -->
-                  <path
-                    d="M50,150 Q110,80 170,60"
-                    stroke="#ff3333"
-                    stroke-width="1"
-                    stroke-dasharray="2,2"
-                    fill="none"
-                  />
-                  <!-- Pontos -->
-                  <circle cx="50" cy="150" r="5" fill="#33ff33" />
-                  <circle cx="170" cy="60" r="5" fill="#ff3333" />
-                </svg>
-
-                <div
-                  style="
-                    background-color: rgba(40, 44, 52, 0.7);
-                    border: 1px solid #33ff33;
-                    padding: 10px;
-                    border-radius: 5px;
-                    margin-top: 10px;
-                  "
-                >
-                  <p
-                    style="
-                      text-align: center;
-                      font-family: monospace;
-                      color: #ffd700;
-                      margin: 0;
-                    "
-                  >
-                    MNEMÔNICO PARA TRIÂNGULOS
-                  </p>
-                  <p style="text-align: center; margin-top: 5px">SOH CAH TOA</p>
-                  <p
-                    style="
-                      text-align: center;
-                      font-size: 0.8em;
-                      margin-top: 5px;
-                    "
-                  >
-                    <strong>T</strong>angente = <strong>O</strong>posto /
-                    <strong>A</strong>djacente
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- Missão de Treinamento 2: Enunciado -->
-          <section>
-            <h3>Missão de Treinamento: Localização do Vault</h3>
-
-            <div
-              style="
-                background-color: rgba(40, 44, 52, 0.7);
-                border: 1px solid #ffd700;
-                padding: 20px;
-                margin: 15px 0;
-                border-radius: 5px;
-              "
-            >
-              <p
-                style="
-                  font-family: monospace;
-                  color: #ffd700;
-                  text-align: center;
-                  font-size: 1.2em;
-                  margin-bottom: 20px;
-                "
-              >
-                *** INFORMAÇÃO CONFIDENCIAL - SOMENTE PARA SUPERVISORES DE VAULT
-                ***
-              </p>
-
-              <p>
-                <strong>Situação:</strong> Você encontrou coordenadas parciais
-                para um Vault secreto e precisa determinar sua localização
-                exata.
-              </p>
-
-              <p>
-                <strong>Missão:</strong> Calcular a distância exata até o Vault
-                a partir dos ângulos medidos em três pontos de referência
-                conhecidos.
-              </p>
-
-              <p><strong>Dados disponíveis:</strong></p>
-              <ul>
-                <li>
-                  De sua posição atual A, você mede um ângulo de 30° entre a
-                  direção norte e a suposta localização do Vault
-                </li>
-                <li>
-                  Você se move 5 km na direção leste para o ponto B e mede um
-                  ângulo de 60° (sentido anti-horário a partir do norte)
-                </li>
-                <li>
-                  Você precisa determinar a distância do ponto A até o Vault
-                  (ponto V)
-                </li>
-              </ul>
-
-              <p>
-                <strong>Pergunta:</strong> Qual é a distância até o Vault
-                secreto?
-              </p>
-            </div>
-
-            <svg
-              width="350"
-              height="200"
-              viewBox="0 0 350 200"
-              style="margin: 10px auto; display: block"
-            >
-              <!-- Grade de coordenadas -->
-              <line
-                x1="50"
-                y1="20"
-                x2="50"
-                y2="180"
-                stroke="#555"
-                stroke-width="1"
-                stroke-dasharray="2,2"
-              />
-              <line
-                x1="50"
-                y1="100"
-                x2="300"
-                y2="100"
-                stroke="#555"
-                stroke-width="1"
-                stroke-dasharray="2,2"
-              />
-              <text x="30" y="40" fill="#555" font-size="12">N</text>
-              <text x="30" y="170" fill="#555" font-size="12">S</text>
-              <text x="290" y="90" fill="#555" font-size="12">E</text>
-
-              <!-- Pontos de referência -->
-              <circle cx="50" cy="100" r="5" fill="#33ff33" />
-              <circle cx="150" cy="100" r="5" fill="#33ff33" />
-              <circle
-                cx="120"
-                cy="40"
-                r="5"
-                fill="#FFD700"
-                stroke="#FFD700"
-                stroke-width="1"
-                stroke-dasharray="2,2"
-              />
-
-              <!-- Linhas de direção -->
-              <line
-                x1="50"
-                y1="100"
-                x2="50"
-                y2="50"
-                stroke="#555"
-                stroke-width="1"
-                stroke-dasharray="3,3"
-              />
-              <line
-                x1="50"
-                y1="100"
-                x2="120"
-                y2="40"
-                stroke="#FFD700"
-                stroke-width="2"
-              />
-              <line
-                x1="150"
-                y1="100"
-                x2="150"
-                y2="50"
-                stroke="#555"
-                stroke-width="1"
-                stroke-dasharray="3,3"
-              />
-              <line
-                x1="150"
-                y1="100"
-                x2="120"
-                y2="40"
-                stroke="#FFD700"
-                stroke-width="2"
-              />
-
-              <!-- Ângulos -->
-              <path
-                d="M50,85 A15,15 0 0,0 62,75"
-                stroke="#FFD700"
-                stroke-width="1"
-                fill="none"
-              />
-              <text x="58" y="70" fill="#FFD700" font-size="12">30°</text>
-              <path
-                d="M150,85 A15,15 0 0,0 138,75"
-                stroke="#FFD700"
-                stroke-width="1"
-                fill="none"
-              />
-              <text x="130" y="70" fill="#FFD700" font-size="12">60°</text>
-
-              <!-- Rótulos -->
-              <text x="40" y="110" fill="#33ff33" font-size="12">A</text>
-              <text x="155" y="110" fill="#33ff33" font-size="12">B</text>
-              <text x="125" y="35" fill="#FFD700" font-size="12">
-                V (Vault)
-              </text>
-              <text x="90" y="115" fill="#555" font-size="12">5 km</text>
-            </svg>
-          </section>
-
-          <!-- Missão de Treinamento 2: Solução -->
-          <section>
-            <h3>Solução: Localização do Vault</h3>
-
-            <div
-              style="
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-start;
-                margin: 15px 0;
-              "
-            >
-              <div
-                style="
-                  width: 55%;
-                  background-color: rgba(40, 44, 52, 0.7);
-                  border: 1px solid #33ff33;
-                  padding: 15px;
-                  border-radius: 5px;
-                "
-              >
-                <h4 style="color: #ffd700; margin-top: 0">
-                  Análise da Situação
-                </h4>
-
-                <p>
-                  Precisamos calcular a distância de A até V usando os ângulos
-                  medidos e a distância AB:
-                </p>
-
-                <p>
-                  Primeiro, encontramos os ângulos internos do triângulo ABV:
-                </p>
-                <ul>
-                  <li>
-                    Ângulo em A (com o norte): 30° → ângulo no triângulo = 60°
-                  </li>
-                  <li>
-                    Ângulo em B (com o norte): 60° → ângulo no triângulo = 120°
-                  </li>
-                  <li>Ângulo em V = 180° - 60° - 120° = 0° (impossível!)</li>
-                </ul>
-
-                <p>Há um erro nas medições. Vamos reconsiderar:</p>
-                <ul>
-                  <li>
-                    O ângulo em B deve ser medido a partir do leste, não do
-                    norte
-                  </li>
-                  <li>Portanto, ângulo em B (no triângulo) = 30°</li>
-                  <li>Ângulo em V = 180° - 60° - 30° = 90°</li>
-                </ul>
-
-                <p>Agora podemos usar a Lei dos Senos:</p>
-
-                <div class="formula" style="margin: 15px 0">
-                  <p>\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}</p>
-                  <p>\frac{AV}{\sin 30°} = \frac{5}{\sin 90°}</p>
-                  <p>\frac{AV}{0.5} = \frac{5}{1}</p>
-                  <p>AV = 5 \times 0.5 = 2.5\text{ km}</p>
-                </div>
-              </div>
-
-              <div style="width: 40%">
-                <svg
-                  width="200"
-                  height="200"
-                  viewBox="0 0 200 200"
-                  style="margin: 0 auto; display: block"
-                >
-                  <!-- Triângulo correto -->
-                  <line
-                    x1="50"
-                    y1="150"
-                    x2="150"
-                    y2="150"
-                    stroke="#33ff33"
-                    stroke-width="3"
-                  />
-                  <line
-                    x1="50"
-                    y1="150"
-                    x2="50"
-                    y2="50"
-                    stroke="#33ff33"
-                    stroke-width="3"
-                  />
-                  <line
-                    x1="50"
-                    y1="50"
-                    x2="150"
-                    y2="150"
-                    stroke="#33ff33"
-                    stroke-width="3"
-                  />
-
-                  <!-- Ângulo reto -->
-                  <path
-                    d="M45,55 L55,55 L55,45"
-                    stroke="#FFD700"
-                    stroke-width="2"
-                    fill="none"
-                  />
-
-                  <!-- Pontos -->
-                  <circle cx="50" cy="150" r="5" fill="#33ff33" />
-                  <circle cx="150" cy="150" r="5" fill="#33ff33" />
-                  <circle cx="50" cy="50" r="5" fill="#FFD700" />
-
-                  <!-- Rótulos -->
-                  <text x="40" y="165" fill="#33ff33" font-size="12">A</text>
-                  <text x="160" y="165" fill="#33ff33" font-size="12">B</text>
-                  <text x="40" y="40" fill="#FFD700" font-size="12">
-                    V (Vault)
-                  </text>
-
-                  <!-- Medidas -->
-                  <text x="90" y="170" fill="#33ff33" font-size="14">5 km</text>
-                  <text x="20" y="100" fill="#33ff33" font-size="14">
-                    2.5 km
-                  </text>
-                  <text x="90" y="90" fill="#33ff33" font-size="14">
-                    5.6 km
-                  </text>
-
-                  <!-- Ângulos -->
-                  <path
-                    d="M65,150 A15,15 0 0,1 50,135"
-                    stroke="#FFD700"
-                    stroke-width="1"
-                    fill="none"
-                  />
-                  <text x="65" y="135" fill="#FFD700" font-size="12">60°</text>
-                  <path
-                    d="M135,150 A15,15 0 0,0 150,135"
-                    stroke="#FFD700"
-                    stroke-width="1"
-                    fill="none"
-                  />
-                  <text x="125" y="135" fill="#FFD700" font-size="12">30°</text>
-                </svg>
-
-                <div
-                  style="
-                    background-color: rgba(40, 44, 52, 0.7);
-                    border: 1px solid #33ff33;
-                    padding: 10px;
-                    border-radius: 5px;
-                    margin-top: 10px;
-                  "
-                >
-                  <p style="text-align: center; color: #ffd700; margin: 0">
-                    CONCLUSÃO
-                  </p>
-                  <p style="text-align: center; margin-top: 5px">
-                    O Vault está localizado a 2.5 km ao norte da sua posição
-                    inicial.
-                  </p>
-                  <p
-                    style="
-                      text-align: center;
-                      font-size: 0.8em;
-                      margin-top: 5px;
-                      font-style: italic;
-                    "
-                  >
-                    Sempre desenhe o problema com cuidado para evitar erros de
-                    interpretação dos ângulos.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-        </section>
-
-        <!-- COORDENADAS CARTESIANAS -->
-        <section>
-          <!-- Slide principal da seção -->
-          <section>
-            <h2>Coordenadas Cartesianas</h2>
-            <h3>Sistema P.I.P. - Positioning In Postnuclear-environments</h3>
-            <p>
-              Domine o mapeamento preciso para sobreviver e controlar seu
-              território na wasteland.
-            </p>
-
-            <svg
-              width="300"
-              height="180"
-              viewBox="0 0 300 180"
-              style="margin: 20px auto; display: block"
-            >
-              <!-- Sistema de coordenadas -->
-              <line
-                x1="20"
-                y1="90"
-                x2="280"
-                y2="90"
-                stroke="#33ff33"
-                stroke-width="2"
-              />
-              <line
-                x1="150"
-                y1="20"
-                x2="150"
-                y2="160"
-                stroke="#33ff33"
-                stroke-width="2"
-              />
-
-              <!-- Marcações nos eixos -->
-              <line
-                x1="70"
-                y1="85"
-                x2="70"
-                y2="95"
-                stroke="#33ff33"
-                stroke-width="2"
-              />
-              <line
-                x1="230"
-                y1="85"
-                x2="230"
-                y2="95"
-                stroke="#33ff33"
-                stroke-width="2"
-              />
-              <line
-                x1="145"
-                y1="40"
-                x2="155"
-                y2="40"
-                stroke="#33ff33"
-                stroke-width="2"
-              />
-              <line
-                x1="145"
-                y1="140"
-                x2="155"
-                y2="140"
-                stroke="#33ff33"
-                stroke-width="2"
-              />
-
-              <!-- Rótulos -->
-              <text x="60" y="80" fill="#FFD700" font-size="12">-2</text>
-              <text x="225" y="80" fill="#FFD700" font-size="12">2</text>
-              <text x="140" y="45" fill="#FFD700" font-size="12">2</text>
-              <text x="140" y="145" fill="#FFD700" font-size="12">-2</text>
-              <text x="270" y="85" fill="#FFD700" font-size="15">x</text>
-              <text x="155" y="30" fill="#FFD700" font-size="15">y</text>
-
-              <!-- Ponto e coordenadas -->
-              <circle cx="230" cy="40" r="5" fill="#ff3333" />
-              <text x="240" y="40" fill="#ff3333" font-size="15">(2, 2)</text>
-
-              <!-- Linhas guia -->
-              <line
-                x1="230"
-                y1="90"
-                x2="230"
-                y2="40"
-                stroke="#FFD700"
-                stroke-width="1"
-                stroke-dasharray="3,3"
-              />
-              <line
-                x1="150"
-                y1="40"
-                x2="230"
-                y2="40"
-                stroke="#FFD700"
-                stroke-width="1"
-                stroke-dasharray="3,3"
-              />
-            </svg>
-
-            <a href="coordinate-mapper.html" class="tool-link">
-              <img
-                src="https://i.imgur.com/JzMWDbQ.png"
-                alt="Pip-Boy Icon"
-                class="tool-icon"
-              />
-              Mapeador de Coordenadas Pip-Boy
-            </a>
-          </section>
-        </section>
       </div>
     </div>
     <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
