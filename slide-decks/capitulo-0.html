@@ -1966,9 +1966,6 @@
           <!-- Slide principal da seção -->
 <section>
   <h2>Gerenciamento de Recursos</h2>
-  <h3>Sistema R.A.D.S. - Resource Allocation During Scarcity</h3>
-  <p>Quando cada gota de água pode significar mais um dia de vida, você precisa dominar o racionamento matemático.</p>
-  
   <div class="vault-panel-container">
     <div class="vault-panel">
       <div class="panel-header">
@@ -2749,144 +2746,97 @@
           </section>
 
           <!-- Slide sobre sistemas de equações (corrigido) -->
-          <section>
-            <h3>Sistemas de Equações: Trocas entre Assentamentos</h3>
-            <p>
-              Estabeleça trocas justas entre comunidades garantindo que ambas as
-              partes fiquem satisfeitas.
-            </p>
+<!-- Slide 1: Introdução ao Cenário de Troca -->
+<section>
+  <h3>Sistemas de Equações: Trocas entre Assentamentos</h3>
+  <p>
+    Estabeleça trocas justas entre comunidades garantindo que ambas as
+    partes fiquem satisfeitas.
+  </p>
 
-            <div
-              style="
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-start;
-                margin: 20px 0;
-              "
-            >
-              <div
-                style="
-                  width: 55%;
-                  background-color: rgba(40, 44, 52, 0.7);
-                  border: 1px solid #33ff33;
-                  padding: 15px;
-                  border-radius: 5px;
-                "
-              >
-                <h4 style="margin-top: 0; color: #ffd700">Cenário de Troca</h4>
-                <p>
-                  Megaton e Rivet City querem estabelecer uma troca justa de
-                  recursos.
-                </p>
-                <p>
-                  Megaton precisa de
-                  <span style="color: #33ff33">comida (y)</span> e possui
-                  excesso de <span style="color: #33ff33">água (x)</span>.
-                </p>
-                <p>
-                  Rivet City precisa de
-                  <span style="color: #33ff33">água (x)</span> e possui excesso
-                  de <span style="color: #33ff33">comida (y)</span>.
-                </p>
-                <p>Negociações estabelecem duas condições:</p>
-                <div class="formula" style="text-align: center; margin: 15px 0">
-                  \begin{cases} 2x + y = 20 \quad \text{(valor total de água)}
-                  \\ x + 3y = 24 \quad \text{(valor total de comida)}
-                  \end{cases}
-                </div>
-                <p>
-                  O objetivo: Encontrar valores de x e y que satisfaçam ambas as
-                  equações.
-                </p>
-              </div>
+  <div
+    style="
+      width: 80%;
+      margin: 0 auto;
+      background-color: rgba(40, 44, 52, 0.7);
+      border: 1px solid #33ff33;
+      padding: 15px;
+      border-radius: 5px;
+    "
+  >
+    <h4 style="margin-top: 0; color: #ffd700">Cenário de Troca</h4>
+    <p>
+      Megaton e Rivet City querem estabelecer uma troca justa de
+      recursos.
+    </p>
+    <p>
+      Megaton precisa de
+      <span style="color: #33ff33">comida (y)</span> e possui
+      excesso de <span style="color: #33ff33">água (x)</span>.
+    </p>
+    <p>
+      Rivet City precisa de
+      <span style="color: #33ff33">água (x)</span> e possui excesso
+      de <span style="color: #33ff33">comida (y)</span>.
+    </p>
+  </div>
 
-              <div style="width: 40%">
-                <svg width="200" height="200" viewBox="0 0 200 200">
-                  <!-- Representação visual da troca entre assentamentos -->
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="30"
-                    fill="none"
-                    stroke="#33ff33"
-                    stroke-width="2"
-                  />
-                  <text x="30" y="55" fill="#FFD700" font-size="12">
-                    Megaton
-                  </text>
+  <p style="text-align: center; margin-top: 20px;">
+    Na wasteland, alianças comerciais justas são essenciais para a
+    sobrevivência a longo prazo.
+  </p>
+</section>
 
-                  <circle
-                    cx="150"
-                    cy="150"
-                    r="30"
-                    fill="none"
-                    stroke="#33ff33"
-                    stroke-width="2"
-                  />
-                  <text x="130" y="155" fill="#FFD700" font-size="12">
-                    Rivet City
-                  </text>
+<!-- Slide 2: Sistema de Equações -->
+<section>
+  <h3>O Sistema de Equações</h3>
+  
+  <p>Negociações estabelecem duas condições:</p>
+  
+  <div class="formula" style="text-align: center; margin: 20px 0; font-size: 1.8rem;">
+    2x + y = 20
+  </div>
+  <p style="text-align: center;">(valor total de água)</p>
+  
+  <div class="formula" style="text-align: center; margin: 20px 0; font-size: 1.8rem;">
+    x + 3y = 25
+  </div>
+  <p style="text-align: center;">(valor total de comida)</p>
+  
+  <p>
+    O objetivo: Encontrar valores de x e y que satisfaçam ambas as
+    equações simultaneamente.
+  </p>
+</section>
 
-                  <!-- Setas representando a troca -->
-                  <path
-                    d="M75,75 L125,125"
-                    stroke="#33ff33"
-                    stroke-width="2"
-                    marker-end="url(#arrowhead)"
-                  />
-                  <path
-                    d="M125,75 L75,125"
-                    stroke="#FFD700"
-                    stroke-width="2"
-                    marker-end="url(#arrowhead)"
-                  />
 
-                  <!-- Definição da seta -->
-                  <defs>
-                    <marker
-                      id="arrowhead"
-                      markerWidth="10"
-                      markerHeight="7"
-                      refX="10"
-                      refY="3.5"
-                      orient="auto"
-                    >
-                      <polygon points="0 0, 10 3.5, 0 7" fill="#33ff33" />
-                    </marker>
-                  </defs>
-
-                  <!-- Rótulos das trocas -->
-                  <text x="80" y="90" fill="#33ff33" font-size="12">
-                    x (água)
-                  </text>
-                  <text x="95" y="120" fill="#FFD700" font-size="12">
-                    y (comida)
-                  </text>
-                </svg>
-
-                <div
-                  style="
-                    background-color: rgba(40, 44, 52, 0.7);
-                    border: 1px solid #33ff33;
-                    padding: 10px;
-                    border-radius: 5px;
-                    margin-top: 10px;
-                  "
-                >
-                  <h4 style="margin-top: 0; color: #ffd700">Solução</h4>
-                  <p>Resolvendo o sistema:</p>
-                  <p class="formula">x = 6 (unidades de água)</p>
-                  <p class="formula">y = 8 (unidades de comida)</p>
-                  <p>Esta troca é justa para ambos os assentamentos.</p>
-                </div>
-              </div>
-            </div>
-
-            <p style="text-align: center; margin-top: 10px">
-              Na wasteland, alianças comerciais justas são essenciais para a
-              sobrevivência a longo prazo.
-            </p>
-          </section>
+<!-- Slide 9: Significado na Wasteland -->
+<section>
+  <h3>Significado na Wasteland</h3>
+  
+  <div
+    style="
+      width: 80%;
+      margin: 0 auto;
+      background-color: rgba(40, 44, 52, 0.7);
+      border: 1px solid #33ff33;
+      padding: 15px;
+      border-radius: 5px;
+    "
+  >
+    <h4 style="margin-top: 0; color: #ffd700">Lições da Troca</h4>
+    <ul>
+      <li>Sistemas de equações permitem encontrar soluções para múltiplas condições</li>
+      <li>Megaton fornece 7 unidades de água</li>
+      <li>Rivet City fornece 6 unidades de comida</li>
+      <li>Ambos os assentamentos ficam satisfeitos com a troca</li>
+    </ul>
+  </div>
+  
+  <p style="text-align: center; margin-top: 20px; font-style: italic;">
+    "Na wasteland, a matemática não é apenas teoria - é a diferença entre prosperar e perecer."
+  </p>
+</section>
         </section>
 
         <!-- PLANEJAMENTO DE ESTRUTURAS (GEOMETRIA PLANA) -->
