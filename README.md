@@ -9,17 +9,15 @@ Bem-vindo ao repositório do curso "Geometria Analítica: Sobrevivência Geomét
 
 2. Sistema S.P.E.C.I.A.L. matemático
 
-3. Propriedades algébricas fundamentais
+3. [Propriedades algébricas fundamentais](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-0/algebra.html)
 
-4. Operações com frações e proporções
+4. [Operações com frações e proporções](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-0/fracoes.html)
 
-5. Equações lineares e sistemas
+5. [Equações lineares e sistemas](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-0/sistemas-equacoes-lineares.html)
 
-6. Geometria básica: ângulos e triângulos
+6. [Ângulos, triângulos e trigonometria fundamental](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-0/trigonometria.html)
 
-7. Trigonometria fundamental
-
-8. Revisão
+7. [Revisão](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-0/revisao.html)
 
 ## [Capítulo I - O Espaço Vetorial R²](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-i.html)
 1. [O conjunto R²](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-i-o-espaco-vetorial-r2/1-conjunto-r2.html)

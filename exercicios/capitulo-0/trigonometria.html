@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+    </script>
+    <title>REFÚGIO-TEC | GEOMETRIA BÁSICA: ÂNGULOS E TRIÂNGULOS</title>
+    <style>
+        /* Estilo inspirado no tema pós-apocalíptico */
+        body {
+            background-color: #2b2b2b;
+            color: #e6e6e6;
+            font-family: "Courier New", Courier, monospace;
+            margin: 20px;
+            padding: 20px;
+            border: 3px solid #4caf50;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: auto;
+            background-image: url('img/asfalt-light.png');
+        }
+
+        h1, h2, h3 {
+            color: #4caf50;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        .exercise {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border: 2px dashed #4caf50;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        details {
+            background-color: #1c1c1c;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #4caf50;
+        }
+
+        code {
+            background-color: #333;
+            padding: 3px 5px;
+            border-radius: 3px;
+            color: #ffeb3b;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #757575;
+        }
+        
+        .solution-steps {
+            margin-left: 20px;
+            counter-reset: step-counter;
+        }
+        
+        .solution-steps li {
+            list-style-type: none;
+            counter-increment: step-counter;
+            margin-bottom: 10px;
+        }
+        
+        .solution-steps li::before {
+            content: "PASSO_" counter(step-counter) "> ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+        
+        .formula {
+            background-color: #1c1c1c;
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 3px solid #4caf50;
+        }
+        
+        .terminal-header {
+            background-color: #000;
+            color: #4caf50;
+            padding: 5px 10px;
+            font-weight: bold;
+            border-bottom: 1px solid #4caf50;
+            margin-bottom: 15px;
+        }
+        
+        .blink {
+            animation: blink-animation 1s steps(5, start) infinite;
+        }
+        
+        @keyframes blink-animation {
+            to {
+                visibility: hidden;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- TÍTULO DO CAPÍTULO -->
+    <div class="terminal-header">
+        TERMINAL#> iniciando_módulo_educacional.exe...<br>
+        CARREGANDO... <span class="blink">_</span>
+    </div>
+    
+    <h1>REFÚGIO-TEC | GEOMETRIA BÁSICA: ÂNGULOS E TRIÂNGULOS</h1>
+    <h2>Subtópico: Trigonometria Fundamental para Sobrevivência</h2>
+    
+    <p>ATENÇÃO SOBREVIVENTE: Este módulo contém conhecimentos CRÍTICOS para sua sobrevivência na Zona Devastada. Dominar estes conceitos pode significar a diferença entre localizar recursos vitais ou vagar perdido até que os Mutantes o encontrem.</p>
+
+    <!-- EXERCÍCIO 1 - BÁSICO -->
+    <div class="exercise">
+        <h3>MISSÃO 1: Ângulo de Escape</h3>
+        <p>Seu grupo de sobrevivência está encurralado entre três pontos de patrulha de Mutantes. Você precisa determinar o ângulo de fuga entre dois dos pontos. Se o triângulo formado pelos três pontos de patrulha tem ângulos de $65°$ e $45°$, determine o terceiro ângulo para estabelecer sua rota de fuga segura.</p>
+        
+        <p><strong>DICA DE SOBREVIVÊNCIA:</strong> Lembre-se que a soma dos ângulos internos de um triângulo sempre totaliza $180°$, independentemente do nível de radiação na área.</p>
+
+        <details>
+            <summary>ACESSO RESTRITO - NÍVEL DE AUTORIZAÇÃO: SUPERVISOR</summary>
+            <ol class="solution-steps">
+                <li>Identificamos os ângulos conhecidos do triângulo: $65°$ e $45°$.</li>
+                <li>Aplicamos o princípio da soma dos ângulos internos de um triângulo:
+                    <div class="formula">
+                        $\alpha + \beta + \gamma = 180°$
+                    </div>
+                </li>
+                <li>Substituímos os valores conhecidos:
+                    <div class="formula">
+                        $65° + 45° + \gamma = 180°$<br>
+                        $110° + \gamma = 180°$<br>
+                        $\gamma = 70°$
+                    </div>
+                </li>
+                <li>O ângulo de fuga segura é $70°$.</li>
+            </ol>
+            <p><strong>NOTA DE SOBREVIVÊNCIA:</strong> Conhecer as propriedades dos triângulos permite calcular informações desconhecidas com base no que é observável. Na Zona Devastada, isto é crucial quando se precisa tomar decisões rápidas com informações limitadas.</p>
+        </details>
+    </div>
+
+    <!-- EXERCÍCIO 2 - BÁSICO -->
+    <div class="exercise">
+        <h3>MISSÃO 2: Classificação de Abrigo</h3>
+        <p>Você encontrou um abrigo potencial com formato triangular. Para determinar sua estabilidade estrutural, é necessário classificar o tipo de triângulo formado. Suas medições revelam lados com comprimentos de 7m, 7m e 5m. Identifique o tipo de triângulo para avaliar a segurança do abrigo contra ameaças externas.</p>
+        
+        <p><strong>DICA DE SOBREVIVÊNCIA:</strong> Lembre-se das classificações dos triângulos quanto aos lados: equilátero (3 lados iguais), isósceles (2 lados iguais) e escaleno (todos os lados diferentes).</p>
+
+        <details>
+            <summary>ACESSO RESTRITO - NÍVEL DE AUTORIZAÇÃO: SUPERVISOR</summary>
+            <ol class="solution-steps">
+                <li>Analisamos as medidas dos três lados do triângulo: 7m, 7m e 5m.</li>
+                <li>Comparamos os lados entre si:
+                    <div class="formula">
+                        Lado 1 = 7m<br>
+                        Lado 2 = 7m<br>
+                        Lado 3 = 5m
+                    </div>
+                </li>
+                <li>Como dois lados são iguais (7m) e um é diferente (5m), temos um triângulo isósceles.</li>
+                <li>Classificação final: Triângulo isósceles.</li>
+            </ol>
+            <p><strong>NOTA DE SOBREVIVÊNCIA:</strong> Abrigos com formato de triângulo isósceles tendem a ter boa distribuição de peso em dois dos lados, mas necessitam de reforço no lado diferente. Esta configuração oferece boa proteção contra ventos laterais e é relativamente fácil de reforçar com materiais da Zona Devastada.</p>
+        </details>
+    </div>
+
+    <!-- EXERCÍCIO 3 - BÁSICO -->
+    <div class="exercise">
+        <h3>MISSÃO 3: Distância de Segurança</h3>
+        <p>Seu detector Geiger indica uma fonte de radiação a 12m de distância. Você precisa se movimentar perpendicularmente à linha direta entre você e a fonte, mantendo uma distância de 5m do seu ponto atual. A que distância da fonte você estará após este deslocamento?</p>
+        
+        <p><strong>DICA DE SOBREVIVÊNCIA:</strong> Use o Teorema de Pitágoras: em um triângulo retângulo, o quadrado da hipotenusa é igual à soma dos quadrados dos catetos ($a^2 + b^2 = c^2$).</p>
+
+        <details>
+            <summary>ACESSO RESTRITO - NÍVEL DE AUTORIZAÇÃO: SUPERVISOR</summary>
+            <ol class="solution-steps">
+                <li>Identificamos que esta situação forma um triângulo retângulo onde:
+                    <ul>
+                        <li>Cateto adjacente (a) = 12m (distância inicial até a fonte)</li>
+                        <li>Cateto oposto (b) = 5m (deslocamento perpendicular)</li>
+                        <li>Hipotenusa (c) = distância final até a fonte (valor a determinar)</li>
+                    </ul>
+                </li>
+                <li>Aplicamos o Teorema de Pitágoras:
+                    <div class="formula">
+                        $c^2 = a^2 + b^2$<br>
+                        $c^2 = 12^2 + 5^2$<br>
+                        $c^2 = 144 + 25$<br>
+                        $c^2 = 169$<br>
+                        $c = \sqrt{169} = 13$
+                    </div>
+                </li>
+                <li>A distância final após o deslocamento será de 13m da fonte de radiação.</li>
+            </ol>
+            <p><strong>NOTA DE SOBREVIVÊNCIA:</strong> O Teorema de Pitágoras é essencial para calcular distâncias seguras de fontes de perigo. Lembre-se que a intensidade da radiação diminui com o quadrado da distância, então cada metro adicional oferece proteção significativa.</p>
+        </details>
+    </div>
+
+    <!-- EXERCÍCIO 4 - INTERMEDIÁRIO -->
+    <div class="exercise">
+        <h3>MISSÃO 4: Altura da Torre de Vigilância</h3>
+        <p>Sua comunidade precisa estimar a altura de uma torre de vigilância abandonada para avaliar seu potencial como posto avançado. De um ponto a 25m da base da torre, o ângulo de elevação até o topo é de $35°$. Determine a altura da torre.</p>
+        
+        <p><strong>DICA DE SOBREVIVÊNCIA:</strong> Utilize a tangente do ângulo de elevação: $\tan(\theta) = \frac{\text{cateto oposto}}{\text{cateto adjacente}} = \frac{\text{altura}}{\text{distância horizontal}}$</p>
+
+        <details>
+            <summary>ACESSO RESTRITO - NÍVEL DE AUTORIZAÇÃO: SUPERVISOR</summary>
+            <ol class="solution-steps">
+                <li>Identificamos os elementos do problema:
+                    <ul>
+                        <li>Distância horizontal até a torre (cateto adjacente) = 25m</li>
+                        <li>Ângulo de elevação = $35°$</li>
+                        <li>Altura da torre (cateto oposto) = valor a determinar</li>
+                    </ul>
+                </li>
+                <li>Aplicamos a relação trigonométrica da tangente:
+                    <div class="formula">
+                        $\tan(35°) = \frac{\text{altura}}{25}$
+                    </div>
+                </li>
+                <li>Calculamos o valor da tangente e resolvemos para a altura:
+                    <div class="formula">
+                        $\tan(35°) \approx 0.7002$<br>
+                        $\text{altura} = 25 \times 0.7002$<br>
+                        $\text{altura} \approx 17.51 \text{ metros}$
+                    </div>
+                </li>
+                <li>A altura da torre é aproximadamente 17.5 metros.</li>
+            </ol>
+            <p><strong>NOTA DE SOBREVIVÊNCIA:</strong> A capacidade de estimar alturas usando trigonometria permite avaliar estruturas à distância, minimizando exposição a perigos. Torres mais altas oferecem maior visibilidade, mas também requerem mais recursos para manutenção e são mais vulneráveis a condições climáticas severas na Zona Devastada.</p>
+        </details>
+    </div>
+
+    <!-- EXERCÍCIO 5 - INTERMEDIÁRIO -->
+    <div class="exercise">
+        <h3>MISSÃO 5: Travessia do Rio Contaminado</h3>
+        <p>Você precisa atravessar um rio contaminado por resíduos tóxicos. A largura do rio é desconhecida, mas você consegue fazer medições dos ângulos. De um ponto A, você observa um ponto C na margem oposta com um ângulo de $40°$ em relação ao norte. Movendo-se 50m para leste até um ponto B, você observa o mesmo ponto C com um ângulo de $65°$ em relação ao norte. Determine a largura do rio (distância de A até C).</p>
+        
+        <p><strong>DICA DE SOBREVIVÊNCIA:</strong> Este problema envolve a Lei dos Senos. Em qualquer triângulo, a razão entre o lado e o seno do ângulo oposto é constante: $\frac{a}{\sin(A)} = \frac{b}{\sin(B)} = \frac{c}{\sin(C)}$</p>
+
+        <details>
+            <summary>ACESSO RESTRITO - NÍVEL DE AUTORIZAÇÃO: SUPERVISOR</summary>
+            <ol class="solution-steps">
+                <li>Primeiramente, precisamos identificar o triângulo ABC e seus ângulos:
+                    <ul>
+                        <li>A e B são pontos na sua margem, distantes 50m entre si (leste)</li>
+                        <li>C é o ponto na margem oposta</li>
+                        <li>Ângulo em A = $40°$ (em relação ao norte)</li>
+                        <li>Ângulo em B = $65°$ (em relação ao norte)</li>
+                    </ul>
+                </li>
+                <li>Calculamos os ângulos internos do triângulo:
+                    <div class="formula">
+                        Ângulo CAB = $90° - 40° = 50°$<br>
+                        Ângulo CBA = $180° - 65° = 115°$
+                    </div>
+                </li>
+                <li>Determinamos o terceiro ângulo do triângulo:
+                    <div class="formula">
+                        Ângulo ACB = $180° - 50° - 115° = 15°$
+                    </div>
+                </li>
+                <li>Aplicamos a Lei dos Senos para encontrar a distância AC:
+                    <div class="formula">
+                        $\frac{AC}{\sin(115°)} = \frac{50}{\sin(15°)}$<br>
+                        $AC = \frac{50 \times \sin(115°)}{\sin(15°)}$<br>
+                        $AC = \frac{50 \times 0.9063}{0.2588}$<br>
+                        $AC \approx 175 \text{ metros}$
+                    </div>
+                </li>
+                <li>A largura do rio (distância de A até C) é aproximadamente 175 metros.</li>
+            </ol>
+            <p><strong>NOTA DE SOBREVIVÊNCIA:</strong> A triangulação é uma técnica vital na Zona Devastada para medir distâncias inacessíveis sem se expor a perigos. Este conhecimento permite planejar rotas de travessia ou determinar se vale a pena o risco de cruzar obstáculos como rios contaminados.</p>
+        </details>
+    </div>
+
+    <!-- EXERCÍCIO 6 - INTERMEDIÁRIO -->
+    <div class="exercise">
+        <h3>MISSÃO 6: Área de Cultivo Seguro</h3>
+        <p>Sua comunidade localizou uma área triangular livre de radiação onde é possível cultivar alimentos. Os lados do terreno medem 120m, 80m e 100m. Determine a área disponível para cultivo para calcular a capacidade de produção de alimentos.</p>
+        
+        <p><strong>DICA DE SOBREVIVÊNCIA:</strong> Utilize a Fórmula de Heron para calcular a área de um triângulo conhecendo seus três lados: $\text{Área} = \sqrt{s(s-a)(s-b)(s-c)}$, onde $s = \frac{a+b+c}{2}$ (semiperímetro).</p>
+
+        <details>
+            <summary>ACESSO RESTRITO - NÍVEL DE AUTORIZAÇÃO: SUPERVISOR</summary>
+            <ol class="solution-steps">
+                <li>Identificamos os lados do triângulo:
+                    <ul>
+                        <li>a = 120m</li>
+                        <li>b = 80m</li>
+                        <li>c = 100m</li>
+                    </ul>
+                </li>
+                <li>Calculamos o semiperímetro s:
+                    <div class="formula">
+                        $s = \frac{a+b+c}{2} = \frac{120+80+100}{2} = \frac{300}{2} = 150$
+                    </div>
+                </li>
+                <li>Aplicamos a Fórmula de Heron:
+                    <div class="formula">
+                        $\text{Área} = \sqrt{s(s-a)(s-b)(s-c)}$<br>
+                        $\text{Área} = \sqrt{150 \times (150-120) \times (150-80) \times (150-100)}$<br>
+                        $\text{Área} = \sqrt{150 \times 30 \times 70 \times 50}$<br>
+                        $\text{Área} = \sqrt{15.750.000}$<br>
+                        $\text{Área} \approx 3.968,63 \text{ metros quadrados}$
+                    </div>
+                </li>
+                <li>A área disponível para cultivo é aproximadamente 3.969 metros quadrados.</li>
+            </ol>
+            <p><strong>NOTA DE SOBREVIVÊNCIA:</strong> Cada metro quadrado de terra cultivável livre de radiação é um recurso precioso na Zona Devastada. Com aproximadamente 4.000 m², esta área pode suprir as necessidades básicas de uma comunidade pequena, considerando um rendimento médio de 1,5 kg de alimentos por m² por temporada de cultivo.</p>
+        </details>
+    </div>
+
+    <!-- EXERCÍCIO 7 - AVANÇADO -->
+    <div class="exercise">
+        <h3>MISSÃO 7: Triangulação de Fonte de Radiação</h3>
+        <p>Três outposts de sua comunidade detectaram uma nova fonte de radiação. Do outpost A, a direção da fonte é $60°$ nordeste. Do outpost B, localizado 8km a leste de A, a direção é $30°$ noroeste. Do outpost C, localizado 6km a nordeste (45°) de A, a direção é $15°$ sudoeste. Determine as coordenadas aproximadas da fonte de radiação em relação a A (considere A como origem do sistema de coordenadas).</p>
+
+        <details>
+            <summary>ACESSO RESTRITO - NÍVEL DE AUTORIZAÇÃO: SUPERVISOR</summary>
+            <ol class="solution-steps">
+                <li>Estabelecemos um sistema de coordenadas cartesianas com A na origem (0,0).
+                    <div class="formula">
+                        A = (0,0)<br>
+                        B = (8,0) [8km a leste]<br>
+                        C = (6\cos(45°), 6\sin(45°)) = (4.24, 4.24) [6km a NE]
+                    </div>
+                </li>
+                <li>Convertemos as direções para ângulos no sistema cartesiano:
+                    <div class="formula">
+                        Direção de A: $60°$ NE = $60°$<br>
+                        Direção de B: $30°$ NO = $150°$<br>
+                        Direção de C: $15°$ SO = $195°$
+                    </div>
+                </li>
+                <li>Escrevemos as equações das retas que passam pelos pontos na direção indicada:
+                    <div class="formula">
+                        De A: $y = x\tan(60°) = x \times 1.732$<br>
+                        De B: $y = \tan(150°)(x-8) = -0.577(x-8)$<br>
+                        De C: $y - 4.24 = \tan(195°)(x - 4.24) = -0.268(x - 4.24)$
+                    </div>
+                </li>
+                <li>Resolvendo o sistema de equações (usando duas retas e verificando com a terceira):
+                    <div class="formula">
+                        $x \times 1.732 = -0.577(x-8)$<br>
+                        $1.732x = -0.577x + 4.616$<br>
+                        $2.309x = 4.616$<br>
+                        $x \approx 2$
+                    </div>
+                </li>
+                <li>Substituindo para encontrar y:
+                    <div class="formula">
+                        $y = 2 \times 1.732 \approx 3.46$
+                    </div>
+                </li>
+                <li>As coordenadas aproximadas da fonte de radiação são (2, 3.46), ou aproximadamente 2km a leste e 3.5km ao norte de A.</li>
+            </ol>
+            <p><strong>NOTA DE SOBREVIVÊNCIA:</strong> A triangulação precisa de fontes de perigo permite estabelecer zonas de exclusão e rotas seguras. A capacidade de localizar ameaças sem contato direto é uma vantagem crucial para sobrevivência a longo prazo na Zona Devastada. Recomenda-se enviar equipes de reconhecimento com Trajes de Proteção para verificação in loco antes de qualquer operação na área.</p>
+        </details>
+    </div>
+
+    <!-- EXERCÍCIO 8 - AVANÇADO -->
+    <div class="exercise">
+        <h3>MISSÃO 8: Seleção de Ponto de Observação</h3>
+        <p>Você está montando um sistema de vigilância e precisa determinar o melhor local para posicionar um observador. Há três pontos potenciais de infiltração de Mutantes: ponto A (0,0), ponto B (10,0) e ponto C (5,8). Você quer posicionar o observador em um local que minimize a soma das distâncias quadráticas aos três pontos (para otimizar o tempo de resposta). Determine as coordenadas deste ponto ideal.</p>
+
+        <details>
+            <summary>ACESSO RESTRITO - NÍVEL DE AUTORIZAÇÃO: SUPERVISOR</summary>
+            <ol class="solution-steps">
+                <li>Este é um problema de otimização. O ponto que minimiza a soma das distâncias quadráticas é o centroide (baricentro) do triângulo formado pelos três pontos.</li>
+                <li>O centroide pode ser calculado como a média das coordenadas:
+                    <div class="formula">
+                        $x_{centroide} = \frac{x_A + x_B + x_C}{3} = \frac{0 + 10 + 5}{3} = \frac{15}{3} = 5$<br>
+                        $y_{centroide} = \frac{y_A + y_B + y_C}{3} = \frac{0 + 0 + 8}{3} = \frac{8}{3} \approx 2.67$
+                    </div>
+                </li>
+                <li>O ponto ideal para posicionamento do observador é (5, 2.67).</li>
+                <li>Verificamos calculando a soma das distâncias quadráticas deste ponto aos três pontos de infiltração:
+                    <div class="formula">
+                        $d_A^2 = (5-0)^2 + (2.67-0)^2 = 25 + 7.13 = 32.13$<br>
+                        $d_B^2 = (5-10)^2 + (2.67-0)^2 = 25 + 7.13 = 32.13$<br>
+                        $d_C^2 = (5-5)^2 + (2.67-8)^2 = 0 + 28.51 = 28.51$<br>
+                        $\text{Soma} = 32.13 + 32.13 + 28.51 = 92.77$
+                    </div>
+                </li>
+            </ol>
+            <p><strong>NOTA DE SOBREVIVÊNCIA:</strong> O posicionamento estratégico de observadores e sentinelas é crucial para a defesa de assentamentos na Zona Devastada. O centroide oferece a melhor posição para resposta rápida a múltiplas ameaças simultâneas, maximizando a eficiência de recursos limitados de pessoal. Um sistema de alerta antecipado bem projetado pode compensar desvantagens numéricas contra grupos hostis.</p>
+        </details>
+    </div>
+
+    <!-- EXERCÍCIO 9 - AVANÇADO -->
+    <div class="exercise">
+        <h3>MISSÃO 9: Rota Segura Entre Zonas de Alta Radiação</h3>
+        <p>Sua equipe de exploração identificou três fontes de radiação em uma área urbana abandonada, formando um triângulo. A intensidade da radiação em qualquer ponto é inversamente proporcional ao quadrado da distância de cada fonte e diretamente proporcional à intensidade da fonte. As fontes estão localizadas em: A(0,0) com intensidade 100, B(12,0) com intensidade 150 e C(6,9) com intensidade 200. Encontre o caminho mais seguro (menor exposição acumulada à radiação) para atravessar do ponto (0,5) ao ponto (12,5).</p>
+
+        <details>
+            <summary>ACESSO RESTRITO - NÍVEL DE AUTORIZAÇÃO: SUPERVISOR</summary>
+            <ol class="solution-steps">
+                <li>Este é um problema complexo de otimização de trajetória. Vamos analisar por partes:
+                    <ul>
+                        <li>A intensidade da radiação em um ponto (x,y) pode ser modelada como:
+                            <div class="formula">
+                                $R(x,y) = \frac{100}{(x-0)^2+(y-0)^2} + \frac{150}{(x-12)^2+(y-0)^2} + \frac{200}{(x-6)^2+(y-9)^2}$
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li>Para minimizar a exposição, devemos nos manter o mais distante possível das três fontes simultaneamente. Uma boa aproximação é seguir a linha que passa pelos incentros de triângulos formados ao longo do caminho.</li>
+                <li>Podemos aproximar essa trajetória ótima como uma curva suave passando pelo ponto (6,5), que está equidistante de A e B, e maximiza a distância de C.</li>
+                <li>A rota mais segura seria aproximadamente:
+                    <div class="formula">
+                        Início (0,5) → (3,6) → (6,7) → (9,6) → (12,5) Fim
+                    </div>
+                </li>
+                <li>Esta rota mantém uma distância segura das três fontes, passando pelo "vale" de radiação mais baixa entre elas.</li>
+            </ol>
+            <p><strong>NOTA DE SOBREVIVÊNCIA:</strong> Em ambientes com múltiplas fontes de radiação, o caminho em linha reta raramente é o mais seguro. O planejamento cuidadoso de rotas baseado em princípios matemáticos pode reduzir significativamente a exposição à radiação durante missões na Zona Devastada. Use seu detector Geiger para confirmar os níveis em tempo real e ajuste seu percurso conforme necessário. Cada RadAway economizado é um dia a mais de sobrevivência.</p>
+        </details>
+    </div>
+
+    <!-- EXERCÍCIO 10 - DESAFIADOR -->
+    <div class="exercise">
+        <h3>MISSÃO 10: Sistema de Alerta Antecipado</h3>
+        <p>Sua comunidade está construindo um sistema de alerta antecipado baseado em três torres de observação posicionadas em A(0,0), B(10,0) e C(5,8). Cada torre tem capacidade para detectar movimentos em um raio de 5km. Um grupo de Mutantes se aproxima do assentamento vindo de uma direção desconhecida. A torre em A detecta o grupo com um ângulo de $30°$ nordeste. Dois minutos depois, a torre em B detecta o mesmo grupo com um ângulo de $60°$ noroeste. Assumindo que os Mutantes se movem em linha reta a uma velocidade constante, determine: (a) a posição do grupo quando detectado pela primeira vez; (b) a velocidade e direção do movimento; (c) se eles serão detectados pela torre C; e (d) quanto tempo a comunidade tem para se preparar antes que os Mutantes cheguem ao perímetro do assentamento, que é um círculo de raio 2km centrado no ponto (5,4).</p>
+
+        <details>
+            <summary>ACESSO RESTRITO - NÍVEL DE AUTORIZAÇÃO: SUPERVISOR</summary>
+            <ol class="solution-steps">
+                <li>Primeiro, determinamos a posição inicial dos Mutantes quando detectados pela torre A:
+                    <div class="formula">
+                        Torre A detecta em $30°$ NE, o que significa que os Mutantes estão em uma linha que passa por (0,0) com inclinação $\tan(30°) = 0.577$<br>
+                        Como a detecção ocorre a 5km de distância, as coordenadas são:<br>
+                        $x = 5 \times \cos(30°) = 5 \times 0.866 = 4.33$<br>
+                        $y = 5 \times \sin(30°) = 5 \times 0.5 = 2.5$<br>
+                        Posição inicial: (4.33, 2.5)
+                    </div>
+                </li>
+                <li>Determinamos a posição quando detectados pela torre B:
+                    <div class="formula">
+                        Torre B detecta em $60°$ NO, o que significa direção $180° - 60° = 120°$<br>
+                        A linha parte de (10,0) com inclinação $\tan(120°) = -1.732$<br>
+                        Como a detecção ocorre a 5km de distância:<br>
+                        $x = 10 + 5 \times \cos(120°) = 10 - 5 \times 0.5 = 7.5$<br>
+                        $y = 0 + 5 \times \sin(120°) = 5 \times 0.866 = 4.33$<br>
+                        Segunda posição: (7.5, 4.33)
+                    </div>
+                </li>
+                <li>Calculamos a velocidade e direção do movimento:
+                    <div class="formula">
+                        Deslocamento: $\Delta x = 7.5 - 4.33 = 3.17$, $\Delta y = 4.33 - 2.5 = 1.83$<br>
+                        Distância percorrida: $d = \sqrt{3.17^2 + 1.83^2} = 3.66$ km<br>
+                        Velocidade: $v = \frac{3.66}{2} = 1.83$ km/min<br>
+                        Direção: $\theta = \arctan(\frac{1.83}{3.17}) = 30°$ (nordeste)
+                    </div>
+                </li>
+                <li>Verificamos se serão detectados pela torre C:
+                    <div class="formula">
+                        Distância do ponto (7.5, 4.33) até C(5,8): $d_C = \sqrt{(7.5-5)^2 + (4.33-8)^2} = \sqrt{6.25 + 13.47} = 4.43$ km<br>
+                        Como $4.43 < 5$, os Mutantes entrarão no raio de detecção da torre C.
+                    </div>
+                </li>
+                <li>Calculamos o tempo restante até alcançarem o perímetro:
+                    <div class="formula">
+                        Escrevemos a equação da reta do movimento: $y - 4.33 = \frac{1.83}{3.17}(x - 7.5)$<br>
+                        Simplificando: $y = 0.577(x - 7.5) + 4.33 = 0.577x + 0.003$<br>
+                        Para encontrar a intersecção com o perímetro, resolvemos: $(x-5)^2 + (y-4)^2 = 2^2$<br>
+                        Substituindo y: $(x-5)^2 + (0.577x + 0.003 - 4)^2 = 4$<br>
+                        Resolvendo esta equação: $x \approx 10.92$<br>
+                        Substituindo para encontrar y: $y \approx 6.31$<br>
+                        Distância da posição (7.5, 4.33) até (10.92, 6.31): $d = \sqrt{(10.92-7.5)^2 + (6.31-4.33)^2} = 4.16$ km<br>
+                        Tempo estimado: $t = \frac{4.16}{1.83} = 2.27$ minutos
+                    </div>
+                </li>
+                <li>A comunidade tem aproximadamente 2 minutos e 16 segundos para se preparar.</li>
+            </ol>
+            <p><strong>NOTA DE SOBREVIVÊNCIA:</strong> Um sistema de alerta antecipado eficaz pode ser a diferença entre a sobrevivência e o aniquilamento na Zona Devastada. A triangulação de ameaças em movimento requer precisão matemática e comunicação eficiente. Este tipo de cálculo permite não apenas a evacuação, mas também o posicionamento estratégico de defensores e a preparação de contramedidas apropriadas.</p>
+        </details>
+    </div>
+
+    <!-- EXERCÍCIO 11 - DESAFIADOR -->
+    <div class="exercise">
+        <h3>MISSÃO 11: Otimização de Cobertura de Sensores</h3>
+        <p>Sua comunidade possui recursos limitados para instalar sensores de movimento ao redor do perímetro. Você tem apenas três sensores, cada um com um raio de detecção de 200m. O perímetro a ser protegido é um triângulo com vértices nas coordenadas A(0,0), B(600,0) e C(300,450). Determine as três posições ótimas para instalar os sensores de modo a maximizar a cobertura do perímetro (entendido como as três linhas que formam o triângulo).</p>
+
+        <details>
+            <summary>ACESSO RESTRITO - NÍVEL DE AUTORIZAÇÃO: SUPERVISOR</summary>
+            <ol class="solution-steps">
+                <li>Primeiro, calculamos o comprimento de cada lado do perímetro:
+                    <div class="formula">
+                        Lado AB: $d_{AB} = \sqrt{(600-0)^2 + (0-0)^2} = 600$ m<br>
+                        Lado BC: $d_{BC} = \sqrt{(300-600)^2 + (450-0)^2} = \sqrt{90000 + 202500} = \sqrt{292500} = 540.8$ m<br>
+                        Lado CA: $d_{CA} = \sqrt{(0-300)^2 + (0-450)^2} = \sqrt{90000 + 202500} = \sqrt{292500} = 540.8$ m<br>
+                        Perímetro total: $600 + 540.8 + 540.8 = 1681.6$ m
+                    </div>
+                </li>
+                <li>Como cada sensor cobre 400m de perímetro (200m em cada direção), três sensores podem cobrir teoricamente até 1200m. Isso não é suficiente para cobrir todo o perímetro, então precisamos otimizar.</li>
+                <li>A estratégia ótima é posicionar os sensores no ponto médio de cada lado:
+                    <div class="formula">
+                        Sensor 1: $(\frac{0+600}{2}, \frac{0+0}{2}) = (300, 0)$<br>
+                        Sensor 2: $(\frac{600+300}{2}, \frac{0+450}{2}) = (450, 225)$<br>
+                        Sensor 3: $(\frac{300+0}{2}, \frac{450+0}{2}) = (150, 225)$
+                    </div>
+                </li>
+                <li>Verificamos que esta configuração cobre a máxima extensão possível do perímetro:
+                    <div class="formula">
+                        Cobertura do Sensor 1: 400m do lado AB<br>
+                        Cobertura do Sensor 2: 400m do lado BC<br>
+                        Cobertura do Sensor 3: 400m do lado CA<br>
+                        Cobertura total: 1200m de 1681.6m (aproximadamente 71% do perímetro)
+                    </div>
+                </li>
+                <li>As posições ótimas são (300, 0), (450, 225) e (150, 225).</li>
+            </ol>
+            <p><strong>NOTA DE SOBREVIVÊNCIA:</strong> Em um mundo com recursos limitados, a otimização matemática permite extrair o máximo benefício de cada componente disponível. Este posicionamento estratégico de sensores cria uma "linha Maginot" defensiva que, embora não seja perfeita, oferece a melhor proteção possível com os recursos disponíveis. Recomenda-se complementar com patrulhas humanas nas áreas não cobertas.</p>
+        </details>
+    </div>
+
+    <!-- EXERCÍCIO 12 - DESAFIADOR -->
+    <div class="exercise">
+        <h3>MISSÃO 12: Neutralização de Campo de Radiação Triangular</h3>
+        <p>Três torres de transmissão danificadas estão criando um campo de radiação triangular que impede o acesso a um hospital com suprimentos médicos essenciais. As torres estão nas coordenadas A(0,0), B(900,0) e C(450,750). Cada torre emite radiação de forma uniforme em todas as direções. Para neutralizar o campo, você precisa construir três estações de contenção, cada uma neutralizando uma torre específica. Devido à natureza da radiação, cada estação deve ser posicionada no circuncentro de um triângulo formado pela torre correspondente e por duas estações adjacentes. Determine as coordenadas das três estações de contenção que formarão um "triângulo de neutralização" permitindo uma rota segura para o hospital.</p>
+
+        <details>
+            <summary>ACESSO RESTRITO - NÍVEL DE AUTORIZAÇÃO: SUPERVISOR</summary>
+            <ol class="solution-steps">
+                <li>Este problema é complexo e requer a determinação do triângulo de Fermat (ou triângulo equilátero externo) do triângulo dado pelas torres.</li>
+                <li>Primeiro, calculamos os pontos que formarão o triângulo de Fermat para o triângulo ABC:
+                    <div class="formula">
+                        Para encontrar o primeiro ponto P, rotacionamos C em 60° em torno de A:<br>
+                        $P_x = A_x + (C_x-A_x)\cos(60°) - (C_y-A_y)\sin(60°) = 0 + 450 \times 0.5 - 750 \times 0.866 = 225 - 649.5 = -424.5$<br>
+                        $P_y = A_y + (C_x-A_x)\sin(60°) + (C_y-A_y)\cos(60°) = 0 + 450 \times 0.866 + 750 \times 0.5 = 389.7 + 375 = 764.7$<br>
+                        P = (-424.5, 764.7)
+                    </div>
+                    <div class="formula">
+                        Para encontrar o segundo ponto Q, rotacionamos A em 60° em torno de B:<br>
+                        $Q_x = B_x + (A_x-B_x)\cos(60°) - (A_y-B_y)\sin(60°) = 900 + (-900) \times 0.5 - 0 = 900 - 450 = 450$<br>
+                        $Q_y = B_y + (A_x-B_x)\sin(60°) + (A_y-B_y)\cos(60°) = 0 + (-900) \times 0.866 + 0 = -779.4$<br>
+                        Q = (450, -779.4)
+                    </div>
+                    <div class="formula">
+                        Para encontrar o terceiro ponto R, rotacionamos B em 60° em torno de C:<br>
+                        $R_x = C_x + (B_x-C_x)\cos(60°) - (B_y-C_y)\sin(60°) = 450 + 450 \times 0.5 - (-750) \times 0.866 = 450 + 225 + 649.5 = 1324.5$<br>
+                        $R_y = C_y + (B_x-C_x)\sin(60°) + (B_y-C_y)\cos(60°) = 750 + 450 \times 0.866 + (-750) \times 0.5 = 750 + 389.7 - 375 = 764.7$<br>
+                        R = (1324.5, 764.7)
+                    </div>
+                </li>
+                <li>As três estações de contenção devem ser posicionadas em P, Q e R para criar o triângulo de neutralização ideal.</li>
+                <li>Verificamos que este arranjo forma um triângulo equilátero, garantindo a neutralização uniforme do campo de radiação.</li>
+                <li>As coordenadas das estações de contenção são:
+                    <div class="formula">
+                        Estação 1: (-424.5, 764.7)<br>
+                        Estação 2: (450, -779.4)<br>
+                        Estação 3: (1324.5, 764.7)
+                    </div>
+                </li>
+            </ol>
+            <p><strong>NOTA DE SOBREVIVÊNCIA:</strong> O triângulo de Fermat representa uma solução elegante para problemas de neutralização de campos de energia hostis. A simetria perfeita do triângulo equilátero resultante permite que as estações trabalhem em harmonia, criando uma zona de segurança no interior. Este princípio matemático avançado tem aplicações práticas vitais na Zona Devastada, onde a geometria correta pode significar acesso a recursos que de outra forma seriam inalcançáveis. A posição exata das estações é crítica - um erro de cálculo de mais de 1 metro pode resultar em falha catastrófica do sistema de contenção.</p>
+        </details>
+    </div>
+
+    <!-- RODAPÉ DO DOCUMENTO -->
+    <div class="footer">
+        REFÚGIO-TEC | Geometria Analítica: Sobrevivência Geométrica - A matemática é sua melhor arma na Zona Devastada.
+    </div>
+    
+    <div class="terminal-header" style="margin-top: 30px;">
+        TERMINAL#> sessão_encerrada<br>
+        Dados salvos no banco de conhecimento do Refúgio-Tec<br>
+        <span class="blink">_</span>
+    </div>
+
+</body>
+</html>
