@@ -736,7 +736,7 @@
           for (const angle of angles) {
             const radians = (angle * Math.PI) / 180;
             const x = CENTER_X + (RADIUS + 15) * Math.cos(radians);
-            const y = CENTER_Y + (RADIUS + 15) * Math.sin(radians);
+            const y = CENTER_Y + -(RADIUS + 15) * Math.sin(radians);
 
             ctx.fillStyle = "#ffaa33";
             ctx.font = '10px "Courier New"';
