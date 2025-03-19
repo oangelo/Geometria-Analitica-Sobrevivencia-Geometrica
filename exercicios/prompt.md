@@ -46,6 +46,9 @@ Crie uma lista de exercícios de Geometria Analítica sobre [TÓPICO ESPECÍFICO
 ### Restrição de Conteúdo por Progressão do Curso
 IMPORTANTE: Os exercícios devem abordar APENAS conceitos que foram previamente apresentados na progressão do curso. NÃO inclua conceitos de tópicos futuros.
 
+### Restrição de Métodos Matemáticos
+IMPORTANTE: NUNCA utilize cálculo diferencial e integral para resolver ou formular problemas. Todos os exercícios devem ser resolvidos exclusivamente com matemática básica (álgebra, geometria, trigonometria). Mesmo que um problema possa ser resolvido de forma mais elegante com cálculo, opte sempre pela abordagem elementar.
+
 #### Capítulo 0 - Preparação para a Wasteland
 - Tópicos 0.1-0.7: Conceitos básicos de álgebra, frações, equações lineares, trigonometria básica
 
