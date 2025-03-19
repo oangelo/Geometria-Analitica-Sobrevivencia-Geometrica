@@ -604,19 +604,25 @@
             <details>
                 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
                 <ol class="solution-steps">
-                    <li>Vamos provar que qualquer ponto $P$ no interior do triângulo $ABC$ pode ser expresso como uma combinação dos vértices na forma $P = \alpha A + \beta B + \gamma C$, onde $\alpha + \beta + \gamma = 1$ e $\alpha, \beta, \gamma > 0$.</li>
-                    <li>Para qualquer ponto $P$ no plano, podemos escrever $\overrightarrow{OP} = \alpha \overrightarrow{OA} + \beta \overrightarrow{OB} + \gamma \overrightarrow{OC}$, onde $O$ é a origem.</li>
-                    <li>Se impomos a condição $\alpha + \beta + \gamma = 1$, então estamos restringindo $P$ a um plano que contém os pontos $A$, $B$ e $C$.</li>
-                    <li>Quando $\alpha, \beta, \gamma > 0$, o ponto $P$ está no interior do triângulo formado por $A$, $B$ e $C$.</li>
-                    <li>Para verificar, consideremos alguns casos especiais:
-                        <br>- Se $\alpha = 1, \beta = 0, \gamma = 0$, então $P = A$.
-                        <br>- Se $\alpha = 0, \beta = 1, \gamma = 0$, então $P = B$.
-                        <br>- Se $\alpha = 0, \beta = 0, \gamma = 1$, então $P = C$.
-                        <br>- Se $\alpha = 0.5, \beta = 0.5, \gamma = 0$, então $P$ está no ponto médio de $AB$.
-                        <br>- Se todos os coeficientes são positivos e somam 1, $P$ está no interior do triângulo.
+                    <li>Vamos provar que qualquer ponto $P$ no interior do triângulo $ABC$ pode ser expresso como uma combinação dos vértices na forma $P = \alpha A + \beta B + \gamma C$, onde $\alpha + \beta + \gamma = 1$ e $\alpha, \beta, \gamma > 0$, usando o conceito de coordenadas baricêntricas.</li>
+                    <li>Consideremos um ponto $P$ no interior do triângulo $ABC$. Este ponto define três subtriângulos: $\triangle PAB$, $\triangle PBC$ e $\triangle PCA$.</li>
+                    <li>Denotamos as áreas desses triângulos por $\Delta_{PAB}$, $\Delta_{PBC}$ e $\Delta_{PCA}$, e a área do triângulo original por $\Delta_{ABC}$.</li>
+                    <li>Como $P$ está no interior do triângulo, é verdade que $\Delta_{PAB} + \Delta_{PBC} + \Delta_{PCA} = \Delta_{ABC}$ e todas as áreas são positivas.</li>
+                    <li>Definimos as coordenadas baricêntricas de $P$ como:
+                        <br>$\alpha = \frac{\Delta_{PBC}}{\Delta_{ABC}}$
+                        <br>$\beta = \frac{\Delta_{PCA}}{\Delta_{ABC}}$
+                        <br>$\gamma = \frac{\Delta_{PAB}}{\Delta_{ABC}}$
                     </li>
-                    <li>Geometricamente, $\alpha$, $\beta$ e $\gamma$ são chamados de coordenadas baricêntricas de $P$ em relação ao triângulo $ABC$.</li>
-                    <li>Essas coordenadas representam os "pesos" relativos que cada vértice exerce sobre o ponto $P$.</li>
+                    <li>Como cada área é positiva e a soma das áreas dos subtriângulos é igual à área do triângulo original, temos que $\alpha + \beta + \gamma = 1$ e $\alpha, \beta, \gamma > 0$.</li>
+                    <li>É um resultado da geometria que estas razões de áreas conduzem precisamente à expressão $P = \alpha A + \beta B + \gamma C$.</li>
+                    <li>Casos especiais que verificam este resultado:
+                        <br>- Se $P$ coincide com $A$: $\alpha = 1, \beta = 0, \gamma = 0$
+                        <br>- Se $P$ coincide com $B$: $\alpha = 0, \beta = 1, \gamma = 0$
+                        <br>- Se $P$ coincide com $C$: $\alpha = 0, \beta = 0, \gamma = 1$
+                        <br>- Se $P$ está no ponto médio de $AB$: $\alpha = 0.5, \beta = 0.5, \gamma = 0$
+                    </li>
+                    <li>Se $P$ está em um dos lados do triângulo, um dos coeficientes será zero (pois a área de um dos subtriângulos será nula).</li>
+                    <li>Se $P$ está estritamente no interior, todos os coeficientes são positivos, pois todas as áreas dos subtriângulos são positivas.</li>
                 </ol>
                 
                 <div class="formula">
@@ -624,10 +630,12 @@
                     <br>
                     $P = \alpha A + \beta B + \gamma C$
                     <br>
-                    onde $\alpha + \beta + \gamma = 1$ e $\alpha, \beta, \gamma > 0$
+                    onde $\alpha = \frac{\Delta_{PBC}}{\Delta_{ABC}}$, $\beta = \frac{\Delta_{PCA}}{\Delta_{ABC}}$, $\gamma = \frac{\Delta_{PAB}}{\Delta_{ABC}}$
+                    <br>
+                    com $\alpha + \beta + \gamma = 1$ e $\alpha, \beta, \gamma > 0$
                 </div>
                 
-                <p><strong>Reflexão de Sobrevivência:</strong> Esta propriedade matemática fundamenta o princípio de operação dos escudos vetoriais. Como qualquer ponto dentro do triângulo pode ser expresso como combinação positiva dos vértices, isso garante que o campo de proteção se estende uniformemente por toda a área interior. Em termos práticos, isso significa que não há "pontos mortos" na cobertura de proteção - cada local dentro do perímetro recebe uma combinação dos três campos vetoriais. O sistema é engenhosamente eficiente: com apenas três geradores de campo, é possível criar uma zona de segurança contínua e homogênea. Este é um exemplo perfeito de como princípios matemáticos avançados podem ser aplicados para maximizar a eficiência de recursos escassos em um cenário pós-apocalíptico.</p>
+                <p><strong>Reflexão de Sobrevivência:</strong> Esta propriedade matemática fundamenta o princípio de operação dos escudos vetoriais. As coordenadas baricêntricas podem ser interpretadas fisicamente como "intensidades de influência" de cada escudo sobre um ponto no interior do abrigo. Um ponto interior recebe contribuição não desprezível dos três escudos (todos os coeficientes são positivos), garantindo proteção completa em todo o triângulo. Pontos fora do triângulo não podem ser expressos como combinação convexa dos vértices com coeficientes positivos, o que significa que perdem, em alguma medida, a sobreposição dos campos de proteção. Com apenas três geradores de campo estrategicamente posicionados, o sistema cria uma zona de segurança contínua e homogênea sem "pontos mortos", demonstrando como princípios matemáticos avançados maximizam a eficiência de recursos escassos em um mundo devastado.</p>
             </details>
         </div>
     </div>

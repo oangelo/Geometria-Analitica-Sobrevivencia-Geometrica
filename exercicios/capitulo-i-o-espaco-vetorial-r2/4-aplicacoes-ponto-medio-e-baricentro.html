@@ -564,84 +564,71 @@
         
         <!-- MISSÃO 11 (DESAFIADORA) -->
         <div class="exercise">
-            <h3>A HERANÇA DO CENTRO</h3>
-            <p>Um triângulo inicial T₀ tem vértices A₀(0, 0), B₀(6, 0) e C₀(3, 3√3). Definimos um processo recursivo onde, a cada iteração n, criamos um novo triângulo Tₙ utilizando os baricentros de três triângulos: o primeiro formado pelos pontos médios dos lados de Tₙ₋₁, o segundo formado pelos vértices de Tₙ₋₁, e o terceiro formado pelas medianas de Tₙ₋₁. Determine as coordenadas dos vértices de T₂ e prove que o baricentro permanece invariante através das iterações.</p>
+            <h3>TRIÂNGULO DE MEIOS MÉDIOS</h3>
+            <p>Três abrigos formam um triângulo com vértices em A(0, 0), B(8, 0) e C(4, 6). Um sistema defensivo exige a construção de três postos de vigilância nos pontos médios dos lados deste triângulo. Determine as coordenadas do baricentro do triângulo formado por estes três postos de vigilância e compare com o baricentro do triângulo original. Qual relação você encontra entre eles?</p>
 
             <details>
                 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
                 <ol class="solution-steps">
-                    <li>Primeiramente, calculamos o baricentro G₀ do triângulo T₀:
-                        <br>$G_0 = \left(\frac{0 + 6 + 3}{3}, \frac{0 + 0 + 3\sqrt{3}}{3}\right) = (3, \sqrt{3})$</li>
-                    <li>Calculamos os pontos médios dos lados de T₀:
-                        <br>$M_{AB} = \left(\frac{0 + 6}{2}, \frac{0 + 0}{2}\right) = (3, 0)$
-                        <br>$M_{BC} = \left(\frac{6 + 3}{2}, \frac{0 + 3\sqrt{3}}{2}\right) = (4.5, 1.5\sqrt{3})$
-                        <br>$M_{CA} = \left(\frac{3 + 0}{2}, \frac{3\sqrt{3} + 0}{2}\right) = (1.5, 1.5\sqrt{3})$</li>
-                    <li>O triângulo formado pelos pontos médios é T' = △(M_{AB}, M_{BC}, M_{CA})</li>
-                    <li>Calculamos o baricentro G' de T':
-                        <br>$G' = \left(\frac{3 + 4.5 + 1.5}{3}, \frac{0 + 1.5\sqrt{3} + 1.5\sqrt{3}}{3}\right) = (3, \sqrt{3})$</li>
-                    <li>As medianas de T₀ unem cada vértice ao ponto médio do lado oposto, formando o triângulo T'' = △(A₀M_{BC}, B₀M_{CA}, C₀M_{AB})</li>
-                    <li>O baricentro G'' deste triângulo também é G'' = (3, √3)</li>
-                    <li>Para T₁, usamos os três baricentros calculados (que são todos iguais a (3, √3))</li>
-                    <li>Como todos os baricentros coincidem em (3, √3), os vértices de T₁ também serão todos (3, √3)</li>
-                    <li>Analogamente, todos os baricentros de T₁ serão (3, √3)</li>
-                    <li>Portanto, T₂ terá todos os vértices em (3, √3)</li>
-                    <li>Concluímos que o baricentro permanece invariante porque cada nova iteração gera triângulos cujos baricentros coincidem com o baricentro original</li>
+                    <li>Primeiro, calculamos os pontos médios dos lados do triângulo original:
+                        <br>$M_{AB} = \left(\frac{0 + 8}{2}, \frac{0 + 0}{2}\right) = (4, 0)$
+                        <br>$M_{BC} = \left(\frac{8 + 4}{2}, \frac{0 + 6}{2}\right) = (6, 3)$
+                        <br>$M_{CA} = \left(\frac{4 + 0}{2}, \frac{6 + 0}{2}\right) = (2, 3)$</li>
+                    <li>Estes três pontos formam um novo triângulo: △(M_{AB}, M_{BC}, M_{CA})</li>
+                    <li>Calculamos o baricentro G' deste novo triângulo:
+                        <br>$G' = \left(\frac{4 + 6 + 2}{3}, \frac{0 + 3 + 3}{3}\right) = \left(\frac{12}{3}, \frac{6}{3}\right) = (4, 2)$</li>
+                    <li>Agora, calculamos o baricentro G do triângulo original:
+                        <br>$G = \left(\frac{0 + 8 + 4}{3}, \frac{0 + 0 + 6}{3}\right) = \left(\frac{12}{3}, \frac{6}{3}\right) = (4, 2)$</li>
+                    <li>Observamos que G = G', ou seja, o baricentro do triângulo formado pelos pontos médios coincide com o baricentro do triângulo original</li>
                 </ol>
                 
                 <div class="formula">
-                    $$G_0 = G' = G'' = (3, \sqrt{3})$$
-                    $$\text{Vértices de } T_2 = \{(3, \sqrt{3}), (3, \sqrt{3}), (3, \sqrt{3})\}$$
+                    $G = \left(\frac{0 + 8 + 4}{3}, \frac{0 + 0 + 6}{3}\right) = (4, 2)$
+                    $G' = \left(\frac{4 + 6 + 2}{3}, \frac{0 + 3 + 3}{3}\right) = (4, 2)$
+                    $G = G'$
                 </div>
                 
-                <p><strong>Reflexão de Sobrevivência:</strong> Em sistemas complexos com múltiplas camadas de recursividade, a descoberta de invariantes geométricos oferece pontos de estabilidade fundamentais. No caos da Zona Devastada, identificar estes "pontos de ancoragem" matemáticos permite projetar sistemas recursivos de recursos que mantêm sua eficiência mesmo após múltiplas reorganizações, garantindo resiliência a longo prazo.</p>
+                <p><strong>Reflexão de Sobrevivência:</strong> Esta propriedade invariante dos baricentros tem uma aplicação prática inestimável na Zona Devastada: ao construir postos defensivos nos pontos médios de um território triangular, o centro de comando permanece no mesmo ponto estratégico. Isso permite manter as mesmas rotas de evacuação e suprimentos, mesmo quando o perímetro defensivo precisa ser reduzido em resposta a ameaças externas.</p>
             </details>
         </div>
         
         <!-- MISSÃO 12 (DESAFIADORA) -->
         <div class="exercise">
-            <h3>O ÚLTIMO REFÚGIO</h3>
-            <p>Um drone de reconhecimento identificou cinco pontos estratégicos nas coordenadas A(0, 0), B(8, 0), C(8, 6), D(4, 8) e E(0, 6). Para maximizar a segurança, um abrigo deve ser construído em um local X tal que a soma dos quadrados das distâncias deste ponto até os cinco pontos estratégicos seja mínima. Determine as coordenadas deste ponto e prove que coincide com a média aritmética das coordenadas dos cinco pontos originais. Qual seria a distância média do abrigo até os pontos estratégicos?</p>
+            <h3>OS QUATRO ABRIGOS</h3>
+            <p>Quatro comunidades sobreviventes estabeleceram abrigos nas coordenadas A(0, 0), B(6, 0), C(6, 6) e D(0, 6), formando um quadrado. Para otimizar o uso de recursos, decidiu-se construir um ponto de encontro no baricentro deste quadrilátero. Uma segunda proposta sugere construir quatro pontos de distribuição nos pontos médios de cada lado do quadrado e então posicionar o centro principal no baricentro destes quatro pontos. Determine as coordenadas destes dois centros propostos e discuta se eles coincidem.</p>
 
             <details>
                 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
                 <ol class="solution-steps">
-                    <li>Consideramos um ponto genérico X(x, y) e definimos a função:
-                        <br>$f(x, y) = |XA|^2 + |XB|^2 + |XC|^2 + |XD|^2 + |XE|^2$</li>
-                    <li>Substituindo as coordenadas:
-                        <br>$f(x, y) = (x-0)^2 + (y-0)^2 + (x-8)^2 + (y-0)^2 + (x-8)^2 + (y-6)^2 + (x-4)^2 + (y-8)^2 + (x-0)^2 + (y-6)^2$</li>
-                    <li>Agrupando os termos:
-                        <br>$f(x, y) = 5x^2 - 2(0+8+8+4+0)x + (0^2+8^2+8^2+4^2+0^2) + 5y^2 - 2(0+0+6+8+6)y + (0^2+0^2+6^2+8^2+6^2)$
-                        <br>$f(x, y) = 5x^2 - 40x + 5y^2 - 40y + C$, onde $C$ é uma constante</li>
-                    <li>Para encontrar o mínimo, derivamos parcialmente e igualamos a zero:
-                        <br>$\frac{\partial f}{\partial x} = 10x - 40 = 0 \implies x = 4$
-                        <br>$\frac{\partial f}{\partial y} = 10y - 40 = 0 \implies y = 4$</li>
-                    <li>Verificamos que este ponto é um mínimo calculando a matriz Hessiana:
-                        <br>$\frac{\partial^2 f}{\partial x^2} = 10 > 0$
-                        <br>$\frac{\partial^2 f}{\partial y^2} = 10 > 0$
-                        <br>$\frac{\partial^2 f}{\partial x \partial y} = 0$
-                        <br>$\det(H) = 10 \cdot 10 - 0 \cdot 0 = 100 > 0$</li>
-                    <li>O ponto (4, 4) é de fato um mínimo global</li>
-                    <li>Calculamos a média aritmética das coordenadas dos cinco pontos:
-                        <br>$\bar{x} = \frac{0 + 8 + 8 + 4 + 0}{5} = \frac{20}{5} = 4$
-                        <br>$\bar{y} = \frac{0 + 0 + 6 + 8 + 6}{5} = \frac{20}{5} = 4$
-                        <br>$\bar{P} = (4, 4)$</li>
-                    <li>Isto prova que o ponto que minimiza a soma dos quadrados das distâncias é a média aritmética das coordenadas</li>
-                    <li>Calculamos a distância de X até cada ponto:
-                        <br>$|XA| = \sqrt{(4-0)^2 + (4-0)^2} = \sqrt{32} = 4\sqrt{2}$
-                        <br>$|XB| = \sqrt{(4-8)^2 + (4-0)^2} = \sqrt{32} = 4\sqrt{2}$
-                        <br>$|XC| = \sqrt{(4-8)^2 + (4-6)^2} = \sqrt{20} = 2\sqrt{5}$
-                        <br>$|XD| = \sqrt{(4-4)^2 + (4-8)^2} = 4$
-                        <br>$|XE| = \sqrt{(4-0)^2 + (4-6)^2} = \sqrt{20} = 2\sqrt{5}$</li>
-                    <li>A distância média é:
-                        <br>$\text{Distância média} = \frac{|XA| + |XB| + |XC| + |XD| + |XE|}{5} = \frac{4\sqrt{2} + 4\sqrt{2} + 2\sqrt{5} + 4 + 2\sqrt{5}}{5} = \frac{8\sqrt{2} + 4\sqrt{5} + 4}{5} \approx 4.33$</li>
+                    <li>Calculamos o baricentro do quadrilátero original:
+                        <br>$G_1 = \left(\frac{0 + 6 + 6 + 0}{4}, \frac{0 + 0 + 6 + 6}{4}\right) = \left(\frac{12}{4}, \frac{12}{4}\right) = (3, 3)$</li>
+                    <li>Agora, calculamos os pontos médios dos lados do quadrado:
+                        <br>$M_{AB} = \left(\frac{0 + 6}{2}, \frac{0 + 0}{2}\right) = (3, 0)$
+                        <br>$M_{BC} = \left(\frac{6 + 6}{2}, \frac{0 + 6}{2}\right) = (6, 3)$
+                        <br>$M_{CD} = \left(\frac{6 + 0}{2}, \frac{6 + 6}{2}\right) = (3, 6)$
+                        <br>$M_{DA} = \left(\frac{0 + 0}{2}, \frac{6 + 0}{2}\right) = (0, 3)$</li>
+                    <li>Calculamos o baricentro destes quatro pontos médios:
+                        <br>$G_2 = \left(\frac{3 + 6 + 3 + 0}{4}, \frac{0 + 3 + 6 + 3}{4}\right) = \left(\frac{12}{4}, \frac{12}{4}\right) = (3, 3)$</li>
+                    <li>Verificamos que $G_1 = G_2 = (3, 3)$, portanto as duas propostas resultam no mesmo ponto central</li>
+                    <li>Para verificar a distância de G até cada um dos abrigos originais:
+                        <br>$|GA| = \sqrt{(3-0)^2 + (3-0)^2} = \sqrt{18} = 3\sqrt{2} \approx 4.24$
+                        <br>$|GB| = \sqrt{(3-6)^2 + (3-0)^2} = \sqrt{18} = 3\sqrt{2} \approx 4.24$
+                        <br>$|GC| = \sqrt{(3-6)^2 + (3-6)^2} = \sqrt{18} = 3\sqrt{2} \approx 4.24$
+                        <br>$|GD| = \sqrt{(3-0)^2 + (3-6)^2} = \sqrt{18} = 3\sqrt{2} \approx 4.24$</li>
+                    <li>Para verificar a distância de G até cada um dos pontos médios:
+                        <br>$|GM_{AB}| = \sqrt{(3-3)^2 + (3-0)^2} = 3$
+                        <br>$|GM_{BC}| = \sqrt{(3-6)^2 + (3-3)^2} = 3$
+                        <br>$|GM_{CD}| = \sqrt{(3-3)^2 + (3-6)^2} = 3$
+                        <br>$|GM_{DA}| = \sqrt{(3-0)^2 + (3-3)^2} = 3$</li>
                 </ol>
                 
                 <div class="formula">
-                    $$X = \left(\frac{x_1 + x_2 + ... + x_n}{n}, \frac{y_1 + y_2 + ... + y_n}{n}\right) = (4, 4)$$
-                    $$\text{Distância média} \approx 4.33 \text{ unidades}$$
+                    $G_1 = G_2 = (3, 3)$
+                    $\text{Distância de G até cada abrigo} = 3\sqrt{2} \approx 4.24 \text{ unidades}$
+                    $\text{Distância de G até cada ponto médio} = 3 \text{ unidades}$
                 </div>
                 
-                <p><strong>Reflexão de Sobrevivência:</strong> A prova matemática de que o ponto de distância quadrática mínima é precisamente a média das coordenadas tem implicações críticas para planejamento de abrigos: sistemas complexos com múltiplos pontos de interesse encontram seu equilíbrio ótimo através de uma simples média aritmética. Na escassez pós-apocalíptica, este princípio permite otimizar rapidamente posicionamentos críticos sem cálculos complexos, salvando vidas quando cada segundo conta.</p>
+                <p><strong>Reflexão de Sobrevivência:</strong> A coincidência dos baricentros demonstra uma propriedade fundamental dos sistemas de distribuição em ambientes hostis: as estruturas hierárquicas de suprimentos mantêm seu ponto central ideal independentemente do nível de distribuição. Isto permite criar sistemas redundantes que podem ser adaptados conforme a necessidade (centralização ou descentralização) sem alterar as rotas principais de logística, otimizando a resistência do assentamento contra ameaças externas.</p>
             </details>
         </div>
     </div>
