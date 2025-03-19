@@ -1,177 +1,623 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Include MathJax -->
-    <script type="text/javascript" async
-            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
     </script>
-    <title>Capítulo: O Espaço Vetorial R²</title>
+    <title>REFÚGIO-TEC | IGUALDADE E OPERAÇÕES COM PARES ORDENADOS</title>
     <style>
-body {
-  background-color: #2b2b2b;
-  color: #e6e6e6;
-  font-family: "Courier New", Courier, monospace;
-  margin: 20px;
-  padding: 20px;
-  border: 3px solid #4caf50;
-  border-radius: 10px;
-  max-width: 800px;
-  margin: auto;
-  background-image: url('img/asfalt-light.png');
-}
+        /* Estilo inspirado no tema pós-apocalíptico */
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100px; }
+        }
+
+        body {
+            background-color: #0c0c0c;
+            color: #e6e6e6;
+            font-family: "Courier New", monospace;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #4caf50;
+            max-width: 800px;
+            margin: auto;
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 2px;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
 
         h1, h2, h3 {
-          color: #4caf50;
-          text-shadow: 1px 1px 2px black;
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
         }
 
         .exercise {
-          background-color: rgba(0, 0, 0, 0.8);
-          padding: 15px;
-          border: 2px dashed #4caf50;
-          border-radius: 5px;
-          margin-bottom: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border: 1px dashed #4caf50;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.2);
         }
 
         details {
-          background-color: #1c1c1c;
-          padding: 10px;
-          border: 1px solid #4caf50;
-          border-radius: 5px;
-          margin-top: 10px;
+            background-color: #1c1c1c;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            margin-top: 10px;
         }
 
         summary {
-          font-weight: bold;
-          cursor: pointer;
-          color: #4caf50;
+            font-weight: bold;
+            cursor: pointer;
+            color: #4caf50;
+        }
+
+        summary:hover {
+            text-shadow: 0 0 3px #4caf50;
         }
 
         code {
-          background-color: #333;
-          padding: 3px 5px;
-          border-radius: 3px;
-          color: #ffeb3b;
+            background-color: #333;
+            padding: 3px 5px;
+            color: #ffeb3b;
+        }
+
+        .hint {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #4caf50;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .hint:before {
+            content: "DICA DE SOBREVIVÊNCIA: ";
+            color: #4caf50;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .solution-steps {
+            margin-left: 20px;
+            counter-reset: step-counter;
+        }
+
+        .solution-steps li {
+            list-style-type: none;
+            counter-increment: step-counter;
+            margin-bottom: 10px;
+        }
+
+        .solution-steps li::before {
+            content: "> PASSO_" counter(step-counter) ": ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .formula {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #000;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .terminal-frame {
+            padding: 10px;
+            background-color: #000;
+            margin-bottom: 20px;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .terminal-header {
+            margin: 0;
+            padding: 3px 10px;
+            background-color: #4caf50;
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .terminal-content {
+            padding: 5px;
+            white-space: pre-wrap;
+            font-size: 1em;
+            line-height: 1.2;
+        }
+
+        .cursor:after {
+            content: "█";
+            animation: blink 1s step-end infinite;
+        }
+
+        .terminal-line {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .terminal-border {
+            border: 1px solid #4caf50;
+            padding: 5px;
+            background-color: #000;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .mission-counter {
+            counter-reset: mission;
+        }
+        
+        .mission-counter .exercise h3:before {
+            content: "MISSÃO " counter(mission) ": ";
+            counter-increment: mission;
+        }
+
+        .warning {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .danger {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #8bc34a;
+            font-weight: bold;
         }
 
         .footer {
-          text-align: center;
-          margin-top: 30px;
-          font-size: 0.9em;
-          color: #757575;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #4caf50;
+            border-top: 1px solid #4caf50;
+            padding-top: 10px;
         }
     </style>
-  </head>
-  <body>
-    <h1>Capítulo: O Espaço Vetorial R²</h1>
-    <h2>Subtópico: Igualdade e Operações com Pares Ordenados</h2>
+</head>
+<body>
+    <!-- TÍTULO E INTRODUÇÃO -->
+    <div class="terminal-frame">
+        <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
+        <div class="terminal-content">
+┌───────────────────────────────────────────────────┐
+│ MÓDULO: IGUALDADE E OPERAÇÕES COM PARES ORDENADOS │
+└───────────────────────────────────────────────────┘
 
-    <div class="exercise">
-      <h3>Exercício 1: Pontos Estratégicos nos Eixos</h3>
-      <p>
-      Em meio aos destroços da civilização, precisamos localizar pontos vitais em nosso mapa de sobrevivência. Considere as coordenadas:
-      \(A(4, 0)\), \(B(-3, 1)\), \(C(0, -7)\), \(D\left(\frac{1}{2}, 0\right)\), \(E(0, \sqrt{3})\) e \(F(0, 0)\).
-      </p>
-      <p>a) Quais destes pontos podem ser usados como postos de observação no eixo das abscissas (eixo x)?</p>
-      <p>b) Quais podem servir como marcos de orientação no eixo das ordenadas (eixo y)?</p>
-      <details>
-        <summary>Ver Solução</summary>
-        <p>Lembre-se de que um ponto está no eixo x se \(y = 0\) e no eixo y se \(x = 0\).</p>
-        <p>
-        a) <strong>Eixo x</strong>: A(4, 0), D(1/2, 0), F(0, 0)<br>
-        b) <strong>Eixo y</strong>: C(0, -7), E(0, √3), F(0, 0)
-        </p>
-        <p>O ponto F(0,0) é o cruzamento de ambos — uma espécie de bunker central para as operações de sobrevivência.</p>
-      </details>
+> INICIANDO TRANSMISSÃO...
+> CARREGANDO MÓDULO DE TREINAMENTO...
+> ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
+        </div>
     </div>
 
-    <div class="exercise">
-      <h3>Exercício 2: Determinação de Territórios (Quadrantes)</h3>
-      <p>
-      Nos mapas do mundo em reconstrução, identificar o quadrante pode salvar sua rota de expedição. Determine onde se localiza o ponto \(P(x, y)\) em cada caso:
-      </p>
-      <p>a) \(P(-7, 2)\)</p>
-      <p>b) \(P(\sqrt{2}, -5)\)</p>
-      <p>c) \(P\left(-\frac{1}{2}, -\frac{2}{3}\right)\)</p>
-      <p>d) \(P\left(-\sqrt{2}, \sqrt{3} - 2\right)\)</p>
-      <p>e) \(P\left(\frac{\sqrt{3}}{3}, \frac{-1+\sqrt{2}}{2}\right)\)</p>
-      <details>
-        <summary>Ver Solução</summary>
-        <p>Para definir o quadrante, analisamos os sinais de \(x\) e \(y\):</p>
-        <ul>
-          <li>a) 2º Quadrante (\(x < 0\), \(y > 0\))</li>
-          <li>b) 4º Quadrante (\(x > 0\), \(y < 0\))</li>
-          <li>c) 3º Quadrante (\(x < 0\), \(y < 0\))</li>
-          <li>d) Depende do valor de \(\sqrt{3} - 2\). Se positivo, 2º Quadrante; se negativo, 3º Quadrante.</li>
-          <li>e) \(\frac{-1+\sqrt{2}}{2} \approx -0,15\), então \(y < 0\). Como \(x > 0\), o ponto está no 4º Quadrante.</li>
-        </ul>
-        <p>Não esqueça de verificar se as radiações numéricas de \(\sqrt{3} - 2\) não mudam sua análise!</p>
-      </details>
+    <div class="terminal-border">
+        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: IGUALDADE E OPERAÇÕES COM PARES ORDENADOS</h2>
+    
+    <p>Bem-vindo, sobrevivente, ao módulo de navegação matemática em meio ao caos. Nas Zonas Devastadas, a capacidade de rastrear posições usando pares ordenados é tão vital quanto encontrar água não contaminada. Sua capacidade de entender e manipular coordenadas determinará se você encontrará o próximo abrigo ou vagará até a radiação consumir seu último RemoveRad.</p>
+    
+    <p>Pares ordenados são representações $(x,y)$ que mapeiam posições no plano cartesiano. Em nosso mundo pós-apocalíptico, estas coordenadas são usadas para marcar locais de recursos, posições de patrulhas de mutantes, e abrigos seguros. Dois pares ordenados $(a,b)$ e $(c,d)$ são considerados <strong>iguais</strong> se e somente se $a = c$ e $b = d$. Esta é a regra fundamental da identificação de posições idênticas.</p>
+    
+    <p>As operações básicas com pares ordenados são essenciais para cálculos de navegação e posicionamento defensivo. Dominar estas operações pode ser a diferença entre localizar um depósito de suprimentos ou acabar encurralado por mutantes.</p>
+    
+    <div class="formula">
+    <p>Sejam $P = (a,b)$ e $Q = (c,d)$ dois pares ordenados e $k$ um número real:</p>
+    
+    <p>Adição: $P + Q = (a,b) + (c,d) = (a+c, b+d)$</p>
+    
+    <p>Subtração: $P - Q = (a,b) - (c,d) = (a-c, b-d)$</p>
+    
+    <p>Multiplicação por escalar: $k \cdot P = k \cdot (a,b) = (k \cdot a, k \cdot b)$</p>
+    </div>
+    
+    <p>Em termos práticos, a adição de pares ordenados permite encontrar novas posições combinando coordenadas, a subtração calcula deslocamentos entre localizações, e a multiplicação por escalar é usada para ampliação ou redução de distâncias - útil quando ajustamos o alcance de defesas ou planejamos rotas estendidas. Estas operações, devidamente aplicadas, garantem nossa sobrevivência no hostil mundo pós-apocalíptico.</p>
+
+    <!-- MISSÕES (EXERCÍCIOS) -->
+    <div class="mission-counter">
+        <!-- MISSÃO 1 (BÁSICA) -->
+        <div class="exercise">
+            <h3>LOCALIZAÇÃO DE ZONAS SEGURAS</h3>
+            <p>Sua unidade de sobrevivência precisa verificar se duas coordenadas de zonas potencialmente seguras correspondem ao mesmo local físico. Analise as coordenadas $A = (3,7)$ e $B = (7-4, 5+2)$ e determine se os pontos são idênticos. Em caso afirmativo, esse local será designado como ponto de encontro prioritário.</p>
+            
+            <div class="hint">
+                <p>Dois pares ordenados são iguais quando suas coordenadas correspondentes são iguais. Calcule os valores das expressões em $B$ antes de comparar com $A$.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcule os valores das coordenadas do ponto $B$:
+                       $B = (7-4, 5+2) = (3, 7)$</li>
+                    <li>Compare as coordenadas correspondentes:
+                       $x_A = 3$ e $x_B = 3$ ✓
+                       $y_A = 7$ e $y_B = 7$ ✓</li>
+                    <li>Como as coordenadas correspondentes são iguais, os pontos $A$ e $B$ são idênticos.</li>
+                </ol>
+                
+                <div class="formula">
+                    $(a,b) = (c,d)$ se e somente se $a = c$ e $b = d$<br>
+                    $(3,7) = (3,7)$ ✓
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em um mundo onde recursos e tempo são escassos, a capacidade de identificar quando duas descrições representam o mesmo local evita explorações redundantes e economiza recursos vitais. Cada duplicidade eliminada significa mais tempo para encontrar novos abrigos e suprimentos.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 2 (BÁSICA) -->
+        <div class="exercise">
+            <h3>TRIANGULAÇÃO DE SUPRIMENTOS</h3>
+            <p>Um sinal de rádio fragmentado indica que um pacote de suprimentos médicos foi lançado na posição que resulta da soma das coordenadas de dois abrigos conhecidos. Se o Abrigo Alpha está em $A = (2,5)$ e o Abrigo Beta em $B = (3,-1)$, determine as coordenadas exatas onde o pacote médico deve ser procurado.</p>
+            
+            <div class="hint">
+                <p>A soma de dois pares ordenados é obtida somando as coordenadas correspondentes. Aplique a fórmula da adição para encontrar o local do pacote.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identifique as coordenadas de cada abrigo:
+                       Abrigo Alpha: $A = (2,5)$
+                       Abrigo Beta: $B = (3,-1)$</li>
+                    <li>Aplique a fórmula de adição de pares ordenados:
+                       $A + B = (2,5) + (3,-1) = (2+3, 5+(-1))$</li>
+                    <li>Calcule as coordenadas resultantes:
+                       $A + B = (5, 4)$</li>
+                </ol>
+                
+                <div class="formula">
+                    $(a,b) + (c,d) = (a+c, b+d)$<br>
+                    $(2,5) + (3,-1) = (2+3, 5+(-1)) = (5, 4)$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A capacidade de combinar coordenadas permite localizar pontos baseados em referências conhecidas. Em situações onde comunicações são fragmentadas, este conhecimento possibilita interpretar instruções parciais e encontrar recursos vitais mesmo com informações incompletas.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 3 (BÁSICA) -->
+        <div class="exercise">
+            <h3>CÁLCULO DE DESLOCAMENTO</h3>
+            <p>Uma equipe de reconhecimento partiu da posição $P = (4,8)$ e chegou às coordenadas $Q = (-2,1)$. Calcule o vetor de deslocamento que representa a jornada realizada. Esta informação é crucial para futuras equipes que precisarão fazer o mesmo trajeto.</p>
+            
+            <div class="hint">
+                <p>O deslocamento é calculado subtraindo a posição inicial da posição final. Use a fórmula da subtração de pares ordenados para encontrar o vetor deslocamento.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identifique as coordenadas dos pontos:
+                       Posição inicial: $P = (4,8)$
+                       Posição final: $Q = (-2,1)$</li>
+                    <li>Para calcular o deslocamento, subtraia a posição inicial da final:
+                       $\vec{PQ} = Q - P = (-2,1) - (4,8)$</li>
+                    <li>Aplique a fórmula de subtração:
+                       $\vec{PQ} = (-2-4, 1-8) = (-6, -7)$</li>
+                </ol>
+                
+                <div class="formula">
+                    $(a,b) - (c,d) = (a-c, b-d)$<br>
+                    $(-2,1) - (4,8) = (-2-4, 1-8) = (-6, -7)$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Compreender deslocamentos é fundamental para navegar em território hostil. Este cálculo permite que equipes de resgate ou suporte saibam exatamente quanto e em que direção se movimentar, economizando energia e reduzindo exposição a áreas perigosas.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 4 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>EXPANSÃO DE ZONA DE RADIAÇÃO</h3>
+            <p>Uma fonte de radiação foi detectada na posição $R = (5,2)$. Os cientistas do RefúgioTEC estimam que em 24 horas a radiação se expandirá uniformemente, multiplicando a área afetada por 3. Determine as novas coordenadas do limite da zona de radiação se a expansão for modelada pela multiplicação escalar. Use esta informação para definir o perímetro de evacuação.</p>
+            
+            <div class="hint">
+                <p>A multiplicação de um par ordenado por um escalar afeta ambas as coordenadas. Multiplique cada componente de $R$ pelo fator de expansão.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identifique as coordenadas iniciais e o fator de expansão:
+                       Posição da fonte: $R = (5,2)$
+                       Fator de expansão: $k = 3$</li>
+                    <li>Aplique a fórmula de multiplicação por escalar:
+                       $k \cdot R = 3 \cdot (5,2)$</li>
+                    <li>Calcule as novas coordenadas:
+                       $3 \cdot (5,2) = (3 \cdot 5, 3 \cdot 2) = (15, 6)$</li>
+                </ol>
+                
+                <div class="formula">
+                    $k \cdot (a,b) = (k \cdot a, k \cdot b)$<br>
+                    $3 \cdot (5,2) = (3 \cdot 5, 3 \cdot 2) = (15, 6)$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Prever a expansão de áreas perigosas é crucial para o planejamento de evacuações. A multiplicação escalar permite estimar zonas de risco crescente, proporcionando tempo vital para relocação de recursos e pessoal antes que seja tarde demais.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 5 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>TRIANGULAÇÃO DE ÁGUA POTÁVEL</h3>
+            <p>Três equipes de reconhecimento relataram possíveis fontes de água nas coordenadas $A = (7,3)$, $B = (2,8)$ e $C = (4,-2)$. Um especialista em geoprocessamento sugere que o ponto com maior probabilidade de conter água subterrânea pura seria obtido através da operação: $(A + B) - C$. Calcule estas coordenadas para direcionar a equipe de perfuração.</p>
+            
+            <div class="hint">
+                <p>Execute as operações na ordem correta. Primeiro some os pontos $A$ e $B$, depois subtraia o ponto $C$ do resultado.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identifique as coordenadas de cada ponto:
+                       $A = (7,3)$, $B = (2,8)$, $C = (4,-2)$</li>
+                    <li>Calcule primeiro a soma de $A$ e $B$:
+                       $A + B = (7,3) + (2,8) = (7+2, 3+8) = (9, 11)$</li>
+                    <li>Agora subtraia $C$ do resultado anterior:
+                       $(A + B) - C = (9,11) - (4,-2) = (9-4, 11-(-2)) = (5, 13)$</li>
+                </ol>
+                
+                <div class="formula">
+                    $(A + B) - C = ((a,b) + (c,d)) - (e,f) = (a+c, b+d) - (e,f) = (a+c-e, b+d-f)$<br>
+                    $((7,3) + (2,8)) - (4,-2) = (9,11) - (4,-2) = (5, 13)$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em ambientes com recursos escassos, técnicas de triangulação matemática podem ser a diferença entre encontrar água potável ou sofrer de desidratação. A capacidade de processar múltiplas referências geográficas e convertê-las em uma única localização de alta probabilidade maximiza as chances de sobrevivência do grupo.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 6 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>ROTA DE NAVEGAÇÃO SEGURA</h3>
+            <p>Um sobrevivente no ponto $P = (1,6)$ precisa alcançar o abrigo no ponto $Q = (13,2)$ evitando uma zona de alta radiação. A rota segura consiste em se deslocar primeiro do ponto $P$ ao ponto intermediário $R$, calculado como $R = P + 2(Q - P)/3$, e depois seguir em linha reta de $R$ até $Q$. Determine as coordenadas do ponto intermediário $R$ onde o sobrevivente deve parar antes de continuar para o destino final.</p>
+            
+            <div class="hint">
+                <p>Primeiro calcule o vetor deslocamento total $(Q - P)$, multiplique-o pelo fator $2/3$ e adicione ao ponto inicial $P$.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identifique as coordenadas:
+                       $P = (1,6)$, $Q = (13,2)$</li>
+                    <li>Calcule o vetor deslocamento total:
+                       $Q - P = (13,2) - (1,6) = (13-1, 2-6) = (12, -4)$</li>
+                    <li>Multiplique o vetor deslocamento pelo fator $2/3$:
+                       $2(Q - P)/3 = 2(12, -4)/3 = (2 \cdot 12/3, 2 \cdot (-4)/3) = (8, -8/3) = (8, -2.67)$</li>
+                    <li>Adicione o resultado ao ponto inicial:
+                       $R = P + 2(Q - P)/3 = (1,6) + (8, -2.67) = (1+8, 6+(-2.67)) = (9, 3.33)$</li>
+                </ol>
+                
+                <div class="formula">
+                    $R = P + 2(Q - P)/3 = (a,b) + 2((c,d) - (a,b))/3 = (a,b) + 2(c-a, d-b)/3 = (a + 2(c-a)/3, b + 2(d-b)/3)$<br>
+                    $(1,6) + 2((13,2) - (1,6))/3 = (1,6) + 2(12,-4)/3 = (1,6) + (8,-2.67) = (9, 3.33)$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em terreno contaminado, raro é o luxo de seguir em linha reta. Calcular pontos intermediários de parada permite criar rotas seguras contornando zonas de perigo. A matemática torna-se literalmente um mapa para a sobrevivência, mostrando não apenas onde você quer chegar, mas o caminho seguro para fazê-lo.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 7 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>PONTOS DE ENCONTRO ESTRATÉGICOS</h3>
+            <p>Três equipes de busca operam a partir de abrigos nas posições $A = (-2,5)$, $B = (4,1)$ e $C = (6,7)$. Para minimizar o tempo total de viagem, o ponto de encontro ideal deve ser calculado como $P = 0.5A + 0.3B + 0.2C$, onde os coeficientes representam a prioridade de cada equipe. Determine as coordenadas deste ponto de encontro estratégico e informe via rádio para todas as equipes.</p>
+            
+            <div class="hint">
+                <p>Multiplique cada ponto pelo seu coeficiente e então some todos os resultados para encontrar o ponto ponderado ideal.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identifique as coordenadas e coeficientes:
+                       $A = (-2,5)$ com coeficiente $0.5$
+                       $B = (4,1)$ com coeficiente $0.3$
+                       $C = (6,7)$ com coeficiente $0.2$</li>
+                    <li>Multiplique cada ponto pelo seu respectivo coeficiente:
+                       $0.5A = 0.5 \cdot (-2,5) = (-1, 2.5)$
+                       $0.3B = 0.3 \cdot (4,1) = (1.2, 0.3)$
+                       $0.2C = 0.2 \cdot (6,7) = (1.2, 1.4)$</li>
+                    <li>Some os resultados:
+                       $P = 0.5A + 0.3B + 0.2C = (-1, 2.5) + (1.2, 0.3) + (1.2, 1.4) = (-1+1.2+1.2, 2.5+0.3+1.4) = (1.4, 4.2)$</li>
+                </ol>
+                
+                <div class="formula">
+                    $P = 0.5A + 0.3B + 0.2C = 0.5(a,b) + 0.3(c,d) + 0.2(e,f) = (0.5a + 0.3c + 0.2e, 0.5b + 0.3d + 0.2f)$<br>
+                    $0.5(-2,5) + 0.3(4,1) + 0.2(6,7) = (-1,2.5) + (1.2,0.3) + (1.2,1.4) = (1.4, 4.2)$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em um mundo onde recursos e energia são limitados, a otimização de rotas não é apenas conveniente, mas necessária para a sobrevivência. Pontos de encontro ponderados permitem equilibrar diferentes prioridades (segurança, distância, urgência) e maximizar a eficiência do grupo. Esta técnica pode ser a diferença entre reunir todas as equipes antes do anoitecer ou deixar alguém vulnerável à noite.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 8 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>ALINHAMENTO DE TORRES DE VIGILÂNCIA</h3>
+            <p>O perímetro de segurança do acampamento possui três torres de vigilância nas posições $A = (2,1)$, $B = (5,7)$ e $C = (8,13)$. Para maximizar a eficiência dos recursos, é essencial verificar se estas torres estão alinhadas (em linha reta). Utilize operações com pares ordenados para verificar matematicamente se os três pontos são colineares, o que permitiria reduzir o número de vigias necessários.</p>
+            
+            <div class="hint">
+                <p>Pontos colineares podem ser verificados comparando proporções de deslocamento. Analise se o deslocamento de $A$ para $B$ é proporcional ao deslocamento de $A$ para $C$.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identifique as coordenadas das torres:
+                       $A = (2,1)$, $B = (5,7)$, $C = (8,13)$</li>
+                    <li>Calcule os vetores deslocamento:
+                       $\vec{AB} = B - A = (5,7) - (2,1) = (3,6)$
+                       $\vec{AC} = C - A = (8,13) - (2,1) = (6,12)$</li>
+                    <li>Verifique se um vetor é múltiplo escalar do outro:
+                       $\vec{AC} = 2 \cdot \vec{AB}$ pois $(6,12) = 2 \cdot (3,6)$</li>
+                    <li>Como um vetor é múltiplo escalar do outro, os três pontos são colineares.</li>
+                </ol>
+                
+                <div class="formula">
+                    Três pontos $A$, $B$ e $C$ são colineares se existir um escalar $k$ tal que $\vec{AC} = k \cdot \vec{AB}$<br>
+                    $\vec{AC} = (6,12)$ e $\vec{AB} = (3,6)$<br>
+                    $\vec{AC} = 2 \cdot \vec{AB}$ pois $(6,12) = 2 \cdot (3,6)$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em um ambiente onde cada recurso humano conta, identificar redundâncias em sistemas de defesa permite realocar pessoal para tarefas mais críticas. A colinearidade das torres significa que apenas duas precisam ser guarnecidas, liberando pessoal para caça, coleta ou outras atividades essenciais à sobrevivência do grupo.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 9 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>CONFIGURAÇÃO DE PERÍMETRO DEFENSIVO</h3>
+            <p>O acampamento principal está localizado na posição $O = (0,0)$. Quatro pontos de defesa avançada foram posicionados em $A = (3,5)$, $B = (-2,4)$, $C = (-3,-1)$ e $D = (2,-2)$. Para testar a eficácia da configuração defensiva, é necessário determinar se estes pontos formam um paralelogramo, o que garantiria cobertura cruzada ideal contra invasores. Verifique esta condição usando operações com pares ordenados.</p>
+            
+            <div class="hint">
+                <p>Um paralelogramo possui lados opostos paralelos e de mesma medida. Verifique se os vetores que representam lados opostos são iguais.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identifique as coordenadas dos pontos:
+                       $A = (3,5)$, $B = (-2,4)$, $C = (-3,-1)$, $D = (2,-2)$</li>
+                    <li>Calcule os vetores que representam os lados, considerando a ordem $A$, $B$, $C$, $D$:
+                       $\vec{AB} = B - A = (-2,4) - (3,5) = (-5,-1)$
+                       $\vec{BC} = C - B = (-3,-1) - (-2,4) = (-1,-5)$
+                       $\vec{CD} = D - C = (2,-2) - (-3,-1) = (5,-1)$
+                       $\vec{DA} = A - D = (3,5) - (2,-2) = (1,7)$</li>
+                    <li>Verifique se os lados opostos são paralelos e de mesmo comprimento:
+                       $\vec{AB} = (-5,-1)$ e $\vec{CD} = (5,-1)$
+                       $\vec{BC} = (-1,-5)$ e $\vec{DA} = (1,7)$</li>
+                    <li>Observe que $\vec{AB}$ e $\vec{CD}$ têm mesma magnitude, mas direções opostas (um é o negativo do outro). Porém, $\vec{BC}$ e $\vec{DA}$ não são paralelos. Portanto, os pontos não formam um paralelogramo.</li>
+                </ol>
+                
+                <div class="formula">
+                    Um quadrilátero $ABCD$ é um paralelogramo se e somente se $\vec{AB} = \vec{CD}$ e $\vec{BC} = \vec{DA}$<br>
+                    $\vec{AB} = (-5,-1)$ e $\vec{CD} = (5,-1)$, temos que $\vec{CD} = -\vec{AB}$<br>
+                    $\vec{BC} = (-1,-5)$ e $\vec{DA} = (1,7)$, claramente $\vec{DA} \neq \vec{BC}$ e $\vec{DA} \neq -\vec{BC}$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A geometria do perímetro defensivo determina sua eficácia. Um paralelogramo oferece cobertura ideal com o mínimo de recursos, enquanto configurações irregulares podem criar pontos cegos. Reconhecer essas falhas antes de um ataque permite reposicionar equipes defensivas para mitigar vulnerabilidades, aumentando as chances de sobrevivência do grupo.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 10 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>ROTA DE RESGATE MULTI-PONTO</h3>
+            <p>Uma equipe de resgate precisa planejar uma rota eficiente para recuperar sobreviventes em cinco pontos diferentes antes que uma tempestade de radiação atinja a região. As coordenadas dos pontos são $P_1 = (2,3)$, $P_2 = (-4,1)$, $P_3 = (0,-2)$, $P_4 = (5,3)$ e $P_5 = (-1,-5)$. O ponto inicial da missão é $P_0 = (1,0)$ e o ponto final (abrigo seguro) é $P_f = (3P_1 - 2P_3 + P_4)/2$. A rota deve seguir a sequência: $P_0 \rightarrow P_2 \rightarrow P_5 \rightarrow P_3 \rightarrow P_1 \rightarrow P_4 \rightarrow P_f$. Calcule a distância total percorrida, usando os deslocamentos entre pontos consecutivos, e determine as coordenadas do abrigo final $P_f$.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Primeiro, calculemos as coordenadas do ponto final $P_f$:
+                       $P_f = (3P_1 - 2P_3 + P_4)/2$
+                       $P_f = (3(2,3) - 2(0,-2) + (5,3))/2$
+                       $P_f = ((3 \cdot 2, 3 \cdot 3) - (2 \cdot 0, 2 \cdot (-2)) + (5,3))/2$
+                       $P_f = ((6,9) - (0,-4) + (5,3))/2$
+                       $P_f = ((6+0+5), (9+4+3))/2$
+                       $P_f = (11,16)/2$
+                       $P_f = (5.5, 8)$</li>
+                    <li>Agora, calculemos cada deslocamento da rota:
+                       $\vec{P_0P_2} = P_2 - P_0 = (-4,1) - (1,0) = (-5,1)$
+                       $\vec{P_2P_5} = P_5 - P_2 = (-1,-5) - (-4,1) = (3,-6)$
+                       $\vec{P_5P_3} = P_3 - P_5 = (0,-2) - (-1,-5) = (1,3)$
+                       $\vec{P_3P_1} = P_1 - P_3 = (2,3) - (0,-2) = (2,5)$
+                       $\vec{P_1P_4} = P_4 - P_1 = (5,3) - (2,3) = (3,0)$
+                       $\vec{P_4P_f} = P_f - P_4 = (5.5,8) - (5,3) = (0.5,5)$</li>
+                    <li>A distância total será a soma das magnitudes de cada deslocamento, que pode ser calculada como a soma dos comprimentos de cada vetor.</li>
+                </ol>
+                
+                <div class="formula">
+                    $P_f = (3P_1 - 2P_3 + P_4)/2 = (3(2,3) - 2(0,-2) + (5,3))/2 = ((6,9) - (0,-4) + (5,3))/2 = (11,16)/2 = (5.5, 8)$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em operações de resgate complexas, a capacidade de calcular pontos de convergência e rotas otimizadas é vital quando o tempo é limitado. Cada minuto economizado pode significar uma vida salva antes que condições ambientais fatais se estabeleçam. Também demonstra como operações matemáticas podem ser combinadas para criar pontos de referência derivados que não existem fisicamente no terreno.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 11 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>ANÁLISE DE PROPAGAÇÃO DE RADIAÇÃO</h3>
+            <p>Três sensores de radiação foram posicionados nos pontos $A = (1,2)$, $B = (5,3)$ e $C = (2,7)$. Após uma explosão em um reator próximo, os níveis de radiação aumentaram exponencialmente. Os cientistas do RefúgioTEC modelaram a transformação da zona de contaminação como uma operação vetorial onde cada ponto $P = (x,y)$ na área é mapeado para um novo ponto $P' = (2x-y, x+y)$. O bunker de sobrevivência está localizado no ponto $S = (4,5)$. Determine as coordenadas transformadas dos sensores e do bunker, e verifique se o bunker estará na zona de contenção formada pelos sensores transformados.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Aplique a transformação a cada ponto, começando pelos sensores:
+                       $A' = (2 \cdot 1 - 2, 1 + 2) = (0, 3)$
+                       $B' = (2 \cdot 5 - 3, 5 + 3) = (7, 8)$
+                       $C' = (2 \cdot 2 - 7, 2 + 7) = (-3, 9)$</li>
+                    <li>Agora aplique a transformação ao bunker:
+                       $S' = (2 \cdot 4 - 5, 4 + 5) = (3, 9)$</li>
+                    <li>Para verificar se o bunker transformado está na zona de contenção formada pelos sensores transformados, precisaríamos verificar se $S'$ está dentro do triângulo formado por $A'$, $B'$ e $C'$. Isso exigiria análise adicional além do escopo das operações básicas com pares ordenados.</li>
+                </ol>
+                
+                <div class="formula">
+                    Transformação: $P = (x,y) \mapsto P' = (2x-y, x+y)$<br>
+                    $A = (1,2) \mapsto A' = (0,3)$<br>
+                    $B = (5,3) \mapsto B' = (7,8)$<br>
+                    $C = (2,7) \mapsto C' = (-3,9)$<br>
+                    $S = (4,5) \mapsto S' = (3,9)$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em cenários de desastre radioativo, modelar matematicamente a propagação da contaminação permite prever áreas seguras e rotas de evacuação. A capacidade de mapear transformações de pontos no espaço possibilita antecipar riscos invisíveis e potencialmente fatais, dando tempo para evacuação ou fortalecimento de barreiras antes que seja tarde demais.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 12 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>DETERMINAÇÃO DE ZONA SEGURA</h3>
+            <p>Após análise de dados de três estações de monitoramento, os cientistas do RefúgioTEC determinaram que uma zona segura pode ser encontrada resolvendo o seguinte sistema de equações: o ponto seguro $P = (x,y)$ é tal que $P = 2A - B + 3C$, $P = 4A + 2B - 3C$ e $P = -A + 5B + 0.5C$, onde $A = (1,3)$, $B = (2,-1)$ e $C = (0,2)$ são as localizações das estações. Determine se existe um ponto seguro que satisfaça simultaneamente todas estas condições, e se existir, forneça suas coordenadas precisas para que uma equipe de resgate possa ser enviada imediatamente.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Substitua os valores de $A$, $B$ e $C$ em cada equação:
+                       Equação 1: $P = 2A - B + 3C = 2(1,3) - (2,-1) + 3(0,2) = (2,6) - (2,-1) + (0,6) = (0,13)$
+                       Equação 2: $P = 4A + 2B - 3C = 4(1,3) + 2(2,-1) - 3(0,2) = (4,12) + (4,-2) - (0,6) = (8,4)$
+                       Equação 3: $P = -A + 5B + 0.5C = -(1,3) + 5(2,-1) + 0.5(0,2) = (-1,-3) + (10,-5) + (0,1) = (9,-7)$</li>
+                    <li>Observe que obtivemos três valores diferentes para $P$:
+                       $P_1 = (0,13)$
+                       $P_2 = (8,4)$
+                       $P_3 = (9,-7)$</li>
+                    <li>Como obtivemos três valores diferentes para $P$, não existe um único ponto que satisfaça simultaneamente todas as condições. Portanto, não existe uma zona segura conforme os critérios estabelecidos.</li>
+                </ol>
+                
+                <div class="formula">
+                    Sistema de equações:<br>
+                    $P = 2A - B + 3C = (0,13)$<br>
+                    $P = 4A + 2B - 3C = (8,4)$<br>
+                    $P = -A + 5B + 0.5C = (9,-7)$<br>
+                    Como temos $(0,13) \neq (8,4) \neq (9,-7)$, o sistema não tem solução.
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em situações críticas, a inexistência de uma solução matemática pode ser tão informativa quanto sua presença. Este resultado indica que os critérios de segurança são incompatíveis, sinalizando a necessidade de revisar pressupostos ou buscar alternativas. Reconhecer rapidamente a impossibilidade de uma solução evita desperdício de recursos valiosos na busca de um lugar seguro que não existe, permitindo direcionar esforços para estratégias alternativas de sobrevivência.</p>
+            </details>
+        </div>
     </div>
 
-    <div class="exercise">
-      <h3>Exercício 3: Produto de Coordenadas e Sobrevivência</h3>
-      <p>
-      Em um mapa perigoso, saber se as coordenadas têm sinais opostos pode significar escapar de uma área hostil. Se \(xy < 0\), em quais quadrantes pode estar situado o ponto \(P(x, y)\)?
-      </p>
-      <details>
-        <summary>Ver Solução</summary>
-        <p>
-        O produto \(xy < 0\) indica que \(x\) e \(y\) possuem sinais opostos:
-        </p>
-        <ul>
-          <li>2º Quadrante: \(x < 0\), \(y > 0\) \(\Rightarrow xy < 0\)</li>
-          <li>4º Quadrante: \(x > 0\), \(y < 0\) \(\Rightarrow xy < 0\)</li>
-        </ul>
-        <p>Ou seja, é onde encontramos combinações que podem surpreender até o mais preparado dos viajantes.</p>
-      </details>
-    </div>
-
-    <div class="exercise">
-      <h3>Exercício 4: Igualdade de Pares Ordenados</h3>
-      <p>
-      Em meio aos registros de coordenadas antigas, precisamos completar dados para reconstruir rotas. Calcule \(x\) e \(y\) para tornar verdadeiras as igualdades:
-      </p>
-      <p>a) \((x, y) = (3, 0)\)</p>
-      <p>b) \((x, 1) = (-2, y)\)</p>
-      <p>c) \((2x, y + 3) = (10, 10)\)</p>
-      <p>d) \((x + y, x - y) = (5, 1)\)</p>
-      <details>
-        <summary>Ver Solução</summary>
-        <p>a) \(x = 3\), \(y = 0\)</p>
-        <p>b) \(x = -2\), \(y = 1\)</p>
-        <p>c) \(2x = 10 \Rightarrow x = 5\) e \(y + 3 = 10 \Rightarrow y = 7\)</p>
-        <p>d) Sistema: \(x + y = 5\) e \(x - y = 1\)</p>
-        <p>Somando: \(2x = 6 \Rightarrow x = 3\)</p>
-        <p>Substituindo: \(3 + y = 5 \Rightarrow y = 2\)</p>
-        <p>Agora você tem as coordenadas exatas para seguir adiante sem se perder nas ruínas.</p>
-      </details>
-    </div>
-
-    <div class="exercise">
-      <h3>Exercício 5: Operações com Vetores de Suprimentos</h3>
-      <p>
-      Sejam os “vetores” de suprimentos \(A = (3, 2)\) e \(B = (7, 5)\). Determine:
-      </p>
-      <p>a) \(A + B\)</p>
-      <p>b) \(5A\)</p>
-      <p>c) \(-2B\)</p>
-      <p>d) \(2A + 3B\)</p>
-      <details>
-        <summary>Ver Solução</summary>
-        <p>a) \(A + B = (3+7, 2+5) = (10, 7)\)</p>
-        <p>b) \(5A = 5(3, 2) = (15, 10)\)</p>
-        <p>c) \(-2B = -2(7, 5) = (-14, -10)\)</p>
-        <p>d) \(2A + 3B = 2(3, 2) + 3(7, 5) = (6+21, 4+15) = (27, 19)\)</p>
-        <p>Assim, você pode combinar seus recursos de maneira ótima para enfrentar as ameaças além dos portões.</p>
-      </details>
-    </div>
-
+    <!-- RODAPÉ DO DOCUMENTO -->
     <div class="footer">
-      Geometria Analítica: Sobrevivência Geométrica - Mantenha o foco, ou fique perdido para sempre.
+        REFÚGIO-TEC | IGUALDADE E OPERAÇÕES COM PARES ORDENADOS: Sobrevivência Matemática - Os números não mentem; eles são sua melhor arma nas Zonas Devastadas.
     </div>
-  </body>
+</body>
 </html>
-

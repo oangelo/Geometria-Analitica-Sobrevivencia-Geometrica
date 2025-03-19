@@ -2,10 +2,697 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>CAPÍTULO I - O ESPAÇO VETORIAL R² - Seção 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+    </script>
+    <title>REFÚGIO-TEC | O CONJUNTO R²</title>
+    <style>
+        /* Estilo inspirado no tema pós-apocalíptico */
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100px; }
+        }
+
+        body {
+            background-color: #0c0c0c;
+            color: #e6e6e6;
+            font-family: "Courier New", monospace;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #4caf50;
+            max-width: 800px;
+            margin: auto;
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 2px;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+
+        h1, h2, h3 {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .exercise {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border: 1px dashed #4caf50;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        details {
+            background-color: #1c1c1c;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            margin-top: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #4caf50;
+        }
+
+        summary:hover {
+            text-shadow: 0 0 3px #4caf50;
+        }
+
+        code {
+            background-color: #333;
+            padding: 3px 5px;
+            color: #ffeb3b;
+        }
+
+        .hint {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #4caf50;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .hint:before {
+            content: "DICA DE SOBREVIVÊNCIA: ";
+            color: #4caf50;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .solution-steps {
+            margin-left: 20px;
+            counter-reset: step-counter;
+        }
+
+        .solution-steps li {
+            list-style-type: none;
+            counter-increment: step-counter;
+            margin-bottom: 10px;
+        }
+
+        .solution-steps li::before {
+            content: "> PASSO_" counter(step-counter) ": ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .formula {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #000;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .terminal-frame {
+            padding: 10px;
+            background-color: #000;
+            margin-bottom: 20px;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .terminal-header {
+            margin: 0;
+            padding: 3px 10px;
+            background-color: #4caf50;
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .terminal-content {
+            padding: 5px;
+            white-space: pre-wrap;
+            font-size: 1em;
+            line-height: 1.2;
+        }
+
+        .cursor:after {
+            content: "█";
+            animation: blink 1s step-end infinite;
+        }
+
+        .terminal-line {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .terminal-border {
+            border: 1px solid #4caf50;
+            padding: 5px;
+            background-color: #000;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .mission-counter {
+            counter-reset: mission;
+        }
+        
+        .mission-counter .exercise h3:before {
+            content: "MISSÃO " counter(mission) ": ";
+            counter-increment: mission;
+        }
+
+        .warning {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .danger {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #8bc34a;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #4caf50;
+            border-top: 1px solid #4caf50;
+            padding-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>CAPÍTULO I - O ESPAÇO VETORIAL R²</h1>
-    <h2>Seção 1: conjunto-r2</h2>
+    <!-- TÍTULO E INTRODUÇÃO -->
+    <div class="terminal-frame">
+        <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
+        <div class="terminal-content">
+┌───────────────────────────────────────────────────┐
+│ MÓDULO: O CONJUNTO R²                             │
+└───────────────────────────────────────────────────┘
+
+> INICIANDO TRANSMISSÃO...
+> CARREGANDO MÓDULO DE TREINAMENTO...
+> ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
+        </div>
+    </div>
+
+    <div class="terminal-border">
+        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: O CONJUNTO R²</h2>
+    
+    <p>Após o Grande Colapso, navegar pelo que resta do mundo tornou-se uma habilidade de sobrevivência essencial. Os antigos GPS desapareceram junto com a infraestrutura de satélites, mas a matemática permanece inalterada. O sistema de coordenadas cartesianas - ou como conhecemos hoje, o mapeamento R² - é nossa ferramenta crítica para localizar recursos, evitar zonas de radiação e traçar rotas seguras pela Zona Devastada.</p>
+    
+    <p>O conjunto R² representa o plano cartesiano, onde cada ponto é identificado por um par ordenado de números reais (x,y). O primeiro número (x) indica a posição horizontal, enquanto o segundo (y) indica a posição vertical. Esta notação simples mas poderosa nos permite mapear qualquer localização no plano com precisão absoluta - a diferença entre encontrar um abrigo seguro ou vagar pela radiação.</p>
+    
+    <p>O plano cartesiano divide-se em quatro quadrantes, identificados em sentido anti-horário a partir do quadrante superior direito. Navegar entre estes quadrantes é essencial para sobreviventes que precisam triangular posições com recursos limitados.</p>
+    
+    <div class="formula">
+    $$\mathbb{R}^2 = \{(x,y) \mid x,y \in \mathbb{R}\}$$
+
+    $$\text{Quadrante I: } x > 0, y > 0$$
+    $$\text{Quadrante II: } x < 0, y > 0$$
+    $$\text{Quadrante III: } x < 0, y < 0$$
+    $$\text{Quadrante IV: } x > 0, y < 0$$
+    </div>
+    
+    <p>Técnicas para utilizar o R² incluem: localização precisa de pontos no mapa, identificação de quadrantes para orientação rápida, cálculo de distâncias entre pontos usando o Teorema de Pitágoras, e descrição de localizações através de pares ordenados. Dominar estas habilidades não é apenas matemática - é sua chance de sobrevivência no mundo pós-colapso.</p>
+
+    <!-- MISSÕES (EXERCÍCIOS) -->
+    <div class="mission-counter">
+        <!-- MISSÃO 1 (BÁSICA) -->
+        <div class="exercise">
+            <h3>LOCALIZAÇÃO DE ABRIGO</h3>
+            <p>O rádio do Refúgio-Tec interceptou uma transmissão fragmentada informando sobre um abrigo seguro nas coordenadas (5,3). Represente este ponto no plano cartesiano e identifique em qual quadrante ele está localizado.</p>
+            
+            <div class="hint">
+                <p>Para representar o ponto no plano, ande 5 unidades para a direita a partir da origem (0,0) e depois 3 unidades para cima. Lembre-se que o Quadrante I corresponde a valores onde tanto x quanto y são positivos.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para representar o ponto (5,3), partimos da origem (0,0), movemos 5 unidades na direção positiva do eixo x (para a direita) e 3 unidades na direção positiva do eixo y (para cima).</li>
+                    <li>Analisando as coordenadas (5,3): Como ambos os valores são positivos (x = 5 > 0 e y = 3 > 0), o ponto está localizado no Quadrante I.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Ponto } (5,3) \in \text{ Quadrante I pois } 5 > 0 \text{ e } 3 > 0$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Identificar corretamente quadrantes permite comunicar localizações com eficiência mínima de dados - vital quando transmissões de rádio são limitadas ou interceptadas por hostis. Um erro na interpretação de coordenadas pode significar dias de caminhada na direção errada, consumindo suprimentos preciosos.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 2 (BÁSICA) -->
+        <div class="exercise">
+            <h3>MAPEAMENTO DE ZONAS RADIOATIVAS</h3>
+            <p>Nas ruínas da cidade, foram identificados quatro pontos com altos níveis de radiação, marcados nas coordenadas A(-5,2), B(-3,-4), C(1,-6) e D(6,3). Indique em qual quadrante do plano cartesiano cada um desses pontos está localizado, para ajudar as equipes de exploração a planejarem rotas seguras.</p>
+            
+            <div class="hint">
+                <p>Para determinar o quadrante, verifique os sinais das coordenadas x e y de cada ponto. Lembre-se que o plano é dividido em quatro regiões distintas com combinações específicas de sinais.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para o ponto A(-5,2): Como x < 0 e y > 0, está localizado no Quadrante II.</li>
+                    <li>Para o ponto B(-3,-4): Como x < 0 e y < 0, está localizado no Quadrante III.</li>
+                    <li>Para o ponto C(1,-6): Como x > 0 e y < 0, está localizado no Quadrante IV.</li>
+                    <li>Para o ponto D(6,3): Como x > 0 e y > 0, está localizado no Quadrante I.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Quadrante I: } x > 0, y > 0 \text{ (ponto D)}$$
+                    $$\text{Quadrante II: } x < 0, y > 0 \text{ (ponto A)}$$
+                    $$\text{Quadrante III: } x < 0, y < 0 \text{ (ponto B)}$$
+                    $$\text{Quadrante IV: } x > 0, y < 0 \text{ (ponto C)}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Conhecer a distribuição de pontos pelos quadrantes permite às equipes de exploração visualizarem mentalmente a dispersão de zonas perigosas mesmo sem um mapa físico. Esta habilidade é crucial quando marcações improvisadas e comunicações rápidas podem salvar vidas.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 3 (BÁSICA) -->
+        <div class="exercise">
+            <h3>REPRESENTAÇÃO GRÁFICA DE PONTOS-CHAVE</h3>
+            <p>Desenhe no plano cartesiano os seguintes pontos de interesse no território ao redor do Refúgio-Tec: Base principal (0,0), Torre de vigilância (0,4), Lago contaminado (3,-2), Depósito de suprimentos (2,5) e Acampamento temporário (-4,-3). Use uma escala apropriada e indique claramente cada ponto.</p>
+            
+            <div class="hint">
+                <p>Trace dois eixos perpendiculares se cruzando na origem (0,0), marque divisões iguais em cada eixo e posicione cada ponto caminhando o número correto de unidades nas direções horizontal e vertical apropriadas.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Trace um plano cartesiano com os eixos x (horizontal) e y (vertical) se cruzando na origem (0,0).</li>
+                    <li>Marque divisões iguais em cada eixo, por exemplo, a cada 1 unidade.</li>
+                    <li>Para representar a Base principal (0,0), marque o ponto exatamente na origem onde os eixos se cruzam.</li>
+                    <li>Para a Torre de vigilância (0,4), partindo da origem, ande 0 unidades na horizontal (eixo x) e 4 unidades para cima (direção positiva do eixo y).</li>
+                    <li>Para o Lago contaminado (3,-2), partindo da origem, ande 3 unidades para a direita (direção positiva do eixo x) e 2 unidades para baixo (direção negativa do eixo y).</li>
+                    <li>Para o Depósito de suprimentos (2,5), partindo da origem, ande 2 unidades para a direita e 5 unidades para cima.</li>
+                    <li>Para o Acampamento temporário (-4,-3), partindo da origem, ande 4 unidades para a esquerda (direção negativa do eixo x) e 3 unidades para baixo (direção negativa do eixo y).</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Base principal: } (0,0) \text{ - Origem}$$
+                    $$\text{Torre de vigilância: } (0,4) \text{ - Eixo y positivo}$$
+                    $$\text{Lago contaminado: } (3,-2) \text{ - Quadrante IV}$$
+                    $$\text{Depósito de suprimentos: } (2,5) \text{ - Quadrante I}$$
+                    $$\text{Acampamento temporário: } (-4,-3) \text{ - Quadrante III}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A capacidade de visualizar pontos em um plano cartesiano permite criar mapas mentais do território, essenciais quando os mapas físicos se tornaram raridade. Esta habilidade de "ver" as coordenadas pode ser a diferença entre encontrar um caminho seguro através da Zona Devastada ou ficar preso em uma área perigosa.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 4 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>DISTÂNCIA ATÉ O ABRIGO</h3>
+            <p>Uma equipe de exploradores está localizada no ponto (2,3) e precisa chegar a um abrigo seguro nas coordenadas (6,8). Calcule a distância em linha reta entre a posição atual dos exploradores e o abrigo, utilizando o Teorema de Pitágoras. Se cada unidade no mapa corresponde a 1 km, qual a distância real que a equipe precisará percorrer?</p>
+            
+            <div class="hint">
+                <p>A distância entre dois pontos (x₁,y₁) e (x₂,y₂) pode ser calculada pela fórmula d = √[(x₂-x₁)² + (y₂-y₁)²], que é uma aplicação direta do Teorema de Pitágoras.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificamos os pontos: posição atual (2,3) e localização do abrigo (6,8).</li>
+                    <li>Calculamos a diferença nas coordenadas x: x₂ - x₁ = 6 - 2 = 4</li>
+                    <li>Calculamos a diferença nas coordenadas y: y₂ - y₁ = 8 - 3 = 5</li>
+                    <li>Aplicamos o Teorema de Pitágoras para encontrar a distância:
+                       d = √[(x₂-x₁)² + (y₂-y₁)²] = √[4² + 5²] = √(16 + 25) = √41 ≈ 6,4 unidades</li>
+                    <li>Como cada unidade corresponde a 1 km, a distância real é aproximadamente 6,4 km.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$d = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2} = \sqrt{(6-2)^2 + (8-3)^2} = \sqrt{16 + 25} = \sqrt{41} \approx 6,4$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O cálculo preciso de distâncias é crucial para o planejamento de expedições na Zona Devastada. Subestimar uma distância pode resultar em falta de suprimentos, enquanto superestimá-la pode levar a um excesso desnecessário de carga. A linha reta raramente é um caminho viável devido a obstáculos, mas conhecer esta distância mínima teórica proporciona uma referência valiosa para avaliar rotas alternativas.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 5 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>LOCALIZANDO PONTOS NO EIXO</h3>
+            <p>Uma equipe de reconhecimento reportou a presença de três fontes de água potável nas seguintes coordenadas: (7,0), (0,5) e (-3,0). Identifique quais dessas fontes estão localizadas exatamente sobre um dos eixos coordenados e especifique qual eixo. Além disso, desenhe esses pontos no plano cartesiano para visualizar sua distribuição.</p>
+            
+            <div class="hint">
+                <p>Um ponto está localizado sobre o eixo x quando sua coordenada y é igual a zero. Similarmente, um ponto está sobre o eixo y quando sua coordenada x é igual a zero.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Analisando o ponto (7,0): Como a coordenada y é igual a 0, este ponto está localizado exatamente sobre o eixo x, a 7 unidades à direita da origem.</li>
+                    <li>Analisando o ponto (0,5): Como a coordenada x é igual a 0, este ponto está localizado exatamente sobre o eixo y, a 5 unidades acima da origem.</li>
+                    <li>Analisando o ponto (-3,0): Como a coordenada y é igual a 0, este ponto está localizado exatamente sobre o eixo x, a 3 unidades à esquerda da origem.</li>
+                    <li>Para desenhar estes pontos no plano cartesiano:
+                       - Marque um ponto a 7 unidades à direita da origem sobre o eixo x
+                       - Marque um ponto a 5 unidades acima da origem sobre o eixo y
+                       - Marque um ponto a 3 unidades à esquerda da origem sobre o eixo x</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Eixo x: } y = 0 \text{ → Pontos } (7,0) \text{ e } (-3,0)$$
+                    $$\text{Eixo y: } x = 0 \text{ → Ponto } (0,5)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Identificar pontos nos eixos coordenados simplifica a navegação, pois é necessário monitorar apenas uma direção. Esta é uma vantagem tática quando os recursos de orientação são limitados. Uma fonte de água no eixo x, por exemplo, pode ser alcançada seguindo precisamente o leste ou oeste a partir de qualquer ponto com a mesma coordenada y, sem necessidade de ajustes na direção norte-sul.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 6 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>MAPEAMENTO DE PERÍMETRO</h3>
+            <p>Um perímetro de segurança em forma de triângulo foi estabelecido ao redor de uma área com radiação perigosa, com postos de vigilância nos pontos A(1,1), B(4,5) e C(7,2). Calcule a distância entre cada par de postos de vigilância para determinar o comprimento de cabo de comunicação necessário para conectá-los.</p>
+            
+            <div class="hint">
+                <p>Use a fórmula da distância entre dois pontos d = √[(x₂-x₁)² + (y₂-y₁)²] para cada par de postos. Lembre-se que em um triângulo existem três pares a serem considerados: AB, BC e CA.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para calcular a distância entre os postos A(1,1) e B(4,5):
+                       d(A,B) = √[(4-1)² + (5-1)²] = √[3² + 4²] = √(9 + 16) = √25 = 5 unidades</li>
+                    <li>Para calcular a distância entre os postos B(4,5) e C(7,2):
+                       d(B,C) = √[(7-4)² + (2-5)²] = √[3² + (-3)²] = √(9 + 9) = √18 ≈ 4,24 unidades</li>
+                    <li>Para calcular a distância entre os postos C(7,2) e A(1,1):
+                       d(C,A) = √[(1-7)² + (1-2)²] = √[(-6)² + (-1)²] = √(36 + 1) = √37 ≈ 6,08 unidades</li>
+                    <li>A quantidade total de cabo necessária é a soma dessas distâncias:
+                       Total = 5 + 4,24 + 6,08 = 15,32 unidades</li>
+                </ol>
+                
+                <div class="formula">
+                    $$d(A,B) = \sqrt{(4-1)^2 + (5-1)^2} = \sqrt{9 + 16} = \sqrt{25} = 5$$
+                    $$d(B,C) = \sqrt{(7-4)^2 + (2-5)^2} = \sqrt{9 + 9} = \sqrt{18} \approx 4,24$$
+                    $$d(C,A) = \sqrt{(1-7)^2 + (1-2)^2} = \sqrt{36 + 1} = \sqrt{37} \approx 6,08$$
+                    $$\text{Total de cabo: } 5 + 4,24 + 6,08 = 15,32 \text{ unidades}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O planejamento preciso de recursos como cabos de comunicação é vital no mundo pós-apocalíptico, onde cada metro de material conta. Além disso, conhecer as distâncias exatas entre pontos de vigilância permite calcular tempos de resposta e organizar patrulhas de forma eficiente. Este tipo de cálculo matemático transforma-se diretamente em vantagem tática e economia de recursos.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 7 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>ZONAS DE EXCLUSÃO</h3>
+            <p>Após uma tempestade radioativa, cinco locais foram identificados com altos níveis de contaminação nas seguintes coordenadas: A(2,3), B(-1,5), C(-4,-2), D(3,-4) e E(5,1). Desenhe estes pontos no plano cartesiano e identifique em qual quadrante cada ponto está localizado. Além disso, calcule a distância de cada ponto à origem (0,0) para determinar qual área contaminada está mais próxima do Refúgio-Tec, que está localizado na origem.</p>
+            
+            <div class="hint">
+                <p>A distância de um ponto (x,y) à origem (0,0) é dada pela fórmula d = √(x² + y²), que é uma simplificação da fórmula geral da distância entre dois pontos.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Desenhamos os pontos no plano cartesiano e identificamos seus quadrantes:
+                       - Ponto A(2,3): Quadrante I (x > 0, y > 0)
+                       - Ponto B(-1,5): Quadrante II (x < 0, y > 0)
+                       - Ponto C(-4,-2): Quadrante III (x < 0, y < 0)
+                       - Ponto D(3,-4): Quadrante IV (x > 0, y < 0)
+                       - Ponto E(5,1): Quadrante I (x > 0, y > 0)</li>
+                    <li>Calculamos a distância de cada ponto à origem:
+                       d(A,O) = √(2² + 3²) = √(4 + 9) = √13 ≈ 3,61 unidades
+                       d(B,O) = √((-1)² + 5²) = √(1 + 25) = √26 ≈ 5,10 unidades
+                       d(C,O) = √((-4)² + (-2)²) = √(16 + 4) = √20 ≈ 4,47 unidades
+                       d(D,O) = √(3² + (-4)²) = √(9 + 16) = √25 = 5 unidades
+                       d(E,O) = √(5² + 1²) = √(25 + 1) = √26 ≈ 5,10 unidades</li>
+                    <li>Comparando as distâncias, o ponto A(2,3) está mais próximo da origem, com uma distância de aproximadamente 3,61 unidades.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$d(P,O) = \sqrt{x^2 + y^2}$$
+                    $$d(A,O) = \sqrt{2^2 + 3^2} = \sqrt{13} \approx 3,61$$
+                    $$d(B,O) = \sqrt{(-1)^2 + 5^2} = \sqrt{26} \approx 5,10$$
+                    $$d(C,O) = \sqrt{(-4)^2 + (-2)^2} = \sqrt{20} \approx 4,47$$
+                    $$d(D,O) = \sqrt{3^2 + (-4)^2} = \sqrt{25} = 5$$
+                    $$d(E,O) = \sqrt{5^2 + 1^2} = \sqrt{26} \approx 5,10$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Determinar qual área contaminada está mais próxima do abrigo é crucial para avaliar riscos imediatos e planejar rotas de evacuação em caso de aumento na radiação. Observe que dois pontos (B e E) estão à mesma distância da origem, mas em quadrantes diferentes, o que tem implicações táticas importantes - o vento predominante pode tornar uma área mais perigosa que a outra, apesar da mesma distância.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 8 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>COORDENADAS MISTERIOSAS</h3>
+            <p>O Refúgio-Tec interceptou uma transmissão contendo três coordenadas: (4,3), (-2,5) e (x,y). Sabe-se que as três coordenadas formam um triângulo isósceles, onde duas distâncias entre pontos são iguais. Além disso, foi informado que o ponto (x,y) está a uma distância de 5 unidades da origem. Determine as possíveis coordenadas do ponto misterioso (x,y).</p>
+            
+            <div class="hint">
+                <p>Um triângulo isósceles tem dois lados iguais. Teste diferentes possibilidades para o ponto (x,y), lembrando que ele deve estar a 5 unidades da origem, ou seja, x² + y² = 25.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificamos os dois pontos conhecidos: A(4,3) e B(-2,5)</li>
+                    <li>Calculamos a distância entre esses pontos:
+                       d(A,B) = √[(4-(-2))² + (3-5)²] = √[6² + (-2)²] = √(36 + 4) = √40 ≈ 6,32 unidades</li>
+                    <li>Sabemos que o ponto (x,y) está a uma distância de 5 unidades da origem, o que significa que ele está em um círculo de raio 5 centrado na origem:
+                       x² + y² = 25</li>
+                    <li>Para que o triângulo seja isósceles, precisamos que duas distâncias sejam iguais. Temos três possibilidades:
+                       1. d(A,C) = d(B,C)
+                       2. d(A,C) = d(A,B)
+                       3. d(B,C) = d(A,B)</li>
+                    <li>Testando a primeira possibilidade (d(A,C) = d(B,C)):
+                       √[(4-x)² + (3-y)²] = √[(-2-x)² + (5-y)²]
+                       Elevando ambos os lados ao quadrado:
+                       (4-x)² + (3-y)² = (-2-x)² + (5-y)²
+                       16 - 8x + x² + 9 - 6y + y² = 4 + 4x + x² + 25 - 10y + y²
+                       16 - 8x + 9 - 6y = 4 + 4x + 25 - 10y
+                       25 - 8x - 6y = 29 + 4x - 10y
+                       25 - 29 = 4x + 8x - 10y + 6y
+                       -4 = 12x - 4y
+                       4y = 12x + 4
+                       y = 3x + 1</li>
+                    <li>Substituindo na equação do círculo:
+                       x² + (3x + 1)² = 25
+                       x² + 9x² + 6x + 1 = 25
+                       10x² + 6x - 24 = 0
+                       5x² + 3x - 12 = 0</li>
+                    <li>Usando a fórmula de Bhaskara:
+                       x = [-3 ± √(9 + 240)]/10 = [-3 ± √249]/10 = [-3 ± 15.78]/10
+                       x ≈ 1.28 ou x ≈ -1.88</li>
+                    <li>Calculamos os valores correspondentes de y:
+                       Para x ≈ 1.28: y ≈ 3(1.28) + 1 ≈ 4.84
+                       Para x ≈ -1.88: y ≈ 3(-1.88) + 1 ≈ -4.64</li>
+                    <li>Verificamos se esses pontos estão realmente a 5 unidades da origem:
+                       Para (1.28, 4.84): √(1.28² + 4.84²) ≈ √(1.64 + 23.43) ≈ √25.07 ≈ 5.01 ✓
+                       Para (-1.88, -4.64): √((-1.88)² + (-4.64)²) ≈ √(3.53 + 21.53) ≈ √25.06 ≈ 5.01 ✓</li>
+                    <li>As possíveis coordenadas para o ponto misterioso (x,y) são aproximadamente (1.28, 4.84) ou (-1.88, -4.64).</li>
+                </ol>
+                
+                <div class="formula">
+                    $$d(A,B) = \sqrt{(4-(-2))^2 + (3-5)^2} = \sqrt{40} \approx 6,32$$
+                    $$\text{Condição 1: } x^2 + y^2 = 25 \text{ (distância à origem)}$$
+                    $$\text{Condição 2: } d(A,C) = d(B,C) \text{ (triângulo isósceles)}$$
+                    $$\text{Solução: } (x,y) \approx (1.28, 4.84) \text{ ou } (x,y) \approx (-1.88, -4.64)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A capacidade de decifrar coordenadas parciais a partir de relações geométricas pode ser crucial quando as transmissões são fragmentadas ou deliberadamente codificadas. Observe que obtivemos duas possíveis localizações para o ponto misterioso - em uma situação real, informações adicionais como quadrante ou região geral seriam necessárias para determinar qual das duas coordenadas é a correta, destacando a importância de múltiplas fontes de informação.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 9 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>ROTA DE FUGA ÓTIMA</h3>
+            <p>Uma equipe de exploração está no ponto (3,4) e precisa retornar ao Refúgio-Tec localizado na origem (0,0). No entanto, há um campo de radiação intenso no ponto (1,1) que deve ser evitado. Determine o ponto P no eixo x (ou seja, com coordenadas (a,0) para algum valor de a) tal que, se a equipe primeiro se deslocar do ponto (3,4) para o ponto P e depois do ponto P para a origem, a distância total percorrida seja a menor possível.</p>
+            
+            <div class="hint">
+                <p>A distância total será a soma de duas distâncias: da posição atual (3,4) ao ponto P(a,0) e do ponto P(a,0) à origem (0,0). Experimente diferentes valores de 'a' para encontrar o que minimiza esta soma.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Queremos encontrar o ponto P(a,0) no eixo x que minimiza a distância total percorrida.</li>
+                    <li>A distância do ponto (3,4) até P(a,0) é:
+                       d₁ = √[(a-3)² + (0-4)²] = √[(a-3)² + 16]</li>
+                    <li>A distância do ponto P(a,0) até a origem (0,0) é:
+                       d₂ = √[(0-a)² + (0-0)²] = √(a²) = |a|</li>
+                    <li>A distância total a ser minimizada é:
+                       d_total = d₁ + d₂ = √[(a-3)² + 16] + |a|</li>
+                    <li>Testando alguns valores de a:
+                       Para a = 0: d_total = √[(0-3)² + 16] + |0| = √(9 + 16) + 0 = 5
+                       Para a = 1: d_total = √[(1-3)² + 16] + |1| = √(4 + 16) + 1 = √20 + 1 ≈ 5.47
+                       Para a = 2: d_total = √[(2-3)² + 16] + |2| = √(1 + 16) + 2 = √17 + 2 ≈ 6.12
+                       Para a = 3: d_total = √[(3-3)² + 16] + |3| = √16 + 3 = 7</li>
+                    <li>Testando valores negativos:
+                       Para a = -1: d_total = √[(-1-3)² + 16] + |-1| = √(16 + 16) + 1 = √32 + 1 ≈ 6.66</li>
+                    <li>Comparando os resultados, o valor a = 0 resulta na menor distância total. Isso significa que o ponto ótimo no eixo x é P(0,0), que coincide com a própria origem.</li>
+                    <li>No entanto, isso implicaria em não passar por nenhum ponto intermediário no eixo x antes de chegar à origem. Se interpretarmos a restrição como exigindo que passemos por algum ponto do eixo x diferente da origem, então a = 1 seria a melhor opção com uma distância total de aproximadamente 5.47 unidades.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$d_1 = \sqrt{(a-3)^2 + 16}$$
+                    $$d_2 = |a|$$
+                    $$d_{total} = d_1 + d_2 = \sqrt{(a-3)^2 + 16} + |a|$$
+                    $$\text{Para } a = 0: d_{total} = 5 \text{ (mínimo)}$$
+                    $$\text{Para } a = 1: d_{total} \approx 5.47 \text{ (segunda melhor opção)}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Este tipo de problema de otimização é frequente em situações reais de navegação na Zona Devastada, onde certos pontos devem ser evitados (como campos de radiação) e recursos limitados tornam crucial minimizar distâncias. A solução encontrada - ir diretamente para a origem - é contraintuitiva, mas ilustra como a análise matemática pode desafiar nossa intuição e levar a estratégias superiores de deslocamento.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 10 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>MAPEAMENTO DE ZONAS CIRCULARES</h3>
+            <p>O detector de radiação do Refúgio-Tec pode identificar zonas contaminadas num raio de 5 unidades. Se o detector for colocado na posição (3,4), desenhe no plano cartesiano a região circular que representa a área de detecção. Além disso, determine se os pontos A(7,7), B(-1,2), C(5,0) e D(3,9) estão dentro ou fora da zona de detecção, calculando suas distâncias ao centro do detector.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>O detector posicionado em (3,4) cria uma zona circular de raio 5 unidades. Para desenhar esta região no plano cartesiano, marcamos o ponto (3,4) como centro e traçamos um círculo com raio 5 ao seu redor.</li>
+                    <li>Para determinar se um ponto está dentro da zona de detecção, calculamos sua distância ao centro (3,4) e verificamos se é menor ou igual a 5 (dentro) ou maior que 5 (fora).</li>
+                    <li>Para o ponto A(7,7):
+                       d(A, detector) = √[(7-3)² + (7-4)²] = √[4² + 3²] = √(16 + 9) = √25 = 5 unidades
+                       Como a distância é exatamente 5 unidades, o ponto A está na fronteira da zona de detecção.</li>
+                    <li>Para o ponto B(-1,2):
+                       d(B, detector) = √[(-1-3)² + (2-4)²] = √[(-4)² + (-2)²] = √(16 + 4) = √20 ≈ 4,47 unidades
+                       Como a distância é menor que 5 unidades, o ponto B está dentro da zona de detecção.</li>
+                    <li>Para o ponto C(5,0):
+                       d(C, detector) = √[(5-3)² + (0-4)²] = √[2² + (-4)²] = √(4 + 16) = √20 ≈ 4,47 unidades
+                       Como a distância é menor que 5 unidades, o ponto C está dentro da zona de detecção.</li>
+                    <li>Para o ponto D(3,9):
+                       d(D, detector) = √[(3-3)² + (9-4)²] = √[0² + 5²] = √25 = 5 unidades
+                       Como a distância é exatamente 5 unidades, o ponto D está na fronteira da zona de detecção.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Detector em } (3,4) \text{ com raio de detecção } r = 5$$
+                    $$\text{Equação da zona circular: } (x-3)^2 + (y-4)^2 \leq 25$$
+                    $$d(A, \text{detector}) = \sqrt{(7-3)^2 + (7-4)^2} = 5 \text{ (na fronteira)}$$
+                    $$d(B, \text{detector}) = \sqrt{(-1-3)^2 + (2-4)^2} \approx 4.47 \text{ (dentro)}$$
+                    $$d(C, \text{detector}) = \sqrt{(5-3)^2 + (0-4)^2} \approx 4.47 \text{ (dentro)}$$
+                    $$d(D, \text{detector}) = \sqrt{(3-3)^2 + (9-4)^2} = 5 \text{ (na fronteira)}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Compreender a cobertura de equipamentos de detecção é essencial para uma vigilância eficaz. Observe que dois pontos (A e D) estão exatamente na fronteira da zona de detecção - em termos práticos, isso poderia significar leituras intermitentes ou menos confiáveis. Em um ambiente hostil como a Zona Devastada, esta informação poderia significar a diferença entre detectar uma ameaça a tempo ou ser surpreendido por ela.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 11 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>ÁREA SEGURA RETANGULAR</h3>
+            <p>O Refúgio-Tec planeja construir uma área segura retangular com cantos nos pontos (1,1), (1,4), (6,4) e (6,1). Desenhe este retângulo no plano cartesiano e calcule sua área e perímetro. Além disso, determine se os pontos P(3,2), Q(0,3), R(5,5) e S(2,0) estão dentro, fora ou na fronteira da área segura.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Desenhamos o retângulo no plano cartesiano conectando os pontos (1,1), (1,4), (6,4) e (6,1) em ordem.</li>
+                    <li>Para calcular a área do retângulo:
+                       Largura = |x₂ - x₁| = |6 - 1| = 5 unidades
+                       Altura = |y₂ - y₁| = |4 - 1| = 3 unidades
+                       Área = Largura × Altura = 5 × 3 = 15 unidades quadradas</li>
+                    <li>Para calcular o perímetro do retângulo:
+                       Perímetro = 2 × (Largura + Altura) = 2 × (5 + 3) = 2 × 8 = 16 unidades</li>
+                    <li>Para determinar se um ponto está dentro, fora ou na fronteira da área retangular, verificamos se suas coordenadas estão dentro dos limites do retângulo:
+                       x entre 1 e 6 (inclusive) e y entre 1 e 4 (inclusive)</li>
+                    <li>Para o ponto P(3,2):
+                       1 ≤ 3 ≤ 6 e 1 ≤ 2 ≤ 4
+                       Ambas as condições são satisfeitas, então P está dentro da área segura.</li>
+                    <li>Para o ponto Q(0,3):
+                       0 < 1, portanto Q está fora da área segura (à esquerda do retângulo).</li>
+                    <li>Para o ponto R(5,5):
+                       1 ≤ 5 ≤ 6, mas 5 > 4
+                       A segunda condição não é satisfeita, então R está fora da área segura (acima do retângulo).</li>
+                    <li>Para o ponto S(2,0):
+                       1 ≤ 2 ≤ 6, mas 0 < 1
+                       A segunda condição não é satisfeita, então S está fora da área segura (abaixo do retângulo).</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Área} = \text{Largura} \times \text{Altura} = 5 \times 3 = 15 \text{ unidades}^2$$
+                    $$\text{Perímetro} = 2(\text{Largura} + \text{Altura}) = 2(5 + 3) = 16 \text{ unidades}$$
+                    $$\text{Ponto dentro do retângulo: } 1 \leq x \leq 6 \text{ e } 1 \leq y \leq 4$$
+                    $$\text{P(3,2): Dentro}$$
+                    $$\text{Q(0,3): Fora}$$
+                    $$\text{R(5,5): Fora}$$
+                    $$\text{S(2,0): Fora}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A delimitação precisa de áreas seguras é fundamental para o planejamento de assentamentos na Zona Devastada. O cálculo da área nos permite estimar quantas pessoas podem ser abrigadas, enquanto o perímetro indica quanto material será necessário para cercar e proteger o espaço. A capacidade de determinar rapidamente se um ponto está dentro ou fora de uma área designada é crucial para o sistema de vigilância e para orientar novas expedições sobre onde estabelecer acampamentos temporários.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 12 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>CRIPTOGRAFIA DE COORDENADAS</h3>
+            <p>Para proteger as comunicações, o Refúgio-Tec desenvolveu um sistema de criptografia de coordenadas. Neste sistema, uma coordenada original (x,y) é transformada em uma nova coordenada (x',y') da seguinte forma: x' = 2x - y e y' = x + y. As coordenadas (3,5), (0,2), (-1,4) e (2,-3) foram interceptadas após a criptografia. Decifre quais eram as coordenadas originais antes da transformação, e desenhe tanto as coordenadas originais quanto as criptografadas no plano cartesiano.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Precisamos inverter o sistema de transformação para encontrar as coordenadas originais a partir das criptografadas.
+                       Se x' = 2x - y e y' = x + y, então temos um sistema de equações:
+                       {
+                         x' = 2x - y
+                         y' = x + y
+                       }</li>
+                    <li>Para inverter o sistema, isolamos x e y em termos de x' e y':
+                       Da segunda equação: y = y' - x
+                       Substituindo na primeira: x' = 2x - (y' - x) = 2x - y' + x = 3x - y'
+                       Resolvendo para x: x = (x' + y')/3
+                       Substituindo de volta: y = y' - (x' + y')/3 = (3y' - x' - y')/3 = (2y' - x')/3</li>
+                    <li>Portanto, as fórmulas para decifrar são:
+                       x = (x' + y')/3
+                       y = (2y' - x')/3</li>
+                    <li>Para (3,5):
+                       x = (3+5)/3 = 8/3 ≈ 2.67
+                       y = (2×5-3)/3 = 7/3 ≈ 2.33</li>
+                    <li>Para (0,2):
+                       x = (0+2)/3 = 2/3 ≈ 0.67
+                       y = (2×2-0)/3 = 4/3 ≈ 1.33</li>
+                    <li>Para (-1,4):
+                       x = (-1+4)/3 = 3/3 = 1
+                       y = (2×4-(-1))/3 = (8+1)/3 = 9/3 = 3</li>
+                    <li>Para (2,-3):
+                       x = (2+(-3))/3 = -1/3 ≈ -0.33
+                       y = (2×(-3)-2)/3 = (-6-2)/3 = -8/3 ≈ -2.67</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Sistema de criptografia: } \begin{cases} x' = 2x - y \\ y' = x + y \end{cases}$$
+                    $$\text{Sistema de decifragem: } \begin{cases} x = \frac{x' + y'}{3} \\ y = \frac{2y' - x'}{3} \end{cases}$$
+                    $$(3,5) \rightarrow \left(\frac{8}{3}, \frac{7}{3}\right) \approx (2.67, 2.33)$$
+                    $$(0,2) \rightarrow \left(\frac{2}{3}, \frac{4}{3}\right) \approx (0.67, 1.33)$$
+                    $$(-1,4) \rightarrow (1, 3)$$
+                    $$(2,-3) \rightarrow \left(-\frac{1}{3}, -\frac{8}{3}\right) \approx (-0.33, -2.67)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A criptografia de coordenadas é uma ferramenta vital de segurança nas comunicações do mundo pós-apocalíptico, onde a interceptação de informações por grupos hostis é uma ameaça constante. Este sistema de transformação linear oferece um método relativamente simples, mas eficaz, para proteger localizações estratégicas. A capacidade de decifrar rapidamente coordenadas criptografadas é essencial para equipes de resgate e operações táticas, pois permite a localização precisa de recursos ou pontos de encontro sem comprometer a segurança em canais de comunicação não seguros.</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- RODAPÉ DO DOCUMENTO -->
+    <div class="footer">
+        REFÚGIO-TEC | O CONJUNTO R²: Sobrevivência Matemática - Navegar pelo plano cartesiano é navegar pela sobrevivência.
+    </div>
 </body>
 </html>
