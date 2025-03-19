@@ -1,6 +1,15 @@
 # Geometria Analítica: Sobrevivencia Geométrica
 Bem-vindo ao repositório do curso "Geometria Analítica: Sobrevivência Geométrica"! Inspirado na estética pós-apocalíptica de Fallout, este curso oferece uma abordagem única e envolvente para o estudo da Geometria Analítica.
 
+
+<details>
+<summary>Referência do Livro Adotado</summary>
+
+MACHADO, Antônio dos Santos. *Álgebra linear e geometria analítica*. 2. ed.  
+São Paulo: Atual, 1982.
+
+</details>
+
 # Índice de Conteúdo
 
 ## [Capítulo 0 - Preparação para a Wasteland](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-0.html)
