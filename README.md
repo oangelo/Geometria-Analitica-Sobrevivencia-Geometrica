@@ -77,3 +77,6 @@ São Paulo: Atual, 1982.
 7. [Sistemas de equações lineares a três incógnitas](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-vi-o-r3-e-a-geometria-analitica-no-espaco/7-sistemas-de-equacoes-lineares-a-tres-incognitas.html)
 8. [Equação da superfície esférica](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-vi-o-r3-e-a-geometria-analitica-no-espaco/8-equacao-da-superficie-esferica.html)
 9. [Revisão](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-vi-o-r3-e-a-geometria-analitica-no-espaco/index.html)
+
+
+[Roleta](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/roleta.html)
