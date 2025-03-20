@@ -2,235 +2,640 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-</head>
-<body>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>CAPÍTULO I - O ESPAÇO VETORIAL R² - Seção 4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Include MathJax -->
-    <script type="text/javascript" async
-      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
     </script>
+    <title>REFÚGIO-TEC | PONTO MÉDIO E BARICENTRO</title>
+    <style>
+        /* Estilo inspirado no tema pós-apocalíptico */
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100px; }
+        }
+
+        body {
+            background-color: #0c0c0c;
+            color: #e6e6e6;
+            font-family: "Courier New", monospace;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #4caf50;
+            max-width: 800px;
+            margin: auto;
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 2px;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+
+        h1, h2, h3 {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .exercise {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border: 1px dashed #4caf50;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        details {
+            background-color: #1c1c1c;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            margin-top: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #4caf50;
+        }
+
+        summary:hover {
+            text-shadow: 0 0 3px #4caf50;
+        }
+
+        code {
+            background-color: #333;
+            padding: 3px 5px;
+            color: #ffeb3b;
+        }
+
+        .hint {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #4caf50;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .hint:before {
+            content: "DICA DE SOBREVIVÊNCIA: ";
+            color: #4caf50;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .solution-steps {
+            margin-left: 20px;
+            counter-reset: step-counter;
+        }
+
+        .solution-steps li {
+            list-style-type: none;
+            counter-increment: step-counter;
+            margin-bottom: 10px;
+        }
+
+        .solution-steps li::before {
+            content: "> PASSO_" counter(step-counter) ": ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .formula {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #000;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .terminal-frame {
+            padding: 10px;
+            background-color: #000;
+            margin-bottom: 20px;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .terminal-header {
+            margin: 0;
+            padding: 3px 10px;
+            background-color: #4caf50;
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .terminal-content {
+            padding: 5px;
+            white-space: pre-wrap;
+            font-size: 1em;
+            line-height: 1.2;
+        }
+
+        .cursor:after {
+            content: "█";
+            animation: blink 1s step-end infinite;
+        }
+
+        .terminal-line {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .terminal-border {
+            border: 1px solid #4caf50;
+            padding: 5px;
+            background-color: #000;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .mission-counter {
+            counter-reset: mission;
+        }
+        
+        .mission-counter .exercise h3:before {
+            content: "MISSÃO " counter(mission) ": ";
+            counter-increment: mission;
+        }
+
+        .warning {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .danger {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #8bc34a;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #4caf50;
+            border-top: 1px solid #4caf50;
+            padding-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>CAPÍTULO I - O ESPAÇO VETORIAL R²</h1>
-    <h2>Seção 4: aplicacoes-ponto-medio-e-baricentro</h2>
+    <!-- TÍTULO E INTRODUÇÃO -->
+    <div class="terminal-frame">
+        <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
+        <div class="terminal-content">
+┌───────────────────────────────────────────────────┐
+│ MÓDULO: PONTO MÉDIO E BARICENTRO                  │
+└───────────────────────────────────────────────────┘
 
-    <p><b>21.</b> Determinar as coordenadas do ponto médio M do segmento de extremidades \( A = (x_1, y_1) \) e \( B = (x_2, y_2) \).</p>
+> INICIANDO TRANSMISSÃO...
+> CARREGANDO MÓDULO DE TREINAMENTO...
+> ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
+        </div>
+    </div>
 
-     <p><b>Resolução</b></p>
-    <p>Sendo M o ponto médio de AB, os vetores \( \vec{AM} \) e \( \vec{MB} \) possuem comprimentos iguais, mesma direção e mesmo sentido.</p>
-    <p>Logo, \( \vec{AM} = \vec{MB} \).  Temos então:</p>
-     <p> M - A = B - M</p>
-      <p> 2M = A + B</p>
-    \[ M = \frac{A + B}{2} \]
-    <p>ou seja:</p>
-    \[ M = \frac{(x_1, y_1) + (x_2, y_2)}{2} = \left(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}\right) \]
+    <div class="terminal-border">
+        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: PONTO MÉDIO E BARICENTRO</h2>
+    
+    <p>Após o Grande Colapso, a habilidade de calcular pontos estratégicos no plano tornou-se crucial para sobrevivência. A localização precisa de abrigos, rotas de evacuação e pontos de encontro pode significar a diferença entre vida e morte na Zona Devastada.</p>
+    
+    <p>O ponto médio representa a localização exata entre dois pontos, permitindo encontrar locais equidistantes para distribuição de recursos ou planejamento de rotas de suprimentos. Já o baricentro, ou centro de gravidade de um triângulo, indica o ponto de equilíbrio ideal para construções resistentes ou sistemas de defesa triangulares.</p>
+    
+    <p>Dominar estes conceitos permitirá otimizar rotas de coleta, planejar estruturas estáveis e maximizar a eficiência dos recursos escassos que restam em nosso novo mundo.</p>
+    
+    <div class="formula">
+    $\text{Ponto Médio entre } A(x_1, y_1) \text{ e } B(x_2, y_2):$
+    $$M = \left(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}\right)$$
+    </div>
+    
+    <div class="formula">
+    $\text{Baricentro do triângulo } A(x_1, y_1), B(x_2, y_2), C(x_3, y_3):$
+    $$G = \left(\frac{x_1 + x_2 + x_3}{3}, \frac{y_1 + y_2 + y_3}{3}\right)$$
+    </div>
+    
+    <p>As técnicas a seguir são fundamentais para sobreviventes matemáticos:</p>
+    <ul>
+        <li>Cálculo direto usando fórmulas (método rápido para situações de emergência)</li>
+        <li>Verificação de propriedades geométricas (quando recursos computacionais estão indisponíveis)</li>
+        <li>Aplicação em contextos práticos (posicionamento, divisão de território, rotas de fuga)</li>
+    </ul>
 
-      <canvas id="canvas_21" width="150" height="120" style="border:1px solid black;"></canvas>
-        <script>
-          const canvas_21 = document.getElementById('canvas_21');
-          const ctx_21 = canvas_21.getContext('2d');
-          ctx_21.beginPath();
-          ctx_21.moveTo(20, 100);
-          ctx_21.lineTo(130, 20);
+    <!-- MISSÕES (EXERCÍCIOS) -->
+    <div class="mission-counter">
+        <!-- MISSÃO 1 (BÁSICA) -->
+        <div class="exercise">
+            <h3>PONTO DE ENCONTRO SEGURO</h3>
+            <p>Dois sobreviventes estão localizados nas coordenadas A(2, 3) e B(8, 5). Para minimizar o risco de exposição à radiação, eles devem se encontrar exatamente no ponto médio entre suas posições. Determine as coordenadas deste ponto de encontro seguro.</p>
+            
+            <div class="hint">
+                <p>Use a fórmula do ponto médio, somando as coordenadas x e dividindo por 2, e fazendo o mesmo com as coordenadas y.</p>
+            </div>
 
-          ctx_21.moveTo(20,20);
-          ctx_21.lineTo(20,100);
-          ctx_21.lineTo(130,100);
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identifique as coordenadas dos pontos dados: A(2, 3) e B(8, 5)</li>
+                    <li>Aplique a fórmula do ponto médio: $M = \left(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}\right)$</li>
+                    <li>Substitua os valores: $M = \left(\frac{2 + 8}{2}, \frac{3 + 5}{2}\right)$</li>
+                    <li>Simplifique: $M = \left(\frac{10}{2}, \frac{8}{2}\right) = (5, 4)$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$M = \left(\frac{2 + 8}{2}, \frac{3 + 5}{2}\right) = (5, 4)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Calcular pontos médios permite encontrar locais equidistantes que minimizam o tempo de exposição em ambientes hostis. Essa técnica é vital para planejar pontos de encontro que sejam igualmente acessíveis a diferentes grupos de sobreviventes.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 2 (BÁSICA) -->
+        <div class="exercise">
+            <h3>POSTO DE OBSERVAÇÃO</h3>
+            <p>Três patrulhas reportaram avistamentos de mutantes nas coordenadas A(-2, 1), B(4, 7) e C(4, -5). O comandante necessita posicionar um posto de observação no baricentro destes três pontos. Calcule as coordenadas deste posto estratégico.</p>
+            
+            <div class="hint">
+                <p>O baricentro é obtido calculando a média aritmética de todas as coordenadas x e todas as coordenadas y dos três pontos.</p>
+            </div>
 
-          ctx_21.moveTo(20, 40);
-          ctx_21.lineTo(50, 40);
-          ctx_21.lineTo(50, 100);
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identifique as coordenadas dos três pontos: A(-2, 1), B(4, 7) e C(4, -5)</li>
+                    <li>Aplique a fórmula do baricentro: $G = \left(\frac{x_1 + x_2 + x_3}{3}, \frac{y_1 + y_2 + y_3}{3}\right)$</li>
+                    <li>Substitua os valores: $G = \left(\frac{-2 + 4 + 4}{3}, \frac{1 + 7 + (-5)}{3}\right)$</li>
+                    <li>Simplifique: $G = \left(\frac{6}{3}, \frac{3}{3}\right) = (2, 1)$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$G = \left(\frac{-2 + 4 + 4}{3}, \frac{1 + 7 + (-5)}{3}\right) = (2, 1)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O baricentro oferece um ponto de equilíbrio ideal para monitorar áreas triangulares. Posicionar recursos neste local estratégico permite cobertura eficiente, minimizando a necessidade de múltiplos postos em um mundo onde cada recurso é precioso.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 3 (BÁSICA) -->
+        <div class="exercise">
+            <h3>ESTOQUES DE MEDICAMENTOS</h3>
+            <p>Um assentamento tem dois depósitos de RemoveRad localizados em D(3, -1) e E(7, 5). Para facilitar o acesso durante emergências, um novo estoque deve ser construído no ponto médio entre estes depósitos. Se um sobrevivente parte deste novo ponto em direção às coordenadas (8, 0), qual será a distância total percorrida para ir do ponto médio até este destino?</p>
+            
+            <div class="hint">
+                <p>Primeiro encontre o ponto médio entre D e E, depois calcule a distância desse ponto até as coordenadas (8, 0) usando a fórmula da distância entre dois pontos.</p>
+            </div>
 
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcule o ponto médio M entre D(3, -1) e E(7, 5): $M = \left(\frac{3 + 7}{2}, \frac{-1 + 5}{2}\right) = (5, 2)$</li>
+                    <li>Agora, calcule a distância do ponto M(5, 2) até o ponto P(8, 0)</li>
+                    <li>Use a fórmula da distância: $d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$</li>
+                    <li>Substitua os valores: $d = \sqrt{(8 - 5)^2 + (0 - 2)^2} = \sqrt{9 + 4} = \sqrt{13}$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$d = \sqrt{(8 - 5)^2 + (0 - 2)^2} = \sqrt{9 + 4} = \sqrt{13}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em tempos de escassez, a otimização de rotas é crucial. Conhecer o ponto médio entre locais importantes e calcular distâncias precisas permite planejar o uso de recursos limitados como combustível e tempo, aumentando as chances de sobrevivência durante deslocamentos perigosos.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 4 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>SISTEMA DE DEFESA TRIANGULAR</h3>
+            <p>Três torres de defesa formam um triângulo nas coordenadas A(-3, 0), B(9, 0) e C(3, 12). O sistema de comunicação central deve ser instalado no baricentro deste triângulo. Um artefato tecnológico importante foi encontrado nas coordenadas (5, 4). Calcule a distância do artefato até o sistema de comunicação central.</p>
+            
+            <div class="hint">
+                <p>Calcule o baricentro do triângulo e depois determine a distância entre esse ponto e as coordenadas do artefato.</p>
+            </div>
 
-          ctx_21.moveTo(85, 60);
-          ctx_21.lineTo(85, 100);
-          ctx_21.lineTo(130,60);
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcule o baricentro G do triângulo com vértices A(-3, 0), B(9, 0) e C(3, 12): $G = \left(\frac{-3 + 9 + 3}{3}, \frac{0 + 0 + 12}{3}\right) = (3, 4)$</li>
+                    <li>O artefato está localizado em P(5, 4)</li>
+                    <li>Calcule a distância entre G(3, 4) e P(5, 4): $d = \sqrt{(5 - 3)^2 + (4 - 4)^2} = \sqrt{4 + 0} = 2$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$G = \left(\frac{-3 + 9 + 3}{3}, \frac{0 + 0 + 12}{3}\right) = (3, 4)$$
+                    $$d = \sqrt{(5 - 3)^2 + (4 - 4)^2} = 2$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O posicionamento estratégico de sistemas de comunicação em relação a outros recursos críticos pode determinar a velocidade de resposta em crises. A análise matemática precisa das distâncias entre pontos-chave é fundamental para o planejamento de defesa em um mundo hostil.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 5 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>EXPANSÃO DO PERÍMETRO</h3>
+            <p>Os limites atuais do assentamento são definidos por um triângulo com vértices nas coordenadas P(0, 0), Q(12, 0) e R(6, 9). Para expandir o perímetro, cada vértice será movido 2 unidades para fora a partir do baricentro, mantendo a mesma direção. Determine as coordenadas dos novos vértices P', Q' e R'.</p>
+            
+            <div class="hint">
+                <p>Encontre o baricentro G e, para cada vértice, calcule o vetor que vai de G até o vértice, estendendo esse vetor para obter os novos pontos.</p>
+            </div>
 
-          ctx_21.strokeStyle = 'black';
-            ctx_21.setLineDash([3, 3]);
-          ctx_21.stroke();
-          ctx_21.setLineDash([]);
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcule o baricentro G do triângulo: $G = \left(\frac{0 + 12 + 6}{3}, \frac{0 + 0 + 9}{3}\right) = (6, 3)$</li>
+                    <li>Para cada vértice, calculamos os vetores diretores $\overrightarrow{GP}$, $\overrightarrow{GQ}$ e $\overrightarrow{GR}$:
+                        <br>$\overrightarrow{GP} = (0 - 6, 0 - 3) = (-6, -3)$
+                        <br>$\overrightarrow{GQ} = (12 - 6, 0 - 3) = (6, -3)$
+                        <br>$\overrightarrow{GR} = (6 - 6, 9 - 3) = (0, 6)$</li>
+                    <li>Normalizamos e escalamos cada vetor para determinar o deslocamento:
+                        <br>$|\overrightarrow{GP}| = \sqrt{(-6)^2 + (-3)^2} = \sqrt{36 + 9} = \sqrt{45} = 3\sqrt{5}$
+                        <br>$|\overrightarrow{GQ}| = \sqrt{6^2 + (-3)^2} = \sqrt{36 + 9} = \sqrt{45} = 3\sqrt{5}$
+                        <br>$|\overrightarrow{GR}| = \sqrt{0^2 + 6^2} = 6$</li>
+                    <li>Os novos vértices são dados pelas expressões:
+                        <br>$P' = P + 2 \cdot \frac{\overrightarrow{GP}}{|\overrightarrow{GP}|} = (0, 0) + 2 \cdot \frac{(-6, -3)}{3\sqrt{5}} = (0, 0) + \frac{2}{3\sqrt{5}} \cdot (-6, -3)$
+                        <br>$Q' = Q + 2 \cdot \frac{\overrightarrow{GQ}}{|\overrightarrow{GQ}|} = (12, 0) + 2 \cdot \frac{(6, -3)}{3\sqrt{5}} = (12, 0) + \frac{2}{3\sqrt{5}} \cdot (6, -3)$
+                        <br>$R' = R + 2 \cdot \frac{\overrightarrow{GR}}{|\overrightarrow{GR}|} = (6, 9) + 2 \cdot \frac{(0, 6)}{6} = (6, 9) + \frac{2}{6} \cdot (0, 6)$</li>
+                    <li>Simplificando:
+                        <br>$P' = (0, 0) + \frac{2}{3\sqrt{5}} \cdot (-6, -3) = (-\frac{4}{\sqrt{5}}, -\frac{2}{\sqrt{5}}) \approx (-1.79, -0.89)$
+                        <br>$Q' = (12, 0) + \frac{2}{3\sqrt{5}} \cdot (6, -3) = (12 + \frac{4}{\sqrt{5}}, 0 - \frac{2}{\sqrt{5}}) \approx (13.79, -0.89)$
+                        <br>$R' = (6, 9) + \frac{1}{3} \cdot (0, 6) = (6, 9 + 2) = (6, 11)$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$G = (6, 3)$$
+                    $$P' \approx (-1.79, -0.89)$$
+                    $$Q' \approx (13.79, -0.89)$$
+                    $$R' = (6, 11)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Expandir perímetros de segurança é uma tarefa crítica em zonas hostis. A capacidade de calcular coordenadas precisas para novas fronteiras, usando o baricentro como referência, permite o crescimento organizado dos assentamentos e otimiza a distribuição de recursos de defesa.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 6 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>REDE DE ABASTECIMENTO</h3>
+            <p>Três comunidades estão localizadas nos pontos A(2, 1), B(10, 1) e C(6, 8). Para economizar recursos, uma central de distribuição será construída no baricentro deste triângulo. Prove que a soma das distâncias ao quadrado de cada comunidade até esta central é mínima comparada a qualquer outro ponto possível.</p>
+            
+            <div class="hint">
+                <p>Para qualquer ponto P(x, y), calcule a soma das distâncias ao quadrado de P até os três pontos dados e verifique que esta soma é mínima quando P é o baricentro.</p>
+            </div>
 
-           ctx_21.beginPath();
-          ctx_21.moveTo(20, 100);
-          ctx_21.lineTo(130, 20);
-           ctx_21.stroke();
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calculamos o baricentro G do triângulo: $G = \left(\frac{2 + 10 + 6}{3}, \frac{1 + 1 + 8}{3}\right) = (6, \frac{10}{3}) \approx (6, 3.33)$</li>
+                    <li>Para qualquer ponto P(x, y), a soma das distâncias ao quadrado é dada por:
+                        <br>$S(x, y) = |PA|^2 + |PB|^2 + |PC|^2$
+                        <br>$S(x, y) = (x - 2)^2 + (y - 1)^2 + (x - 10)^2 + (y - 1)^2 + (x - 6)^2 + (y - 8)^2$</li>
+                    <li>Expandindo: $S(x, y) = 3x^2 - 36x + 144 + 3y^2 - 20y + 66$</li>
+                    <li>Para encontrar o mínimo, derivamos e igualamos a zero:
+                        <br>$\frac{\partial S}{\partial x} = 6x - 36 = 0 \implies x = 6$
+                        <br>$\frac{\partial S}{\partial y} = 6y - 20 = 0 \implies y = \frac{10}{3}$</li>
+                    <li>O ponto (6, \frac{10}{3}) é exatamente o baricentro G, provando que a soma das distâncias ao quadrado é mínima neste ponto.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$S(x, y) = |PA|^2 + |PB|^2 + |PC|^2$$
+                    $$\frac{\partial S}{\partial x} = 0 \implies x = 6$$
+                    $$\frac{\partial S}{\partial y} = 0 \implies y = \frac{10}{3}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O posicionamento otimizado de centros de recursos é crucial em tempos onde cada grama de combustível e cada minuto de exposição contam. O baricentro oferece a solução matemática ideal para minimizar o custo total de transporte em uma rede de comunidades, maximizando a eficiência e prolongando a sobrevivência.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 7 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>O PONTO DE EQUILÍBRIO</h3>
+            <p>As coordenadas A(0, 0), B(8, 0) e C(4, 4) representam três pontos de extração de água. Um sistema de canalização deve conectar estes pontos, com uma válvula central posicionada no ponto médio do segmento que liga o ponto C ao ponto médio de AB. Determine as coordenadas da válvula e a quantidade total de tubulação necessária para conectar todos os pontos até a válvula.</p>
+            
+            <div class="hint">
+                <p>Este é um problema de aplicação sequencial de ponto médio.</p>
+            </div>
 
-            ctx_21.font = "12px Arial";
-          ctx_21.fillText("A", 25, 40);
-          ctx_21.fillText("M", 80, 65);
-          ctx_21.fillText("B", 125, 25);
-          ctx_21.fillText("x", 135, 105);
-          ctx_21.fillText("y", 5, 10);
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcule o ponto médio M de A(0, 0) e B(8, 0): $M = \left(\frac{0 + 8}{2}, \frac{0 + 0}{2}\right) = (4, 0)$</li>
+                    <li>Agora, calcule o ponto médio V entre M(4, 0) e C(4, 4): $V = \left(\frac{4 + 4}{2}, \frac{0 + 4}{2}\right) = (4, 2)$</li>
+                    <li>Para calcular a quantidade total de tubulação, determine as distâncias de cada ponto até a válvula:
+                        <br>$|AV| = \sqrt{(4 - 0)^2 + (2 - 0)^2} = \sqrt{16 + 4} = \sqrt{20} = 2\sqrt{5}$
+                        <br>$|BV| = \sqrt{(4 - 8)^2 + (2 - 0)^2} = \sqrt{16 + 4} = \sqrt{20} = 2\sqrt{5}$
+                        <br>$|CV| = \sqrt{(4 - 4)^2 + (2 - 4)^2} = \sqrt{0 + 4} = 2$</li>
+                    <li>A quantidade total de tubulação será: $|AV| + |BV| + |CV| = 2\sqrt{5} + 2\sqrt{5} + 2 = 4\sqrt{5} + 2$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$V = (4, 2)$$
+                    $$\text{Tubulação total} = 4\sqrt{5} + 2 \approx 10.94 \text{ unidades}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em infraestrutura crítica como sistemas hídricos, a aplicação iterativa do conceito de ponto médio permite criar nós de distribuição que minimizam o uso de materiais escassos. Esta otimização não é apenas questão de economia, mas de viabilidade em um mundo onde cada recurso salvo pode significar mais vidas preservadas.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 8 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>A TRINDADE PROTETORA</h3>
+            <p>Três torres de vigia formam um triângulo nas coordenadas A(1, 1), B(7, 1) e C(4, 5√3). Um novo sistema de triagem deve ser posicionado no baricentro. Se cada torre tem um gerador que pode fornecer energia proporcional ao inverso da distância ao quadrado, determine o ponto X na região triangular onde a soma das contribuições energéticas é máxima. Este ponto coincide com o baricentro?</p>
+            
+            <div class="hint">
+                <p>A contribuição energética de cada torre para um ponto X segue a lei do inverso do quadrado da distância.</p>
+            </div>
 
-           ctx_21.fillText("0", 10, 110);
-           ctx_21.fillText("x\u2081", 45, 110);
-            ctx_21.fillText("x\u2082", 125, 110);
-             ctx_21.fillText("y\u2081", 5, 40);
-              ctx_21.fillText("y\u2082", 5, 95);
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Primeiro, calculamos o baricentro G: $G = \left(\frac{1 + 7 + 4}{3}, \frac{1 + 1 + 5\sqrt{3}}{3}\right) = (4, \frac{2 + 5\sqrt{3}}{3})$</li>
+                    <li>Para a contribuição energética, definimos uma função: $E(x, y) = \frac{1}{|XA|^2} + \frac{1}{|XB|^2} + \frac{1}{|XC|^2}$</li>
+                    <li>Expandindo: $E(x, y) = \frac{1}{(x-1)^2 + (y-1)^2} + \frac{1}{(x-7)^2 + (y-1)^2} + \frac{1}{(x-4)^2 + (y-5\sqrt{3})^2}$</li>
+                    <li>Analisando as propriedades deste triângulo, percebemos que é um triângulo equilátero (podemos verificar as distâncias entre os vértices)</li>
+                    <li>Para um triângulo equilátero, o ponto que maximiza a soma dos inversos das distâncias ao quadrado não é o baricentro, mas o ponto de Fermat (ou ponto de Torricelli), que coincide com o baricentro apenas para triângulos equiláteros</li>
+                    <li>Como este é um triângulo equilátero (AB = BC = AC = 6), o ponto X que maximiza a energia coincide com o baricentro G</li>
+                </ol>
+                
+                <div class="formula">
+                    $$G = \left(4, \frac{2 + 5\sqrt{3}}{3}\right)$$
+                    $$X = G = \left(4, \frac{2 + 5\sqrt{3}}{3}\right)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A distribuição ideal de recursos energéticos em um sistema triangular demonstra um princípio fundamental de sobrevivência: geometria e física trabalham juntas na otimização. Conhecer propriedades especiais de configurações geométricas permite criar redes resilientes que aproveitam ao máximo recursos limitados.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 9 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>ROTA DE EVACUAÇÃO SEGMENTADA</h3>
+            <p>Três pontos de controle estão situados em A(0, 0), B(10, 0) e C(5, 8). Uma rota de evacuação deve ser planejada saindo do ponto A, passando pelo ponto médio M1 entre A e B, depois pelo baricentro G do triângulo ABC, em seguida pelo ponto médio M2 entre B e C, e finalmente chegando em C. Determine o comprimento total desta rota e compare com o perímetro do triângulo ABC.</p>
+            
+            <div class="hint">
+                <p>Calcule cada segmento da rota sequencialmente e some as distâncias.</p>
+            </div>
 
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcule o ponto médio M1 entre A(0, 0) e B(10, 0): $M1 = (5, 0)$</li>
+                    <li>Calcule o baricentro G do triângulo: $G = \left(\frac{0 + 10 + 5}{3}, \frac{0 + 0 + 8}{3}\right) = (5, \frac{8}{3}) \approx (5, 2.67)$</li>
+                    <li>Calcule o ponto médio M2 entre B(10, 0) e C(5, 8): $M2 = \left(\frac{10 + 5}{2}, \frac{0 + 8}{2}\right) = (7.5, 4)$</li>
+                    <li>Calcule o comprimento de cada segmento da rota:
+                        <br>$|AM1| = \sqrt{(5 - 0)^2 + (0 - 0)^2} = 5$
+                        <br>$|M1G| = \sqrt{(5 - 5)^2 + (2.67 - 0)^2} = 2.67$
+                        <br>$|GM2| = \sqrt{(7.5 - 5)^2 + (4 - 2.67)^2} = \sqrt{6.25 + 1.78} \approx 2.94$
+                        <br>$|M2C| = \sqrt{(5 - 7.5)^2 + (8 - 4)^2} = \sqrt{6.25 + 16} = \sqrt{22.25} \approx 4.72$</li>
+                    <li>Comprimento total da rota: $5 + 2.67 + 2.94 + 4.72 = 15.33$</li>
+                    <li>Agora, calculamos o perímetro do triângulo ABC:
+                        <br>$|AB| = \sqrt{(10 - 0)^2 + (0 - 0)^2} = 10$
+                        <br>$|BC| = \sqrt{(5 - 10)^2 + (8 - 0)^2} = \sqrt{25 + 64} = \sqrt{89} \approx 9.43$
+                        <br>$|CA| = \sqrt{(0 - 5)^2 + (0 - 8)^2} = \sqrt{25 + 64} = \sqrt{89} \approx 9.43$</li>
+                    <li>Perímetro do triângulo: $10 + 9.43 + 9.43 = 28.86$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Comprimento da rota} = |AM1| + |M1G| + |GM2| + |M2C| \approx 15.33$$
+                    $$\text{Perímetro do triângulo} = |AB| + |BC| + |CA| \approx 28.86$$
+                    $$\text{Razão} = \frac{15.33}{28.86} \approx 0.53 \text{ ou } 53\%$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Rotas que utilizam pontos médios e baricentros estratégicos podem reduzir significativamente as distâncias percorridas, economizando até 47% dos recursos de deslocamento em comparação com rotas perimetrais. Em um mundo hostil, esta eficiência pode ser a diferença entre alcançar o abrigo antes do anoitecer ou enfrentar os perigos noturnos da Zona Devastada.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 10 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>A CONVERGÊNCIA DAS MEIAS-VIDAS</h3>
+            <p>Quatro estações de monitoramento formam um quadrilátero com vértices A(0, 0), B(8, 0), C(9, 7) e D(1, 7). Para criar uma rede de comunicação eficiente, planeja-se unir os pontos médios dos lados consecutivos, formando um novo quadrilátero. Prove que este novo quadrilátero é sempre um paralelogramo, independentemente da forma do quadrilátero original, e calcule o perímetro deste novo quadrilátero.</p>
 
-        </script>
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calculamos os pontos médios dos lados do quadrilátero:
+                        <br>$M_{AB} = \left(\frac{0 + 8}{2}, \frac{0 + 0}{2}\right) = (4, 0)$
+                        <br>$M_{BC} = \left(\frac{8 + 9}{2}, \frac{0 + 7}{2}\right) = (8.5, 3.5)$
+                        <br>$M_{CD} = \left(\frac{9 + 1}{2}, \frac{7 + 7}{2}\right) = (5, 7)$
+                        <br>$M_{DA} = \left(\frac{1 + 0}{2}, \frac{7 + 0}{2}\right) = (0.5, 3.5)$</li>
+                    <li>Para provar que o quadrilátero $M_{AB}M_{BC}M_{CD}M_{DA}$ é um paralelogramo, verificamos se os lados opostos são paralelos e iguais.
+                        <br>$\overrightarrow{M_{AB}M_{BC}} = (8.5 - 4, 3.5 - 0) = (4.5, 3.5)$
+                        <br>$\overrightarrow{M_{CD}M_{DA}} = (0.5 - 5, 3.5 - 7) = (-4.5, -3.5)$</li>
+                    <li>Verificamos que $\overrightarrow{M_{AB}M_{BC}} = -\overrightarrow{M_{CD}M_{DA}}$, o que prova que os lados opostos são paralelos e de mesmo comprimento</li>
+                    <li>Da mesma forma, podemos verificar para os outros dois lados:
+                        <br>$\overrightarrow{M_{BC}M_{CD}} = (5 - 8.5, 7 - 3.5) = (-3.5, 3.5)$
+                        <br>$\overrightarrow{M_{DA}M_{AB}} = (4 - 0.5, 0 - 3.5) = (3.5, -3.5)$</li>
+                    <li>Novamente, $\overrightarrow{M_{BC}M_{CD}} = -\overrightarrow{M_{DA}M_{AB}}$</li>
+                    <li>Isso prova matematicamente que o quadrilátero formado pelos pontos médios é sempre um paralelogramo</li>
+                    <li>Para calcular o perímetro, precisamos da soma dos comprimentos dos lados:
+                        <br>$|M_{AB}M_{BC}| = \sqrt{4.5^2 + 3.5^2} = \sqrt{20.25 + 12.25} = \sqrt{32.5} \approx 5.7$
+                        <br>$|M_{BC}M_{CD}| = \sqrt{(-3.5)^2 + 3.5^2} = \sqrt{24.5} \approx 4.95$
+                        <br>$|M_{CD}M_{DA}| = \sqrt{(-4.5)^2 + (-3.5)^2} = \sqrt{32.5} \approx 5.7$
+                        <br>$|M_{DA}M_{AB}| = \sqrt{3.5^2 + (-3.5)^2} = \sqrt{24.5} \approx 4.95$</li>
+                    <li>Perímetro = $2 \cdot (5.7 + 4.95) = 21.3$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\overrightarrow{M_{AB}M_{BC}} = -\overrightarrow{M_{CD}M_{DA}}$$
+                    $$\overrightarrow{M_{BC}M_{CD}} = -\overrightarrow{M_{DA}M_{AB}}$$
+                    $$\text{Perímetro do paralelogramo} \approx 21.3 \text{ unidades}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A descoberta de que pontos médios de quadriláteros sempre formam paralelogramos garante estabilidade estrutural previsível, mesmo em terrenos irregulares. Esta propriedade invariante é valiosa para engenheiros de sobrevivência construindo estruturas defensivas com recursos limitados, permitindo projetar sistemas estáveis independentemente das condições iniciais encontradas.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 11 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>TRIÂNGULO DE MEIOS MÉDIOS</h3>
+            <p>Três abrigos formam um triângulo com vértices em A(0, 0), B(8, 0) e C(4, 6). Um sistema defensivo exige a construção de três postos de vigilância nos pontos médios dos lados deste triângulo. Determine as coordenadas do baricentro do triângulo formado por estes três postos de vigilância e compare com o baricentro do triângulo original. Qual relação você encontra entre eles?</p>
 
-     <p><b>22.</b> Dar o ponto médio do segmento de extremidades \( A = (3, 7) \) e \( B = (11, -1) \).</p>
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Primeiro, calculamos os pontos médios dos lados do triângulo original:
+                        <br>$M_{AB} = \left(\frac{0 + 8}{2}, \frac{0 + 0}{2}\right) = (4, 0)$
+                        <br>$M_{BC} = \left(\frac{8 + 4}{2}, \frac{0 + 6}{2}\right) = (6, 3)$
+                        <br>$M_{CA} = \left(\frac{4 + 0}{2}, \frac{6 + 0}{2}\right) = (2, 3)$</li>
+                    <li>Estes três pontos formam um novo triângulo: △(M_{AB}, M_{BC}, M_{CA})</li>
+                    <li>Calculamos o baricentro G' deste novo triângulo:
+                        <br>$G' = \left(\frac{4 + 6 + 2}{3}, \frac{0 + 3 + 3}{3}\right) = \left(\frac{12}{3}, \frac{6}{3}\right) = (4, 2)$</li>
+                    <li>Agora, calculamos o baricentro G do triângulo original:
+                        <br>$G = \left(\frac{0 + 8 + 4}{3}, \frac{0 + 0 + 6}{3}\right) = \left(\frac{12}{3}, \frac{6}{3}\right) = (4, 2)$</li>
+                    <li>Observamos que G = G', ou seja, o baricentro do triângulo formado pelos pontos médios coincide com o baricentro do triângulo original</li>
+                </ol>
+                
+                <div class="formula">
+                    $G = \left(\frac{0 + 8 + 4}{3}, \frac{0 + 0 + 6}{3}\right) = (4, 2)$
+                    $G' = \left(\frac{4 + 6 + 2}{3}, \frac{0 + 3 + 3}{3}\right) = (4, 2)$
+                    $G = G'$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Esta propriedade invariante dos baricentros tem uma aplicação prática inestimável na Zona Devastada: ao construir postos defensivos nos pontos médios de um território triangular, o centro de comando permanece no mesmo ponto estratégico. Isso permite manter as mesmas rotas de evacuação e suprimentos, mesmo quando o perímetro defensivo precisa ser reduzido em resposta a ameaças externas.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 12 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>OS QUATRO ABRIGOS</h3>
+            <p>Quatro comunidades sobreviventes estabeleceram abrigos nas coordenadas A(0, 0), B(6, 0), C(6, 6) e D(0, 6), formando um quadrado. Para otimizar o uso de recursos, decidiu-se construir um ponto de encontro no baricentro deste quadrilátero. Uma segunda proposta sugere construir quatro pontos de distribuição nos pontos médios de cada lado do quadrado e então posicionar o centro principal no baricentro destes quatro pontos. Determine as coordenadas destes dois centros propostos e discuta se eles coincidem.</p>
 
-    <p><b>Resolução</b></p>
-    \[ M = \frac{A + B}{2} = \frac{(3, 7) + (11, -1)}{2} = \frac{(3+11, 7-1)}{2} = (7, 3) \]
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calculamos o baricentro do quadrilátero original:
+                        <br>$G_1 = \left(\frac{0 + 6 + 6 + 0}{4}, \frac{0 + 0 + 6 + 6}{4}\right) = \left(\frac{12}{4}, \frac{12}{4}\right) = (3, 3)$</li>
+                    <li>Agora, calculamos os pontos médios dos lados do quadrado:
+                        <br>$M_{AB} = \left(\frac{0 + 6}{2}, \frac{0 + 0}{2}\right) = (3, 0)$
+                        <br>$M_{BC} = \left(\frac{6 + 6}{2}, \frac{0 + 6}{2}\right) = (6, 3)$
+                        <br>$M_{CD} = \left(\frac{6 + 0}{2}, \frac{6 + 6}{2}\right) = (3, 6)$
+                        <br>$M_{DA} = \left(\frac{0 + 0}{2}, \frac{6 + 0}{2}\right) = (0, 3)$</li>
+                    <li>Calculamos o baricentro destes quatro pontos médios:
+                        <br>$G_2 = \left(\frac{3 + 6 + 3 + 0}{4}, \frac{0 + 3 + 6 + 3}{4}\right) = \left(\frac{12}{4}, \frac{12}{4}\right) = (3, 3)$</li>
+                    <li>Verificamos que $G_1 = G_2 = (3, 3)$, portanto as duas propostas resultam no mesmo ponto central</li>
+                    <li>Para verificar a distância de G até cada um dos abrigos originais:
+                        <br>$|GA| = \sqrt{(3-0)^2 + (3-0)^2} = \sqrt{18} = 3\sqrt{2} \approx 4.24$
+                        <br>$|GB| = \sqrt{(3-6)^2 + (3-0)^2} = \sqrt{18} = 3\sqrt{2} \approx 4.24$
+                        <br>$|GC| = \sqrt{(3-6)^2 + (3-6)^2} = \sqrt{18} = 3\sqrt{2} \approx 4.24$
+                        <br>$|GD| = \sqrt{(3-0)^2 + (3-6)^2} = \sqrt{18} = 3\sqrt{2} \approx 4.24$</li>
+                    <li>Para verificar a distância de G até cada um dos pontos médios:
+                        <br>$|GM_{AB}| = \sqrt{(3-3)^2 + (3-0)^2} = 3$
+                        <br>$|GM_{BC}| = \sqrt{(3-6)^2 + (3-3)^2} = 3$
+                        <br>$|GM_{CD}| = \sqrt{(3-3)^2 + (3-6)^2} = 3$
+                        <br>$|GM_{DA}| = \sqrt{(3-0)^2 + (3-3)^2} = 3$</li>
+                </ol>
+                
+                <div class="formula">
+                    $G_1 = G_2 = (3, 3)$
+                    $\text{Distância de G até cada abrigo} = 3\sqrt{2} \approx 4.24 \text{ unidades}$
+                    $\text{Distância de G até cada ponto médio} = 3 \text{ unidades}$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A coincidência dos baricentros demonstra uma propriedade fundamental dos sistemas de distribuição em ambientes hostis: as estruturas hierárquicas de suprimentos mantêm seu ponto central ideal independentemente do nível de distribuição. Isto permite criar sistemas redundantes que podem ser adaptados conforme a necessidade (centralização ou descentralização) sem alterar as rotas principais de logística, otimizando a resistência do assentamento contra ameaças externas.</p>
+            </details>
+        </div>
+    </div>
 
-    <p><b>23.</b> Dar o ponto médio do segmento AB nos casos:</p>
-
-    <p> a) \( A = (2, 1) \) e \( B = (6, 9) \) \( \qquad \) b) \( A = (-1, -4) \) e \( B = (7, -1) \) </p>
-    <p> c) \( A = (3, 0) \) e \( B = (-3, 0) \) \( \qquad \) d) \( A = \left(\frac{1}{2}, -1\right) \) e \( B = (5, -1) \) </p>
-    <p> e) \( A = \left(-21, \frac{1}{3}\right) \) e \( B = \left(12, -\frac{2}{9}\right) \) </p>
-
-    <p><b>24.</b> Determinar os pontos médios dos lados do triângulo de vértices \( A(-11, 1) \), \( B(-1, 7) \) e \( C(5, -9) \).</p>
-
-    <p><b>25.</b> Obter os pontos que dividem o segmento de extremidades A(2,4) e B(14,13) em três partes iguais.</p>
-   <p><b>Resolução</b></p>
-    <p>Devemos obter os pontos C e D tais que</p>
-
-   <p>\( \vec{AC} = \frac{1}{3}\vec{AB} \) e \( \vec{AD} = \frac{2}{3}\vec{AB} \).</p>
-   <p>Temos:</p>
-   <p>\( \vec{AC} = \frac{1}{3}\vec{AB} \implies C - A =  \frac{1}{3}(B - A) \)</p>
-   <p>\( C  = \frac{1}{3}(B - A) + A = \frac{1}{3}B + \frac{2}{3}A  \)</p>
-
-<p>logo:</p>
-\[ C = \frac{(14, 13) + 2(2, 4)}{3} = \frac{(14, 13) + (4, 8)}{3} = (6, 7) \]
-
-<p>Notando que D é o ponto médio de CB podemos obter D como segue</p>
-
-\[D = \frac{C + B}{2} = \frac{(6, 7) + (14, 13)}{2} = (10, 10) \]
-
-  <canvas id="canvas_25" width="150" height="120" style="border:1px solid black;"></canvas>
-        <script>
-          const canvas_25 = document.getElementById('canvas_25');
-          const ctx_25 = canvas_25.getContext('2d');
-
-        ctx_25.beginPath();
-        ctx_25.moveTo(20,100);
-        ctx_25.lineTo(130,20);
-        ctx_25.stroke();
-
-          ctx_25.font = "12px Arial";
-          ctx_25.fillText("A", 20, 100);
-          ctx_25.fillText("C", 50, 80);
-          ctx_25.fillText("D", 80, 55);
-          ctx_25.fillText("B", 130, 20);
-
-           ctx_25.beginPath();
-            ctx_25.arc(55, 73, 2, 0, 2 * Math.PI);
-            ctx_25.fill();
-
-            ctx_25.beginPath();
-            ctx_25.arc(90, 50, 2, 0, 2 * Math.PI);
-            ctx_25.fill();
-        </script>
-
-    <p><b>26.</b> Obter os pontos que dividem em três partes iguais o segmento de extremidades \( A(-3, 2) \) e \( B(12, -7) \).</p>
-
-    <p><b>27.</b> Obter os pontos que dividem em cinco partes iguais o segmento de extremidades A(1, 0) e B(-9, 8).</p>
-
-    <p><b>28.</b> Entre os pontos que dividem o segmento AB, A(7, -1) e B(-5, 5), em seis partes iguais, determinar aquele que está mais próximo de A.</p>
-
-    <p><b>29.</b> Prolonga-se o segmento AB, A(1, 2) e B(5, 4), no sentido de A para B, até o ponto P tal que o comprimento de AP é o triplo de AB. Determinar o ponto P.</p>
-
-   <p><b>30.</b> O segmento AB é prolongado, no sentido de A para B, até um ponto C tal que o comprimento de BC é o quíntuplo de AB. Dados A(3, -1) e B(4, -3), obter C.</p>
-
-    <p><b>31.</b> O ponto simétrico do ponto A, relativamente ao ponto B, é o ponto C tal que B é o ponto médio de AC.  Dados A(3, 11) e B(5, 8), obter C.</p>
-
-     <canvas id="canvas_31" width="150" height="120" style="border:1px solid black;"></canvas>
-        <script>
-          const canvas_31 = document.getElementById('canvas_31');
-          const ctx_31 = canvas_31.getContext('2d');
-
-        ctx_31.beginPath();
-        ctx_31.moveTo(20,80);
-        ctx_31.lineTo(130,80);
-
-        ctx_31.moveTo(57,75);
-        ctx_31.lineTo(57,85);
-
-        ctx_31.moveTo(93,75);
-        ctx_31.lineTo(93,85);
-        ctx_31.stroke();
-
-          ctx_31.font = "12px Arial";
-          ctx_31.fillText("A", 20, 75);
-          ctx_31.fillText("B", 55, 75);
-          ctx_31.fillText("C", 130, 75);
-
-        </script>
-
-     <p><b>32.</b> Dois vértices de um paralelogramo são A(3, 5) e B(5, 3). Sendo M(1, -1) o ponto médio das diagonais, obter os outros vértices.</p>
-
-     <p><b>33.</b> Os pontos A(3, 0) e C(0, 7) são extremidades de uma diagonal de um paralelogramo. Dado também o vértice B(4, 4), obter o vértice D do paralelogramo.</p>
-
-      <p><b>34.</b> Determinar as coordenadas do baricentro do triângulo ABC, dados \( A(x_1, y_1) \), \( B(x_2, y_2) \) e \( C(x_3, y_3) \).</p>
-
-    <p><b>Resolução</b></p>
-    <p>O baricentro G é o ponto de intersecção das medianas do triângulo. G divide cada mediana na razão de 2 para 1, no sentido do vértice para o ponto médio do lado oposto. Sendo M o ponto médio de BC temos:</p>
-    <p> \( \vec{AG} = 2\vec{GM} \)</p>
-    <p>\( G - A = 2(M - G) \)</p>
-    <p>\( G - A = 2M - 2G \)</p>
-   <p> \( 3G = A + 2M  \)</p>
-   <p>\(  3G = A + 2\left(\frac{B+C}{2}\right) \)</p>
-
-   \[ G = \frac{A + B + C}{3} \]
-    <p>logo:</p>
-    \[ G = \frac{(x_1, y_1) + (x_2, y_2) + (x_3, y_3)}{3} = \left(\frac{x_1 + x_2 + x_3}{3}, \frac{y_1 + y_2 + y_3}{3}\right) \]
-
-   <canvas id="canvas_34" width="150" height="120" style="border:1px solid black;"></canvas>
-    <script>
-      const canvas_34 = document.getElementById('canvas_34');
-      const ctx_34 = canvas_34.getContext('2d');
-        ctx_34.beginPath();
-        ctx_34.moveTo(20,100); // B
-        ctx_34.lineTo(130,100); // C
-        ctx_34.lineTo(75, 20);  //A
-        ctx_34.closePath();
-
-         ctx_34.moveTo(75, 20); // A
-         ctx_34.lineTo(75, 100); // M
-
-        ctx_34.moveTo(20,100); //B
-        ctx_34.lineTo(102, 60); // N
-
-        ctx_34.moveTo(130,100); // C
-        ctx_34.lineTo(48, 60); //
-
-        ctx_34.strokeStyle = 'black';
-        ctx_34.stroke();
-
-        ctx_34.beginPath();
-        ctx_34.arc(75, 73, 2, 0, 2 * Math.PI);
-        ctx_34.fill();
-
-        ctx_34.font = "12px Arial";
-        ctx_34.fillText("A", 75, 15);
-        ctx_34.fillText("B", 15, 100);
-        ctx_34.fillText("C", 135, 100);
-        ctx_34.fillText("G", 70, 70);
-        ctx_34.fillText("M", 75, 110);
-         ctx_34.fillText("N", 105, 60);
-          ctx_34.fillText("2", 75, 50);
-        ctx_34.fillText("1", 75, 90);
-    </script>
-
-    <p><b>35.</b> Usando a fórmula encontrada no exercício anterior, obter o baricentro do triângulo ABC nos casos: </p>
-
-     <p> a) \( A(1, 0) \), \( B(9, 0) \), \( C(0, 6) \) \( \qquad \) b) \( A(3, 2) \), \( B(7, 7) \), \( C(5, -3) \)  </p>
-     <p> c)  \( A(-1, -2) \), \( B(0, -4) \), \( C(1, 6) \)\( \qquad \) d) \( A(a+1, a-1) \), \( B(-1, 1) \), \( C(1 - a, 1 + a) \)  </p>
-
-    <p><b>36.</b> Num triângulo de baricentro \( G\left(0, \frac{1}{2}\right) \), dois dos vértices são \( A(1, 1) \) e \( B\left(-2, \frac{2}{3}\right) \).  Obter o outro vértice.</p>
-
-    <p><b>37.</b> Num triângulo de baricentro \( G(6, 2) \), dois dos lados têm pontos médios \( M(7, 4) \) e \( N\left(\frac{7}{2}, \frac{5}{2}\right) \).  Obter os vértices do triângulo.</p>
-
+    <!-- RODAPÉ DO DOCUMENTO -->
+    <div class="footer">
+        REFÚGIO-TEC | PONTO MÉDIO E BARICENTRO: Sobrevivência Matemática - O equilíbrio geométrico é a chave para resistir ao caos da Zona Devastada
+    </div>
 </body>
 </html>

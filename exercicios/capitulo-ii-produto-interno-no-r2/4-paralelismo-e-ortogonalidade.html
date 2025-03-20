@@ -2,10 +2,588 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>CAPÍTULO II - PRODUTO INTERNO NO R² - Seção 4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+    </script>
+    <title>REFÚGIO-TEC | PARALELISMO E ORTOGONALIDADE</title>
+    <style>
+        /* Estilo inspirado no tema pós-apocalíptico */
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100px; }
+        }
+
+        body {
+            background-color: #0c0c0c;
+            color: #e6e6e6;
+            font-family: "Courier New", monospace;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #4caf50;
+            max-width: 800px;
+            margin: auto;
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 2px;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+
+        h1, h2, h3 {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .exercise {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border: 1px dashed #4caf50;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        details {
+            background-color: #1c1c1c;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            margin-top: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #4caf50;
+        }
+
+        summary:hover {
+            text-shadow: 0 0 3px #4caf50;
+        }
+
+        code {
+            background-color: #333;
+            padding: 3px 5px;
+            color: #ffeb3b;
+        }
+
+        .hint {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #4caf50;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .hint:before {
+            content: "DICA DE SOBREVIVÊNCIA: ";
+            color: #4caf50;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .solution-steps {
+            margin-left: 20px;
+            counter-reset: step-counter;
+        }
+
+        .solution-steps li {
+            list-style-type: none;
+            counter-increment: step-counter;
+            margin-bottom: 10px;
+        }
+
+        .solution-steps li::before {
+            content: "> PASSO_" counter(step-counter) ": ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .formula {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #000;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .terminal-frame {
+            padding: 10px;
+            background-color: #000;
+            margin-bottom: 20px;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .terminal-header {
+            margin: 0;
+            padding: 3px 10px;
+            background-color: #4caf50;
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .terminal-content {
+            padding: 5px;
+            white-space: pre-wrap;
+            font-size: 1em;
+            line-height: 1.2;
+        }
+
+        .cursor:after {
+            content: "█";
+            animation: blink 1s step-end infinite;
+        }
+
+        .terminal-line {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .terminal-border {
+            border: 1px solid #4caf50;
+            padding: 5px;
+            background-color: #000;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .mission-counter {
+            counter-reset: mission;
+        }
+        
+        .mission-counter .exercise h3:before {
+            content: "MISSÃO " counter(mission) ": ";
+            counter-increment: mission;
+        }
+
+        .warning {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .danger {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #8bc34a;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #4caf50;
+            border-top: 1px solid #4caf50;
+            padding-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>CAPÍTULO II - PRODUTO INTERNO NO R²</h1>
-    <h2>Seção 4: paralelismo-e-ortogonalidade</h2>
+    <!-- TÍTULO E INTRODUÇÃO -->
+    <div class="terminal-frame">
+        <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
+        <div class="terminal-content">
+┌───────────────────────────────────────────────────┐
+│ MÓDULO: PARALELISMO E ORTOGONALIDADE              │
+└───────────────────────────────────────────────────┘
+
+> INICIANDO TRANSMISSÃO...
+> CARREGANDO MÓDULO DE TREINAMENTO...
+> ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
+        </div>
+    </div>
+
+    <div class="terminal-border">
+        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: PARALELISMO E ORTOGONALIDADE</h2>
+    
+    <p>No mundo hostil pós-apocalíptico, entender as relações entre vetores pode significar a diferença entre a vida e a morte. O paralelismo e a ortogonalidade são propriedades fundamentais que permitem aos sobreviventes otimizar rotas de exploração, reforçar estruturas de abrigos e mapear zonas de radiação com precisão.</p>
+    
+    <p>Dois vetores $\vec{u}$ e $\vec{v}$ são <strong>paralelos</strong> quando um pode ser obtido multiplicando o outro por um escalar $\lambda$, ou seja, $\vec{u} = \lambda\vec{v}$. Na prática, isso significa que eles apontam para a mesma direção (ou direções opostas se $\lambda < 0$). Para sobreviventes navegando em terrenos perigosos, identificar vetores paralelos permite economizar recursos seguindo a mesma direção geral.</p>
+
+    <p>Dois vetores $\vec{u}$ e $\vec{v}$ são <strong>ortogonais</strong> (perpendiculares) quando seu produto escalar é zero: $\vec{u} \cdot \vec{v} = 0$. Durante a construção de abrigos, estruturas ortogonais oferecem máxima estabilidade e resistência, fundamentais para sobreviver às tempestades radioativas.</p>
+    
+    <p>Para vetores no plano $\mathbb{R}^2$, representados como $\vec{u} = (u_1, u_2)$ e $\vec{v} = (v_1, v_2)$, podemos verificar estas propriedades usando operações algébricas simples mas essenciais para a navegação precisa entre zonas devastadas.</p>
+    
+    <div class="formula">
+    <p>Para verificar <strong>paralelismo</strong> entre $\vec{u} = (u_1, u_2)$ e $\vec{v} = (v_1, v_2)$:</p>
+    $$\vec{u} \parallel \vec{v} \iff \frac{u_1}{v_1} = \frac{u_2}{v_2} \textrm{ (quando } v_1, v_2 \neq 0 \textrm{)}$$
+    <p>Ou alternativamente verificar se existe $\lambda$ tal que:</p>
+    $$\vec{u} = \lambda\vec{v}$$
+    </div>
+    
+    <div class="formula">
+    <p>Para verificar <strong>ortogonalidade</strong> entre $\vec{u} = (u_1, u_2)$ e $\vec{v} = (v_1, v_2)$:</p>
+    $$\vec{u} \perp \vec{v} \iff \vec{u} \cdot \vec{v} = 0 \iff u_1v_1 + u_2v_2 = 0$$
+    </div>
+    
+    <p>A capacidade de identificar rápida e corretamente estas relações vetoriais será crucial para sua sobrevivência nas missões a seguir. Prepare seu equipamento e mantenha sua calculadora carregada — a geometria está do nosso lado.</p>
+
+    <!-- MISSÕES (EXERCÍCIOS) -->
+    <div class="mission-counter">
+        <!-- MISSÃO 1 (BÁSICA) -->
+        <div class="exercise">
+            <h3>ROTAS PARALELAS DE EVACUAÇÃO</h3>
+            <p>Durante o planejamento de evacuação do Abrigo 7, você precisa determinar se dois caminhos de fuga representados pelos vetores $\vec{u} = (3, 6)$ e $\vec{v} = (1, 2)$ são paralelos. Essa informação é vital para prever se os grupos de evacuação encontrarão os mesmos obstáculos.</p>
+            
+            <div class="hint">
+                <p>Verifique se um vetor é múltiplo do outro, ou compare as razões entre suas componentes correspondentes.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para verificar se os vetores $\vec{u} = (3, 6)$ e $\vec{v} = (1, 2)$ são paralelos, podemos comparar as razões entre suas componentes correspondentes.</li>
+                    <li>Calculamos $\frac{u_1}{v_1} = \frac{3}{1} = 3$ e $\frac{u_2}{v_2} = \frac{6}{2} = 3$</li>
+                    <li>Como $\frac{u_1}{v_1} = \frac{u_2}{v_2} = 3$, concluímos que os vetores são paralelos, ou seja, $\vec{u} = 3\vec{v}$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\frac{u_1}{v_1} = \frac{u_2}{v_2} \iff \frac{3}{1} = \frac{6}{2} \iff 3 = 3 \quad \checkmark$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Quando duas rotas são paralelas, os recursos necessários para uma podem ser proporcionalmente calculados para a outra. Neste caso, a rota representada por $\vec{u}$ exigirá exatamente 3 vezes mais suprimentos que a rota $\vec{v}$, permitindo um planejamento logístico eficiente e potencialmente salvando vidas durante a evacuação.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 2 (BÁSICA) -->
+        <div class="exercise">
+            <h3>ESTRUTURAS ORTOGONAIS DE DEFESA</h3>
+            <p>Na construção de uma barricada defensiva, você precisa verificar se dois suportes representados pelos vetores $\vec{a} = (4, -3)$ e $\vec{b} = (3, 4)$ são ortogonais entre si, garantindo estabilidade máxima contra ataques de mutantes.</p>
+            
+            <div class="hint">
+                <p>Calcule o produto escalar $\vec{a} \cdot \vec{b}$. Se ele for igual a zero, os vetores são ortogonais.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para verificar se os vetores $\vec{a} = (4, -3)$ e $\vec{b} = (3, 4)$ são ortogonais, calculamos o produto escalar.</li>
+                    <li>$\vec{a} \cdot \vec{b} = a_1 \cdot b_1 + a_2 \cdot b_2 = 4 \cdot 3 + (-3) \cdot 4 = 12 - 12 = 0$</li>
+                    <li>Como o produto escalar é igual a zero, os vetores são ortogonais.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\vec{a} \cdot \vec{b} = 4 \cdot 3 + (-3) \cdot 4 = 12 - 12 = 0$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Estruturas construídas com componentes ortogonais distribuem as forças de impacto de maneira otimizada, tornando-as mais resistentes a ataques e intempéries. Esta propriedade matemática explica por que abrigos retangulares são mais comuns nas zonas devastadas do que estruturas com ângulos irregulares—eles simplesmente têm maior probabilidade de permanecer em pé depois dos ataques de mutantes.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 3 (BÁSICA) -->
+        <div class="exercise">
+            <h3>PARALELISMO DE DUTOS DE VENTILAÇÃO</h3>
+            <p>Dois dutos de ventilação são representados por vetores partindo do centro do abrigo. O primeiro tem coordenadas $\vec{c} = (-6, 9)$ e o segundo tem direção $\vec{d} = (4, -k)$. Para manter a eficiência do sistema, os dutos devem ser paralelos. Determine o valor de $k$ que garante esta condição.</p>
+            
+            <div class="hint">
+                <p>Se os vetores são paralelos, um deve ser múltiplo escalar do outro. Identifique a relação entre as componentes correspondentes.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Se $\vec{c} = (-6, 9)$ e $\vec{d} = (4, -k)$ são paralelos, deve existir um número $\lambda$ tal que $\vec{c} = \lambda\vec{d}$ ou $\vec{d} = \lambda\vec{c}$.</li>
+                    <li>Observamos que $-6$ e $4$ têm sinais opostos, assim como $9$ e $-k$ devem ter. Logo, $\lambda$ deve ser negativo.</li>
+                    <li>Podemos estabelecer $\frac{-6}{4} = \frac{9}{-k}$, que resulta em $\frac{-6}{4} = \frac{-9}{k}$</li>
+                    <li>Simplificando, temos $\frac{-3}{2} = \frac{-9}{k}$, o que implica $-3k = -9 \cdot 2$, então $-3k = -18$</li>
+                    <li>Resolvendo para $k$, obtemos $k = 6$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\frac{c_1}{d_1} = \frac{c_2}{d_2} \implies \frac{-6}{4} = \frac{9}{-k} \implies \frac{-3}{2} = \frac{-9}{k} \implies k = 6$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Sistemas paralelos de ventilação garantem fluxo de ar consistente, essencial para filtrar partículas radioativas ou agentes patogênicos. Calcular precisamente os parâmetros desses sistemas não é apenas um exercício matemático, mas uma necessidade que mantém o ar respirável nos abrigos subterrâneos por períodos prolongados.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 4 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>TRIANGULAÇÃO DE SINAIS DE RÁDIO</h3>
+            <p>Três torres de transmissão estão localizadas nos pontos $A(2, 1)$, $B(5, 7)$ e $C(8, 4)$. Para otimizar a cobertura de rádio, você precisa verificar se os vetores $\overrightarrow{AB}$ e $\overrightarrow{BC}$ são ortogonais. Esta configuração permite cobrir o máximo de área com o mínimo de interferência.</p>
+            
+            <div class="hint">
+                <p>Primeiro calcule os vetores $\overrightarrow{AB}$ e $\overrightarrow{BC}$ e depois verifique seu produto escalar.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calculamos o vetor $\overrightarrow{AB} = B - A = (5, 7) - (2, 1) = (3, 6)$</li>
+                    <li>Calculamos o vetor $\overrightarrow{BC} = C - B = (8, 4) - (5, 7) = (3, -3)$</li>
+                    <li>Para verificar a ortogonalidade, calculamos o produto escalar: $\overrightarrow{AB} \cdot \overrightarrow{BC} = 3 \cdot 3 + 6 \cdot (-3) = 9 - 18 = -9$</li>
+                    <li>Como o produto escalar é diferente de zero, os vetores não são ortogonais.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\overrightarrow{AB} \cdot \overrightarrow{BC} = 3 \cdot 3 + 6 \cdot (-3) = 9 - 18 = -9 \neq 0$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A não-ortogonalidade dos sinais significa que haverá áreas com sobreposição e possivelmente áreas com cobertura deficiente. Em termos práticos, isso pode resultar em interferência nas comunicações de emergência. Para sobreviventes, uma rede de comunicação confiável é tão vital quanto água potável—sem ela, a coordenação entre grupos se torna impossível, diminuindo drasticamente as chances de sobrevivência a longo prazo.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 5 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>PROTEÇÃO CONTRA VENTOS RADIOATIVOS</h3>
+            <p>Uma barreira de proteção está sendo construída com um ângulo específico contra os ventos radioativos. Os vetores $\vec{w} = (2, -5)$ e $\vec{r} = (m, 2)$ representam, respectivamente, a direção do vento e a orientação da barreira. Para máxima eficácia, a barreira deve ser ortogonal ao vento. Determine o valor de $m$.</p>
+            
+            <div class="hint">
+                <p>A ortogonalidade exige que o produto escalar seja zero.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para que $\vec{w} = (2, -5)$ e $\vec{r} = (m, 2)$ sejam ortogonais, seu produto escalar deve ser zero.</li>
+                    <li>Aplicamos a fórmula: $\vec{w} \cdot \vec{r} = 2 \cdot m + (-5) \cdot 2 = 2m - 10 = 0$</li>
+                    <li>Resolvendo para $m$: $2m = 10$, então $m = 5$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\vec{w} \cdot \vec{r} = 2m - 10 = 0 \implies m = 5$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Construir barreiras perpendiculares à direção do vento minimiza a penetração de partículas radioativas, criando uma zona de sombra onde a concentração de radiação é significativamente menor. Este princípio matemático aplicado à construção tem salvado inúmeras vidas nas zonas devastadas, onde a proteção contra radiação é uma preocupação diária.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 6 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>ALINHAMENTO DE PAINÉIS SOLARES</h3>
+            <p>Dois conjuntos de painéis solares instalados no topo do Refúgio-Tec são representados pelos vetores $\vec{p} = (3, 3)$ e $\vec{q} = (-1, k)$. Para maximizar a captação de energia sem sombreamento mútuo, os conjuntos devem ser ortogonais entre si. Encontre todos os valores possíveis de $k$.</p>
+            
+            <div class="hint">
+                <p>Aplique a condição de ortogonalidade usando o produto escalar e resolva a equação resultante.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para que $\vec{p} = (3, 3)$ e $\vec{q} = (-1, k)$ sejam ortogonais, aplicamos a condição $\vec{p} \cdot \vec{q} = 0$</li>
+                    <li>Calculando: $\vec{p} \cdot \vec{q} = 3 \cdot (-1) + 3 \cdot k = -3 + 3k = 0$</li>
+                    <li>Então: $3k = 3$, o que resulta em $k = 1$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\vec{p} \cdot \vec{q} = -3 + 3k = 0 \implies k = 1$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O posicionamento ortogonal de painéis solares maximiza a eficiência energética por unidade de área, crucial quando o espaço no topo dos abrigos é limitado. Em um mundo onde cada watt de energia pode significar a diferença entre sobreviver ou não durante o inverno nuclear, a aplicação correta da geometria analítica se traduz diretamente em maior capacidade de sustentação de vida.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 7 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>COORDENAÇÃO DE EQUIPES DE EXPLORAÇÃO</h3>
+            <p>Três equipes de exploradores partem dos pontos $P(1, 2)$, $Q(4, 6)$ e $R(10, 3)$ em busca de suprimentos. Determine se os vetores de deslocamento $\overrightarrow{PQ}$ e $\overrightarrow{QR}$ são paralelos, ortogonais, ou nenhum dos dois, para coordenar o suporte aéreo adequadamente.</p>
+            
+            <div class="hint">
+                <p>Calcule ambos os vetores e verifique tanto a condição de paralelismo quanto a de ortogonalidade.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calculamos $\overrightarrow{PQ} = Q - P = (4, 6) - (1, 2) = (3, 4)$</li>
+                    <li>Calculamos $\overrightarrow{QR} = R - Q = (10, 3) - (4, 6) = (6, -3)$</li>
+                    <li>Para verificar o paralelismo, examinamos se existe $\lambda$ tal que $\overrightarrow{PQ} = \lambda \cdot \overrightarrow{QR}$</li>
+                    <li>Teríamos $\frac{3}{6} = \frac{4}{-3}$, o que resulta em $\frac{1}{2} = \frac{-4}{3}$, claramente falso.</li>
+                    <li>Para verificar a ortogonalidade, calculamos o produto escalar: $\overrightarrow{PQ} \cdot \overrightarrow{QR} = 3 \cdot 6 + 4 \cdot (-3) = 18 - 12 = 6$</li>
+                    <li>Como o produto escalar não é zero e não existe $\lambda$ que satisfaça a condição de paralelismo, os vetores não são nem paralelos nem ortogonais.</li>
+                </ol>
+                
+                <div class="formula">
+                    \begin{align}
+                    \textrm{Teste de paralelismo: } \frac{3}{6} = \frac{1}{2} \neq \frac{4}{-3} \\
+                    \textrm{Teste de ortogonalidade: } \overrightarrow{PQ} \cdot \overrightarrow{QR} = 18 - 12 = 6 \neq 0
+                    \end{align}
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Quando rotas de exploração não são nem paralelas nem ortogonais, o planejamento logístico se torna mais complexo. As equipes não compartilharão os mesmos perigos (como ocorreria em rotas paralelas), nem terão cobertura complementar (como em rotas ortogonais). Esta configuração requer mais recursos para monitoramento, mas oferece maior diversidade de áreas exploradas—um trade-off importante quando cada expedição pode encontrar suprimentos críticos diferentes.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 8 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>ANÁLISE DE TÚNEIS DE EVACUAÇÃO</h3>
+            <p>Um sistema de túneis de evacuação está sendo planejado a partir do ponto $A(3, 1)$. Dois túneis seguem nas direções dadas pelos vetores $\vec{v_1} = (2, -5)$ e $\vec{v_2} = (k, 2k)$. Para minimizar a chance de colapso estrutural durante tremores, os túneis devem ser ortogonais. Determine o valor de $k$ e as coordenadas do ponto $B$ onde o segundo túnel chegará se tiver o mesmo comprimento que o primeiro.</p>
+            
+            <div class="hint">
+                <p>Primeiro encontre $k$ pela condição de ortogonalidade, depois utilize o módulo para igualar os comprimentos.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para que $\vec{v_1} = (2, -5)$ e $\vec{v_2} = (k, 2k)$ sejam ortogonais, seu produto escalar deve ser zero.</li>
+                    <li>$\vec{v_1} \cdot \vec{v_2} = 2 \cdot k + (-5) \cdot 2k = 2k - 10k = -8k = 0$</li>
+                    <li>Isso implica que $k = 0$, o que resultaria em $\vec{v_2} = (0, 0)$, que não é um vetor direção válido.</li>
+                    <li>Porém, podemos interpretar que a direção de $\vec{v_2}$ pode ser expressa como $(k, 2k)$ para algum $k \neq 0$. Nesse caso, reescrevemos a condição:</li>
+                    <li>$\vec{v_1} \cdot \frac{\vec{v_2}}{|\vec{v_2}|} = 0$, o que ainda nos dá $-8k = 0$, sem solução válida para $k \neq 0$.</li>
+                    <li>Isto indica que não é possível que os vetores $(2, -5)$ e $(k, 2k)$ sejam ortogonais para qualquer $k \neq 0$.</li>
+                    <li>Se tentarmos com vetores da forma $(k, m)$ ao invés de $(k, 2k)$, teríamos $2k - 5m = 0$, ou $m = \frac{2k}{5}$.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\vec{v_1} \cdot \vec{v_2} = 2k - 10k = -8k = 0$$
+                    $$\textrm{Para vetores da forma } (k, m): 2k - 5m = 0 \implies m = \frac{2k}{5}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Esta missão revela um princípio crucial de design: nem todas as configurações matemáticas são fisicamente realizáveis. Na prática da sobrevivência, reconhecer rapidamente quando um plano é inviável pode economizar recursos preciosos. A incapacidade de tornar os túneis ortogonais com a restrição dada significa que os engenheiros precisarão reconsiderar o design completo ou aceitar um maior risco de colapso—um cálculo custoso mas necessário.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 9 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>SEGMENTAÇÃO DE ZONAS DE RADIAÇÃO</h3>
+            <p>Uma zona devastada é mapeada usando um sistema de coordenadas onde a origem representa o epicentro da explosão. Três pontos de medição de radiação estão localizados em $M(2, 1)$, $N(5, -1)$ e $P(8, -3)$. Determine se os vetores $\overrightarrow{MN}$ e $\overrightarrow{NP}$ são paralelos e, se afirmativo, calcule o fator de proporcionalidade entre eles. Esta informação determinará se a radiação se propaga uniformemente em uma direção específica.</p>
+            
+            <div class="hint">
+                <p>Compare as componentes dos vetores $\overrightarrow{MN}$ e $\overrightarrow{NP}$ para verificar o paralelismo.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calculamos $\overrightarrow{MN} = N - M = (5, -1) - (2, 1) = (3, -2)$</li>
+                    <li>Calculamos $\overrightarrow{NP} = P - N = (8, -3) - (5, -1) = (3, -2)$</li>
+                    <li>Observamos que $\overrightarrow{MN} = \overrightarrow{NP}$, o que significa que são vetores iguais e, portanto, paralelos.</li>
+                    <li>O fator de proporcionalidade é $\lambda = 1$, pois $\overrightarrow{NP} = 1 \cdot \overrightarrow{MN}$.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\overrightarrow{MN} = (3, -2) \textrm{ e } \overrightarrow{NP} = (3, -2)$$
+                    $$\textrm{Logo, } \overrightarrow{NP} = 1 \cdot \overrightarrow{MN}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Quando os vetores de deslocamento entre pontos de medição são exatamente iguais (fator de proporcionalidade = 1), isso indica uma progressão linear perfeita da radiação. Na prática, isso sugere que a contaminação segue um gradiente constante naquela direção, permitindo prever com exatidão os níveis de radiação em pontos não medidos. Para uma equipe de exploração, este padrão matemático se traduz em rotas de evasão mais seguras e melhor planejamento de expedições.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 10 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>REDES DE DISTRIBUIÇÃO OTIMIZADAS</h3>
+            <p>Uma rede de distribuição de recursos parte do centro de comando em $C(2, 3)$ e possui três ramificações principais que terminam nos pontos $A(5, 7)$, $B(0, -1)$ e $D(4, 1)$. Para minimizar o consumo de combustível, você precisa determinar quais pares de vetores $\overrightarrow{CA}$, $\overrightarrow{CB}$ e $\overrightarrow{CD}$ são ortogonais entre si, se houver algum.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calculamos os três vetores a partir do centro de comando:
+                        <br>$\overrightarrow{CA} = A - C = (5, 7) - (2, 3) = (3, 4)$
+                        <br>$\overrightarrow{CB} = B - C = (0, -1) - (2, 3) = (-2, -4)$
+                        <br>$\overrightarrow{CD} = D - C = (4, 1) - (2, 3) = (2, -2)$</li>
+                    <li>Verificamos a ortogonalidade entre cada par de vetores usando o produto escalar:
+                        <br>$\overrightarrow{CA} \cdot \overrightarrow{CB} = 3 \cdot (-2) + 4 \cdot (-4) = -6 - 16 = -22 \neq 0$
+                        <br>$\overrightarrow{CA} \cdot \overrightarrow{CD} = 3 \cdot 2 + 4 \cdot (-2) = 6 - 8 = -2 \neq 0$
+                        <br>$\overrightarrow{CB} \cdot \overrightarrow{CD} = (-2) \cdot 2 + (-4) \cdot (-2) = -4 + 8 = 4 \neq 0$</li>
+                    <li>Como nenhum dos produtos escalares é zero, não há pares de vetores ortogonais nesta configuração.</li>
+                </ol>
+                
+                <div class="formula">
+                    \begin{align}
+                    \overrightarrow{CA} \cdot \overrightarrow{CB} &= -22 \neq 0 \\
+                    \overrightarrow{CA} \cdot \overrightarrow{CD} &= -2 \neq 0 \\
+                    \overrightarrow{CB} \cdot \overrightarrow{CD} &= 4 \neq 0
+                    \end{align}
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A ausência de ortogonalidade entre as rotas de distribuição significa que a rede não possui a máxima eficiência teórica. Na prática, isso resulta em maior consumo de combustível e sobreposição parcial de áreas cobertas. Para um gestor de recursos em um cenário pós-apocalíptico, esta análise matemática justifica um redesenho das rotas logísticas, potencialmente economizando recursos críticos que determinarão a sobrevivência a longo prazo da comunidade.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 11 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>MAPEAMENTO DE CAMPOS ELETROMAGNÉTICOS</h3>
+            <p>Após uma tempestade solar, três medidores de campo eletromagnético foram colocados nos pontos $E(1, 1)$, $F(4, 3)$ e $G(7, 5)$. As leituras indicam variações estranhas que sugerem interferência de uma instalação oculta. Determine se os vetores $\overrightarrow{EF}$ e $\overrightarrow{FG}$ são paralelos e, caso positivo, localize as coordenadas do ponto $H$ que segue o mesmo padrão de progressão a partir de $G$.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calculamos os vetores de deslocamento:
+                        <br>$\overrightarrow{EF} = F - E = (4, 3) - (1, 1) = (3, 2)$
+                        <br>$\overrightarrow{FG} = G - F = (7, 5) - (4, 3) = (3, 2)$</li>
+                    <li>Observamos que $\overrightarrow{EF} = \overrightarrow{FG} = (3, 2)$, portanto os vetores são paralelos com fator de proporcionalidade $\lambda = 1$.</li>
+                    <li>Se o mesmo padrão continua, o ponto $H$ seria:
+                        <br>$H = G + \overrightarrow{FG} = (7, 5) + (3, 2) = (10, 7)$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\overrightarrow{EF} = \overrightarrow{FG} = (3, 2)$$
+                    $$H = G + \overrightarrow{FG} = (7, 5) + (3, 2) = (10, 7)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A descoberta de um padrão linear perfeito nas leituras eletromagnéticas é extremamente significativa. Tal regularidade raramente ocorre naturalmente em campos eletromagnéticos pós-tempestade solar, sugerindo fortemente a presença de tecnologia avançada ou uma instalação artificial. Seguindo o padrão matemático, o ponto H(10,7) provavelmente marca a localização exata da fonte de interferência—possivelmente um bunker militar ou laboratório abandonado contendo recursos tecnológicos inestimáveis para a sobrevivência.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 12 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>CONFIGURAÇÃO DE ANTENAS QUÂNTICAS</h3>
+            <p>Para estabelecer uma rede de comunicação resistente a interferências, antenas quânticas devem ser posicionadas em uma configuração específica. Partindo do transmissor central em $O(0, 0)$, três antenas estão posicionadas em $A(a, 0)$, $B(0, b)$ e $C(c, d)$, onde $a, b > 0$. Determine as condições sobre $c$ e $d$ para que os vetores $\overrightarrow{OA}$, $\overrightarrow{OB}$ e $\overrightarrow{OC}$ formem um conjunto onde cada vetor é ortogonal a exatamente um dos outros.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calculamos os vetores a partir da origem:
+                        <br>$\overrightarrow{OA} = A - O = (a, 0) - (0, 0) = (a, 0)$
+                        <br>$\overrightarrow{OB} = B - O = (0, b) - (0, 0) = (0, b)$
+                        <br>$\overrightarrow{OC} = C - O = (c, d) - (0, 0) = (c, d)$</li>
+                    <li>Verificamos que $\overrightarrow{OA} \cdot \overrightarrow{OB} = a \cdot 0 + 0 \cdot b = 0$, então $\overrightarrow{OA}$ e $\overrightarrow{OB}$ já são ortogonais.</li>
+                    <li>Para satisfazer a condição, $\overrightarrow{OC}$ deve ser ortogonal a exatamente um dos outros dois vetores.</li>
+                    <li>Se $\overrightarrow{OC}$ for ortogonal a $\overrightarrow{OA}$, então:
+                        <br>$\overrightarrow{OA} \cdot \overrightarrow{OC} = a \cdot c + 0 \cdot d = ac = 0$
+                        <br>Como $a > 0$, isto implica que $c = 0$. Além disso, $\overrightarrow{OC}$ não deve ser ortogonal a $\overrightarrow{OB}$:
+                        <br>$\overrightarrow{OB} \cdot \overrightarrow{OC} = 0 \cdot c + b \cdot d = bd \neq 0$
+                        <br>Como $b > 0$, isto implica que $d \neq 0$.</li>
+                    <li>Se $\overrightarrow{OC}$ for ortogonal a $\overrightarrow{OB}$, então:
+                        <br>$\overrightarrow{OB} \cdot \overrightarrow{OC} = 0 \cdot c + b \cdot d = bd = 0$
+                        <br>Como $b > 0$, isto implica que $d = 0$. Além disso, $\overrightarrow{OC}$ não deve ser ortogonal a $\overrightarrow{OA}$:
+                        <br>$\overrightarrow{OA} \cdot \overrightarrow{OC} = a \cdot c + 0 \cdot d = ac \neq 0$
+                        <br>Como $a > 0$, isto implica que $c \neq 0$.</li>
+                    <li>Portanto, temos duas possibilidades:
+                        <br>Caso 1: $c = 0$ e $d \neq 0$, ou seja, $C(0, d)$ com $d \neq 0$
+                        <br>Caso 2: $d = 0$ e $c \neq 0$, ou seja, $C(c, 0)$ com $c \neq 0$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\textrm{Caso 1: } C(0, d) \textrm{ onde } d \neq 0$$
+                    $$\textrm{Caso 2: } C(c, 0) \textrm{ onde } c \neq 0$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A configuração geométrica de antenas quânticas com ortogonalidade seletiva não é apenas um exercício matemático abstrato, mas um princípio crítico para comunicações seguras em ambiente hostil. Quando cada antena forma um canal ortogonal com exatamente outra, cria-se uma rede resiliente onde a interferência em um canal não compromete toda a comunicação. Para comunidades isoladas após o colapso, tais sistemas de comunicação redundantes representam a diferença entre permanecer conectado com outros sobreviventes ou enfrentar o isolamento total—frequentemente uma sentença de morte no mundo devastado.</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- RODAPÉ DO DOCUMENTO -->
+    <div class="footer">
+        REFÚGIO-TEC | PARALELISMO E ORTOGONALIDADE: Sobrevivência Matemática - Quando os vetores se alinham, a civilização ressurge das cinzas.
+    </div>
 </body>
 </html>

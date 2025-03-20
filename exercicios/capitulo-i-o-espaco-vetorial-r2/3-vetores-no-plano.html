@@ -4,42 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Include MathJax -->
-    <script type="text/javascript" async
-            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
     </script>
-    <title>Capítulo I - O Espaço Vetorial R²</title>
+    <title>REFÚGIO-TEC | VETORES NO PLANO</title>
     <style>
+        /* Estilo inspirado no tema pós-apocalíptico */
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100px; }
+        }
+
         body {
-            background-color: #2b2b2b;
+            background-color: #0c0c0c;
             color: #e6e6e6;
-            font-family: "Courier New", Courier, monospace;
+            font-family: "Courier New", monospace;
             margin: 20px;
             padding: 20px;
-            border: 3px solid #4caf50;
-            border-radius: 10px;
+            border: 2px solid #4caf50;
             max-width: 800px;
             margin: auto;
-            background-image: url('img/asfalt-light.png');
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 2px;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
         }
 
         h1, h2, h3 {
             color: #4caf50;
-            text-shadow: 1px 1px 2px black;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
         }
 
         .exercise {
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.7);
             padding: 15px;
-            border: 2px dashed #4caf50;
-            border-radius: 5px;
+            border: 1px dashed #4caf50;
             margin-bottom: 20px;
+            box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.2);
         }
 
         details {
             background-color: #1c1c1c;
             padding: 10px;
             border: 1px solid #4caf50;
-            border-radius: 5px;
             margin-top: 10px;
         }
 
@@ -49,99 +73,576 @@
             color: #4caf50;
         }
 
+        summary:hover {
+            text-shadow: 0 0 3px #4caf50;
+        }
+
         code {
             background-color: #333;
             padding: 3px 5px;
-            border-radius: 3px;
             color: #ffeb3b;
+        }
+
+        .hint {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #4caf50;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .hint:before {
+            content: "DICA DE SOBREVIVÊNCIA: ";
+            color: #4caf50;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .solution-steps {
+            margin-left: 20px;
+            counter-reset: step-counter;
+        }
+
+        .solution-steps li {
+            list-style-type: none;
+            counter-increment: step-counter;
+            margin-bottom: 10px;
+        }
+
+        .solution-steps li::before {
+            content: "> PASSO_" counter(step-counter) ": ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .formula {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #000;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .terminal-frame {
+            padding: 10px;
+            background-color: #000;
+            margin-bottom: 20px;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .terminal-header {
+            margin: 0;
+            padding: 3px 10px;
+            background-color: #4caf50;
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .terminal-content {
+            padding: 5px;
+            white-space: pre-wrap;
+            font-size: 1em;
+            line-height: 1.2;
+        }
+
+        .cursor:after {
+            content: "█";
+            animation: blink 1s step-end infinite;
+        }
+
+        .terminal-line {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .terminal-border {
+            border: 1px solid #4caf50;
+            padding: 5px;
+            background-color: #000;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .mission-counter {
+            counter-reset: mission;
+        }
+        
+        .mission-counter .exercise h3:before {
+            content: "MISSÃO " counter(mission) ": ";
+            counter-increment: mission;
+        }
+
+        .warning {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .danger {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #8bc34a;
+            font-weight: bold;
         }
 
         .footer {
             text-align: center;
             margin-top: 30px;
             font-size: 0.9em;
-            color: #757575;
+            color: #4caf50;
+            border-top: 1px solid #4caf50;
+            padding-top: 10px;
         }
     </style>
 </head>
 <body>
-    <h1>Capítulo I - O Espaço Vetorial R²</h1>
-    <h2>Subtópico: Vetores no Plano</h2>
+    <!-- TÍTULO E INTRODUÇÃO -->
+    <div class="terminal-frame">
+        <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
+        <div class="terminal-content">
+┌───────────────────────────────────────────────────┐
+│ MÓDULO: VETORES NO PLANO                          │
+└───────────────────────────────────────────────────┘
 
-    <div class="exercise">
-        <h3>Exercício 1: Par Ordenado Associado ao Vetor v</h3>
-        <p>Dar o par ordenado associado ao vetor v nos casos abaixo:</p>
-        <details>
-            <summary>Ver Solução</summary>
-            <p>[Inserir o raciocínio e o cálculo dos pares ordenados para cada item (a) a (f).]</p>
-        </details>
+> INICIANDO TRANSMISSÃO...
+> CARREGANDO MÓDULO DE TREINAMENTO...
+> ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
+        </div>
     </div>
 
-    <div class="exercise">
-        <h3>Exercício 2: Componentes do Vetor \( \vec{AB} \)</h3>
-        <p>Determinar as componentes (coordenadas) do vetor \( \vec{AB} \) nos seguintes casos:</p>
-        <details>
-            <summary>Ver Solução</summary>
-            <p>[Apresentar os cálculos das componentes para cada par de pontos (a) a (h).]</p>
-        </details>
+    <div class="terminal-border">
+        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: VETORES NO PLANO</h2>
+    
+    <p>No mundo devastado pós-colapso, a capacidade de navegar com precisão e planejar rotas eficientes é uma habilidade crucial para sua sobrevivência. Os vetores no plano representam uma ferramenta matemática indispensável para qualquer sobrevivente que deseja mapear recursos, planejar expedições e construir estruturas defensivas.</p>
+    
+    <p>Um vetor no plano é definido como uma quantidade que possui tanto magnitude quanto direção. Representamos vetores pelo símbolo $\vec{v}$ ou simplesmente por pares ordenados $(x, y)$, onde $x$ representa o deslocamento horizontal e $y$ o deslocamento vertical a partir de uma origem. Na prática, isso significa que você pode mapear precisamente a direção e distância entre pontos críticos como abrigos, fontes de água e zonas contaminadas.</p>
+    
+    <p>As operações básicas com vetores incluem adição, subtração e multiplicação por escalar. Estas operações permitem calcular resultantes de múltiplos deslocamentos, determinar posições relativas e planejar trajetórias eficientes através da Zona Devastada.</p>
+
+    <div class="formula">
+    Seja $\vec{u} = (u_1, u_2)$ e $\vec{v} = (v_1, v_2)$ dois vetores no plano $\mathbb{R}^2$.
+    <br><br>
+    Adição: $\vec{u} + \vec{v} = (u_1 + v_1, u_2 + v_2)$
+    <br><br>
+    Subtração: $\vec{u} - \vec{v} = (u_1 - v_1, u_2 - v_2)$
+    <br><br>
+    Multiplicação por escalar: $k\vec{u} = (k \cdot u_1, k \cdot u_2)$, onde $k$ é um número real
+    </div>
+    
+    <p>Dominar estas operações vetoriais é essencial para qualquer explorador que busca eficiência e precisão em suas missões. A capacidade de calcular rotas, prever pontos de encontro e planejar perímetros defensivos pode significar a diferença entre sobrevivência e extinção nas Zonas Devastadas.</p>
+
+    <!-- MISSÕES (EXERCÍCIOS) -->
+    <div class="mission-counter">
+        <!-- MISSÃO 1 (BÁSICA) -->
+        <div class="exercise">
+            <h3>IDENTIFICAÇÃO DE COMPONENTES</h3>
+            <p>Sua equipe de exploração descobriu um mapa fragmentado de uma antiga instalação de pesquisa. O mapa marca um depósito de RemoveRad a partir do ponto de entrada, representado pelo vetor $\vec{r} = (3, -5)$. Identifique os componentes deste vetor e interprete seu significado físico para guiar sua equipe.</p>
+            
+            <div class="hint">
+                <p>Um vetor $(x, y)$ indica que você deve se mover $x$ unidades na direção horizontal (positivo = leste, negativo = oeste) e $y$ unidades na direção vertical (positivo = norte, negativo = sul).</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>O vetor $\vec{r} = (3, -5)$ tem como componentes $x = 3$ e $y = -5$.</li>
+                    <li>A componente $x = 3$ significa que o depósito está 3 unidades a leste do ponto de entrada.</li>
+                    <li>A componente $y = -5$ significa que o depósito está 5 unidades ao sul do ponto de entrada.</li>
+                </ol>
+                
+                <div class="formula">
+                    Para um vetor $\vec{v} = (a, b)$, temos:
+                    <br>
+                    Componente horizontal: $a$ unidades (leste se positivo, oeste se negativo)
+                    <br>
+                    Componente vertical: $b$ unidades (norte se positivo, sul se negativo)
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Identificar corretamente os componentes de um vetor é essencial para a navegação precisa em áreas desconhecidas. Um erro na interpretação pode levar sua equipe a zonas perigosas ou fazer com que recursos vitais como RemoveRad não sejam encontrados.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 2 (BÁSICA) -->
+        <div class="exercise">
+            <h3>SOMA DE VETORES</h3>
+            <p>Sua rota de exploração consiste em dois deslocamentos: primeiro, você deve ir do abrigo central até um posto avançado, representado pelo vetor $\vec{a} = (2, 4)$. Em seguida, do posto avançado até uma fonte de água potável, representado pelo vetor $\vec{b} = (5, -1)$. Calcule o vetor resultante $\vec{r}$ que representa o deslocamento direto do abrigo até a fonte de água.</p>
+            
+            <div class="hint">
+                <p>Para encontrar o deslocamento total, some as componentes correspondentes dos vetores individuais. Isso fornecerá o caminho direto sem passar pelo ponto intermediário.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para somar os vetores $\vec{a} = (2, 4)$ e $\vec{b} = (5, -1)$, somamos as componentes correspondentes.</li>
+                    <li>Componente x: $2 + 5 = 7$</li>
+                    <li>Componente y: $4 + (-1) = 3$</li>
+                    <li>O vetor resultante é $\vec{r} = \vec{a} + \vec{b} = (7, 3)$</li>
+                </ol>
+                
+                <div class="formula">
+                    $\vec{a} + \vec{b} = (a_1, a_2) + (b_1, b_2) = (a_1 + b_1, a_2 + b_2)$
+                    <br>
+                    $\vec{r} = (2, 4) + (5, -1) = (7, 3)$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Calcular o vetor resultante de múltiplos deslocamentos permite planejar rotas alternativas e diretas em caso de emergência. Se o posto avançado for comprometido por mutantes, conhecer o vetor direto para a água pode salvar vidas.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 3 (BÁSICA) -->
+        <div class="exercise">
+            <h3>SUBTRAÇÃO E ESCALAR</h3>
+            <p>Seu abrigo está localizado nas coordenadas $(1, 2)$ e uma zona de alta radiação foi detectada em $(4, 8)$. Calcule o vetor $\vec{d}$ que representa o deslocamento da zona radioativa em relação ao seu abrigo. Em seguida, determine o vetor $2\vec{d}$ e explique o que ele representa no contexto de segurança do perímetro.</p>
+            
+            <div class="hint">
+                <p>O vetor deslocamento entre dois pontos A e B é calculado como $\vec{AB} = B - A$. Multiplicar um vetor por um escalar altera sua magnitude, mas mantém sua direção (ou inverte para escalares negativos).</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para calcular o vetor deslocamento da zona radioativa em relação ao abrigo: $\vec{d} = (4, 8) - (1, 2) = (3, 6)$</li>
+                    <li>Multiplicando por 2: $2\vec{d} = 2 \cdot (3, 6) = (6, 12)$</li>
+                    <li>Este novo vetor tem a mesma direção de $\vec{d}$ mas o dobro do comprimento.</li>
+                </ol>
+                
+                <div class="formula">
+                    $\vec{d} = (x_2, y_2) - (x_1, y_1) = (x_2 - x_1, y_2 - y_1)$
+                    <br>
+                    $k\vec{v} = k \cdot (v_1, v_2) = (k \cdot v_1, k \cdot v_2)$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O vetor $2\vec{d}$ representa um ponto que está na mesma direção da zona radioativa, mas duas vezes mais distante do abrigo. Isso pode ser útil para estabelecer um perímetro de segurança proporcional, ou para projetar zonas de exclusão mais amplas em casos de expansão da contaminação.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 4 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>MÚLTIPLOS VETORES</h3>
+            <p>Uma equipe de sobreviventes precisa fazer uma patrulha complexa, partindo do abrigo principal e percorrendo quatro pontos de verificação antes de retornar. Os deslocamentos entre pontos consecutivos são representados pelos vetores: $\vec{p}_1 = (3, 1)$, $\vec{p}_2 = (-2, 4)$, $\vec{p}_3 = (5, -3)$ e $\vec{p}_4 = (-4, -5)$. Calcule o vetor deslocamento total da patrulha e determine se a equipe retorna exatamente ao ponto de partida.</p>
+            
+            <div class="hint">
+                <p>Some todos os vetores de deslocamento para encontrar o deslocamento total. Se este for o vetor nulo $(0,0)$, a patrulha retorna exatamente ao ponto inicial.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calculamos o deslocamento total somando todos os vetores: $\vec{p}_{total} = \vec{p}_1 + \vec{p}_2 + \vec{p}_3 + \vec{p}_4$</li>
+                    <li>$\vec{p}_{total} = (3, 1) + (-2, 4) + (5, -3) + (-4, -5)$</li>
+                    <li>Componente x: $3 + (-2) + 5 + (-4) = 2$</li>
+                    <li>Componente y: $1 + 4 + (-3) + (-5) = -3$</li>
+                    <li>Deslocamento total: $\vec{p}_{total} = (2, -3)$</li>
+                    <li>Como $\vec{p}_{total} \neq (0,0)$, a patrulha não retorna ao ponto inicial.</li>
+                </ol>
+                
+                <div class="formula">
+                    $\vec{p}_{total} = \vec{p}_1 + \vec{p}_2 + \vec{p}_3 + \vec{p}_4 = (p_{1x} + p_{2x} + p_{3x} + p_{4x}, p_{1y} + p_{2y} + p_{3y} + p_{4y})$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Calcular o deslocamento total de uma patrulha ou expedição é crucial para o planejamento de recursos e para garantir o retorno seguro da equipe. Um vetor resultante não nulo indica que a equipe precisará de provisões extras para o caminho de volta ou que o planejamento da rota precisa ser ajustado.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 5 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>OPERAÇÕES COMBINADAS</h3>
+            <p>Um grupo de exploradores identificou três possíveis locais para um novo abrigo nas coordenadas $A(1,3)$, $B(5,7)$ e $C(2,-1)$. Para minimizar a exposição à radiação, você precisa determinar a posição do ponto $P$ que satisfaz a equação $\vec{OP} = 2\vec{OA} - \frac{1}{2}\vec{OB} + \vec{OC}$, onde $O$ é a origem $(0,0)$. Esta posição oferece o melhor equilíbrio entre proteção e acesso aos recursos.</p>
+            
+            <div class="hint">
+                <p>Converta cada ponto para formato vetorial a partir da origem, aplique as operações indicadas (multiplicação por escalar, soma e subtração) e simplifique para encontrar as coordenadas do ponto P.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Convertemos os pontos para vetores a partir da origem: $\vec{OA} = (1,3)$, $\vec{OB} = (5,7)$, $\vec{OC} = (2,-1)$</li>
+                    <li>Calculamos: $\vec{OP} = 2\vec{OA} - \frac{1}{2}\vec{OB} + \vec{OC}$</li>
+                    <li>$\vec{OP} = 2(1,3) - \frac{1}{2}(5,7) + (2,-1)$</li>
+                    <li>$\vec{OP} = (2,6) - (2.5,3.5) + (2,-1)$</li>
+                    <li>$\vec{OP} = (2 - 2.5 + 2, 6 - 3.5 - 1)$</li>
+                    <li>$\vec{OP} = (1.5, 1.5)$</li>
+                    <li>Portanto, o ponto P tem coordenadas $(1.5, 1.5)$</li>
+                </ol>
+                
+                <div class="formula">
+                    $\vec{OP} = 2\vec{OA} - \frac{1}{2}\vec{OB} + \vec{OC}$
+                    <br>
+                    $\vec{OP} = 2(1,3) - \frac{1}{2}(5,7) + (2,-1) = (1.5, 1.5)$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Operações vetoriais combinadas permitem identificar locais estratégicos que balanceiam múltiplos fatores de risco e benefício. Neste caso, o ponto P representa uma localização que considera a proximidade aos três pontos de referência, ponderando sua importância relativa para a sobrevivência do grupo.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 6 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>EXPLORADORES PERDIDOS</h3>
+            <p>Dois exploradores partiram do abrigo central em direções diferentes. O explorador Alpha seguiu o vetor $\vec{a} = (3, 4)$ e depois $\vec{b} = (2, -5)$. O explorador Bravo seguiu o vetor $\vec{c} = (1, -3)$ e depois $\vec{d} = (4, 2)$. Calcule o vetor deslocamento necessário para que Alpha alcance Bravo. Se o rádio de Alpha só tem carga para transmitir informações sobre um único vetor, qual seria a melhor mensagem para guiá-lo ao encontro de Bravo?</p>
+            
+            <div class="hint">
+                <p>Determine a posição final de cada explorador em relação ao abrigo central. A diferença entre essas posições (vetor de Alpha para Bravo) é o deslocamento necessário para o encontro.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Posição final de Alpha: $\vec{OA} = \vec{a} + \vec{b} = (3, 4) + (2, -5) = (5, -1)$</li>
+                    <li>Posição final de Bravo: $\vec{OB} = \vec{c} + \vec{d} = (1, -3) + (4, 2) = (5, -1)$</li>
+                    <li>Vetor de Alpha para Bravo: $\vec{AB} = \vec{OB} - \vec{OA} = (5, -1) - (5, -1) = (0, 0)$</li>
+                    <li>Como o vetor é $(0, 0)$, os exploradores já estão no mesmo local!</li>
+                </ol>
+                
+                <div class="formula">
+                    Posição de Alpha: $\vec{OA} = \vec{a} + \vec{b} = (5, -1)$
+                    <br>
+                    Posição de Bravo: $\vec{OB} = \vec{c} + \vec{d} = (5, -1)$
+                    <br>
+                    Vetor deslocamento: $\vec{AB} = \vec{OB} - \vec{OA} = (0, 0)$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Cálculos precisos de posições relativas são vitais para coordenar encontros em campo aberto. Neste caso curioso, apesar de seguirem caminhos diferentes, os exploradores chegaram ao mesmo ponto, demonstrando como trajetórias distintas podem convergir. Em situações reais, a mensagem mais útil seria confirmar que ambos estão no mesmo local, economizando recursos e evitando riscos desnecessários.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 7 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>COORDENADAS ALTERNATIVAS</h3>
+            <p>Em uma expedição à antiga base militar, você encontrou um mapa usando um sistema de coordenadas diferente, rotacionado 45° em relação ao seu sistema padrão. Um ponto estratégico está marcado como $(4, 2)$ neste sistema. Se a origem dos dois sistemas coincide, determine as coordenadas deste ponto no seu sistema padrão para programar seu dispositivo de navegação. Assuma que o novo sistema tem os mesmos valores de unidade que o seu sistema padrão.</p>
+            
+            <div class="hint">
+                <p>O problema pode ser resolvido visualizando como cada componente do sistema rotacionado se projeta nos eixos do sistema padrão.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para um sistema rotacionado em 45°, podemos calcular a transformação de coordenadas usando relações geométricas.</li>
+                    <li>Seja $(x', y')$ as coordenadas no sistema rotacionado e $(x, y)$ no sistema padrão.</li>
+                    <li>Um ponto com coordenadas $(x', y')$ no sistema rotacionado tem projeções em ambos os eixos do sistema padrão.</li>
+                    <li>Para rotação de 45°: $x = x' \cdot \cos(45°) - y' \cdot \sin(45°)$ e $y = x' \cdot \sin(45°) + y' \cdot \cos(45°)$</li>
+                    <li>Substituindo $\cos(45°) = \sin(45°) = \frac{\sqrt{2}}{2}$:</li>
+                    <li>$x = \frac{\sqrt{2}}{2} \cdot 4 - \frac{\sqrt{2}}{2} \cdot 2 = \frac{\sqrt{2}}{2} \cdot (4 - 2) = \frac{\sqrt{2}}{2} \cdot 2 = \sqrt{2}$</li>
+                    <li>$y = \frac{\sqrt{2}}{2} \cdot 4 + \frac{\sqrt{2}}{2} \cdot 2 = \frac{\sqrt{2}}{2} \cdot (4 + 2) = \frac{\sqrt{2}}{2} \cdot 6 = 3\sqrt{2}$</li>
+                    <li>As coordenadas no sistema padrão são $(\sqrt{2}, 3\sqrt{2})$ ou aproximadamente $(1.414, 4.243)$</li>
+                </ol>
+                
+                <div class="formula">
+                    Para rotação de 45°:
+                    <br>
+                    $x = x' \cdot \cos(45°) - y' \cdot \sin(45°)$
+                    <br>
+                    $y = x' \cdot \sin(45°) + y' \cdot \cos(45°)$
+                    <br>
+                    Com $(x', y') = (4, 2)$, obtemos $(x, y) = (\sqrt{2}, 3\sqrt{2})$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Mapas e sistemas de coordenadas de diferentes épocas ou origens são comuns em expedições. A capacidade de converter entre sistemas é essencial para interpretar corretamente locais estratégicos, evitando áreas perigosas e localizando recursos vitais. Um erro de conversão poderia levar uma equipe diretamente para uma área altamente contaminada.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 8 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>COMBINAÇÃO LINEAR</h3>
+            <p>Uma equipe de engenheiros da Refúgio-Tec está construindo uma nova barreira defensiva. Eles dispõem de dois tipos de módulos de proteção: tipo A, que oferece vetor de defesa $\vec{a} = (2, 1)$, e tipo B, com vetor de defesa $\vec{b} = (1, 3)$. Os cálculos indicam que é necessário um vetor de defesa resultante $\vec{r} = (7, 11)$ para proteger adequadamente o abrigo. Determine quantos módulos de cada tipo devem ser instalados para atingir exatamente o nível de proteção necessário.</p>
+            
+            <div class="hint">
+                <p>Você precisa encontrar os valores de $x$ e $y$ tais que $x\vec{a} + y\vec{b} = \vec{r}$. Isso forma um sistema de equações lineares.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Precisamos encontrar valores para $x$ e $y$ tais que $x\vec{a} + y\vec{b} = \vec{r}$</li>
+                    <li>Substituindo os valores: $x(2, 1) + y(1, 3) = (7, 11)$</li>
+                    <li>Isso nos dá o sistema: $\begin{cases} 2x + y = 7 \\ x + 3y = 11 \end{cases}$</li>
+                    <li>Da primeira equação: $y = 7 - 2x$</li>
+                    <li>Substituindo na segunda: $x + 3(7 - 2x) = 11$</li>
+                    <li>Simplificando: $x + 21 - 6x = 11$</li>
+                    <li>Reorganizando: $-5x = -10$</li>
+                    <li>Resolvendo: $x = 2$</li>
+                    <li>Substituindo para encontrar y: $y = 7 - 2(2) = 7 - 4 = 3$</li>
+                    <li>Verificando: $2(2, 1) + 3(1, 3) = (4, 2) + (3, 9) = (7, 11)$ ✓</li>
+                </ol>
+                
+                <div class="formula">
+                    Sistema de equações:
+                    <br>
+                    $\begin{cases} 2x + y = 7 \\ x + 3y = 11 \end{cases}$
+                    <br>
+                    Solução: $x = 2$ e $y = 3$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Combinações lineares de vetores são fundamentais para otimizar recursos escassos em um mundo pós-apocalíptico. Ao encontrar a exata combinação de módulos defensivos, o abrigo obtém proteção adequada sem desperdiçar materiais valiosos ou deixar pontos vulneráveis. Esta análise vetorial precisa pode ser aplicada a distribuição de recursos, planejamento de expedições ou construção de estruturas eficientes.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 9 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>PERÍMETRO DE SEGURANÇA</h3>
+            <p>O Conselho de Sobrevivência identificou três pontos de observação para monitorar uma área com atividade de mutantes: $A(1,2)$, $B(4,3)$ e $C(2,5)$. Para maximizar a eficiência da vigilância, eles precisam posicionar um quarto ponto $D$ de modo que o vetor $\overrightarrow{AD}$ seja igual à soma dos vetores $\overrightarrow{AB}$ e $\overrightarrow{AC}$. Determine as coordenadas de $D$ e explique o significado geométrico dessa configuração.</p>
+            
+            <div class="hint">
+                <p>Calcule primeiro os vetores $\overrightarrow{AB}$ e $\overrightarrow{AC}$, some-os, e então aplique esse vetor resultante a partir do ponto A.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Primeiro, calculamos os vetores $\overrightarrow{AB}$ e $\overrightarrow{AC}$:</li>
+                    <li>$\overrightarrow{AB} = B - A = (4,3) - (1,2) = (3,1)$</li>
+                    <li>$\overrightarrow{AC} = C - A = (2,5) - (1,2) = (1,3)$</li>
+                    <li>Agora, somamos estes vetores: $\overrightarrow{AB} + \overrightarrow{AC} = (3,1) + (1,3) = (4,4)$</li>
+                    <li>Temos que $\overrightarrow{AD} = (4,4)$, então:</li>
+                    <li>$D = A + \overrightarrow{AD} = (1,2) + (4,4) = (5,6)$</li>
+                    <li>Portanto, o ponto D tem coordenadas $(5,6)$</li>
+                </ol>
+                
+                <div class="formula">
+                    $\overrightarrow{AD} = \overrightarrow{AB} + \overrightarrow{AC}$
+                    <br>
+                    $D = A + \overrightarrow{AD} = A + (\overrightarrow{AB} + \overrightarrow{AC})$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Geometricamente, esta configuração forma um paralelogramo onde A, B, C e D são os vértices. Numa aplicação de sobrevivência, este arranjo proporciona cobertura visual máxima com recursos mínimos, permitindo que cada ponto de observação tenha linha de visão direta para pelo menos dois outros pontos. Se um observador detectar uma ameaça, pode alertar rapidamente os outros postos, criando um sistema de vigilância robusto contra incursões de mutantes.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 10 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>NAVEGAÇÃO DE PRECISÃO</h3>
+            <p>Uma expedição científica planeja coletar amostras em uma região altamente radioativa. Para minimizar a exposição, a equipe deve seguir uma trajetória otimizada. Partindo do ponto $O(0,0)$, a expedição precisa visitar os pontos $A(2,5)$, $B(6,3)$ e $C(4,8)$ exatamente uma vez cada, e retornar a $O$. Considerando que a energia gasta no deslocamento direto de um ponto $P$ para um ponto $Q$ é proporcional ao quadrado da distância euclidiana entre eles, determine a ordem de visitação dos pontos que minimiza o gasto energético total da expedição.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Precisamos calcular a distância entre cada par de pontos para avaliar todas as possíveis rotas.</li>
+                    <li>Temos os pontos: $O(0,0)$, $A(2,5)$, $B(6,3)$ e $C(4,8)$.</li>
+                    <li>As distâncias quadráticas entre cada par de pontos são:
+                        <br>$|OA|^2 = (0-2)^2 + (0-5)^2 = 4 + 25 = 29$
+                        <br>$|OB|^2 = (0-6)^2 + (0-3)^2 = 36 + 9 = 45$
+                        <br>$|OC|^2 = (0-4)^2 + (0-8)^2 = 16 + 64 = 80$
+                        <br>$|AB|^2 = (2-6)^2 + (5-3)^2 = 16 + 4 = 20$
+                        <br>$|AC|^2 = (2-4)^2 + (5-8)^2 = 4 + 9 = 13$
+                        <br>$|BC|^2 = (6-4)^2 + (3-8)^2 = 4 + 25 = 29$
+                    </li>
+                    <li>Avaliamos todas as possíveis rotas, começando e terminando em O:
+                        <br>Rota 1: O → A → B → C → O: $|OA|^2 + |AB|^2 + |BC|^2 + |CO|^2 = 29 + 20 + 29 + 80 = 158$
+                        <br>Rota 2: O → A → C → B → O: $|OA|^2 + |AC|^2 + |CB|^2 + |BO|^2 = 29 + 13 + 29 + 45 = 116$
+                        <br>Rota 3: O → B → A → C → O: $|OB|^2 + |BA|^2 + |AC|^2 + |CO|^2 = 45 + 20 + 13 + 80 = 158$
+                        <br>Rota 4: O → B → C → A → O: $|OB|^2 + |BC|^2 + |CA|^2 + |AO|^2 = 45 + 29 + 13 + 29 = 116$
+                        <br>Rota 5: O → C → A → B → O: $|OC|^2 + |CA|^2 + |AB|^2 + |BO|^2 = 80 + 13 + 20 + 45 = 158$
+                        <br>Rota 6: O → C → B → A → O: $|OC|^2 + |CB|^2 + |BA|^2 + |AO|^2 = 80 + 29 + 20 + 29 = 158$
+                    </li>
+                    <li>As rotas 2 e 4 têm o mesmo gasto energético mínimo de 116 unidades.</li>
+                    <li>Portanto, as ordens ótimas são: O → A → C → B → O ou O → B → C → A → O.</li>
+                </ol>
+                
+                <div class="formula">
+                    Distância euclidiana ao quadrado entre pontos $(x_1, y_1)$ e $(x_2, y_2)$:
+                    <br>
+                    $d^2 = (x_2 - x_1)^2 + (y_2 - y_1)^2$
+                    <br><br>
+                    Gasto energético mínimo: $116$ unidades
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em um ambiente hostil onde a exposição prolongada significa morte certa, a otimização de rotas utilizando vetores e cálculos de distância não é apenas uma questão matemática, mas uma necessidade vital. Cada unidade de energia economizada pode significar recursos extras para enfrentar emergências ou tempo adicional para coletar amostras mais valiosas. A aplicação prática da teoria vetorial permite que expedições científicas maximizem seus resultados enquanto minimizam riscos, exemplificando como o conhecimento matemático se traduz diretamente em chances de sobrevivência.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 11 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>ESTRUTURA DEFENSIVA</h3>
+            <p>A Refúgio-Tec está desenvolvendo uma nova estrutura defensiva hexagonal contra mutantes. O projeto começa com um ponto central O e seis torres de vigia posicionadas nos vértices de um hexágono regular. Se a distância de O a qualquer vértice é 5 unidades e o primeiro vértice A está diretamente ao leste de O, determine as coordenadas vetoriais de todos os seis vértices em relação a O. Em seguida, calcule a soma vetorial de todos os vetores de posição das torres e explique o significado desse resultado para o design da estrutura.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Num hexágono regular, os vértices estão igualmente espaçados ao redor do centro, com ângulos de 60° entre eles.</li>
+                    <li>Se A está diretamente a leste de O, então o vetor $\overrightarrow{OA} = (5, 0)$.</li>
+                    <li>Os demais vértices estão a ângulos de 60°, 120°, 180°, 240° e 300° em relação ao eixo x positivo.</li>
+                    <li>Para cada ângulo θ, as coordenadas são $(5\cos(θ), 5\sin(θ))$.</li>
+                    <li>Calculando para cada vértice:
+                        <br>Vértice A (0°): $\overrightarrow{OA} = (5\cos(0°), 5\sin(0°)) = (5, 0)$
+                        <br>Vértice B (60°): $\overrightarrow{OB} = (5\cos(60°), 5\sin(60°)) = (5 \cdot 0.5, 5 \cdot 0.866) = (2.5, 4.33)$
+                        <br>Vértice C (120°): $\overrightarrow{OC} = (5\cos(120°), 5\sin(120°)) = (5 \cdot (-0.5), 5 \cdot 0.866) = (-2.5, 4.33)$
+                        <br>Vértice D (180°): $\overrightarrow{OD} = (5\cos(180°), 5\sin(180°)) = (5 \cdot (-1), 5 \cdot 0) = (-5, 0)$
+                        <br>Vértice E (240°): $\overrightarrow{OE} = (5\cos(240°), 5\sin(240°)) = (5 \cdot (-0.5), 5 \cdot (-0.866)) = (-2.5, -4.33)$
+                        <br>Vértice F (300°): $\overrightarrow{OF} = (5\cos(300°), 5\sin(300°)) = (5 \cdot 0.5, 5 \cdot (-0.866)) = (2.5, -4.33)$
+                    </li>
+                    <li>A soma vetorial é: $\overrightarrow{OA} + \overrightarrow{OB} + \overrightarrow{OC} + \overrightarrow{OD} + \overrightarrow{OE} + \overrightarrow{OF}$</li>
+                    <li>Calculando: $(5, 0) + (2.5, 4.33) + (-2.5, 4.33) + (-5, 0) + (-2.5, -4.33) + (2.5, -4.33)$</li>
+                    <li>Componente x: $5 + 2.5 + (-2.5) + (-5) + (-2.5) + 2.5 = 0$</li>
+                    <li>Componente y: $0 + 4.33 + 4.33 + 0 + (-4.33) + (-4.33) = 0$</li>
+                    <li>A soma vetorial é $\vec{0} = (0, 0)$</li>
+                </ol>
+                
+                <div class="formula">
+                    Posição de cada vértice: $(5\cos(θ), 5\sin(θ))$, onde θ = 0°, 60°, 120°, 180°, 240°, 300°
+                    <br><br>
+                    Soma vetorial: $\sum_{i=1}^{6} \overrightarrow{OV_i} = \vec{0}$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O resultado da soma vetorial sendo o vetor nulo $(0,0)$ demonstra o equilíbrio perfeito desta estrutura defensiva. Este equilíbrio tem profundas implicações para a construção: as forças estruturais se cancelam mutuamente, proporcionando estabilidade máxima contra pressões externas. Além disso, o sistema de vigilância tem cobertura uniforme em todas as direções, sem pontos cegos ou áreas de concentração excessiva. Em termos de defesa contra mutantes, isso significa que não há direção preferencial de ataque - todas as abordagens são igualmente monitoradas, tornando a estrutura excepcionalmente resistente a incursões de qualquer ângulo.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 12 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>ESCUDOS VETORIAIS</h3>
+            <p>O laboratório de pesquisa da Refúgio-Tec desenvolveu um sistema de escudos vetoriais contra radiação. Cada escudo projeta um campo de proteção representado por um vetor no plano. A eficácia da proteção depende de como esses campos se combinam. Três escudos são posicionados nos pontos $A(2,1)$, $B(5,3)$ e $C(3,6)$, projetando campos de proteção proporcionais aos vetores $\overrightarrow{AB}$, $\overrightarrow{BC}$ e $\overrightarrow{CA}$. Um sobrevivente localizado no ponto $P$ está protegido se, e somente se, $P$ está no interior do triângulo $ABC$. Prove que qualquer ponto $P$ no interior do triângulo pode ser expresso como uma combinação dos vértices na forma $P = \alpha A + \beta B + \gamma C$, onde $\alpha + \beta + \gamma = 1$ e $\alpha, \beta, \gamma > 0$, e explique como isso garante a proteção completa contra radiação em todo o abrigo.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Vamos provar que qualquer ponto $P$ no interior do triângulo $ABC$ pode ser expresso como uma combinação dos vértices na forma $P = \alpha A + \beta B + \gamma C$, onde $\alpha + \beta + \gamma = 1$ e $\alpha, \beta, \gamma > 0$, usando o conceito de coordenadas baricêntricas.</li>
+                    <li>Consideremos um ponto $P$ no interior do triângulo $ABC$. Este ponto define três subtriângulos: $\triangle PAB$, $\triangle PBC$ e $\triangle PCA$.</li>
+                    <li>Denotamos as áreas desses triângulos por $\Delta_{PAB}$, $\Delta_{PBC}$ e $\Delta_{PCA}$, e a área do triângulo original por $\Delta_{ABC}$.</li>
+                    <li>Como $P$ está no interior do triângulo, é verdade que $\Delta_{PAB} + \Delta_{PBC} + \Delta_{PCA} = \Delta_{ABC}$ e todas as áreas são positivas.</li>
+                    <li>Definimos as coordenadas baricêntricas de $P$ como:
+                        <br>$\alpha = \frac{\Delta_{PBC}}{\Delta_{ABC}}$
+                        <br>$\beta = \frac{\Delta_{PCA}}{\Delta_{ABC}}$
+                        <br>$\gamma = \frac{\Delta_{PAB}}{\Delta_{ABC}}$
+                    </li>
+                    <li>Como cada área é positiva e a soma das áreas dos subtriângulos é igual à área do triângulo original, temos que $\alpha + \beta + \gamma = 1$ e $\alpha, \beta, \gamma > 0$.</li>
+                    <li>É um resultado da geometria que estas razões de áreas conduzem precisamente à expressão $P = \alpha A + \beta B + \gamma C$.</li>
+                    <li>Casos especiais que verificam este resultado:
+                        <br>- Se $P$ coincide com $A$: $\alpha = 1, \beta = 0, \gamma = 0$
+                        <br>- Se $P$ coincide com $B$: $\alpha = 0, \beta = 1, \gamma = 0$
+                        <br>- Se $P$ coincide com $C$: $\alpha = 0, \beta = 0, \gamma = 1$
+                        <br>- Se $P$ está no ponto médio de $AB$: $\alpha = 0.5, \beta = 0.5, \gamma = 0$
+                    </li>
+                    <li>Se $P$ está em um dos lados do triângulo, um dos coeficientes será zero (pois a área de um dos subtriângulos será nula).</li>
+                    <li>Se $P$ está estritamente no interior, todos os coeficientes são positivos, pois todas as áreas dos subtriângulos são positivas.</li>
+                </ol>
+                
+                <div class="formula">
+                    Para qualquer ponto $P$ no interior do triângulo $ABC$:
+                    <br>
+                    $P = \alpha A + \beta B + \gamma C$
+                    <br>
+                    onde $\alpha = \frac{\Delta_{PBC}}{\Delta_{ABC}}$, $\beta = \frac{\Delta_{PCA}}{\Delta_{ABC}}$, $\gamma = \frac{\Delta_{PAB}}{\Delta_{ABC}}$
+                    <br>
+                    com $\alpha + \beta + \gamma = 1$ e $\alpha, \beta, \gamma > 0$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Esta propriedade matemática fundamenta o princípio de operação dos escudos vetoriais. As coordenadas baricêntricas podem ser interpretadas fisicamente como "intensidades de influência" de cada escudo sobre um ponto no interior do abrigo. Um ponto interior recebe contribuição não desprezível dos três escudos (todos os coeficientes são positivos), garantindo proteção completa em todo o triângulo. Pontos fora do triângulo não podem ser expressos como combinação convexa dos vértices com coeficientes positivos, o que significa que perdem, em alguma medida, a sobreposição dos campos de proteção. Com apenas três geradores de campo estrategicamente posicionados, o sistema cria uma zona de segurança contínua e homogênea sem "pontos mortos", demonstrando como princípios matemáticos avançados maximizam a eficiência de recursos escassos em um mundo devastado.</p>
+            </details>
+        </div>
     </div>
 
-    <div class="exercise">
-        <h3>Exercício 3: Verificação de Vetores Iguais e Opostos</h3>
-        <p>Verificar que os vetores \( \vec{AB} \) e \( \vec{DC} \) são iguais e que \( \vec{AD} \) e \( \vec{CB} \) são opostos. Identificar o quadrilátero formado pelos pontos A, B, C e D.</p>
-        <details>
-            <summary>Ver Solução</summary>
-            <p>[Demonstrar os cálculos vetoriais e a conclusão sobre o quadrilátero.]</p>
-        </details>
-    </div>
-
-    <div class="exercise">
-        <h3>Exercício 4: Soma de Vetores \( \vec{AB} \) e \( \vec{AC} \)</h3>
-        <p>Calcular o vetor soma dos vetores \( \vec{AB} \) e \( \vec{AC} \).</p>
-        <details>
-            <summary>Ver Solução</summary>
-            <p>[Apresentar o passo a passo da soma vetorial.]</p>
-        </details>
-    </div>
-
-    <div class="exercise">
-        <h3>Exercício 5: Cálculo de Vetores Compostos</h3>
-        <p>Calcular os seguintes vetores:</p>
-        <details>
-            <summary>Ver Solução</summary>
-            <p>[Resolver as operações vetoriais dos itens (a) a (d).]</p>
-        </details>
-    </div>
-
-    <div class="exercise">
-        <h3>Exercício 6: Determinação do Ponto B</h3>
-        <p>Se \( \vec{v} = \vec{AB} \), A = (3, 2) e \( v = (5, 8) \), determinar o ponto B.</p>
-        <details>
-            <summary>Ver Solução</summary>
-            <p>[Apresentar o raciocínio e cálculo para encontrar B.]</p>
-        </details>
-    </div>
-
-    <div class="exercise">
-        <h3>Exercício 7: Ponto C com Vetor Proporcional</h3>
-        <p>Determinar o ponto C tal que \( \vec{AC} = \frac{1}{4}\vec{AB} \).</p>
-        <details>
-            <summary>Ver Solução</summary>
-            <p>[Explicar a proporção vetorial e o cálculo do ponto C.]</p>
-        </details>
-    </div>
-
-    <div class="exercise">
-        <h3>Exercício 8: Solução de Sistema Vetorial</h3>
-        <p>Resolver a equação vetorial \( 2u - v + 3w = O \) para encontrar os valores de a e b.</p>
-        <details>
-            <summary>Ver Solução</summary>
-            <p>[Apresentar a resolução do sistema de equações para determinar a e b.]</p>
-        </details>
-    </div>
-
+    <!-- RODAPÉ DO DOCUMENTO -->
     <div class="footer">
-        Geometria Analítica: Sobrevivência Geométrica - Mantenha o foco, ou fique perdido para sempre.
+        REFÚGIO-TEC | VETORES NO PLANO: Sobrevivência Matemática - Calcule sua trajetória ou torne-se estatística
     </div>
 </body>
 </html>

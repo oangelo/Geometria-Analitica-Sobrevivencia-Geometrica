@@ -2,10 +2,751 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>CAPÍTULO II - PRODUTO INTERNO NO R² - Seção 5</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+    </script>
+    <title>REFÚGIO-TEC | ÂNGULOS ENTRE VETORES</title>
+    <style>
+        /* Estilo inspirado no tema pós-apocalíptico */
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100px; }
+        }
+
+        body {
+            background-color: #0c0c0c;
+            color: #e6e6e6;
+            font-family: "Courier New", monospace;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #4caf50;
+            max-width: 800px;
+            margin: auto;
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 2px;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+
+        h1, h2, h3 {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .exercise {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border: 1px dashed #4caf50;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        details {
+            background-color: #1c1c1c;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            margin-top: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #4caf50;
+        }
+
+        summary:hover {
+            text-shadow: 0 0 3px #4caf50;
+        }
+
+        code {
+            background-color: #333;
+            padding: 3px 5px;
+            color: #ffeb3b;
+        }
+
+        .hint {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #4caf50;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .hint:before {
+            content: "DICA DE SOBREVIVÊNCIA: ";
+            color: #4caf50;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .solution-steps {
+            margin-left: 20px;
+            counter-reset: step-counter;
+        }
+
+        .solution-steps li {
+            list-style-type: none;
+            counter-increment: step-counter;
+            margin-bottom: 10px;
+        }
+
+        .solution-steps li::before {
+            content: "> PASSO_" counter(step-counter) ": ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .formula {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #000;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .terminal-frame {
+            padding: 10px;
+            background-color: #000;
+            margin-bottom: 20px;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .terminal-header {
+            margin: 0;
+            padding: 3px 10px;
+            background-color: #4caf50;
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .terminal-content {
+            padding: 5px;
+            white-space: pre-wrap;
+            font-size: 1em;
+            line-height: 1.2;
+        }
+
+        .cursor:after {
+            content: "█";
+            animation: blink 1s step-end infinite;
+        }
+
+        .terminal-line {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .terminal-border {
+            border: 1px solid #4caf50;
+            padding: 5px;
+            background-color: #000;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .mission-counter {
+            counter-reset: mission;
+        }
+        
+        .mission-counter .exercise h3:before {
+            content: "MISSÃO " counter(mission) ": ";
+            counter-increment: mission;
+        }
+
+        .warning {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .danger {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #8bc34a;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #4caf50;
+            border-top: 1px solid #4caf50;
+            padding-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>CAPÍTULO II - PRODUTO INTERNO NO R²</h1>
-    <h2>Seção 5: angulo-de-dois-vetores</h2>
+    <!-- TÍTULO E INTRODUÇÃO -->
+    <div class="terminal-frame">
+        <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
+        <div class="terminal-content">
+┌───────────────────────────────────────────────────┐
+│ MÓDULO: ÂNGULOS ENTRE VETORES                     │
+└───────────────────────────────────────────────────┘
+
+> INICIANDO TRANSMISSÃO...
+> CARREGANDO MÓDULO DE TREINAMENTO...
+> ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
+        </div>
+    </div>
+
+    <div class="terminal-border">
+        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: ÂNGULOS ENTRE VETORES</h2>
+    
+    <p>Sobreviventes, em um mundo onde cada movimento pode significar a diferença entre vida e morte, compreender a direção e orientação é crucial. Os ângulos entre vetores nos permitem calcular com precisão as relações direcionais no plano, essenciais para navegação, planejamento de rotas de fuga e otimização de recursos em expedições.</p>
+    
+    <p>Na Zona Devastada, calcular o ângulo entre suas possíveis rotas de fuga pode determinar não apenas a eficiência energética de seu deslocamento, mas também suas chances de evitar áreas de alta radiação ou territórios de mutantes. A matemática vetorial é uma ferramenta de sobrevivência, não apenas uma curiosidade acadêmica.</p>
+    
+    <p>Quando dois vetores $\vec{u}$ e $\vec{v}$ são dados no plano, o ângulo $\theta$ entre eles pode ser determinado através do produto escalar. Lembre-se que esse ângulo é sempre o menor ângulo formado entre os vetores, sempre medido no sentido anti-horário, e varia de $0°$ a $180°$ (ou $0$ a $\pi$ radianos).</p>
+
+    <div class="formula">
+    $$\cos(\theta) = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}| \cdot |\vec{v}|}$$
+    </div>
+    
+    <p>Onde $\vec{u} \cdot \vec{v}$ é o produto escalar calculado como $u_1v_1 + u_2v_2$ para vetores bidimensionais, e $|\vec{u}|$ e $|\vec{v}|$ são os módulos dos vetores calculados como $|\vec{u}| = \sqrt{u_1^2 + u_2^2}$ e $|\vec{v}| = \sqrt{v_1^2 + v_2^2}$. É importante observar que dois vetores são perpendiculares quando $\vec{u} \cdot \vec{v} = 0$, e são paralelos quando o ângulo entre eles é $0°$ ou $180°$.</p>
+
+    <!-- MISSÕES (EXERCÍCIOS) -->
+    <div class="mission-counter">
+        <!-- MISSÃO 1 (BÁSICA) -->
+        <div class="exercise">
+            <h3>ÂNGULO DE EVASÃO</h3>
+            <p>Um sobrevivente está no ponto A(3,1) e avista dois abrigos potenciais nas posições B(7,4) e C(8,-3). Considerando o sobrevivente como origem dos vetores $\vec{AB}$ e $\vec{AC}$, calcule o ângulo entre as duas rotas de fuga possíveis. Qual abrigo exigiria uma mudança mais brusca de direção?</p>
+            
+            <div class="hint">
+                <p>Primeiro determine os vetores $\vec{AB}$ e $\vec{AC}$ subtraindo as coordenadas. Depois calcule o produto escalar e os módulos para usar na fórmula do cosseno do ângulo.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Determinamos os vetores $\vec{AB}$ e $\vec{AC}$:
+                    $\vec{AB} = (7,4) - (3,1) = (4,3)$
+                    $\vec{AC} = (8,-3) - (3,1) = (5,-4)$</li>
+                    <li>Calculamos o produto escalar:
+                    $\vec{AB} \cdot \vec{AC} = 4 \cdot 5 + 3 \cdot (-4) = 20 - 12 = 8$</li>
+                    <li>Calculamos os módulos:
+                    $|\vec{AB}| = \sqrt{4^2 + 3^2} = \sqrt{16 + 9} = \sqrt{25} = 5$
+                    $|\vec{AC}| = \sqrt{5^2 + (-4)^2} = \sqrt{25 + 16} = \sqrt{41} \approx 6,40$</li>
+                    <li>Aplicamos a fórmula do cosseno:
+                    $\cos(\theta) = \frac{\vec{AB} \cdot \vec{AC}}{|\vec{AB}| \cdot |\vec{AC}|} = \frac{8}{5 \cdot 6,40} = \frac{8}{32} = 0,25$</li>
+                    <li>Portanto, $\theta = \arccos(0,25) \approx 75,5°$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\theta = \arccos\left(\frac{\vec{AB} \cdot \vec{AC}}{|\vec{AB}| \cdot |\vec{AC}|}\right) = \arccos\left(\frac{8}{5 \cdot 6,40}\right) \approx 75,5°$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Um ângulo de aproximadamente 75,5° representa uma mudança significativa de direção. Em situações de fuga, mudanças bruscas de direção consomem mais energia e podem aumentar a exposição a ameaças. Neste caso, se o sobrevivente começar a se mover em direção ao abrigo B, mudar para o abrigo C exigiria uma reorientação considerável, potencialmente perigosa em áreas abertas da Zona Devastada.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 2 (BÁSICA) -->
+        <div class="exercise">
+            <h3>ROTAS DE PATRULHA</h3>
+            <p>Dois patrulheiros de segurança do Refúgio-Tec partem da entrada do bunker seguindo rotas representadas pelos vetores $\vec{u} = (2,5)$ e $\vec{v} = (4,3)$. Calcule o ângulo entre suas rotas de patrulha para garantir cobertura ideal do perímetro de segurança.</p>
+            
+            <div class="hint">
+                <p>Aplique diretamente a fórmula do cosseno do ângulo entre vetores. Lembre-se que para vetores no formato $(a,b)$, o produto escalar é $a_1b_1 + a_2b_2$.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calculamos o produto escalar dos vetores:
+                    $\vec{u} \cdot \vec{v} = 2 \cdot 4 + 5 \cdot 3 = 8 + 15 = 23$</li>
+                    <li>Calculamos os módulos dos vetores:
+                    $|\vec{u}| = \sqrt{2^2 + 5^2} = \sqrt{4 + 25} = \sqrt{29} \approx 5,39$
+                    $|\vec{v}| = \sqrt{4^2 + 3^2} = \sqrt{16 + 9} = \sqrt{25} = 5$</li>
+                    <li>Aplicamos a fórmula do cosseno:
+                    $\cos(\theta) = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}| \cdot |\vec{v}|} = \frac{23}{5,39 \cdot 5} = \frac{23}{26,95} \approx 0,854$</li>
+                    <li>Portanto: $\theta = \arccos(0,854) \approx 31,2°$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\theta = \arccos\left(\frac{\vec{u} \cdot \vec{v}}{|\vec{u}| \cdot |\vec{v}|}\right) = \arccos\left(\frac{23}{5,39 \cdot 5}\right) \approx 31,2°$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Um ângulo de 31,2° entre as rotas de patrulha indica uma cobertura relativamente estreita do perímetro. Em termos práticos de segurança, isso pode criar "pontos cegos" significativos. Para uma cobertura mais eficiente do perímetro de um bunker, ângulos próximos a 90° ou mesmo distribuições radiais de patrulheiros (com ângulos iguais) seriam mais eficazes para detectar ameaças aproximando-se de qualquer direção.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 3 (BÁSICA) -->
+        <div class="exercise">
+            <h3>INTERSEÇÃO DE TÚNEIS</h3>
+            <p>Dois túneis subterrâneos estão sendo escavados a partir do ponto (2,3). O primeiro túnel segue a direção do vetor $\vec{a} = (3,4)$ e o segundo segue a direção do vetor $\vec{b} = (6,-2)$. Para garantir estabilidade estrutural, é necessário calcular o ângulo entre os túneis. Determine esse ângulo.</p>
+            
+            <div class="hint">
+                <p>Como os túneis partem do mesmo ponto, você só precisa calcular o ângulo entre os vetores diretores. Utilize diretamente a fórmula do cosseno do ângulo entre vetores.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calculamos o produto escalar:
+                    $\vec{a} \cdot \vec{b} = 3 \cdot 6 + 4 \cdot (-2) = 18 - 8 = 10$</li>
+                    <li>Calculamos os módulos:
+                    $|\vec{a}| = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5$
+                    $|\vec{b}| = \sqrt{6^2 + (-2)^2} = \sqrt{36 + 4} = \sqrt{40} \approx 6,32$</li>
+                    <li>Aplicamos a fórmula do cosseno:
+                    $\cos(\theta) = \frac{\vec{a} \cdot \vec{b}}{|\vec{a}| \cdot |\vec{b}|} = \frac{10}{5 \cdot 6,32} = \frac{10}{31,6} \approx 0,316$</li>
+                    <li>Portanto: $\theta = \arccos(0,316) \approx 71,6°$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\theta = \arccos\left(\frac{\vec{a} \cdot \vec{b}}{|\vec{a}| \cdot |\vec{b}|}\right) = \arccos\left(\frac{10}{5 \cdot 6,32}\right) \approx 71,6°$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Um ângulo de 71,6° entre túneis subterrâneos é razoavelmente amplo, o que geralmente é favorável para a estabilidade estrutural. Ângulos muito agudos podem criar pontos de fraqueza nas interseções, aumentando o risco de colapsos. Em um cenário pós-apocalíptico, onde os recursos para fortificação são escassos e as consequências de um desabamento podem ser fatais, entender a geometria das estruturas subterrâneas é literalmente vital.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 4 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>TRIANGULAÇÃO DE SINAL</h3>
+            <p>Três torres de comunicação formam um triângulo com vértices A(1,2), B(5,6) e C(8,3). Para otimizar a transmissão de sinais, é necessário conhecer os ângulos internos deste triângulo. Calcule o ângulo no vértice B.</p>
+            
+            <div class="hint">
+                <p>Para calcular o ângulo no vértice B, você precisa encontrar o ângulo entre os vetores $\vec{BA}$ e $\vec{BC}$. Lembre-se que aqui B é a origem dos vetores.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Determinamos os vetores $\vec{BA}$ e $\vec{BC}$:
+                    $\vec{BA} = (1,2) - (5,6) = (-4,-4)$
+                    $\vec{BC} = (8,3) - (5,6) = (3,-3)$</li>
+                    <li>Calculamos o produto escalar:
+                    $\vec{BA} \cdot \vec{BC} = (-4) \cdot 3 + (-4) \cdot (-3) = -12 + 12 = 0$</li>
+                    <li>Calculamos os módulos:
+                    $|\vec{BA}| = \sqrt{(-4)^2 + (-4)^2} = \sqrt{16 + 16} = \sqrt{32} = 4\sqrt{2} \approx 5,66$
+                    $|\vec{BC}| = \sqrt{3^2 + (-3)^2} = \sqrt{9 + 9} = \sqrt{18} = 3\sqrt{2} \approx 4,24$</li>
+                    <li>Como o produto escalar é zero, sabemos que os vetores são perpendiculares, portanto:
+                    $\theta = 90°$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\vec{BA} \cdot \vec{BC} = 0 \Rightarrow \theta = 90°$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Um ângulo de 90° (ângulo reto) na configuração de torres de comunicação cria um padrão de triangulação ideal para localização precisa. Em um mundo pós-apocalíptico, onde GPS e sistemas de navegação modernos estão comprometidos, a capacidade de triangular posições usando matemática vetorial pode ser a diferença entre encontrar recursos escassos ou vagar sem rumo pela Zona Devastada. Esta configuração específica de torres também maximiza a cobertura de sinal em relação à distância entre elas.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 5 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>OTIMIZAÇÃO DE TRAJETÓRIA</h3>
+            <p>Um drone de reconhecimento está seguindo uma trajetória definida pelo vetor $\vec{d_1} = (5,2)$. Devido à detecção de uma zona de alta radiação, ele precisa ajustar sua rota para um novo vetor $\vec{d_2}$ que forme exatamente 60° com a trajetória original. Sabendo que $|\vec{d_2}| = 4$ e que a primeira coordenada de $\vec{d_2}$ é positiva, determine as coordenadas do vetor $\vec{d_2}$.</p>
+            
+            <div class="hint">
+                <p>Use a fórmula do cosseno do ângulo entre vetores "ao contrário". Você conhece o ângulo e precisa encontrar o vetor, então estabeleça um sistema usando o produto escalar.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Temos $\vec{d_1} = (5,2)$, $|\vec{d_2}| = 4$ e o ângulo entre eles é $\theta = 60°$.</li>
+                    <li>Calculamos $|\vec{d_1}| = \sqrt{5^2 + 2^2} = \sqrt{25 + 4} = \sqrt{29} \approx 5,39$</li>
+                    <li>Seja $\vec{d_2} = (x,y)$. Aplicamos a fórmula do cosseno:
+                    $\cos(60°) = \frac{\vec{d_1} \cdot \vec{d_2}}{|\vec{d_1}| \cdot |\vec{d_2}|} = \frac{5x + 2y}{5,39 \cdot 4}$</li>
+                    <li>Sabemos que $\cos(60°) = 0,5$, então:
+                    $0,5 = \frac{5x + 2y}{21,56}$
+                    $10,78 = 5x + 2y$</li>
+                    <li>Também sabemos que $|\vec{d_2}| = 4$, então:
+                    $x^2 + y^2 = 16$</li>
+                    <li>Da primeira equação: $y = \frac{10,78 - 5x}{2}$</li>
+                    <li>Substituindo na segunda equação:
+                    $x^2 + \left(\frac{10,78 - 5x}{2}\right)^2 = 16$
+                    $x^2 + \frac{(10,78 - 5x)^2}{4} = 16$
+                    $4x^2 + (10,78 - 5x)^2 = 64$
+                    $4x^2 + 116,21 - 107,8x + 25x^2 = 64$
+                    $29x^2 - 107,8x + 52,21 = 0$</li>
+                    <li>Resolvendo esta equação quadrática, e considerando que $x > 0$, obtemos $x \approx 3,46$</li>
+                    <li>Substituindo: $y = \frac{10,78 - 5(3,46)}{2} = \frac{10,78 - 17,3}{2} \approx -3,26$</li>
+                    <li>Portanto, $\vec{d_2} \approx (3,46, -3,26)$ ou aproximadamente $(3,5, -3,3)$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\begin{cases}
+                    \cos(60°) = \frac{\vec{d_1} \cdot \vec{d_2}}{|\vec{d_1}| \cdot |\vec{d_2}|} \\
+                    |\vec{d_2}| = 4
+                    \end{cases}$$
+                    
+                    $$\vec{d_2} \approx (3,5, -3,3)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A capacidade de calcular com precisão uma nova trajetória que evite perigos é uma habilidade crítica na Zona Devastada. Para um drone de reconhecimento, desviar de áreas de alta radiação preserva não apenas o equipamento, mas também a missão de coleta de dados. O vetor calculado mostra que o drone deve se mover para o nordeste enquanto desce em altitude (se interpretarmos a coordenada y como altitude). Esta matemática vetorial torna-se literalmente a diferença entre recuperar recursos vitais ou perder equipamentos insubstituíveis.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 6 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>POSICIONAMENTO DEFENSIVO</h3>
+            <p>Três sentinelas estão posicionadas nos pontos A(2,1), B(5,7) e C(8,2) formando um triângulo de defesa. Para otimizar o campo de tiro, é importante que os ângulos entre as linhas de visão sejam conhecidos. Se um invasor é detectado no ponto D(4,3), calcule os ângulos formados entre os vetores $\vec{AD}$, $\vec{BD}$ e $\vec{CD}$.</p>
+            
+            <div class="hint">
+                <p>Você precisará calcular três ângulos diferentes (entre AD-BD, BD-CD e CD-AD). Para cada par, calcule os vetores, seus produtos escalares e módulos.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Determinamos os vetores:
+                    $\vec{AD} = (4,3) - (2,1) = (2,2)$
+                    $\vec{BD} = (4,3) - (5,7) = (-1,-4)$
+                    $\vec{CD} = (4,3) - (8,2) = (-4,1)$</li>
+                    <li>Calculamos os módulos:
+                    $|\vec{AD}| = \sqrt{2^2 + 2^2} = \sqrt{8} = 2\sqrt{2} \approx 2,83$
+                    $|\vec{BD}| = \sqrt{(-1)^2 + (-4)^2} = \sqrt{1 + 16} = \sqrt{17} \approx 4,12$
+                    $|\vec{CD}| = \sqrt{(-4)^2 + 1^2} = \sqrt{16 + 1} = \sqrt{17} \approx 4,12$</li>
+                    <li>Calculamos o ângulo entre $\vec{AD}$ e $\vec{BD}$:
+                    $\vec{AD} \cdot \vec{BD} = 2 \cdot (-1) + 2 \cdot (-4) = -2 - 8 = -10$
+                    $\cos(\theta_{AB}) = \frac{\vec{AD} \cdot \vec{BD}}{|\vec{AD}| \cdot |\vec{BD}|} = \frac{-10}{2,83 \cdot 4,12} \approx -0,857$
+                    $\theta_{AB} = \arccos(-0,857) \approx 149°$</li>
+                    <li>Calculamos o ângulo entre $\vec{BD}$ e $\vec{CD}$:
+                    $\vec{BD} \cdot \vec{CD} = (-1) \cdot (-4) + (-4) \cdot 1 = 4 - 4 = 0$
+                    Como o produto escalar é zero, $\theta_{BC} = 90°$</li>
+                    <li>Calculamos o ângulo entre $\vec{CD}$ e $\vec{AD}$:
+                    $\vec{CD} \cdot \vec{AD} = (-4) \cdot 2 + 1 \cdot 2 = -8 + 2 = -6$
+                    $\cos(\theta_{CA}) = \frac{\vec{CD} \cdot \vec{AD}}{|\vec{CD}| \cdot |\vec{AD}|} = \frac{-6}{4,12 \cdot 2,83} \approx -0,514$
+                    $\theta_{CA} = \arccos(-0,514) \approx 121°$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\theta_{AB} = \arccos\left(\frac{\vec{AD} \cdot \vec{BD}}{|\vec{AD}| \cdot |\vec{BD}|}\right) \approx 149°$$
+                    $$\theta_{BC} = 90°$$
+                    $$\theta_{CA} = \arccos\left(\frac{\vec{CD} \cdot \vec{AD}}{|\vec{CD}| \cdot |\vec{AD}|}\right) \approx 121°$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Esta configuração de ângulos revela informações táticas críticas. O ângulo reto (90°) entre os vetores BD e CD significa que as sentinelas B e C têm linhas de tiro perpendiculares ao invasor, criando um fogo cruzado eficiente. Os ângulos obtusos (149° e 121°) indicam que as sentinelas estão bem distribuídas ao redor do invasor, maximizando a cobertura e minimizando o risco de fogo amigo. Em cenários defensivos pós-apocalípticos, onde cada munição é preciosa, esta otimização matemática de posicionamento aumenta significativamente as chances de sobrevivência do grupo.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 7 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>CAPTURA SOLAR</h3>
+            <p>Um painel solar móvel está orientado segundo o vetor normal $\vec{n} = (2,3)$. Para maximizar a captação de energia, o painel deve estar perpendicular aos raios solares representados pelo vetor $\vec{s} = (a,b)$. Sabendo que $|\vec{s}| = 5$ e que o ângulo atual entre $\vec{n}$ e $\vec{s}$ é de 20°, encontre as possíveis coordenadas do vetor $\vec{s}$.</p>
+            
+            <div class="hint">
+                <p>Utilizar o fato de que o cosseno do ângulo entre os vetores é conhecido. Note que existem duas soluções possíveis.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calculamos o módulo do vetor normal: $|\vec{n}| = \sqrt{2^2 + 3^2} = \sqrt{4 + 9} = \sqrt{13} \approx 3,61$</li>
+                    <li>Sabemos que o ângulo entre $\vec{n}$ e $\vec{s}$ é 20°, então:
+                    $\cos(20°) = \frac{\vec{n} \cdot \vec{s}}{|\vec{n}| \cdot |\vec{s}|} = \frac{2a + 3b}{3,61 \cdot 5} \approx \frac{2a + 3b}{18,05}$</li>
+                    <li>Como $\cos(20°) \approx 0,9397$:
+                    $0,9397 = \frac{2a + 3b}{18,05}$
+                    $2a + 3b = 18,05 \cdot 0,9397 \approx 16,96$</li>
+                    <li>Também sabemos que $|\vec{s}| = 5$, então:
+                    $a^2 + b^2 = 25$</li>
+                    <li>Isolando $b$ da primeira equação:
+                    $b = \frac{16,96 - 2a}{3} \approx \frac{17 - 2a}{3}$</li>
+                    <li>Substituindo na segunda equação:
+                    $a^2 + \left(\frac{17 - 2a}{3}\right)^2 = 25$
+                    $a^2 + \frac{(17 - 2a)^2}{9} = 25$
+                    $9a^2 + (17 - 2a)^2 = 225$
+                    $9a^2 + 289 - 68a + 4a^2 = 225$
+                    $13a^2 - 68a + 64 = 0$</li>
+                    <li>Resolvendo esta equação quadrática:
+                    $a = \frac{68 \pm \sqrt{68^2 - 4 \cdot 13 \cdot 64}}{2 \cdot 13} = \frac{68 \pm \sqrt{4624 - 3328}}{26} = \frac{68 \pm \sqrt{1296}}{26} = \frac{68 \pm 36}{26}$</li>
+                    <li>Isso nos dá $a_1 = \frac{104}{26} = 4$ e $a_2 = \frac{32}{26} \approx 1,23$</li>
+                    <li>Calculando os valores correspondentes de $b$:
+                    Para $a_1 = 4$: $b_1 = \frac{17 - 2(4)}{3} = \frac{17 - 8}{3} = \frac{9}{3} = 3$
+                    Para $a_2 = 1,23$: $b_2 = \frac{17 - 2(1,23)}{3} \approx \frac{17 - 2,46}{3} \approx \frac{14,54}{3} \approx 4,85$</li>
+                    <li>Portanto, as possíveis coordenadas de $\vec{s}$ são aproximadamente $(4,3)$ ou $(1,23, 4,85)$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\begin{cases}
+                    \cos(20°) = \frac{\vec{n} \cdot \vec{s}}{|\vec{n}| \cdot |\vec{s}|} \\
+                    |\vec{s}| = 5
+                    \end{cases}$$
+                    
+                    $$\vec{s}_1 = (4,3) \text{ ou } \vec{s}_2 \approx (1,23, 4,85)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A otimização da captação solar é crucial em um mundo onde recursos energéticos são escassos. Um ângulo de 20° em relação à perpendicular significa que o painel está operando a aproximadamente $\cos(20°) \approx 94\%$ de sua capacidade máxima. Conhecendo as possíveis direções dos raios solares, podemos ajustar o painel para atingir a perpendicular perfeita, recuperando os 6% de eficiência perdidos. Em um cenário de subsistência, esta diferença pode significar ter energia suficiente para purificar água contaminada ou manter sistemas de comunicação funcionando durante crises.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 8 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>NAVEGAÇÃO TRIANGULAR</h3>
+            <p>Um sobrevivente parte do ponto O(0,0) e segue um caminho triangular fechado através dos pontos A e B antes de retornar a O. Sabe-se que $\vec{OA} = (5,2)$, $|\vec{AB}| = 4$ e $|\vec{BO}| = 6$. Se o ângulo em A mede 120°, determine as possíveis coordenadas do ponto B.</p>
+            
+            <div class="hint">
+                <p>O ângulo em A é formado pelos vetores $\vec{AO}$ e $\vec{AB}$. Organize as equações usando o teorema dos cossenos para triângulos.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Temos $\vec{OA} = (5,2)$, então A tem coordenadas (5,2).</li>
+                    <li>O vetor $\vec{AO} = (0,0) - (5,2) = (-5,-2)$</li>
+                    <li>Seja B com coordenadas (x,y). Então $\vec{AB} = (x,y) - (5,2) = (x-5,y-2)$</li>
+                    <li>Sabemos que $|\vec{AB}| = 4$, então:
+                    $(x-5)^2 + (y-2)^2 = 16$</li>
+                    <li>Sabemos que $|\vec{BO}| = 6$, então:
+                    $x^2 + y^2 = 36$</li>
+                    <li>O ângulo em A é 120°, então o ângulo entre $\vec{AO}$ e $\vec{AB}$ é 120°. Usando a fórmula do cosseno:
+                    $\cos(120°) = \frac{\vec{AO} \cdot \vec{AB}}{|\vec{AO}| \cdot |\vec{AB}|} = \frac{(-5)(x-5) + (-2)(y-2)}{|\vec{AO}| \cdot 4}$</li>
+                    <li>Calculamos $|\vec{AO}| = \sqrt{(-5)^2 + (-2)^2} = \sqrt{25 + 4} = \sqrt{29} \approx 5,39$</li>
+                    <li>Como $\cos(120°) = -0,5$:
+                    $-0,5 = \frac{-5(x-5) - 2(y-2)}{5,39 \cdot 4} = \frac{-5x+25 - 2y+4}{21,56}$</li>
+                    <li>Reorganizando: $-10,78 = -5x - 2y + 29$, o que implica $5x + 2y = 39,78$</li>
+                    <li>Agora temos o sistema:
+                    $(x-5)^2 + (y-2)^2 = 16$
+                    $x^2 + y^2 = 36$
+                    $5x + 2y = 39,78$</li>
+                    <li>Da terceira equação: $y = \frac{39,78 - 5x}{2}$</li>
+                    <li>Substituindo na segunda equação:
+                    $x^2 + \left(\frac{39,78 - 5x}{2}\right)^2 = 36$
+                    $x^2 + \frac{(39,78 - 5x)^2}{4} = 36$
+                    $4x^2 + (39,78 - 5x)^2 = 144$
+                    $4x^2 + 1582,45 - 397,8x + 25x^2 = 144$
+                    $29x^2 - 397,8x + 1438,45 = 0$</li>
+                    <li>Resolvendo esta equação quadrática, obtemos aproximadamente $x_1 \approx 11,46$ e $x_2 \approx 4,32$</li>
+                    <li>Calculamos os valores correspondentes de $y$:
+                    Para $x_1 = 11,46$: $y_1 = \frac{39,78 - 5(11,46)}{2} \approx \frac{39,78 - 57,3}{2} \approx -8,76$
+                    Para $x_2 = 4,32$: $y_2 = \frac{39,78 - 5(4,32)}{2} \approx \frac{39,78 - 21,6}{2} \approx 9,09$</li>
+                    <li>Verificamos os resultados nas equações originais:
+                    B pode ter coordenadas aproximadamente (11,5, -8,8) ou (4,3, 9,1)</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\begin{cases}
+                    (x-5)^2 + (y-2)^2 = 16 \\
+                    x^2 + y^2 = 36 \\
+                    \cos(120°) = \frac{\vec{AO} \cdot \vec{AB}}{|\vec{AO}| \cdot |\vec{AB}|}
+                    \end{cases}$$
+                    
+                    $$B_1 \approx (11,5, -8,8) \text{ ou } B_2 \approx (4,3, 9,1)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Esta triangulação representa um percurso fechado que um sobrevivente poderia seguir para explorar território, coletar recursos ou estabelecer um perímetro defensivo. As duas soluções possíveis para o ponto B representam rotas distintas, cada uma com suas vantagens táticas. O primeiro caminho (com B₁) dirige-se para sudeste, enquanto o segundo (com B₂) segue para nordeste. A escolha entre essas rotas poderia depender da topografia do terreno, distribuição de recursos ou áreas de perigo na Zona Devastada. A matemática vetorial permite otimizar rotas em um mundo onde cada passo desperdiçado pode significar exposição desnecessária a perigos.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 9 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>SCANNER DE PERÍMETRO</h3>
+            <p>Um scanner rotativo de segurança está instalado no ponto S(3,4). Ele gira no sentido anti-horário, emitindo um feixe de detecção que inicialmente aponta na direção do vetor $\vec{v_0} = (1,0)$. Após uma rotação de $\theta$ radianos, o vetor de direção torna-se $\vec{v_\theta}$. Determine $\vec{v_\theta}$ quando $\theta = \frac{2\pi}{3}$ e calcule o ângulo entre $\vec{v_0}$ e $\vec{v_\theta}$.</p>
+            
+            <div class="hint">
+                <p>Lembre-se que ao girar um vetor (x,y) em θ radianos no sentido anti-horário, obtemos (x·cos(θ) - y·sen(θ), x·sen(θ) + y·cos(θ)).</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Temos o vetor inicial $\vec{v_0} = (1,0)$ e queremos rotacioná-lo por $\theta = \frac{2\pi}{3} = 120°$ no sentido anti-horário.</li>
+                    <li>Aplicamos a fórmula de rotação de vetores:
+                    $\vec{v_\theta} = (x \cos(\theta) - y \sin(\theta), x \sin(\theta) + y \cos(\theta))$</li>
+                    <li>Substituindo $\vec{v_0} = (1,0)$ e $\theta = \frac{2\pi}{3}$:
+                    $\vec{v_\theta} = (1 \cdot \cos(\frac{2\pi}{3}) - 0 \cdot \sin(\frac{2\pi}{3}), 1 \cdot \sin(\frac{2\pi}{3}) + 0 \cdot \cos(\frac{2\pi}{3}))$</li>
+                    <li>Calculamos $\cos(\frac{2\pi}{3}) = \cos(120°) = -0,5$ e $\sin(\frac{2\pi}{3}) = \sin(120°) = \frac{\sqrt{3}}{2} \approx 0,866$</li>
+                    <li>Portanto: $\vec{v_\theta} = (-0,5, 0,866)$</li>
+                    <li>Para confirmar o ângulo entre $\vec{v_0}$ e $\vec{v_\theta}$, usamos a fórmula do cosseno:
+                    $\cos(\alpha) = \frac{\vec{v_0} \cdot \vec{v_\theta}}{|\vec{v_0}| \cdot |\vec{v_\theta}|} = \frac{1 \cdot (-0,5) + 0 \cdot 0,866}{1 \cdot 1} = -0,5$</li>
+                    <li>Logo, $\alpha = \arccos(-0,5) = 120°$, o que confirma nossa rotação de $\frac{2\pi}{3}$ radianos.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\vec{v_\theta} = (x \cos(\theta) - y \sin(\theta), x \sin(\theta) + y \cos(\theta))$$
+                    
+                    $$\vec{v_\theta} = \left(-\frac{1}{2}, \frac{\sqrt{3}}{2}\right) \approx (-0,5, 0,866)$$
+                    
+                    $$\cos(\alpha) = \frac{\vec{v_0} \cdot \vec{v_\theta}}{|\vec{v_0}| \cdot |\vec{v_\theta}|} = -0,5 \Rightarrow \alpha = 120°$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Scanners rotativos são componentes vitais de sistemas de segurança improvisados na Zona Devastada. Compreender a matemática de sua operação permite posicionar sensores e armadilhas de forma otimizada. Um scanner que completou 2/3 de uma rotação (120°) cobre uma área significativa e pode ser programado para alertar apenas quando detecta movimento em setores específicos. Este tipo de cálculo vetorial permite aos sobreviventes maximizar a cobertura de segurança com recursos limitados, protegendo acampamentos e bunkers contra intrusos - humanos ou mutantes.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 10 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>CONVERGÊNCIA DE PATRULHAS</h3>
+            <p>Três patrulheiros partem simultaneamente de um bunker localizado na origem (0,0). O primeiro segue o vetor $\vec{u} = (3,4)$, o segundo segue o vetor $\vec{v} = (5,-2)$ e o terceiro segue o vetor $\vec{w} = (a,b)$. Sabe-se que $|\vec{w}| = 6$ e que $\vec{w}$ forma ângulos iguais com $\vec{u}$ e $\vec{v}$. Determine as coordenadas possíveis do vetor $\vec{w}$ e calcule o valor desse ângulo.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Temos $\vec{u} = (3,4)$, $\vec{v} = (5,-2)$, $|\vec{w}| = 6$ e $\vec{w} = (a,b)$.</li>
+                    <li>Calculamos os módulos dos vetores dados:
+                    $|\vec{u}| = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5$
+                    $|\vec{v}| = \sqrt{5^2 + (-2)^2} = \sqrt{25 + 4} = \sqrt{29} \approx 5,39$</li>
+                    <li>Como $\vec{w}$ forma ângulos iguais com $\vec{u}$ e $\vec{v}$, temos:
+                    $\cos(\theta_u) = \cos(\theta_v)$, onde $\theta_u$ é o ângulo entre $\vec{w}$ e $\vec{u}$, e $\theta_v$ é o ângulo entre $\vec{w}$ e $\vec{v}$.</li>
+                    <li>Em termos de produtos escalares:
+                    $\frac{\vec{w} \cdot \vec{u}}{|\vec{w}| \cdot |\vec{u}|} = \frac{\vec{w} \cdot \vec{v}}{|\vec{w}| \cdot |\vec{v}|}$</li>
+                    <li>Substituindo:
+                    $\frac{3a + 4b}{6 \cdot 5} = \frac{5a + (-2)b}{6 \cdot 5,39}$
+                    $\frac{3a + 4b}{30} = \frac{5a - 2b}{32,34}$</li>
+                    <li>Simplificando:
+                    $(3a + 4b) \cdot 32,34 = (5a - 2b) \cdot 30$
+                    $97,02a + 129,36b = 150a - 60b$
+                    $97,02a - 150a = -60b - 129,36b$
+                    $-52,98a = -189,36b$
+                    $a = \frac{189,36b}{52,98} \approx 3,57b$</li>
+                    <li>Sabemos também que $|\vec{w}| = 6$, então:
+                    $a^2 + b^2 = 36$</li>
+                    <li>Substituindo $a = 3,57b$:
+                    $(3,57b)^2 + b^2 = 36$
+                    $12,74b^2 + b^2 = 36$
+                    $13,74b^2 = 36$
+                    $b^2 = \frac{36}{13,74} \approx 2,62$
+                    $b = \pm\sqrt{2,62} \approx \pm 1,62$</li>
+                    <li>Para $b \approx 1,62$, temos $a \approx 3,57 \cdot 1,62 \approx 5,78$
+                    Para $b \approx -1,62$, temos $a \approx 3,57 \cdot (-1,62) \approx -5,78$</li>
+                    <li>Verificando nas equações originais:
+                    $\vec{w}_1 \approx (5,78, 1,62)$ ou $\vec{w}_2 \approx (-5,78, -1,62)$</li>
+                    <li>Calculamos o ângulo $\theta$ entre $\vec{w}_1$ e $\vec{u}$:
+                    $\cos(\theta) = \frac{\vec{w}_1 \cdot \vec{u}}{|\vec{w}_1| \cdot |\vec{u}|} = \frac{5,78 \cdot 3 + 1,62 \cdot 4}{6 \cdot 5} = \frac{17,34 + 6,48}{30} = \frac{23,82}{30} \approx 0,794$</li>
+                    <li>Portanto, $\theta \approx \arccos(0,794) \approx 37,5°$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\frac{\vec{w} \cdot \vec{u}}{|\vec{w}| \cdot |\vec{u}|} = \frac{\vec{w} \cdot \vec{v}}{|\vec{w}| \cdot |\vec{v}|}$$
+                    
+                    $$\vec{w}_1 \approx (5,78, 1,62) \text{ ou } \vec{w}_2 \approx (-5,78, -1,62)$$
+                    
+                    $$\theta \approx 37,5°$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Esta configuração de patrulha representa uma estratégia de exploração balanceada, onde o terceiro patrulheiro mantém equidistância angular dos outros dois. Na prática, isto otimiza a cobertura em leque e mantém uma linha de comunicação mais equilibrada entre os membros da equipe. O vetor w₁ representa um patrulheiro que segue uma direção próxima ao nordeste, enquanto w₂ representa uma rota para sudoeste. Ambas mantêm o mesmo ângulo (aproximadamente 37,5°) em relação aos outros patrulheiros. Em expedições na Zona Devastada, esta formação maximiza a área varrida enquanto mantém contato visual entre os membros, aumentando a probabilidade de encontrar recursos e reduzindo o risco de emboscadas.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 11 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>BOMBARDEIO DE PRECISÃO</h3>
+            <p>Um drone está programado para lançar um projétil de socorro (com suprimentos) em um acampamento distante. O drone está na posição D(2,5) e segue com velocidade constante na direção do vetor $\vec{v} = (3,1)$. O pacote deve ser lançado de modo que chegue exatamente no acampamento localizado no ponto A(8,2). Se o ângulo entre a trajetória do drone e a trajetória do pacote após o lançamento for 60°, determine em qual posição o drone deve soltar o pacote.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>O drone parte de D(2,5) na direção de $\vec{v} = (3,1)$. Então sua trajetória pode ser descrita como D + t·$\vec{v}$ = (2,5) + t·(3,1) = (2+3t, 5+t) para algum t ≥ 0.</li>
+                    <li>Seja P o ponto onde o drone lança o pacote. Então P = (2+3t, 5+t) para algum t.</li>
+                    <li>O vetor $\vec{PA}$ representa a trajetória do pacote do ponto de lançamento até o acampamento:
+                    $\vec{PA} = (8,2) - (2+3t, 5+t) = (6-3t, -3-t)$</li>
+                    <li>Sabemos que o ângulo entre $\vec{v}$ e $\vec{PA}$ é 60°, então:
+                    $\cos(60°) = \frac{\vec{v} \cdot \vec{PA}}{|\vec{v}| \cdot |\vec{PA}|}$</li>
+                    <li>Calculamos $|\vec{v}| = \sqrt{3^2 + 1^2} = \sqrt{9 + 1} = \sqrt{10} \approx 3,16$</li>
+                    <li>O produto escalar:
+                    $\vec{v} \cdot \vec{PA} = 3 \cdot (6-3t) + 1 \cdot (-3-t) = 18 - 9t - 3 - t = 15 - 10t$</li>
+                    <li>O módulo de $\vec{PA}$:
+                    $|\vec{PA}| = \sqrt{(6-3t)^2 + (-3-t)^2} = \sqrt{(6-3t)^2 + (3+t)^2} = \sqrt{36 - 36t + 9t^2 + 9 + 6t + t^2} = \sqrt{45 - 30t + 10t^2}$</li>
+                    <li>Aplicando a fórmula do cosseno com $\cos(60°) = 0,5$:
+                    $0,5 = \frac{15 - 10t}{3,16 \cdot \sqrt{45 - 30t + 10t^2}}$</li>
+                    <li>Elevando ambos os lados ao quadrado:
+                    $0,25 = \frac{(15 - 10t)^2}{10 \cdot (45 - 30t + 10t^2)} = \frac{225 - 300t + 100t^2}{10 \cdot (45 - 30t + 10t^2)} = \frac{22,5 - 30t + 10t^2}{45 - 30t + 10t^2}$</li>
+                    <li>Simplificando:
+                    $0,25 \cdot (45 - 30t + 10t^2) = 22,5 - 30t + 10t^2$
+                    $11,25 - 7,5t + 2,5t^2 = 22,5 - 30t + 10t^2$
+                    $11,25 - 7,5t + 2,5t^2 - 22,5 + 30t - 10t^2 = 0$
+                    $-11,25 + 22,5t - 7,5t^2 = 0$</li>
+                    <li>Resolvendo esta equação quadrática:
+                    $t = \frac{-22,5 \pm \sqrt{22,5^2 - 4 \cdot (-11,25) \cdot (-7,5)}}{2 \cdot (-7,5)} = \frac{-22,5 \pm \sqrt{506,25 - 337,5}}{-15} = \frac{-22,5 \pm \sqrt{168,75}}{-15} = \frac{-22,5 \pm 13}{-15}$</li>
+                    <li>Isso nos dá $t_1 = \frac{-22,5 + 13}{-15} = \frac{-9,5}{-15} \approx 0,63$ e $t_2 = \frac{-22,5 - 13}{-15} = \frac{-35,5}{-15} \approx 2,37$</li>
+                    <li>Como o drone parte de D, o valor de t deve ser positivo. Ambas soluções são válidas matematicamente, mas vamos verificar qual faz mais sentido no contexto.
+                    Para $t_1 = 0,63$, a posição de lançamento seria P(2+3·0,63, 5+0,63) ≈ P(3,9, 5,63)
+                    Para $t_2 = 2,37$, a posição de lançamento seria P(2+3·2,37, 5+2,37) ≈ P(9,1, 7,37)</li>
+                    <li>A segunda solução coloca o drone além do acampamento, então o pacote teria que voltar, o que não faz sentido fisicamente. Portanto, a posição de lançamento é aproximadamente P(3,9, 5,63).</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\cos(60°) = \frac{\vec{v} \cdot \vec{PA}}{|\vec{v}| \cdot |\vec{PA}|}$$
+                    
+                    $$P \approx (3,9, 5,63)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A precisão em entregas aéreas é vital em um mundo fragmentado, onde comunidades isoladas dependem de suprimentos externos. O cálculo do ponto exato de lançamento, considerando a trajetória do drone e o ângulo de queda do pacote, maximiza a chance de entrega bem-sucedida e minimiza o desperdício de recursos preciosos. Em termos práticos, o drone deve liberar o pacote quando estiver apenas a uma curta distância do seu ponto de partida (aproximadamente 2 unidades), permitindo que o pacote siga uma trajetória descendente a 60° em relação à rota do drone. Este tipo de precisão matemática é a diferença entre entregar medicamentos vitais com sucesso ou vê-los perdidos em território hostil.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 12 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>TRIANGULAÇÃO DE IRRADIAÇÃO</h3>
+            <p>Três detectores de radiação foram posicionados nos pontos A(0,0), B(5,0) e C(2,4). Cada detector consegue determinar a direção (mas não a distância) de uma fonte de radiação. Os detectores A, B e C detectam a fonte nas direções dadas pelos vetores unitários $\vec{u}_A = \frac{1}{\sqrt{5}}(2,1)$, $\vec{u}_B = \frac{1}{\sqrt{5}}(-1,2)$ e $\vec{u}_C$, respectivamente. Sabendo que a fonte de radiação está localizada em um único ponto e que os ângulos entre quaisquer dois dos vetores $\vec{u}_A$, $\vec{u}_B$ e $\vec{u}_C$ são todos diferentes, determine o vetor unitário $\vec{u}_C$ e as coordenadas da fonte de radiação.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Seja S(x,y) a posição da fonte de radiação. Os vetores de direção dos detectores para a fonte são:
+                    $\vec{AS} = (x,y) - (0,0) = (x,y)$
+                    $\vec{BS} = (x,y) - (5,0) = (x-5,y)$
+                    $\vec{CS} = (x,y) - (2,4) = (x-2,y-4)$</li>
+                    <li>Sabemos que $\vec{u}_A = \frac{\vec{AS}}{|\vec{AS}|} = \frac{1}{\sqrt{5}}(2,1)$, então:
+                    $\frac{(x,y)}{\sqrt{x^2 + y^2}} = \frac{1}{\sqrt{5}}(2,1)$
+                    $(x,y) = \frac{\sqrt{x^2 + y^2}}{\sqrt{5}}(2,1) = \sqrt{\frac{x^2 + y^2}{5}}(2,1)$
+                    $x = 2\sqrt{\frac{x^2 + y^2}{5}}, y = \sqrt{\frac{x^2 + y^2}{5}}$
+                    $\frac{x}{2} = \frac{y}{1} = \sqrt{\frac{x^2 + y^2}{5}}$</li>
+                    <li>Isso implica que $\frac{x}{2} = \frac{y}{1}$, portanto $x = 2y$. A fonte está em algum ponto da semi-reta que parte de A na direção de $\vec{u}_A$.</li>
+                    <li>Similarmente, com $\vec{u}_B = \frac{\vec{BS}}{|\vec{BS}|} = \frac{1}{\sqrt{5}}(-1,2)$:
+                    $\frac{(x-5,y)}{\sqrt{(x-5)^2 + y^2}} = \frac{1}{\sqrt{5}}(-1,2)$
+                    Isso implica que $\frac{x-5}{-1} = \frac{y}{2}$, ou seja, $y = -2(x-5) = -2x+10$</li>
+                    <li>Combinando as duas equações:
+                    $x = 2y$ e $y = -2x+10$
+                    $x = 2(-2x+10) = -4x+20$
+                    $5x = 20$
+                    $x = 4$</li>
+                    <li>Substituindo: $y = -2(4-5) = -2(-1) = 2$</li>
+                    <li>Portanto, a fonte está no ponto S(4,2)</li>
+                    <li>Para encontrar $\vec{u}_C$, calculamos:
+                    $\vec{CS} = (4,2) - (2,4) = (2,-2)$
+                    $|\vec{CS}| = \sqrt{2^2 + (-2)^2} = \sqrt{4 + 4} = \sqrt{8} = 2\sqrt{2} \approx 2,83$
+                    $\vec{u}_C = \frac{\vec{CS}}{|\vec{CS}|} = \frac{(2,-2)}{2\sqrt{2}} = \frac{1}{\sqrt{2}}(1,-1) \approx (0,71, -0,71)$</li>
+                    <li>Verificando os ângulos entre os vetores unitários:
+                    $\vec{u}_A \cdot \vec{u}_B = \frac{1}{\sqrt{5}}(2,1) \cdot \frac{1}{\sqrt{5}}(-1,2) = \frac{1}{5}(-2 + 2) = 0$, então o ângulo entre $\vec{u}_A$ e $\vec{u}_B$ é 90°
+                    $\vec{u}_A \cdot \vec{u}_C = \frac{1}{\sqrt{5}}(2,1) \cdot \frac{1}{\sqrt{2}}(1,-1) = \frac{1}{\sqrt{10}}(2 - 1) = \frac{1}{\sqrt{10}} \approx 0,316$, então o ângulo entre $\vec{u}_A$ e $\vec{u}_C$ é $\arccos(0,316) \approx 71,6°$
+                    $\vec{u}_B \cdot \vec{u}_C = \frac{1}{\sqrt{5}}(-1,2) \cdot \frac{1}{\sqrt{2}}(1,-1) = \frac{1}{\sqrt{10}}(-1 - 2) = -\frac{3}{\sqrt{10}} \approx -0,95$, então o ângulo entre $\vec{u}_B$ e $\vec{u}_C$ é $\arccos(-0,95) \approx 161,6°$</li>
+                    <li>Confirmamos que os três ângulos (90°, 71,6° e 161,6°) são todos diferentes.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\vec{u}_C = \frac{1}{\sqrt{2}}(1,-1) \approx (0,71, -0,71)$$
+                    
+                    $$S(4,2)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A triangulação é uma técnica vital na localização de fontes de radiação na Zona Devastada. Usando três detectores, conseguimos determinar com precisão a posição do ponto S(4,2) onde a radiação está concentrada. Os ângulos distintos entre os vetores de direção garantem que estamos identificando um único ponto, não uma região ambígua. Esta técnica permite aos sobreviventes mapearem "pontos quentes" sem precisar se aproximar fisicamente deles, minimizando a exposição à radiação enquanto exploram ruínas urbanas ou instalações industriais abandonadas. O mesmo princípio matemático pode ser aplicado para localizar fontes de sinais de rádio, depósitos subterrâneos ou até mesmo comunidades hostis à distância segura.</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- RODAPÉ DO DOCUMENTO -->
+    <div class="footer">
+        REFÚGIO-TEC | ÂNGULOS ENTRE VETORES: Sobrevivência Matemática - Conhecer a direção é tão importante quanto saber o caminho
+    </div>
 </body>
 </html>
