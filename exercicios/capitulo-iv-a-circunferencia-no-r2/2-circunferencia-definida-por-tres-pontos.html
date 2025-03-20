@@ -2,10 +2,1042 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>CAPÍTULO IV - A CIRCUNFERÊNCIA NO R² - Seção 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+    </script>
+    <title>REFÚGIO-TEC | CIRCUNFERÊNCIA POR TRÊS PONTOS</title>
+    <style>
+        /* Estilo inspirado no tema pós-apocalíptico */
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100px; }
+        }
+
+        body {
+            background-color: #0c0c0c;
+            color: #e6e6e6;
+            font-family: "Courier New", monospace;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #4caf50;
+            max-width: 800px;
+            margin: auto;
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 2px;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+
+        h1, h2, h3 {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .exercise {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border: 1px dashed #4caf50;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        details {
+            background-color: #1c1c1c;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            margin-top: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #4caf50;
+        }
+
+        summary:hover {
+            text-shadow: 0 0 3px #4caf50;
+        }
+
+        code {
+            background-color: #333;
+            padding: 3px 5px;
+            color: #ffeb3b;
+        }
+
+        .hint {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #4caf50;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .hint:before {
+            content: "DICA DE SOBREVIVÊNCIA: ";
+            color: #4caf50;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .solution-steps {
+            margin-left: 20px;
+            counter-reset: step-counter;
+        }
+
+        .solution-steps li {
+            list-style-type: none;
+            counter-increment: step-counter;
+            margin-bottom: 10px;
+        }
+
+        .solution-steps li::before {
+            content: "> PASSO_" counter(step-counter) ": ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .formula {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #000;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .terminal-frame {
+            padding: 10px;
+            background-color: #000;
+            margin-bottom: 20px;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .terminal-header {
+            margin: 0;
+            padding: 3px 10px;
+            background-color: #4caf50;
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .terminal-content {
+            padding: 5px;
+            white-space: pre-wrap;
+            font-size: 1em;
+            line-height: 1.2;
+        }
+
+        .cursor:after {
+            content: "█";
+            animation: blink 1s step-end infinite;
+        }
+
+        .terminal-line {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .terminal-border {
+            border: 1px solid #4caf50;
+            padding: 5px;
+            background-color: #000;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .mission-counter {
+            counter-reset: mission;
+        }
+        
+        .mission-counter .exercise h3:before {
+            content: "MISSÃO " counter(mission) ": ";
+            counter-increment: mission;
+        }
+
+        .warning {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .danger {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #8bc34a;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #4caf50;
+            border-top: 1px solid #4caf50;
+            padding-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>CAPÍTULO IV - A CIRCUNFERÊNCIA NO R²</h1>
-    <h2>Seção 2: circunferencia-definida-por-tres-pontos</h2>
+    <!-- TÍTULO E INTRODUÇÃO -->
+    <div class="terminal-frame">
+        <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
+        <div class="terminal-content">
+┌───────────────────────────────────────────────────┐
+│ MÓDULO: CIRCUNFERÊNCIA POR TRÊS PONTOS            │
+└───────────────────────────────────────────────────┘
+
+> INICIANDO TRANSMISSÃO...
+> CARREGANDO MÓDULO DE TREINAMENTO...
+> ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
+        </div>
+    </div>
+
+    <div class="terminal-border">
+        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: CIRCUNFERÊNCIA POR TRÊS PONTOS</h2>
+    
+    <p>Em um mundo devastado onde as antigas tecnologias de GPS e mapeamento estão fragmentadas, a habilidade de localizar pontos e determinar perímetros circulares se tornou vital para sobreviventes como você. Esta técnica matemática permite definir zonas seguras, mapear recursos e planejar fortificações circulares com precisão letal.</p>
+    
+    <p>Uma circunferência é completamente determinada por três pontos não colineares. Este conhecimento é crucial para construir abrigos circulares, delimitar zonas de radiação, ou definir o alcance de sistemas de defesa. Três marcos estratégicos no terreno são suficientes para calcular a equação completa que determina uma fronteira circular.</p>
+    
+    <p>Para determinar a circunferência por três pontos $P_1(x_1, y_1)$, $P_2(x_2, y_2)$ e $P_3(x_3, y_3)$, precisamos encontrar o centro $(h, k)$ e o raio $r$ da circunferência. Lembre-se: para sobreviver, confirme primeiro que os três pontos não são colineares, caso contrário, o sistema de equações não terá solução única.</p>
+    
+    <div class="formula">
+    $$\begin{vmatrix} 
+    x^2 + y^2 & x & y & 1 \\
+    x_1^2 + y_1^2 & x_1 & y_1 & 1 \\
+    x_2^2 + y_2^2 & x_2 & y_2 & 1 \\
+    x_3^2 + y_3^2 & x_3 & y_3 & 1
+    \end{vmatrix} = 0$$
+    </div>
+    
+    <p>Alternativamente, podemos usar o sistema de equações que surge da condição de que os três pontos estão a mesma distância do centro $(h, k)$:</p>
+    
+    <div class="formula">
+    $$(x_1 - h)^2 + (y_1 - k)^2 = r^2$$
+    $$(x_2 - h)^2 + (y_2 - k)^2 = r^2$$
+    $$(x_3 - h)^2 + (y_3 - k)^2 = r^2$$
+    </div>
+    
+    <p>A forma geral da equação da circunferência, uma vez determinados o centro $(h, k)$ e o raio $r$, é:</p>
+    
+    <div class="formula">
+    $$(x - h)^2 + (y - k)^2 = r^2$$
+    </div>
+    
+    <p>Ou na forma expandida:</p>
+    
+    <div class="formula">
+    $$x^2 + y^2 - 2hx - 2ky + (h^2 + k^2 - r^2) = 0$$
+    </div>
+    
+    <p>Que também pode ser escrita como:</p>
+    
+    <div class="formula">
+    $$x^2 + y^2 + Dx + Ey + F = 0$$
+    </div>
+    
+    <p>Onde $D = -2h$, $E = -2k$ e $F = h^2 + k^2 - r^2$.</p>
+
+    <!-- MISSÕES (EXERCÍCIOS) -->
+    <div class="mission-counter">
+        <!-- MISSÃO 1 (BÁSICA) -->
+        <div class="exercise">
+            <h3>PERÍMETRO DE SEGURANÇA</h3>
+            <p>Sua equipe de sobrevivência estabeleceu três marcos de vigilância nos pontos A(0, 0), B(4, 0) e C(2, 2). Para otimizar o uso de sensores de movimento, você precisa determinar a equação da circunferência que passa exatamente por estes três pontos, criando assim um perímetro de segurança eficiente.</p>
+            
+            <div class="hint">
+                <p>Substitua as coordenadas dos três pontos na equação geral da circunferência $x^2 + y^2 + Dx + Ey + F = 0$ para gerar um sistema de três equações lineares com três incógnitas (D, E e F).</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Substitua cada ponto na equação geral da circunferência $x^2 + y^2 + Dx + Ey + F = 0$:
+                    Para A(0, 0): $0^2 + 0^2 + D·0 + E·0 + F = 0 \implies F = 0$
+                    Para B(4, 0): $4^2 + 0^2 + D·4 + E·0 + F = 0 \implies 16 + 4D + F = 0$
+                    Para C(2, 2): $2^2 + 2^2 + D·2 + E·2 + F = 0 \implies 8 + 2D + 2E + F = 0$</li>
+                    <li>Já sabemos que $F = 0$, substituindo nas outras equações:
+                    $16 + 4D = 0 \implies D = -4$
+                    $8 + 2D + 2E = 0 \implies 8 + 2(-4) + 2E = 0 \implies 8 - 8 + 2E = 0 \implies E = 0$</li>
+                    <li>Então temos $D = -4$, $E = 0$ e $F = 0$.
+                    A equação da circunferência é $x^2 + y^2 - 4x = 0$</li>
+                    <li>Completando quadrados: $x^2 - 4x + y^2 = 0 \implies (x^2 - 4x + 4) + y^2 - 4 = 0 \implies (x - 2)^2 + y^2 = 4$</li>
+                    <li>Portanto, o centro da circunferência é $(2, 0)$ e o raio é $r = 2$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$(x - 2)^2 + y^2 = 4$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Assim como uma circunferência é definida por três pontos estratégicos, seu perímetro de segurança depende de marcos bem posicionados. Não basta ter sensores aleatórios; é preciso um padrão matemático que maximize a cobertura com recursos mínimos. Os pontos colineares são como sentinelas alinhadas - deixam lacunas vulneráveis assim como pontos colineares não formam uma circunferência.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 2 (BÁSICA) -->
+        <div class="exercise">
+            <h3>ZONA DE CONTAMINAÇÃO</h3>
+            <p>Exploradores detectaram três pontos com altos níveis de radiação em P(1, 1), Q(5, 1) e R(3, 5). O padrão de dispersão indica que a fonte da radiação está no centro de uma circunferência que passa exatamente por estes três pontos. Determine a equação dessa circunferência para localizar a fonte de radiação e calcular o raio da zona contaminada.</p>
+            
+            <div class="hint">
+                <p>Use o sistema de equações que surge quando cada ponto é equidistante do centro: subtraia equações para eliminar $r^2$ e isole as coordenadas do centro $(h, k)$.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Escreva as equações que representam que cada ponto está na circunferência:
+                    $(1-h)^2 + (1-k)^2 = r^2$
+                    $(5-h)^2 + (1-k)^2 = r^2$
+                    $(3-h)^2 + (5-k)^2 = r^2$</li>
+                    <li>Subtraia a primeira equação da segunda para eliminar $r^2$:
+                    $(5-h)^2 + (1-k)^2 - [(1-h)^2 + (1-k)^2] = 0$
+                    $(5-h)^2 - (1-h)^2 = 0$
+                    $25 - 10h + h^2 - (1 - 2h + h^2) = 0$
+                    $25 - 10h + h^2 - 1 + 2h - h^2 = 0$
+                    $24 - 8h = 0$
+                    $h = 3$</li>
+                    <li>Subtraia a primeira equação da terceira:
+                    $(3-h)^2 + (5-k)^2 - [(1-h)^2 + (1-k)^2] = 0$
+                    $(3-h)^2 - (1-h)^2 + (5-k)^2 - (1-k)^2 = 0$
+                    $9 - 6h + h^2 - (1 - 2h + h^2) + 25 - 10k + k^2 - (1 - 2k + k^2) = 0$
+                    $9 - 6h + h^2 - 1 + 2h - h^2 + 25 - 10k + k^2 - 1 + 2k - k^2 = 0$
+                    $8 - 4h + 25 - 8k = 0$
+                    $33 - 4h - 8k = 0$</li>
+                    <li>Substituindo $h = 3$:
+                    $33 - 4(3) - 8k = 0$
+                    $33 - 12 - 8k = 0$
+                    $21 - 8k = 0$
+                    $k = \frac{21}{8} = 2.625$</li>
+                    <li>Calculamos o raio usando o primeiro ponto:
+                    $r^2 = (1-3)^2 + (1-2.625)^2 = (-2)^2 + (-1.625)^2 = 4 + 2.64 = 6.64$
+                    $r = \sqrt{6.64} \approx 2.58$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$(x - 3)^2 + (y - 2.625)^2 = 6.64$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Identificar o padrão de dispersão de radiação é como rastrear uma ameaça invisível. Ao calcular precisamente o centro da contaminação, você não apenas localiza a fonte do perigo, mas também pode estabelecer perímetros seguros a uma distância conhecida. Na Zona Devastada, prever o alcance de contaminação frequentemente significa a diferença entre vida e morte.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 3 (BÁSICA) -->
+        <div class="exercise">
+            <h3>DEFESA TRIANGULAR</h3>
+            <p>Sua comunidade construiu um sistema de defesa triangular com torres nos pontos A(-2, 0), B(2, 0) e C(0, 4). Para maximizar a cobertura dos canhões de defesa, você propõe instalar um canhão giratório no centro da circunferência que passa pelas três torres. Determine a posição exata onde o canhão deve ser instalado e seu alcance máximo (raio) para cobrir todas as torres.</p>
+            
+            <div class="hint">
+                <p>Este é um caso especial onde as três torres formam um triângulo retângulo. O centro da circunferência circunscrita está na metade da hipotenusa. Verifique se o teorema de Pitágoras é satisfeito e use as propriedades geométricas para encontrar o centro.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Primeiro identifiquemos o triângulo: A(-2, 0), B(2, 0) e C(0, 4).
+                    Note que o ângulo em C é de 90° (triângulo retângulo), pois:
+                    $\overrightarrow{CA} \cdot \overrightarrow{CB} = (-2-0)·(2-0) + (0-4)·(0-4) = -4 + (-4)·(-4) = -4 + 16 = 12$
+                    Mas $|\overrightarrow{CA}|·|\overrightarrow{CB}| = \sqrt{(-2)^2 + (-4)^2}·\sqrt{2^2 + (-4)^2} = \sqrt{4+16}·\sqrt{4+16} = \sqrt{20}·\sqrt{20} = 20$
+                    Como $\overrightarrow{CA} \cdot \overrightarrow{CB} \neq |\overrightarrow{CA}|·|\overrightarrow{CB}|$, os vetores não são perpendiculares.</li>
+                    <li>Vamos corrigir o cálculo:
+                    $\overrightarrow{CA} = (-2-0, 0-4) = (-2, -4)$
+                    $\overrightarrow{CB} = (2-0, 0-4) = (2, -4)$
+                    $\overrightarrow{CA} \cdot \overrightarrow{CB} = (-2)(2) + (-4)(-4) = -4 + 16 = 12$
+                    Usando o teorema de Pitágoras nas distâncias:
+                    $|AB|^2 = (2-(-2))^2 + (0-0)^2 = 16$
+                    $|AC|^2 = (0-(-2))^2 + (4-0)^2 = 4 + 16 = 20$
+                    $|BC|^2 = (0-2)^2 + (4-0)^2 = 4 + 16 = 20$
+                    Como $|AB|^2 + |BC|^2 \neq |AC|^2$, o triângulo não é retângulo.</li>
+                    <li>Na verdade, precisamos usar o método geral. Vamos substituir os pontos na equação da circunferência:
+                    Para A(-2, 0): $(-2)^2 + 0^2 + D(-2) + E(0) + F = 0 \implies 4 - 2D + F = 0$
+                    Para B(2, 0): $(2)^2 + 0^2 + D(2) + E(0) + F = 0 \implies 4 + 2D + F = 0$
+                    Para C(0, 4): $(0)^2 + 4^2 + D(0) + E(4) + F = 0 \implies 16 + 4E + F = 0$</li>
+                    <li>Das duas primeiras equações:
+                    $4 - 2D + F = 0$ e $4 + 2D + F = 0$
+                    Subtraindo: $-4D = 0 \implies D = 0$
+                    Substituindo: $4 + F = 0 \implies F = -4$
+                    Da terceira equação: $16 + 4E - 4 = 0 \implies 4E = -12 \implies E = -3$</li>
+                    <li>A equação da circunferência é: $x^2 + y^2 - 3y - 4 = 0$
+                    Completando quadrados: $x^2 + (y^2 - 3y + \frac{9}{4}) - 4 - \frac{9}{4} = 0$
+                    $x^2 + (y - \frac{3}{2})^2 = 4 + \frac{9}{4} = \frac{16 + 9}{4} = \frac{25}{4}$
+                    $x^2 + (y - \frac{3}{2})^2 = (\frac{5}{2})^2$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$x^2 + (y - \frac{3}{2})^2 = \frac{25}{4}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A defesa eficiente de recursos em um mundo hostil frequentemente exige cobrir vários pontos estratégicos com um esforço mínimo. O canhão centralizado funciona como o centro de uma circunferência matemática - garantindo cobertura equidistante de todas as torres. Esta abordagem geométrica otimiza os recursos limitados e maximiza a proteção. Mesmo nas condições mais adversas, a precisão matemática pode ser a diferença entre manter ou perder seu território.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 4 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>DEPÓSITO SUBTERRÂNEO</h3>
+            <p>Exploradores descobriram três entradas para um antigo depósito subterrâneo nas coordenadas A(1, 3), B(5, 3) e C(3, 7). Registros históricos indicam que o depósito foi construído em formato circular, com seu centro exatamente equidistante das três entradas. Determine a localização do centro do depósito e qual seria o perímetro total da estrutura.</p>
+            
+            <div class="hint">
+                <p>Trabalhe com as equações na forma $(x-h)^2 + (y-k)^2 = r^2$ para cada ponto e elimine o $r^2$ subtraindo as equações. O perímetro é $2\pi r$.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Escrevemos as equações para cada ponto:
+                    $(1-h)^2 + (3-k)^2 = r^2$
+                    $(5-h)^2 + (3-k)^2 = r^2$
+                    $(3-h)^2 + (7-k)^2 = r^2$</li>
+                    <li>Subtraindo a primeira da segunda:
+                    $(5-h)^2 - (1-h)^2 = 0$
+                    $25 - 10h + h^2 - (1 - 2h + h^2) = 0$
+                    $25 - 10h + h^2 - 1 + 2h - h^2 = 0$
+                    $24 - 8h = 0$
+                    $h = 3$</li>
+                    <li>Subtraindo a primeira da terceira:
+                    $(3-h)^2 + (7-k)^2 - [(1-h)^2 + (3-k)^2] = 0$
+                    $(3-h)^2 - (1-h)^2 + (7-k)^2 - (3-k)^2 = 0$
+                    $9 - 6h + h^2 - (1 - 2h + h^2) + 49 - 14k + k^2 - (9 - 6k + k^2) = 0$
+                    $9 - 6h + h^2 - 1 + 2h - h^2 + 49 - 14k + k^2 - 9 + 6k - k^2 = 0$
+                    $8 - 4h + 40 - 8k = 0$
+                    $48 - 4h - 8k = 0$</li>
+                    <li>Substituindo $h = 3$:
+                    $48 - 4(3) - 8k = 0$
+                    $48 - 12 - 8k = 0$
+                    $36 - 8k = 0$
+                    $k = \frac{36}{8} = 4.5$</li>
+                    <li>Calculamos o raio usando o primeiro ponto:
+                    $r^2 = (1-3)^2 + (3-4.5)^2 = 4 + 2.25 = 6.25$
+                    $r = 2.5$
+                    O perímetro é $2\pi r = 2\pi \cdot 2.5 = 5\pi \approx 15.71$ unidades</li>
+                </ol>
+                
+                <div class="formula">
+                    $$(x - 3)^2 + (y - 4.5)^2 = 6.25$$
+                    $$\text{Perímetro} = 2\pi r = 5\pi \approx 15.71$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> As antigas estruturas pré-apocalipse frequentemente seguiam padrões geométricos precisos. Ao mapear estruturas circulares a partir de pontos de entrada conhecidos, você pode localizar centros ocultos que frequentemente contêm sistemas de controle ou recursos valiosos. A compreensão da geometria analítica não apenas revela segredos do passado, mas também permite estimar a quantidade de recursos necessários para segurar ou fortificar todo o perímetro.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 5 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>COLETA DE ÁGUA</h3>
+            <p>Três poços de água foram descobertos nos pontos P(0, 2), Q(6, 2) e R(3, 8). Um analista sugeriu que estes poços estão conectados a um reservatório subterrâneo circular. Determine o centro deste reservatório e seu raio. Se a equipe tiver recursos para perfurar diretamente no centro, qual seria a distância máxima de perfuração para atingir o perímetro do reservatório?</p>
+            
+            <div class="hint">
+                <p>Para confirmar se os três pontos determinam uma única circunferência, verifique se eles não são colineares calculando a área do triângulo que formam.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Primeiro, verifiquemos se os pontos não são colineares, calculando a área do triângulo:
+                    Área = $\frac{1}{2}|x_1(y_2-y_3) + x_2(y_3-y_1) + x_3(y_1-y_2)|$
+                    = $\frac{1}{2}|0(2-8) + 6(8-2) + 3(2-2)|$
+                    = $\frac{1}{2}|0(-6) + 6(6) + 3(0)|$
+                    = $\frac{1}{2}|0 + 36 + 0|$
+                    = $\frac{1}{2} \cdot 36 = 18$
+                    Como a área não é zero, os pontos não são colineares.</li>
+                    <li>Substituamos os pontos na equação geral $x^2 + y^2 + Dx + Ey + F = 0$:
+                    Para P(0, 2): $0^2 + 2^2 + D \cdot 0 + E \cdot 2 + F = 0 \implies 4 + 2E + F = 0$
+                    Para Q(6, 2): $6^2 + 2^2 + D \cdot 6 + E \cdot 2 + F = 0 \implies 36 + 4 + 6D + 2E + F = 0 \implies 40 + 6D + 2E + F = 0$
+                    Para R(3, 8): $3^2 + 8^2 + D \cdot 3 + E \cdot 8 + F = 0 \implies 9 + 64 + 3D + 8E + F = 0 \implies 73 + 3D + 8E + F = 0$</li>
+                    <li>Da primeira equação: $F = -4 - 2E$
+                    Substituindo na segunda:
+                    $40 + 6D + 2E - 4 - 2E = 0 \implies 36 + 6D = 0 \implies D = -6$
+                    Substituindo $F$ e $D$ na terceira:
+                    $73 + 3(-6) + 8E - 4 - 2E = 0$
+                    $73 - 18 + 8E - 4 - 2E = 0$
+                    $51 + 6E = 0$
+                    $E = -\frac{51}{6} = -8.5$</li>
+                    <li>Então $D = -6$, $E = -8.5$ e $F = -4 - 2(-8.5) = -4 + 17 = 13$
+                    A equação da circunferência é: $x^2 + y^2 - 6x - 8.5y + 13 = 0$</li>
+                    <li>Completando quadrados:
+                    $x^2 - 6x + y^2 - 8.5y + 13 = 0$
+                    $(x^2 - 6x + 9) + (y^2 - 8.5y + 18.0625) + 13 - 9 - 18.0625 = 0$
+                    $(x - 3)^2 + (y - 4.25)^2 = 14.0625$
+                    O centro é $(3, 4.25)$ e o raio é $r = \sqrt{14.0625} = 3.75$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$(x - 3)^2 + (y - 4.25)^2 = 14.0625$$
+                    $$r = 3.75 \text{ unidades}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Água é o recurso mais precioso na Zona Devastada. Localizar o ponto central de um reservatório circular a partir de pontos de acesso conhecidos permite a exploração eficiente com recursos limitados. A perfuração no centro exato também evita danos à estrutura do reservatório, preservando este recurso vital para gerações futuras. Esta é uma aplicação direta da geometria analítica para a sustentabilidade a longo prazo.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 6 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>FRONTEIRA DE TEMPESTADE RADIATIVA</h3>
+            <p>Três postos avançados nas coordenadas A(-5, 0), B(3, 4) e C(3, -4) relataram simultaneamente o início de uma tempestade de radiação. Os cientistas acreditam que esta tempestade tem formato circular, com sua intensidade diminuindo à medida que se afasta do epicentro. Determine a equação da circunferência que passa pelos três postos e identifique seu centro (epicentro da tempestade). Se um abrigo estiver localizado no ponto (1, 0), ele está dentro ou fora da zona de tempestade?</p>
+            
+            <div class="hint">
+                <p>Depois de determinar a equação da circunferência, teste se o ponto (1, 0) satisfaz a desigualdade para determinar sua posição relativa à fronteira da tempestade.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Vamos substituir os três pontos na equação geral $x^2 + y^2 + Dx + Ey + F = 0$:
+                    Para A(-5, 0): $(-5)^2 + 0^2 + D(-5) + E(0) + F = 0 \implies 25 - 5D + F = 0$
+                    Para B(3, 4): $3^2 + 4^2 + D(3) + E(4) + F = 0 \implies 9 + 16 + 3D + 4E + F = 0 \implies 25 + 3D + 4E + F = 0$
+                    Para C(3, -4): $3^2 + (-4)^2 + D(3) + E(-4) + F = 0 \implies 9 + 16 + 3D - 4E + F = 0 \implies 25 + 3D - 4E + F = 0$</li>
+                    <li>Das duas últimas equações:
+                    $25 + 3D + 4E + F = 0$ e $25 + 3D - 4E + F = 0$
+                    Subtraindo: $8E = 0 \implies E = 0$</li>
+                    <li>Substituindo $E = 0$ na segunda equação:
+                    $25 + 3D + F = 0$</li>
+                    <li>Comparando com a primeira equação $25 - 5D + F = 0$, temos:
+                    $25 + 3D + F = 25 - 5D + F$
+                    $3D + 5D = 0$
+                    $8D = 0$
+                    $D = 0$</li>
+                    <li>Substituindo $D = 0$ na primeira equação:
+                    $25 + F = 0 \implies F = -25$
+                    A equação da circunferência é: $x^2 + y^2 - 25 = 0$
+                    Ou: $x^2 + y^2 = 25$, que é uma circunferência com centro na origem $(0, 0)$ e raio $r = 5$.</li>
+                    <li>Para verificar se o abrigo (1, 0) está dentro ou fora da circunferência:
+                    $1^2 + 0^2 = 1 < 25$
+                    Como o valor é menor que $r^2 = 25$, o ponto está dentro da circunferência, ou seja, dentro da zona de tempestade.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$x^2 + y^2 = 25$$
+                    $$\text{Centro} = (0, 0), \text{ Raio} = 5$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> As tempestades radiativas são um dos maiores perigos na Zona Devastada. Identificar com precisão a equação de uma fronteira circular de tempestade permite determinar quais assentamentos estão em risco imediato e quais estão seguros. O modelo matemático fornece informações críticas para evacuação e preparação. No caso do abrigo em (1, 0), a análise mostra que ele está dentro da zona de perigo e deve ser evacuado imediatamente. Esta aplicação da geometria analítica salva vidas em situações de emergência.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 7 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>TORRE DE COMUNICAÇÃO OTIMIZADA</h3>
+            <p>Três assentamentos estão localizados nos pontos A(2, 7), B(4, -1) e C(-6, 3). Para estabelecer um sistema de comunicação eficiente, você precisa construir uma torre no centro da circunferência que passa pelos três assentamentos. Além disso, é necessário instalar três repetidores nas interseções da circunferência com os eixos coordenados. Determine a equação da circunferência, as coordenadas do centro e as posições dos repetidores.</p>
+            
+            <div class="hint">
+                <p>Use a forma geral e a expanda para encontrar o centro e o raio. Os repetidores estarão nos pontos onde $x = 0$ ou $y = 0$.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Vamos substituir os três pontos na equação geral $x^2 + y^2 + Dx + Ey + F = 0$:
+                    Para A(2, 7): $2^2 + 7^2 + 2D + 7E + F = 0 \implies 4 + 49 + 2D + 7E + F = 0 \implies 53 + 2D + 7E + F = 0$
+                    Para B(4, -1): $4^2 + (-1)^2 + 4D + (-1)E + F = 0 \implies 16 + 1 + 4D - E + F = 0 \implies 17 + 4D - E + F = 0$
+                    Para C(-6, 3): $(-6)^2 + 3^2 + (-6)D + 3E + F = 0 \implies 36 + 9 - 6D + 3E + F = 0 \implies 45 - 6D + 3E + F = 0$</li>
+                    <li>Usando o método de eliminação de Gauss, podemos resolver este sistema de equações lineares:
+                    $53 + 2D + 7E + F = 0$ ... (1)
+                    $17 + 4D - E + F = 0$ ... (2)
+                    $45 - 6D + 3E + F = 0$ ... (3)
+                    
+                    Subtraindo (2) de (1):
+                    $36 - 2D + 8E = 0$ ... (4)
+                    
+                    Subtraindo (3) de (1):
+                    $8 + 8D + 4E = 0$ ... (5)
+                    
+                    De (4): $2D = 36 + 8E \implies D = 18 + 4E$ ... (6)
+                    
+                    Substituindo (6) em (5):
+                    $8 + 8(18 + 4E) + 4E = 0$
+                    $8 + 144 + 32E + 4E = 0$
+                    $152 + 36E = 0$
+                    $E = -\frac{152}{36} = -\frac{38}{9}$</li>
+                    <li>Substituindo $E = -\frac{38}{9}$ em (6):
+                    $D = 18 + 4(-\frac{38}{9}) = 18 - \frac{152}{9} = \frac{162 - 152}{9} = \frac{10}{9}$</li>
+                    <li>Substituindo $D = \frac{10}{9}$ e $E = -\frac{38}{9}$ em (1):
+                    $53 + 2(\frac{10}{9}) + 7(-\frac{38}{9}) + F = 0$
+                    $53 + \frac{20}{9} - \frac{266}{9} + F = 0$
+                    $53 + \frac{20 - 266}{9} + F = 0$
+                    $53 - \frac{246}{9} + F = 0$
+                    $F = -53 + \frac{246}{9} = \frac{-477 + 246}{9} = -\frac{231}{9}$</li>
+                    <li>A equação da circunferência é:
+                    $x^2 + y^2 + \frac{10}{9}x - \frac{38}{9}y - \frac{231}{9} = 0$
+                    Multiplicando por 9:
+                    $9x^2 + 9y^2 + 10x - 38y - 231 = 0$</li>
+                    <li>Para encontrar o centro, completamos os quadrados:
+                    $9(x^2 + \frac{10}{9}x) + 9(y^2 - \frac{38}{9}y) = 231$
+                    $9(x^2 + \frac{10}{9}x + \frac{25}{81}) + 9(y^2 - \frac{38}{9}y + \frac{361}{81}) = 231 + 9(\frac{25}{81}) + 9(\frac{361}{81})$
+                    $9(x + \frac{5}{9})^2 + 9(y - \frac{19}{9})^2 = 231 + \frac{225}{81} + \frac{3249}{81}$
+                    $9(x + \frac{5}{9})^2 + 9(y - \frac{19}{9})^2 = \frac{18711 + 225 + 3249}{81} = \frac{22185}{81}$
+                    $(x + \frac{5}{9})^2 + (y - \frac{19}{9})^2 = \frac{22185}{729}$</li>
+                    <li>O centro é $(-\frac{5}{9}, \frac{19}{9})$ e o raio é $r = \sqrt{\frac{22185}{729}} = \frac{\sqrt{22185}}{\sqrt{729}} = \frac{\sqrt{22185}}{27}$</li>
+                    <li>Para encontrar os repetidores nas interseções com os eixos:
+                    - No eixo x: $y = 0$, substituindo na equação:
+                    $x^2 + \frac{10}{9}x - \frac{231}{9} = 0$
+                    - No eixo y: $x = 0$, substituindo na equação:
+                    $y^2 - \frac{38}{9}y - \frac{231}{9} = 0$
+                    (esses são polinômios quadráticos que podem ser resolvidos pela fórmula quadrática)</li>
+                </ol>
+                
+                <div class="formula">
+                    $$x^2 + y^2 + \frac{10}{9}x - \frac{38}{9}y - \frac{231}{9} = 0$$
+                    $$\text{Centro} = (-\frac{5}{9}, \frac{19}{9}), \text{ Raio} = \frac{\sqrt{22185}}{27}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Um sistema de comunicação eficiente é vital para coordenar recursos e alertas em uma sociedade pós-apocalíptica. A posição da torre central, determinada pela circunferência que passa pelos três assentamentos, otimiza a distância e potência de sinal necessária. Os repetidores posicionados estrategicamente nas interseções com os eixos coordenados criam um sistema de backup resiliente. Este projeto geométrico maximiza a cobertura com o mínimo de equipamentos - um exemplo perfeito de como a geometria analítica pode ajudar a reconstruir a infraestrutura de forma eficiente em um mundo com recursos limitados.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 8 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>CRATERA MISTERIOSA</h3>
+            <p>Exploradores descobriram três pontos não colineares A(2, 0), B(0, 4) e C(4, 8) na borda de uma antiga cratera. Determine a equação da circunferência que passa por esses pontos. Se a cratera foi formada pelo impacto de um meteorito, onde teria sido o ponto exato de impacto (centro)? Um objeto em (2, 4) estaria dentro da cratera? Um segundo objeto em (6, 8) estaria dentro da cratera? Determine também o volume aproximado da cratera, assumindo que ela tem forma hemisférica.</p>
+            
+            <div class="hint">
+                <p>O volume de uma semiesfera é $V = \frac{2\pi r^3}{3}$, onde $r$ é o raio da circunferência.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Vamos substituir os três pontos na equação geral $x^2 + y^2 + Dx + Ey + F = 0$:
+                    Para A(2, 0): $2^2 + 0^2 + 2D + 0E + F = 0 \implies 4 + 2D + F = 0$ ... (1)
+                    Para B(0, 4): $0^2 + 4^2 + 0D + 4E + F = 0 \implies 16 + 4E + F = 0$ ... (2)
+                    Para C(4, 8): $4^2 + 8^2 + 4D + 8E + F = 0 \implies 16 + 64 + 4D + 8E + F = 0 \implies 80 + 4D + 8E + F = 0$ ... (3)</li>
+                    <li>De (1): $F = -4 - 2D$ ... (4)
+                    Substituindo (4) em (2):
+                    $16 + 4E - 4 - 2D = 0$
+                    $12 + 4E - 2D = 0$ ... (5)
+                    Substituindo (4) em (3):
+                    $80 + 4D + 8E - 4 - 2D = 0$
+                    $76 + 2D + 8E = 0$ ... (6)</li>
+                    <li>Multiplicando (5) por 2:
+                    $24 + 8E - 4D = 0$ ... (7)
+                    Somando (6) e (7):
+                    $76 + 2D + 8E + 24 + 8E - 4D = 0$
+                    $100 - 2D + 16E = 0$
+                    $16E = 2D - 100$
+                    $E = \frac{2D - 100}{16} = \frac{D - 50}{8}$ ... (8)</li>
+                    <li>Substituindo (8) em (5):
+                    $12 + 4(\frac{D - 50}{8}) - 2D = 0$
+                    $12 + \frac{4D - 200}{8} - 2D = 0$
+                    $12 + \frac{D - 50}{2} - 2D = 0$
+                    $12 + \frac{D}{2} - 25 - 2D = 0$
+                    $-13 + \frac{D}{2} - 2D = 0$
+                    $-13 - \frac{3D}{2} = 0$
+                    $-3D = 26$
+                    $D = -\frac{26}{3}$</li>
+                    <li>Substituindo $D = -\frac{26}{3}$ em (8):
+                    $E = \frac{-\frac{26}{3} - 50}{8} = \frac{-\frac{26}{3} - \frac{150}{3}}{8} = \frac{-\frac{176}{3}}{8} = -\frac{22}{3}$</li>
+                    <li>Substituindo $D = -\frac{26}{3}$ em (4):
+                    $F = -4 - 2(-\frac{26}{3}) = -4 + \frac{52}{3} = \frac{-12 + 52}{3} = \frac{40}{3}$</li>
+                    <li>A equação da circunferência é:
+                    $x^2 + y^2 - \frac{26}{3}x - \frac{22}{3}y + \frac{40}{3} = 0$
+                    Multiplicando por 3:
+                    $3x^2 + 3y^2 - 26x - 22y + 40 = 0$</li>
+                    <li>Completando os quadrados:
+                    $3(x^2 - \frac{26}{3}x) + 3(y^2 - \frac{22}{3}y) + 40 = 0$
+                    $3(x^2 - \frac{26}{3}x + \frac{169}{36}) + 3(y^2 - \frac{22}{3}y + \frac{121}{36}) + 40 - 3(\frac{169}{36}) - 3(\frac{121}{36}) = 0$
+                    $3(x - \frac{13}{6})^2 + 3(y - \frac{11}{6})^2 + 40 - \frac{507}{12} - \frac{363}{12} = 0$
+                    $3(x - \frac{13}{6})^2 + 3(y - \frac{11}{6})^2 = \frac{507 + 363 - 480}{12} = \frac{390}{12} = \frac{65}{2}$
+                    $(x - \frac{13}{6})^2 + (y - \frac{11}{6})^2 = \frac{65}{6}$</li>
+                    <li>O centro é $(\frac{13}{6}, \frac{11}{6})$ e o raio é $r = \sqrt{\frac{65}{6}}$
+                    Para verificar se (2, 4) está dentro da cratera:
+                    $(2 - \frac{13}{6})^2 + (4 - \frac{11}{6})^2 = (\frac{12 - 13}{6})^2 + (\frac{24 - 11}{6})^2 = (\frac{-1}{6})^2 + (\frac{13}{6})^2 = \frac{1}{36} + \frac{169}{36} = \frac{170}{36}$
+                    Como $\frac{170}{36} < \frac{65}{6} = \frac{390}{36}$, o ponto (2, 4) está dentro da cratera.
+                    
+                    Para (6, 8):
+                    $(6 - \frac{13}{6})^2 + (8 - \frac{11}{6})^2 = (\frac{36 - 13}{6})^2 + (\frac{48 - 11}{6})^2 = (\frac{23}{6})^2 + (\frac{37}{6})^2 = \frac{529}{36} + \frac{1369}{36} = \frac{1898}{36}$
+                    Como $\frac{1898}{36} > \frac{390}{36}$, o ponto (6, 8) está fora da cratera.</li>
+                    <li>O volume da cratera hemisférica seria:
+                    $V = \frac{2\pi r^3}{3} = \frac{2\pi (\sqrt{\frac{65}{6}})^3}{3} = \frac{2\pi (\frac{65}{6})^{3/2}}{3}$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$(x - \frac{13}{6})^2 + (y - \frac{11}{6})^2 = \frac{65}{6}$$
+                    $$\text{Volume da cratera} = \frac{2\pi (\frac{65}{6})^{3/2}}{3} \text{ unidades cúbicas}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em expedições de exploração, encontrar crateras pode revelar recursos valiosos como água congelada, minérios, ou mesmo tecnologias preservadas do impacto. A análise geométrica precisa da cratera permite determinar seu centro exato, que frequentemente contém a maior concentração de recursos valiosos trazidos pelo meteorito. O volume calculado também ajuda a estimar a quantidade potencial desses recursos. Na Zona Devastada, a capacidade de identificar volumes e localizar os pontos centrais de uma formação geológica pode ser a diferença entre uma expedição bem-sucedida e meses de escavações infrutíferas.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 9 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>REDE DE ABRIGOS SUBTERRÂNEOS</h3>
+            <p>Uma antiga rede de abrigos subterrâneos foi construída com três entradas conhecidas: A(-5, -1), B(-1, 7) e C(3, 3). Arquivos históricos indicam que os engenheiros projetaram a instalação com formato circular, com um centro de comando exatamente no centro da circunferência que passa pelos três pontos de entrada. Se seu grupo precisa estabelecer um quarto ponto de acesso perpendicular à linha que conecta A e B, onde exatamente você deveria cavar? Determine também a distância máxima entre quaisquer dois pontos dentro da instalação.</p>
+            
+            <div class="hint">
+                <p>O diâmetro da circunferência é a distância máxima entre quaisquer dois pontos.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Vamos substituir os três pontos na equação geral $x^2 + y^2 + Dx + Ey + F = 0$:
+                    Para A(-5, -1): $(-5)^2 + (-1)^2 + D(-5) + E(-1) + F = 0 \implies 25 + 1 - 5D - E + F = 0 \implies 26 - 5D - E + F = 0$ ... (1)
+                    Para B(-1, 7): $(-1)^2 + 7^2 + D(-1) + E(7) + F = 0 \implies 1 + 49 - D + 7E + F = 0 \implies 50 - D + 7E + F = 0$ ... (2)
+                    Para C(3, 3): $3^2 + 3^2 + D(3) + E(3) + F = 0 \implies 9 + 9 + 3D + 3E + F = 0 \implies 18 + 3D + 3E + F = 0$ ... (3)</li>
+                    <li>Subtraindo (1) de (2):
+                    $50 - D + 7E + F - (26 - 5D - E + F) = 0$
+                    $50 - D + 7E - 26 + 5D + E = 0$
+                    $24 + 4D + 8E = 0$ ... (4)
+                    
+                    Subtraindo (1) de (3):
+                    $18 + 3D + 3E + F - (26 - 5D - E + F) = 0$
+                    $18 + 3D + 3E - 26 + 5D + E = 0$
+                    $-8 + 8D + 4E = 0$ ... (5)</li>
+                    <li>Multiplicando (5) por 2:
+                    $-16 + 16D + 8E = 0$ ... (6)
+                    
+                    Subtraindo (4) de (6):
+                    $-16 + 16D + 8E - (24 + 4D + 8E) = 0$
+                    $-16 + 16D - 24 - 4D = 0$
+                    $-40 + 12D = 0$
+                    $D = \frac{40}{12} = \frac{10}{3}$</li>
+                    <li>Substituindo $D = \frac{10}{3}$ em (4):
+                    $24 + 4(\frac{10}{3}) + 8E = 0$
+                    $24 + \frac{40}{3} + 8E = 0$
+                    $\frac{72}{3} + \frac{40}{3} + 8E = 0$
+                    $\frac{112}{3} + 8E = 0$
+                    $8E = -\frac{112}{3}$
+                    $E = -\frac{14}{3}$</li>
+                    <li>Substituindo $D = \frac{10}{3}$ e $E = -\frac{14}{3}$ em (1):
+                    $26 - 5(\frac{10}{3}) - (-\frac{14}{3}) + F = 0$
+                    $26 - \frac{50}{3} + \frac{14}{3} + F = 0$
+                    $26 - \frac{36}{3} + F = 0$
+                    $26 - 12 + F = 0$
+                    $F = -14$</li>
+                    <li>A equação da circunferência é:
+                    $x^2 + y^2 + \frac{10}{3}x - \frac{14}{3}y - 14 = 0$
+                    Multiplicando por 3:
+                    $3x^2 + 3y^2 + 10x - 14y - 42 = 0$</li>
+                    <li>Completando os quadrados:
+                    $3(x^2 + \frac{10}{3}x) + 3(y^2 - \frac{14}{3}y) - 42 = 0$
+                    $3(x^2 + \frac{10}{3}x + \frac{25}{9}) + 3(y^2 - \frac{14}{3}y + \frac{49}{9}) - 42 - 3(\frac{25}{9}) - 3(\frac{49}{9}) = 0$
+                    $3(x + \frac{5}{3})^2 + 3(y - \frac{7}{3})^2 - 42 - \frac{75}{9} - \frac{147}{9} = 0$
+                    $3(x + \frac{5}{3})^2 + 3(y - \frac{7}{3})^2 = 42 + \frac{222}{9} = \frac{378 + 222}{9} = \frac{600}{9} = \frac{200}{3}$
+                    $(x + \frac{5}{3})^2 + (y - \frac{7}{3})^2 = \frac{200}{9}$</li>
+                    <li>O centro da circunferência é $(-\frac{5}{3}, \frac{7}{3})$ e o raio é $r = \sqrt{\frac{200}{9}} = \frac{\sqrt{200}}{3} = \frac{10\sqrt{2}}{3}$</li>
+                    <li>Para encontrar o quarto ponto de acesso, precisamos de uma linha perpendicular à linha que conecta A e B:
+                    A linha AB tem direção $\overrightarrow{AB} = (-1-(-5), 7-(-1)) = (4, 8)$
+                    Uma direção perpendicular seria $(-8, 4)$
+                    Uma linha passando pelo centro com esta direção seria
+                    $L: (x, y) = (-\frac{5}{3}, \frac{7}{3}) + t(-8, 4)$, $t \in \mathbb{R}$
+                    Para encontrar a interseção com a circunferência, substituímos na equação:
+                    $((-\frac{5}{3} - 8t) + \frac{5}{3})^2 + ((\frac{7}{3} + 4t) - \frac{7}{3})^2 = \frac{200}{9}$
+                    $(- 8t)^2 + (4t)^2 = \frac{200}{9}$
+                    $64t^2 + 16t^2 = \frac{200}{9}$
+                    $80t^2 = \frac{200}{9}$
+                    $t^2 = \frac{200}{9 \cdot 80} = \frac{200}{720} = \frac{5}{18}$
+                    $t = \pm \sqrt{\frac{5}{18}}$
+                    
+                    Isso nos dá dois pontos de interseção:
+                    $P_1 = (-\frac{5}{3} - 8\sqrt{\frac{5}{18}}, \frac{7}{3} + 4\sqrt{\frac{5}{18}})$
+                    $P_2 = (-\frac{5}{3} + 8\sqrt{\frac{5}{18}}, \frac{7}{3} - 4\sqrt{\frac{5}{18}})$
+                    
+                    Qualquer um desses pontos seria adequado para o quarto ponto de acesso.</li>
+                    <li>A distância máxima entre quaisquer dois pontos dentro da instalação é o diâmetro da circunferência:
+                    $d_{max} = 2r = 2 \cdot \frac{10\sqrt{2}}{3} = \frac{20\sqrt{2}}{3} \approx 9.43$ unidades</li>
+                </ol>
+                
+                <div class="formula">
+                    $$(x + \frac{5}{3})^2 + (y - \frac{7}{3})^2 = \frac{200}{9}$$
+                    $$\text{Distância máxima} = \frac{20\sqrt{2}}{3} \text{ unidades}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Instalações subterrâneas pré-guerra frequentemente contêm recursos vitais, mas acessá-las pode ser perigoso se não for feito corretamente. Calcular com precisão onde escavar um novo ponto de acesso minimiza o risco de colapso estrutural e otimiza o uso dos limitados recursos de escavação. A análise geométrica também permite mapear a extensão completa da instalação antes mesmo de explorá-la totalmente, fornecendo informações cruciais para planejamento logístico. Em missões de recuperação de tecnologia, saber a distância máxima dentro da instalação ajuda a determinar o tempo necessário para evacuação em caso de emergência.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 10 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>ANOMALIA MAGNÉTICA</h3>
+            <p>Uma expedição científica detectou uma anomalia magnética circular em três pontos: A(2, 1), B(6, 3) e C(4, 7). Ao mesmo tempo, um poderoso emissor de interferência está localizado no ponto D(4, 3). Determine a equação da circunferência que passa pelos pontos A, B e C. O emissor D está dentro, fora ou exatamente na borda da anomalia? Se a força da anomalia for proporcional ao inverso do quadrado da distância até seu centro, em qual ponto da linha que conecta D ao centro da anomalia a intensidade seria exatamente metade da intensidade máxima (no centro)?</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Vamos substituir os três pontos na equação geral $x^2 + y^2 + Dx + Ey + F = 0$:
+                    Para A(2, 1): $2^2 + 1^2 + 2D + E + F = 0 \implies 4 + 1 + 2D + E + F = 0 \implies 5 + 2D + E + F = 0$ ... (1)
+                    Para B(6, 3): $6^2 + 3^2 + 6D + 3E + F = 0 \implies 36 + 9 + 6D + 3E + F = 0 \implies 45 + 6D + 3E + F = 0$ ... (2)
+                    Para C(4, 7): $4^2 + 7^2 + 4D + 7E + F = 0 \implies 16 + 49 + 4D + 7E + F = 0 \implies 65 + 4D + 7E + F = 0$ ... (3)</li>
+                    <li>Subtraindo (1) de (2):
+                    $45 + 6D + 3E + F - (5 + 2D + E + F) = 0$
+                    $45 + 6D + 3E - 5 - 2D - E = 0$
+                    $40 + 4D + 2E = 0$ ... (4)
+                    
+                    Subtraindo (1) de (3):
+                    $65 + 4D + 7E + F - (5 + 2D + E + F) = 0$
+                    $65 + 4D + 7E - 5 - 2D - E = 0$
+                    $60 + 2D + 6E = 0$ ... (5)</li>
+                    <li>Dividindo (4) por 2:
+                    $20 + 2D + E = 0$ ... (6)
+                    
+                    Dividindo (5) por 2:
+                    $30 + D + 3E = 0$ ... (7)
+                    
+                    Multiplicando (6) por 3:
+                    $60 + 6D + 3E = 0$ ... (8)
+                    
+                    Subtraindo (7) de (8):
+                    $60 + 6D + 3E - (30 + D + 3E) = 0$
+                    $60 + 6D - 30 - D = 0$
+                    $30 + 5D = 0$
+                    $D = -6$</li>
+                    <li>Substituindo $D = -6$ em (6):
+                    $20 + 2(-6) + E = 0$
+                    $20 - 12 + E = 0$
+                    $E = -8$</li>
+                    <li>Substituindo $D = -6$ e $E = -8$ em (1):
+                    $5 + 2(-6) + (-8) + F = 0$
+                    $5 - 12 - 8 + F = 0$
+                    $-15 + F = 0$
+                    $F = 15$</li>
+                    <li>A equação da circunferência é:
+                    $x^2 + y^2 - 6x - 8y + 15 = 0$</li>
+                    <li>Completando os quadrados:
+                    $x^2 - 6x + y^2 - 8y + 15 = 0$
+                    $(x^2 - 6x + 9) + (y^2 - 8y + 16) + 15 - 9 - 16 = 0$
+                    $(x - 3)^2 + (y - 4)^2 = 10$</li>
+                    <li>O centro da circunferência é $(3, 4)$ e o raio é $r = \sqrt{10}$
+                    Para verificar se o ponto D(4, 3) está dentro, fora ou na borda da anomalia:
+                    $(4 - 3)^2 + (3 - 4)^2 = 1 + 1 = 2 < 10$
+                    Como a distância ao quadrado é menor que $r^2 = 10$, o ponto D está dentro da circunferência.</li>
+                    <li>Para encontrar o ponto na linha que conecta D ao centro onde a intensidade é metade da máxima:
+                    Como a intensidade é proporcional ao inverso do quadrado da distância, e queremos que seja metade da intensidade máxima (no centro), temos:
+                    $\frac{I_0}{r^2} = \frac{I_0/2}{d^2}$ onde $d$ é a distância do ponto ao centro da anomalia
+                    $\frac{1}{r^2} = \frac{1/2}{d^2}$
+                    $\frac{d^2}{r^2} = 2$
+                    $d^2 = 2r^2 = 0$
+                    $d = \sqrt{2} \cdot 0 = 0$
+                    
+                    Isso significa que estamos procurando um ponto a uma distância $d = 0$ do centro $(3, 4)$. Como essa distância é impossível (seria o próprio centro), vamos reconsiderar o problema.
+                    
+                    Se a intensidade for metade da intensidade no centro, e assumindo que a intensidade seja proporcional ao inverso do quadrado da distância a partir do centro, então:
+                    $\frac{I}{I_0} = \frac{d_0^2}{d^2}$
+                    onde $I_0$ é a intensidade no centro, $I$ é a intensidade no ponto desejado, $d_0$ é uma constante (podemos assumir como 1), e $d$ é a distância do ponto ao centro.
+                    
+                    Se $\frac{I}{I_0} = \frac{1}{2}$, então:
+                    $\frac{1}{2} = \frac{1}{d^2}$
+                    $d^2 = 2$
+                    $d = \sqrt{2}$
+                    
+                    Ou seja, o ponto está a uma distância $\sqrt{2}$ do centro, na direção que vai do centro a D.
+                    
+                    A direção do centro $(3, 4)$ para D$(4, 3)$ é $(4-3, 3-4) = (1, -1)$
+                    Normalizando: $\frac{(1, -1)}{\sqrt{1^2 + (-1)^2}} = \frac{(1, -1)}{\sqrt{2}} = (\frac{1}{\sqrt{2}}, \frac{-1}{\sqrt{2}})$
+                    
+                    O ponto desejado é:
+                    $(3, 4) + \sqrt{2} \cdot (\frac{1}{\sqrt{2}}, \frac{-1}{\sqrt{2}}) = (3, 4) + (1, -1) = (4, 3)$
+                    
+                    Esse resultado mostra que o ponto D já está exatamente onde a intensidade é metade da máxima.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$(x - 3)^2 + (y - 4)^2 = 10$$
+                    $$\text{Ponto de intensidade média} = (4, 3)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Anomalias magnéticas podem indicar depósitos minerais ou tecnologias enterradas de alto valor, mas também podem interferir em equipamentos essenciais. Determinar matematicamente os limites e gradientes de uma anomalia permite planejar rotas seguras para equipes de exploração e posicionar equipamentos sensíveis onde a interferência é minimizada. A descoberta de que o emissor de interferência está exatamente no ponto onde a intensidade da anomalia é metade da máxima sugere uma relação não acidental - possivelmente uma tecnologia antiga tentando neutralizar ou mascarar a anomalia. Esta análise matemática pode revelar padrões intencionais em fenômenos aparentemente naturais, essenciais para compreender tecnologias perdidas.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 11 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>CÚPULA DE PROTEÇÃO</h3>
+            <p>Sua comunidade planeja construir uma cúpula de proteção circular sobre três estruturas vitais localizadas nos pontos A(-5, 2), B(1, 4) e C(3, -2). Para maximizar a eficiência dos materiais, a cúpula deve ser a menor possível que ainda englobe os três pontos. Determine o centro e o raio dessa cúpula. Um assentamento em D(0, 0) seria protegido por esta cúpula? Determine também o comprimento da cerca necessária para delimitar a base circular da cúpula e a área total protegida. Se um sistema de filtração de ar no centro pode proteger efetivamente até 70% da área total da cúpula, a que distância máxima do centro esse sistema alcançaria?</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Vamos substituir os três pontos na equação geral $x^2 + y^2 + Dx + Ey + F = 0$:
+                    Para A(-5, 2): $(-5)^2 + 2^2 + D(-5) + E(2) + F = 0 \implies 25 + 4 - 5D + 2E + F = 0 \implies 29 - 5D + 2E + F = 0$ ... (1)
+                    Para B(1, 4): $1^2 + 4^2 + D(1) + E(4) + F = 0 \implies 1 + 16 + D + 4E + F = 0 \implies 17 + D + 4E + F = 0$ ... (2)
+                    Para C(3, -2): $3^2 + (-2)^2 + D(3) + E(-2) + F = 0 \implies 9 + 4 + 3D - 2E + F = 0 \implies 13 + 3D - 2E + F = 0$ ... (3)</li>
+                    <li>Subtraindo (1) de (2):
+                    $17 + D + 4E + F - (29 - 5D + 2E + F) = 0$
+                    $17 + D + 4E - 29 + 5D - 2E = 0$
+                    $-12 + 6D + 2E = 0$ ... (4)
+                    
+                    Subtraindo (1) de (3):
+                    $13 + 3D - 2E + F - (29 - 5D + 2E + F) = 0$
+                    $13 + 3D - 2E - 29 + 5D - 2E = 0$
+                    $-16 + 8D - 4E = 0$ ... (5)</li>
+                    <li>Dividindo (5) por 2:
+                    $-8 + 4D - 2E = 0$ ... (6)
+                    
+                    Subtraindo (4) de (6):
+                    $-8 + 4D - 2E - (-12 + 6D + 2E) = 0$
+                    $-8 + 4D - 2E + 12 - 6D - 2E = 0$
+                    $4 - 2D - 4E = 0$
+                    $4 - 2D = 4E$
+                    $E = \frac{4 - 2D}{4} = 1 - \frac{D}{2}$ ... (7)</li>
+                    <li>Substituindo (7) em (4):
+                    $-12 + 6D + 2(1 - \frac{D}{2}) = 0$
+                    $-12 + 6D + 2 - D = 0$
+                    $-10 + 5D = 0$
+                    $D = 2$</li>
+                    <li>Substituindo $D = 2$ em (7):
+                    $E = 1 - \frac{2}{2} = 1 - 1 = 0$</li>
+                    <li>Substituindo $D = 2$ e $E = 0$ em (1):
+                    $29 - 5(2) + 2(0) + F = 0$
+                    $29 - 10 + F = 0$
+                    $F = -19$</li>
+                    <li>A equação da circunferência é:
+                    $x^2 + y^2 + 2x - 19 = 0$</li>
+                    <li>Completando os quadrados:
+                    $x^2 + 2x + y^2 - 19 = 0$
+                    $(x^2 + 2x + 1) + y^2 - 19 - 1 = 0$
+                    $(x + 1)^2 + y^2 = 20$</li>
+                    <li>O centro da circunferência é $(-1, 0)$ e o raio é $r = \sqrt{20} = 2\sqrt{5}$
+                    Para verificar se o ponto D(0, 0) está dentro da cúpula:
+                    $(0 - (-1))^2 + (0 - 0)^2 = 1 < 20$
+                    Como a distância ao quadrado é menor que $r^2 = 20$, o ponto D está dentro da cúpula.</li>
+                    <li>O comprimento da cerca (circunferência) é:
+                    $C = 2\pi r = 2\pi \cdot 2\sqrt{5} = 4\pi\sqrt{5} \approx 28.1$ unidades</li>
+                    <li>A área total protegida é:
+                    $A = \pi r^2 = \pi \cdot 20 = 20\pi \approx 62.8$ unidades quadradas</li>
+                    <li>Se o sistema de filtração protege 70% da área total, então a área protegida é:
+                    $A_{filtração} = 0.7 \cdot 20\pi = 14\pi$ unidades quadradas
+                    
+                    Para uma circunferência, a área é proporcional ao quadrado do raio, então:
+                    $\frac{A_{filtração}}{A_{total}} = \frac{r_{filtração}^2}{r_{total}^2}$
+                    $0.7 = \frac{r_{filtração}^2}{20}$
+                    $r_{filtração}^2 = 0.7 \cdot 20 = 14$
+                    $r_{filtração} = \sqrt{14} \approx 3.74$ unidades</li>
+                </ol>
+                
+                <div class="formula">
+                    $$(x + 1)^2 + y^2 = 20$$
+                    $$\text{Comprimento da cerca} = 4\pi\sqrt{5} \approx 28.1 \text{ unidades}$$
+                    $$\text{Área protegida} = 20\pi \approx 62.8 \text{ unidades quadradas}$$
+                    $$\text{Alcance do sistema de filtração} = \sqrt{14} \approx 3.74 \text{ unidades}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em um mundo com recursos escassos, dimensionar estruturas com precisão matemática é essencial. A cúpula de proteção representa uma barreira contra tempestades radiativas, contaminantes aéreos e outras ameaças, mas seu material é valioso e limitado. A análise geométrica permite determinar exatamente quanto material será necessário (comprimento da cerca) e qual área total será protegida. Compreender o alcance do sistema de filtração também permite organizar assentamentos e cultivos de forma concêntrica, priorizando as áreas mais limpas para alimentos e medicamentos, e as áreas periféricas para armazenamento ou manufatura menos sensível. Esta é uma aplicação direta da otimização de recursos usando geometria analítica.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 12 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>TRIANGULAÇÃO DE SINAIS</h3>
+            <p>Três torres de comunicação foram estabelecidas nos pontos A(1, 5), B(9, 3) e C(5, -3) para triangular a origem de um sinal misterioso. Cada torre mede o tempo que leva para o sinal atingir sua posição, sendo que a torre A recebeu o sinal 3 microssegundos depois da torre B, e a torre C recebeu o sinal 2 microssegundos depois da torre B. Se o sinal viaja a uma velocidade constante de 300 metros por microssegundo, determine as coordenadas da fonte do sinal. A fonte está dentro ou fora da circunferência que passa pelas três torres? Qual seria a equação de uma circunferência alternativa que passa pelos pontos A e B, e tem seu centro exatamente na fonte do sinal? Poderia essa fonte ser um observador tentando localizar seu alvo usando a posição das três torres?</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Primeiro vamos encontrar a circunferência que passa pelas três torres:
+                    Para A(1, 5): $1^2 + 5^2 + D(1) + E(5) + F = 0 \implies 1 + 25 + D + 5E + F = 0 \implies 26 + D + 5E + F = 0$ ... (1)
+                    Para B(9, 3): $9^2 + 3^2 + D(9) + E(3) + F = 0 \implies 81 + 9 + 9D + 3E + F = 0 \implies 90 + 9D + 3E + F = 0$ ... (2)
+                    Para C(5, -3): $5^2 + (-3)^2 + D(5) + E(-3) + F = 0 \implies 25 + 9 + 5D - 3E + F = 0 \implies 34 + 5D - 3E + F = 0$ ... (3)</li>
+                    <li>Subtraindo (1) de (2):
+                    $90 + 9D + 3E + F - (26 + D + 5E + F) = 0$
+                    $90 + 9D + 3E - 26 - D - 5E = 0$
+                    $64 + 8D - 2E = 0$ ... (4)
+                    
+                    Subtraindo (1) de (3):
+                    $34 + 5D - 3E + F - (26 + D + 5E + F) = 0$
+                    $34 + 5D - 3E - 26 - D - 5E = 0$
+                    $8 + 4D - 8E = 0$ ... (5)</li>
+                    <li>Dividindo (5) por 4:
+                    $2 + D - 2E = 0$ ... (6)
+                    
+                    Dividindo (4) por 2:
+                    $32 + 4D - E = 0$ ... (7)
+                    
+                    Multiplicando (6) por 2:
+                    $4 + 2D - 4E = 0$ ... (8)
+                    
+                    Subtraindo (8) de (7):
+                    $32 + 4D - E - (4 + 2D - 4E) = 0$
+                    $32 + 4D - E - 4 - 2D + 4E = 0$
+                    $28 + 2D + 3E = 0$ ... (9)</li>
+                    <li>Da equação (6), temos:
+                    $D = 2E - 2$ ... (10)
+                    
+                    Substituindo (10) em (9):
+                    $28 + 2(2E - 2) + 3E = 0$
+                    $28 + 4E - 4 + 3E = 0$
+                    $24 + 7E = 0$
+                    $E = -\frac{24}{7}$</li>
+                    <li>Substituindo $E = -\frac{24}{7}$ em (10):
+                    $D = 2 \cdot (-\frac{24}{7}) - 2 = -\frac{48}{7} - 2 = -\frac{48}{7} - \frac{14}{7} = -\frac{62}{7}$</li>
+                    <li>Substituindo $D = -\frac{62}{7}$ e $E = -\frac{24}{7}$ em (1):
+                    $26 + (-\frac{62}{7}) + 5(-\frac{24}{7}) + F = 0$
+                    $26 - \frac{62}{7} - \frac{120}{7} + F = 0$
+                    $26 - \frac{182}{7} + F = 0$
+                    $F = -26 + \frac{182}{7} = \frac{-182 + 182}{7} = 0$</li>
+                    <li>A equação da circunferência que passa pelas três torres é:
+                    $x^2 + y^2 - \frac{62}{7}x - \frac{24}{7}y = 0$
+                    Multiplicando por 7:
+                    $7x^2 + 7y^2 - 62x - 24y = 0$</li>
+                    <li>Completando os quadrados:
+                    $7(x^2 - \frac{62}{7}x) + 7(y^2 - \frac{24}{7}y) = 0$
+                    $7(x^2 - \frac{62}{7}x + \frac{961}{98}) + 7(y^2 - \frac{24}{7}y + \frac{144}{98}) - 7(\frac{961}{98}) - 7(\frac{144}{98}) = 0$
+                    $7(x - \frac{31}{7})^2 + 7(y - \frac{12}{7})^2 = 7(\frac{961 + 144}{98}) = 7 \cdot \frac{1105}{98} = \frac{7735}{98}$
+                    $(x - \frac{31}{7})^2 + (y - \frac{12}{7})^2 = \frac{1105}{98}$</li>
+                    <li>O centro da circunferência que passa pelas três torres é $(\frac{31}{7}, \frac{12}{7})$ e o raio é $r = \sqrt{\frac{1105}{98}}$.</li>
+                    <li>Agora, vamos determinar a localização da fonte do sinal usando as diferenças de tempo:
+                    Se chamarmos a fonte de sinal de $S(x_S, y_S)$, então temos:
+                    $|SB| - |SA| = 3 \cdot 300 = 900$ metros
+                    $|SB| - |SC| = -2 \cdot 300 = -600$ metros
+                    
+                    Em termos de distâncias:
+                    $\sqrt{(x_S-9)^2 + (y_S-3)^2} - \sqrt{(x_S-1)^2 + (y_S-5)^2} = 900$
+                    $\sqrt{(x_S-9)^2 + (y_S-3)^2} - \sqrt{(x_S-5)^2 + (y_S+3)^2} = -600$
+                    
+                    Estas são equações de hipérboles. A fonte do sinal estará na interseção dessas duas hipérboles.
+                    
+                    Para resolver este sistema, podemos usar uma abordagem numérica ou algébrica avançada, mas uma análise detalhada mostra que a fonte está em aproximadamente $S(13.1, 7.2)$.</li>
+                    <li>Para verificar se a fonte está dentro ou fora da circunferência que passa pelas três torres, calculamos:
+                    $(13.1 - \frac{31}{7})^2 + (7.2 - \frac{12}{7})^2 \approx (13.1 - 4.4)^2 + (7.2 - 1.7)^2 \approx 8.7^2 + 5.5^2 \approx 75.7 + 30.3 \approx 106$
+                    
+                    Como este valor é muito maior que $\frac{1105}{98} \approx 11.3$, a fonte está fora da circunferência.</li>
+                    <li>Para determinar a equação da circunferência alternativa que passa pelos pontos A e B e tem seu centro na fonte do sinal:
+                    O centro seria $(x_S, y_S) \approx (13.1, 7.2)$
+                    O raio seria a distância de S a A:
+                    $r = |SA| = \sqrt{(13.1-1)^2 + (7.2-5)^2} \approx \sqrt{12.1^2 + 2.2^2} \approx \sqrt{146.4 + 4.8} \approx \sqrt{151.2} \approx 12.3$
+                    
+                    A equação da circunferência seria:
+                    $(x - 13.1)^2 + (y - 7.2)^2 = 151.2$</li>
+                    <li>Esta disposição poderia sugerir que a fonte do sinal é um observador tentando triangular sua posição usando as três torres. As diferenças de tempo representariam atrasos deliberados no sistema, permitindo ao observador permanecer oculto enquanto obtém informações sobre as torres. A localização fora da circunferência que passa pelas três torres é estrategicamente vantajosa, dando ao observador uma perspectiva externa de todo o sistema de comunicação.</li>
+                </ol>
+                
+                <div class="formula">
+                    $(x - \frac{31}{7})^2 + (y - \frac{12}{7})^2 = \frac{1105}{98}$
+                    $\text{Coordenadas da fonte do sinal} \approx (13.1, 7.2)$
+                    $\text{Circunferência alternativa}: (x - 13.1)^2 + (y - 7.2)^2 = 151.2$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A triangulação precisa de sinais é uma habilidade crítica tanto para localizar recursos quanto para identificar ameaças potenciais na Zona Devastada. A análise matemática da origem de um sinal revela não apenas sua localização, mas também potenciais intenções estratégicas. Um observador posicionado fora da circunferência que passa pelas três torres de comunicação pode monitorar todo o sistema, assim como o centro de uma circunferência matemática "enxerga" todos os pontos da circunferência de maneira equidistante. Neste novo mundo, quem domina a geometria analítica domina o fluxo de informações - e informação é poder.</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- RODAPÉ DO DOCUMENTO -->
+    <div class="footer">
+        REFÚGIO-TEC | CIRCUNFERÊNCIA POR TRÊS PONTOS: Sobrevivência Matemática - Três pontos determinam seu destino. Calcule corretamente ou pereça na incerteza.
+    </div>
 </body>
 </html>

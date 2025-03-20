@@ -2,10 +2,696 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>CAPÍTULO IV - A CIRCUNFERÊNCIA NO R² - Seção 4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+    </script>
+    <title>REFÚGIO-TEC | POSIÇÕES DE PONTOS EM RELAÇÃO À CIRCUNFERÊNCIA</title>
+    <style>
+        /* Estilo inspirado no tema pós-apocalíptico */
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100px; }
+        }
+
+        body {
+            background-color: #0c0c0c;
+            color: #e6e6e6;
+            font-family: "Courier New", monospace;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #4caf50;
+            max-width: 800px;
+            margin: auto;
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 2px;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+
+        h1, h2, h3 {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .exercise {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border: 1px dashed #4caf50;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        details {
+            background-color: #1c1c1c;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            margin-top: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #4caf50;
+        }
+
+        summary:hover {
+            text-shadow: 0 0 3px #4caf50;
+        }
+
+        code {
+            background-color: #333;
+            padding: 3px 5px;
+            color: #ffeb3b;
+        }
+
+        .hint {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #4caf50;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .hint:before {
+            content: "DICA DE SOBREVIVÊNCIA: ";
+            color: #4caf50;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .solution-steps {
+            margin-left: 20px;
+            counter-reset: step-counter;
+        }
+
+        .solution-steps li {
+            list-style-type: none;
+            counter-increment: step-counter;
+            margin-bottom: 10px;
+        }
+
+        .solution-steps li::before {
+            content: "> PASSO_" counter(step-counter) ": ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .formula {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #000;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .terminal-frame {
+            padding: 10px;
+            background-color: #000;
+            margin-bottom: 20px;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .terminal-header {
+            margin: 0;
+            padding: 3px 10px;
+            background-color: #4caf50;
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .terminal-content {
+            padding: 5px;
+            white-space: pre-wrap;
+            font-size: 1em;
+            line-height: 1.2;
+        }
+
+        .cursor:after {
+            content: "█";
+            animation: blink 1s step-end infinite;
+        }
+
+        .terminal-line {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .terminal-border {
+            border: 1px solid #4caf50;
+            padding: 5px;
+            background-color: #000;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .mission-counter {
+            counter-reset: mission;
+        }
+        
+        .mission-counter .exercise h3:before {
+            content: "MISSÃO " counter(mission) ": ";
+            counter-increment: mission;
+        }
+
+        .warning {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .danger {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #8bc34a;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #4caf50;
+            border-top: 1px solid #4caf50;
+            padding-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>CAPÍTULO IV - A CIRCUNFERÊNCIA NO R²</h1>
-    <h2>Seção 4: posicoes-de-um-ponto-em-relacao-a-circunferencia</h2>
+    <!-- TÍTULO E INTRODUÇÃO -->
+    <div class="terminal-frame">
+        <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
+        <div class="terminal-content">
+┌───────────────────────────────────────────────────┐
+│ MÓDULO: POSIÇÕES DE PONTOS EM RELAÇÃO À CIRCUNFERÊNCIA │
+└───────────────────────────────────────────────────┘
+
+> INICIANDO TRANSMISSÃO...
+> CARREGANDO MÓDULO DE TREINAMENTO...
+> ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
+        </div>
+    </div>
+
+    <div class="terminal-border">
+        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: POSIÇÕES DE PONTOS EM RELAÇÃO À CIRCUNFERÊNCIA</h2>
+    
+    <p>Sobreviventes, em um mundo onde zonas seguras são delimitadas por barreiras circulares de proteção contra radiação, compreender a relação entre pontos e circunferências tornou-se uma habilidade crucial. Seja para determinar se um abrigo está dentro de uma área segura ou avaliar a distância até o perímetro de proteção, este conhecimento pode significar a diferença entre vida e morte na Zona Devastada.</p>
+    
+    <p>A relação entre um ponto e uma circunferência é determinada pela comparação entre a distância do ponto ao centro da circunferência e o raio da mesma. Esta simples comparação nos permite classificar o ponto como <span class="success">interno</span>, <span class="warning">sobre</span> ou <span class="danger">externo</span> à circunferência, informação vital para planejar expedições de coleta de recursos.</p>
+    
+    <p>Além disso, a "potência de um ponto" em relação a uma circunferência é um conceito que nos permite quantificar o quão "para dentro" ou "para fora" o ponto está da região circular, facilitando o cálculo de distâncias seguras e o planejamento de rotas otimizadas para economizar recursos em nossas expedições.</p>
+    
+    <div class="formula">
+    $$ d(P, C) = \sqrt{(x_P - x_C)^2 + (y_P - y_C)^2} $$
+    
+    <p>Onde $d(P, C)$ é a distância do ponto $P(x_P, y_P)$ ao centro $C(x_C, y_C)$ da circunferência.</p>
+    </div>
+    
+    <p>Para uma circunferência com centro $C(a, b)$ e raio $r$, podemos determinar a posição de um ponto $P(x, y)$ usando a seguinte regra:</p>
+    
+    <div class="formula">
+    <ul>
+    <li>Se $d(P, C) < r$: ponto está <span class="success">dentro</span> da circunferência (zona segura)</li>
+    <li>Se $d(P, C) = r$: ponto está <span class="warning">sobre</span> a circunferência (perímetro)</li>
+    <li>Se $d(P, C) > r$: ponto está <span class="danger">fora</span> da circunferência (zona perigosa)</li>
+    </ul>
+    </div>
+    
+    <p>A potência de um ponto $P$ em relação a uma circunferência com centro $C$ e raio $r$ é dada por:</p>
+    
+    <div class="formula">
+    $$ Pot(P) = d(P, C)^2 - r^2 $$
+    </div>
+    
+    <p>A análise do sinal dessa potência nos dá exatamente a mesma classificação: negativa para pontos internos, zero para pontos sobre a circunferência e positiva para pontos externos.</p>
+
+    <!-- MISSÕES (EXERCÍCIOS) -->
+    <div class="mission-counter">
+        <!-- MISSÃO 1 (BÁSICA) -->
+        <div class="exercise">
+            <h3>PERÍMETRO DE SEGURANÇA</h3>
+            <p>Uma zona livre de radiação é modelada por uma circunferência com centro no antigo depósito de água $C(3, 4)$ e raio de $5$ unidades. Determine se o abrigo localizado no ponto $A(7, 7)$ está dentro, sobre ou fora da zona segura.</p>
+            
+            <div class="hint">
+                <p>Calcule a distância entre o ponto $A$ e o centro $C$ da circunferência, e depois compare com o raio. Lembre-se da fórmula de distância entre dois pontos: $d(A, C) = \sqrt{(x_A - x_C)^2 + (y_A - y_C)^2}$.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Temos o centro da circunferência $C(3, 4)$ com raio $r = 5$ e o ponto $A(7, 7)$.</li>
+                    <li>Calculamos a distância de $A$ até $C$:
+                    $d(A, C) = \sqrt{(7 - 3)^2 + (7 - 4)^2} = \sqrt{16 + 9} = \sqrt{25} = 5$</li>
+                    <li>Comparamos essa distância com o raio da circunferência:
+                    $d(A, C) = 5$ e $r = 5$, logo $d(A, C) = r$</li>
+                    <li>Como a distância é igual ao raio, o ponto $A$ está sobre a circunferência.</li>
+                </ol>
+                
+                <div class="formula">
+                    $d(A, C) = \sqrt{(7 - 3)^2 + (7 - 4)^2} = \sqrt{16 + 9} = 5 = r$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Estar exatamente na borda de uma zona segura é uma situação delicada. Um pequeno erro de cálculo ou um passo na direção errada pode colocar você em perigo. Sempre construa seu abrigo com uma margem de segurança para dentro da zona protegida, nunca na borda.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 2 (BÁSICA) -->
+        <div class="exercise">
+            <h3>EXPEDIÇÃO AO HOSPITAL</h3>
+            <p>A base central de operações está localizada no ponto $B(2, 3)$. Um escudo de proteção contra radiação é descrito pela circunferência de equação $(x-5)^2 + (y-5)^2 = 16$. A equipe médica precisa saber se a base está protegida pelo escudo ou se precisarão de Trajes de Proteção para suas operações diárias.</p>
+            
+            <div class="hint">
+                <p>A equação da circunferência está na forma $(x-a)^2 + (y-b)^2 = r^2$, onde $(a,b)$ é o centro e $r$ é o raio. Identifique esses elementos e depois verifique a posição do ponto em relação à circunferência.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificamos a partir da equação $(x-5)^2 + (y-5)^2 = 16$ que o centro da circunferência é $C(5, 5)$ e o raio é $r = \sqrt{16} = 4$.</li>
+                    <li>O ponto que representa a base é $B(2, 3)$.</li>
+                    <li>Calculamos a distância entre $B$ e $C$:
+                    $d(B, C) = \sqrt{(2 - 5)^2 + (3 - 5)^2} = \sqrt{(-3)^2 + (-2)^2} = \sqrt{9 + 4} = \sqrt{13} \approx 3,61$</li>
+                    <li>Como $d(B, C) \approx 3,61 < 4 = r$, o ponto $B$ está dentro da circunferência.</li>
+                </ol>
+                
+                <div class="formula">
+                    $d(B, C) = \sqrt{(2 - 5)^2 + (3 - 5)^2} = \sqrt{9 + 4} = \sqrt{13} < 4 = r$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A base está segura dentro do perímetro do escudo, o que significa que a equipe médica não precisa de Trajes de Proteção para suas operações diárias. Economizar equipamentos de proteção é crucial em um mundo onde os recursos são escassos.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 3 (BÁSICA) -->
+        <div class="exercise">
+            <h3>ZONA CONTAMINADA</h3>
+            <p>Uma área circular contaminada por radiação tem centro no ponto $R(1, 2)$ e raio de $3$ unidades. Um grupo de sobreviventes encontra-se no ponto $S(4, 5)$. Determine se os sobreviventes estão em zona de perigo e calcule a distância mais curta até um ponto seguro fora da área contaminada.</p>
+            
+            <div class="hint">
+                <p>Primeiro determine se o ponto está dentro, sobre ou fora da circunferência. Se estiver dentro, a distância mais curta até um ponto seguro será a distância do ponto até a borda da circunferência (ou seja, $r - d(S, R)$ se $d(S, R) < r$).</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>O centro da área contaminada é $R(1, 2)$ com raio $r = 3$.</li>
+                    <li>Os sobreviventes estão no ponto $S(4, 5)$.</li>
+                    <li>Calculamos a distância entre $S$ e $R$:
+                    $d(S, R) = \sqrt{(4 - 1)^2 + (5 - 2)^2} = \sqrt{9 + 9} = \sqrt{18} = 3\sqrt{2} \approx 4,24$</li>
+                    <li>Como $d(S, R) \approx 4,24 > 3 = r$, o ponto $S$ está fora da circunferência.</li>
+                    <li>Como os sobreviventes já estão fora da zona contaminada, a distância mais curta até um ponto seguro é $0$.</li>
+                </ol>
+                
+                <div class="formula">
+                    $d(S, R) = \sqrt{(4 - 1)^2 + (5 - 2)^2} = \sqrt{18} = 3\sqrt{2} > 3 = r$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Boas notícias para os sobreviventes - eles já estão em uma zona segura. No entanto, saber exatamente onde estão as fronteiras das zonas perigosas é essencial para o planejamento de rotas e a definição de perímetros seguros para acampamentos.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 4 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>FONTE DE ÁGUA POTÁVEL</h3>
+            <p>Uma estação de purificação de água está localizada no centro de uma circunferência protetora descrita pela equação $x^2 + y^2 - 6x - 8y + 16 = 0$. Um repositório de RemoveRad está no ponto $P(4, 6)$. Determine se é possível acessar o repositório sem atravessar áreas com radiação e calcule a potência do ponto $P$ em relação à circunferência.</p>
+            
+            <div class="hint">
+                <p>Primeiro coloque a equação da circunferência na forma canônica $(x-a)^2 + (y-b)^2 = r^2$ completando os quadrados. Em seguida, calcule a potência do ponto usando a fórmula $Pot(P) = d(P,C)^2 - r^2$.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Reescrevemos a equação da circunferência:
+                    $x^2 + y^2 - 6x - 8y + 16 = 0$</li>
+                    <li>Completando os quadrados:
+                    $x^2 - 6x + 9 + y^2 - 8y + 16 + 16 - 9 - 16 = 0$
+                    $(x - 3)^2 + (y - 4)^2 = 9$</li>
+                    <li>Identificamos o centro $C(3, 4)$ e o raio $r = 3$.</li>
+                    <li>Calculamos a distância do ponto $P(4, 6)$ ao centro:
+                    $d(P, C) = \sqrt{(4 - 3)^2 + (6 - 4)^2} = \sqrt{1 + 4} = \sqrt{5}$</li>
+                    <li>Como $d(P, C) = \sqrt{5} \approx 2,24 < 3 = r$, o ponto $P$ está dentro da circunferência.</li>
+                    <li>Calculamos a potência do ponto $P$:
+                    $Pot(P) = d(P, C)^2 - r^2 = 5 - 9 = -4$</li>
+                </ol>
+                
+                <div class="formula">
+                    $(x - 3)^2 + (y - 4)^2 = 9$
+                    $Pot(P) = d(P, C)^2 - r^2 = 5 - 9 = -4$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O valor negativo da potência confirma que o repositório de RemoveRad está dentro da zona segura. Localizar recursos em zonas protegidas é uma vantagem estratégica, permitindo acesso frequente sem a necessidade de Trajes de Proteção, economizando recursos valiosos e reduzindo a exposição à radiação da equipe.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 5 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>SENSOR DE MUTANTES</h3>
+            <p>Um sensor de detecção de mutantes tem alcance definido pela circunferência $(x+2)^2 + (y-3)^2 = 25$. Três assentamentos estão localizados nos pontos $A(-5, 6)$, $B(1, 0)$ e $C(2, 8)$. Determine quais assentamentos estão dentro do alcance do sensor e calcule a potência do ponto $B$ em relação à circunferência.</p>
+            
+            <div class="hint">
+                <p>Identifique o centro e o raio da circunferência, e então calcule a distância de cada assentamento até o centro. A potência do ponto é calculada como $Pot(B) = d(B, C)^2 - r^2$, e seu sinal indica a posição relativa.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Da equação $(x+2)^2 + (y-3)^2 = 25$, identificamos o centro $C(-2, 3)$ e o raio $r = 5$.</li>
+                    <li>Para o assentamento $A(-5, 6)$:
+                    $d(A, C) = \sqrt{(-5 - (-2))^2 + (6 - 3)^2} = \sqrt{(-3)^2 + 3^2} = \sqrt{9 + 9} = \sqrt{18} = 3\sqrt{2} \approx 4,24$</li>
+                    <li>Como $d(A, C) \approx 4,24 < 5 = r$, o assentamento $A$ está dentro do alcance.</li>
+                    <li>Para o assentamento $B(1, 0)$:
+                    $d(B, C) = \sqrt{(1 - (-2))^2 + (0 - 3)^2} = \sqrt{3^2 + (-3)^2} = \sqrt{9 + 9} = \sqrt{18} = 3\sqrt{2} \approx 4,24$</li>
+                    <li>Como $d(B, C) \approx 4,24 < 5 = r$, o assentamento $B$ também está dentro do alcance.</li>
+                    <li>Para o assentamento $C(2, 8)$:
+                    $d(C, C_{circ}) = \sqrt{(2 - (-2))^2 + (8 - 3)^2} = \sqrt{4^2 + 5^2} = \sqrt{16 + 25} = \sqrt{41} \approx 6,40$</li>
+                    <li>Como $d(C, C_{circ}) \approx 6,40 > 5 = r$, o assentamento $C$ está fora do alcance.</li>
+                    <li>A potência do ponto $B$ é:
+                    $Pot(B) = d(B, C)^2 - r^2 = 18 - 25 = -7$</li>
+                </ol>
+                
+                <div class="formula">
+                    $Pot(B) = d(B, C)^2 - r^2 = 18 - 25 = -7$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Os assentamentos A e B estão protegidos pelo sensor, mas C está vulnerável. A potência negativa de B confirma sua posição dentro da zona de proteção. Em tempos de recursos limitados, priorizar a defesa do assentamento C ou realocá-lo para dentro da zona segura pode ser crucial para a sobrevivência de todos.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 6 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>EXPEDIÇÃO DE RECONHECIMENTO</h3>
+            <p>Uma equipe de reconhecimento precisa verificar três locais de interesse representados pelos pontos $P_1(0, 4)$, $P_2(3, 1)$ e $P_3(6, 8)$. A área segura é delimitada pela circunferência $x^2 + y^2 - 4x - 6y - 12 = 0$. Determine quais locais podem ser visitados sem Trajes de Proteção e calcule a distância do ponto mais próximo da fronteira até a fronteira.</p>
+            
+            <div class="hint">
+                <p>Coloque a equação na forma canônica, identifique o centro e o raio, e depois verifique cada ponto. Para o ponto mais próximo da fronteira, calcule $|r - d(P_i, C)|$ para cada ponto interno ou $|d(P_i, C) - r|$ para cada ponto externo.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Reescrevemos a equação da circunferência:
+                    $x^2 + y^2 - 4x - 6y - 12 = 0$</li>
+                    <li>Completando os quadrados:
+                    $x^2 - 4x + 4 + y^2 - 6y + 9 - 12 - 4 - 9 = 0$
+                    $(x - 2)^2 + (y - 3)^2 = 25$</li>
+                    <li>Identificamos o centro $C(2, 3)$ e o raio $r = 5$.</li>
+                    <li>Para $P_1(0, 4)$:
+                    $d(P_1, C) = \sqrt{(0 - 2)^2 + (4 - 3)^2} = \sqrt{4 + 1} = \sqrt{5} \approx 2,24$</li>
+                    <li>Como $d(P_1, C) \approx 2,24 < 5 = r$, o ponto $P_1$ está dentro da circunferência.</li>
+                    <li>Para $P_2(3, 1)$:
+                    $d(P_2, C) = \sqrt{(3 - 2)^2 + (1 - 3)^2} = \sqrt{1 + 4} = \sqrt{5} \approx 2,24$</li>
+                    <li>Como $d(P_2, C) \approx 2,24 < 5 = r$, o ponto $P_2$ está dentro da circunferência.</li>
+                    <li>Para $P_3(6, 8)$:
+                    $d(P_3, C) = \sqrt{(6 - 2)^2 + (8 - 3)^2} = \sqrt{16 + 25} = \sqrt{41} \approx 6,40$</li>
+                    <li>Como $d(P_3, C) \approx 6,40 > 5 = r$, o ponto $P_3$ está fora da circunferência.</li>
+                    <li>Os pontos $P_1$ e $P_2$ estão ambos a uma distância $\sqrt{5}$ do centro, então a distância de ambos até a fronteira é $r - d(P_i, C) = 5 - \sqrt{5} \approx 2,76$ unidades.</li>
+                </ol>
+                
+                <div class="formula">
+                    $(x - 2)^2 + (y - 3)^2 = 25$
+                    
+                    $d_{fronteira} = r - d(P_i, C) = 5 - \sqrt{5} \approx 2,76$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Os locais $P_1$ e $P_2$ podem ser visitados sem Trajes de Proteção, mas para $P_3$ eles serão necessários. Ambos os pontos seguros estão a aproximadamente 2,76 unidades da fronteira da zona segura, o que proporciona uma margem confortável para pequenos desvios na navegação sem risco de exposição à radiação.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 7 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>AMPLIFICADOR DE SINAL</h3>
+            <p>Um amplificador de sinal está instalado no ponto $A(4, 3)$ e consegue receber sinais de todos os pontos externos à circunferência $(x-1)^2 + (y-2)^2 = 4$. Uma equipe de reconhecimento deseja estabelecer três postos de comunicação nos pontos $P_1(0, 0)$, $P_2(3, 4)$ e $P_3(0, 4)$. Para cada posto, determine se haverá comunicação com o amplificador e calcule a potência de cada ponto em relação à circunferência.</p>
+            
+            <div class="hint">
+                <p>Um ponto está externo à circunferência quando sua potência é positiva. Lembre-se que a potência de um ponto é $Pot(P) = d(P, C)^2 - r^2$.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificamos o centro da circunferência $C(1, 2)$ e o raio $r = 2$.</li>
+                    <li>Para $P_1(0, 0)$:
+                    $d(P_1, C) = \sqrt{(0 - 1)^2 + (0 - 2)^2} = \sqrt{1 + 4} = \sqrt{5} \approx 2,24$</li>
+                    <li>$Pot(P_1) = d(P_1, C)^2 - r^2 = 5 - 4 = 1 > 0$, logo $P_1$ está externo à circunferência.</li>
+                    <li>Para $P_2(3, 4)$:
+                    $d(P_2, C) = \sqrt{(3 - 1)^2 + (4 - 2)^2} = \sqrt{4 + 4} = \sqrt{8} \approx 2,83$</li>
+                    <li>$Pot(P_2) = d(P_2, C)^2 - r^2 = 8 - 4 = 4 > 0$, logo $P_2$ está externo à circunferência.</li>
+                    <li>Para $P_3(0, 4)$:
+                    $d(P_3, C) = \sqrt{(0 - 1)^2 + (4 - 2)^2} = \sqrt{1 + 4} = \sqrt{5} \approx 2,24$</li>
+                    <li>$Pot(P_3) = d(P_3, C)^2 - r^2 = 5 - 4 = 1 > 0$, logo $P_3$ está externo à circunferência.</li>
+                    <li>Todos os três postos estão fora da circunferência, portanto todos poderão se comunicar com o amplificador.</li>
+                </ol>
+                
+                <div class="formula">
+                    $Pot(P_1) = 5 - 4 = 1 > 0$
+                    $Pot(P_2) = 8 - 4 = 4 > 0$
+                    $Pot(P_3) = 5 - 4 = 1 > 0$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Todos os postos de comunicação poderão se comunicar com o amplificador, com o posto $P_2$ tendo a melhor potência de sinal (4). Em um mundo onde a comunicação pode salvar vidas, entender a geometria dos sinais e das zonas de transmissão é crucial para manter a rede de sobreviventes conectada e coordenar operações de resgate.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 8 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>CAMPOS DE FORÇA SOBREPOSTOS</h3>
+            <p>Dois geradores de campo de força criam zonas circulares de proteção descritas pelas circunferências $C_1: (x-2)^2 + (y-1)^2 = 16$ e $C_2: (x+1)^2 + (y-3)^2 = 9$. Um depósito de suprimentos está no ponto $S(0, 0)$. Determine se o depósito está protegido por algum dos campos de força, por ambos ou por nenhum. Calcule também a potência do ponto $S$ em relação a cada circunferência.</p>
+            
+            <div class="hint">
+                <p>Calcule separadamente a posição do ponto em relação a cada circunferência. O sinal da potência indicará a posição: negativa para dentro, zero para sobre, positiva para fora.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para a circunferência $C_1$:
+                    Centro $C_1(2, 1)$ e raio $r_1 = 4$</li>
+                    <li>Calculamos a distância de $S(0, 0)$ até $C_1(2, 1)$:
+                    $d(S, C_1) = \sqrt{(0 - 2)^2 + (0 - 1)^2} = \sqrt{4 + 1} = \sqrt{5} \approx 2,24$</li>
+                    <li>Como $d(S, C_1) \approx 2,24 < 4 = r_1$, o ponto $S$ está dentro do campo de força 1.</li>
+                    <li>A potência de $S$ em relação a $C_1$ é:
+                    $Pot_1(S) = d(S, C_1)^2 - r_1^2 = 5 - 16 = -11 < 0$</li>
+                    <li>Para a circunferência $C_2$:
+                    Centro $C_2(-1, 3)$ e raio $r_2 = 3$</li>
+                    <li>Calculamos a distância de $S(0, 0)$ até $C_2(-1, 3)$:
+                    $d(S, C_2) = \sqrt{(0 - (-1))^2 + (0 - 3)^2} = \sqrt{1 + 9} = \sqrt{10} \approx 3,16$</li>
+                    <li>Como $d(S, C_2) \approx 3,16 > 3 = r_2$, o ponto $S$ está fora do campo de força 2.</li>
+                    <li>A potência de $S$ em relação a $C_2$ é:
+                    $Pot_2(S) = d(S, C_2)^2 - r_2^2 = 10 - 9 = 1 > 0$</li>
+                </ol>
+                
+                <div class="formula">
+                    $Pot_1(S) = 5 - 16 = -11 < 0$ (dentro de $C_1$)
+                    $Pot_2(S) = 10 - 9 = 1 > 0$ (fora de $C_2$)
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O depósito está protegido apenas pelo primeiro campo de força, não pelo segundo. O valor fortemente negativo da potência em relação a $C_1$ (-11) indica que o depósito está bem no interior da zona de proteção, proporcionando uma boa margem de segurança. Em um mundo pós-apocalíptico, ter redundância nos sistemas de proteção é ideal, mas pelo menos um campo de força já garante segurança básica para os suprimentos vitais.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 9 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>CAMPO DE DISTORÇÃO TEMPORAL</h3>
+            <p>Um raro campo de distorção temporal é modelado por uma circunferência cuja equação é $x^2 + y^2 + 2x - 4y - 20 = 0$. Três expedições partiram dos pontos $E_1(2, 6)$, $E_2(-5, 2)$ e $E_3(3, 1)$. Determine qual expedição sofrerá os efeitos do campo de distorção, e para a expedição mais próxima do centro do campo, calcule a que distância ela precisaria se afastar para escapar do campo de distorção.</p>
+            
+            <div class="hint">
+                <p>Trabalhe com a equação na forma canônica e verifique quais pontos estão dentro da circunferência. A distância que uma expedição precisa percorrer para sair do campo é a diferença entre o raio e a distância atual até o centro.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Reescrevemos a equação da circunferência:
+                    $x^2 + y^2 + 2x - 4y - 20 = 0$</li>
+                    <li>Completando os quadrados:
+                    $x^2 + 2x + 1 + y^2 - 4y + 4 - 20 - 1 - 4 = 0$
+                    $(x + 1)^2 + (y - 2)^2 = 25$</li>
+                    <li>Identificamos o centro $C(-1, 2)$ e o raio $r = 5$.</li>
+                    <li>Para $E_1(2, 6)$:
+                    $d(E_1, C) = \sqrt{(2 - (-1))^2 + (6 - 2)^2} = \sqrt{9 + 16} = \sqrt{25} = 5$</li>
+                    <li>Como $d(E_1, C) = 5 = r$, a expedição $E_1$ está exatamente na borda do campo.</li>
+                    <li>Para $E_2(-5, 2)$:
+                    $d(E_2, C) = \sqrt{(-5 - (-1))^2 + (2 - 2)^2} = \sqrt{16 + 0} = 4$</li>
+                    <li>Como $d(E_2, C) = 4 < 5 = r$, a expedição $E_2$ está dentro do campo.</li>
+                    <li>Para $E_3(3, 1)$:
+                    $d(E_3, C) = \sqrt{(3 - (-1))^2 + (1 - 2)^2} = \sqrt{16 + 1} = \sqrt{17} \approx 4,12$</li>
+                    <li>Como $d(E_3, C) \approx 4,12 < 5 = r$, a expedição $E_3$ também está dentro do campo.</li>
+                    <li>Das três expedições, $E_2$ está mais próxima do centro do campo (distância 4).</li>
+                    <li>Para $E_2$ escapar do campo, ela precisa percorrer pelo menos $r - d(E_2, C) = 5 - 4 = 1$ unidade.</li>
+                </ol>
+                
+                <div class="formula">
+                    $(x + 1)^2 + (y - 2)^2 = 25$
+                    
+                    Distância mínima para $E_2$ escapar = $r - d(E_2, C) = 5 - 4 = 1$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> As expedições $E_2$ e $E_3$ estão sob efeito do campo de distorção, enquanto $E_1$ está exatamente na borda e pode escapar com um pequeno deslocamento. A expedição $E_2$ precisaria viajar pelo menos 1 unidade em direção à borda para escapar. Em campos de distorção temporal, cada momento conta - o que parece um minuto fora pode ser horas dentro, afetando suprimentos, comunicações e até mesmo a saúde dos membros da expedição.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 10 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>PROTOCOLO DE EVACUAÇÃO</h3>
+            <p>Após um incidente com radiação, três zonas circulares contaminadas surgiram, descritas pelas circunferências $C_1: (x-2)^2 + (y-3)^2 = 4$, $C_2: (x+1)^2 + (y-1)^2 = 9$ e $C_3: (x-4)^2 + (y+2)^2 = 16$. Quatro assentamentos estão localizados nos pontos $A_1(0, 0)$, $A_2(3, 0)$, $A_3(1, 4)$ e $A_4(5, -3)$. Determine quais assentamentos precisam ser evacuados por estarem dentro de pelo menos uma das zonas contaminadas e identifique quais assentamentos estão em zonas de sobreposição de contaminação (dentro de mais de uma circunferência simultaneamente).</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificamos os centros e raios de cada circunferência:
+                    $C_1: $ centro $(2, 3)$ e raio $r_1 = 2$
+                    $C_2: $ centro $(-1, 1)$ e raio $r_2 = 3$
+                    $C_3: $ centro $(4, -2)$ e raio $r_3 = 4$</li>
+                    <li>Para o assentamento $A_1(0, 0)$:
+                    $d(A_1, C_1) = \sqrt{(0 - 2)^2 + (0 - 3)^2} = \sqrt{4 + 9} = \sqrt{13} \approx 3,61 > 2 = r_1$, logo está fora de $C_1$.
+                    $d(A_1, C_2) = \sqrt{(0 - (-1))^2 + (0 - 1)^2} = \sqrt{1 + 1} = \sqrt{2} \approx 1,41 < 3 = r_2$, logo está dentro de $C_2$.
+                    $d(A_1, C_3) = \sqrt{(0 - 4)^2 + (0 - (-2))^2} = \sqrt{16 + 4} = \sqrt{20} \approx 4,47 > 4 = r_3$, logo está fora de $C_3$.</li>
+                    <li>Para o assentamento $A_2(3, 0)$:
+                    $d(A_2, C_1) = \sqrt{(3 - 2)^2 + (0 - 3)^2} = \sqrt{1 + 9} = \sqrt{10} \approx 3,16 > 2 = r_1$, logo está fora de $C_1$.
+                    $d(A_2, C_2) = \sqrt{(3 - (-1))^2 + (0 - 1)^2} = \sqrt{16 + 1} = \sqrt{17} \approx 4,12 > 3 = r_2$, logo está fora de $C_2$.
+                    $d(A_2, C_3) = \sqrt{(3 - 4)^2 + (0 - (-2))^2} = \sqrt{1 + 4} = \sqrt{5} \approx 2,24 < 4 = r_3$, logo está dentro de $C_3$.</li>
+                    <li>Para o assentamento $A_3(1, 4)$:
+                    $d(A_3, C_1) = \sqrt{(1 - 2)^2 + (4 - 3)^2} = \sqrt{1 + 1} = \sqrt{2} \approx 1,41 < 2 = r_1$, logo está dentro de $C_1$.
+                    $d(A_3, C_2) = \sqrt{(1 - (-1))^2 + (4 - 1)^2} = \sqrt{4 + 9} = \sqrt{13} \approx 3,61 > 3 = r_2$, logo está fora de $C_2$.
+                    $d(A_3, C_3) = \sqrt{(1 - 4)^2 + (4 - (-2))^2} = \sqrt{9 + 36} = \sqrt{45} \approx 6,71 > 4 = r_3$, logo está fora de $C_3$.</li>
+                    <li>Para o assentamento $A_4(5, -3)$:
+                    $d(A_4, C_1) = \sqrt{(5 - 2)^2 + (-3 - 3)^2} = \sqrt{9 + 36} = \sqrt{45} \approx 6,71 > 2 = r_1$, logo está fora de $C_1$.
+                    $d(A_4, C_2) = \sqrt{(5 - (-1))^2 + (-3 - 1)^2} = \sqrt{36 + 16} = \sqrt{52} \approx 7,21 > 3 = r_2$, logo está fora de $C_2$.
+                    $d(A_4, C_3) = \sqrt{(5 - 4)^2 + (-3 - (-2))^2} = \sqrt{1 + 1} = \sqrt{2} \approx 1,41 < 4 = r_3$, logo está dentro de $C_3$.</li>
+                    <li>Os assentamentos $A_1$, $A_2$, $A_3$ e $A_4$ precisam ser evacuados, pois cada um está dentro de pelo menos uma zona contaminada.</li>
+                    <li>Nenhum assentamento está em uma zona de sobreposição de contaminação (nenhum está dentro de mais de uma circunferência simultaneamente).</li>
+                </ol>
+                
+                <div class="formula">
+                    Assentamento $A_1$: dentro de $C_2$
+                    Assentamento $A_2$: dentro de $C_3$
+                    Assentamento $A_3$: dentro de $C_1$
+                    Assentamento $A_4$: dentro de $C_3$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Todos os assentamentos estão em perigo e precisam ser evacuados. Curiosamente, cada um está em uma zona de contaminação diferente (ou no caso de $A_2$ e $A_4$, na mesma zona $C_3$), e nenhum está em uma área de contaminação dupla ou tripla. Isso pode facilitar o planejamento da evacuação, pois as equipes podem focar em rotas específicas para cada assentamento que evitem suas respectivas zonas contaminadas.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 11 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>REABASTECIMENTO DE EMERGÊNCIA</h3>
+            <p>Um veículo explorador quebrou no ponto $V(2, -1)$ e precisa ser reabastecido. Três depósitos de combustível estão localizados nos pontos $D_1(5, 3)$, $D_2(-2, 4)$ e $D_3(0, -5)$. Uma zona de radiação intensa é modelada pela circunferência $x^2 + y^2 - 4x + 6y + 4 = 0$. Determine qual depósito de combustível deve ser escolhido para o resgate, de forma que a rota entre o veículo e o depósito não atravesse a zona de radiação. Se mais de um depósito for viável, escolha o mais próximo do veículo.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Reescrevemos a equação da circunferência:
+                    $x^2 + y^2 - 4x + 6y + 4 = 0$</li>
+                    <li>Completando os quadrados:
+                    $x^2 - 4x + 4 + y^2 + 6y + 9 + 4 - 4 - 9 = 0$
+                    $(x - 2)^2 + (y + 3)^2 = 9$</li>
+                    <li>Identificamos o centro $C(2, -3)$ e o raio $r = 3$.</li>
+                    <li>Verificamos se o veículo está dentro da zona de radiação:
+                    $d(V, C) = \sqrt{(2 - 2)^2 + (-1 - (-3))^2} = \sqrt{0 + 4} = 2 < 3 = r$, logo o veículo está dentro da zona de radiação.</li>
+                    <li>Verificamos se os depósitos estão dentro da zona de radiação:
+                    $d(D_1, C) = \sqrt{(5 - 2)^2 + (3 - (-3))^2} = \sqrt{9 + 36} = \sqrt{45} \approx 6,71 > 3 = r$, logo $D_1$ está fora.
+                    $d(D_2, C) = \sqrt{(-2 - 2)^2 + (4 - (-3))^2} = \sqrt{16 + 49} = \sqrt{65} \approx 8,06 > 3 = r$, logo $D_2$ está fora.
+                    $d(D_3, C) = \sqrt{(0 - 2)^2 + (-5 - (-3))^2} = \sqrt{4 + 4} = \sqrt{8} \approx 2,83 < 3 = r$, logo $D_3$ está dentro.</li>
+                    <li>Como o veículo está dentro da zona de radiação, qualquer rota para fora da zona atravessará a circunferência. No entanto, precisamos verificar se algum depósito também está dentro da zona, pois nesse caso a rota entre o veículo e esse depósito pode não atravessar a circunferência.</li>
+                    <li>Apenas o depósito $D_3$ está dentro da zona de radiação junto com o veículo.</li>
+                    <li>Para determinar se a rota do veículo ao depósito $D_3$ atravessa a circunferência, verificamos se o segmento de reta entre eles cruza a fronteira da zona. Isso pode ser feito analisando se existe algum ponto no segmento $V$-$D_3$ que está a uma distância exatamente $r$ do centro $C$.</li>
+                    <li>Parametrizando o segmento de reta: $P(t) = (1-t)V + tD_3 = (1-t)(2, -1) + t(0, -5) = (2(1-t), -1(1-t) - 5t) = (2-2t, -1-4t)$ para $0 \leq t \leq 1$.</li>
+                    <li>A distância ao centro é:
+                    $d(P(t), C)^2 = ((2-2t) - 2)^2 + ((-1-4t) - (-3))^2 = (-2t)^2 + (2-4t)^2 = 4t^2 + 4 - 16t + 16t^2 = 20t^2 - 16t + 4$</li>
+                    <li>Para verificar se cruza a circunferência, igualamos a $r^2 = 9$:
+                    $20t^2 - 16t + 4 = 9$
+                    $20t^2 - 16t - 5 = 0$</li>
+                    <li>Usando a fórmula quadrática: $t = \frac{16 \pm \sqrt{16^2 - 4 \cdot 20 \cdot (-5)}}{2 \cdot 20} = \frac{16 \pm \sqrt{256 + 400}}{40} = \frac{16 \pm \sqrt{656}}{40}$</li>
+                    <li>$t \approx \frac{16 \pm 25,61}{40} \approx \{1,04, -0,24\}$</li>
+                    <li>Como nenhum valor de $t$ está no intervalo $[0, 1]$ (o valor 1,04 está ligeiramente fora), o segmento de reta não cruza a circunferência.</li>
+                    <li>Portanto, apenas o depósito $D_3$ permite uma rota que não atravessa a zona de radiação.</li>
+                </ol>
+                
+                <div class="formula">
+                    $(x - 2)^2 + (y + 3)^2 = 9$
+                    
+                    $d(V, D_3) = \sqrt{(2 - 0)^2 + (-1 - (-5))^2} = \sqrt{4 + 16} = \sqrt{20} \approx 4,47$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Embora contra-intuitivo, às vezes a melhor rota é através de uma área que parece perigosa. Neste caso, o veículo e o depósito $D_3$ estão ambos dentro da zona de radiação, mas a rota entre eles não cruza o perímetro da zona, minimizando a exposição total à radiação. Esta é uma lição importante sobre como a geometria analítica pode revelar soluções não óbvias para problemas de sobrevivência.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 12 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>PERÍMETRO DE CONTENÇÃO DINÂMICO</h3>
+            <p>Uma anomalia temporal misteriosamente altera a equação de um campo de proteção a cada hora. No momento, o campo é representado pela circunferência $C: 3x^2 + 3y^2 - 12x + 18y + 27 = 0$. Uma expedição crítica partirá do ponto $P_0(0, 0)$ em direção ao ponto $P_f(6, -2)$. É essencial saber: (a) se os pontos inicial e final estão dentro, sobre ou fora do campo; (b) se a trajetória retilínea entre eles intersecta o campo e, em caso afirmativo, em quais pontos; e (c) qual é o valor da potência dos pontos inicial e final em relação ao campo.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Primeiro normalizamos a equação da circunferência dividindo por 3:
+                    $x^2 + y^2 - 4x + 6y + 9 = 0$</li>
+                    <li>Completando os quadrados:
+                    $x^2 - 4x + 4 + y^2 + 6y + 9 + 9 - 4 - 9 = 0$
+                    $(x - 2)^2 + (y + 3)^2 = 4$</li>
+                    <li>Identificamos o centro $C(2, -3)$ e o raio $r = 2$.</li>
+                    <li>Para o ponto inicial $P_0(0, 0)$:
+                    $d(P_0, C) = \sqrt{(0 - 2)^2 + (0 - (-3))^2} = \sqrt{4 + 9} = \sqrt{13} \approx 3,61 > 2 = r$, logo $P_0$ está fora do campo.</li>
+                    <li>Para o ponto final $P_f(6, -2)$:
+                    $d(P_f, C) = \sqrt{(6 - 2)^2 + (-2 - (-3))^2} = \sqrt{16 + 1} = \sqrt{17} \approx 4,12 > 2 = r$, logo $P_f$ também está fora do campo.</li>
+                    <li>Para verificar se a trajetória retilínea entre $P_0$ e $P_f$ intersecta o campo, parametrizamos a reta:
+                    $P(t) = (1-t)P_0 + tP_f = (1-t)(0, 0) + t(6, -2) = (6t, -2t)$ para $0 \leq t \leq 1$.</li>
+                    <li>Substituindo na equação da circunferência:
+                    $(6t - 2)^2 + (-2t + 3)^2 = 4$
+                    $(6t)^2 - 2(6t)(2) + 2^2 + (-2t)^2 - 2(-2t)(3) + 3^2 = 4$
+                    $36t^2 - 24t + 4 + 4t^2 + 12t + 9 = 4$
+                    $40t^2 - 12t + 9 = 0$</li>
+                    <li>Usando a fórmula quadrática: $t = \frac{12 \pm \sqrt{12^2 - 4 \cdot 40 \cdot 9}}{2 \cdot 40} = \frac{12 \pm \sqrt{144 - 1440}}{80}$</li>
+                    <li>Como o discriminante $\Delta = 144 - 1440 = -1296 < 0$, não existem raízes reais, o que significa que a trajetória não intersecta o campo.</li>
+                    <li>Calculamos a potência dos pontos:
+                    $Pot(P_0) = d(P_0, C)^2 - r^2 = 13 - 4 = 9$
+                    $Pot(P_f) = d(P_f, C)^2 - r^2 = 17 - 4 = 13$</li>
+                </ol>
+                
+                <div class="formula">
+                    $(x - 2)^2 + (y + 3)^2 = 4$
+                    
+                    $Pot(P_0) = 13 - 4 = 9$
+                    $Pot(P_f) = 17 - 4 = 13$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Ambos os pontos estão fora do campo de proteção e, felizmente, a trajetória retilínea entre eles não intersecta o campo em nenhum ponto. Os valores positivos e relativamente altos das potências (9 e 13) indicam que os pontos estão consideravelmente afastados do campo. Esta é uma situação ideal para a expedição, que pode seguir uma rota direta sem preocupações com as anomalias temporais do campo. A análise de trajetórias antes de iniciar missões é um protocolo de segurança essencial no mundo pós-apocalíptico.</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- RODAPÉ DO DOCUMENTO -->
+    <div class="footer">
+        REFÚGIO-TEC | POSIÇÕES DE PONTOS EM RELAÇÃO À CIRCUNFERÊNCIA: Sobrevivência Matemática - A circunferência que te protege hoje pode ser o que salva tua vida amanhã.
+    </div>
 </body>
 </html>
