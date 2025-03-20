@@ -1,0 +1,499 @@
+<!-- Reveal.js Template for 'Geometria Analítica: Sobrevivência Geométrica' -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Geometria Analítica: Sobrevivência Geométrica - Capítulo III</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Reveal.js Styles -->
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" />
+
+    <!-- Para destaque de código -->
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css" />
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="styles.css">
+
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <!-- ======================================== -->
+        <!-- SLIDE 1: TÍTULO DO CAPÍTULO III -->
+        <!-- ======================================== -->
+        <section>
+          <h1>Capítulo III – Estudo da Reta no R²</h1>
+          <h3>Rotas Seguras em Território Hostil</h3>
+          <p>
+            Se, nos capítulos anteriores, aprendemos a nos situar
+            e a medir distâncias (sem invadir abrigos inimigos),
+            agora precisamos traçar rotas confiáveis para avançar
+            nesse deserto nuclear que chamamos de <strong>R²</strong>.
+          </p>
+          <p><em>Bem-vindos ao Capítulo III!</em></p>
+        </section>
+
+        <!-- ======================================== -->
+        <!-- SLIDE 2: PRELÚDIO (INTRODUÇÃO) -->
+        <!-- ======================================== -->
+        <section>
+          <h2>Prelúdio</h2>
+          <p>
+            Ao atravessar terras desoladas, seguir qualquer caminho ao acaso
+            pode nos levar direto a zonas radiativas (nada agradável).
+            <strong>Equações de retas</strong> são como rotas de fuga:
+            traçar o melhor caminho significa sobrevivência.
+          </p>
+          <p>
+            Vamos desvendar as principais formas de equações de retas, analisar
+            como se alinhar (paralelismo) ou bater de frente (perpendicularidade)
+            e até medir distâncias em linhas inimagináveis nesse novo mundo.
+          </p>
+        </section>
+
+<!-- Visão Geral - Horizontal -->
+<section data-transition="slide">
+    <section>
+        <h2>As Três Faces da Reta</h2>
+        <p style="margin-top: 20px;">
+            No deserto matemático do pós-apocalipse, cada reta é como um caminho
+            que nos guia rumo à reconstrução. Porém, essa sobrevivente da Geometria
+            Analítica pode assumir diferentes identidades, dependendo de como a
+            observamos.
+        </p>
+        <div style="display: flex; justify-content: space-around; margin-top: 40px;">
+            <div style="flex: 1; text-align: center;">
+                <h3>Função</h3>
+                <p>\[y = mx + b\]</p>
+            </div>
+            <div style="flex: 1; text-align: center;">
+                <h3>Geral</h3>
+                <p>\[ax + by + c = 0\]</p>
+            </div>
+            <div style="flex: 1; text-align: center;">
+                <h3>Paramétrica</h3>
+                <p>
+                    \[\begin{cases}
+                        x = x_0 + at \\
+                        y = y_0 + bt
+                    \end{cases}\]
+                </p>
+            </div>
+        </div>
+    </section>
+</section>
+
+<!-- Função da Reta - Vertical -->
+<section>
+    <section>
+        <h2>A Função da Reta</h2>
+        <p>\[y = mx + b\]</p>
+        <p>
+            A chamada <strong>Função da Reta</strong> é o rosto mais “amigável”
+            dessa entidade geométrica. Revela claramente onde a reta cruza o eixo y
+            (o ponto de respiro no meio da radiação), além de mostrar como ela se
+            inclina, qual um viaduto que resiste em meio aos escombros.
+        </p>
+        <div class="col">
+            <h4>Coeficiente Angular (m)</h4>
+            <p>\[m = \tan(\theta)\]</p>
+            <p>Onde θ é o ângulo com o eixo x.</p>
+        </div>
+        <div class="col">
+            <h4>Coeficiente Linear (b)</h4>
+            <p>Intersecção com o eixo y:</p>
+            <p>\[y(0) = b\]</p>
+        </div>
+    </section>
+
+    <section>
+        <h3>Exercício: Ângulo e Ponto</h3>
+        <p>
+            Encontre a equação da reta que passa por \(P(2,3)\) e forma 60° com o eixo x.
+            Imagine que esse ponto é nosso abrigo provisório, e precisamos de uma
+            estrada que saia dele exatamente nesse ângulo.
+        </p>
+        <div class="fragment">
+            <p><strong>Solução:</strong></p>
+            <ol>
+                <li>\[m = \tan(60°) = \sqrt{3}\]</li>
+                <li>\[y - 3 = \sqrt{3}(x - 2)\]</li>
+                <li>\[y = \sqrt{3}x - 2\sqrt{3} + 3\]</li>
+            </ol>
+            <p>
+                Assim, traçamos nossa rota estratégica rumo à próxima cidade
+                (ou o que sobrou dela).
+            </p>
+        </div>
+    </section>
+</section>
+
+<!-- Forma Geral - Vertical -->
+<section>
+    <section>
+        <h2>A Forma Geral</h2>
+        <p>\[ax + by + c = 0\]</p>
+        <p>
+            Este é outro ponto de vista da reta, mostrando sua robustez e
+            versatilidade. Por meio de um vetor normal
+            <strong>\(\vec{n} = (a,b)\)</strong>, conseguimos identificá-la
+            de forma clara, o que permite abordar diversos problemas com
+            facilidade.
+        </p>
+        <div style="margin-top: 30px;">
+            <p>
+                Se \(\vec{n} = (a,b)\) é normal à reta, então qualquer
+                <strong>vetor diretor</strong> (que percorre a reta) será
+                \(\vec{v} = (-b,a)\). Assim, é possível prever como a reta
+                se estende no plano, mesmo que ainda estejamos nos adaptando
+                a este novo mundo.
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <h3>Exercício: Vetor Normal</h3>
+        <p>
+            Determine a equação da reta com vetor normal \(\vec{n} = (2,3)\)
+            que passa por \(P(1,1)\). Use esse “guardião” normal para erguer
+            suas defesas no local certo.
+        </p>
+        <div class="fragment">
+            <p><strong>Solução:</strong></p>
+            <ol>
+                <li>\[2x + 3y + c = 0\]</li>
+                <li>Substituindo \(P(1,1)\): \[2(1) + 3(1) + c = 0\]</li>
+                <li>\[2 + 3 + c = 0 \implies c = -5\]</li>
+                <li>Equação: \[2x + 3y - 5 = 0\]</li>
+            </ol>
+            <p>
+                Portanto, nossa barreira está erguida: ela será definida
+                por \(2x + 3y - 5 = 0\).
+            </p>
+        </div>
+    </section>
+</section>
+
+<!-- Forma Paramétrica - Vertical -->
+<section>
+    <section>
+        <h2>A Forma Paramétrica</h2>
+        <p>
+            \[\begin{cases}
+                x = x_0 + at \\
+                y = y_0 + bt
+            \end{cases}\]
+        </p>
+        <p>
+            Eis a face mais “livre” da reta, como um explorador nômade que se
+            desloca sem amarras. Podemos partir de um ponto
+            \((x_0, y_0)\) conhecido (nosso posto avançado) e nos mover na direção
+            do vetor \((a,b)\), ajustando o parâmetro \(t\) como quisermos.
+        </p>
+        <div style="margin-top: 30px;">
+            <p><strong>Lembrete:</strong></p>
+            <ul>
+                <li>\((x_0, y_0)\): ponto inicial</li>
+                <li>\((a,b)\): vetor diretor (a “bússola” da reta)</li>
+                <li>\(t\): parâmetro de deslocamento</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h3>Aplicação Física: Movimento Uniforme</h3>
+        <div style="text-align: center;">
+            <p>
+                \[\begin{cases}
+                    x = x_0 + v_x t \\
+                    y = y_0 + v_y t
+                \end{cases}\]
+            </p>
+        </div>
+        <p>
+            Esta mesma ideia paramétrica modela o movimento uniforme, onde
+            \((v_x, v_y)\) é o vetor velocidade. Aqui, \(t\) significa tempo
+            real, e a Reta Paramétrica se torna sua trajetória em um mundo
+            que ainda se move, apesar de tudo.
+        </p>
+    </section>
+
+    <section>
+        <h3>Exercício: Interceptação</h3>
+        <p>
+            Um objeto parte de \((0,5)\) com velocidade \((3,2)\). Calcule a
+            velocidade necessária para interceptá-lo partindo de \((2,0)\)
+            em 1 hora. Imagine que você precisa correr até esse objeto antes
+            que ele caia em mãos erradas.
+        </p>
+        <div class="fragment">
+            <p><strong>Solução:</strong></p>
+            <ol>
+                <li>
+                    Posição final do objeto após 1 hora:
+                    \((0 + 3 \cdot 1,\; 5 + 2 \cdot 1) = (3,7)\).
+                </li>
+                <li>
+                    Deslocamento necessário para interceptar, saindo de \((2,0)\):
+                    \(\vec{d} = (3 - 2,\; 7 - 0) = (1,7)\).
+                </li>
+                <li>
+                    Velocidade de interceptação em 1 hora:
+                    \[\vec{v} = (1,7)\text{ km/h}\].
+                </li>
+            </ol>
+            <p>
+                Dessa forma, você consegue alcançá-lo a tempo, recuperando
+                suprimentos valiosos para a reconstrução.
+            </p>
+        </div>
+    </section>
+
+<!-- Exercício Extra - Todas as Formas -->
+    <section>
+        <h2>Exercício Final: Uma Reta, Três Visões</h2>
+        <p>
+            Dado dois pontos \(A(x_1, y_1)\) e \(B(x_2, y_2)\), encontre as três
+            diferentes formas de sua equação:
+        </p>
+        <ul>
+            <li>Função: \(y = mx + b\)</li>
+            <li>Geral: \(ax + by + c = 0\)</li>
+            <li>Paramétrica: \(\begin{cases} x = x_0 + at \\ y = y_0 + bt \end{cases}\)</li>
+        </ul>
+        <p>
+            Assim, você poderá comparar como cada “face” descreve a mesma reta
+            — seja para planejar rotas, construir barreiras ou simular
+            movimentos em seu mundo reconstruído.
+        </p>
+    </section>
+</section>
+
+    
+        <!-- ======================================== -->
+        <!-- SLIDE 4: POSIÇÕES DE RETAS (PARALELISMO E PERPENDICULARIDADE) -->
+        <!-- ======================================== -->
+        <section>
+          <!-- Subslide 4.1: Paralelismo -->
+          <section>
+            <h2>Posições de Retas</h2>
+            <h3>Paralelismo</h3>
+            <p>
+              Como saber se duas rotas não irão se cruzar? Simples:
+              se elas mantêm a mesma <strong>inclinação (m)</strong>, são paralelas.
+            </p>
+            <p>\( m_1 = m_2 \) implica retas paralelas.</p>
+            <p>
+              <em>Sacada de Sobrevivência:</em> Confiem em rotas paralelas
+              para ações conjuntas; manter o mesmo rumo evita colisões e
+              pode ampliar o alcance de resgate.
+            </p>
+          </section>
+
+          <!-- Subslide 4.2: Perpendicularidade -->
+          <section>
+            <h3>Perpendicularidade</h3>
+            <p>
+              Às vezes, é preciso “bater de frente” com algum problema.
+              Em geometria analítica, se o produto das inclinações de duas retas
+              é \(-1\), elas são perpendiculares:
+            </p>
+            <p>\( m_1 \cdot m_2 = -1 \).</p>
+            <p>
+              <em>Sacada de Conflito:</em> Use rotas perpendiculares
+              para impor barreiras ou evitar a detecção – seguir um
+              rumo completamente distinto pode salvar seu suprimento.
+            </p>
+          </section>
+        </section>
+
+        <!-- ======================================== -->
+        <!-- SLIDE 5: DISTÂNCIA PONTO-RETA -->
+        <!-- ======================================== -->
+        <section>
+          <h2>Medindo Segurança: Distância Ponto-Reta</h2>
+          <p>
+            Às vezes, é vital saber o quão longe estamos de um “raio” de explosão.
+            Na geometria analítica, a <strong>distância de um ponto a uma reta</strong>
+            é dada por:
+          </p>
+          <p>
+            \[
+              d = \frac{|Ax_0 + By_0 + C|}{\sqrt{A^2 + B^2}}
+            \]
+          </p>
+          <p>
+            Onde \(Ax + By + C = 0\) representa a reta e \((x_0, y_0)\) o ponto
+            (nós, sobreviventes, em potencial perigo).
+          </p>
+          <p>
+            <em>Dica Tática:</em> Se a distância é muito pequena,
+            talvez seja hora de mudar de rota ou reforçar a base.
+          </p>
+        </section>
+
+        <!-- ======================================== -->
+        <!-- SLIDE 6: FECHAMENTO E REFLEXÃO -->
+        <!-- ======================================== -->
+        <section>
+          <h2>Fechamento</h2>
+          <p>
+            Neste capítulo, exploramos como as retas podem guiar nossos passos
+            em um terreno repleto de ameaças.
+          </p>
+          <p>
+            <strong>Alinhar-se ou Opor-se?</strong> Sejam rotas paralelas
+            ou perpendiculares, escolher o rumo certo significa decidir
+            entre construir alianças ou combater tiranias. Assim como
+            em qualquer reconstrução, entender a geometria das linhas
+            é entender o próprio caminho a seguir.
+          </p>
+          <p>
+            No próximo desafio, preparem-se para integrar essas rotas
+            em planejamentos maiores, quem sabe até na reconstrução de
+            vias seguras e fortificações. Afinal, sobreviver é uma arte,
+            e a Geometria Analítica é nosso principal instrumento.
+          </p>
+        </section>
+
+        <!-- ======================================== -->
+        <!-- SLIDE 7: EXERCÍCIOS E APLICAÇÕES -->
+        <!-- ======================================== -->
+        <section>
+          <h2>Exercícios e Aplicações</h2>
+          <p>Agora é hora de colocar a mão na massa (ou na areia radioativa!).</p>
+
+          <!-- Subslide 7.1: Perguntas Práticas -->
+          <section>
+            <h3>Perguntas Práticas</h3>
+            <ol>
+              <li>
+                Dada a reta \( y = 2x + 1 \), encontre:
+                <ul>
+                  <li>Seu coeficiente angular (m) e coeficiente linear (b).</li>
+                  <li>A distância do ponto \((3, 5)\) a essa reta.</li>
+                </ul>
+              </li>
+              <li>
+                Considere as retas \( r_1: y = 3x - 1 \) e \( r_2: y = 3x + 4 \).
+                Explique por que elas são paralelas e encontre o ponto médio da
+                segmentação imaginária que liga \((0, -1)\) em \(r_1\) até \((0, 4)\)
+                em \(r_2\).
+              </li>
+              <li>
+                Encontre a equação da reta perpendicular a \( y = -2x + 6 \)
+                que passa pelo ponto \((2, 1)\).
+              </li>
+              <li>
+                Interprete, em termos de "rotas de sobrevivência",
+                as posições relativas das retas obtidas.
+              </li>
+            </ol>
+          </section>
+
+          <!-- Subslide 7.2: Aplicações e Exemplos -->
+          <section>
+            <h3>Aplicações Temáticas</h3>
+            <p>Exemplos de uso prático das equações de retas:</p>
+            <ul>
+              <li>
+                <strong>Mapeamento de Rotas Seguras:</strong> Planejar caminhos
+                paralelos para comboios, reduzindo risco de emboscadas.
+              </li>
+              <li>
+                <strong>Defesa e Vigilância:</strong> Posicionar torres de vigia
+                em linhas perpendiculares a rotas principais para cobrir
+                mais área.
+              </li>
+              <li>
+                <strong>Comunicações:</strong> Se duas antenas estão alinhadas
+                em retas diferentes, calcular a distância e a interseção
+                ajuda na cobertura de sinais.
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <!-- ======================================== -->
+        <!-- SLIDE 8: PERGUNTAS FILOSÓFICAS -->
+        <!-- ======================================== -->
+        <section>
+          <h2>Reflexões Filosóficas</h2>
+          <p>
+            Nem só de cálculos vive o sobrevivente. Um pouco de filosofia
+            para alimentar a mente:
+          </p>
+          <ol>
+            <li>
+              Se duas retas paralelas nunca se encontram, será que na vida
+              real há caminhos que jamais se cruzarão — e isso é bom ou ruim?
+            </li>
+            <li>
+              Perpendicularidade implica oposição total. Há momentos em que é
+              melhor “bater de frente” com problemas ou pessoas? Como saber?
+            </li>
+            <li>
+              A distância ponto-reta pode ser encarada como nossa resistência
+              a certos ideais. Se estamos muito próximos, vale a pena
+              repensar ou nos afastar para garantir segurança?
+            </li>
+            <li>
+              Assim como uma reta pode ser descrita de várias formas,
+              quantos "desenhos de caminho" podemos ter na vida,
+              e quantas vezes precisamos mudar a perspectiva
+              para entender onde estamos?
+            </li>
+          </ol>
+          <p>
+            <em>Reflita e discuta com seus companheiros de abrigo:</em>
+            às vezes, a teoria é um espelho de nossas decisões.
+          </p>
+        </section>
+
+      </div> <!-- .slides -->
+    </div> <!-- .reveal -->
+
+    <!-- Reveal.js -->
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+
+    <!-- Reveal Plugins -->
+    <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+
+    <!-- MathJax -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["\\(","\\)"]],
+          displayMath: [["\\[","\\]"]],
+        },
+        svg: { fontCache: 'global' }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+    <script>
+      Reveal.initialize({
+        hash: true,
+        slideNumber: true,
+        plugins: [ RevealNotes, RevealHighlight ]
+      });
+    </script>
+
+    <!-- Como utilizar este modelo:
+      1. Cada "<section>" dentro de <div class="slides"> representa um slide horizontal.
+      2. Para criar slides verticais (subseções), aninhe <section> dentro de outro <section>.
+      3. Insira fórmulas LaTeX usando MathJax com a sintaxe \( ... \) ou \[ ... \].
+      4. Customize o tema (black.css) trocando o import no <head> ou usando outro tema.
+      5. Edite o CSS interno para atender à estética pós-apocalíptica.
+      6. Adicione novos slides conforme necessário para cada parte do curso.
+      7. Para ver as notas, pressione 's' durante a apresentação (necessário plugin notes).
+      8. Emojis (☢, ⚠, 🏜) podem ser usados pontualmente para reforçar a temática.
+    -->
+  </body>
+</html>
+

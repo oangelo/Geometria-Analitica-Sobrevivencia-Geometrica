@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>Capítulo I - O Espaço Vetorial R²</title>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <div class="reveal">
+    <div class="slides">
+  <!-- PÁGINA DE TÍTULO APRIMORADA -->
+      <section data-background="#1d3557">
+        <h1>Capítulo I: O Espaço Vetorial \( \mathbb{R}^2 \)</h1>
+        <h3>Navegando no Deserto Matemático</h3>
+        <p class="quote">"Quando o mundo desmoronou, restaram apenas as coordenadas do nosso destino."</p>
+        <div class="narrative-text">
+          <p>Ano 2157. Três décadas após a Grande Catástrofe. A humanidade sobrevive em comunidades isoladas, conectadas apenas por cartógrafos matemáticos que dominam a linguagem universal: a geometria do plano.</p>
+        </div>
+      </section>
+
+      <!-- INTRODUÇÃO EXPANDIDA -->
+      <section>
+        <!-- Contexto Histórico -->
+        <section>
+          <h2>A Geografia da Sobrevivência</h2>
+          <div class="narrative-text">
+            <p>Quando as redes digitais colapsaram e os satélites caíram, os sobreviventes precisaram redescobrir algo que a humanidade tinha esquecido: como mapear o mundo com apenas régua e compasso.</p>
+          </div>
+          <p>O espaço \( \mathbb{R}^2 \) se tornou não apenas um conceito matemático, mas a <strong>linguagem universal</strong> da reconstrução.</p>
+          <div class="survival-tip">
+            <span class="emoji-icon">📜</span> <strong>Lição de Sobrevivência:</strong> "Aquele que compreende o plano coordenado nunca está verdadeiramente perdido."
+          </div>
+        </section>
+        
+        <!-- Por que estudar R² -->
+        <section>
+          <h3>Por que \( \mathbb{R}^2 \) Importa?</h3>
+          <p>Em um mundo devastado, compreender o espaço vetorial bidimensional oferece três vantagens cruciais:</p>
+          <ol>
+            <li><strong>Otimização de Rotas</strong>: Economizar recursos calculando o caminho mais curto</li>
+            <li><strong>Mapeamento Territorial</strong>: Estabelecer fronteiras e zonas de recursos</li>
+            <li><strong>Planejamento Estrutural</strong>: Base para toda reconstrução arquitetônica</li>
+          </ol>
+          <p>O plano cartesiano transformou-se de abstração matemática em <em>ferramenta de sobrevivência</em>.</p>
+        </section>
+      </section>
+
+      <!-- SEÇÃO 1: O CONJUNTO R² EXPANDIDO -->
+      <section>
+        <!-- Definição formal expandida -->
+        <section>
+          <h2>O Conjunto \( \mathbb{R}^2 \): O Mapa Universal</h2>
+          
+          <div class="concept-definition">
+            <p>\[ \mathbb{R}^2 = \{(x, y)\,\mid\, x, y \in \mathbb{R}\} \]</p>
+            <p>O conjunto de todos os pares ordenados de números reais, representando cada possível localização no nosso plano de sobrevivência.</p>
+          </div>
+          
+          <p>Imagine o deserto pós-apocalíptico como uma vasta folha de papel quadriculado, onde cada junção das linhas é um potencial ponto de interesse: um refúgio, um depósito de recursos, ou uma zona contaminada.</p>
+          
+          <div class="narrative-text">
+            <p>Os antigos usavam GPS. Nós temos apenas as coordenadas cartesianas. Como eles descobririam que estamos a (3,4) unidades da Zona Segura sem suas tecnologias? Agora entendemos por que nossos ancestrais insistiam tanto no estudo da matemática básica.</p>
+          </div>
+        </section>
+        
+        <!-- VISUALIZAÇÃO: Plano Cartesiano -->
+        <section>
+          <h3>Visualização: O Plano Cartesiano</h3>
+          <div class="visualization-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400">
+              <!-- Fundo estilizado -->
+              <rect width="500" height="400" fill="#1d3557" opacity="0.9"/>
+              
+              <!-- Grade de fundo esmaecida -->
+              <g stroke="#a8dadc" stroke-width="0.5" opacity="0.2">
+                <!-- Linhas verticais da grade -->
+                <line x1="50" y1="50" x2="50" y2="350" />
+                <line x1="100" y1="50" x2="100" y2="350" />
+                <line x1="150" y1="50" x2="150" y2="350" />
+                <line x1="200" y1="50" x2="200" y2="350" />
+                <line x1="250" y1="50" x2="250" y2="350" />
+                <line x1="300" y1="50" x2="300" y2="350" />
+                <line x1="350" y1="50" x2="350" y2="350" />
+                <line x1="400" y1="50" x2="400" y2="350" />
+                <line x1="450" y1="50" x2="450" y2="350" />
+                
+                <!-- Linhas horizontais da grade -->
+                <line x1="50" y1="50" x2="450" y2="50" />
+                <line x1="50" y1="100" x2="450" y2="100" />
+                <line x1="50" y1="150" x2="450" y2="150" />
+                <line x1="50" y1="200" x2="450" y2="200" />
+                <line x1="50" y1="250" x2="450" y2="250" />
+                <line x1="50" y1="300" x2="450" y2="300" />
+                <line x1="50" y1="350" x2="450" y2="350" />
+              </g>
+              
+              <!-- Eixos coordenados principais -->
+              <g stroke="#f0f0f0" stroke-width="2">
+                <!-- Eixo X -->
+                <line x1="50" y1="200" x2="450" y2="200" />
+                <!-- Eixo Y -->
+                <line x1="250" y1="50" x2="250" y2="350" />
+              </g>
+              
+              <!-- Marcadores dos eixos -->
+              <g fill="#ffd166" font-family="Arial" font-size="12" text-anchor="middle">
+                <!-- Marcadores Eixo X -->
+                <text x="250" y="220">0</text>
+                <text x="300" y="220">1</text>
+                <text x="350" y="220">2</text>
+                <text x="400" y="220">3</text>
+                <text x="450" y="220">4</text>
+                <text x="200" y="220">-1</text>
+                <text x="150" y="220">-2</text>
+                <text x="100" y="220">-3</text>
+                <text x="50" y="220">-4</text>
+                
+                <!-- Marcadores Eixo Y -->
+                <text x="240" y="200">0</text>
+                <text x="240" y="150">1</text>
+                <text x="240" y="100">2</text>
+                <text x="240" y="50">3</text>
+                <text x="240" y="250">-1</text>
+                <text x="240" y="300">-2</text>
+                <text x="240" y="350">-3</text>
+              </g>
+              
+              <!-- Setas dos eixos -->
+              <g fill="#f0f0f0">
+                <!-- Seta Eixo X -->
+                <polygon points="455,200 445,195 445,205"/>
+                <!-- Seta Eixo Y -->
+                <polygon points="250,45 245,55 255,55"/>
+              </g>
+              
+              <!-- Rótulos dos eixos -->
+              <g fill="#e63946" font-family="Arial" font-size="14" font-weight="bold">
+                <text x="460" y="195">x</text>
+                <text x="255" y="40">y</text>
+              </g>
+              
+              <!-- Elementos temáticos -->
+              <!-- Origem destacada -->
+              <circle cx="250" cy="200" r="6" fill="#e63946"/>
+              <text x="260" y="190" fill="#e63946" font-family="Arial" font-size="12" font-weight="bold">Origem (0,0)</text>
+              <text x="260" y="210" fill="#a8dadc" font-family="Arial" font-size="10" font-style="italic">Marco Zero</text>
+              
+              <!-- Quadrantes marcados -->
+              <text x="350" y="100" fill="#a8dadc" font-family="Arial" font-size="14" font-weight="bold">Quadrante I</text>
+              <text x="150" y="100" fill="#a8dadc" font-family="Arial" font-size="14" font-weight="bold">Quadrante II</text>
+              <text x="150" y="300" fill="#a8dadc" font-family="Arial" font-size="14" font-weight="bold">Quadrante III</text>
+              <text x="350" y="300" fill="#a8dadc" font-family="Arial" font-size="14" font-weight="bold">Quadrante IV</text>
+              
+              <!-- Bússola estilizada -->
+              <g transform="translate(80, 80)">
+                <circle cx="0" cy="0" r="15" fill="none" stroke="#ffd166" stroke-width="1"/>
+                <line x1="0" y1="-12" x2="0" y2="12" stroke="#ffd166" stroke-width="1"/>
+                <line x1="-12" y1="0" x2="12" y2="0" stroke="#ffd166" stroke-width="1"/>
+                <text x="0" y="-18" fill="#ffd166" font-family="Arial" font-size="8" text-anchor="middle">N</text>
+                <text x="18" y="0" fill="#ffd166" font-family="Arial" font-size="8" dominant-baseline="middle">L</text>
+                <text x="0" y="18" fill="#ffd166" font-family="Arial" font-size="8" text-anchor="middle">S</text>
+                <text x="-18" y="0" fill="#ffd166" font-family="Arial" font-size="8" dominant-baseline="middle">O</text>
+              </g>
+              
+              <!-- Título da visualização -->
+              <text x="250" y="25" fill="#f0f0f0" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle">O Plano Cartesiano: O Mapa Universal</text>
+            </svg>
+          </div>
+        </section>
+        
+        <!-- Pares ordenados com profundidade -->
+        <section>
+          <h3>A Linguagem dos Pares Ordenados</h3>
+          
+          <p>Cada localização no mundo pós-catástrofe é codificada como um par ordenado \((x, y)\), onde:</p>
+          
+          <div class="concept-definition">
+            <p>\((x, y) \neq (y, x)\) quando \(x \neq y\)</p>
+            <p>A ordem dos componentes é <em>crucial</em> – confundir coordenadas pode ser fatal.</p>
+          </div>
+          
+          <p>Esta convenção matemática reflete a realidade implacável de nosso mundo: precisão é sobrevivência.</p>
+          
+          <div class="narrative-text">
+            <p>O Cartógrafo Jensen confundiu as coordenadas da Fonte Limpa. Anotou (8,3) quando deveria ser (3,8). Sua equipe nunca mais foi vista após partir em busca de água.</p>
+          </div>
+          
+          <div class="survival-tip">
+            <span class="emoji-icon">📝</span> <strong>Protocolo de Registro:</strong> "Sempre anote coordenadas no formato (Leste, Norte) e confirme a leitura duas vezes."
+          </div>
+        </section>
+        
+        <!-- VISUALIZAÇÃO: Pares Ordenados -->
+        <section>
+          <h3>Visualização: Pares Ordenados</h3>
+          <div class="visualization-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400">
+              <!-- Fundo estilizado -->
+              <rect width="500" height="400" fill="#1d3557" opacity="0.9"/>
+              
+              <!-- Grade de fundo esmaecida -->
+              <g stroke="#a8dadc" stroke-width="0.5" opacity="0.2">
+                <!-- Linhas verticais da grade -->
+                <line x1="50" y1="50" x2="50" y2="350" />
+                <line x1="100" y1="50" x2="100" y2="350" />
+                <line x1="150" y1="50" x2="150" y2="350" />
+                <line x1="200" y1="50" x2="200" y2="350" />
+                <line x1="250" y1="50" x2="250" y2="350" />
+                <line x1="300" y1="50" x2="300" y2="350" />
+                <line x1="350" y1="50" x2="350" y2="350" />
+                <line x1="400" y1="50" x2="400" y2="350" />
+                <line x1="450" y1="50" x2="450" y2="350" />
+                
+                <!-- Linhas horizontais da grade -->
+                <line x1="50" y1="50" x2="450" y2="50" />
+                <line x1="50" y1="100" x2="450" y2="100" />
+                <line x1="50" y1="150" x2="450" y2="150" />
+                <line x1="50" y1="200" x2="450" y2="200" />
+                <line x1="50" y1="250" x2="450" y2="250" />
+                <line x1="50" y1="300" x2="450" y2="300" />
+                <line x1="50" y1="350" x2="450" y2="350" />
+              </g>
+              
+              <!-- Eixos coordenados principais -->
+              <g stroke="#f0f0f0" stroke-width="2">
+                <!-- Eixo X -->
+                <line x1="50" y1="200" x2="450" y2="200" />
+                <!-- Eixo Y -->
+                <line x1="250" y1="50" x2="250" y2="350" />
+              </g>
+              
+              <!-- Marcadores dos eixos -->
+              <g fill="#ffd166" font-family="Arial" font-size="12" text-anchor="middle">
+                <!-- Marcadores Eixo X -->
+                <text x="250" y="220">0</text>
+                <text x="300" y="220">1</text>
+                <text x="350" y="220">2</text>
+                <text x="400" y="220">3</text>
+                <text x="200" y="220">-1</text>
+                <text x="150" y="220">-2</text>
+                <text x="100" y="220">-3</text>
+                
+                <!-- Marcadores Eixo Y -->
+                <text x="235" y="200">0</text>
+                <text x="235" y="150">1</text>
+                <text x="235" y="100">2</text>
+                <text x="235" y="250">-1</text>
+                <text x="235" y="300">-2</text>
+              </g>
+              
+              <!-- Pontos de exemplo com legendas -->
+              <!-- Ponto A (2,1) - Abrigo -->
+              <circle cx="350" cy="150" r="8" fill="#e63946"/>
+              <text x="360" y="145" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">A(2,1)</text>
+              <text x="360" y="160" fill="#a8dadc" font-family="Arial" font-size="10">Abrigo Principal</text>
+              
+              <!-- Ponto B (-2,-1) - Zona Radioativa -->
+              <circle cx="150" cy="250" r="8" fill="#ff9500"/>
+              <text x="160" y="245" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">B(-2,-1)</text>
+              <text x="160" y="260" fill="#a8dadc" font-family="Arial" font-size="10">Zona Radioativa</text>
+              
+              <!-- Ponto C (3,-2) - Fonte de Água -->
+              <circle cx="400" cy="300" r="8" fill="#4cc9f0"/>
+              <text x="410" y="295" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">C(3,-2)</text>
+              <text x="410" y="310" fill="#a8dadc" font-family="Arial" font-size="10">Fonte de Água</text>
+              
+              <!-- Ponto D (-3,2) - Depósito de Suprimentos -->
+              <circle cx="100" cy="100" r="8" fill="#8ac926"/>
+              <text x="110" y="95" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">D(-3,2)</text>
+              <text x="110" y="110" fill="#a8dadc" font-family="Arial" font-size="10">Depósito de Suprimentos</text>
+              
+              <!-- Destaque das coordenadas - A(2,1) -->
+              <g stroke-dasharray="4 4" stroke-width="1">
+                <!-- Linha vertical do eixo Y até o ponto -->
+                <line x1="350" y1="200" x2="350" y2="150" stroke="#e63946"/>
+                <!-- Linha horizontal do eixo X até o ponto -->
+                <line x1="250" y1="150" x2="350" y2="150" stroke="#e63946"/>
+              </g>
+              
+              <!-- Legenda de coordenadas para A -->
+              <text x="290" y="140" fill="#e63946" font-family="Arial" font-size="12">x = 2</text>
+              <text x="360" y="185" fill="#e63946" font-family="Arial" font-size="12">y = 1</text>
+              
+              <!-- Painel de informações -->
+              <g transform="translate(60, 45)">
+                <rect x="0" y="0" width="180" height="80" rx="5" fill="#457b9d" opacity="0.7"/>
+                <text x="10" y="20" fill="#ffd166" font-family="Arial" font-size="14" font-weight="bold">Par Ordenado (x,y)</text>
+                <text x="10" y="40" fill="#f0f0f0" font-family="Arial" font-size="12">• Localização exata no mapa</text>
+                <text x="10" y="60" fill="#f0f0f0" font-family="Arial" font-size="12">• A ordem é crucial: (x,y) ≠ (y,x)</text>
+                <text x="10" y="75" fill="#f0f0f0" font-family="Arial" font-size="10" font-style="italic">Confundir coordenadas pode ser fatal</text>
+              </g>
+              
+              <!-- Ícones temáticos -->
+              <!-- Bússola/Rosa dos ventos -->
+              <g transform="translate(420, 70)">
+                <circle cx="0" cy="0" r="20" fill="none" stroke="#ffd166" stroke-width="1"/>
+                <line x1="0" y1="-16" x2="0" y2="16" stroke="#ffd166" stroke-width="1"/>
+                <line x1="-16" y1="0" x2="16" y2="0" stroke="#ffd166" stroke-width="1"/>
+                <text x="0" y="-22" fill="#ffd166" font-family="Arial" font-size="10" text-anchor="middle">N</text>
+                <text x="22" y="0" fill="#ffd166" font-family="Arial" font-size="10" dominant-baseline="middle">L</text>
+                <text x="0" y="22" fill="#ffd166" font-family="Arial" font-size="10" text-anchor="middle">S</text>
+                <text x="-22" y="0" fill="#ffd166" font-family="Arial" font-size="10" dominant-baseline="middle">O</text>
+              </g>
+              
+              <!-- Título da visualização -->
+              <text x="250" y="25" fill="#f0f0f0" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle">Pares Ordenados: Coordenadas de Sobrevivência</text>
+            </svg>
+          </div>
+        </section>
+        
+        <!-- Distância no R² -->
+        <section>
+          <h4>Distância no Plano: Calculando o Custo da Jornada</h4>
+          
+          <div class="concept-definition">
+            <p>A distância entre pontos \((x_1, y_1)\) e \((x_2, y_2)\) é dada por:</p>
+            <p>\[ d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \]</p>
+          </div>
+          
+          <p>Esta fórmula, derivada do Teorema de Pitágoras, permite-nos calcular o <strong>custo real</strong> de uma jornada através do deserto – em distância, tempo, e recursos necessários.</p>
+          
+          <div class="narrative-text">
+            <p>As caravanas da Comunidade Norte calculam um "índice de custo" para cada expedição: cada unidade de distância representa 0,5L de água e 300kcal de ração por pessoa.</p>
+          </div>
+        </section>
+        
+        <!-- Exercícios aprimorados -->
+        <section>
+          <h4 class="exercise-title">Exercícios de Sobrevivência Cartesiana</h4>
+          
+          <ol>
+            <li>
+              <strong>Mapeamento de Recursos:</strong> 
+              <p>Três fontes de água foram descobertas nas coordenadas (3,5), (7,2) e (4,8). Qual delas está mais próxima do abrigo localizado em (2,3)? Justifique calculando as distâncias.</p>
+            </li>
+            <li>
+              <strong>Planejamento de Rotas:</strong>
+              <p>Uma caravana precisa viajar de (0,0) para (9,6). Se eles se deslocam apenas em linhas retas paralelas aos eixos (devido a obstáculos), qual é a distância total percorrida? Compare com a distância euclidiana direta e calcule o "custo adicional" do desvio.</p>
+            </li>
+            <li>
+              <strong>Reflexão Crítica:</strong>
+              <p>"A matemática é a única ruína que ficou intacta após o colapso." Discuta esta afirmação considerando como o conhecimento do \(\mathbb{R}^2\) sobreviveu à catástrofe.</p>
+            </li>
+          </ol>
+        </section>
+      </section>
+
+      <!-- SEÇÃO 2: OPERAÇÕES COM PARES ORDENADOS APRIMORADO -->
+      <section>
+        <!-- Introdução às operações -->
+        <section>
+          <h2>Álgebra da Sobrevivência: Operações em \(\mathbb{R}^2\)</h2>
+          
+          <p>As operações matemáticas no plano não são apenas abstração – são ferramentas práticas para gestão de recursos e planejamento.</p>
+          
+          <div class="concept-definition">
+            <p><strong>Adição:</strong> \((a, b) + (c, d) = (a+c, b+d)\)</p>
+            <p><strong>Multiplicação por escalar:</strong> \(\lambda(a, b) = (\lambda a, \lambda b)\)</p>
+          </div>
+          
+          <div class="narrative-text">
+            <p>O Conselho dos Anciões desenvolveu um sistema de contabilidade baseado em vetores para gerenciar os recursos de toda a comunidade durante os longos invernos nucleares.</p>
+          </div>
+        </section>
+        
+        <!-- VISUALIZAÇÃO: Adição de Vetores -->
+        <section>
+          <h3>Visualização: Adição de Vetores</h3>
+          <div class="visualization-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400">
+              <!-- Fundo estilizado -->
+              <rect width="500" height="400" fill="#1d3557" opacity="0.9"/>
+              
+              <!-- Grade de fundo esmaecida -->
+              <g stroke="#a8dadc" stroke-width="0.5" opacity="0.2">
+                <!-- Linhas verticais da grade -->
+                <line x1="50" y1="50" x2="50" y2="350" />
+                <line x1="100" y1="50" x2="100" y2="350" />
+                <line x1="150" y1="50" x2="150" y2="350" />
+                <line x1="200" y1="50" x2="200" y2="350" />
+                <line x1="250" y1="50" x2="250" y2="350" />
+                <line x1="300" y1="50" x2="300" y2="350" />
+                <line x1="350" y1="50" x2="350" y2="350" />
+                <line x1="400" y1="50" x2="400" y2="350" />
+                <line x1="450" y1="50" x2="450" y2="350" />
+                
+                <!-- Linhas horizontais da grade -->
+                <line x1="50" y1="50" x2="450" y2="50" />
+                <line x1="50" y1="100" x2="450" y2="100" />
+                <line x1="50" y1="150" x2="450" y2="150" />
+                <line x1="50" y1="200" x2="450" y2="200" />
+                <line x1="50" y1="250" x2="450" y2="250" />
+                <line x1="50" y1="300" x2="450" y2="300" />
+                <line x1="50" y1="350" x2="450" y2="350" />
+              </g>
+              
+              <!-- Eixos coordenados principais -->
+              <g stroke="#f0f0f0" stroke-width="2">
+                <!-- Eixo X -->
+                <line x1="50" y1="200" x2="450" y2="200" />
+                <!-- Eixo Y -->
+                <line x1="250" y1="50" x2="250" y2="350" />
+              </g>
+              
+              <!-- Origem destacada -->
+              <circle cx="250" cy="200" r="5" fill="#f0f0f0"/>
+              <text x="240" y="220" fill="#f0f0f0" font-family="Arial" font-size="12" text-anchor="middle">O</text>
+              
+              <!-- Vetor u: (2,1) - Primeira rota de navegação -->
+              <line x1="250" y1="200" x2="350" y2="150" stroke="#e63946" stroke-width="3"/>
+              <polygon points="350,150 340,155 342,146" fill="#e63946"/>
+              <text x="300" y="165" fill="#e63946" font-family="Arial" font-size="14" font-weight="bold">→u</text>
+              <text x="300" y="180" fill="#a8dadc" font-family="Arial" font-size="10" font-style="italic">Rota para Abrigo</text>
+              
+              <!-- Vetor v: (1,-2) - Segunda rota de navegação -->
+              <g transform="translate(350, 150)">
+                <line x1="0" y1="0" x2="50" y2="100" stroke="#4cc9f0" stroke-width="3"/>
+                <polygon points="50,100 42,92 51,90" fill="#4cc9f0"/>
+                <text x="25" y="40" fill="#4cc9f0" font-family="Arial" font-size="14" font-weight="bold">→v</text>
+                <text x="25" y="55" fill="#a8dadc" font-family="Arial" font-size="10" font-style="italic">Rota para Água</text>
+              </g>
+              
+              <!-- Vetor u+v: (3,-1) - Rota combinada -->
+              <line x1="250" y1="200" x2="400" y2="250" stroke="#8ac926" stroke-width="3" stroke-dasharray="10 5"/>
+              <polygon points="400,250 390,245 395,237" fill="#8ac926"/>
+              <text x="315" y="240" fill="#8ac926" font-family="Arial" font-size="14" font-weight="bold">→u + →v</text>
+              <text x="315" y="255" fill="#a8dadc" font-family="Arial" font-size="10" font-style="italic">Rota Combinada</text>
+              
+              <!-- Ponto final - Novo ponto de destino -->
+              <circle cx="400" cy="250" r="8" fill="#ffd166"/>
+              <text x="410" y="245" fill="#ffd166" font-family="Arial" font-size="12" font-weight="bold">P(3,-1)</text>
+              <text x="410" y="260" fill="#a8dadc" font-family="Arial" font-size="10">Destino Final</text>
+              
+              <!-- Construção do paralelogramo (linha tracejada) -->
+              <line x1="250" y1="200" x2="300" y2="300" stroke="#a8dadc" stroke-width="1" stroke-dasharray="5 3"/>
+              <line x1="300" y1="300" x2="400" y2="250" stroke="#a8dadc" stroke-width="1" stroke-dasharray="5 3"/>
+              <g transform="translate(350, 150)">
+                <line x1="0" y1="0" x2="-50" y2="150" stroke="#a8dadc" stroke-width="1" stroke-dasharray="5 3"/>
+              </g>
+              
+              <!-- Painel de operação vetorial -->
+              <g transform="translate(60, 60)">
+                <rect x="0" y="0" width="170" height="80" rx="5" fill="#457b9d" opacity="0.7"/>
+                <text x="10" y="20" fill="#ffd166" font-family="Arial" font-size="14" font-weight="bold">Adição de Vetores</text>
+                <text x="10" y="40" fill="#f0f0f0" font-family="Arial" font-size="12">→u = (2,1)</text>
+                <text x="10" y="60" fill="#f0f0f0" font-family="Arial" font-size="12">→v = (1,-2)</text>
+                <text x="10" y="80" fill="#8ac926" font-family="Arial" font-size="12">→u + →v = (3,-1)</text>
+              </g>
+              
+              <!-- Painel de interpretação -->
+              <g transform="translate(350, 60)">
+                <rect x="0" y="0" width="120" height="60" rx="5" fill="#e63946" opacity="0.7"/>
+                <text x="10" y="20" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">PROTOCOLO:</text>
+                <text x="10" y="40" fill="#f0f0f0" font-family="Arial" font-size="10">Otimização de rota</text>
+                <text x="10" y="55" fill="#f0f0f0" font-family="Arial" font-size="10">pela regra do paralelogramo</text>
+              </g>
+              
+              <!-- Título da visualização -->
+              <text x="250" y="25" fill="#f0f0f0" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle">Adição de Vetores: Combinando Rotas de Navegação</text>
+            </svg>
+          </div>
+        </section>
+        
+        <!-- Multiplicação por escalar em contexto -->
+        <section>
+          <h3>Multiplicação por Escalar: Escalando Recursos</h3>
+          
+          <p>A multiplicação de um vetor por um número escalar permite:</p>
+          <ul>
+            <li><strong>Ampliação/Redução</strong>: Ajustar a escala de um deslocamento ou plano</li>
+            <li><strong>Direção Oposta</strong>: Multiplicar por -1 inverte a direção</li>
+            <li><strong>Logística</strong>: Calcular recursos para grupos de tamanhos diferentes</li>
+          </ul>
+          
+          <div class="narrative-text">
+            <p>Para uma expedição de 5 pessoas, o Oficial de Recursos multiplica o vetor de suprimentos básicos (2,3,1) – representando água, comida e medicamentos – pelo escalar 5, obtendo (10,15,5).</p>
+          </div>
+        </section>
+        
+        <!-- VISUALIZAÇÃO: Multiplicação por Escalar -->
+        <section>
+          <h3>Visualização: Multiplicação por Escalar</h3>
+          <div class="visualization-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400">
+              <!-- Fundo estilizado -->
+              <rect width="500" height="400" fill="#1d3557" opacity="0.9"/>
+              
+              <!-- Grade de fundo esmaecida -->
+              <g stroke="#a8dadc" stroke-width="0.5" opacity="0.2">
+                <!-- Linhas verticais da grade -->
+                <line x1="50" y1="50" x2="50" y2="350" />
+                <line x1="100" y1="50" x2="100" y2="350" />
+                <line x1="150" y1="50" x2="150" y2="350" />
+                <line x1="200" y1="50" x2="200" y2="350" />
+                <line x1="250" y1="50" x2="250" y2="350" />
+                <line x1="300" y1="50" x2="300" y2="350" />
+                <line x1="350" y1="50" x2="350" y2="350" />
+                <line x1="400" y1="50" x2="400" y2="350" />
+                <line x1="450" y1="50" x2="450" y2="350" />
+                
+                <!-- Linhas horizontais da grade -->
+                <line x1="50" y1="50" x2="450" y2="50" />
+                <line x1="50" y1="100" x2="450" y2="100" />
+                <line x1="50" y1="150" x2="450" y2="150" />
+                <line x1="50" y1="200" x2="450" y2="200" />
+                <line x1="50" y1="250" x2="450" y2="250" />
+                <line x1="50" y1="300" x2="450" y2="300" />
+                <line x1="50" y1="350" x2="450" y2="350" />
+              </g>
+              
+              <!-- Eixos coordenados principais -->
+              <g stroke="#f0f0f0" stroke-width="2">
+                <!-- Eixo X -->
+                <line x1="50" y1="200" x2="450" y2="200" />
+                <!-- Eixo Y -->
+                <line x1="250" y1="50" x2="250" y2="350" />
+              </g>
+              
+              <!-- Origem destacada -->
+              <circle cx="250" cy="200" r="5" fill="#f0f0f0"/>
+              <text x="240" y="220" fill="#f0f0f0" font-family="Arial" font-size="12" text-anchor="middle">O</text>
+              
+              <!-- Vetor v original: (2,1) - Rota base -->
+              <line x1="250" y1="200" x2="350" y2="150" stroke="#4cc9f0" stroke-width="3"/>
+              <polygon points="350,150 340,155 342,146" fill="#4cc9f0"/>
+              <text x="290" y="165" fill="#4cc9f0" font-family="Arial" font-size="14" font-weight="bold">→v</text>
+              <text x="290" y="180" fill="#a8dadc" font-family="Arial" font-size="10" font-style="italic">Rota Base</text>
+              
+              <!-- Vetor 2v: (4,2) - Rota amplificada -->
+              <line x1="250" y1="200" x2="450" y2="100" stroke="#8ac926" stroke-width="3"/>
+              <polygon points="450,100 438,108 438,98" fill="#8ac926"/>
+              <text x="340" y="130" fill="#8ac926" font-family="Arial" font-size="14" font-weight="bold">2→v</text>
+              <text x="340" y="145" fill="#a8dadc" font-family="Arial" font-size="10" font-style="italic">Rota Duplicada</text>
+              
+              <!-- Vetor 0.5v: (1,0.5) - Rota reduzida -->
+              <line x1="250" y1="200" x2="300" y2="175" stroke="#ffd166" stroke-width="3"/>
+              <polygon points="300,175 292,177 294,170" fill="#ffd166"/>
+              <text x="265" y="175" fill="#ffd166" font-family="Arial" font-size="14" font-weight="bold">0.5→v</text>
+              <text x="265" y="190" fill="#a8dadc" font-family="Arial" font-size="10" font-style="italic">Rota Reduzida</text>
+              
+              <!-- Vetor -v: (-2,-1) - Rota inversa -->
+              <line x1="250" y1="200" x2="150" y2="250" stroke="#e63946" stroke-width="3"/>
+              <polygon points="150,250 160,245 158,254" fill="#e63946"/>
+              <text x="190" y="235" fill="#e63946" font-family="Arial" font-size="14" font-weight="bold">-→v</text>
+              <text x="190" y="250" fill="#a8dadc" font-family="Arial" font-size="10" font-style="italic">Rota Inversa</text>
+              
+              <!-- Pontos extremos -->
+              <circle cx="350" cy="150" r="6" fill="#4cc9f0"/>
+              <text x="355" y="140" fill="#4cc9f0" font-family="Arial" font-size="10">(2,1)</text>
+              
+              <circle cx="450" cy="100" r="6" fill="#8ac926"/>
+              <text x="455" y="90" fill="#8ac926" font-family="Arial" font-size="10">(4,2)</text>
+              
+              <circle cx="300" cy="175" r="6" fill="#ffd166"/>
+              <text x="305" y="165" fill="#ffd166" font-family="Arial" font-size="10">(1,0.5)</text>
+              
+              <circle cx="150" cy="250" r="6" fill="#e63946"/>
+              <text x="140" y="240" fill="#e63946" font-family="Arial" font-size="10">(-2,-1)</text>
+              
+              <!-- Painel das operações de escala -->
+              <g transform="translate(60, 60)">
+                <rect x="0" y="0" width="170" height="100" rx="5" fill="#457b9d" opacity="0.7"/>
+                <text x="10" y="20" fill="#ffd166" font-family="Arial" font-size="14" font-weight="bold">Mult. por Escalar</text>
+                <text x="10" y="40" fill="#4cc9f0" font-family="Arial" font-size="12">→v = (2,1)</text>
+                <text x="10" y="60" fill="#8ac926" font-family="Arial" font-size="12">2→v = (4,2)</text>
+                <text x="10" y="80" fill="#ffd166" font-family="Arial" font-size="12">0.5→v = (1,0.5)</text>
+                <text x="10" y="100" fill="#e63946" font-family="Arial" font-size="12">-→v = (-2,-1)</text>
+              </g>
+              
+              <!-- Painel de interpretação prática -->
+              <g transform="translate(60, 260)">
+                <rect x="0" y="0" width="170" height="70" rx="5" fill="#e63946" opacity="0.7"/>
+                <text x="10" y="20" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">APLICAÇÕES:</text>
+                <text x="10" y="40" fill="#f0f0f0" font-family="Arial" font-size="10">• Ajuste de distâncias</text>
+                <text x="10" y="55" fill="#f0f0f0" font-family="Arial" font-size="10">• Cálculo para múltiplas pessoas</text>
+                <text x="10" y="70" fill="#f0f0f0" font-family="Arial" font-size="10">• Rotas de retorno (-1×vetor)</text>
+              </g>
+              
+              <!-- Ilustração do significado físico -->
+              <g transform="translate(350, 260)">
+                <rect x="0" y="0" width="120" height="70" rx="5" fill="#ffd166" opacity="0.6"/>
+                <!-- Ícones de pessoas -->
+                <circle cx="20" cy="20" r="5" fill="#f0f0f0"/>
+                <line x1="20" y1="25" x2="20" y2="40" stroke="#f0f0f0" stroke-width="2"/>
+                <line x1="10" y1="30" x2="30" y2="30" stroke="#f0f0f0" stroke-width="2"/>
+                <line x1="20" y1="40" x2="10" y2="55" stroke="#f0f0f0" stroke-width="2"/>
+                <line x1="20" y1="40" x2="30" y2="55" stroke="#f0f0f0" stroke-width="2"/>
+                
+                <circle cx="40" cy="20" r="5" fill="#f0f0f0"/>
+                <line x1="40" y1="25" x2="40" y2="40" stroke="#f0f0f0" stroke-width="2"/>
+                <line x1="30" y1="30" x2="50" y2="30" stroke="#f0f0f0" stroke-width="2"/>
+                <line x1="40" y1="40" x2="30" y2="55" stroke="#f0f0f0" stroke-width="2"/>
+                <line x1="40" y1="40" x2="50" y2="55" stroke="#f0f0f0" stroke-width="2"/>
+                
+                <text x="60" y="20" fill="#f0f0f0" font-family="Arial" font-size="10">2 pessoas</text>
+                <text x="60" y="35" fill="#f0f0f0" font-family="Arial" font-size="10">= 2× recursos</text>
+                <text x="60" y="50" fill="#f0f0f0" font-family="Arial" font-size="10">(2→v)</text>
+              </g>
+              
+              <!-- Título da visualização -->
+              <text x="250" y="25" fill="#f0f0f0" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle">Multiplicação por Escalar: Ajustando Intensidades</text>
+            </svg>
+          </div>
+        </section>
+        
+        <!-- Propriedades em contexto -->
+        <section>
+          <h3>Propriedades das Operações: Leis da Navegação</h3>
+          
+          <div class="concept-definition">
+            <p><strong>Associatividade:</strong> \((\vec{u} + \vec{v}) + \vec{w} = \vec{u} + (\vec{v} + \vec{w})\)</p>
+            <p><strong>Comutatividade:</strong> \(\vec{u} + \vec{v} = \vec{v} + \vec{u}\)</p>
+            <p><strong>Distributividade:</strong> \(\lambda(\vec{u} + \vec{v}) = \lambda\vec{u} + \lambda\vec{v}\)</p>
+          </div>
+          
+          <p>Estas propriedades garantem que, não importa como planejamos nossas rotas ou dividimos nossos recursos, os resultados finais serão consistentes – uma certeza vital em um mundo cheio de incertezas.</p>
+          
+          <div class="narrative-text">
+            <p>As leis vetoriais são tão confiáveis quanto as leis da física. Os planejadores podem reorganizar uma cadeia de suprimentos de múltiplas maneiras, sabendo que o resultado final se manterá o mesmo, reduzindo erros fatais de logística.</p>
+          </div>
+        </section>
+        
+        <!-- Exercícios contextualizados -->
+        <section>
+          <h4 class="exercise-title">Operações de Campo</h4>
+          
+          <ol>
+            <li>
+              <strong>Logística de Expedição:</strong>
+              <p>A Comunidade Oeste precisa enviar recursos para três assentamentos localizados a (5,2), (3,7) e (8,4) a partir de sua base em (0,0). Se cada unidade de distância requer 2 unidades de combustível, e eles desejam otimizar o percurso visitando os três locais antes de retornar, calcule pelo menos duas rotas possíveis e identifique a mais eficiente.</p>
+            </li>
+            <li>
+              <strong>Planejamento de Expansão:</strong>
+              <p>Um novo abrigo será construído a 1.5 vezes a distância do abrigo atual em (4,6) na mesma direção da fonte de água em (7,10). Determine as coordenadas exatas para o novo abrigo.</p>
+            </li>
+            <li>
+              <strong>Dilema do Explorador:</strong>
+              <p>Um explorador se encontra na posição (8,3) e tem combustível para percorrer 10 unidades de distância. Represente graficamente a região que ele pode explorar e determine se ele pode alcançar os seguintes pontos de interesse: (15,8), (6,-5), (0,0).</p>
+            </li>
+          </ol>
+        </section>
+      </section>
+
+      <!-- SEÇÃO 3: VETORES APRIMORADA -->
+      <section>
+        <!-- Conceito de vetor expandido -->
+        <section>
+          <h2>Vetores: As Setas da Sobrevivência</h2>
+          
+          <div class="concept-definition">
+            <p>Um <strong>vetor</strong> \(\vec{v}\) no plano é uma quantidade com magnitude e direção, representado geometricamente por uma seta direcionada e algebricamente por um par ordenado \((x,y)\).</p>
+          </div>
+          
+          <p>Os vetores são a linguagem matemática de:</p>
+          <ul>
+            <li><strong>Movimento</strong>: Deslocamentos entre locais</li>
+            <li><strong>Força</strong>: Direção e intensidade de efeitos físicos</li>
+            <li><strong>Tendência</strong>: Padrões direcionais em fenômenos naturais</li>
+          </ul>
+          
+          <div class="narrative-text">
+            <p>Os Cartógrafos usam notação vetorial para marcar não apenas locais, mas também rotas seguras, correntes de vento, fluxos de radiação e padrões migratórios de criaturas mutantes.</p>
+          </div>
+        </section>
+        
+        <!-- Norma de vetor em contexto -->
+        <section>
+          <h3>Norma do Vetor: Medindo o Esforço</h3>
+          
+          <div class="concept-definition">
+            <p>A <strong>norma</strong> (ou magnitude) de um vetor \(\vec{v} = (x,y)\) é dada por:</p>
+            <p>\[ \|\vec{v}\| = \sqrt{x^2 + y^2} \]</p>
+            <p>Geometricamente, representa o comprimento da seta vetorial.</p>
+          </div>
+          
+          <p>A norma quantifica o "custo total" de um deslocamento, independentemente da direção – seja em termos de energia, tempo, ou recursos necessários.</p>
+          
+          <div class="survival-tip">
+            <span class="emoji-icon">⚡</span> <strong>Protocolo de Eficiência:</strong> "Entre dois vetores que conduzem ao mesmo destino, aquele com menor norma sempre preservará mais recursos vitais."
+          </div>
+        </section>
+        
+        <!-- Vetores unitários e direção -->
+        <section>
+          <h3>Vetores Unitários: A Bússola Matemática</h3>
+          
+          <div class="concept-definition">
+            <p>Um <strong>vetor unitário</strong> \(\hat{u}\) tem norma igual a 1 e preserva apenas a informação de direção:</p>
+            <p>\[ \hat{u} = \frac{\vec{v}}{\|\vec{v}\|} \]</p>
+          </div>
+          
+          <p>Vetores unitários funcionam como bússolas matemáticas, apontando direções sem comprometimento com distâncias específicas. São fundamentais para:</p>
+          <ul>
+            <li>Navegar seguindo uma direção específica</li>
+            <li>Padronizar indicações de rota entre comunidades</li>
+            <li>Calcular componentes direcionais de forças naturais</li>
+          </ul>
+          
+          <div class="narrative-text">
+            <p>As bandeiras de sinalização dos guias de caravana usam um sistema codificado por cores baseado nos oito vetores unitários principais, permitindo comunicação visual à distância mesmo durante tempestades de poeira.</p>
+          </div>
+        </section>
+        
+        <!-- Exercícios avançados -->
+        <section>
+          <h4 class="exercise-title">Problemas Vetoriais de Campo</h4>
+          
+          <ol>
+            <li>
+              <strong>Navegação em Tempestade:</strong>
+              <p>Uma expedição se move com velocidade constante representada pelo vetor \(\vec{v} = (3,4)\) km/h. Uma tempestade de radiação cria um vento constante representado pelo vetor \(\vec{w} = (-2,1)\) km/h. Determine:</p>
+              <p>a) O vetor velocidade resultante</p>
+              <p>b) A velocidade efetiva (norma do vetor resultante)</p>
+              <p>c) O desvio angular causado pela tempestade</p>
+            </li>
+            <li>
+              <strong>Triangulação de Sinal:</strong>
+              <p>Três torres de rádio estão localizadas nas coordenadas A(0,0), B(10,0) e C(5,8). Um sinal misterioso é detectado em um local P tal que os vetores \(\overrightarrow{AP}\) e \(\overrightarrow{BP}\) formam um ângulo de 45°, e P está a 6.5 unidades de distância de C. Determine as coordenadas exatas de P.</p>
+            </li>
+            <li>
+              <strong>Reflexão Vetorial:</strong>
+              <p>"Os vetores são como memórias – têm direção e intensidade, mas podem ser decompostos e recompostos de infinitas maneiras." Explique como esta metáfora se aplica à vida em comunidades pós-apocalípticas e ilustre com um exemplo matemático.</p>
+            </li>
+          </ol>
+        </section>
+      </section>
+
+      <!-- SEÇÃO 4: APLICAÇÕES AMPLIADAS -->
+      <section>
+        <!-- Ponto médio contextualizado -->
+        <section>
+          <h2>Pontos Estratégicos no Plano</h2>
+          <h3>O Ponto Médio: Local de Encontro</h3>
+          
+          <div class="concept-definition">
+            <p>O <strong>ponto médio</strong> entre \((x_1, y_1)\) e \((x_2, y_2)\) é dado por:</p>
+            <p>\[ M = \left(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}\right) \]</p>
+          </div>
+          
+          <p>O ponto médio representa o equilíbrio perfeito entre dois locais, sendo crucial para:</p>
+          <ul>
+            <li>Estabelecer postos de troca entre comunidades rivais</li>
+            <li>Determinar pontos de encontro equidistantes</li>
+            <li>Distribuir recursos de forma equilibrada</li>
+          </ul>
+          
+          <div class="narrative-text">
+            <p>O Tratado da Confederação do Vale estabeleceu postos neutros de comércio exatamente nos pontos médios entre os cinco principais assentamentos, criando uma rede pentagonal de rotas comerciais que nenhuma comunidade poderia monopolizar.</p>
+          </div>
+        </section>
+        
+        <!-- VISUALIZAÇÃO: Ponto Médio -->
+        <section>
+          <h3>Visualização: Ponto Médio</h3>
+          <div class="visualization-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400">
+              <!-- Fundo estilizado -->
+              <rect width="500" height="400" fill="#1d3557" opacity="0.9"/>
+              
+              <!-- Grade de fundo esmaecida -->
+              <g stroke="#a8dadc" stroke-width="0.5" opacity="0.2">
+                <!-- Linhas verticais da grade -->
+                <line x1="50" y1="50" x2="50" y2="350" />
+                <line x1="100" y1="50" x2="100" y2="350" />
+                <line x1="150" y1="50" x2="150" y2="350" />
+                <line x1="200" y1="50" x2="200" y2="350" />
+                <line x1="250" y1="50" x2="250" y2="350" />
+                <line x1="300" y1="50" x2="300" y2="350" />
+                <line x1="350" y1="50" x2="350" y2="350" />
+                <line x1="400" y1="50" x2="400" y2="350" />
+                <line x1="450" y1="50" x2="450" y2="350" />
+                
+                <!-- Linhas horizontais da grade -->
+                <line x1="50" y1="50" x2="450" y2="50" />
+                <line x1="50" y1="100" x2="450" y2="100" />
+                <line x1="50" y1="150" x2="450" y2="150" />
+                <line x1="50" y1="200" x2="450" y2="200" />
+                <line x1="50" y1="250" x2="450" y2="250" />
+                <line x1="50" y1="300" x2="450" y2="300" />
+                <line x1="50" y1="350" x2="450" y2="350" />
+              </g>
+              
+              <!-- Eixos coordenados principais -->
+              <g stroke="#f0f0f0" stroke-width="2">
+                <!-- Eixo X -->
+                <line x1="50" y1="200" x2="450" y2="200" />
+                <!-- Eixo Y -->
+                <line x1="250" y1="50" x2="250" y2="350" />
+              </g>
+              
+              <!-- Pontos principais -->
+              <!-- Ponto A: Assentamento Alpha em (1,3) -->
+              <circle cx="300" cy="100" r="8" fill="#e63946"/>
+              <text x="315" y="95" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">A(1,3)</text>
+              <text x="315" y="110" fill="#a8dadc" font-family="Arial" font-size="10">Assentamento Alpha</text>
+              
+              <!-- Ponto B: Assentamento Beta em (-2,-1) -->
+              <circle cx="150" cy="250" r="8" fill="#4cc9f0"/>
+              <text x="165" y="245" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">B(-2,-1)</text>
+              <text x="165" y="260" fill="#a8dadc" font-family="Arial" font-size="10">Assentamento Beta</text>
+              
+              <!-- Ponto M: Ponto Médio em (-0.5,1) -->
+              <circle cx="225" cy="175" r="10" fill="#ffd166"/>
+              <text x="240" y="175" fill="#ffd166" font-family="Arial" font-size="14" font-weight="bold">M(-0.5,1)</text>
+              <text x="240" y="190" fill="#a8dadc" font-family="Arial" font-size="10">Ponto de Negociação</text>
+              
+              <!-- Linha AB -->
+              <line x1="300" y1="100" x2="150" y2="250" stroke="#a8dadc" stroke-width="2"/>
+              
+              <!-- Círculo representando equidistância -->
+              <circle cx="225" cy="175" r="106" fill="none" stroke="#ffd166" stroke-width="1" stroke-dasharray="5 3"/>
+              
+              <!-- Linhas radiais mostrando distâncias iguais -->
+              <line x1="225" y1="175" x2="300" y2="100" stroke="#ffd166" stroke-width="1"/>
+              <line x1="225" y1="175" x2="150" y2="250" stroke="#ffd166" stroke-width="1"/>
+              
+              <!-- Destacando a equidistância -->
+              <text x="255" y="130" fill="#ffd166" font-family="Arial" font-size="12" font-style="italic">d₁ = d₂</text>
+              <text x="180" y="210" fill="#ffd166" font-family="Arial" font-size="12" font-style="italic">d₁ = d₂</text>
+              
+              <!-- Fórmula do ponto médio -->
+              <g transform="translate(60, 60)">
+                <rect x="0" y="0" width="170" height="100" rx="5" fill="#457b9d" opacity="0.7"/>
+                <text x="10" y="20" fill="#ffd166" font-family="Arial" font-size="14" font-weight="bold">Ponto Médio</text>
+                <text x="10" y="40" fill="#f0f0f0" font-family="Arial" font-size="12">M = (</text>
+                <text x="35" y="40" fill="#e63946" font-family="Arial" font-size="12">x₁ + x₂</text>
+                <text x="80" y="40" fill="#f0f0f0" font-family="Arial" font-size="12">/2,</text>
+                <text x="100" y="40" fill="#4cc9f0" font-family="Arial" font-size="12">y₁ + y₂</text>
+                <text x="145" y="40" fill="#f0f0f0" font-family="Arial" font-size="12">/2)</text>
+                
+                <text x="10" y="65" fill="#f0f0f0" font-family="Arial" font-size="12">M = (</text>
+                <text x="35" y="65" fill="#e63946" font-family="Arial" font-size="12">1 + (-2)</text>
+                <text x="80" y="65" fill="#f0f0f0" font-family="Arial" font-size="12">/2,</text>
+                <text x="100" y="65" fill="#4cc9f0" font-family="Arial" font-size="12">3 + (-1)</text>
+                <text x="145" y="65" fill="#f0f0f0" font-family="Arial" font-size="12">/2)</text>
+                
+                <text x="10" y="90" fill="#f0f0f0" font-family="Arial" font-size="12">M = (-0.5, 1)</text>
+              </g>
+              
+              <!-- Painel de aplicação prática -->
+              <g transform="translate(60, 260)">
+                <rect x="0" y="0" width="170" height="70" rx="5" fill="#e63946" opacity="0.7"/>
+                <text x="10" y="20" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">PROTOCOLO DE USO:</text>
+                <text x="10" y="40" fill="#f0f0f0" font-family="Arial" font-size="10">• Ponto de encontro neutro</text>
+                <text x="10" y="55" fill="#f0f0f0" font-family="Arial" font-size="10">• Posto de troca equidistante</text>
+                <text x="10" y="70" fill="#f0f0f0" font-family="Arial" font-size="10">• Divisão justa de territórios</text>
+              </g>
+              
+              <!-- Ilustração prática do ponto médio -->
+              <g transform="translate(300, 240)">
+                <!-- Posto de troca no ponto médio -->
+                <rect x="-15" y="-15" width="30" height="30" fill="#ffd166" opacity="0.8"/>
+                <line x1="-15" y1="-15" x2="15" y2="15" stroke="#1d3557" stroke-width="2"/>
+                <line x1="15" y1="-15" x2="-15" y2="15" stroke="#1d3557" stroke-width="2"/>
+                
+                <!-- Setas indicando rotas -->
+                <line x1="0" y1="0" x2="50" y2="-50" stroke="#e63946" stroke-width="2" stroke-dasharray="5 3"/>
+                <polygon points="50,-50 40,-45 45,-40" fill="#e63946"/>
+                
+                <line x1="0" y1="0" x2="-50" y2="50" stroke="#4cc9f0" stroke-width="2" stroke-dasharray="5 3"/>
+                <polygon points="-50,50 -40,45 -45,40" fill="#4cc9f0"/>
+                
+                <text x="25" y="-30" fill="#e63946" font-family="Arial" font-size="10">Rota A</text>
+                <text x="-35" y="30" fill="#4cc9f0" font-family="Arial" font-size="10">Rota B</text>
+                
+                <text x="0" y="50" fill="#ffd166" font-family="Arial" font-size="12" font-weight="bold" text-anchor="middle">Posto de Troca</text>
+              </g>
+              
+              <!-- Título da visualização -->
+              <text x="250" y="25" fill="#f0f0f0" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle">Ponto Médio: Local de Encontro Equilibrado</text>
+            </svg>
+          </div>
+        </section>
+        
+        <!-- Baricentro expandido -->
+        <section>
+          <h3>O Baricentro: Centro de Equilíbrio</h3>
+          
+          <div class="concept-definition">
+            <p>O <strong>baricentro</strong> de um triângulo com vértices \((x_1, y_1)\), \((x_2, y_2)\) e \((x_3, y_3)\) é dado por:</p>
+            <p>\[ G = \left(\frac{x_1 + x_2 + x_3}{3}, \frac{y_1 + y_2 + y_3}{3}\right) \]</p>
+            <p>Geometricamente, é o ponto de interseção das medianas do triângulo.</p>
+          </div>
+          
+          <p>O baricentro representa o ponto de equilíbrio perfeito entre três locais, sendo aplicado para:</p>
+          <ul>
+            <li>Posicionar centros de comando que supervisionam três postos</li>
+            <li>Estabelecer distribuição equitativa de recursos entre três comunidades</li>
+            <li>Determinar o centro de massa de estruturas triangulares</li>
+          </ul>
+          
+          <div class="survival-tip">
+            <span class="emoji-icon">⚖️</span> <strong>Princípio de Justiça Geométrica:</strong> "Quando três comunidades disputam recursos, o centro de distribuição no baricentro garante que nenhuma terá vantagem geográfica sobre as outras."
+          </div>
+        </section>
+        
+        <!-- VISUALIZAÇÃO: Baricentro -->
+        <section>
+          <h3>Visualização: Baricentro</h3>
+          <div class="visualization-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400">
+              <!-- Fundo estilizado -->
+              <rect width="500" height="400" fill="#1d3557" opacity="0.9"/>
+              
+              <!-- Grade de fundo esmaecida -->
+              <g stroke="#a8dadc" stroke-width="0.5" opacity="0.2">
+                <!-- Linhas verticais da grade -->
+                <line x1="50" y1="50" x2="50" y2="350" />
+                <line x1="100" y1="50" x2="100" y2="350" />
+                <line x1="150" y1="50" x2="150" y2="350" />
+                <line x1="200" y1="50" x2="200" y2="350" />
+                <line x1="250" y1="50" x2="250" y2="350" />
+                <line x1="300" y1="50" x2="300" y2="350" />
+                <line x1="350" y1="50" x2="350" y2="350" />
+                <line x1="400" y1="50" x2="400" y2="350" />
+                <line x1="450" y1="50" x2="450" y2="350" />
+                
+                <!-- Linhas horizontais da grade -->
+                <line x1="50" y1="50" x2="450" y2="50" />
+                <line x1="50" y1="100" x2="450" y2="100" />
+                <line x1="50" y1="150" x2="450" y2="150" />
+                <line x1="50" y1="200" x2="450" y2="200" />
+                <line x1="50" y1="250" x2="450" y2="250" />
+                <line x1="50" y1="300" x2="450" y2="300" />
+                <line x1="50" y1="350" x2="450" y2="350" />
+              </g>
+              
+              <!-- Eixos coordenados principais -->
+              <g stroke="#f0f0f0" stroke-width="2">
+                <!-- Eixo X -->
+                <line x1="50" y1="200" x2="450" y2="200" />
+                <!-- Eixo Y -->
+                <line x1="250" y1="50" x2="250" y2="350" />
+              </g>
+              
+              <!-- Pontos dos vértices do triângulo -->
+              <!-- Comunidade A: (0,0) [Ponto convertido para sistema de coordenadas do SVG] -->
+              <circle cx="250" cy="200" r="8" fill="#e63946"/>
+              <text x="265" y="195" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">A(0,0)</text>
+              <text x="265" y="210" fill="#a8dadc" font-family="Arial" font-size="10">Comunidade Norte</text>
+              
+              <!-- Comunidade B: (3,1) -->
+              <circle cx="400" cy="150" r="8" fill="#4cc9f0"/>
+              <text x="415" y="145" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">B(3,1)</text>
+              <text x="415" y="160" fill="#a8dadc" font-family="Arial" font-size="10">Comunidade Leste</text>
+              
+              <!-- Comunidade C: (1,3) -->
+              <circle cx="300" cy="50" r="8" fill="#8ac926"/>
+              <text x="315" y="45" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">C(1,3)</text>
+              <text x="315" y="60" fill="#a8dadc" font-family="Arial" font-size="10">Comunidade Oeste</text>
+              
+              <!-- Triângulo definido pelos três pontos -->
+              <g fill="#457b9d" opacity="0.3" stroke="#f0f0f0" stroke-width="1">
+                <polygon points="250,200 400,150 300,50"/>
+              </g>
+              
+              <!-- Medianas - linhas do vértice ao ponto médio do lado oposto -->
+              <!-- Mediana de A -->
+              <line x1="250" y1="200" x2="350" y2="100" stroke="#e63946" stroke-width="2" stroke-dasharray="5 3"/>
+              <circle cx="350" cy="100" r="4" fill="#e63946"/>
+              <text x="360" y="95" fill="#e63946" font-family="Arial" font-size="10">M₁</text>
+              
+              <!-- Mediana de B -->
+              <line x1="400" y1="150" x2="275" y2="125" stroke="#4cc9f0" stroke-width="2" stroke-dasharray="5 3"/>
+              <circle cx="275" cy="125" r="4" fill="#4cc9f0"/>
+              <text x="265" y="120" fill="#4cc9f0" font-family="Arial" font-size="10">M₂</text>
+              
+              <!-- Mediana de C -->
+              <line x1="300" y1="50" x2="325" y2="175" stroke="#8ac926" stroke-width="2" stroke-dasharray="5 3"/>
+              <circle cx="325" cy="175" r="4" fill="#8ac926"/>
+              <text x="330" y="185" fill="#8ac926" font-family="Arial" font-size="10">M₃</text>
+              
+              <!-- Baricentro (Centro de Gravidade/Massa) -->
+              <circle cx="316.7" cy="133.3" r="10" fill="#ffd166"/>
+              <text x="335" y="133" fill="#ffd166" font-family="Arial" font-size="14" font-weight="bold">G</text>
+              <text x="335" y="148" fill="#a8dadc" font-family="Arial" font-size="10">Baricentro</text>
+              
+              <!-- Painel com a fórmula do baricentro -->
+              <g transform="translate(60, 60)">
+                <rect x="0" y="0" width="170" height="120" rx="5" fill="#457b9d" opacity="0.7"/>
+                <text x="10" y="20" fill="#ffd166" font-family="Arial" font-size="14" font-weight="bold">Baricentro (G)</text>
+                <text x="10" y="40" fill="#f0f0f0" font-family="Arial" font-size="12">G = (</text>
+                <text x="35" y="40" fill="#f0f0f0" font-family="Arial" font-size="12">x₁ + x₂ + x₃</text>
+                <text x="110" y="40" fill="#f0f0f0" font-family="Arial" font-size="12">/3,</text>
+                
+                <text x="35" y="60" fill="#f0f0f0" font-family="Arial" font-size="12">y₁ + y₂ + y₃</text>
+                <text x="110" y="60" fill="#f0f0f0" font-family="Arial" font-size="12">/3)</text>
+                
+                <text x="10" y="85" fill="#f0f0f0" font-family="Arial" font-size="12">G = (</text>
+                <text x="35" y="85" fill="#f0f0f0" font-family="Arial" font-size="12">0 + 3 + 1</text>
+                <text x="90" y="85" fill="#f0f0f0" font-family="Arial" font-size="12">/3,</text>
+                <text x="105" y="85" fill="#f0f0f0" font-family="Arial" font-size="12">0 + 1 + 3</text>
+                <text x="160" y="85" fill="#f0f0f0" font-family="Arial" font-size="12">/3)</text>
+                
+                <text x="10" y="110" fill="#ffd166" font-family="Arial" font-size="12">G = (4/3, 4/3) ≈ (1.33, 1.33)</text>
+              </g>
+              
+              <!-- Painel de aplicação prática -->
+              <g transform="translate(60, 260)">
+                <rect x="0" y="0" width="170" height="70" rx="5" fill="#e63946" opacity="0.7"/>
+                <text x="10" y="20" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">APLICAÇÕES:</text>
+                <text x="10" y="40" fill="#f0f0f0" font-family="Arial" font-size="10">• Centro de comando tripartite</text>
+                <text x="10" y="55" fill="#f0f0f0" font-family="Arial" font-size="10">• Equilíbrio de recursos entre 3 pontos</text>
+                <text x="10" y="70" fill="#f0f0f0" font-family="Arial" font-size="10">• Estabilidade estrutural em construções</text>
+              </g>
+              
+              <!-- Ilustração prática do baricentro -->
+              <g transform="translate(316.7, 133.3)">
+                <!-- Centro de comando no baricentro -->
+                <circle cx="0" cy="0" r="15" fill="#ffd166" opacity="0.8"/>
+                <path d="M-8,-8 L8,8 M8,-8 L-8,8" stroke="#1d3557" stroke-width="2"/>
+                
+                <!-- Linhas de comunicação -->
+                <line x1="0" y1="0" x2="-66.7" y2="66.7" stroke="#e63946" stroke-width="1.5" stroke-dasharray="2 2"/>
+                <line x1="0" y1="0" x2="83.3" y2="16.7" stroke="#4cc9f0" stroke-width="1.5" stroke-dasharray="2 2"/>
+                <line x1="0" y1="0" x2="-16.7" y2="-83.3" stroke="#8ac926" stroke-width="1.5" stroke-dasharray="2 2"/>
+                
+                <!-- Símbolos de comunicação -->
+                <circle cx="-33.3" cy="33.3" r="3" fill="#e63946"/>
+                <circle cx="41.7" cy="8.3" r="3" fill="#4cc9f0"/>
+                <circle cx="-8.3" cy="-41.7" r="3" fill="#8ac926"/>
+              </g>
+              
+              <!-- Dados interessantes sobre o baricentro -->
+              <g transform="translate(350, 260)">
+                <rect x="0" y="0" width="120" height="70" rx="5" fill="#ffd166" opacity="0.6"/>
+                <text x="10" y="20" fill="#1d3557" font-family="Arial" font-size="10" font-weight="bold">SABIA QUE:</text>
+                <text x="10" y="40" fill="#1d3557" font-family="Arial" font-size="9">O baricentro divide cada</text>
+                <text x="10" y="55" fill="#1d3557" font-family="Arial" font-size="9">mediana na razão 2:1 a</text>
+                <text x="10" y="70" fill="#1d3557" font-family="Arial" font-size="9">partir do vértice!</text>
+              </g>
+              
+              <!-- Título da visualização -->
+              <text x="250" y="25" fill="#f0f0f0" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle">Baricentro: O Centro de Equilíbrio</text>
+            </svg>
+          </div>
+        </section>
+        
+        <!-- Nova aplicação: Circuncentro -->
+        <section>
+          <h3>O Circuncentro: Abrangência Máxima</h3>
+          
+          <div class="concept-definition">
+            <p>O <strong>circuncentro</strong> de um triângulo é o centro da circunferência que passa pelos três vértices. É o ponto de interseção das mediatrizes dos lados.</p>
+          </div>
+          
+          <p>O circuncentro é essencial em situações onde a equidistância é crucial:</p>
+          <ul>
+            <li>Posicionamento de torres de transmissão com alcance uniforme</li>
+            <li>Planejamento de zonas de quarentena com raio definido</li>
+            <li>Determinação de áreas de resgate equidistantes de pontos críticos</li>
+          </ul>
+          
+          <div class="narrative-text">
+            <p>Quando a Grande Tempestade se aproximava, os Engenheiros posicionaram o gerador de campo protetor exatamente no circuncentro da região triangular entre os três principais abrigos, garantindo que todos estivessem exatamente à mesma distância da fonte de proteção.</p>
+          </div>
+        </section>
+      <!-- VISUALIZAÇÃO: Circuncentro (continuação) -->
+      <section>
+        <h3>Visualização: Circuncentro</h3>
+        <div class="visualization-container">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400">
+            <!-- Fundo estilizado -->
+            <rect width="500" height="400" fill="#1d3557" opacity="0.9"/>
+            
+            <!-- Grade de fundo esmaecida -->
+            <g stroke="#a8dadc" stroke-width="0.5" opacity="0.2">
+              <!-- Linhas verticais da grade -->
+              <line x1="50" y1="50" x2="50" y2="350" />
+              <line x1="100" y1="50" x2="100" y2="350" />
+              <line x1="150" y1="50" x2="150" y2="350" />
+              <line x1="200" y1="50" x2="200" y2="350" />
+              <line x1="250" y1="50" x2="250" y2="350" />
+              <line x1="300" y1="50" x2="300" y2="350" />
+              <line x1="350" y1="50" x2="350" y2="350" />
+              <line x1="400" y1="50" x2="400" y2="350" />
+              <line x1="450" y1="50" x2="450" y2="350" />
+              
+              <!-- Linhas horizontais da grade -->
+              <line x1="50" y1="50" x2="450" y2="50" />
+              <line x1="50" y1="100" x2="450" y2="100" />
+              <line x1="50" y1="150" x2="450" y2="150" />
+              <line x1="50" y1="200" x2="450" y2="200" />
+              <line x1="50" y1="250" x2="450" y2="250" />
+              <line x1="50" y1="300" x2="450" y2="300" />
+              <line x1="50" y1="350" x2="450" y2="350" />
+            </g>
+            
+            <!-- Eixos coordenados principais -->
+            <g stroke="#f0f0f0" stroke-width="2">
+              <!-- Eixo X -->
+              <line x1="50" y1="200" x2="450" y2="200" />
+              <!-- Eixo Y -->
+              <line x1="250" y1="50" x2="250" y2="350" />
+            </g>
+            
+            <!-- Pontos dos vértices do triângulo -->
+            <!-- Abrigo A: (1,2) -->
+            <circle cx="300" cy="100" r="8" fill="#e63946"/>
+            <text x="315" y="95" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">A(1,2)</text>
+            <text x="315" y="110" fill="#a8dadc" font-family="Arial" font-size="10">Abrigo Alpha</text>
+            
+            <!-- Abrigo B: (3,0) -->
+            <circle cx="400" cy="200" r="8" fill="#4cc9f0"/>
+            <text x="415" y="195" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">B(3,0)</text>
+            <text x="415" y="210" fill="#a8dadc" font-family="Arial" font-size="10">Abrigo Beta</text>
+            
+            <!-- Abrigo C: (-1,-1) -->
+            <circle cx="150" cy="250" r="8" fill="#8ac926"/>
+            <text x="165" y="245" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">C(-1,-1)</text>
+            <text x="165" y="260" fill="#a8dadc" font-family="Arial" font-size="10">Abrigo Gamma</text>
+            
+            <!-- Triângulo definido pelos três pontos -->
+            <g fill="#457b9d" opacity="0.3" stroke="#f0f0f0" stroke-width="1">
+              <polygon points="300,100 400,200 150,250"/>
+            </g>
+            
+            <!-- Mediatrizes - perpendiculares aos lados, passando pelo ponto médio -->
+            <!-- Lado AB -->
+            <line x1="350" y1="150" x2="269" y2="231" stroke="#e63946" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <!-- Ponto médio de AB -->
+            <circle cx="350" cy="150" r="4" fill="#e63946"/>
+            <text x="360" y="140" fill="#e63946" font-family="Arial" font-size="10">M₁</text>
+            
+            <!-- Lado BC -->
+            <line x1="275" y1="225" x2="338" y2="288" stroke="#4cc9f0" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <!-- Ponto médio de BC -->
+            <circle cx="275" cy="225" r="4" fill="#4cc9f0"/>
+            <text x="260" y="225" fill="#4cc9f0" font-family="Arial" font-size="10">M₂</text>
+            
+            <!-- Lado CA -->
+            <line x1="225" y1="175" x2="100" y2="50" stroke="#8ac926" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <!-- Ponto médio de CA -->
+            <circle cx="225" cy="175" r="4" fill="#8ac926"/>
+            <text x="215" y="165" fill="#8ac926" font-family="Arial" font-size="10">M₃</text>
+            
+            <!-- Circuncentro -->
+            <circle cx="270" cy="190" r="10" fill="#ffd166"/>
+            <text x="285" y="190" fill="#ffd166" font-family="Arial" font-size="14" font-weight="bold">O</text>
+            <text x="285" y="205" fill="#a8dadc" font-family="Arial" font-size="10">Circuncentro</text>
+            
+            <!-- Circunferência circunscrita -->
+            <circle cx="270" cy="190" r="113" fill="none" stroke="#ffd166" stroke-width="2" opacity="0.7"/>
+            
+            <!-- Raios do circuncentro aos vértices -->
+            <line x1="270" y1="190" x2="300" y2="100" stroke="#ffd166" stroke-width="1"/>
+            <line x1="270" y1="190" x2="400" y2="200" stroke="#ffd166" stroke-width="1"/>
+            <line x1="270" y1="190" x2="150" y2="250" stroke="#ffd166" stroke-width="1"/>
+            
+            <!-- Painel com explicação do circuncentro -->
+            <g transform="translate(60, 60)">
+              <rect x="0" y="0" width="170" height="85" rx="5" fill="#457b9d" opacity="0.7"/>
+              <text x="10" y="20" fill="#ffd166" font-family="Arial" font-size="14" font-weight="bold">Circuncentro (O)</text>
+              <text x="10" y="40" fill="#f0f0f0" font-family="Arial" font-size="10">• Centro da circunferência que</text>
+              <text x="10" y="55" fill="#f0f0f0" font-family="Arial" font-size="10">passa pelos três vértices</text>
+              <text x="10" y="70" fill="#f0f0f0" font-family="Arial" font-size="10">• Interseção das mediatrizes</text>
+              <text x="10" y="85" fill="#f0f0f0" font-family="Arial" font-size="10">• Equidistante dos três vértices</text>
+            </g>
+            
+            <!-- Painel de aplicação prática -->
+            <g transform="translate(60, 260)">
+              <rect x="0" y="0" width="170" height="70" rx="5" fill="#e63946" opacity="0.7"/>
+              <text x="10" y="20" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">APLICAÇÕES:</text>
+              <text x="10" y="40" fill="#f0f0f0" font-family="Arial" font-size="10">• Torre de transmissão com alcance uniforme</text>
+              <text x="10" y="55" fill="#f0f0f0" font-family="Arial" font-size="10">• Zona de proteção equidistante</text>
+              <text x="10" y="70" fill="#f0f0f0" font-family="Arial" font-size="10">• Posicionamento de recursos compartilhados</text>
+            </g>
+            
+            <!-- Ilustração prática do circuncentro -->
+            <g transform="translate(270, 190)">
+              <!-- Torre de transmissão no circuncentro -->
+              <line x1="0" y1="-20" x2="0" y2="20" stroke="#ffd166" stroke-width="3"/>
+              <polygon points="0,-20 -5,-10 5,-10" fill="#ffd166"/>
+              <circle cx="0" cy="0" r="5" fill="#ffd166"/>
+              
+              <!-- Ondas de transmissão -->
+              <circle cx="0" cy="0" r="30" fill="none" stroke="#ffd166" stroke-width="1" opacity="0.7"/>
+              <circle cx="0" cy="0" r="60" fill="none" stroke="#ffd166" stroke-width="1" opacity="0.5"/>
+              <circle cx="0" cy="0" r="90" fill="none" stroke="#ffd166" stroke-width="1" opacity="0.3"/>
+            </g>
+            
+            <!-- Linhas destacando a equidistância -->
+            <text x="280" y="150" fill="#ffd166" font-family="Arial" font-size="12">r</text>
+            <text x="330" y="200" fill="#ffd166" font-family="Arial" font-size="12">r</text>
+            <text x="210" y="220" fill="#ffd166" font-family="Arial" font-size="12">r</text>
+            
+            <!-- Título da visualização -->
+            <text x="250" y="25" fill="#f0f0f0" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle">Circuncentro: O Centro de Alcance Uniforme</text>
+          </svg>
+        </div>
+      </section>
+      
+      <!-- Nova aplicação: Ortocentro -->
+      <section>
+        <h3>O Ortocentro: Convergência de Perpendiculares</h3>
+        
+        <div class="concept-definition">
+          <p>O <strong>ortocentro</strong> de um triângulo é o ponto de interseção das três alturas (linhas perpendiculares dos vértices aos lados opostos).</p>
+        </div>
+        
+        <p>O ortocentro é aplicado em situações onde relações perpendiculares são importantes:</p>
+        <ul>
+          <li>Sistemas de drenagem e gestão de fluxos</li>
+          <li>Estruturas arquitetônicas com suportes perpendiculares</li>
+          <li>Análise de forças ortogonais em construções</li>
+        </ul>
+        
+        <div class="narrative-text">
+          <p>Os Construtores aprenderam da pior maneira possível que, em terrenos triangulares irregulares, o sistema de drenagem central precisa estar no ortocentro, não no baricentro, para que a água flua perpendicularmente aos limites da área.</p>
+        </div>
+      </section>
+      
+      <!-- VISUALIZAÇÃO: Ortocentro -->
+      <section>
+        <h3>Visualização: Ortocentro</h3>
+        <div class="visualization-container">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400">
+            <!-- Fundo estilizado -->
+            <rect width="500" height="400" fill="#1d3557" opacity="0.9"/>
+            
+            <!-- Grade de fundo esmaecida -->
+            <g stroke="#a8dadc" stroke-width="0.5" opacity="0.2">
+              <!-- Linhas verticais da grade -->
+              <line x1="50" y1="50" x2="50" y2="350" />
+              <line x1="100" y1="50" x2="100" y2="350" />
+              <line x1="150" y1="50" x2="150" y2="350" />
+              <line x1="200" y1="50" x2="200" y2="350" />
+              <line x1="250" y1="50" x2="250" y2="350" />
+              <line x1="300" y1="50" x2="300" y2="350" />
+              <line x1="350" y1="50" x2="350" y2="350" />
+              <line x1="400" y1="50" x2="400" y2="350" />
+              <line x1="450" y1="50" x2="450" y2="350" />
+              
+              <!-- Linhas horizontais da grade -->
+              <line x1="50" y1="50" x2="450" y2="50" />
+              <line x1="50" y1="100" x2="450" y2="100" />
+              <line x1="50" y1="150" x2="450" y2="150" />
+              <line x1="50" y1="200" x2="450" y2="200" />
+              <line x1="50" y1="250" x2="450" y2="250" />
+              <line x1="50" y1="300" x2="450" y2="300" />
+              <line x1="50" y1="350" x2="450" y2="350" />
+            </g>
+            
+            <!-- Eixos coordenados principais -->
+            <g stroke="#f0f0f0" stroke-width="2">
+              <!-- Eixo X -->
+              <line x1="50" y1="200" x2="450" y2="200" />
+              <!-- Eixo Y -->
+              <line x1="250" y1="50" x2="250" y2="350" />
+            </g>
+            
+            <!-- Pontos dos vértices do triângulo -->
+            <!-- Estrutura A: (0,3) -->
+            <circle cx="250" cy="50" r="8" fill="#e63946"/>
+            <text x="265" y="45" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">A(0,3)</text>
+            <text x="265" y="60" fill="#a8dadc" font-family="Arial" font-size="10">Estrutura Alpha</text>
+            
+            <!-- Estrutura B: (4,0) -->
+            <circle cx="450" cy="200" r="8" fill="#4cc9f0"/>
+            <text x="435" y="190" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">B(4,0)</text>
+            <text x="435" y="205" fill="#a8dadc" font-family="Arial" font-size="10">Estrutura Beta</text>
+            
+            <!-- Estrutura C: (-2,-1) -->
+            <circle cx="150" cy="250" r="8" fill="#8ac926"/>
+            <text x="135" y="240" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">C(-2,-1)</text>
+            <text x="135" y="255" fill="#a8dadc" font-family="Arial" font-size="10">Estrutura Gamma</text>
+            
+            <!-- Triângulo definido pelos três pontos -->
+            <g fill="#457b9d" opacity="0.3" stroke="#f0f0f0" stroke-width="1">
+              <polygon points="250,50 450,200 150,250"/>
+            </g>
+            
+            <!-- Alturas - perpendiculares dos vértices aos lados opostos -->
+            <!-- Altura de A -->
+            <line x1="250" y1="50" x2="313" y2="229" stroke="#e63946" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <!-- Pé da altura de A -->
+            <circle cx="313" cy="229" r="4" fill="#e63946"/>
+            <text x="323" y="229" fill="#e63946" font-family="Arial" font-size="10">H₁</text>
+            
+            <!-- Altura de B -->
+            <line x1="450" y1="200" x2="248" y2="133" stroke="#4cc9f0" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <!-- Pé da altura de B -->
+            <circle cx="248" cy="133" r="4" fill="#4cc9f0"/>
+            <text x="238" y="133" fill="#4cc9f0" font-family="Arial" font-size="10">H₂</text>
+            
+            <!-- Altura de C -->
+            <line x1="150" y1="250" x2="350" y2="145" stroke="#8ac926" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <!-- Pé da altura de C -->
+            <circle cx="350" cy="145" r="4" fill="#8ac926"/>
+            <text x="360" y="145" fill="#8ac926" font-family="Arial" font-size="10">H₃</text>
+            
+            <!-- Ortocentro -->
+            <circle cx="290" cy="160" r="10" fill="#ffd166"/>
+            <text x="305" y="160" fill="#ffd166" font-family="Arial" font-size="14" font-weight="bold">H</text>
+            <text x="305" y="175" fill="#a8dadc" font-family="Arial" font-size="10">Ortocentro</text>
+            
+            <!-- Destacando a perpendicularidade das alturas -->
+            <!-- Ângulos retos no pé da altura de A -->
+            <path d="M 318,224 L 323,229 L 318,234" fill="none" stroke="#e63946" stroke-width="1"/>
+            
+            <!-- Ângulos retos no pé da altura de B -->
+            <path d="M 248,128 L 243,133 L 248,138" fill="none" stroke="#4cc9f0" stroke-width="1"/>
+            
+            <!-- Ângulos retos no pé da altura de C -->
+            <path d="M 345,140 L 350,145 L 355,140" fill="none" stroke="#8ac926" stroke-width="1"/>
+            
+            <!-- Painel com explicação do ortocentro -->
+            <g transform="translate(60, 60)">
+              <rect x="0" y="0" width="170" height="85" rx="5" fill="#457b9d" opacity="0.7"/>
+              <text x="10" y="20" fill="#ffd166" font-family="Arial" font-size="14" font-weight="bold">Ortocentro (H)</text>
+              <text x="10" y="40" fill="#f0f0f0" font-family="Arial" font-size="10">• Ponto de interseção das três</text>
+              <text x="10" y="55" fill="#f0f0f0" font-family="Arial" font-size="10">  alturas do triângulo</text>
+              <text x="10" y="70" fill="#f0f0f0" font-family="Arial" font-size="10">• Cada altura é perpendicular ao</text>
+              <text x="10" y="85" fill="#f0f0f0" font-family="Arial" font-size="10">  lado oposto ao vértice</text>
+            </g>
+            
+            <!-- Painel de aplicação prática -->
+            <g transform="translate(60, 260)">
+              <rect x="0" y="0" width="170" height="70" rx="5" fill="#e63946" opacity="0.7"/>
+              <text x="10" y="20" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">APLICAÇÕES:</text>
+              <text x="10" y="40" fill="#f0f0f0" font-family="Arial" font-size="10">• Sistema de drenagem eficiente</text>
+              <text x="10" y="55" fill="#f0f0f0" font-family="Arial" font-size="10">• Estruturas com suportes perpendiculares</text>
+              <text x="10" y="70" fill="#f0f0f0" font-family="Arial" font-size="10">• Análise de forças ortogonais</text>
+            </g>
+            
+            <!-- Ilustração prática do ortocentro -->
+            <g transform="translate(290, 160)">
+              <!-- Sistema de drenagem no ortocentro -->
+              <circle cx="0" cy="0" r="15" fill="#ffd166" opacity="0.8"/>
+              <circle cx="0" cy="0" r="10" fill="#1d3557" opacity="0.8"/>
+              <circle cx="0" cy="0" r="5" fill="#ffd166" opacity="0.8"/>
+              
+              <!-- Linhas de drenagem -->
+              <line x1="0" y1="0" x2="-40" y2="-110" stroke="#e63946" stroke-width="1.5" stroke-dasharray="1 1"/>
+              <line x1="0" y1="0" x2="160" y2="40" stroke="#4cc9f0" stroke-width="1.5" stroke-dasharray="1 1"/>
+              <line x1="0" y1="0" x2="-140" y2="90" stroke="#8ac926" stroke-width="1.5" stroke-dasharray="1 1"/>
+              
+              <!-- Gotas de água simbolizando drenagem -->
+              <path d="M -20,-55 Q -23,-50 -20,-45 Q -17,-50 -20,-55" fill="#4cc9f0" opacity="0.8"/>
+              <path d="M 80,20 Q 77,25 80,30 Q 83,25 80,20" fill="#4cc9f0" opacity="0.8"/>
+              <path d="M -70,45 Q -73,50 -70,55 Q -67,50 -70,45" fill="#4cc9f0" opacity="0.8"/>
+            </g>
+            
+            <!-- Título da visualização -->
+            <text x="250" y="25" fill="#f0f0f0" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle">Ortocentro: O Centro de Convergência Perpendicular</text>
+          </svg>
+        </div>
+      </section>
+
+      <!-- VISUALIZAÇÃO: Pontos Notáveis e Reta de Euler -->
+      <section>
+        <h3>Visualização: Pontos Notáveis e Reta de Euler</h3>
+        <div class="visualization-container">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400">
+            <!-- Fundo estilizado -->
+            <rect width="500" height="400" fill="#1d3557" opacity="0.9"/>
+            
+            <!-- Grade de fundo esmaecida -->
+            <g stroke="#a8dadc" stroke-width="0.5" opacity="0.2">
+              <!-- Linhas verticais da grade -->
+              <line x1="50" y1="50" x2="50" y2="350" />
+              <line x1="100" y1="50" x2="100" y2="350" />
+              <line x1="150" y1="50" x2="150" y2="350" />
+              <line x1="200" y1="50" x2="200" y2="350" />
+              <line x1="250" y1="50" x2="250" y2="350" />
+              <line x1="300" y1="50" x2="300" y2="350" />
+              <line x1="350" y1="50" x2="350" y2="350" />
+              <line x1="400" y1="50" x2="400" y2="350" />
+              <line x1="450" y1="50" x2="450" y2="350" />
+              
+              <!-- Linhas horizontais da grade -->
+              <line x1="50" y1="50" x2="450" y2="50" />
+              <line x1="50" y1="100" x2="450" y2="100" />
+              <line x1="50" y1="150" x2="450" y2="150" />
+              <line x1="50" y1="200" x2="450" y2="200" />
+              <line x1="50" y1="250" x2="450" y2="250" />
+              <line x1="50" y1="300" x2="450" y2="300" />
+              <line x1="50" y1="350" x2="450" y2="350" />
+            </g>
+            
+            <!-- Eixos coordenados principais -->
+            <g stroke="#f0f0f0" stroke-width="2">
+              <!-- Eixo X -->
+              <line x1="50" y1="200" x2="450" y2="200" />
+              <!-- Eixo Y -->
+              <line x1="250" y1="50" x2="250" y2="350" />
+            </g>
+            
+            <!-- Pontos dos vértices do triângulo -->
+            <!-- Vértice A: (1,3) -->
+            <circle cx="300" cy="80" r="8" fill="#e63946"/>
+            <text x="315" y="75" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">A(1,3)</text>
+            
+            <!-- Vértice B: (4,1) -->
+            <circle cx="450" cy="160" r="8" fill="#e63946"/>
+            <text x="450" y="150" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">B(4,1)</text>
+            
+            <!-- Vértice C: (-2,-1) -->
+            <circle cx="150" cy="250" r="8" fill="#e63946"/>
+            <text x="135" y="240" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">C(-2,-1)</text>
+            
+            <!-- Triângulo definido pelos três pontos -->
+            <g fill="#457b9d" opacity="0.2" stroke="#f0f0f0" stroke-width="1">
+              <polygon points="300,80 450,160 150,250"/>
+            </g>
+            
+            <!-- Baricentro: ponto verde -->
+            <circle cx="300" cy="163" r="10" fill="#8ac926"/>
+            <text x="315" y="163" fill="#8ac926" font-family="Arial" font-size="14" font-weight="bold">G</text>
+            <text x="315" y="178" fill="#f0f0f0" font-family="Arial" font-size="10">Baricentro</text>
+            
+            <!-- Circuncentro: ponto azul -->
+            <circle cx="328" cy="180" r="10" fill="#4cc9f0"/>
+            <text x="343" y="180" fill="#4cc9f0" font-family="Arial" font-size="14" font-weight="bold">O</text>
+            <text x="343" y="195" fill="#f0f0f0" font-family="Arial" font-size="10">Circuncentro</text>
+            
+            <!-- Ortocentro: ponto vermelho -->
+            <circle cx="257" cy="136" r="10" fill="#e63946"/>
+            <text x="242" y="136" fill="#e63946" font-family="Arial" font-size="14" font-weight="bold">H</text>
+            <text x="240" y="151" fill="#f0f0f0" font-family="Arial" font-size="10">Ortocentro</text>
+            
+            <!-- Reta de Euler -->
+            <line x1="190" y1="103" x2="404" y2="220" stroke="#ffd166" stroke-width="2.5"/>
+            <text x="200" y="95" fill="#ffd166" font-family="Arial" font-size="14" font-weight="bold">Reta de Euler</text>
+            
+            <!-- Circunferência circunscrita (pelo circuncentro) -->
+            <circle cx="328" cy="180" r="143" fill="none" stroke="#4cc9f0" stroke-width="1" opacity="0.5"/>
+            
+            <!-- Linhas do Baricentro -->
+            <line x1="300" y1="80" x2="300" y2="163" stroke="#8ac926" stroke-width="1" stroke-dasharray="4 2"/>
+            <line x1="450" y1="160" x2="300" y2="163" stroke="#8ac926" stroke-width="1" stroke-dasharray="4 2"/>
+            <line x1="150" y1="250" x2="300" y2="163" stroke="#8ac926" stroke-width="1" stroke-dasharray="4 2"/>
+            
+            <!-- Linhas do Ortocentro (alturas) -->
+            <line x1="300" y1="80" x2="257" y2="136" stroke="#e63946" stroke-width="1" stroke-dasharray="4 2"/>
+            <line x1="450" y1="160" x2="257" y2="136" stroke="#e63946" stroke-width="1" stroke-dasharray="4 2"/>
+            <line x1="150" y1="250" x2="257" y2="136" stroke="#e63946" stroke-width="1" stroke-dasharray="4 2"/>
+            
+            <!-- Relação entre os três pontos -->
+            <text x="280" y="145" fill="#ffd166" font-family="Arial" font-size="12">2:1</text>
+            
+            <!-- Painel com explicação da Reta de Euler -->
+            <g transform="translate(60, 60)">
+              <rect x="0" y="0" width="180" height="100" rx="5" fill="#457b9d" opacity="0.7"/>
+              <text x="10" y="20" fill="#ffd166" font-family="Arial" font-size="14" font-weight="bold">Reta de Euler</text>
+              <text x="10" y="40" fill="#f0f0f0" font-family="Arial" font-size="10">• Conecta os três pontos notáveis:</text>
+              <text x="20" y="55" fill="#e63946" font-family="Arial" font-size="10">Ortocentro (H)</text>
+              <text x="20" y="70" fill="#8ac926" font-family="Arial" font-size="10">Baricentro (G)</text>
+              <text x="20" y="85" fill="#4cc9f0" font-family="Arial" font-size="10">Circuncentro (O)</text>
+              <text x="10" y="100" fill="#f0f0f0" font-family="Arial" font-size="10">• H-G-O sempre nesta ordem e HG:GO = 2:1</text>
+            </g>
+            
+            <!-- Painel de aplicação prática -->
+            <g transform="translate(60, 260)">
+              <rect x="0" y="0" width="170" height="70" rx="5" fill="#e63946" opacity="0.7"/>
+              <text x="10" y="20" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">IMPORTÂNCIA:</text>
+              <text x="10" y="40" fill="#f0f0f0" font-family="Arial" font-size="10">• Relaciona propriedades estruturais</text>
+              <text x="10" y="55" fill="#f0f0f0" font-family="Arial" font-size="10">• Permite posicionamento integrado</text>
+              <text x="10" y="70" fill="#f0f0f0" font-family="Arial" font-size="10">• Base para design de sistemas complexos</text>
+            </g>
+            
+            <!-- Ilustração da aplicação prática -->
+            <g transform="translate(320, 270)">
+              <rect x="0" y="0" width="120" height="70" rx="5" fill="#ffd166" opacity="0.6"/>
+              <text x="10" y="20" fill="#1d3557" font-family="Arial" font-size="10" font-weight="bold">APLICAÇÃO:</text>
+              <text x="10" y="40" fill="#1d3557" font-family="Arial" font-size="9">Sistema integrado de</text>
+              <text x="10" y="55" fill="#1d3557" font-family="Arial" font-size="9">segurança e recursos</text>
+              <text x="10" y="70" fill="#1d3557" font-family="Arial" font-size="9">em território triangular</text>
+              
+              <!-- Mini diagrama de sistema integrado -->
+              <circle cx="95" cy="20" r="5" fill="#e63946"/>
+              <circle cx="95" cy="35" r="5" fill="#8ac926"/>
+              <circle cx="95" cy="50" r="5" fill="#4cc9f0"/>
+              <line x1="95" y1="20" x2="95" y2="50" stroke="#f0f0f0" stroke-width="1"/>
+            </g>
+            
+            <!-- Título da visualização -->
+            <text x="250" y="25" fill="#f0f0f0" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle">Os Três Centros Fundamentais e a Reta de Euler</text>
+          </svg>
+        </div>
+      </section>
+
+      <!-- Exercícios de pontos notáveis -->
+      <section>
+        <h4 class="exercise-title">Cálculos de Pontos Estratégicos</h4>
+        
+        <ol>
+          <li>
+            <strong>Planejamento Territorial:</strong>
+            <p>Três comunidades estão localizadas em A(0,0), B(12,0) e C(6,8). Elas precisam:</p>
+            <p>a) Construir um posto de troca no baricentro do triângulo</p>
+            <p>b) Posicionar uma torre de rádio no circuncentro</p>
+            <p>c) Instalar um sistema de alarme no ortocentro</p>
+            <p>Calcule as coordenadas exatas de cada instalação e a distância entre elas.</p>
+          </li>
+          <li>
+            <strong>Rede de Segurança:</strong>
+            <p>Uma região retangular é definida pelos pontos (0,0), (10,0), (10,8) e (0,8). Determine as coordenadas dos pontos médios de cada lado e o ponto central (interseção das diagonais). Se uma patrulha circular seguir o caminho formado pelos pontos médios, qual será a distância total percorrida?</p>
+          </li>
+          <li>
+            <strong>Análise de Campo:</strong>
+            <p>"Quando quatro pontos notáveis de um triângulo coincidem, o triângulo é equilátero." Verifique esta afirmação matematicamente e explique por que triângulos equiláteros são estruturalmente importantes na reconstrução pós-apocalíptica.</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- CONCLUSÃO INTEGRADA -->
+      <section>
+        <!-- Síntese dos conceitos -->
+        <section>
+          <h2>A Matemática da Reconstrução</h2>
+          
+          <p>O espaço vetorial \(\mathbb{R}^2\) não é apenas um conceito abstrato – é a <strong>linguagem fundamental</strong> para reconstruir o que foi perdido. Revisitamos:</p>
+          
+          <ul>
+            <li>O <strong>plano cartesiano</strong> como nosso novo mapa universal</li>
+            <li>Os <strong>vetores</strong> como ferramentas para entender movimento e força</li>
+            <li>As <strong>operações</strong> que nos permitem planejar e calcular</li>
+            <li>Os <strong>pontos notáveis</strong> que revelam propriedades ocultas do espaço</li>
+          </ul>
+          
+          <div class="narrative-text">
+            <p>Os historiadores dizem que, antes da Catástrofe, a matemática era vista como abstrata e distante da "vida real". A ironia é que, quando quase todo o conhecimento prático se perdeu, foram os princípios matemáticos que permitiram às comunidades sobreviventes reconstruir desde o básico.</p>
+          </div>
+        </section>
+        
+        <!-- Reflexão final -->
+        <section>
+          <h2>O Futuro no Plano</h2>
+          
+          <div class="quote">
+            <p>"Nas cinzas da civilização, redescobrimos que o mundo sempre teve coordenadas – apenas tínhamos nos esquecido de como lê-las."</p>
+          </div>
+          
+          <p>A jornada através do \(\mathbb{R}^2\) é apenas o começo. Nos próximos capítulos, expandiremos para:</p>
+          <ul>
+            <li>\(\mathbb{R}^3\) – O espaço de reconstrução das estruturas tridimensionais</li>
+            <li>Transformações lineares – A matemática da adaptação e mudança</li>
+            <li>Sistemas de coordenadas polares – Navegação baseada em ângulos e distâncias</li>
+          </ul>
+          
+          <div class="survival-tip">
+            <span class="emoji-icon">🧠</span> <strong>Lição Final:</strong> "A matemática é o único mapa que nunca se desgasta e nunca perde sua precisão, mesmo após o fim do mundo."
+          </div>
+        </section>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(','\\)']],
+        displayMath: [['\\[','\\]']]
+      }
+    };
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true
+    });
+  </script>
+</body>
+</html>
+
