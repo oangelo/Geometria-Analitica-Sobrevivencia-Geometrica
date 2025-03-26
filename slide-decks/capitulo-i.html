@@ -69,104 +69,414 @@
         <section>
           <h3>Visualização: O Plano Cartesiano</h3>
           <div class="visualization-container">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400">
-              <!-- Fundo estilizado -->
-              <rect width="500" height="400" fill="#1d3557" opacity="0.9"/>
-              
-              <!-- Grade de fundo esmaecida -->
-              <g stroke="#a8dadc" stroke-width="0.5" opacity="0.2">
-                <!-- Linhas verticais da grade -->
-                <line x1="50" y1="50" x2="50" y2="350" />
-                <line x1="100" y1="50" x2="100" y2="350" />
-                <line x1="150" y1="50" x2="150" y2="350" />
-                <line x1="200" y1="50" x2="200" y2="350" />
-                <line x1="250" y1="50" x2="250" y2="350" />
-                <line x1="300" y1="50" x2="300" y2="350" />
-                <line x1="350" y1="50" x2="350" y2="350" />
-                <line x1="400" y1="50" x2="400" y2="350" />
-                <line x1="450" y1="50" x2="450" y2="350" />
-                
-                <!-- Linhas horizontais da grade -->
-                <line x1="50" y1="50" x2="450" y2="50" />
-                <line x1="50" y1="100" x2="450" y2="100" />
-                <line x1="50" y1="150" x2="450" y2="150" />
-                <line x1="50" y1="200" x2="450" y2="200" />
-                <line x1="50" y1="250" x2="450" y2="250" />
-                <line x1="50" y1="300" x2="450" y2="300" />
-                <line x1="50" y1="350" x2="450" y2="350" />
-              </g>
-              
-              <!-- Eixos coordenados principais -->
-              <g stroke="#f0f0f0" stroke-width="2">
-                <!-- Eixo X -->
-                <line x1="50" y1="200" x2="450" y2="200" />
-                <!-- Eixo Y -->
-                <line x1="250" y1="50" x2="250" y2="350" />
-              </g>
-              
-              <!-- Marcadores dos eixos -->
-              <g fill="#ffd166" font-family="Arial" font-size="12" text-anchor="middle">
-                <!-- Marcadores Eixo X -->
-                <text x="250" y="220">0</text>
-                <text x="300" y="220">1</text>
-                <text x="350" y="220">2</text>
-                <text x="400" y="220">3</text>
-                <text x="450" y="220">4</text>
-                <text x="200" y="220">-1</text>
-                <text x="150" y="220">-2</text>
-                <text x="100" y="220">-3</text>
-                <text x="50" y="220">-4</text>
-                
-                <!-- Marcadores Eixo Y -->
-                <text x="240" y="200">0</text>
-                <text x="240" y="150">1</text>
-                <text x="240" y="100">2</text>
-                <text x="240" y="50">3</text>
-                <text x="240" y="250">-1</text>
-                <text x="240" y="300">-2</text>
-                <text x="240" y="350">-3</text>
-              </g>
-              
-              <!-- Setas dos eixos -->
-              <g fill="#f0f0f0">
-                <!-- Seta Eixo X -->
-                <polygon points="455,200 445,195 445,205"/>
-                <!-- Seta Eixo Y -->
-                <polygon points="250,45 245,55 255,55"/>
-              </g>
-              
-              <!-- Rótulos dos eixos -->
-              <g fill="#e63946" font-family="Arial" font-size="14" font-weight="bold">
-                <text x="460" y="195">x</text>
-                <text x="255" y="40">y</text>
-              </g>
-              
-              <!-- Elementos temáticos -->
-              <!-- Origem destacada -->
-              <circle cx="250" cy="200" r="6" fill="#e63946"/>
-              <text x="260" y="190" fill="#e63946" font-family="Arial" font-size="12" font-weight="bold">Origem (0,0)</text>
-              <text x="260" y="210" fill="#a8dadc" font-family="Arial" font-size="10" font-style="italic">Marco Zero</text>
-              
-              <!-- Quadrantes marcados -->
-              <text x="350" y="100" fill="#a8dadc" font-family="Arial" font-size="14" font-weight="bold">Quadrante I</text>
-              <text x="150" y="100" fill="#a8dadc" font-family="Arial" font-size="14" font-weight="bold">Quadrante II</text>
-              <text x="150" y="300" fill="#a8dadc" font-family="Arial" font-size="14" font-weight="bold">Quadrante III</text>
-              <text x="350" y="300" fill="#a8dadc" font-family="Arial" font-size="14" font-weight="bold">Quadrante IV</text>
-              
-              <!-- Bússola estilizada -->
-              <g transform="translate(80, 80)">
-                <circle cx="0" cy="0" r="15" fill="none" stroke="#ffd166" stroke-width="1"/>
-                <line x1="0" y1="-12" x2="0" y2="12" stroke="#ffd166" stroke-width="1"/>
-                <line x1="-12" y1="0" x2="12" y2="0" stroke="#ffd166" stroke-width="1"/>
-                <text x="0" y="-18" fill="#ffd166" font-family="Arial" font-size="8" text-anchor="middle">N</text>
-                <text x="18" y="0" fill="#ffd166" font-family="Arial" font-size="8" dominant-baseline="middle">L</text>
-                <text x="0" y="18" fill="#ffd166" font-family="Arial" font-size="8" text-anchor="middle">S</text>
-                <text x="-18" y="0" fill="#ffd166" font-family="Arial" font-size="8" dominant-baseline="middle">O</text>
-              </g>
-              
-              <!-- Título da visualização -->
-              <text x="250" y="25" fill="#f0f0f0" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle">O Plano Cartesiano: O Mapa Universal</text>
-            </svg>
+<svg
+   viewBox="0 0 375 300"
+   version="1.1"
+   id="svg46"
+   sodipodi:docname="aux.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   width="375"
+   height="300"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs46" />
+  <sodipodi:namedview
+     id="namedview46"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="2"
+     inkscape:cx="250"
+     inkscape:cy="200"
+     inkscape:window-width="1920"
+     inkscape:window-height="1008"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g46" />
+  <!-- Fundo estilizado -->
+  <!-- Grade de fundo esmaecida -->
+  <!-- Eixos coordenados principais -->
+  <!-- Marcadores dos eixos -->
+  <!-- Setas dos eixos -->
+  <!-- Rótulos dos eixos -->
+  <!-- Elementos temáticos -->
+  <!-- Origem destacada -->
+  <!-- Quadrantes marcados -->
+  <!-- Bússola estilizada -->
+  <g
+     transform="translate(77,83.5)"
+     id="g45" />
+  <!-- Título da visualização -->
+  <g
+     id="g46"
+     transform="scale(0.75)">
+    <rect
+       width="500"
+       height="400"
+       fill="#1d3557"
+       opacity="0.9"
+       id="rect1"
+       x="0"
+       y="0" />
+    <g
+       stroke="#a8dadc"
+       stroke-width="0.5"
+       opacity="0.2"
+       id="g16">
+      <!-- Linhas verticais da grade -->
+      <line
+         x1="50"
+         y1="50"
+         x2="50"
+         y2="350"
+         id="line1" />
+      <line
+         x1="100"
+         y1="50"
+         x2="100"
+         y2="350"
+         id="line2" />
+      <line
+         x1="150"
+         y1="50"
+         x2="150"
+         y2="350"
+         id="line3" />
+      <line
+         x1="200"
+         y1="50"
+         x2="200"
+         y2="350"
+         id="line4" />
+      <line
+         x1="250"
+         y1="50"
+         x2="250"
+         y2="350"
+         id="line5" />
+      <line
+         x1="300"
+         y1="50"
+         x2="300"
+         y2="350"
+         id="line6" />
+      <line
+         x1="350"
+         y1="50"
+         x2="350"
+         y2="350"
+         id="line7" />
+      <line
+         x1="400"
+         y1="50"
+         x2="400"
+         y2="350"
+         id="line8" />
+      <line
+         x1="450"
+         y1="50"
+         x2="450"
+         y2="350"
+         id="line9" />
+      <!-- Linhas horizontais da grade -->
+      <line
+         x1="50"
+         y1="50"
+         x2="450"
+         y2="50"
+         id="line10" />
+      <line
+         x1="50"
+         y1="100"
+         x2="450"
+         y2="100"
+         id="line11" />
+      <line
+         x1="50"
+         y1="150"
+         x2="450"
+         y2="150"
+         id="line12" />
+      <line
+         x1="50"
+         y1="200"
+         x2="450"
+         y2="200"
+         id="line13" />
+      <line
+         x1="50"
+         y1="250"
+         x2="450"
+         y2="250"
+         id="line14" />
+      <line
+         x1="50"
+         y1="300"
+         x2="450"
+         y2="300"
+         id="line15" />
+      <line
+         x1="50"
+         y1="350"
+         x2="450"
+         y2="350"
+         id="line16" />
+    </g>
+    <g
+       stroke="#f0f0f0"
+       stroke-width="2"
+       id="g18">
+      <!-- Eixo X -->
+      <line
+         x1="50"
+         y1="200"
+         x2="450"
+         y2="200"
+         id="line17" />
+      <!-- Eixo Y -->
+      <line
+         x1="250"
+         y1="50"
+         x2="250"
+         y2="350"
+         id="line18" />
+    </g>
+    <g
+       fill="#ffd166"
+       font-family="Arial"
+       font-size="12px"
+       text-anchor="middle"
+       id="g33">
+      <!-- Marcadores Eixo X -->
+      <text
+         x="250"
+         y="220"
+         id="text18">0</text>
+      <text
+         x="300"
+         y="220"
+         id="text19">1</text>
+      <text
+         x="350"
+         y="220"
+         id="text20">2</text>
+      <text
+         x="400"
+         y="220"
+         id="text21">3</text>
+      <text
+         x="450"
+         y="220"
+         id="text22">4</text>
+      <text
+         x="200"
+         y="220"
+         id="text23">-1</text>
+      <text
+         x="150"
+         y="220"
+         id="text24">-2</text>
+      <text
+         x="100"
+         y="220"
+         id="text25">-3</text>
+      <text
+         x="50"
+         y="220"
+         id="text26">-4</text>
+      <!-- Marcadores Eixo Y -->
+      <text
+         x="240"
+         y="200"
+         id="text27">0</text>
+      <text
+         x="240"
+         y="150"
+         id="text28">1</text>
+      <text
+         x="240"
+         y="100"
+         id="text29">2</text>
+      <text
+         x="240"
+         y="50"
+         id="text30">3</text>
+      <text
+         x="240"
+         y="250"
+         id="text31">-1</text>
+      <text
+         x="240"
+         y="300"
+         id="text32">-2</text>
+      <text
+         x="240"
+         y="350"
+         id="text33">-3</text>
+    </g>
+    <g
+       fill="#f0f0f0"
+       id="g34">
+      <!-- Seta Eixo X -->
+      <polygon
+         points="445,205 455,200 445,195 "
+         id="polygon33" />
+      <!-- Seta Eixo Y -->
+      <polygon
+         points="255,55 250,45 245,55 "
+         id="polygon34" />
+    </g>
+    <g
+       fill="#e63946"
+       font-family="Arial"
+       font-size="14px"
+       font-weight="bold"
+       id="g35">
+      <text
+         x="460"
+         y="195"
+         id="text34">x</text>
+      <text
+         x="255"
+         y="40"
+         id="text35">y</text>
+    </g>
+    <circle
+       cx="250"
+       cy="200"
+       r="6"
+       fill="#e63946"
+       id="circle35" />
+    <text
+       x="260"
+       y="190"
+       fill="#e63946"
+       font-family="Arial"
+       font-size="12px"
+       font-weight="bold"
+       id="text36">Origem (0,0)</text>
+    <text
+       x="260"
+       y="210"
+       fill="#a8dadc"
+       font-family="Arial"
+       font-size="10px"
+       font-style="italic"
+       id="text37">Marco Zero</text>
+    <text
+       x="317.33334"
+       y="111.33334"
+       fill="#a8dadc"
+       font-family="Arial"
+       font-size="14px"
+       font-weight="bold"
+       id="text38">Quadrante I</text>
+    <text
+       x="108.66666"
+       y="126.66666"
+       fill="#a8dadc"
+       font-family="Arial"
+       font-size="14px"
+       font-weight="bold"
+       id="text39">Quadrante II</text>
+    <text
+       x="109.33334"
+       y="286.66666"
+       fill="#a8dadc"
+       font-family="Arial"
+       font-size="14px"
+       font-weight="bold"
+       id="text40">Quadrante III</text>
+    <text
+       x="326.66666"
+       y="287.33334"
+       fill="#a8dadc"
+       font-family="Arial"
+       font-size="14px"
+       font-weight="bold"
+       id="text41">Quadrante IV</text>
+    <circle
+       cx="0"
+       cy="0"
+       r="15"
+       fill="none"
+       stroke="#ffd166"
+       stroke-width="1"
+       id="circle41"
+       transform="translate(77,83.5)" />
+    <line
+       x1="0.75"
+       y1="-14.5"
+       x2="0.75"
+       y2="14"
+       stroke="#ffd166"
+       stroke-width="1.08972"
+       id="line41"
+       transform="translate(77,83.5)" />
+    <line
+       x1="-16"
+       y1="0"
+       x2="14"
+       y2="0"
+       stroke="#ffd166"
+       stroke-width="1.11803"
+       id="line42"
+       transform="translate(77,83.5)" />
+    <text
+       x="0"
+       y="-18"
+       fill="#ffd166"
+       font-family="Arial"
+       font-size="8px"
+       text-anchor="middle"
+       id="text42"
+       transform="translate(77,83.5)">N</text>
+    <text
+       x="18"
+       y="0"
+       fill="#ffd166"
+       font-family="Arial"
+       font-size="8px"
+       dominant-baseline="middle"
+       id="text43"
+       transform="translate(77,83.5)">L</text>
+    <text
+       x="0"
+       y="26"
+       fill="#ffd166"
+       font-family="Arial"
+       font-size="8px"
+       text-anchor="middle"
+       id="text44"
+       transform="translate(77,83.5)">S</text>
+    <text
+       x="-24"
+       y="0"
+       fill="#ffd166"
+       font-family="Arial"
+       font-size="8px"
+       dominant-baseline="middle"
+       id="text45"
+       transform="translate(77,83.5)">O</text>
+    <text
+       x="250"
+       y="25"
+       fill="#f0f0f0"
+       font-family="Arial"
+       font-size="18px"
+       font-weight="bold"
+       text-anchor="middle"
+       id="text46">O Plano Cartesiano: O Mapa Universal</text>
+  </g>
+</svg>
           </div>
         </section>
         
@@ -196,117 +506,484 @@
         <section>
           <h3>Visualização: Pares Ordenados</h3>
           <div class="visualization-container">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400">
-              <!-- Fundo estilizado -->
-              <rect width="500" height="400" fill="#1d3557" opacity="0.9"/>
-              
-              <!-- Grade de fundo esmaecida -->
-              <g stroke="#a8dadc" stroke-width="0.5" opacity="0.2">
-                <!-- Linhas verticais da grade -->
-                <line x1="50" y1="50" x2="50" y2="350" />
-                <line x1="100" y1="50" x2="100" y2="350" />
-                <line x1="150" y1="50" x2="150" y2="350" />
-                <line x1="200" y1="50" x2="200" y2="350" />
-                <line x1="250" y1="50" x2="250" y2="350" />
-                <line x1="300" y1="50" x2="300" y2="350" />
-                <line x1="350" y1="50" x2="350" y2="350" />
-                <line x1="400" y1="50" x2="400" y2="350" />
-                <line x1="450" y1="50" x2="450" y2="350" />
-                
-                <!-- Linhas horizontais da grade -->
-                <line x1="50" y1="50" x2="450" y2="50" />
-                <line x1="50" y1="100" x2="450" y2="100" />
-                <line x1="50" y1="150" x2="450" y2="150" />
-                <line x1="50" y1="200" x2="450" y2="200" />
-                <line x1="50" y1="250" x2="450" y2="250" />
-                <line x1="50" y1="300" x2="450" y2="300" />
-                <line x1="50" y1="350" x2="450" y2="350" />
-              </g>
-              
-              <!-- Eixos coordenados principais -->
-              <g stroke="#f0f0f0" stroke-width="2">
-                <!-- Eixo X -->
-                <line x1="50" y1="200" x2="450" y2="200" />
-                <!-- Eixo Y -->
-                <line x1="250" y1="50" x2="250" y2="350" />
-              </g>
-              
-              <!-- Marcadores dos eixos -->
-              <g fill="#ffd166" font-family="Arial" font-size="12" text-anchor="middle">
-                <!-- Marcadores Eixo X -->
-                <text x="250" y="220">0</text>
-                <text x="300" y="220">1</text>
-                <text x="350" y="220">2</text>
-                <text x="400" y="220">3</text>
-                <text x="200" y="220">-1</text>
-                <text x="150" y="220">-2</text>
-                <text x="100" y="220">-3</text>
-                
-                <!-- Marcadores Eixo Y -->
-                <text x="235" y="200">0</text>
-                <text x="235" y="150">1</text>
-                <text x="235" y="100">2</text>
-                <text x="235" y="250">-1</text>
-                <text x="235" y="300">-2</text>
-              </g>
-              
-              <!-- Pontos de exemplo com legendas -->
-              <!-- Ponto A (2,1) - Abrigo -->
-              <circle cx="350" cy="150" r="8" fill="#e63946"/>
-              <text x="360" y="145" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">A(2,1)</text>
-              <text x="360" y="160" fill="#a8dadc" font-family="Arial" font-size="10">Abrigo Principal</text>
-              
-              <!-- Ponto B (-2,-1) - Zona Radioativa -->
-              <circle cx="150" cy="250" r="8" fill="#ff9500"/>
-              <text x="160" y="245" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">B(-2,-1)</text>
-              <text x="160" y="260" fill="#a8dadc" font-family="Arial" font-size="10">Zona Radioativa</text>
-              
-              <!-- Ponto C (3,-2) - Fonte de Água -->
-              <circle cx="400" cy="300" r="8" fill="#4cc9f0"/>
-              <text x="410" y="295" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">C(3,-2)</text>
-              <text x="410" y="310" fill="#a8dadc" font-family="Arial" font-size="10">Fonte de Água</text>
-              
-              <!-- Ponto D (-3,2) - Depósito de Suprimentos -->
-              <circle cx="100" cy="100" r="8" fill="#8ac926"/>
-              <text x="110" y="95" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">D(-3,2)</text>
-              <text x="110" y="110" fill="#a8dadc" font-family="Arial" font-size="10">Depósito de Suprimentos</text>
-              
-              <!-- Destaque das coordenadas - A(2,1) -->
-              <g stroke-dasharray="4 4" stroke-width="1">
-                <!-- Linha vertical do eixo Y até o ponto -->
-                <line x1="350" y1="200" x2="350" y2="150" stroke="#e63946"/>
-                <!-- Linha horizontal do eixo X até o ponto -->
-                <line x1="250" y1="150" x2="350" y2="150" stroke="#e63946"/>
-              </g>
-              
-              <!-- Legenda de coordenadas para A -->
-              <text x="290" y="140" fill="#e63946" font-family="Arial" font-size="12">x = 2</text>
-              <text x="360" y="185" fill="#e63946" font-family="Arial" font-size="12">y = 1</text>
-              
-              <!-- Painel de informações -->
-              <g transform="translate(60, 45)">
-                <rect x="0" y="0" width="180" height="80" rx="5" fill="#457b9d" opacity="0.7"/>
-                <text x="10" y="20" fill="#ffd166" font-family="Arial" font-size="14" font-weight="bold">Par Ordenado (x,y)</text>
-                <text x="10" y="40" fill="#f0f0f0" font-family="Arial" font-size="12">• Localização exata no mapa</text>
-                <text x="10" y="60" fill="#f0f0f0" font-family="Arial" font-size="12">• A ordem é crucial: (x,y) ≠ (y,x)</text>
-                <text x="10" y="75" fill="#f0f0f0" font-family="Arial" font-size="10" font-style="italic">Confundir coordenadas pode ser fatal</text>
-              </g>
-              
-              <!-- Ícones temáticos -->
-              <!-- Bússola/Rosa dos ventos -->
-              <g transform="translate(420, 70)">
-                <circle cx="0" cy="0" r="20" fill="none" stroke="#ffd166" stroke-width="1"/>
-                <line x1="0" y1="-16" x2="0" y2="16" stroke="#ffd166" stroke-width="1"/>
-                <line x1="-16" y1="0" x2="16" y2="0" stroke="#ffd166" stroke-width="1"/>
-                <text x="0" y="-22" fill="#ffd166" font-family="Arial" font-size="10" text-anchor="middle">N</text>
-                <text x="22" y="0" fill="#ffd166" font-family="Arial" font-size="10" dominant-baseline="middle">L</text>
-                <text x="0" y="22" fill="#ffd166" font-family="Arial" font-size="10" text-anchor="middle">S</text>
-                <text x="-22" y="0" fill="#ffd166" font-family="Arial" font-size="10" dominant-baseline="middle">O</text>
-              </g>
-              
-              <!-- Título da visualização -->
-              <text x="250" y="25" fill="#f0f0f0" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle">Pares Ordenados: Coordenadas de Sobrevivência</text>
-            </svg>
+<svg
+   viewBox="0 0 437.5 350"
+   version="1.1"
+   id="svg48"
+   sodipodi:docname="paresordenados.svg"
+   width="437.5"
+   height="350"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs48" />
+  <sodipodi:namedview
+     id="namedview48"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="2"
+     inkscape:cx="250"
+     inkscape:cy="200"
+     inkscape:window-width="1920"
+     inkscape:window-height="1008"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg48" />
+  <!-- Fundo estilizado -->
+  <!-- Grade de fundo esmaecida -->
+  <!-- Eixos coordenados principais -->
+  <!-- Marcadores dos eixos -->
+  <!-- Pontos de exemplo com legendas -->
+  <!-- Ponto A (2,1) - Abrigo -->
+  <!-- Ponto B (-2,-1) - Zona Radioativa -->
+  <!-- Ponto C (3,-2) - Fonte de Água -->
+  <!-- Ponto D (-3,2) - Depósito de Suprimentos -->
+  <!-- Destaque das coordenadas - A(2,1) -->
+  <!-- Legenda de coordenadas para A -->
+  <!-- Painel de informações -->
+  <!-- Ícones temáticos -->
+  <!-- Bússola/Rosa dos ventos -->
+  <g
+     transform="translate(420,70)"
+     id="g47" />
+  <!-- Título da visualização -->
+  <g
+     id="g48"
+     transform="scale(0.875)">
+    <rect
+       width="500"
+       height="400"
+       fill="#1d3557"
+       opacity="0.9"
+       id="rect1"
+       x="0"
+       y="0" />
+    <g
+       stroke="#a8dadc"
+       stroke-width="0.5"
+       opacity="0.2"
+       id="g16">
+      <!-- Linhas verticais da grade -->
+      <line
+         x1="50"
+         y1="50"
+         x2="50"
+         y2="350"
+         id="line1" />
+      <line
+         x1="100"
+         y1="50"
+         x2="100"
+         y2="350"
+         id="line2" />
+      <line
+         x1="150"
+         y1="50"
+         x2="150"
+         y2="350"
+         id="line3" />
+      <line
+         x1="200"
+         y1="50"
+         x2="200"
+         y2="350"
+         id="line4" />
+      <line
+         x1="250"
+         y1="50"
+         x2="250"
+         y2="350"
+         id="line5" />
+      <line
+         x1="300"
+         y1="50"
+         x2="300"
+         y2="350"
+         id="line6" />
+      <line
+         x1="350"
+         y1="50"
+         x2="350"
+         y2="350"
+         id="line7" />
+      <line
+         x1="400"
+         y1="50"
+         x2="400"
+         y2="350"
+         id="line8" />
+      <line
+         x1="450"
+         y1="50"
+         x2="450"
+         y2="350"
+         id="line9" />
+      <!-- Linhas horizontais da grade -->
+      <line
+         x1="50"
+         y1="50"
+         x2="450"
+         y2="50"
+         id="line10" />
+      <line
+         x1="50"
+         y1="100"
+         x2="450"
+         y2="100"
+         id="line11" />
+      <line
+         x1="50"
+         y1="150"
+         x2="450"
+         y2="150"
+         id="line12" />
+      <line
+         x1="50"
+         y1="200"
+         x2="450"
+         y2="200"
+         id="line13" />
+      <line
+         x1="50"
+         y1="250"
+         x2="450"
+         y2="250"
+         id="line14" />
+      <line
+         x1="50"
+         y1="300"
+         x2="450"
+         y2="300"
+         id="line15" />
+      <line
+         x1="50"
+         y1="350"
+         x2="450"
+         y2="350"
+         id="line16" />
+    </g>
+    <g
+       stroke="#f0f0f0"
+       stroke-width="2"
+       id="g18">
+      <!-- Eixo X -->
+      <line
+         x1="50"
+         y1="200"
+         x2="450"
+         y2="200"
+         id="line17" />
+      <!-- Eixo Y -->
+      <line
+         x1="250"
+         y1="50"
+         x2="250"
+         y2="350"
+         id="line18" />
+    </g>
+    <g
+       fill="#ffd166"
+       font-family="Arial"
+       font-size="12px"
+       text-anchor="middle"
+       id="g29">
+      <!-- Marcadores Eixo X -->
+      <text
+         x="250"
+         y="220"
+         id="text18">0</text>
+      <text
+         x="300"
+         y="220"
+         id="text19">1</text>
+      <text
+         x="350"
+         y="220"
+         id="text20">2</text>
+      <text
+         x="400"
+         y="220"
+         id="text21">3</text>
+      <text
+         x="200"
+         y="220"
+         id="text22">-1</text>
+      <text
+         x="150"
+         y="220"
+         id="text23">-2</text>
+      <text
+         x="100"
+         y="220"
+         id="text24">-3</text>
+      <!-- Marcadores Eixo Y -->
+      <text
+         x="235"
+         y="200"
+         id="text25">0</text>
+      <text
+         x="235"
+         y="150"
+         id="text26">1</text>
+      <text
+         x="235"
+         y="100"
+         id="text27">2</text>
+      <text
+         x="235"
+         y="250"
+         id="text28">-1</text>
+      <text
+         x="235"
+         y="300"
+         id="text29">-2</text>
+    </g>
+    <circle
+       cx="350"
+       cy="150"
+       r="8"
+       fill="#e63946"
+       id="circle29" />
+    <text
+       x="360"
+       y="145"
+       fill="#f0f0f0"
+       font-family="Arial"
+       font-size="12px"
+       font-weight="bold"
+       id="text30">A(2,1)</text>
+    <text
+       x="360"
+       y="160"
+       fill="#a8dadc"
+       font-family="Arial"
+       font-size="10px"
+       id="text31">Abrigo Principal</text>
+    <circle
+       cx="150"
+       cy="250"
+       r="8"
+       fill="#ff9500"
+       id="circle31" />
+    <text
+       x="160"
+       y="245"
+       fill="#f0f0f0"
+       font-family="Arial"
+       font-size="12px"
+       font-weight="bold"
+       id="text32">B(-2,-1)</text>
+    <text
+       x="160"
+       y="260"
+       fill="#a8dadc"
+       font-family="Arial"
+       font-size="10px"
+       id="text33">Zona Radioativa</text>
+    <circle
+       cx="400"
+       cy="300"
+       r="8"
+       fill="#4cc9f0"
+       id="circle33" />
+    <text
+       x="410"
+       y="295"
+       fill="#f0f0f0"
+       font-family="Arial"
+       font-size="12px"
+       font-weight="bold"
+       id="text34">C(3,-2)</text>
+    <text
+       x="410"
+       y="310"
+       fill="#a8dadc"
+       font-family="Arial"
+       font-size="10px"
+       id="text35">Fonte de Água</text>
+    <circle
+       cx="100"
+       cy="100"
+       r="8"
+       fill="#8ac926"
+       id="circle35" />
+    <text
+       x="110"
+       y="95"
+       fill="#f0f0f0"
+       font-family="Arial"
+       font-size="12px"
+       font-weight="bold"
+       id="text36">D(-3,2)</text>
+    <text
+       x="110"
+       y="110"
+       fill="#a8dadc"
+       font-family="Arial"
+       font-size="10px"
+       id="text37">Depósito de Suprimentos</text>
+    <g
+       stroke-dasharray="4, 4"
+       stroke-width="1"
+       id="g38">
+      <!-- Linha vertical do eixo Y até o ponto -->
+      <line
+         x1="350"
+         y1="200"
+         x2="350"
+         y2="150"
+         stroke="#e63946"
+         id="line37" />
+      <!-- Linha horizontal do eixo X até o ponto -->
+      <line
+         x1="250"
+         y1="150"
+         x2="350"
+         y2="150"
+         stroke="#e63946"
+         id="line38" />
+    </g>
+    <text
+       x="290"
+       y="140"
+       fill="#e63946"
+       font-family="Arial"
+       font-size="12px"
+       id="text38">x = 2</text>
+    <text
+       x="360"
+       y="185"
+       fill="#e63946"
+       font-family="Arial"
+       font-size="12px"
+       id="text39">y = 1</text>
+    <g
+       transform="translate(29,298)"
+       id="g43">
+      <rect
+         x="0"
+         y="0"
+         width="186.5"
+         height="82.888885"
+         rx="5.1805553"
+         fill="#457b9d"
+         opacity="0.7"
+         id="rect39"
+         style="stroke-width:1.03611" />
+      <text
+         x="10"
+         y="20"
+         fill="#ffd166"
+         font-family="Arial"
+         font-size="14px"
+         font-weight="bold"
+         id="text40">Par Ordenado (x,y)</text>
+      <text
+         x="10"
+         y="40"
+         fill="#f0f0f0"
+         font-family="Arial"
+         font-size="12px"
+         id="text41">• Localização exata no mapa</text>
+      <text
+         x="10"
+         y="60"
+         fill="#f0f0f0"
+         font-family="Arial"
+         font-size="12px"
+         id="text42">• A ordem é crucial: (x,y) ≠ (y,x)</text>
+      <text
+         x="10"
+         y="75"
+         fill="#f0f0f0"
+         font-family="Arial"
+         font-size="10px"
+         font-style="italic"
+         id="text43">Confundir coordenadas pode ser fatal</text>
+    </g>
+    <circle
+       cx="0"
+       cy="0"
+       r="20"
+       fill="none"
+       stroke="#ffd166"
+       stroke-width="1"
+       id="circle43"
+       transform="translate(420,70)" />
+    <line
+       x1="0"
+       y1="-16"
+       x2="0"
+       y2="16"
+       stroke="#ffd166"
+       stroke-width="1"
+       id="line43"
+       transform="translate(420,70)" />
+    <line
+       x1="-16"
+       y1="0"
+       x2="16"
+       y2="0"
+       stroke="#ffd166"
+       stroke-width="1"
+       id="line44"
+       transform="translate(420,70)" />
+    <text
+       x="0"
+       y="-22"
+       fill="#ffd166"
+       font-family="Arial"
+       font-size="10px"
+       text-anchor="middle"
+       id="text44"
+       transform="translate(420,70)">N</text>
+    <text
+       x="22"
+       y="0"
+       fill="#ffd166"
+       font-family="Arial"
+       font-size="10px"
+       dominant-baseline="middle"
+       id="text45"
+       transform="translate(420,70)">L</text>
+    <text
+       x="0"
+       y="34"
+       fill="#ffd166"
+       font-family="Arial"
+       font-size="10px"
+       text-anchor="middle"
+       id="text46"
+       transform="translate(420,70)">S</text>
+    <text
+       x="-30.5"
+       y="0"
+       fill="#ffd166"
+       font-family="Arial"
+       font-size="10px"
+       dominant-baseline="middle"
+       id="text47"
+       transform="translate(420,70)">O</text>
+    <text
+       x="250"
+       y="25"
+       fill="#f0f0f0"
+       font-family="Arial"
+       font-size="18px"
+       font-weight="bold"
+       text-anchor="middle"
+       id="text48">Pares Ordenados: Coordenadas de Sobrevivência</text>
+  </g>
+</svg>
           </div>
         </section>
         
@@ -369,97 +1046,447 @@
         <section>
           <h3>Visualização: Adição de Vetores</h3>
           <div class="visualization-container">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400">
-              <!-- Fundo estilizado -->
-              <rect width="500" height="400" fill="#1d3557" opacity="0.9"/>
-              
-              <!-- Grade de fundo esmaecida -->
-              <g stroke="#a8dadc" stroke-width="0.5" opacity="0.2">
-                <!-- Linhas verticais da grade -->
-                <line x1="50" y1="50" x2="50" y2="350" />
-                <line x1="100" y1="50" x2="100" y2="350" />
-                <line x1="150" y1="50" x2="150" y2="350" />
-                <line x1="200" y1="50" x2="200" y2="350" />
-                <line x1="250" y1="50" x2="250" y2="350" />
-                <line x1="300" y1="50" x2="300" y2="350" />
-                <line x1="350" y1="50" x2="350" y2="350" />
-                <line x1="400" y1="50" x2="400" y2="350" />
-                <line x1="450" y1="50" x2="450" y2="350" />
-                
-                <!-- Linhas horizontais da grade -->
-                <line x1="50" y1="50" x2="450" y2="50" />
-                <line x1="50" y1="100" x2="450" y2="100" />
-                <line x1="50" y1="150" x2="450" y2="150" />
-                <line x1="50" y1="200" x2="450" y2="200" />
-                <line x1="50" y1="250" x2="450" y2="250" />
-                <line x1="50" y1="300" x2="450" y2="300" />
-                <line x1="50" y1="350" x2="450" y2="350" />
-              </g>
-              
-              <!-- Eixos coordenados principais -->
-              <g stroke="#f0f0f0" stroke-width="2">
-                <!-- Eixo X -->
-                <line x1="50" y1="200" x2="450" y2="200" />
-                <!-- Eixo Y -->
-                <line x1="250" y1="50" x2="250" y2="350" />
-              </g>
-              
-              <!-- Origem destacada -->
-              <circle cx="250" cy="200" r="5" fill="#f0f0f0"/>
-              <text x="240" y="220" fill="#f0f0f0" font-family="Arial" font-size="12" text-anchor="middle">O</text>
-              
-              <!-- Vetor u: (2,1) - Primeira rota de navegação -->
-              <line x1="250" y1="200" x2="350" y2="150" stroke="#e63946" stroke-width="3"/>
-              <polygon points="350,150 340,155 342,146" fill="#e63946"/>
-              <text x="300" y="165" fill="#e63946" font-family="Arial" font-size="14" font-weight="bold">→u</text>
-              <text x="300" y="180" fill="#a8dadc" font-family="Arial" font-size="10" font-style="italic">Rota para Abrigo</text>
-              
-              <!-- Vetor v: (1,-2) - Segunda rota de navegação -->
-              <g transform="translate(350, 150)">
-                <line x1="0" y1="0" x2="50" y2="100" stroke="#4cc9f0" stroke-width="3"/>
-                <polygon points="50,100 42,92 51,90" fill="#4cc9f0"/>
-                <text x="25" y="40" fill="#4cc9f0" font-family="Arial" font-size="14" font-weight="bold">→v</text>
-                <text x="25" y="55" fill="#a8dadc" font-family="Arial" font-size="10" font-style="italic">Rota para Água</text>
-              </g>
-              
-              <!-- Vetor u+v: (3,-1) - Rota combinada -->
-              <line x1="250" y1="200" x2="400" y2="250" stroke="#8ac926" stroke-width="3" stroke-dasharray="10 5"/>
-              <polygon points="400,250 390,245 395,237" fill="#8ac926"/>
-              <text x="315" y="240" fill="#8ac926" font-family="Arial" font-size="14" font-weight="bold">→u + →v</text>
-              <text x="315" y="255" fill="#a8dadc" font-family="Arial" font-size="10" font-style="italic">Rota Combinada</text>
-              
-              <!-- Ponto final - Novo ponto de destino -->
-              <circle cx="400" cy="250" r="8" fill="#ffd166"/>
-              <text x="410" y="245" fill="#ffd166" font-family="Arial" font-size="12" font-weight="bold">P(3,-1)</text>
-              <text x="410" y="260" fill="#a8dadc" font-family="Arial" font-size="10">Destino Final</text>
-              
-              <!-- Construção do paralelogramo (linha tracejada) -->
-              <line x1="250" y1="200" x2="300" y2="300" stroke="#a8dadc" stroke-width="1" stroke-dasharray="5 3"/>
-              <line x1="300" y1="300" x2="400" y2="250" stroke="#a8dadc" stroke-width="1" stroke-dasharray="5 3"/>
-              <g transform="translate(350, 150)">
-                <line x1="0" y1="0" x2="-50" y2="150" stroke="#a8dadc" stroke-width="1" stroke-dasharray="5 3"/>
-              </g>
-              
-              <!-- Painel de operação vetorial -->
-              <g transform="translate(60, 60)">
-                <rect x="0" y="0" width="170" height="80" rx="5" fill="#457b9d" opacity="0.7"/>
-                <text x="10" y="20" fill="#ffd166" font-family="Arial" font-size="14" font-weight="bold">Adição de Vetores</text>
-                <text x="10" y="40" fill="#f0f0f0" font-family="Arial" font-size="12">→u = (2,1)</text>
-                <text x="10" y="60" fill="#f0f0f0" font-family="Arial" font-size="12">→v = (1,-2)</text>
-                <text x="10" y="80" fill="#8ac926" font-family="Arial" font-size="12">→u + →v = (3,-1)</text>
-              </g>
-              
-              <!-- Painel de interpretação -->
-              <g transform="translate(350, 60)">
-                <rect x="0" y="0" width="120" height="60" rx="5" fill="#e63946" opacity="0.7"/>
-                <text x="10" y="20" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">PROTOCOLO:</text>
-                <text x="10" y="40" fill="#f0f0f0" font-family="Arial" font-size="10">Otimização de rota</text>
-                <text x="10" y="55" fill="#f0f0f0" font-family="Arial" font-size="10">pela regra do paralelogramo</text>
-              </g>
-              
-              <!-- Título da visualização -->
-              <text x="250" y="25" fill="#f0f0f0" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle">Adição de Vetores: Combinando Rotas de Navegação</text>
-            </svg>
+<svg
+   viewBox="0 0 437.5 350"
+   version="1.1"
+   id="svg35"
+   sodipodi:docname="adicao.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   width="437.5"
+   height="350"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs35">
+    <marker
+       style="overflow:visible"
+       id="DartArrow"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Dart arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         transform="scale(-0.5)"
+         id="path6" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="namedview35"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="2"
+     inkscape:cx="250"
+     inkscape:cy="200"
+     inkscape:window-width="1920"
+     inkscape:window-height="1008"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g31" />
+  <!-- Fundo estilizado -->
+  <rect
+     width="437.5"
+     height="350"
+     fill="#1d3557"
+     opacity="0.9"
+     id="rect1"
+     x="0"
+     y="0"
+     style="stroke-width:0.875" />
+  <!-- Grade de fundo esmaecida -->
+  <g
+     stroke="#a8dadc"
+     stroke-width="0.5"
+     opacity="0.2"
+     id="g16"
+     transform="scale(0.875)">
+    <!-- Linhas verticais da grade -->
+    <line
+       x1="50"
+       y1="50"
+       x2="50"
+       y2="350"
+       id="line1" />
+    <line
+       x1="100"
+       y1="50"
+       x2="100"
+       y2="350"
+       id="line2" />
+    <line
+       x1="150"
+       y1="50"
+       x2="150"
+       y2="350"
+       id="line3" />
+    <line
+       x1="200"
+       y1="50"
+       x2="200"
+       y2="350"
+       id="line4" />
+    <line
+       x1="250"
+       y1="50"
+       x2="250"
+       y2="350"
+       id="line5" />
+    <line
+       x1="300"
+       y1="50"
+       x2="300"
+       y2="350"
+       id="line6" />
+    <line
+       x1="350"
+       y1="50"
+       x2="350"
+       y2="350"
+       id="line7" />
+    <line
+       x1="400"
+       y1="50"
+       x2="400"
+       y2="350"
+       id="line8" />
+    <line
+       x1="450"
+       y1="50"
+       x2="450"
+       y2="350"
+       id="line9" />
+    <!-- Linhas horizontais da grade -->
+    <line
+       x1="50"
+       y1="50"
+       x2="450"
+       y2="50"
+       id="line10" />
+    <line
+       x1="50"
+       y1="100"
+       x2="450"
+       y2="100"
+       id="line11" />
+    <line
+       x1="50"
+       y1="150"
+       x2="450"
+       y2="150"
+       id="line12" />
+    <line
+       x1="50"
+       y1="200"
+       x2="450"
+       y2="200"
+       id="line13" />
+    <line
+       x1="50"
+       y1="250"
+       x2="450"
+       y2="250"
+       id="line14" />
+    <line
+       x1="50"
+       y1="300"
+       x2="450"
+       y2="300"
+       id="line15" />
+    <line
+       x1="50"
+       y1="350"
+       x2="450"
+       y2="350"
+       id="line16" />
+  </g>
+  <!-- Eixos coordenados principais -->
+  <g
+     stroke="#f0f0f0"
+     stroke-width="2"
+     id="g18"
+     transform="scale(0.875)">
+    <!-- Eixo X -->
+    <line
+       x1="50"
+       y1="200"
+       x2="450"
+       y2="200"
+       id="line17" />
+    <!-- Eixo Y -->
+    <line
+       x1="250"
+       y1="50"
+       x2="250"
+       y2="350"
+       id="line18" />
+  </g>
+  <!-- Origem destacada -->
+  <circle
+     cx="218.75"
+     cy="175"
+     r="4.375"
+     fill="#f0f0f0"
+     id="circle18"
+     style="stroke-width:0.875" />
+  <text
+     x="210"
+     y="192.5"
+     fill="#f0f0f0"
+     font-family="Arial"
+     font-size="10.5px"
+     text-anchor="middle"
+     id="text18"
+     style="stroke-width:0.875">O</text>
+  <!-- Vetor u: (2,1) - Primeira rota de navegação -->
+  <path
+     id="line19"
+     style="stroke:#e63946;stroke-width:2.35678;marker-end:url(#DartArrow)"
+     d="m 217.81503,175.94997 75.49686,-37.52969"
+     sodipodi:nodetypes="cc" />
+  <text
+     x="262.5"
+     y="144.375"
+     fill="#e63946"
+     font-family="Arial"
+     font-size="12.25px"
+     font-weight="bold"
+     id="text19"
+     style="stroke-width:0.875">u</text>
+  <text
+     x="120.57771"
+     y="247.41103"
+     fill="#a8dadc"
+     font-family="Arial"
+     font-size="8.75px"
+     font-style="italic"
+     id="text20"
+     transform="rotate(-31.561281)"
+     style="stroke-width:0.875">Rota para Abrigo</text>
+  <!-- Vetor v: (1,-2) - Segunda rota de navegação -->
+  <!-- Vetor u+v: (3,-1) - Rota combinada -->
+  <text
+     x="242.375"
+     y="206.5"
+     fill="#8ac926"
+     font-family="Arial"
+     font-size="12.25px"
+     font-weight="bold"
+     id="text23"
+     style="stroke-width:0.875">u + v</text>
+  <text
+     x="310.97949"
+     y="100.77345"
+     fill="#a8dadc"
+     font-family="Arial"
+     font-size="8.75px"
+     font-style="italic"
+     id="text24"
+     transform="rotate(16.638515)"
+     style="stroke-width:0.875">Rota Combinada</text>
+  <!-- Ponto final - Novo ponto de destino -->
+  <circle
+     cx="350"
+     cy="218.75"
+     r="7"
+     fill="#ffd166"
+     id="circle24"
+     style="stroke-width:0.875" />
+  <text
+     x="358.75"
+     y="214.375"
+     fill="#ffd166"
+     font-family="Arial"
+     font-size="10.5px"
+     font-weight="bold"
+     id="text25"
+     style="stroke-width:0.875">P(3,-1)</text>
+  <text
+     x="358.75"
+     y="227.5"
+     fill="#a8dadc"
+     font-family="Arial"
+     font-size="8.75px"
+     id="text26"
+     style="stroke-width:0.875">Destino Final</text>
+  <!-- Construção do paralelogramo (linha tracejada) -->
+  <line
+     x1="218.75"
+     y1="175"
+     x2="262.5"
+     y2="262.5"
+     stroke="#a8dadc"
+     stroke-width="0.875"
+     stroke-dasharray="5, 3"
+     id="line26" />
+  <line
+     x1="262.5"
+     y1="262.5"
+     x2="350"
+     y2="218.75"
+     stroke="#a8dadc"
+     stroke-width="0.875"
+     stroke-dasharray="5, 3"
+     id="line27" />
+  <g
+     transform="matrix(0.875,0,0,0.875,306.25,131.25)"
+     id="g28">
+    <line
+       x1="0"
+       y1="0"
+       x2="-50"
+       y2="150"
+       stroke="#a8dadc"
+       stroke-width="1"
+       stroke-dasharray="5, 3"
+       id="line28" />
+  </g>
+  <!-- Painel de operação vetorial -->
+  <g
+     transform="translate(60,60)"
+     id="g31">
+    <rect
+       x="-7.5"
+       y="-7.5"
+       width="148.75"
+       height="81.8125"
+       rx="4.375"
+       fill="#457b9d"
+       opacity="0.7"
+       id="rect28"
+       style="stroke-width:0.945954" />
+    <text
+       x="1.25"
+       y="10"
+       fill="#ffd166"
+       font-family="Arial"
+       font-size="12.25px"
+       font-weight="bold"
+       id="text28"
+       style="stroke-width:0.875">Adição de Vetores</text>
+    <text
+       x="1.25"
+       y="27.5"
+       fill="#f0f0f0"
+       font-family="Arial"
+       font-size="10.5px"
+       id="text29"
+       style="stroke-width:0.875">u = (2,1)</text>
+    <text
+       x="1.25"
+       y="45"
+       fill="#f0f0f0"
+       font-family="Arial"
+       font-size="10.5px"
+       id="text30"
+       style="stroke-width:0.875">v = (1,-2)</text>
+    <text
+       x="1.25"
+       y="62.5"
+       fill="#8ac926"
+       font-family="Arial"
+       font-size="10.5px"
+       id="text31"
+       style="stroke-width:0.875">u + v = (3,-1)</text>
+  </g>
+  <!-- Painel de interpretação -->
+  <g
+     transform="matrix(0.875,0,0,0.875,306.25,52.5)"
+     id="g34">
+    <g
+       id="g35"
+       transform="translate(-289.5,189.5)">
+      <rect
+         x="0"
+         y="0"
+         width="143"
+         height="71.5"
+         rx="5.9583335"
+         fill="#e63946"
+         opacity="0.7"
+         id="rect31"
+         style="stroke-width:1.19167" />
+      <text
+         x="10"
+         y="20"
+         fill="#f0f0f0"
+         font-family="Arial"
+         font-size="12px"
+         font-weight="bold"
+         id="text32">PROTOCOLO:</text>
+      <text
+         x="10"
+         y="40"
+         fill="#f0f0f0"
+         font-family="Arial"
+         font-size="10px"
+         id="text33">Otimização de rota</text>
+      <text
+         x="10"
+         y="55"
+         fill="#f0f0f0"
+         font-family="Arial"
+         font-size="10px"
+         id="text34">pela regra do paralelogramo</text>
+    </g>
+  </g>
+  <!-- Título da visualização -->
+  <text
+     x="218.75"
+     y="21.875"
+     fill="#f0f0f0"
+     font-family="Arial"
+     font-size="15.75px"
+     font-weight="bold"
+     text-anchor="middle"
+     id="text35"
+     style="stroke-width:0.875">Adição de Vetores: Combinando Rotas de Navegação</text>
+  <g
+     transform="matrix(0.875,0,0,0.875,307.125,130.375)"
+     id="g22">
+    <path
+       id="line20"
+       style="stroke:#4cc9f0;stroke-width:2.49513;marker-end:url(#DartArrow)"
+       d="M -2.2000802,0.26917791 43.885448,86.440231"
+       sodipodi:nodetypes="cc" />
+    <text
+       x="25"
+       y="40"
+       fill="#4cc9f0"
+       font-family="Arial"
+       font-size="14px"
+       font-weight="bold"
+       id="text21">v</text>
+    <text
+       x="27.184971"
+       y="-14.64942"
+       fill="#a8dadc"
+       font-family="Arial"
+       font-size="10px"
+       font-style="italic"
+       id="text22"
+       transform="rotate(56.20589)">Rota para Água</text>
+  </g>
+  <path
+     id="line22"
+     style="stroke:#8ac926;stroke-width:2.33201;stroke-dasharray:8.75, 4.375;marker-end:url(#DartArrow)"
+     d="m 217.95507,174.66513 118.93983,39.2758"
+     sodipodi:nodetypes="cc" />
+</svg>
           </div>
         </section>
         
@@ -483,125 +1510,475 @@
         <section>
           <h3>Visualização: Multiplicação por Escalar</h3>
           <div class="visualization-container">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400">
-              <!-- Fundo estilizado -->
-              <rect width="500" height="400" fill="#1d3557" opacity="0.9"/>
-              
-              <!-- Grade de fundo esmaecida -->
-              <g stroke="#a8dadc" stroke-width="0.5" opacity="0.2">
-                <!-- Linhas verticais da grade -->
-                <line x1="50" y1="50" x2="50" y2="350" />
-                <line x1="100" y1="50" x2="100" y2="350" />
-                <line x1="150" y1="50" x2="150" y2="350" />
-                <line x1="200" y1="50" x2="200" y2="350" />
-                <line x1="250" y1="50" x2="250" y2="350" />
-                <line x1="300" y1="50" x2="300" y2="350" />
-                <line x1="350" y1="50" x2="350" y2="350" />
-                <line x1="400" y1="50" x2="400" y2="350" />
-                <line x1="450" y1="50" x2="450" y2="350" />
-                
-                <!-- Linhas horizontais da grade -->
-                <line x1="50" y1="50" x2="450" y2="50" />
-                <line x1="50" y1="100" x2="450" y2="100" />
-                <line x1="50" y1="150" x2="450" y2="150" />
-                <line x1="50" y1="200" x2="450" y2="200" />
-                <line x1="50" y1="250" x2="450" y2="250" />
-                <line x1="50" y1="300" x2="450" y2="300" />
-                <line x1="50" y1="350" x2="450" y2="350" />
-              </g>
-              
-              <!-- Eixos coordenados principais -->
-              <g stroke="#f0f0f0" stroke-width="2">
-                <!-- Eixo X -->
-                <line x1="50" y1="200" x2="450" y2="200" />
-                <!-- Eixo Y -->
-                <line x1="250" y1="50" x2="250" y2="350" />
-              </g>
-              
-              <!-- Origem destacada -->
-              <circle cx="250" cy="200" r="5" fill="#f0f0f0"/>
-              <text x="240" y="220" fill="#f0f0f0" font-family="Arial" font-size="12" text-anchor="middle">O</text>
-              
-              <!-- Vetor v original: (2,1) - Rota base -->
-              <line x1="250" y1="200" x2="350" y2="150" stroke="#4cc9f0" stroke-width="3"/>
-              <polygon points="350,150 340,155 342,146" fill="#4cc9f0"/>
-              <text x="290" y="165" fill="#4cc9f0" font-family="Arial" font-size="14" font-weight="bold">→v</text>
-              <text x="290" y="180" fill="#a8dadc" font-family="Arial" font-size="10" font-style="italic">Rota Base</text>
-              
-              <!-- Vetor 2v: (4,2) - Rota amplificada -->
-              <line x1="250" y1="200" x2="450" y2="100" stroke="#8ac926" stroke-width="3"/>
-              <polygon points="450,100 438,108 438,98" fill="#8ac926"/>
-              <text x="340" y="130" fill="#8ac926" font-family="Arial" font-size="14" font-weight="bold">2→v</text>
-              <text x="340" y="145" fill="#a8dadc" font-family="Arial" font-size="10" font-style="italic">Rota Duplicada</text>
-              
-              <!-- Vetor 0.5v: (1,0.5) - Rota reduzida -->
-              <line x1="250" y1="200" x2="300" y2="175" stroke="#ffd166" stroke-width="3"/>
-              <polygon points="300,175 292,177 294,170" fill="#ffd166"/>
-              <text x="265" y="175" fill="#ffd166" font-family="Arial" font-size="14" font-weight="bold">0.5→v</text>
-              <text x="265" y="190" fill="#a8dadc" font-family="Arial" font-size="10" font-style="italic">Rota Reduzida</text>
-              
-              <!-- Vetor -v: (-2,-1) - Rota inversa -->
-              <line x1="250" y1="200" x2="150" y2="250" stroke="#e63946" stroke-width="3"/>
-              <polygon points="150,250 160,245 158,254" fill="#e63946"/>
-              <text x="190" y="235" fill="#e63946" font-family="Arial" font-size="14" font-weight="bold">-→v</text>
-              <text x="190" y="250" fill="#a8dadc" font-family="Arial" font-size="10" font-style="italic">Rota Inversa</text>
-              
-              <!-- Pontos extremos -->
-              <circle cx="350" cy="150" r="6" fill="#4cc9f0"/>
-              <text x="355" y="140" fill="#4cc9f0" font-family="Arial" font-size="10">(2,1)</text>
-              
-              <circle cx="450" cy="100" r="6" fill="#8ac926"/>
-              <text x="455" y="90" fill="#8ac926" font-family="Arial" font-size="10">(4,2)</text>
-              
-              <circle cx="300" cy="175" r="6" fill="#ffd166"/>
-              <text x="305" y="165" fill="#ffd166" font-family="Arial" font-size="10">(1,0.5)</text>
-              
-              <circle cx="150" cy="250" r="6" fill="#e63946"/>
-              <text x="140" y="240" fill="#e63946" font-family="Arial" font-size="10">(-2,-1)</text>
-              
-              <!-- Painel das operações de escala -->
-              <g transform="translate(60, 60)">
-                <rect x="0" y="0" width="170" height="100" rx="5" fill="#457b9d" opacity="0.7"/>
-                <text x="10" y="20" fill="#ffd166" font-family="Arial" font-size="14" font-weight="bold">Mult. por Escalar</text>
-                <text x="10" y="40" fill="#4cc9f0" font-family="Arial" font-size="12">→v = (2,1)</text>
-                <text x="10" y="60" fill="#8ac926" font-family="Arial" font-size="12">2→v = (4,2)</text>
-                <text x="10" y="80" fill="#ffd166" font-family="Arial" font-size="12">0.5→v = (1,0.5)</text>
-                <text x="10" y="100" fill="#e63946" font-family="Arial" font-size="12">-→v = (-2,-1)</text>
-              </g>
-              
-              <!-- Painel de interpretação prática -->
-              <g transform="translate(60, 260)">
-                <rect x="0" y="0" width="170" height="70" rx="5" fill="#e63946" opacity="0.7"/>
-                <text x="10" y="20" fill="#f0f0f0" font-family="Arial" font-size="12" font-weight="bold">APLICAÇÕES:</text>
-                <text x="10" y="40" fill="#f0f0f0" font-family="Arial" font-size="10">• Ajuste de distâncias</text>
-                <text x="10" y="55" fill="#f0f0f0" font-family="Arial" font-size="10">• Cálculo para múltiplas pessoas</text>
-                <text x="10" y="70" fill="#f0f0f0" font-family="Arial" font-size="10">• Rotas de retorno (-1×vetor)</text>
-              </g>
-              
-              <!-- Ilustração do significado físico -->
-              <g transform="translate(350, 260)">
-                <rect x="0" y="0" width="120" height="70" rx="5" fill="#ffd166" opacity="0.6"/>
-                <!-- Ícones de pessoas -->
-                <circle cx="20" cy="20" r="5" fill="#f0f0f0"/>
-                <line x1="20" y1="25" x2="20" y2="40" stroke="#f0f0f0" stroke-width="2"/>
-                <line x1="10" y1="30" x2="30" y2="30" stroke="#f0f0f0" stroke-width="2"/>
-                <line x1="20" y1="40" x2="10" y2="55" stroke="#f0f0f0" stroke-width="2"/>
-                <line x1="20" y1="40" x2="30" y2="55" stroke="#f0f0f0" stroke-width="2"/>
-                
-                <circle cx="40" cy="20" r="5" fill="#f0f0f0"/>
-                <line x1="40" y1="25" x2="40" y2="40" stroke="#f0f0f0" stroke-width="2"/>
-                <line x1="30" y1="30" x2="50" y2="30" stroke="#f0f0f0" stroke-width="2"/>
-                <line x1="40" y1="40" x2="30" y2="55" stroke="#f0f0f0" stroke-width="2"/>
-                <line x1="40" y1="40" x2="50" y2="55" stroke="#f0f0f0" stroke-width="2"/>
-                
-                <text x="60" y="20" fill="#f0f0f0" font-family="Arial" font-size="10">2 pessoas</text>
-                <text x="60" y="35" fill="#f0f0f0" font-family="Arial" font-size="10">= 2× recursos</text>
-                <text x="60" y="50" fill="#f0f0f0" font-family="Arial" font-size="10">(2→v)</text>
-              </g>
-              
-              <!-- Título da visualização -->
-              <text x="250" y="25" fill="#f0f0f0" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle">Multiplicação por Escalar: Ajustando Intensidades</text>
-            </svg>
+<svg
+   viewBox="0 0 437.5 350"
+   version="1.1"
+   id="svg49"
+   sodipodi:docname="multiplicacaoe-escalar.svg"
+   width="437.5"
+   height="350"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs49" />
+  <sodipodi:namedview
+     id="namedview49"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="2"
+     inkscape:cx="250"
+     inkscape:cy="200"
+     inkscape:window-width="1920"
+     inkscape:window-height="1008"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg49"
+     showguides="false" />
+  <!-- Fundo estilizado -->
+  <rect
+     width="437.5"
+     height="350"
+     fill="#1d3557"
+     opacity="0.9"
+     id="rect1"
+     x="0"
+     y="0"
+     style="stroke-width:0.875" />
+  <!-- Grade de fundo esmaecida -->
+  <g
+     stroke="#a8dadc"
+     stroke-width="0.5"
+     opacity="0.2"
+     id="g16"
+     transform="scale(0.875)">
+    <!-- Linhas verticais da grade -->
+    <line
+       x1="50"
+       y1="50"
+       x2="50"
+       y2="350"
+       id="line1" />
+    <line
+       x1="100"
+       y1="50"
+       x2="100"
+       y2="350"
+       id="line2" />
+    <line
+       x1="150"
+       y1="50"
+       x2="150"
+       y2="350"
+       id="line3" />
+    <line
+       x1="200"
+       y1="50"
+       x2="200"
+       y2="350"
+       id="line4" />
+    <line
+       x1="250"
+       y1="50"
+       x2="250"
+       y2="350"
+       id="line5" />
+    <line
+       x1="300"
+       y1="50"
+       x2="300"
+       y2="350"
+       id="line6" />
+    <line
+       x1="350"
+       y1="50"
+       x2="350"
+       y2="350"
+       id="line7" />
+    <line
+       x1="400"
+       y1="50"
+       x2="400"
+       y2="350"
+       id="line8" />
+    <line
+       x1="450"
+       y1="50"
+       x2="450"
+       y2="350"
+       id="line9" />
+    <!-- Linhas horizontais da grade -->
+    <line
+       x1="50"
+       y1="50"
+       x2="450"
+       y2="50"
+       id="line10" />
+    <line
+       x1="50"
+       y1="100"
+       x2="450"
+       y2="100"
+       id="line11" />
+    <line
+       x1="50"
+       y1="150"
+       x2="450"
+       y2="150"
+       id="line12" />
+    <line
+       x1="50"
+       y1="200"
+       x2="450"
+       y2="200"
+       id="line13" />
+    <line
+       x1="50"
+       y1="250"
+       x2="450"
+       y2="250"
+       id="line14" />
+    <line
+       x1="50"
+       y1="300"
+       x2="450"
+       y2="300"
+       id="line15" />
+    <line
+       x1="50"
+       y1="350"
+       x2="450"
+       y2="350"
+       id="line16" />
+  </g>
+  <!-- Eixos coordenados principais -->
+  <g
+     stroke="#f0f0f0"
+     stroke-width="2"
+     id="g18"
+     transform="scale(0.875)">
+    <!-- Eixo X -->
+    <line
+       x1="50"
+       y1="200"
+       x2="450"
+       y2="200"
+       id="line17" />
+    <!-- Eixo Y -->
+    <line
+       x1="250"
+       y1="50"
+       x2="250"
+       y2="350"
+       id="line18" />
+  </g>
+  <!-- Origem destacada -->
+  <circle
+     cx="218.75"
+     cy="175"
+     r="4.375"
+     fill="#f0f0f0"
+     id="circle18"
+     style="stroke-width:0.875" />
+  <text
+     x="210"
+     y="192.5"
+     fill="#f0f0f0"
+     font-family="Arial"
+     font-size="10.5px"
+     text-anchor="middle"
+     id="text18"
+     style="stroke-width:0.875">O</text>
+  <!-- Vetor v original: (2,1) - Rota base -->
+  <line
+     x1="218.75"
+     y1="175"
+     x2="306.25"
+     y2="131.25"
+     stroke="#4cc9f0"
+     stroke-width="2.625"
+     id="line19"
+     style="stroke-width:5.32499943;stroke-dasharray:none" />
+  <text
+     x="275.25"
+     y="134.375"
+     fill="#4cc9f0"
+     font-family="Arial"
+     font-size="12.25px"
+     font-weight="bold"
+     id="text19"
+     style="stroke-width:0.875">v</text>
+  <text
+     x="301.75"
+     y="150.5"
+     fill="#a8dadc"
+     font-family="Arial"
+     font-size="8.75px"
+     font-style="italic"
+     id="text20"
+     style="stroke-width:0.875">Rota Base</text>
+  <!-- Vetor 2v: (4,2) - Rota amplificada -->
+  <line
+     x1="222.75"
+     y1="173"
+     x2="397.75"
+     y2="85.5"
+     stroke="#8ac926"
+     stroke-width="2.625"
+     id="line20" />
+  <text
+     x="399.5"
+     y="111.25"
+     fill="#8ac926"
+     font-family="Arial"
+     font-size="12.25px"
+     font-weight="bold"
+     id="text21"
+     style="stroke-width:0.875">2v</text>
+  <text
+     x="319.5"
+     y="83.375"
+     fill="#a8dadc"
+     font-family="Arial"
+     font-size="8.75px"
+     font-style="italic"
+     id="text22"
+     style="stroke-width:0.875">Rota Duplicada</text>
+  <!-- Vetor 0.5v: (1,0.5) - Rota reduzida -->
+  <line
+     x1="218.75"
+     y1="175"
+     x2="262.5"
+     y2="153.125"
+     stroke="#ffd166"
+     stroke-width="2.625"
+     id="line22" />
+  <text
+     x="246.375"
+     y="171.125"
+     fill="#ffd166"
+     font-family="Arial"
+     font-size="12.25px"
+     font-weight="bold"
+     id="text23"
+     style="stroke-width:0.875">0.5v</text>
+  <text
+     x="181.875"
+     y="153.25"
+     fill="#a8dadc"
+     font-family="Arial"
+     font-size="8.75px"
+     font-style="italic"
+     id="text24"
+     style="stroke-width:0.875">Rota Reduzida</text>
+  <!-- Vetor -v: (-2,-1) - Rota inversa -->
+  <line
+     x1="218.75"
+     y1="175"
+     x2="131.25"
+     y2="218.75"
+     stroke="#e63946"
+     stroke-width="2.625"
+     id="line24" />
+  <text
+     x="176.25"
+     y="205.625"
+     fill="#e63946"
+     font-family="Arial"
+     font-size="12.25px"
+     font-weight="bold"
+     id="text25"
+     style="stroke-width:0.875">-v</text>
+  <text
+     x="148.25"
+     y="222.25"
+     fill="#a8dadc"
+     font-family="Arial"
+     font-size="8.75px"
+     font-style="italic"
+     id="text26"
+     style="stroke-width:0.875">Rota Inversa</text>
+  <!-- Pontos extremos -->
+  <circle
+     cx="305.25"
+     cy="131.75"
+     r="5.25"
+     fill="#4cc9f0"
+     id="circle26"
+     style="stroke-width:0.875" />
+  <text
+     x="291.625"
+     y="121.5"
+     fill="#4cc9f0"
+     font-family="Arial"
+     font-size="8.75px"
+     id="text27"
+     style="stroke-width:0.875">(2,1)</text>
+  <circle
+     cx="393.75"
+     cy="87.5"
+     r="5.25"
+     fill="#8ac926"
+     id="circle27"
+     style="stroke-width:0.875" />
+  <text
+     x="398.125"
+     y="78.75"
+     fill="#8ac926"
+     font-family="Arial"
+     font-size="8.75px"
+     id="text28"
+     style="stroke-width:0.875">(4,2)</text>
+  <circle
+     cx="262"
+     cy="152.125"
+     r="5.25"
+     fill="#ffd166"
+     id="circle28"
+     style="stroke-width:0.875" />
+  <text
+     x="238.875"
+     y="137.375"
+     fill="#ffd166"
+     font-family="Arial"
+     font-size="8.75px"
+     id="text29"
+     style="stroke-width:0.875">(1,0.5)</text>
+  <circle
+     cx="131.25"
+     cy="219.75"
+     r="5.25"
+     fill="#e63946"
+     id="circle29"
+     style="stroke-width:0.875" />
+  <text
+     x="122.5"
+     y="210"
+     fill="#e63946"
+     font-family="Arial"
+     font-size="8.75px"
+     id="text30"
+     style="stroke-width:0.875">(-2,-1)</text>
+  <!-- Painel das operações de escala -->
+  <g
+     transform="matrix(0.875,0,0,0.875,48.5,53)"
+     id="g35">
+    <rect
+       x="-0.57142854"
+       y="0.67226893"
+       width="136.28571"
+       height="112.94118"
+       rx="4.0084033"
+       fill="#457b9d"
+       opacity="0.7"
+       id="rect30"
+       style="stroke-width:0.95154" />
+    <text
+       x="10"
+       y="20"
+       fill="#ffd166"
+       font-family="Arial"
+       font-size="14px"
+       font-weight="bold"
+       id="text31">Mult. por Escalar</text>
+    <text
+       x="10"
+       y="40"
+       fill="#4cc9f0"
+       font-family="Arial"
+       font-size="12px"
+       id="text32">v = (2,1)</text>
+    <text
+       x="10"
+       y="60"
+       fill="#8ac926"
+       font-family="Arial"
+       font-size="12px"
+       id="text33">2v = (4,2)</text>
+    <text
+       x="10"
+       y="80"
+       fill="#ffd166"
+       font-family="Arial"
+       font-size="12px"
+       id="text34">0.5v = (1,0.5)</text>
+    <text
+       x="10"
+       y="100"
+       fill="#e63946"
+       font-family="Arial"
+       font-size="12px"
+       id="text35">-v = (-2,-1)</text>
+  </g>
+  <!-- Painel de interpretação prática -->
+  <g
+     transform="matrix(0.875,0,0,0.875,254,216)"
+     id="g39">
+    <g
+       id="g49"
+       transform="translate(-16.571429,11.428571)">
+      <rect
+         x="0"
+         y="0"
+         width="170"
+         height="83.714287"
+         rx="5"
+         fill="#e63946"
+         opacity="0.7"
+         id="rect35"
+         style="stroke-width:1.09358" />
+      <text
+         x="10"
+         y="20"
+         fill="#f0f0f0"
+         font-family="Arial"
+         font-size="12px"
+         font-weight="bold"
+         id="text36">APLICAÇÕES:</text>
+      <text
+         x="10"
+         y="40"
+         fill="#f0f0f0"
+         font-family="Arial"
+         font-size="10px"
+         id="text37">• Ajuste de distâncias</text>
+      <text
+         x="10"
+         y="55"
+         fill="#f0f0f0"
+         font-family="Arial"
+         font-size="10px"
+         id="text38">• Cálculo para múltiplas pessoas</text>
+      <text
+         x="10"
+         y="70"
+         fill="#f0f0f0"
+         font-family="Arial"
+         font-size="10px"
+         id="text39">• Rotas de retorno (-1×vetor)</text>
+    </g>
+  </g>
+  <!-- Ilustração do significado físico -->
+  <!-- Título da visualização -->
+  <text
+     x="218.75"
+     y="21.875"
+     fill="#f0f0f0"
+     font-family="Arial"
+     font-size="15.75px"
+     font-weight="bold"
+     text-anchor="middle"
+     id="text49"
+     style="stroke-width:0.875">Multiplicação por Escalar: Ajustando Intensidades</text>
+</svg>
           </div>
         </section>
         
