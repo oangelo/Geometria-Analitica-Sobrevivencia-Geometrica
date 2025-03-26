@@ -76,3 +76,9 @@
 	font-size: 1.6rem;
 	line-height: 1.4;
 }
+
+.visualization-container svg{
+  width: 600px; /* Aumenta a largura */
+  height: auto; /* Mantém a proporção definida pelo viewBox */
+  border: 1px solid #ccc; /* Apenas para evidenciar a área do SVG */
+}
