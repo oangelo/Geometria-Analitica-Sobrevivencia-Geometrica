@@ -30,17 +30,6 @@
           <p>Em terras arruinadas, às vezes a melhor forma de sobreviver é entender como forças aparentemente opostas podem se alinhar ou coexistir.</p>
         </section>
 
-        <!-- Slide Horizontal 2: Notação -->
-        <section>
-          <h2>Notação de Pontos, Vetores e Escalares</h2>
-          <p>Em <strong>R²</strong>, tanto pontos quanto vetores são pares ordenados (x, y). Entretanto, o que muda é a forma de rotular e interpretar:</p>
-          <ul>
-            <li><strong>Pontos</strong>: Letras maiúsculas (p. ex. A, B), indicando posições específicas no plano. Ex.: A(2,3), B(-1,4).</li>
-            <li><strong>Vetores</strong>: Letras minúsculas com a notação de seta, p. ex. \vec{u}, \vec{v}. Ex.: \vec{u} = (2,3) pode representar um deslocamento.</li>
-            <li><strong>Escalares</strong>: Letras gregas minúsculas (p. ex. \alpha, \beta, \theta), representando valores numéricos que podem escalonar vetores. Ex.: \alpha = 2.</li>
-          </ul>
-        </section>
-
         <!-- Slide Horizontal 3: Produto Escalar & Reflexão Rápida -->
         <section>
           <section>
@@ -145,6 +134,335 @@
           </section>
         </section>
 
+<!-- Slide de Projeção Vetorial Corrigido -->
+<section>
+  <h2>Simulador Vault-Tec: Projeção Vetorial</h2>
+  
+  <div class="canvas-container" style="position: relative; width: 450px; height: 450px; margin: 0 auto;">
+    <div id="interaction-hint" style="position: absolute; top: -30px; left: 0; right: 0;
+      color: #FFD700; padding: 5px; font-family: monospace; text-align: center;">
+      Clique e arraste os círculos nas pontas dos vetores
+    </div>
+    
+    <canvas id="projectionCanvas" width="450" height="450" 
+      style="border: 1px solid #0f0; background-color: #111; cursor: default;"></canvas>
+      
+    <div id="projection-value" style="position: absolute; bottom: 10px; right: 10px; 
+      background: rgba(0,0,0,0.7); color: #ADFF2F; padding: 5px 10px; font-family: monospace;">
+      |proj| = 0
+    </div>
+  </div>
+  
+  <p style="margin-top: 15px;"><small>Use os círculos nas pontas dos vetores para manipulá-los e observe como a projeção muda.</small></p>
+  
+  <script>
+    // Script para visualização da projeção vetorial com interatividade melhorada
+    document.addEventListener('DOMContentLoaded', function() {
+      // Inicializa quando o slide estiver visível
+      Reveal.addEventListener('slidechanged', function(event) {
+        const projectionCanvas = event.currentSlide.querySelector('#projectionCanvas');
+        if (projectionCanvas) {
+          initProjectionCanvas(projectionCanvas);
+        }
+      });
+      
+      // Também inicializa se o slide já estiver visível na carga inicial
+      const currentSlide = Reveal.getCurrentSlide();
+      if (currentSlide && currentSlide.querySelector('#projectionCanvas')) {
+        initProjectionCanvas(currentSlide.querySelector('#projectionCanvas'));
+      }
+    });
+    
+    function initProjectionCanvas(canvas) {
+      if (!canvas) return; // Sair se o canvas não for encontrado
+      
+      const ctx = canvas.getContext('2d');
+      const valueDisplay = document.querySelector('#projection-value');
+      const interactionHint = document.querySelector('#interaction-hint');
+      
+      // Configuração básica
+      const width = canvas.width;
+      const height = canvas.height;
+      const centerX = width / 2;
+      const centerY = height / 2;
+      const scale = 30;
+      
+      // Vetores iniciais
+      let vectorU = { x: 3, y: 1 };
+      let vectorV = { x: 2, y: 0 };
+      let projectionVector = { x: 0, y: 0 }; // Será calculado
+      
+      // Estado de interação
+      let isDragging = false;
+      let selectedVector = null;
+      let hoverVector = null;
+      
+      // Configurações de estilo
+      const handleRadius = 15; // Tamanho aumentado do círculo manipulável nas pontas dos vetores
+      const colors = {
+        u: '#FF6347',         // Vetor original (vermelho)
+        v: '#4169E1',         // Vetor de direção (azul)
+        proj: '#ADFF2F',      // Projeção (verde)
+        projLine: '#FFD700',  // Linha de projeção (amarelo)
+        handle: '#FFFFFF',    // Círculo manipulável
+        handleHover: '#ADFF2F', // Círculo quando hovering
+        grid: '#333333',      // Linhas de grid
+        axes: '#00FF00'       // Eixos principais
+      };
+      
+      function drawGrid() {
+        ctx.strokeStyle = colors.grid;
+        ctx.lineWidth = 0.5;
+        
+        // Eixos
+        ctx.strokeStyle = colors.axes;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(0, centerY); ctx.lineTo(width, centerY);
+        ctx.moveTo(centerX, 0); ctx.lineTo(centerX, height);
+        ctx.stroke();
+      }
+      
+      function drawVector(x, y, color, label, isHighlighted = false) {
+        const endX = centerX + x * scale;
+        const endY = centerY - y * scale;
+        
+        // Linha do vetor
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(centerX, centerY);
+        ctx.lineTo(endX, endY);
+        ctx.stroke();
+        
+        // Seta na ponta
+        const angle = Math.atan2(centerY - endY, endX - centerX);
+        const arrowSize = 8;
+        ctx.beginPath();
+        ctx.moveTo(endX, endY);
+        ctx.lineTo(
+          endX - arrowSize * Math.cos(angle - Math.PI / 6),
+          endY - arrowSize * Math.sin(angle - Math.PI / 6)
+        );
+        ctx.lineTo(
+          endX - arrowSize * Math.cos(angle + Math.PI / 6),
+          endY - arrowSize * Math.sin(angle + Math.PI / 6)
+        );
+        ctx.closePath();
+        ctx.fillStyle = color;
+        ctx.fill();
+        
+        // Círculo manipulável na ponta do vetor
+        ctx.beginPath();
+        ctx.arc(endX, endY, handleRadius, 0, Math.PI * 2);
+        ctx.fillStyle = isHighlighted ? colors.handleHover : 'rgba(255, 255, 255, 0.3)';
+        ctx.fill();
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        
+        // Label
+        ctx.fillStyle = color;
+        ctx.font = '16px monospace';
+        ctx.fillText(label, endX + 15, endY);
+      }
+      
+      function drawProjectionLine() {
+        // Desenhar linha tracejada da ponta de U perpendicular a V
+        const endUX = centerX + vectorU.x * scale;
+        const endUY = centerY - vectorU.y * scale;
+        
+        const endProjX = centerX + projectionVector.x * scale;
+        const endProjY = centerY - projectionVector.y * scale;
+        
+        ctx.setLineDash([5, 3]);
+        ctx.strokeStyle = colors.projLine;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(endUX, endUY);
+        ctx.lineTo(endProjX, endProjY);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+      
+      function dotProduct(v1, v2) {
+        return v1.x * v2.x + v1.y * v2.y;
+      }
+      
+      function magnitude(v) {
+        return Math.sqrt(v.x * v.x + v.y * v.y);
+      }
+      
+      function calculateProjection() {
+        // Calcula a projeção de U sobre V
+        const magV = magnitude(vectorV);
+        
+        // Evitar divisão por zero
+        if (magV < 0.0001) {
+          projectionVector = { x: 0, y: 0 };
+          return 0;
+        }
+        
+        const dotProd = dotProduct(vectorU, vectorV);
+        const scalar = dotProd / (magV * magV);
+        
+        projectionVector = {
+          x: vectorV.x * scalar,
+          y: vectorV.y * scalar
+        };
+        
+        return magnitude(projectionVector);
+      }
+      
+      function render() {
+        ctx.clearRect(0, 0, width, height);
+        drawGrid();
+        
+        // Calcular projeção
+        const projMagnitude = calculateProjection();
+        
+        // Desenhar vetor V (direção de referência)
+        drawVector(vectorV.x, vectorV.y, colors.v, 'v', hoverVector === 'V');
+        
+        // Desenhar vetor de projeção
+        drawVector(projectionVector.x, projectionVector.y, colors.proj, 'proj');
+        
+        // Desenhar vetor U (vetor original)
+        drawVector(vectorU.x, vectorU.y, colors.u, 'u', hoverVector === 'U');
+        
+        // Desenhar linha de projeção
+        drawProjectionLine();
+        
+        // Atualizar valor da projeção
+        if (valueDisplay) {
+          valueDisplay.textContent = `|proj| = ${projMagnitude.toFixed(2)}`;
+        }
+      }
+      
+      function isNearVectorTip(mouseX, mouseY, vector) {
+        const tipX = centerX + vector.x * scale;
+        const tipY = centerY - vector.y * scale;
+        
+        const distance = Math.sqrt((mouseX - tipX) ** 2 + (mouseY - tipY) ** 2);
+        return distance < handleRadius;
+      }
+      
+      function getMousePos(canvas, evt) {
+        const rect = canvas.getBoundingClientRect();
+        // Garantir que levamos em conta a posição exata, inclusive com o scaling que o navegador pode aplicar
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+        
+        return {
+          x: (evt.clientX - rect.left) * scaleX,
+          y: (evt.clientY - rect.top) * scaleY
+        };
+      }
+      
+      function updateCursor(isOverHandle) {
+        canvas.style.cursor = isOverHandle ? 'pointer' : 'default';
+      }
+      
+      function checkHover(mouseX, mouseY) {
+        if (isNearVectorTip(mouseX, mouseY, vectorU)) {
+          hoverVector = 'U';
+          updateCursor(true);
+          render(); // Re-render para mostrar highlight
+          return true;
+        } else if (isNearVectorTip(mouseX, mouseY, vectorV)) {
+          hoverVector = 'V';
+          updateCursor(true);
+          render(); // Re-render para mostrar highlight
+          return true;
+        }
+        
+        if (hoverVector) {
+          hoverVector = null;
+          updateCursor(false);
+          render(); // Re-render para remover highlight
+        }
+        return false;
+      }
+      
+      // Eventos do mouse
+      canvas.addEventListener('mousemove', function(event) {
+        const mousePos = getMousePos(canvas, event);
+        const mouseX = mousePos.x;
+        const mouseY = mousePos.y;
+        
+        if (isDragging && selectedVector) {
+          // Estamos arrastando um vetor
+          const vecX = (mouseX - centerX) / scale;
+          const vecY = -(mouseY - centerY) / scale;
+          
+          // Limitar magnitude para não sair da tela
+          const mag = Math.sqrt(vecX*vecX + vecY*vecY);
+          const maxMag = 4;
+          const factor = mag > maxMag ? maxMag / mag : 1;
+          
+          if (selectedVector === 'U') {
+            vectorU.x = vecX * factor;
+            vectorU.y = vecY * factor;
+          } else if (selectedVector === 'V') {
+            vectorV.x = vecX * factor;
+            vectorV.y = vecY * factor;
+          }
+          
+          render();
+        } else {
+          // Verificar hover
+          checkHover(mouseX, mouseY);
+        }
+      });
+      
+      canvas.addEventListener('mousedown', function(event) {
+        const mousePos = getMousePos(canvas, event);
+        const mouseX = mousePos.x;
+        const mouseY = mousePos.y;
+        
+        if (isNearVectorTip(mouseX, mouseY, vectorU)) {
+          isDragging = true;
+          selectedVector = 'U';
+          canvas.style.cursor = 'grabbing';
+        } else if (isNearVectorTip(mouseX, mouseY, vectorV)) {
+          isDragging = true;
+          selectedVector = 'V';
+          canvas.style.cursor = 'grabbing';
+        }
+        
+        // Esconder a dica de interação após o primeiro clique
+        if (isDragging && interactionHint) {
+          interactionHint.style.opacity = '0.5';
+        }
+      });
+      
+      canvas.addEventListener('mouseup', function() {
+        isDragging = false;
+        selectedVector = null;
+        canvas.style.cursor = hoverVector ? 'pointer' : 'default';
+      });
+      
+      canvas.addEventListener('mouseleave', function() {
+        isDragging = false;
+        selectedVector = null;
+        hoverVector = null;
+        updateCursor(false);
+      });
+      
+      // Apenas para debugging
+      function logEventInfo(event, type) {
+        const mousePos = getMousePos(canvas, event);
+        console.log(`${type} - x: ${mousePos.x}, y: ${mousePos.y}`);
+        console.log(`Canvas offset: ${canvas.offsetLeft}, ${canvas.offsetTop}`);
+        console.log(`Reveal slide offset: ${Reveal.getCurrentSlide().offsetLeft}, ${Reveal.getCurrentSlide().offsetTop}`);
+      }
+      
+      // Renderização inicial
+      render();
+    }
+  </script>
+</section>
+
         <!-- Slide Horizontal: Módulo (Comprimento) e Versores -->
         <section>
           <!-- Slide Vertical: Definição do Módulo -->
@@ -154,8 +472,10 @@
             Para medir a intensidade de um vetor \(\vec{v} = (x, y)\) em \(\mathbb{R}^2\), utilizamos:
             </p>
             <p class="formula">\[
-            |\vec{v}| = \sqrt{x^2 + y^2}
+            |\vec{v}| = \sqrt{x^2 + y^2} = \sqrt{\vec{v} \cdot \vec{v}}
             \]</p>
+            <p class="formula">\[ |\vec{v}|^2 = \vec{v} \cdot \vec{v} \]</p>
+
             <p>
             Essa fórmula deriva diretamente do Teorema de Pitágoras, considerando \(x\) e \(y\) como os catetos de um triângulo retângulo, cujo comprimento da hipotenusa é \(|\vec{v}|\).
             </p>
@@ -188,11 +508,13 @@
               <li>\(\hat{i} = (1,0)\)</li>
               <li>\(\hat{j} = (0,1)\)</li>
             </ul>
-            <p class="formula">\[
-            \vec{v} = x\hat{i} + y\hat{j}.
-            \]</p>
+	    <p class="formula">\[
+	    \vec{v} = x \hat{i} + y \hat{j}\]</p>
             <p>
-            É outra maneira de ver a mesma informação: em vez de agrupar em um par ordenado \((x,y)\), distribuímos as componentes como “pesos” dos vetores unitários \(\hat{i}\) e \(\hat{j}\).
+            <p class="formula">\[
+	    \vec{v} = (\vec{v} \cdot \hat{i}) \hat{i} + (\vec{v} \cdot \hat{J}) \hat{j}
+            \]</p>
+                        É outra maneira de ver a mesma informação: em vez de agrupar em um par ordenado \((x,y)\), distribuímos as componentes como “pesos” dos vetores unitários \(\hat{i}\) e \(\hat{j}\).
             </p>
           </section>
 
@@ -288,7 +610,7 @@
             </div>
 
             <blockquote>
-              <strong>Cuidado:</strong> Mesmo que você esteja viajando de \(A\) para \(B\), o vetor \(ec{AB}\) deve sempre começar na origem, onde sua jornada matemática começa.
+              <strong>Cuidado:</strong> Mesmo que você esteja viajando de \(A\) para \(B\), o vetor \(\vec{AB}\) deve sempre começar na origem, onde sua jornada matemática começa.
             </blockquote>
 
             <div class="formula">
@@ -404,12 +726,13 @@
           </section>
         </section>
 
+
+        <section>
         <section>
           <h1>Área de Triângulos Vetoriais</h1>
           <h2>Decodificando Espaços, Revelando Estratégias</h2>
         </section>
 
-        <section>
           <section>
             <h2>Territórios Delimitados por Vetores</h2>
             <p>Imagine dois vetores, \(\vec{u}\) e \(\vec{v}\), como <strong>fronteiras invisíveis</strong> traçando os limites de um território em disputa.</p>
