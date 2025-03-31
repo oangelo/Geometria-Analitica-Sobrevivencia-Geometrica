@@ -1,25 +1,34 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
     <title>Geometria Analítica: Sobrevivência Geométrica – Capítulo II</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
     <!-- Reveal.js Styles -->
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
-    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/reveal.js/dist/theme/black.css"
+      id="theme"
+    />
 
     <!-- For syntax highlighting -->
-    <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css"
+    />
 
     <!-- Custom styles (if needed) -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
     <div class="reveal">
       <div class="slides">
-
         <!-- ========================= -->
         <!-- CAPÍTULO II - PRODUTO INTERNO NO R² -->
         <!-- ========================= -->
@@ -27,7 +36,11 @@
         <!-- Slide Horizontal 1: Título -->
         <section>
           <h1>Capítulo II – Produto Interno no R²</h1>
-          <p>Em terras arruinadas, às vezes a melhor forma de sobreviver é entender como forças aparentemente opostas podem se alinhar ou coexistir.</p>
+          <p>
+            Em terras arruinadas, às vezes a melhor forma de sobreviver é
+            entender como forças aparentemente opostas podem se alinhar ou
+            coexistir.
+          </p>
         </section>
 
         <!-- Slide Horizontal 3: Produto Escalar & Reflexão Rápida -->
@@ -35,540 +48,797 @@
           <section>
             <h2>Definição do Produto Escalar</h2>
             <p>
-            O <strong>Produto Interno</strong> (ou escalar) de dois vetores \(\vec{u}\) e \(\vec{v}\) em \(\mathbb{R}^2\) é dado por:
+              O <strong>Produto Interno</strong> (ou escalar) de dois vetores
+              \(\vec{u}\) e \(\vec{v}\) em \(\mathbb{R}^2\) é dado por:
             </p>
-            <p class="formula">\[
-            \vec{u} \cdot \vec{v} = x_u\,x_v + y_u\,y_v
-            \]</p>
-            <p>Interpretação: quanto maior o valor, mais “alinhados” (menos atrito) os vetores estão.</p>
+            <p class="formula">
+              \[ \vec{u} \cdot \vec{v} = x_u\,x_v + y_u\,y_v \]
+            </p>
+            <p>
+              Interpretação: quanto maior o valor, mais “alinhados” (menos
+              atrito) os vetores estão.
+            </p>
           </section>
 
           <section>
             <h3>Exercício</h3>
             <p>
-            Um exercício simples num mundo difícil: sejam \(\vec{u} = (1,2)\) e \(\vec{v} = (3,-1)\). Calcule o produto escalar.
+              Um exercício simples num mundo difícil: sejam \(\vec{u} = (1,2)\)
+              e \(\vec{v} = (3,-1)\). Calcule o produto escalar.
             </p>
           </section>
           <section>
             <h2>Propriedades do Produto Escalar</h2>
             <p>Há certas “leis” que nem mesmo o apocalipse consegue revogar:</p>
             <ul>
-              <li><strong>Comutatividade:</strong> \(\vec{u} \cdot \vec{v} = \vec{v} \cdot \vec{u}\)</li>
-              <li><strong>Distributividade:</strong> \(\vec{u} \cdot (\vec{v} + \vec{w}) = \vec{u} \cdot \vec{v} + \vec{u} \cdot \vec{w}\)</li>
-              <li><strong>Associatividade com escalar:</strong> \((\alpha \vec{u}) \cdot \vec{v} = \alpha (\vec{u} \cdot \vec{v})\)</li>
-              <li><strong>Auto produto:</strong> \(\vec{v} \cdot \vec{v} = \|\vec{v}\|^2\), a “potência” ou “força” do vetor medido ao quadrado.</li>
+              <li>
+                <strong>Comutatividade:</strong> \(\vec{u} \cdot \vec{v} =
+                \vec{v} \cdot \vec{u}\)
+              </li>
+              <li>
+                <strong>Distributividade:</strong> \(\vec{u} \cdot (\vec{v} +
+                \vec{w}) = \vec{u} \cdot \vec{v} + \vec{u} \cdot \vec{w}\)
+              </li>
+              <li>
+                <strong>Associatividade com escalar:</strong> \((\alpha \vec{u})
+                \cdot \vec{v} = \alpha (\vec{u} \cdot \vec{v})\)
+              </li>
+              <li>
+                <strong>Auto produto:</strong> \(\vec{v} \cdot \vec{v} =
+                \|\vec{v}\|^2\), a “potência” ou “força” do vetor medido ao
+                quadrado.
+              </li>
             </ul>
             <p>
-            Em termos de ângulo, \(\vec{u} \cdot \vec{v} = \|\vec{u}\|\|\vec{v}\|\cos(\theta)\). Um valor positivo indica vetores “cooperando”, enquanto um negativo sugere competição intensa.
+              Em termos de ângulo, \(\vec{u} \cdot \vec{v} =
+              \|\vec{u}\|\|\vec{v}\|\cos(\theta)\). Um valor positivo indica
+              vetores “cooperando”, enquanto um negativo sugere competição
+              intensa.
             </p>
           </section>
 
           <section>
             <h2>Reflexão Rápida</h2>
             <p>
-            Nesses tempos hostis, aprender a medir “afinidade” ou “desalinhamento” entre vetores é como negociar com facções rivais: às vezes um simples acordo (produto escalar positivo) evita catástrofes nucleares.
+              Nesses tempos hostis, aprender a medir “afinidade” ou
+              “desalinhamento” entre vetores é como negociar com facções rivais:
+              às vezes um simples acordo (produto escalar positivo) evita
+              catástrofes nucleares.
             </p>
             <p><em>Teoria dos Jogos</em> (versão pós-apocalipse):</p>
             <ul>
-              <li>Vetores cooperativos (ângulo menor que 90°) tendem a somar forças.</li>
-              <li>Vetores concorrentes (ângulo maior que 90°) podem se anular ou destruir.</li>
+              <li>
+                Vetores cooperativos (ângulo menor que 90°) tendem a somar
+                forças.
+              </li>
+              <li>
+                Vetores concorrentes (ângulo maior que 90°) podem se anular ou
+                destruir.
+              </li>
             </ul>
           </section>
 
           <section>
             <h3>Pergunta Filosófica</h3>
-            <p><em>Em que ponto a competição extrema entre grupos (vetores concorrentes) deixa de ser produtiva e passa a ser destrutiva?</em></p>
+            <p>
+              <em
+                >Em que ponto a competição extrema entre grupos (vetores
+                concorrentes) deixa de ser produtiva e passa a ser
+                destrutiva?</em
+              >
+            </p>
           </section>
 
           <section>
             <h2>Exemplos e Reflexões</h2>
             <p>
-            Vamos analisar alguns cenários clássicos (como investigar ruínas diferentes em busca de suprimentos):
+              Vamos analisar alguns cenários clássicos (como investigar ruínas
+              diferentes em busca de suprimentos):
             </p>
             <ol>
-              <li><strong>Vetores no eixo x e no eixo y:</strong><br>
-                <em>Pergunta:</em> Se \(\vec{u} = (a,0)\) e \(\vec{v} = (0,b)\), qual o valor de \(\vec{u} \cdot \vec{v}\)?<br>
-                <em>Reflexão:</em> O que esse resultado diz sobre o “alinhamento” desses vetores?
+              <li>
+                <strong>Vetores no eixo x e no eixo y:</strong><br />
+                <em>Pergunta:</em> Se \(\vec{u} = (a,0)\) e \(\vec{v} = (0,b)\),
+                qual o valor de \(\vec{u} \cdot \vec{v}\)?<br />
+                <em>Reflexão:</em> O que esse resultado diz sobre o
+                “alinhamento” desses vetores?
               </li>
-              <li><strong>Vetores na mesma reta (colineares):</strong><br>
-                <em>Pergunta:</em> Se \(\vec{u} = (2,0)\) e \(\vec{v} = (3,0)\), qual o valor de \(\vec{u} \cdot \vec{v}\)?<br>
-                <em>Reflexão:</em> Como interpretar esse número em termos de cooperação ou competição?
+              <li>
+                <strong>Vetores na mesma reta (colineares):</strong><br />
+                <em>Pergunta:</em> Se \(\vec{u} = (2,0)\) e \(\vec{v} = (3,0)\),
+                qual o valor de \(\vec{u} \cdot \vec{v}\)?<br />
+                <em>Reflexão:</em> Como interpretar esse número em termos de
+                cooperação ou competição?
               </li>
-              <li><strong>Produto escalar de um vetor consigo mesmo:</strong><br>
-                <em>Pergunta:</em> Se \(\vec{w} = (4,0)\), qual o valor de \(\vec{w} \cdot \vec{w}\)?<br>
-                <em>Reflexão:</em> Consegue ver uma relação entre esse valor e o comprimento do vetor?
+              <li>
+                <strong>Produto escalar de um vetor consigo mesmo:</strong
+                ><br />
+                <em>Pergunta:</em> Se \(\vec{w} = (4,0)\), qual o valor de
+                \(\vec{w} \cdot \vec{w}\)?<br />
+                <em>Reflexão:</em> Consegue ver uma relação entre esse valor e o
+                comprimento do vetor?
               </li>
             </ol>
             <p>
-            Use esses exemplos para notar padrões: vetores perpendiculares <em>(nada a acrescentar)</em>, vetores alinhados <em>(reforçando o mesmo rumo)</em> e a conexão entre o produto escalar e o comprimento do vetor <em>(sua “força” intrínseca)</em>.
+              Use esses exemplos para notar padrões: vetores perpendiculares
+              <em>(nada a acrescentar)</em>, vetores alinhados
+              <em>(reforçando o mesmo rumo)</em> e a conexão entre o produto
+              escalar e o comprimento do vetor
+              <em>(sua “força” intrínseca)</em>.
             </p>
           </section>
           <section>
             <h2>O Produto Escalar e a Física Pós-Apocalíptica</h2>
             <p>
-            Em um mundo onde cada gota de energia é vital, compreender como o produto escalar funciona na Física é questão de sobrevivência.  
-            Afinal, mover entulhos e abrir bunkers exige um planejamento preciso dos esforços.
+              Em um mundo onde cada gota de energia é vital, compreender como o
+              produto escalar funciona na Física é questão de sobrevivência.
+              Afinal, mover entulhos e abrir bunkers exige um planejamento
+              preciso dos esforços.
             </p>
             <p>
-            <strong>Trabalho (Work) em Física:</strong><br>
-            \( W = \vec{F} \cdot \vec{d} = \|\vec{F}\|\|\vec{d}\|\cos(\theta) \)<br>
-            Se a força estiver “alinhada” ao deslocamento, o trabalho é positivo (contribui para o progresso).  
-            Se estiver na direção oposta, é como remar contra a maré radioativa.
+              <strong>Trabalho (Work) em Física:</strong><br />
+              \( W = \vec{F} \cdot \vec{d} = \|\vec{F}\|\|\vec{d}\|\cos(\theta)
+              \)<br />
+              Se a força estiver “alinhada” ao deslocamento, o trabalho é
+              positivo (contribui para o progresso). Se estiver na direção
+              oposta, é como remar contra a maré radioativa.
             </p>
             <p>
-            Essa mesma ideia de alinhamento (ou desalinhamento) se aplica em diversas grandezas físicas,  
-            pois o produto escalar aparece em contextos como energia, potência e até em eletromagnetismo.  
-            Em última análise, você está medindo quão “úteis” (ou não) forças e campos podem ser em relação a um determinado movimento ou direção.
+              Essa mesma ideia de alinhamento (ou desalinhamento) se aplica em
+              diversas grandezas físicas, pois o produto escalar aparece em
+              contextos como energia, potência e até em eletromagnetismo. Em
+              última análise, você está medindo quão “úteis” (ou não) forças e
+              campos podem ser em relação a um determinado movimento ou direção.
             </p>
           </section>
           <section>
             <h3>Reflexão Estratégica</h3>
             <p>
-            Se o seu objetivo é empurrar uma barricada até o abrigo, use a força no mesmo sentido do deslocamento.  
-            Forças perpendiculares (ou contrárias) resultam em perda de esforços preciosos — e nenhum sobrevivente quer desperdiçar recursos em tempos tão austeros.
+              Se o seu objetivo é empurrar uma barricada até o abrigo, use a
+              força no mesmo sentido do deslocamento. Forças perpendiculares (ou
+              contrárias) resultam em perda de esforços preciosos — e nenhum
+              sobrevivente quer desperdiçar recursos em tempos tão austeros.
             </p>
             <p>
-            <em>Dica de Sobrevivência:</em> ao planejar qualquer movimento, avalie o ângulo entre força e deslocamento.  
-            Um simples cálculo de produto escalar pode ser a diferença entre encontrar suprimentos ou ficar à deriva no ermo.
+              <em>Dica de Sobrevivência:</em> ao planejar qualquer movimento,
+              avalie o ângulo entre força e deslocamento. Um simples cálculo de
+              produto escalar pode ser a diferença entre encontrar suprimentos
+              ou ficar à deriva no ermo.
             </p>
           </section>
         </section>
 
-<!-- Slide Horizontal: Projeção Vetorial -->
-<section>
-  <!-- Slide Vertical 1: Conceito de Projeção -->
-  <section>
-    <h2>Projeção Vetorial: Otimizando Recursos</h2>
-    
-    <div style="display: flex; align-items: center;">
-      <div style="flex: 2;">
-        <p>Nem sempre podemos seguir a direção ideal em uma wasteland hostil. Precisamos saber quanto de nosso esforço será efetivo em uma direção específica.</p>
-        <p class="formula">\[
-          \text{proj}_{\vec{v}}\vec{u} = \frac{\vec{u} \cdot \vec{v}}{|\vec{v}|^2}\vec{v} = (\vec{u} \cdot \hat{v})\hat{v}
-        \]</p>
-        <p><em>Interpretação:</em> A projeção extrai a componente de \(\vec{u}\) que atua na direção de \(\vec{v}\).</p>
-      </div>
-      
-      <div style="flex: 1; border-left: 2px solid #FFD700; padding-left: 15px;">
-        <div style="background-color: rgba(50, 50, 50, 0.7); padding: 10px; border-radius: 5px;">
-          <p style="color: #FFD700; margin: 0;">☢️ MNEMÔNICO</p>
-          <p style="margin: 5px 0 0 0; font-style: italic; font-size: 0.9em;">
-            "Projeção é como um holofote: mostra apenas a sombra do vetor na direção que interessa."
-          </p>
-        </div>
-      </div>
-    </div>
-    
-    <div class="pip-boy-note">
-      <p>Em termos táticos: A projeção nos diz quanto de nossa força (vetor \(\vec{u}\)) é efetivamente aplicada na direção que desejamos seguir (vetor \(\vec{v}\)).</p>
-    </div>
-  </section>
-  
-  <!-- Slide Vertical 2: Visualização Interativa -->
-  <section data-state="projection-slide">
-    <h2>Simulador Vault-Tec: Projeção Vetorial</h2>
-    
-    <div class="canvas-container" style="position: relative; width: 450px; height: 450px; margin: 0 auto;">
-      <canvas id="projectionCanvas" width="450" height="450" 
-        style="border: 1px solid #0f0; background-color: #111; cursor: default;"></canvas>
-        
-      <div id="projection-value" style="position: absolute; bottom: 10px; right: 10px; 
-        background: rgba(0,0,0,0.7); color: #ADFF2F; padding: 5px 10px; font-family: monospace;">
-        |proj| = 0
-      </div>
-    </div>
-    
-    <p><small>Use os círculos nas pontas dos vetores para manipulá-los e observe como a projeção muda.</small></p>
-    
-    <script>
-      // Configurar o nosso inicializador para rodar quando o Reveal.js estiver pronto
-      document.addEventListener('DOMContentLoaded', function() {
-        // Inicializar quando o slide específico for mostrado
-        Reveal.addEventListener('projection-slide', function() {
-          console.log("Slide de projeção ativo, inicializando canvas...");
-          setTimeout(function() {
-            initProjectionCanvas(document.getElementById('projectionCanvas'));
-          }, 200); // Pequeno atraso para garantir que o slide esteja completamente renderizado
-        });
-        
-        // Se o slide já estiver ativo na carga inicial, inicializar
-        if (Reveal.getCurrentSlide().classList.contains('projection-slide') || 
-            Reveal.getCurrentSlide().dataset.state === 'projection-slide') {
-          console.log("Slide de projeção já está ativo na carga inicial");
-          setTimeout(function() {
-            initProjectionCanvas(document.getElementById('projectionCanvas'));
-          }, 200);
-        }
-      });
-      
-      function initProjectionCanvas(canvas) {
-        if (!canvas) {
-          console.error("Canvas não encontrado!");
-          return;
-        }
-        
-        console.log("Inicializando canvas de projeção...");
-        
-        // Desativar os atalhos de teclado do Reveal.js durante interações com o canvas
-        function disableRevealKeyboard() {
-          Reveal.configure({ keyboard: false });
-        }
-        
-        function enableRevealKeyboard() {
-          Reveal.configure({ keyboard: true });
-        }
-        
-        const ctx = canvas.getContext('2d');
-        const valueDisplay = document.getElementById('projection-value');
-        const interactionHint = document.getElementById('interaction-hint');
-        
-        // Configuração básica
-        const width = canvas.width;
-        const height = canvas.height;
-        const centerX = width / 2;
-        const centerY = height / 2;
-        const scale = 30;
-        
-        // Vetores iniciais
-        let vectorU = { x: 3, y: 1 };
-        let vectorV = { x: 2, y: 0 };
-        let projectionVector = { x: 0, y: 0 }; // Será calculado
-        
-        // Estado de interação
-        let isDragging = false;
-        let selectedVector = null;
-        let hoverVector = null;
-        
-        // Configurações de estilo
-        const handleRadius = 15; // Tamanho aumentado do círculo manipulável nas pontas dos vetores
-        const colors = {
-          u: '#FF6347',         // Vetor original (vermelho)
-          v: '#4169E1',         // Vetor de direção (azul)
-          proj: '#ADFF2F',      // Projeção (verde)
-          projLine: '#FFD700',  // Linha de projeção (amarelo)
-          handle: '#FFFFFF',    // Círculo manipulável
-          handleHover: '#ADFF2F', // Círculo quando hovering
-          grid: '#333333',      // Linhas de grid
-          axes: '#00FF00'       // Eixos principais
-        };
-        
-        function drawGrid() {
-          ctx.strokeStyle = colors.grid;
-          ctx.lineWidth = 0.5;
-          
-          // Eixos
-          ctx.strokeStyle = colors.axes;
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.moveTo(0, centerY); ctx.lineTo(width, centerY);
-          ctx.moveTo(centerX, 0); ctx.lineTo(centerX, height);
-          ctx.stroke();
-        }
-        
-        function drawVector(x, y, color, label, isHighlighted = false, drawHandle = true) {
-          const endX = centerX + x * scale;
-          const endY = centerY - y * scale;
-          
-          // Linha do vetor
-          ctx.strokeStyle = color;
-          ctx.lineWidth = 2;
-          ctx.beginPath();
-          ctx.moveTo(centerX, centerY);
-          ctx.lineTo(endX, endY);
-          ctx.stroke();
-          
-          // Desenhar a seta corretamente
-          if (Math.abs(x) > 0.1 || Math.abs(y) > 0.1) { // Não desenhar seta para vetores muito pequenos
-            // Calcular o ângulo do vetor
-            const angle = Math.atan2(-y, x); // Nota: y é negativo por causa da inversão do eixo y no canvas
-            
-            // Tamanho da seta
-            const arrowSize = 10;
-            
-            // Desenhar a seta na ponta do vetor
-            ctx.beginPath();
-            ctx.moveTo(endX, endY);
-            ctx.lineTo(
-              endX - arrowSize * Math.cos(angle - Math.PI/6),
-              endY - arrowSize * Math.sin(angle - Math.PI/6)
-            );
-            ctx.lineTo(
-              endX - arrowSize * Math.cos(angle + Math.PI/6),
-              endY - arrowSize * Math.sin(angle + Math.PI/6)
-            );
-            ctx.closePath();
-            ctx.fillStyle = color;
-            ctx.fill();
-          }
-          
-          // Círculo manipulável na ponta do vetor (apenas se drawHandle for true)
-          if (drawHandle) {
-            ctx.beginPath();
-            ctx.arc(endX, endY, handleRadius, 0, Math.PI * 2);
-            ctx.fillStyle = isHighlighted ? colors.handleHover : 'rgba(255, 255, 255, 0.3)';
-            ctx.fill();
-            ctx.strokeStyle = color;
-            ctx.lineWidth = 2;
-            ctx.stroke();
-          }
-          
-          // Label
-          ctx.fillStyle = color;
-          ctx.font = '16px monospace';
-          ctx.fillText(label, endX + 15, endY);
-        }
-        
-        function drawProjectionLine() {
-          // Desenhar linha tracejada da ponta de U perpendicular a V
-          const endUX = centerX + vectorU.x * scale;
-          const endUY = centerY - vectorU.y * scale;
-          
-          const endProjX = centerX + projectionVector.x * scale;
-          const endProjY = centerY - projectionVector.y * scale;
-          
-          ctx.setLineDash([5, 3]);
-          ctx.strokeStyle = colors.projLine;
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.moveTo(endUX, endUY);
-          ctx.lineTo(endProjX, endProjY);
-          ctx.stroke();
-          ctx.setLineDash([]);
-        }
-        
-        function dotProduct(v1, v2) {
-          return v1.x * v2.x + v1.y * v2.y;
-        }
-        
-        function magnitude(v) {
-          return Math.sqrt(v.x * v.x + v.y * v.y);
-        }
-        
-        function calculateProjection() {
-          // Calcula a projeção de U sobre V
-          const magV = magnitude(vectorV);
-          
-          // Evitar divisão por zero
-          if (magV < 0.0001) {
-            projectionVector = { x: 0, y: 0 };
-            return 0;
-          }
-          
-          const dotProd = dotProduct(vectorU, vectorV);
-          const scalar = dotProd / (magV * magV);
-          
-          projectionVector = {
-            x: vectorV.x * scalar,
-            y: vectorV.y * scalar
-          };
-          
-          return magnitude(projectionVector);
-        }
-        
-        function render() {
-          ctx.clearRect(0, 0, width, height);
-          drawGrid();
-          
-          // Calcular projeção
-          const projMagnitude = calculateProjection();
-          
-          // Desenhar vetor V (direção de referência)
-          drawVector(vectorV.x, vectorV.y, colors.v, 'v', hoverVector === 'V');
-          
-          // Desenhar vetor de projeção (sem círculo manipulável)
-          drawVector(projectionVector.x, projectionVector.y, colors.proj, 'proj', false, false);
-          
-          // Desenhar vetor U (vetor original)
-          drawVector(vectorU.x, vectorU.y, colors.u, 'u', hoverVector === 'U');
-          
-          // Desenhar linha de projeção
-          drawProjectionLine();
-          
-          // Atualizar valor da projeção
-          if (valueDisplay) {
-            valueDisplay.textContent = `|proj| = ${projMagnitude.toFixed(2)}`;
-          }
-        }
-        
-        function isNearVectorTip(mouseX, mouseY, vector) {
-          const tipX = centerX + vector.x * scale;
-          const tipY = centerY - vector.y * scale;
-          
-          const distance = Math.sqrt((mouseX - tipX) ** 2 + (mouseY - tipY) ** 2);
-          return distance < handleRadius;
-        }
-        
-        function getMousePos(canvas, evt) {
-          const rect = canvas.getBoundingClientRect();
-          // Calcular a posição do mouse relativa ao canvas, considerando qualquer escala
-          const scaleX = canvas.width / rect.width;
-          const scaleY = canvas.height / rect.height;
-          
-          return {
-            x: (evt.clientX - rect.left) * scaleX,
-            y: (evt.clientY - rect.top) * scaleY
-          };
-        }
-        
-        function updateCursor(isOverHandle) {
-          canvas.style.cursor = isOverHandle ? 'pointer' : 'default';
-        }
-        
-        function checkHover(mouseX, mouseY) {
-          if (isNearVectorTip(mouseX, mouseY, vectorU)) {
-            hoverVector = 'U';
-            updateCursor(true);
-            render(); // Re-render para mostrar highlight
-            return true;
-          } else if (isNearVectorTip(mouseX, mouseY, vectorV)) {
-            hoverVector = 'V';
-            updateCursor(true);
-            render(); // Re-render para mostrar highlight
-            return true;
-          }
-          
-          if (hoverVector) {
-            hoverVector = null;
-            updateCursor(false);
-            render(); // Re-render para remover highlight
-          }
-          return false;
-        }
-        
-        // Eventos do mouse - com captura de evento e prevenção de propagação
-        canvas.addEventListener('mousemove', function(event) {
-          event.stopPropagation(); // Impedir que o Reveal.js capture o evento
-          
-          const mousePos = getMousePos(canvas, event);
-          
-          if (isDragging && selectedVector) {
-            // Convertendo para coordenadas do vetor em relação ao centro
-            const vecX = (mousePos.x - centerX) / scale;
-            const vecY = -(mousePos.y - centerY) / scale; // Inverter Y porque o canvas cresce para baixo
-            
-            // Atualizar o vetor selecionado sem limitações artificiais
-            if (selectedVector === 'U') {
-              vectorU.x = vecX;
-              vectorU.y = vecY;
-            } else if (selectedVector === 'V') {
-              vectorV.x = vecX;
-              vectorV.y = vecY;
-            }
-            
-            render();
-          } else {
-            // Verificar hover
-            checkHover(mousePos.x, mousePos.y);
-          }
-        }, true); // Capturar na fase de captura
-        
-        canvas.addEventListener('mousedown', function(event) {
-          console.log("Canvas mousedown");
-          event.stopPropagation(); // Impedir que o Reveal.js capture o evento
-          event.preventDefault(); // Impedir comportamento padrão
-          
-          const mousePos = getMousePos(canvas, event);
-          
-          if (isNearVectorTip(mousePos.x, mousePos.y, vectorU)) {
-            console.log("Selecionando vetor U");
-            isDragging = true;
-            selectedVector = 'U';
-            canvas.style.cursor = 'grabbing';
-            disableRevealKeyboard(); // Desativar atalhos do Reveal durante o arrasto
-          } else if (isNearVectorTip(mousePos.x, mousePos.y, vectorV)) {
-            console.log("Selecionando vetor V");
-            isDragging = true;
-            selectedVector = 'V';
-            canvas.style.cursor = 'grabbing';
-            disableRevealKeyboard(); // Desativar atalhos do Reveal durante o arrasto
-          }
-          
-          // Esconder a dica de interação após o primeiro clique
-          if (isDragging && interactionHint) {
-            interactionHint.style.opacity = '0.5';
-          }
-        }, true); // Capturar na fase de captura
-        
-        // Usar window para capturar mouse up em qualquer lugar
-        window.addEventListener('mouseup', function(event) {
-          if (isDragging) {
-            console.log("Finalizando arrasto");
-            event.stopPropagation(); // Só impedir propagação se estávamos arrastando
-            isDragging = false;
-            selectedVector = null;
-            canvas.style.cursor = hoverVector ? 'pointer' : 'default';
-            enableRevealKeyboard(); // Reativar atalhos do Reveal após o arrasto
-          }
-        }, true); // Capturar na fase de captura
-        
-        canvas.addEventListener('mouseleave', function(event) {
-          if (!isDragging) { // Não interromper o arrasto se o mouse sair do canvas
-            hoverVector = null;
-            updateCursor(false);
-            render();
-          }
-        });
-        
-        // Prevenir que cliques no canvas avancem os slides
-        canvas.addEventListener('click', function(event) {
-          event.stopPropagation();
-        }, true);
-        
-        // Renderização inicial
-        console.log("Renderizando canvas inicial");
-        render();
-      }
-    </script>
-  </section>
-  
-  <!-- Slide Vertical 3: Aplicações e Exemplos -->
-  <section>
-    <h2>Aplicações na Wasteland</h2>
-    
-    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-      <div style="flex: 1; padding: 10px; background-color: rgba(0, 0, 0, 0.4); border-radius: 5px; margin-right: 10px;">
-        <h3 style="color: #FFD700;">Trabalho efetivo</h3>
-        <p>Quando empurramos um objeto, apenas a componente da força na direção do movimento gera trabalho útil.</p>
-        <p class="formula">\[
-          W = \vec{F} \cdot \vec{d} = |\vec{F}||\vec{d}|\cos(\theta) = |\text{proj}_{\vec{d}}\vec{F}||\vec{d}|
-        \]</p>
-      </div>
-      
-      <div style="flex: 1; padding: 10px; background-color: rgba(0, 0, 0, 0.4); border-radius: 5px;">
-        <h3 style="color: #FFD700;">Navegação tática</h3>
-        <p>Decompor uma rota em componentes úteis e inúteis para determinar progresso real em direção ao objetivo.</p>
-        <p><small>Um vetor de deslocamento de 5 km a 60° da rota principal equivale a um avanço real de apenas 2.5 km.</small></p>
-      </div>
-    </div>
-    
-    <div class="vault-box">
-      <h3 class="vault-title">INSIGHT ESTRATÉGICO</h3>
-      <p>Quanto mais perpendicular um vetor for à direção de interesse, menor será sua projeção e menor sua contribuição útil naquela direção.</p>
-      <p>Vetores paralelos têm projeção máxima; vetores perpendiculares têm projeção zero.</p>
-    </div>
-  </section>
-  
-  <!-- Slide Vertical 4: Exercício Prático -->
-  <section>
-    <h2>Missão Tática: Otimização de Recursos</h2>
-    
-    <div style="background-color: rgba(0, 0, 0, 0.6); padding: 15px; border: 1px solid #0f0; border-radius: 5px;">
-      <p><strong style="color: #FFD700;">Cenário:</strong> Sua equipe precisa transportar suprimentos em um terreno inclinado. Você tem dois vetores:</p>
-      <ul>
-        <li>Vetor força disponível: \(\vec{F} = (3, 4)\) com módulo 5 unidades</li>
-        <li>Vetor direção do deslocamento: \(\vec{d} = (5, 0)\) (horizontal)</li>
-      </ul>
-      
-      <p><strong style="color: #FFD700;">Objetivos da Missão:</strong></p>
-      <ol>
-        <li>Calcule a projeção de \(\vec{F}\) na direção de \(\vec{d}\) usando \(\frac{\vec{F} \cdot \vec{d}}{|\vec{d}|^2}\vec{d}\)</li>
-        <li>Determine quanto da sua força está sendo usada efetivamente nesta direção</li>
-        <li>Calcule o ângulo entre \(\vec{F}\) e \(\vec{d}\) para avaliar a eficiência do trabalho</li>
-      </ol>
-    </div>
-    
-  </section>
-</section>
+        <!-- Slide Horizontal: Projeção Vetorial -->
+        <section>
+          <!-- Slide Vertical 1: Conceito de Projeção -->
+          <section>
+            <h2>Projeção Vetorial: Otimizando Recursos</h2>
+
+            <div style="display: flex; align-items: center">
+              <div style="flex: 2">
+                <p>
+                  Nem sempre podemos seguir a direção ideal em uma wasteland
+                  hostil. Precisamos saber quanto de nosso esforço será efetivo
+                  em uma direção específica.
+                </p>
+                <p class="formula">
+                  \[ \text{proj}_{\vec{v}}\vec{u} = \frac{\vec{u} \cdot
+                  \vec{v}}{|\vec{v}|^2}\vec{v} = (\vec{u} \cdot \hat{v})\hat{v}
+                  \]
+                </p>
+                <p>
+                  <em>Interpretação:</em> A projeção extrai a componente de
+                  \(\vec{u}\) que atua na direção de \(\vec{v}\).
+                </p>
+              </div>
+
+              <div
+                style="
+                  flex: 1;
+                  border-left: 2px solid #ffd700;
+                  padding-left: 15px;
+                "
+              >
+                <div
+                  style="
+                    background-color: rgba(50, 50, 50, 0.7);
+                    padding: 10px;
+                    border-radius: 5px;
+                  "
+                >
+                  <p style="color: #ffd700; margin: 0">☢️ MNEMÔNICO</p>
+                  <p
+                    style="
+                      margin: 5px 0 0 0;
+                      font-style: italic;
+                      font-size: 0.9em;
+                    "
+                  >
+                    "Projeção é como um holofote: mostra apenas a sombra do
+                    vetor na direção que interessa."
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="pip-boy-note">
+              <p>
+                Em termos táticos: A projeção nos diz quanto de nossa força
+                (vetor \(\vec{u}\)) é efetivamente aplicada na direção que
+                desejamos seguir (vetor \(\vec{v}\)).
+              </p>
+            </div>
+          </section>
+
+          <!-- Slide Vertical 2: Visualização Interativa -->
+          <section data-state="projection-slide">
+            <h2>Simulador Vault-Tec: Projeção Vetorial</h2>
+
+            <div
+              class="canvas-container"
+              style="
+                position: relative;
+                width: 450px;
+                height: 450px;
+                margin: 0 auto;
+              "
+            >
+              <canvas
+                id="projectionCanvas"
+                width="450"
+                height="450"
+                style="
+                  border: 1px solid #0f0;
+                  background-color: #111;
+                  cursor: default;
+                "
+              ></canvas>
+
+              <div
+                id="projection-value"
+                style="
+                  position: absolute;
+                  bottom: 10px;
+                  right: 10px;
+                  background: rgba(0, 0, 0, 0.7);
+                  color: #adff2f;
+                  padding: 5px 10px;
+                  font-family: monospace;
+                "
+              >
+                |proj| = 0
+              </div>
+            </div>
+
+            <p>
+              <small
+                >Use os círculos nas pontas dos vetores para manipulá-los e
+                observe como a projeção muda.</small
+              >
+            </p>
+
+            <script>
+              // Configurar o nosso inicializador para rodar quando o Reveal.js estiver pronto
+              document.addEventListener("DOMContentLoaded", function () {
+                // Inicializar quando o slide específico for mostrado
+                Reveal.addEventListener("projection-slide", function () {
+                  console.log(
+                    "Slide de projeção ativo, inicializando canvas...",
+                  );
+                  setTimeout(function () {
+                    initProjectionCanvas(
+                      document.getElementById("projectionCanvas"),
+                    );
+                  }, 200); // Pequeno atraso para garantir que o slide esteja completamente renderizado
+                });
+
+                // Se o slide já estiver ativo na carga inicial, inicializar
+                if (
+                  Reveal.getCurrentSlide().classList.contains(
+                    "projection-slide",
+                  ) ||
+                  Reveal.getCurrentSlide().dataset.state === "projection-slide"
+                ) {
+                  console.log(
+                    "Slide de projeção já está ativo na carga inicial",
+                  );
+                  setTimeout(function () {
+                    initProjectionCanvas(
+                      document.getElementById("projectionCanvas"),
+                    );
+                  }, 200);
+                }
+              });
+
+              function initProjectionCanvas(canvas) {
+                if (!canvas) {
+                  console.error("Canvas não encontrado!");
+                  return;
+                }
+
+                console.log("Inicializando canvas de projeção...");
+
+                // Desativar os atalhos de teclado do Reveal.js durante interações com o canvas
+                function disableRevealKeyboard() {
+                  Reveal.configure({ keyboard: false });
+                }
+
+                function enableRevealKeyboard() {
+                  Reveal.configure({ keyboard: true });
+                }
+
+                const ctx = canvas.getContext("2d");
+                const valueDisplay =
+                  document.getElementById("projection-value");
+                const interactionHint =
+                  document.getElementById("interaction-hint");
+
+                // Configuração básica
+                const width = canvas.width;
+                const height = canvas.height;
+                const centerX = width / 2;
+                const centerY = height / 2;
+                const scale = 30;
+
+                // Vetores iniciais
+                let vectorU = { x: 3, y: 1 };
+                let vectorV = { x: 2, y: 0 };
+                let projectionVector = { x: 0, y: 0 }; // Será calculado
+
+                // Estado de interação
+                let isDragging = false;
+                let selectedVector = null;
+                let hoverVector = null;
+
+                // Configurações de estilo
+                const handleRadius = 15; // Tamanho aumentado do círculo manipulável nas pontas dos vetores
+                const colors = {
+                  u: "#FF6347", // Vetor original (vermelho)
+                  v: "#4169E1", // Vetor de direção (azul)
+                  proj: "#ADFF2F", // Projeção (verde)
+                  projLine: "#FFD700", // Linha de projeção (amarelo)
+                  handle: "#FFFFFF", // Círculo manipulável
+                  handleHover: "#ADFF2F", // Círculo quando hovering
+                  grid: "#333333", // Linhas de grid
+                  axes: "#00FF00", // Eixos principais
+                };
+
+                function drawGrid() {
+                  ctx.strokeStyle = colors.grid;
+                  ctx.lineWidth = 0.5;
+
+                  // Eixos
+                  ctx.strokeStyle = colors.axes;
+                  ctx.lineWidth = 1;
+                  ctx.beginPath();
+                  ctx.moveTo(0, centerY);
+                  ctx.lineTo(width, centerY);
+                  ctx.moveTo(centerX, 0);
+                  ctx.lineTo(centerX, height);
+                  ctx.stroke();
+                }
+
+                function drawVector(
+                  x,
+                  y,
+                  color,
+                  label,
+                  isHighlighted = false,
+                  drawHandle = true,
+                ) {
+                  const endX = centerX + x * scale;
+                  const endY = centerY - y * scale;
+
+                  // Linha do vetor
+                  ctx.strokeStyle = color;
+                  ctx.lineWidth = 2;
+                  ctx.beginPath();
+                  ctx.moveTo(centerX, centerY);
+                  ctx.lineTo(endX, endY);
+                  ctx.stroke();
+
+                  // Desenhar a seta corretamente
+                  if (Math.abs(x) > 0.1 || Math.abs(y) > 0.1) {
+                    // Não desenhar seta para vetores muito pequenos
+                    // Calcular o ângulo do vetor
+                    const angle = Math.atan2(-y, x); // Nota: y é negativo por causa da inversão do eixo y no canvas
+
+                    // Tamanho da seta
+                    const arrowSize = 10;
+
+                    // Desenhar a seta na ponta do vetor
+                    ctx.beginPath();
+                    ctx.moveTo(endX, endY);
+                    ctx.lineTo(
+                      endX - arrowSize * Math.cos(angle - Math.PI / 6),
+                      endY - arrowSize * Math.sin(angle - Math.PI / 6),
+                    );
+                    ctx.lineTo(
+                      endX - arrowSize * Math.cos(angle + Math.PI / 6),
+                      endY - arrowSize * Math.sin(angle + Math.PI / 6),
+                    );
+                    ctx.closePath();
+                    ctx.fillStyle = color;
+                    ctx.fill();
+                  }
+
+                  // Círculo manipulável na ponta do vetor (apenas se drawHandle for true)
+                  if (drawHandle) {
+                    ctx.beginPath();
+                    ctx.arc(endX, endY, handleRadius, 0, Math.PI * 2);
+                    ctx.fillStyle = isHighlighted
+                      ? colors.handleHover
+                      : "rgba(255, 255, 255, 0.3)";
+                    ctx.fill();
+                    ctx.strokeStyle = color;
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+                  }
+
+                  // Label
+                  ctx.fillStyle = color;
+                  ctx.font = "16px monospace";
+                  ctx.fillText(label, endX + 15, endY);
+                }
+
+                function drawProjectionLine() {
+                  // Desenhar linha tracejada da ponta de U perpendicular a V
+                  const endUX = centerX + vectorU.x * scale;
+                  const endUY = centerY - vectorU.y * scale;
+
+                  const endProjX = centerX + projectionVector.x * scale;
+                  const endProjY = centerY - projectionVector.y * scale;
+
+                  ctx.setLineDash([5, 3]);
+                  ctx.strokeStyle = colors.projLine;
+                  ctx.lineWidth = 1;
+                  ctx.beginPath();
+                  ctx.moveTo(endUX, endUY);
+                  ctx.lineTo(endProjX, endProjY);
+                  ctx.stroke();
+                  ctx.setLineDash([]);
+                }
+
+                function dotProduct(v1, v2) {
+                  return v1.x * v2.x + v1.y * v2.y;
+                }
+
+                function magnitude(v) {
+                  return Math.sqrt(v.x * v.x + v.y * v.y);
+                }
+
+                function calculateProjection() {
+                  // Calcula a projeção de U sobre V
+                  const magV = magnitude(vectorV);
+
+                  // Evitar divisão por zero
+                  if (magV < 0.0001) {
+                    projectionVector = { x: 0, y: 0 };
+                    return 0;
+                  }
+
+                  const dotProd = dotProduct(vectorU, vectorV);
+                  const scalar = dotProd / (magV * magV);
+
+                  projectionVector = {
+                    x: vectorV.x * scalar,
+                    y: vectorV.y * scalar,
+                  };
+
+                  return magnitude(projectionVector);
+                }
+
+                function render() {
+                  ctx.clearRect(0, 0, width, height);
+                  drawGrid();
+
+                  // Calcular projeção
+                  const projMagnitude = calculateProjection();
+
+                  // Desenhar vetor V (direção de referência)
+                  drawVector(
+                    vectorV.x,
+                    vectorV.y,
+                    colors.v,
+                    "v",
+                    hoverVector === "V",
+                  );
+
+                  // Desenhar vetor de projeção (sem círculo manipulável)
+                  drawVector(
+                    projectionVector.x,
+                    projectionVector.y,
+                    colors.proj,
+                    "proj",
+                    false,
+                    false,
+                  );
+
+                  // Desenhar vetor U (vetor original)
+                  drawVector(
+                    vectorU.x,
+                    vectorU.y,
+                    colors.u,
+                    "u",
+                    hoverVector === "U",
+                  );
+
+                  // Desenhar linha de projeção
+                  drawProjectionLine();
+
+                  // Atualizar valor da projeção
+                  if (valueDisplay) {
+                    valueDisplay.textContent = `|proj| = ${projMagnitude.toFixed(2)}`;
+                  }
+                }
+
+                function isNearVectorTip(mouseX, mouseY, vector) {
+                  const tipX = centerX + vector.x * scale;
+                  const tipY = centerY - vector.y * scale;
+
+                  const distance = Math.sqrt(
+                    (mouseX - tipX) ** 2 + (mouseY - tipY) ** 2,
+                  );
+                  return distance < handleRadius;
+                }
+
+                function getMousePos(canvas, evt) {
+                  const rect = canvas.getBoundingClientRect();
+                  // Calcular a posição do mouse relativa ao canvas, considerando qualquer escala
+                  const scaleX = canvas.width / rect.width;
+                  const scaleY = canvas.height / rect.height;
+
+                  return {
+                    x: (evt.clientX - rect.left) * scaleX,
+                    y: (evt.clientY - rect.top) * scaleY,
+                  };
+                }
+
+                function updateCursor(isOverHandle) {
+                  canvas.style.cursor = isOverHandle ? "pointer" : "default";
+                }
+
+                function checkHover(mouseX, mouseY) {
+                  if (isNearVectorTip(mouseX, mouseY, vectorU)) {
+                    hoverVector = "U";
+                    updateCursor(true);
+                    render(); // Re-render para mostrar highlight
+                    return true;
+                  } else if (isNearVectorTip(mouseX, mouseY, vectorV)) {
+                    hoverVector = "V";
+                    updateCursor(true);
+                    render(); // Re-render para mostrar highlight
+                    return true;
+                  }
+
+                  if (hoverVector) {
+                    hoverVector = null;
+                    updateCursor(false);
+                    render(); // Re-render para remover highlight
+                  }
+                  return false;
+                }
+
+                // Eventos do mouse - com captura de evento e prevenção de propagação
+                canvas.addEventListener(
+                  "mousemove",
+                  function (event) {
+                    event.stopPropagation(); // Impedir que o Reveal.js capture o evento
+
+                    const mousePos = getMousePos(canvas, event);
+
+                    if (isDragging && selectedVector) {
+                      // Convertendo para coordenadas do vetor em relação ao centro
+                      const vecX = (mousePos.x - centerX) / scale;
+                      const vecY = -(mousePos.y - centerY) / scale; // Inverter Y porque o canvas cresce para baixo
+
+                      // Atualizar o vetor selecionado sem limitações artificiais
+                      if (selectedVector === "U") {
+                        vectorU.x = vecX;
+                        vectorU.y = vecY;
+                      } else if (selectedVector === "V") {
+                        vectorV.x = vecX;
+                        vectorV.y = vecY;
+                      }
+
+                      render();
+                    } else {
+                      // Verificar hover
+                      checkHover(mousePos.x, mousePos.y);
+                    }
+                  },
+                  true,
+                ); // Capturar na fase de captura
+
+                canvas.addEventListener(
+                  "mousedown",
+                  function (event) {
+                    console.log("Canvas mousedown");
+                    event.stopPropagation(); // Impedir que o Reveal.js capture o evento
+                    event.preventDefault(); // Impedir comportamento padrão
+
+                    const mousePos = getMousePos(canvas, event);
+
+                    if (isNearVectorTip(mousePos.x, mousePos.y, vectorU)) {
+                      console.log("Selecionando vetor U");
+                      isDragging = true;
+                      selectedVector = "U";
+                      canvas.style.cursor = "grabbing";
+                      disableRevealKeyboard(); // Desativar atalhos do Reveal durante o arrasto
+                    } else if (
+                      isNearVectorTip(mousePos.x, mousePos.y, vectorV)
+                    ) {
+                      console.log("Selecionando vetor V");
+                      isDragging = true;
+                      selectedVector = "V";
+                      canvas.style.cursor = "grabbing";
+                      disableRevealKeyboard(); // Desativar atalhos do Reveal durante o arrasto
+                    }
+
+                    // Esconder a dica de interação após o primeiro clique
+                    if (isDragging && interactionHint) {
+                      interactionHint.style.opacity = "0.5";
+                    }
+                  },
+                  true,
+                ); // Capturar na fase de captura
+
+                // Usar window para capturar mouse up em qualquer lugar
+                window.addEventListener(
+                  "mouseup",
+                  function (event) {
+                    if (isDragging) {
+                      console.log("Finalizando arrasto");
+                      event.stopPropagation(); // Só impedir propagação se estávamos arrastando
+                      isDragging = false;
+                      selectedVector = null;
+                      canvas.style.cursor = hoverVector ? "pointer" : "default";
+                      enableRevealKeyboard(); // Reativar atalhos do Reveal após o arrasto
+                    }
+                  },
+                  true,
+                ); // Capturar na fase de captura
+
+                canvas.addEventListener("mouseleave", function (event) {
+                  if (!isDragging) {
+                    // Não interromper o arrasto se o mouse sair do canvas
+                    hoverVector = null;
+                    updateCursor(false);
+                    render();
+                  }
+                });
+
+                // Prevenir que cliques no canvas avancem os slides
+                canvas.addEventListener(
+                  "click",
+                  function (event) {
+                    event.stopPropagation();
+                  },
+                  true,
+                );
+
+                // Renderização inicial
+                console.log("Renderizando canvas inicial");
+                render();
+              }
+            </script>
+          </section>
+
+          <!-- Slide Vertical 3: Aplicações e Exemplos -->
+          <section>
+            <h2>Aplicações na Wasteland</h2>
+
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+              "
+            >
+              <div
+                style="
+                  flex: 1;
+                  padding: 10px;
+                  background-color: rgba(0, 0, 0, 0.4);
+                  border-radius: 5px;
+                  margin-right: 10px;
+                "
+              >
+                <h3 style="color: #ffd700">Trabalho efetivo</h3>
+                <p>
+                  Quando empurramos um objeto, apenas a componente da força na
+                  direção do movimento gera trabalho útil.
+                </p>
+                <p class="formula">
+                  \[ W = \vec{F} \cdot \vec{d} = |\vec{F}||\vec{d}|\cos(\theta)
+                  = |\text{proj}_{\vec{d}}\vec{F}||\vec{d}| \]
+                </p>
+              </div>
+
+              <div
+                style="
+                  flex: 1;
+                  padding: 10px;
+                  background-color: rgba(0, 0, 0, 0.4);
+                  border-radius: 5px;
+                "
+              >
+                <h3 style="color: #ffd700">Navegação tática</h3>
+                <p>
+                  Decompor uma rota em componentes úteis e inúteis para
+                  determinar progresso real em direção ao objetivo.
+                </p>
+                <p>
+                  <small
+                    >Um vetor de deslocamento de 5 km a 60° da rota principal
+                    equivale a um avanço real de apenas 2.5 km.</small
+                  >
+                </p>
+              </div>
+            </div>
+
+            <div class="vault-box">
+              <h3 class="vault-title">INSIGHT ESTRATÉGICO</h3>
+              <p>
+                Quanto mais perpendicular um vetor for à direção de interesse,
+                menor será sua projeção e menor sua contribuição útil naquela
+                direção.
+              </p>
+              <p>
+                Vetores paralelos têm projeção máxima; vetores perpendiculares
+                têm projeção zero.
+              </p>
+            </div>
+          </section>
+
+          <!-- Slide Vertical 4: Exercício Prático -->
+          <section>
+            <h2>Missão Tática: Otimização de Recursos</h2>
+
+            <div
+              style="
+                background-color: rgba(0, 0, 0, 0.6);
+                padding: 15px;
+                border: 1px solid #0f0;
+                border-radius: 5px;
+              "
+            >
+              <p>
+                <strong style="color: #ffd700">Cenário:</strong> Sua equipe
+                precisa transportar suprimentos em um terreno inclinado. Você
+                tem dois vetores:
+              </p>
+              <ul>
+                <li>
+                  Vetor força disponível: \(\vec{F} = (3, 4)\) com módulo 5
+                  unidades
+                </li>
+                <li>
+                  Vetor direção do deslocamento: \(\vec{d} = (5, 0)\)
+                  (horizontal)
+                </li>
+              </ul>
+
+              <p>
+                <strong style="color: #ffd700">Objetivos da Missão:</strong>
+              </p>
+              <ol>
+                <li>
+                  Calcule a projeção de \(\vec{F}\) na direção de \(\vec{d}\)
+                  usando \(\frac{\vec{F} \cdot \vec{d}}{|\vec{d}|^2}\vec{d}\)
+                </li>
+                <li>
+                  Determine quanto da sua força está sendo usada efetivamente
+                  nesta direção
+                </li>
+                <li>
+                  Calcule o ângulo entre \(\vec{F}\) e \(\vec{d}\) para avaliar
+                  a eficiência do trabalho
+                </li>
+              </ol>
+            </div>
+          </section>
+        </section>
 
         <!-- Slide Horizontal: Módulo (Comprimento) e Versores -->
         <section>
@@ -576,18 +846,23 @@
           <section>
             <h2>Módulo (Comprimento) de um Vetor</h2>
             <p>
-            Para medir a intensidade de um vetor \(\vec{v} = (x, y)\) em \(\mathbb{R}^2\), utilizamos:
+              Para medir a intensidade de um vetor \(\vec{v} = (x, y)\) em
+              \(\mathbb{R}^2\), utilizamos:
             </p>
-            <p class="formula">\[
-            |\vec{v}| = \sqrt{x^2 + y^2} = \sqrt{\vec{v} \cdot \vec{v}}
-            \]</p>
+            <p class="formula">
+              \[ |\vec{v}| = \sqrt{x^2 + y^2} = \sqrt{\vec{v} \cdot \vec{v}} \]
+            </p>
             <p class="formula">\[ |\vec{v}|^2 = \vec{v} \cdot \vec{v} \]</p>
 
             <p>
-            Essa fórmula deriva diretamente do Teorema de Pitágoras, considerando \(x\) e \(y\) como os catetos de um triângulo retângulo, cujo comprimento da hipotenusa é \(|\vec{v}|\).
+              Essa fórmula deriva diretamente do Teorema de Pitágoras,
+              considerando \(x\) e \(y\) como os catetos de um triângulo
+              retângulo, cujo comprimento da hipotenusa é \(|\vec{v}|\).
             </p>
             <p>
-            Em aplicações práticas, o módulo indica a “intensidade” ou “força” que esse vetor representa (por exemplo, a intensidade de uma força ou velocidade).
+              Em aplicações práticas, o módulo indica a “intensidade” ou “força”
+              que esse vetor representa (por exemplo, a intensidade de uma força
+              ou velocidade).
             </p>
           </section>
 
@@ -595,13 +870,19 @@
           <section>
             <h2>Versor (Vetor Unitário)</h2>
             <p>
-            Qualquer vetor \(\vec{v}\) pode ser decomposto como seu módulo vezes um <em>vetor unitário</em>, também chamado de <em>versor</em>, que indica apenas a direção e o sentido:
+              Qualquer vetor \(\vec{v}\) pode ser decomposto como seu módulo
+              vezes um <em>vetor unitário</em>, também chamado de
+              <em>versor</em>, que indica apenas a direção e o sentido:
             </p>
-            <p class="formula">\[
-            \vec{v} = |\vec{v}|\hat{v}, \quad\text{onde}\quad \hat{v} = \frac{\vec{v}}{|\vec{v}|}.
-            \]</p>
+            <p class="formula">
+              \[ \vec{v} = |\vec{v}|\hat{v}, \quad\text{onde}\quad \hat{v} =
+              \frac{\vec{v}}{|\vec{v}|}. \]
+            </p>
             <p>
-            Assim, <em>\(\hat{v}\)</em> possui módulo igual a 1 e aponta exatamente na direção de \(\vec{v}\). Esse conceito é útil para normalizar vetores em diversos cálculos, como projeções e direções de movimento.
+              Assim, <em>\(\hat{v}\)</em> possui módulo igual a 1 e aponta
+              exatamente na direção de \(\vec{v}\). Esse conceito é útil para
+              normalizar vetores em diversos cálculos, como projeções e direções
+              de movimento.
             </p>
           </section>
 
@@ -609,19 +890,23 @@
           <section>
             <h2>Base Canônica em \(\mathbb{R}^2\)</h2>
             <p>
-            Em \(\mathbb{R}^2\), a forma mais comum de representar um vetor é usando a base canônica:
+              Em \(\mathbb{R}^2\), a forma mais comum de representar um vetor é
+              usando a base canônica:
             </p>
             <ul>
               <li>\(\hat{i} = (1,0)\)</li>
               <li>\(\hat{j} = (0,1)\)</li>
             </ul>
-	    <p class="formula">\[
-	    \vec{v} = x \hat{i} + y \hat{j}\]</p>
+            <p class="formula">\[ \vec{v} = x \hat{i} + y \hat{j}\]</p>
+            <p></p>
+            <p class="formula">
+              \[ \vec{v} = (\vec{v} \cdot \hat{i}) \hat{i} + (\vec{v} \cdot
+              \hat{J}) \hat{j} \]
+            </p>
             <p>
-            <p class="formula">\[
-	    \vec{v} = (\vec{v} \cdot \hat{i}) \hat{i} + (\vec{v} \cdot \hat{J}) \hat{j}
-            \]</p>
-                        É outra maneira de ver a mesma informação: em vez de agrupar em um par ordenado \((x,y)\), distribuímos as componentes como “pesos” dos vetores unitários \(\hat{i}\) e \(\hat{j}\).
+              É outra maneira de ver a mesma informação: em vez de agrupar em um
+              par ordenado \((x,y)\), distribuímos as componentes como “pesos”
+              dos vetores unitários \(\hat{i}\) e \(\hat{j}\).
             </p>
           </section>
 
@@ -629,68 +914,114 @@
           <section>
             <h2>Exercícios</h2>
             <ol>
-              <li>Calcule o módulo de \(\vec{u} = (3, -2)\) usando \(\displaystyle |\vec{u}| = \sqrt{x^2 + y^2}\). Em seguida, escreva \(\vec{u}\) na forma \(|\vec{u}|\hat{u}\).</li>
-              <li>Represente o mesmo vetor \(\vec{u} = (3, -2)\) em função da base canônica, \(\hat{i}\) e \(\hat{j}\).</li>
-              <li>Escolha outro vetor \(\vec{v} = (x, y)\) e repita o processo:
+              <li>
+                Calcule o módulo de \(\vec{u} = (3, -2)\) usando \(\displaystyle
+                |\vec{u}| = \sqrt{x^2 + y^2}\). Em seguida, escreva \(\vec{u}\)
+                na forma \(|\vec{u}|\hat{u}\).
+              </li>
+              <li>
+                Represente o mesmo vetor \(\vec{u} = (3, -2)\) em função da base
+                canônica, \(\hat{i}\) e \(\hat{j}\).
+              </li>
+              <li>
+                Escolha outro vetor \(\vec{v} = (x, y)\) e repita o processo:
                 <ul>
                   <li>Encontre \(|\vec{v}|\).</li>
                   <li>Determine \(\hat{v}\).</li>
-                  <li>Escreva \(\vec{v}\) em termos de \(\hat{i}\) e \(\hat{j}\).</li>
+                  <li>
+                    Escreva \(\vec{v}\) em termos de \(\hat{i}\) e \(\hat{j}\).
+                  </li>
                 </ul>
               </li>
             </ol>
           </section>
         </section>
 
-
         <section>
           <section>
             <h2>Distância entre Pontos: O Mapa da Sobrevivência</h2>
-            <p>Em um mundo pós-apocalíptico, saber a distância entre dois pontos pode significar a diferença entre encontrar abrigo seguro ou se perder em território hostil. A matemática é o seu mapa confiável, revelando conexões espaciais com uma precisão implacável.</p>
+            <p>
+              Em um mundo pós-apocalíptico, saber a distância entre dois pontos
+              pode significar a diferença entre encontrar abrigo seguro ou se
+              perder em território hostil. A matemática é o seu mapa confiável,
+              revelando conexões espaciais com uma precisão implacável.
+            </p>
           </section>
 
           <section>
             <h2>Definição Fundamental: A Fórmula da Jornada</h2>
-            <p>Imagine dois abrigos, nas posições \(A(x_1, y_1)\) e \(B(x_2, y_2)\), separados por terrenos incertos. A fórmula a seguir dá a distância no seu GPS:</p>
+            <p>
+              Imagine dois abrigos, nas posições \(A(x_1, y_1)\) e \(B(x_2,
+              y_2)\), separados por terrenos incertos. A fórmula a seguir dá a
+              distância no seu GPS:
+            </p>
 
             <div class="formula">
               \[d(A,B) = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}\]
             </div>
             <blockquote>
-              Esta fórmula é mais do que uma equação; é o roteiro para atravessar distâncias <strong>retas</strong>, desenhando pontes invisíveis entre pontos no vazio. Porém, lembre-se: em terrenos tortuosos, curvas e obstáculos desafiam essa simplicidade, exigindo outros cálculos para medir o verdadeiro trajeto.
+              Esta fórmula é mais do que uma equação; é o roteiro para
+              atravessar distâncias <strong>retas</strong>, desenhando pontes
+              invisíveis entre pontos no vazio. Porém, lembre-se: em terrenos
+              tortuosos, curvas e obstáculos desafiam essa simplicidade,
+              exigindo outros cálculos para medir o verdadeiro trajeto.
             </blockquote>
-
           </section>
 
           <section>
             <h2>Vetores e Distância: O Trajeto do Explorador</h2>
-            <p>Para entender o verdadeiro caminho, precisamos do <strong>vetor entre pontos</strong>, o traço deixado por quem já fez a travessia:</p>
+            <p>
+              Para entender o verdadeiro caminho, precisamos do
+              <strong>vetor entre pontos</strong>, o traço deixado por quem já
+              fez a travessia:
+            </p>
 
             <div class="formula">
               \[\vec{AB} = \vec{B} - \vec{A} = (x_2 - x_1, y_2 - y_1)\]
             </div>
 
             <blockquote>
-              <strong>Importante:</strong> Embora o vetor represente o caminho entre \(A\) e \(B\), ele sempre é traçado a partir da <em>origem</em>, o ponto zero da civilização.
+              <strong>Importante:</strong> Embora o vetor represente o caminho
+              entre \(A\) e \(B\), ele sempre é traçado a partir da
+              <em>origem</em>, o ponto zero da civilização.
             </blockquote>
           </section>
           <section>
             <h1>Explorando o terreno:</h1>
             <ul>
-              <li>🗺️ O vetor \(\vec{AB}\) representa o deslocamento entre os abrigos \(A\) e \(B\)</li>
-              <li>📍 Suas coordenadas mostram o quanto você precisa se mover em cada direção</li>
-              <li>🚩 A distância é o comprimento deste vetor: \(|\vec{AB}|\)</li>
+              <li>
+                🗺️ O vetor \(\vec{AB}\) representa o deslocamento entre os
+                abrigos \(A\) e \(B\)
+              </li>
+              <li>
+                📍 Suas coordenadas mostram o quanto você precisa se mover em
+                cada direção
+              </li>
+              <li>
+                🚩 A distância é o comprimento deste vetor: \(|\vec{AB}|\)
+              </li>
             </ul>
           </section>
 
           <section>
             <h2>Aplicações em Terrenos Inóspitos</h2>
-            <p>A distância euclidiana é a bússola oculta por trás de muitas missões:</p>
+            <p>
+              A distância euclidiana é a bússola oculta por trás de muitas
+              missões:
+            </p>
 
             <ul>
-              <li>🦠 Sobrevivência biológica: Mapeamento da propagação de vírus em áreas contaminadas</li>
-              <li>🚀 Exploração espacial: Trajetórias entre estações e planetas</li>
-              <li>🤖 Inteligência artificial: Algoritmos de busca em territórios virtuais</li>
+              <li>
+                🦠 Sobrevivência biológica: Mapeamento da propagação de vírus em
+                áreas contaminadas
+              </li>
+              <li>
+                🚀 Exploração espacial: Trajetórias entre estações e planetas
+              </li>
+              <li>
+                🤖 Inteligência artificial: Algoritmos de busca em territórios
+                virtuais
+              </li>
             </ul>
           </section>
 
@@ -700,15 +1031,19 @@
             <div class="formula">
               <h3>Desafio do Explorador</h3>
               <ol>
-                <li>📌 Marque seus pontos de interesse:
+                <li>
+                  📌 Marque seus pontos de interesse:
                   <ul>
                     <li>\(A(2, 3)\) - O abrigo inicial</li>
                     <li>\(B(5, 1)\) - O posto avançado</li>
                   </ul>
                 </li>
-                <li>🗺️ Traçando a rota:
+                <li>
+                  🗺️ Traçando a rota:
                   <ul>
-                    <li>Desenhe o plano cartesiano com os pontos \(A\) e \(B\)</li>
+                    <li>
+                      Desenhe o plano cartesiano com os pontos \(A\) e \(B\)
+                    </li>
                     <li>Calcule o vetor \(\vec{AB}\)</li>
                     <li>Projete o vetor a partir da <strong>origem</strong></li>
                   </ul>
@@ -717,23 +1052,36 @@
             </div>
 
             <blockquote>
-              <strong>Cuidado:</strong> Mesmo que você esteja viajando de \(A\) para \(B\), o vetor \(\vec{AB}\) deve sempre começar na origem, onde sua jornada matemática começa.
+              <strong>Cuidado:</strong> Mesmo que você esteja viajando de \(A\)
+              para \(B\), o vetor \(\vec{AB}\) deve sempre começar na origem,
+              onde sua jornada matemática começa.
             </blockquote>
 
             <div class="formula">
-              Cálculo do vetor:
-              \[\vec{AB} = (5-2, 1-3) = (3, -2)\]
+              Cálculo do vetor: \[\vec{AB} = (5-2, 1-3) = (3, -2)\]
             </div>
 
-            <p>🔍 Análise: Esse vetor é o rastro da sua jornada, o registro do deslocamento necessário para atravessar o território desconhecido.</p>
+            <p>
+              🔍 Análise: Esse vetor é o rastro da sua jornada, o registro do
+              deslocamento necessário para atravessar o território desconhecido.
+            </p>
           </section>
 
           <section>
             <h2>Missões Avançadas para Exploradores Matemáticos</h2>
             <ul>
-              <li>📏 Calcular distâncias em sistemas de coordenadas alternativos (polar, esférico)</li>
-              <li>🚧 Identificar onde a métrica euclidiana falha, como em terrenos não lineares</li>
-              <li>🔭 Explorar distâncias em espaços de mais de duas dimensões: o universo é maior do que parece</li>
+              <li>
+                📏 Calcular distâncias em sistemas de coordenadas alternativos
+                (polar, esférico)
+              </li>
+              <li>
+                🚧 Identificar onde a métrica euclidiana falha, como em terrenos
+                não lineares
+              </li>
+              <li>
+                🔭 Explorar distâncias em espaços de mais de duas dimensões: o
+                universo é maior do que parece
+              </li>
             </ul>
           </section>
         </section>
@@ -746,13 +1094,27 @@
 
           <section>
             <h2>Fundamentos Conceituais</h2>
-            <p>Imagine vetores como <strong>esquadrões de sobreviventes</strong> em um território hostil, cada um seguindo sua própria rota para encontrar recursos essenciais.</p>
+            <p>
+              Imagine vetores como
+              <strong>esquadrões de sobreviventes</strong> em um território
+              hostil, cada um seguindo sua própria rota para encontrar recursos
+              essenciais.
+            </p>
 
             <div class="fragment">
               <h3>Vetores Paralelos</h3>
-              <p>Dois vetores \(\vec{u}\) e \(\vec{v}\) são <span class="highlight">paralelos</span> quando um pode ser transformado no outro através de uma <em>multiplicação escalar</em>:</p>
+              <p>
+                Dois vetores \(\vec{u}\) e \(\vec{v}\) são
+                <span class="highlight">paralelos</span> quando um pode ser
+                transformado no outro através de uma
+                <em>multiplicação escalar</em>:
+              </p>
               <p>\[\vec{u} = k \cdot \vec{v}\]</p>
-              <p>💡 <em>Analogia de Sobrevivência</em>: Como trilhas seguras que seguem na mesma direção, seja em um deserto radioativo ou entre ruínas urbanas, independentemente da distância percorrida.</p>
+              <p>
+                💡 <em>Analogia de Sobrevivência</em>: Como trilhas seguras que
+                seguem na mesma direção, seja em um deserto radioativo ou entre
+                ruínas urbanas, independentemente da distância percorrida.
+              </p>
             </div>
           </section>
 
@@ -763,21 +1125,42 @@
               <li>\(\vec{u} = (2, 4)\)</li>
               <li>\(\vec{v} = (1, 2)\)</li>
             </ul>
-            <p>Observe que \(\vec{u} = 2 \cdot \vec{v}\), portanto, são <strong>paralelos</strong> — como patrulhas que seguem rotas idênticas, mas em horários diferentes.</p>
+            <p>
+              Observe que \(\vec{u} = 2 \cdot \vec{v}\), portanto, são
+              <strong>paralelos</strong> — como patrulhas que seguem rotas
+              idênticas, mas em horários diferentes.
+            </p>
             <div class="fragment">
-              <p>🔍 <em>Teste de Paralelismo</em>: Divida as coordenadas de um vetor pelas do outro. Se o resultado for constante, parabéns! Você encontrou duas rotas alinhadas.</p>
+              <p>
+                🔍 <em>Teste de Paralelismo</em>: Divida as coordenadas de um
+                vetor pelas do outro. Se o resultado for constante, parabéns!
+                Você encontrou duas rotas alinhadas.
+              </p>
             </div>
           </section>
 
           <section>
             <h2>Ortogonalidade: Independência em Campo de Batalha</h2>
-            <p>Vetores ortogonais são como <strong>esquadrões táticos</strong> que operam de forma independente, cobrindo ângulos estratégicos sem interferir um no outro.</p>
+            <p>
+              Vetores ortogonais são como
+              <strong>esquadrões táticos</strong> que operam de forma
+              independente, cobrindo ângulos estratégicos sem interferir um no
+              outro.
+            </p>
 
             <div class="fragment">
               <h3>Definição Matemática</h3>
-              <p>Dois vetores \(\vec{u}\) e \(\vec{v}\) são <span class="highlight">ortogonais</span> quando seu produto interno é zero:</p>
+              <p>
+                Dois vetores \(\vec{u}\) e \(\vec{v}\) são
+                <span class="highlight">ortogonais</span> quando seu produto
+                interno é zero:
+              </p>
               <p>\[\vec{u} \cdot \vec{v} = 0\]</p>
-              <p>💡 <em>Interpretação no Campo</em>: Eles formam um ângulo de 90 graus, garantindo que suas rotas não se cruzem — perfeito para evitar emboscadas.</p>
+              <p>
+                💡 <em>Interpretação no Campo</em>: Eles formam um ângulo de 90
+                graus, garantindo que suas rotas não se cruzem — perfeito para
+                evitar emboscadas.
+              </p>
             </div>
           </section>
 
@@ -785,13 +1168,22 @@
             <h3>Exemplo de Ortogonalidade</h3>
             <p>Em uma base de operações:</p>
             <ul>
-              <li>\(\vec{u} = (1, 0)\) - patrulha ao longo da fronteira leste-oeste</li>
-              <li>\(\vec{v} = (0, 1)\) - patrulha ao longo da fronteira norte-sul</li>
+              <li>
+                \(\vec{u} = (1, 0)\) - patrulha ao longo da fronteira
+                leste-oeste
+              </li>
+              <li>
+                \(\vec{v} = (0, 1)\) - patrulha ao longo da fronteira norte-sul
+              </li>
             </ul>
             <p>Calculando o produto interno:</p>
             <p>\[\vec{u} \cdot \vec{v} = (1 \cdot 0) + (0 \cdot 1) = 0\]</p>
             <div class="fragment">
-              <p>🎯 <em>Consequência Tática</em>: Esses esquadrões não interferem um no outro, maximizando a vigilância sem sobreposição de esforços.</p>
+              <p>
+                🎯 <em>Consequência Tática</em>: Esses esquadrões não interferem
+                um no outro, maximizando a vigilância sem sobreposição de
+                esforços.
+              </p>
             </div>
           </section>
 
@@ -807,7 +1199,10 @@
             <p>Determine:</p>
             <ol>
               <li>Quais rotas seguem paralelas?</li>
-              <li>Existe alguma configuração ortogonal, ideal para patrulhamento estratégico?</li>
+              <li>
+                Existe alguma configuração ortogonal, ideal para patrulhamento
+                estratégico?
+              </li>
             </ol>
           </section>
 
@@ -818,43 +1213,70 @@
               <li>Sensor de movimento horizontal: \(\vec{m} = (1, 0)\)</li>
               <li>Sensor de movimento vertical: \(\vec{v} = (0, 1)\)</li>
             </ul>
-            <p>Por que a ortogonalidade entre esses sensores é crucial para detectar ameaças com precisão?</p>
+            <p>
+              Por que a ortogonalidade entre esses sensores é crucial para
+              detectar ameaças com precisão?
+            </p>
             <div class="fragment">
-              <p>🌐 <em>Reflexão de Campo</em>: Sensores ortogonais garantem que nenhum movimento escape à vigilância, cobrindo ângulos mortos de forma eficiente.</p>
+              <p>
+                🌐 <em>Reflexão de Campo</em>: Sensores ortogonais garantem que
+                nenhum movimento escape à vigilância, cobrindo ângulos mortos de
+                forma eficiente.
+              </p>
             </div>
           </section>
 
           <section>
             <h2>Reflexão Final</h2>
             <blockquote>
-              <p>Em um mundo onde a sobrevivência depende da estratégia, a ortogonalidade não é apenas um conceito matemático, mas um princípio de eficiência e independência.</p>
+              <p>
+                Em um mundo onde a sobrevivência depende da estratégia, a
+                ortogonalidade não é apenas um conceito matemático, mas um
+                princípio de eficiência e independência.
+              </p>
             </blockquote>
-            <p>Assim como esquadrões que operam de forma independente podem proteger uma base com eficácia, indivíduos com habilidades complementares criam comunidades resilientes em tempos de crise.</p>
+            <p>
+              Assim como esquadrões que operam de forma independente podem
+              proteger uma base com eficácia, indivíduos com habilidades
+              complementares criam comunidades resilientes em tempos de crise.
+            </p>
           </section>
         </section>
 
-
         <section>
-        <section>
-          <h1>Área de Triângulos Vetoriais</h1>
-          <h2>Decodificando Espaços, Revelando Estratégias</h2>
-        </section>
+          <section>
+            <h1>Área de Triângulos Vetoriais</h1>
+            <h2>Decodificando Espaços, Revelando Estratégias</h2>
+          </section>
 
           <section>
             <h2>Territórios Delimitados por Vetores</h2>
-            <p>Imagine dois vetores, \(\vec{u}\) e \(\vec{v}\), como <strong>fronteiras invisíveis</strong> traçando os limites de um território em disputa.</p>
+            <p>
+              Imagine dois vetores, \(\vec{u}\) e \(\vec{v}\), como
+              <strong>fronteiras invisíveis</strong> traçando os limites de um
+              território em disputa.
+            </p>
 
             <div class="fragment formula">
               <h3>Fórmula Fundamental</h3>
-              <p>\[\text{Área} = \frac{1}{2} |\vec{u}| |\vec{v}| \sin(\theta)\]</p>
-              <p>🔍 <em>Intuição Estratégica</em>: A área emerge da combinação da força (magnitude) e do ângulo (desalinhamento) entre os vetores.</p>
+              <p>
+                \[\text{Área} = \frac{1}{2} |\vec{u}| |\vec{v}| \sin(\theta)\]
+              </p>
+              <p>
+                🔍 <em>Intuição Estratégica</em>: A área emerge da combinação da
+                força (magnitude) e do ângulo (desalinhamento) entre os vetores.
+              </p>
             </div>
 
             <div class="fragment">
               <p>📐 <strong>Elementos Essenciais</strong>:</p>
               <ul>
-                <li>\(|\vec{u}|\) e \(|\vec{v}|\): Intensidade dos "movimentos"</li>
-                <li>\(\sin(\theta)\): O grau de divergência entre as direções</li>
+                <li>
+                  \(|\vec{u}|\) e \(|\vec{v}|\): Intensidade dos "movimentos"
+                </li>
+                <li>
+                  \(\sin(\theta)\): O grau de divergência entre as direções
+                </li>
               </ul>
             </div>
           </section>
@@ -862,8 +1284,14 @@
           <section>
             <h2>Relacionando Fórmulas Conhecidas</h2>
             <p>Lembre-se da fórmula clássica da área de um triângulo:</p>
-            <p>\[ \text{Área} = \frac{\text{base} \times \text{altura}}{2} \]</p>
-            <p>Se considerarmos \(|\vec{u}|\) como a base, então \(|\vec{v}| \sin(\theta)|\) é a altura — afinal, o módulo de um vetor vezes o seno do ângulo entre eles nos dá a altura do triângulo.</p>
+            <p>
+              \[ \text{Área} = \frac{\text{base} \times \text{altura}}{2} \]
+            </p>
+            <p>
+              Se considerarmos \(|\vec{u}|\) como a base, então \(|\vec{v}|
+              \sin(\theta)|\) é a altura — afinal, o módulo de um vetor vezes o
+              seno do ângulo entre eles nos dá a altura do triângulo.
+            </p>
 
             <div class="fragment">
               <p>📏 <strong>Conexão com Vetores:</strong></p>
@@ -876,14 +1304,28 @@
 
           <section>
             <h2>Determinantes e Áreas</h2>
-            <p>A área do <strong>paralelogramo</strong> definido por dois vetores \(\vec{u}\) e \(\vec{v}\) pode ser calculada usando o determinante da matriz formada por esses vetores:</p>
-            <p>\[ \text{Área do Paralelogramo} = | \det \begin{bmatrix} u_x & v_x \\ u_y & v_y \end{bmatrix} | \]</p>
-            <p>Para encontrar a área do triângulo formado por esses vetores, basta dividir o resultado por 2:</p>
-            <p>\[ \text{Área do Triângulo} = \frac{1}{2} | \det \begin{bmatrix} u_x & v_x \\ u_y & v_y \end{bmatrix} | \]</p>
+            <p>
+              A área do <strong>paralelogramo</strong> definido por dois vetores
+              \(\vec{u}\) e \(\vec{v}\) pode ser calculada usando o determinante
+              da matriz formada por esses vetores:
+            </p>
+            <p>
+              \[ \text{Área do Paralelogramo} = | \det \begin{bmatrix} u_x & v_x
+              \\ u_y & v_y \end{bmatrix} | \]
+            </p>
+            <p>
+              Para encontrar a área do triângulo formado por esses vetores,
+              basta dividir o resultado por 2:
+            </p>
+            <p>
+              \[ \text{Área do Triângulo} = \frac{1}{2} | \det \begin{bmatrix}
+              u_x & v_x \\ u_y & v_y \end{bmatrix} | \]
+            </p>
 
             <div class="fragment">
               <blockquote>
-                "O determinante não é só um número — é a medida do "espaço" criado por dois vetores."
+                "O determinante não é só um número — é a medida do "espaço"
+                criado por dois vetores."
               </blockquote>
             </div>
           </section>
@@ -900,8 +1342,13 @@
               <h3>Plano de Ação</h3>
               <ol>
                 <li>Calcular o determinante da matriz formada pelos vetores</li>
-                <li>Aplicar a fórmula \( \text{Área} = \frac{1}{2} |\det| \)</li>
-                <li>Comparar o resultado com a fórmula \( \frac{1}{2} |\vec{u}| |\vec{v}| \sin(\theta) \)</li>
+                <li>
+                  Aplicar a fórmula \( \text{Área} = \frac{1}{2} |\det| \)
+                </li>
+                <li>
+                  Comparar o resultado com a fórmula \( \frac{1}{2} |\vec{u}|
+                  |\vec{v}| \sin(\theta) \)
+                </li>
               </ol>
             </div>
           </section>
@@ -912,11 +1359,17 @@
             <ul>
               <li>Produto escalar para encontrar \(\cos(\theta)\)</li>
               <li>\(\sin(\theta) = \sqrt{1 - \cos^2(\theta)}\)</li>
-              <li>Área = \(\frac{1}{2} |\vec{u}| |\vec{v}| \sin(\theta)\) <strong>ou</strong> \(\frac{1}{2} |\det|\)</li>
+              <li>
+                Área = \(\frac{1}{2} |\vec{u}| |\vec{v}| \sin(\theta)\)
+                <strong>ou</strong> \(\frac{1}{2} |\det|\)
+              </li>
             </ul>
 
             <div class="fragment">
-              <p>🎯 <strong>Resultado:</strong> O mesmo "território", apenas medido de formas diferentes.</p>
+              <p>
+                🎯 <strong>Resultado:</strong> O mesmo "território", apenas
+                medido de formas diferentes.
+              </p>
             </div>
           </section>
 
@@ -930,8 +1383,14 @@
             <p>Tarefas:</p>
             <ol>
               <li>Calcular a área do triângulo usando o determinante</li>
-              <li>Confirmar o resultado com a fórmula da área \( \frac{1}{2} |\vec{a}| |\vec{b}| \sin(\theta) \)</li>
-              <li>Interpretar o significado geométrico do resultado (o que esse "território" representa?)</li>
+              <li>
+                Confirmar o resultado com a fórmula da área \( \frac{1}{2}
+                |\vec{a}| |\vec{b}| \sin(\theta) \)
+              </li>
+              <li>
+                Interpretar o significado geométrico do resultado (o que esse
+                "território" representa?)
+              </li>
             </ol>
           </section>
 
@@ -946,31 +1405,43 @@
 
             <div class="fragment">
               <blockquote>
-                "Na geometria, cada área é um espaço de possibilidades — e cada fórmula, uma nova perspectiva." 
+                "Na geometria, cada área é um espaço de possibilidades — e cada
+                fórmula, uma nova perspectiva."
               </blockquote>
             </div>
           </section>
 
           <section>
             <h2>Conclusão Estratégica</h2>
-            <p>A área de um triângulo vetorial não é apenas um número. É a <strong>síntese de forças, direções e possibilidades</strong>. Seja através do determinante ou da fórmula clássica, o importante é compreender que tudo se conecta, como diferentes peças do mesmo quebra-cabeça.</p>
+            <p>
+              A área de um triângulo vetorial não é apenas um número. É a
+              <strong>síntese de forças, direções e possibilidades</strong>.
+              Seja através do determinante ou da fórmula clássica, o importante
+              é compreender que tudo se conecta, como diferentes peças do mesmo
+              quebra-cabeça.
+            </p>
           </section>
         </section>
-
 
         <!-- Slide Horizontal 6: Fechamento -->
         <section>
           <h2>Fechamento</h2>
           <p>
-          No fim do dia, nem todo confronto precisa explodir um bunker; às vezes, descobrir o alinhamento (produto escalar) entre facções pode ser o início de uma negociação viável.
+            No fim do dia, nem todo confronto precisa explodir um bunker; às
+            vezes, descobrir o alinhamento (produto escalar) entre facções pode
+            ser o início de uma negociação viável.
           </p>
           <p>
-          <em>Reflexão:</em> Em um mundo devastado, cooperação e respeito aos limites alheios (ortogonais) podem evitar <strong>jogos de soma zero</strong>. A soma das forças pode ser mais valiosa que um embate destrutivo.
+            <em>Reflexão:</em> Em um mundo devastado, cooperação e respeito aos
+            limites alheios (ortogonais) podem evitar
+            <strong>jogos de soma zero</strong>. A soma das forças pode ser mais
+            valiosa que um embate destrutivo.
           </p>
         </section>
-
-      </div> <!-- .slides -->
-    </div> <!-- .reveal -->
+      </div>
+      <!-- .slides -->
+    </div>
+    <!-- .reveal -->
 
     <!-- Reveal.js -->
     <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
@@ -983,10 +1454,10 @@
     <script>
       window.MathJax = {
         tex: {
-          inlineMath: [["\\(","\\)"]],
-          displayMath: [["\\[","\\]"]],
+          inlineMath: [["\\(", "\\)"]],
+          displayMath: [["\\[", "\\]"]],
         },
-        svg: { fontCache: 'global' }
+        svg: { fontCache: "global" },
       };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
@@ -995,9 +1466,8 @@
       Reveal.initialize({
         hash: true,
         slideNumber: true,
-        plugins: [ RevealNotes, RevealHighlight ]
+        plugins: [RevealNotes, RevealHighlight],
       });
     </script>
   </body>
 </html>
-
