@@ -134,333 +134,440 @@
           </section>
         </section>
 
-<!-- Slide de Projeção Vetorial Corrigido -->
+<!-- Slide Horizontal: Projeção Vetorial -->
 <section>
-  <h2>Simulador Vault-Tec: Projeção Vetorial</h2>
-  
-  <div class="canvas-container" style="position: relative; width: 450px; height: 450px; margin: 0 auto;">
-    <div id="interaction-hint" style="position: absolute; top: -30px; left: 0; right: 0;
-      color: #FFD700; padding: 5px; font-family: monospace; text-align: center;">
-      Clique e arraste os círculos nas pontas dos vetores
+  <!-- Slide Vertical 1: Conceito de Projeção -->
+  <section>
+    <h2>Projeção Vetorial: Otimizando Recursos</h2>
+    
+    <div style="display: flex; align-items: center;">
+      <div style="flex: 2;">
+        <p>Nem sempre podemos seguir a direção ideal em uma wasteland hostil. Precisamos saber quanto de nosso esforço será efetivo em uma direção específica.</p>
+        <p class="formula">\[
+          \text{proj}_{\vec{v}}\vec{u} = \frac{\vec{u} \cdot \vec{v}}{|\vec{v}|^2}\vec{v} = (\vec{u} \cdot \hat{v})\hat{v}
+        \]</p>
+        <p><em>Interpretação:</em> A projeção extrai a componente de \(\vec{u}\) que atua na direção de \(\vec{v}\).</p>
+      </div>
+      
+      <div style="flex: 1; border-left: 2px solid #FFD700; padding-left: 15px;">
+        <div style="background-color: rgba(50, 50, 50, 0.7); padding: 10px; border-radius: 5px;">
+          <p style="color: #FFD700; margin: 0;">☢️ MNEMÔNICO</p>
+          <p style="margin: 5px 0 0 0; font-style: italic; font-size: 0.9em;">
+            "Projeção é como um holofote: mostra apenas a sombra do vetor na direção que interessa."
+          </p>
+        </div>
+      </div>
     </div>
     
-    <canvas id="projectionCanvas" width="450" height="450" 
-      style="border: 1px solid #0f0; background-color: #111; cursor: default;"></canvas>
-      
-    <div id="projection-value" style="position: absolute; bottom: 10px; right: 10px; 
-      background: rgba(0,0,0,0.7); color: #ADFF2F; padding: 5px 10px; font-family: monospace;">
-      |proj| = 0
+    <div class="pip-boy-note">
+      <p>Em termos táticos: A projeção nos diz quanto de nossa força (vetor \(\vec{u}\)) é efetivamente aplicada na direção que desejamos seguir (vetor \(\vec{v}\)).</p>
     </div>
-  </div>
+  </section>
   
-  <p style="margin-top: 15px;"><small>Use os círculos nas pontas dos vetores para manipulá-los e observe como a projeção muda.</small></p>
-  
-  <script>
-    // Script para visualização da projeção vetorial com interatividade melhorada
-    document.addEventListener('DOMContentLoaded', function() {
-      // Inicializa quando o slide estiver visível
-      Reveal.addEventListener('slidechanged', function(event) {
-        const projectionCanvas = event.currentSlide.querySelector('#projectionCanvas');
-        if (projectionCanvas) {
-          initProjectionCanvas(projectionCanvas);
+  <!-- Slide Vertical 2: Visualização Interativa -->
+  <section data-state="projection-slide">
+    <h2>Simulador Vault-Tec: Projeção Vetorial</h2>
+    
+    <div class="canvas-container" style="position: relative; width: 450px; height: 450px; margin: 0 auto;">
+      <canvas id="projectionCanvas" width="450" height="450" 
+        style="border: 1px solid #0f0; background-color: #111; cursor: default;"></canvas>
+        
+      <div id="projection-value" style="position: absolute; bottom: 10px; right: 10px; 
+        background: rgba(0,0,0,0.7); color: #ADFF2F; padding: 5px 10px; font-family: monospace;">
+        |proj| = 0
+      </div>
+    </div>
+    
+    <p><small>Use os círculos nas pontas dos vetores para manipulá-los e observe como a projeção muda.</small></p>
+    
+    <script>
+      // Configurar o nosso inicializador para rodar quando o Reveal.js estiver pronto
+      document.addEventListener('DOMContentLoaded', function() {
+        // Inicializar quando o slide específico for mostrado
+        Reveal.addEventListener('projection-slide', function() {
+          console.log("Slide de projeção ativo, inicializando canvas...");
+          setTimeout(function() {
+            initProjectionCanvas(document.getElementById('projectionCanvas'));
+          }, 200); // Pequeno atraso para garantir que o slide esteja completamente renderizado
+        });
+        
+        // Se o slide já estiver ativo na carga inicial, inicializar
+        if (Reveal.getCurrentSlide().classList.contains('projection-slide') || 
+            Reveal.getCurrentSlide().dataset.state === 'projection-slide') {
+          console.log("Slide de projeção já está ativo na carga inicial");
+          setTimeout(function() {
+            initProjectionCanvas(document.getElementById('projectionCanvas'));
+          }, 200);
         }
       });
       
-      // Também inicializa se o slide já estiver visível na carga inicial
-      const currentSlide = Reveal.getCurrentSlide();
-      if (currentSlide && currentSlide.querySelector('#projectionCanvas')) {
-        initProjectionCanvas(currentSlide.querySelector('#projectionCanvas'));
-      }
-    });
-    
-    function initProjectionCanvas(canvas) {
-      if (!canvas) return; // Sair se o canvas não for encontrado
-      
-      const ctx = canvas.getContext('2d');
-      const valueDisplay = document.querySelector('#projection-value');
-      const interactionHint = document.querySelector('#interaction-hint');
-      
-      // Configuração básica
-      const width = canvas.width;
-      const height = canvas.height;
-      const centerX = width / 2;
-      const centerY = height / 2;
-      const scale = 30;
-      
-      // Vetores iniciais
-      let vectorU = { x: 3, y: 1 };
-      let vectorV = { x: 2, y: 0 };
-      let projectionVector = { x: 0, y: 0 }; // Será calculado
-      
-      // Estado de interação
-      let isDragging = false;
-      let selectedVector = null;
-      let hoverVector = null;
-      
-      // Configurações de estilo
-      const handleRadius = 15; // Tamanho aumentado do círculo manipulável nas pontas dos vetores
-      const colors = {
-        u: '#FF6347',         // Vetor original (vermelho)
-        v: '#4169E1',         // Vetor de direção (azul)
-        proj: '#ADFF2F',      // Projeção (verde)
-        projLine: '#FFD700',  // Linha de projeção (amarelo)
-        handle: '#FFFFFF',    // Círculo manipulável
-        handleHover: '#ADFF2F', // Círculo quando hovering
-        grid: '#333333',      // Linhas de grid
-        axes: '#00FF00'       // Eixos principais
-      };
-      
-      function drawGrid() {
-        ctx.strokeStyle = colors.grid;
-        ctx.lineWidth = 0.5;
-        
-        // Eixos
-        ctx.strokeStyle = colors.axes;
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(0, centerY); ctx.lineTo(width, centerY);
-        ctx.moveTo(centerX, 0); ctx.lineTo(centerX, height);
-        ctx.stroke();
-      }
-      
-      function drawVector(x, y, color, label, isHighlighted = false) {
-        const endX = centerX + x * scale;
-        const endY = centerY - y * scale;
-        
-        // Linha do vetor
-        ctx.strokeStyle = color;
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.moveTo(centerX, centerY);
-        ctx.lineTo(endX, endY);
-        ctx.stroke();
-        
-        // Seta na ponta
-        const angle = Math.atan2(centerY - endY, endX - centerX);
-        const arrowSize = 8;
-        ctx.beginPath();
-        ctx.moveTo(endX, endY);
-        ctx.lineTo(
-          endX - arrowSize * Math.cos(angle - Math.PI / 6),
-          endY - arrowSize * Math.sin(angle - Math.PI / 6)
-        );
-        ctx.lineTo(
-          endX - arrowSize * Math.cos(angle + Math.PI / 6),
-          endY - arrowSize * Math.sin(angle + Math.PI / 6)
-        );
-        ctx.closePath();
-        ctx.fillStyle = color;
-        ctx.fill();
-        
-        // Círculo manipulável na ponta do vetor
-        ctx.beginPath();
-        ctx.arc(endX, endY, handleRadius, 0, Math.PI * 2);
-        ctx.fillStyle = isHighlighted ? colors.handleHover : 'rgba(255, 255, 255, 0.3)';
-        ctx.fill();
-        ctx.strokeStyle = color;
-        ctx.lineWidth = 2;
-        ctx.stroke();
-        
-        // Label
-        ctx.fillStyle = color;
-        ctx.font = '16px monospace';
-        ctx.fillText(label, endX + 15, endY);
-      }
-      
-      function drawProjectionLine() {
-        // Desenhar linha tracejada da ponta de U perpendicular a V
-        const endUX = centerX + vectorU.x * scale;
-        const endUY = centerY - vectorU.y * scale;
-        
-        const endProjX = centerX + projectionVector.x * scale;
-        const endProjY = centerY - projectionVector.y * scale;
-        
-        ctx.setLineDash([5, 3]);
-        ctx.strokeStyle = colors.projLine;
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(endUX, endUY);
-        ctx.lineTo(endProjX, endProjY);
-        ctx.stroke();
-        ctx.setLineDash([]);
-      }
-      
-      function dotProduct(v1, v2) {
-        return v1.x * v2.x + v1.y * v2.y;
-      }
-      
-      function magnitude(v) {
-        return Math.sqrt(v.x * v.x + v.y * v.y);
-      }
-      
-      function calculateProjection() {
-        // Calcula a projeção de U sobre V
-        const magV = magnitude(vectorV);
-        
-        // Evitar divisão por zero
-        if (magV < 0.0001) {
-          projectionVector = { x: 0, y: 0 };
-          return 0;
+      function initProjectionCanvas(canvas) {
+        if (!canvas) {
+          console.error("Canvas não encontrado!");
+          return;
         }
         
-        const dotProd = dotProduct(vectorU, vectorV);
-        const scalar = dotProd / (magV * magV);
+        console.log("Inicializando canvas de projeção...");
         
-        projectionVector = {
-          x: vectorV.x * scalar,
-          y: vectorV.y * scalar
+        // Desativar os atalhos de teclado do Reveal.js durante interações com o canvas
+        function disableRevealKeyboard() {
+          Reveal.configure({ keyboard: false });
+        }
+        
+        function enableRevealKeyboard() {
+          Reveal.configure({ keyboard: true });
+        }
+        
+        const ctx = canvas.getContext('2d');
+        const valueDisplay = document.getElementById('projection-value');
+        const interactionHint = document.getElementById('interaction-hint');
+        
+        // Configuração básica
+        const width = canvas.width;
+        const height = canvas.height;
+        const centerX = width / 2;
+        const centerY = height / 2;
+        const scale = 30;
+        
+        // Vetores iniciais
+        let vectorU = { x: 3, y: 1 };
+        let vectorV = { x: 2, y: 0 };
+        let projectionVector = { x: 0, y: 0 }; // Será calculado
+        
+        // Estado de interação
+        let isDragging = false;
+        let selectedVector = null;
+        let hoverVector = null;
+        
+        // Configurações de estilo
+        const handleRadius = 15; // Tamanho aumentado do círculo manipulável nas pontas dos vetores
+        const colors = {
+          u: '#FF6347',         // Vetor original (vermelho)
+          v: '#4169E1',         // Vetor de direção (azul)
+          proj: '#ADFF2F',      // Projeção (verde)
+          projLine: '#FFD700',  // Linha de projeção (amarelo)
+          handle: '#FFFFFF',    // Círculo manipulável
+          handleHover: '#ADFF2F', // Círculo quando hovering
+          grid: '#333333',      // Linhas de grid
+          axes: '#00FF00'       // Eixos principais
         };
         
-        return magnitude(projectionVector);
-      }
-      
-      function render() {
-        ctx.clearRect(0, 0, width, height);
-        drawGrid();
-        
-        // Calcular projeção
-        const projMagnitude = calculateProjection();
-        
-        // Desenhar vetor V (direção de referência)
-        drawVector(vectorV.x, vectorV.y, colors.v, 'v', hoverVector === 'V');
-        
-        // Desenhar vetor de projeção
-        drawVector(projectionVector.x, projectionVector.y, colors.proj, 'proj');
-        
-        // Desenhar vetor U (vetor original)
-        drawVector(vectorU.x, vectorU.y, colors.u, 'u', hoverVector === 'U');
-        
-        // Desenhar linha de projeção
-        drawProjectionLine();
-        
-        // Atualizar valor da projeção
-        if (valueDisplay) {
-          valueDisplay.textContent = `|proj| = ${projMagnitude.toFixed(2)}`;
-        }
-      }
-      
-      function isNearVectorTip(mouseX, mouseY, vector) {
-        const tipX = centerX + vector.x * scale;
-        const tipY = centerY - vector.y * scale;
-        
-        const distance = Math.sqrt((mouseX - tipX) ** 2 + (mouseY - tipY) ** 2);
-        return distance < handleRadius;
-      }
-      
-      function getMousePos(canvas, evt) {
-        const rect = canvas.getBoundingClientRect();
-        // Garantir que levamos em conta a posição exata, inclusive com o scaling que o navegador pode aplicar
-        const scaleX = canvas.width / rect.width;
-        const scaleY = canvas.height / rect.height;
-        
-        return {
-          x: (evt.clientX - rect.left) * scaleX,
-          y: (evt.clientY - rect.top) * scaleY
-        };
-      }
-      
-      function updateCursor(isOverHandle) {
-        canvas.style.cursor = isOverHandle ? 'pointer' : 'default';
-      }
-      
-      function checkHover(mouseX, mouseY) {
-        if (isNearVectorTip(mouseX, mouseY, vectorU)) {
-          hoverVector = 'U';
-          updateCursor(true);
-          render(); // Re-render para mostrar highlight
-          return true;
-        } else if (isNearVectorTip(mouseX, mouseY, vectorV)) {
-          hoverVector = 'V';
-          updateCursor(true);
-          render(); // Re-render para mostrar highlight
-          return true;
-        }
-        
-        if (hoverVector) {
-          hoverVector = null;
-          updateCursor(false);
-          render(); // Re-render para remover highlight
-        }
-        return false;
-      }
-      
-      // Eventos do mouse
-      canvas.addEventListener('mousemove', function(event) {
-        const mousePos = getMousePos(canvas, event);
-        const mouseX = mousePos.x;
-        const mouseY = mousePos.y;
-        
-        if (isDragging && selectedVector) {
-          // Estamos arrastando um vetor
-          const vecX = (mouseX - centerX) / scale;
-          const vecY = -(mouseY - centerY) / scale;
+        function drawGrid() {
+          ctx.strokeStyle = colors.grid;
+          ctx.lineWidth = 0.5;
           
-          // Limitar magnitude para não sair da tela
-          const mag = Math.sqrt(vecX*vecX + vecY*vecY);
-          const maxMag = 4;
-          const factor = mag > maxMag ? maxMag / mag : 1;
+          // Eixos
+          ctx.strokeStyle = colors.axes;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(0, centerY); ctx.lineTo(width, centerY);
+          ctx.moveTo(centerX, 0); ctx.lineTo(centerX, height);
+          ctx.stroke();
+        }
+        
+        function drawVector(x, y, color, label, isHighlighted = false, drawHandle = true) {
+          const endX = centerX + x * scale;
+          const endY = centerY - y * scale;
           
-          if (selectedVector === 'U') {
-            vectorU.x = vecX * factor;
-            vectorU.y = vecY * factor;
-          } else if (selectedVector === 'V') {
-            vectorV.x = vecX * factor;
-            vectorV.y = vecY * factor;
+          // Linha do vetor
+          ctx.strokeStyle = color;
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.moveTo(centerX, centerY);
+          ctx.lineTo(endX, endY);
+          ctx.stroke();
+          
+          // Desenhar a seta corretamente
+          if (Math.abs(x) > 0.1 || Math.abs(y) > 0.1) { // Não desenhar seta para vetores muito pequenos
+            // Calcular o ângulo do vetor
+            const angle = Math.atan2(-y, x); // Nota: y é negativo por causa da inversão do eixo y no canvas
+            
+            // Tamanho da seta
+            const arrowSize = 10;
+            
+            // Desenhar a seta na ponta do vetor
+            ctx.beginPath();
+            ctx.moveTo(endX, endY);
+            ctx.lineTo(
+              endX - arrowSize * Math.cos(angle - Math.PI/6),
+              endY - arrowSize * Math.sin(angle - Math.PI/6)
+            );
+            ctx.lineTo(
+              endX - arrowSize * Math.cos(angle + Math.PI/6),
+              endY - arrowSize * Math.sin(angle + Math.PI/6)
+            );
+            ctx.closePath();
+            ctx.fillStyle = color;
+            ctx.fill();
           }
           
-          render();
-        } else {
-          // Verificar hover
-          checkHover(mouseX, mouseY);
-        }
-      });
-      
-      canvas.addEventListener('mousedown', function(event) {
-        const mousePos = getMousePos(canvas, event);
-        const mouseX = mousePos.x;
-        const mouseY = mousePos.y;
-        
-        if (isNearVectorTip(mouseX, mouseY, vectorU)) {
-          isDragging = true;
-          selectedVector = 'U';
-          canvas.style.cursor = 'grabbing';
-        } else if (isNearVectorTip(mouseX, mouseY, vectorV)) {
-          isDragging = true;
-          selectedVector = 'V';
-          canvas.style.cursor = 'grabbing';
+          // Círculo manipulável na ponta do vetor (apenas se drawHandle for true)
+          if (drawHandle) {
+            ctx.beginPath();
+            ctx.arc(endX, endY, handleRadius, 0, Math.PI * 2);
+            ctx.fillStyle = isHighlighted ? colors.handleHover : 'rgba(255, 255, 255, 0.3)';
+            ctx.fill();
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 2;
+            ctx.stroke();
+          }
+          
+          // Label
+          ctx.fillStyle = color;
+          ctx.font = '16px monospace';
+          ctx.fillText(label, endX + 15, endY);
         }
         
-        // Esconder a dica de interação após o primeiro clique
-        if (isDragging && interactionHint) {
-          interactionHint.style.opacity = '0.5';
+        function drawProjectionLine() {
+          // Desenhar linha tracejada da ponta de U perpendicular a V
+          const endUX = centerX + vectorU.x * scale;
+          const endUY = centerY - vectorU.y * scale;
+          
+          const endProjX = centerX + projectionVector.x * scale;
+          const endProjY = centerY - projectionVector.y * scale;
+          
+          ctx.setLineDash([5, 3]);
+          ctx.strokeStyle = colors.projLine;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(endUX, endUY);
+          ctx.lineTo(endProjX, endProjY);
+          ctx.stroke();
+          ctx.setLineDash([]);
         }
-      });
-      
-      canvas.addEventListener('mouseup', function() {
-        isDragging = false;
-        selectedVector = null;
-        canvas.style.cursor = hoverVector ? 'pointer' : 'default';
-      });
-      
-      canvas.addEventListener('mouseleave', function() {
-        isDragging = false;
-        selectedVector = null;
-        hoverVector = null;
-        updateCursor(false);
-      });
-      
-      // Apenas para debugging
-      function logEventInfo(event, type) {
-        const mousePos = getMousePos(canvas, event);
-        console.log(`${type} - x: ${mousePos.x}, y: ${mousePos.y}`);
-        console.log(`Canvas offset: ${canvas.offsetLeft}, ${canvas.offsetTop}`);
-        console.log(`Reveal slide offset: ${Reveal.getCurrentSlide().offsetLeft}, ${Reveal.getCurrentSlide().offsetTop}`);
+        
+        function dotProduct(v1, v2) {
+          return v1.x * v2.x + v1.y * v2.y;
+        }
+        
+        function magnitude(v) {
+          return Math.sqrt(v.x * v.x + v.y * v.y);
+        }
+        
+        function calculateProjection() {
+          // Calcula a projeção de U sobre V
+          const magV = magnitude(vectorV);
+          
+          // Evitar divisão por zero
+          if (magV < 0.0001) {
+            projectionVector = { x: 0, y: 0 };
+            return 0;
+          }
+          
+          const dotProd = dotProduct(vectorU, vectorV);
+          const scalar = dotProd / (magV * magV);
+          
+          projectionVector = {
+            x: vectorV.x * scalar,
+            y: vectorV.y * scalar
+          };
+          
+          return magnitude(projectionVector);
+        }
+        
+        function render() {
+          ctx.clearRect(0, 0, width, height);
+          drawGrid();
+          
+          // Calcular projeção
+          const projMagnitude = calculateProjection();
+          
+          // Desenhar vetor V (direção de referência)
+          drawVector(vectorV.x, vectorV.y, colors.v, 'v', hoverVector === 'V');
+          
+          // Desenhar vetor de projeção (sem círculo manipulável)
+          drawVector(projectionVector.x, projectionVector.y, colors.proj, 'proj', false, false);
+          
+          // Desenhar vetor U (vetor original)
+          drawVector(vectorU.x, vectorU.y, colors.u, 'u', hoverVector === 'U');
+          
+          // Desenhar linha de projeção
+          drawProjectionLine();
+          
+          // Atualizar valor da projeção
+          if (valueDisplay) {
+            valueDisplay.textContent = `|proj| = ${projMagnitude.toFixed(2)}`;
+          }
+        }
+        
+        function isNearVectorTip(mouseX, mouseY, vector) {
+          const tipX = centerX + vector.x * scale;
+          const tipY = centerY - vector.y * scale;
+          
+          const distance = Math.sqrt((mouseX - tipX) ** 2 + (mouseY - tipY) ** 2);
+          return distance < handleRadius;
+        }
+        
+        function getMousePos(canvas, evt) {
+          const rect = canvas.getBoundingClientRect();
+          // Calcular a posição do mouse relativa ao canvas, considerando qualquer escala
+          const scaleX = canvas.width / rect.width;
+          const scaleY = canvas.height / rect.height;
+          
+          return {
+            x: (evt.clientX - rect.left) * scaleX,
+            y: (evt.clientY - rect.top) * scaleY
+          };
+        }
+        
+        function updateCursor(isOverHandle) {
+          canvas.style.cursor = isOverHandle ? 'pointer' : 'default';
+        }
+        
+        function checkHover(mouseX, mouseY) {
+          if (isNearVectorTip(mouseX, mouseY, vectorU)) {
+            hoverVector = 'U';
+            updateCursor(true);
+            render(); // Re-render para mostrar highlight
+            return true;
+          } else if (isNearVectorTip(mouseX, mouseY, vectorV)) {
+            hoverVector = 'V';
+            updateCursor(true);
+            render(); // Re-render para mostrar highlight
+            return true;
+          }
+          
+          if (hoverVector) {
+            hoverVector = null;
+            updateCursor(false);
+            render(); // Re-render para remover highlight
+          }
+          return false;
+        }
+        
+        // Eventos do mouse - com captura de evento e prevenção de propagação
+        canvas.addEventListener('mousemove', function(event) {
+          event.stopPropagation(); // Impedir que o Reveal.js capture o evento
+          
+          const mousePos = getMousePos(canvas, event);
+          
+          if (isDragging && selectedVector) {
+            // Convertendo para coordenadas do vetor em relação ao centro
+            const vecX = (mousePos.x - centerX) / scale;
+            const vecY = -(mousePos.y - centerY) / scale; // Inverter Y porque o canvas cresce para baixo
+            
+            // Atualizar o vetor selecionado sem limitações artificiais
+            if (selectedVector === 'U') {
+              vectorU.x = vecX;
+              vectorU.y = vecY;
+            } else if (selectedVector === 'V') {
+              vectorV.x = vecX;
+              vectorV.y = vecY;
+            }
+            
+            render();
+          } else {
+            // Verificar hover
+            checkHover(mousePos.x, mousePos.y);
+          }
+        }, true); // Capturar na fase de captura
+        
+        canvas.addEventListener('mousedown', function(event) {
+          console.log("Canvas mousedown");
+          event.stopPropagation(); // Impedir que o Reveal.js capture o evento
+          event.preventDefault(); // Impedir comportamento padrão
+          
+          const mousePos = getMousePos(canvas, event);
+          
+          if (isNearVectorTip(mousePos.x, mousePos.y, vectorU)) {
+            console.log("Selecionando vetor U");
+            isDragging = true;
+            selectedVector = 'U';
+            canvas.style.cursor = 'grabbing';
+            disableRevealKeyboard(); // Desativar atalhos do Reveal durante o arrasto
+          } else if (isNearVectorTip(mousePos.x, mousePos.y, vectorV)) {
+            console.log("Selecionando vetor V");
+            isDragging = true;
+            selectedVector = 'V';
+            canvas.style.cursor = 'grabbing';
+            disableRevealKeyboard(); // Desativar atalhos do Reveal durante o arrasto
+          }
+          
+          // Esconder a dica de interação após o primeiro clique
+          if (isDragging && interactionHint) {
+            interactionHint.style.opacity = '0.5';
+          }
+        }, true); // Capturar na fase de captura
+        
+        // Usar window para capturar mouse up em qualquer lugar
+        window.addEventListener('mouseup', function(event) {
+          if (isDragging) {
+            console.log("Finalizando arrasto");
+            event.stopPropagation(); // Só impedir propagação se estávamos arrastando
+            isDragging = false;
+            selectedVector = null;
+            canvas.style.cursor = hoverVector ? 'pointer' : 'default';
+            enableRevealKeyboard(); // Reativar atalhos do Reveal após o arrasto
+          }
+        }, true); // Capturar na fase de captura
+        
+        canvas.addEventListener('mouseleave', function(event) {
+          if (!isDragging) { // Não interromper o arrasto se o mouse sair do canvas
+            hoverVector = null;
+            updateCursor(false);
+            render();
+          }
+        });
+        
+        // Prevenir que cliques no canvas avancem os slides
+        canvas.addEventListener('click', function(event) {
+          event.stopPropagation();
+        }, true);
+        
+        // Renderização inicial
+        console.log("Renderizando canvas inicial");
+        render();
       }
+    </script>
+  </section>
+  
+  <!-- Slide Vertical 3: Aplicações e Exemplos -->
+  <section>
+    <h2>Aplicações na Wasteland</h2>
+    
+    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+      <div style="flex: 1; padding: 10px; background-color: rgba(0, 0, 0, 0.4); border-radius: 5px; margin-right: 10px;">
+        <h3 style="color: #FFD700;">Trabalho efetivo</h3>
+        <p>Quando empurramos um objeto, apenas a componente da força na direção do movimento gera trabalho útil.</p>
+        <p class="formula">\[
+          W = \vec{F} \cdot \vec{d} = |\vec{F}||\vec{d}|\cos(\theta) = |\text{proj}_{\vec{d}}\vec{F}||\vec{d}|
+        \]</p>
+      </div>
       
-      // Renderização inicial
-      render();
-    }
-  </script>
+      <div style="flex: 1; padding: 10px; background-color: rgba(0, 0, 0, 0.4); border-radius: 5px;">
+        <h3 style="color: #FFD700;">Navegação tática</h3>
+        <p>Decompor uma rota em componentes úteis e inúteis para determinar progresso real em direção ao objetivo.</p>
+        <p><small>Um vetor de deslocamento de 5 km a 60° da rota principal equivale a um avanço real de apenas 2.5 km.</small></p>
+      </div>
+    </div>
+    
+    <div class="vault-box">
+      <h3 class="vault-title">INSIGHT ESTRATÉGICO</h3>
+      <p>Quanto mais perpendicular um vetor for à direção de interesse, menor será sua projeção e menor sua contribuição útil naquela direção.</p>
+      <p>Vetores paralelos têm projeção máxima; vetores perpendiculares têm projeção zero.</p>
+    </div>
+  </section>
+  
+  <!-- Slide Vertical 4: Exercício Prático -->
+  <section>
+    <h2>Missão Tática: Otimização de Recursos</h2>
+    
+    <div style="background-color: rgba(0, 0, 0, 0.6); padding: 15px; border: 1px solid #0f0; border-radius: 5px;">
+      <p><strong style="color: #FFD700;">Cenário:</strong> Sua equipe precisa transportar suprimentos em um terreno inclinado. Você tem dois vetores:</p>
+      <ul>
+        <li>Vetor força disponível: \(\vec{F} = (3, 4)\) com módulo 5 unidades</li>
+        <li>Vetor direção do deslocamento: \(\vec{d} = (5, 0)\) (horizontal)</li>
+      </ul>
+      
+      <p><strong style="color: #FFD700;">Objetivos da Missão:</strong></p>
+      <ol>
+        <li>Calcule a projeção de \(\vec{F}\) na direção de \(\vec{d}\) usando \(\frac{\vec{F} \cdot \vec{d}}{|\vec{d}|^2}\vec{d}\)</li>
+        <li>Determine quanto da sua força está sendo usada efetivamente nesta direção</li>
+        <li>Calcule o ângulo entre \(\vec{F}\) e \(\vec{d}\) para avaliar a eficiência do trabalho</li>
+      </ol>
+    </div>
+    
+  </section>
 </section>
 
         <!-- Slide Horizontal: Módulo (Comprimento) e Versores -->
