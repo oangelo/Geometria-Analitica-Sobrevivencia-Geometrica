@@ -39,20 +39,19 @@
 .reveal section ul {
 	list-style: none;
 	padding-left: 2rem;
-	margin: 0.3em 0;
+	margin: 0.1em 0;
 }
 .reveal section ul li {
-	font-size: 1.6rem;
-	line-height: 1.4;
+	font-size: 1.3rem;
+	line-height: 1.2;
 	position: relative;
-	margin-bottom: 0.6em;
+	margin-bottom: 0.3em;
 }
 .reveal section ul li::before {
 	content: '☢️'; /* Apenas o ícone para UL */
 	position: absolute;
 	left: -2.5rem;
-	font-size: 1.6rem;
-	line-height: 1.4;
+	font-size: 1.3rem;
 }
 
 /* Estilizando OL com contador */
@@ -64,8 +63,8 @@
 }
 .reveal section ol li {
 	counter-increment: radCounter; /* Incrementa o contador a cada li */
-	font-size: 1.6rem;
-	line-height: 1.4;
+	font-size: 1.3rem;
+	line-height: 1.2;
 	position: relative;
 	margin-bottom: 0.6em;
 }
@@ -73,8 +72,7 @@
 	content: '☢️' counter(radCounter) '. '; /* Ícone + número. Ex: ☢️1. */
 	position: absolute;
 	left: -3.5rem;
-	font-size: 1.6rem;
-	line-height: 1.4;
+	font-size: 1.3rem;
 }
 
 .visualization-container img{
