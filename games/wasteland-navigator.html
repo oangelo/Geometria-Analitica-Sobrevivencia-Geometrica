@@ -3,49 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wasteland Navigator: Treinamento Vetorial (Y+ Cima)</title>
+    <title>Wasteland Navigator: Treinamento Vetorial (Y+ Cima Cartesiano)</title>
     <style>
         /* --- Variáveis CSS (Paleta) --- */
         :root {
             --color-base-green: #1a3300; --color-path-brown-dark: #8B4513; --color-path-brown-light: #A0522D;
             --color-interface-cyan: #2de2e6; --color-highlight-gold: #FFD700; --color-hazard-toxic: #00ff32;
             --color-wall-gray: #555; --color-text-lime: #32cd32; --color-gameover-red: rgba(200, 0, 0, 0.85);
+            --color-pos-vector-trace: rgba(255, 255, 255, 0.15);
             --font-mono: 'Courier New', Courier, monospace;
         }
-        /* --- Estilos Globais --- */
+        /* --- Estilos Globais e Layout (Mantidos) --- */
         body { font-family: var(--font-mono); background-color: #111; color: var(--color-interface-cyan); margin: 0; padding: 15px; display: flex; flex-direction: column; align-items: center; }
         h1 { color: var(--color-highlight-gold); text-shadow: 0 0 5px var(--color-highlight-gold); margin-bottom: 15px; font-size: 1.8em; border: 1px solid var(--color-interface-cyan); padding: 5px 15px; background-color: rgba(45, 226, 230, 0.1); }
-        /* --- Layout Principal --- */
         #main-container { display: flex; flex-direction: row; justify-content: center; align-items: flex-start; width: 100%; max-width: 1300px; gap: 20px; }
-        /* --- Área do Jogo (Esquerda) --- */
         #game-area { display: flex; justify-content: center; }
         #game-wrapper { border: 2px solid var(--color-interface-cyan); padding: 10px; background-color: #0a0a0a; box-shadow: 0 0 15px var(--color-interface-cyan); }
         #game-container { margin-bottom: 5px; line-height: 0; position: relative; }
         #gameCanvas { display: block; background-color: var(--color-base-green); }
         #gameOverOverlay { position: absolute; top: 0; left: 0; width: 100%; height: 0; background: linear-gradient(to bottom, var(--color-gameover-red), rgba(150,0,0,0.9)); overflow: hidden; transition: height 1.5s ease-in-out; z-index: 10; pointer-events: none; }
         #gameOverOverlay.active { height: 100%; }
-        /* --- Barra Lateral (Direita) --- */
+        /* --- Fogos de Artifício --- */
+        #fireworksCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; pointer-events: none; /* Não interfere com cliques */ display: none; /* Escondido por padrão */ }
+        #fireworksCanvas.active { display: block; } /* Mostra quando ativo */
+
         #sidebar { display: flex; flex-direction: column; width: 350px; flex-shrink: 0; gap: 12px; }
         #sidebar > div { width: 100%; box-sizing: border-box; }
-        #info-area { text-align: center; font-size: 0.9em; color: var(--color-text-lime); border: 1px dashed var(--color-text-lime); padding: 5px; background-color: rgba(0,0,0,0.2);}
-        #info-area p { margin: 2px 0; }
+        #info-area { text-align: center; font-size: 0.9em; color: var(--color-text-lime); border: 1px dashed var(--color-text-lime); padding: 8px; background-color: rgba(0,0,0,0.2);}
+        #info-area p { margin: 3px 0; }
         #info-area span { font-weight: bold; color: var(--color-interface-cyan); background-color: rgba(0,0,0,0.3); padding: 0 3px; }
+        .coord-note { font-size: 0.8em; color: yellow; text-align: center; margin-top: 6px; padding: 0 5px; line-height: 1.2;}
 
-        /* Controles de Geração */
+        /* Controles (Mantidos com ajuste de label Δy) */
         #generation-controls { padding: 10px 15px; border: 1px solid var(--color-highlight-gold); background-color: rgba(255, 215, 0, 0.05); display: flex; flex-direction: column; gap: 8px; }
         #generation-controls h3 { margin: 0 0 8px 0; text-align: center; color: var(--color-highlight-gold); font-size: 1em;}
-        .slider-group { display: flex; align-items: center; justify-content: space-between; gap: 5px; /* Adicionado gap */ }
-        .slider-group label { font-size: 0.9em; color: var(--color-text-lime); margin-right: 5px; /* Reduzido */ white-space: nowrap; flex-shrink: 0; /* Não encolher label */ }
-        .slider-group input[type=range] {
-            flex-grow: 1; /* Ocupa espaço restante */
-            width: auto; /* Necessário com flex-grow */
-            cursor: pointer; height: 5px; background: var(--color-wall-gray); border-radius: 5px; appearance: none; -webkit-appearance: none;
-        }
+        .slider-group { display: flex; align-items: center; justify-content: space-between; gap: 5px; }
+        .slider-group label { font-size: 0.9em; color: var(--color-text-lime); margin-right: 5px; white-space: nowrap; flex-shrink: 0; }
+        .slider-group input[type=range] { flex-grow: 1; width: auto; cursor: pointer; height: 5px; background: var(--color-wall-gray); border-radius: 5px; appearance: none; -webkit-appearance: none; }
         .slider-group input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 15px; height: 15px; background: var(--color-interface-cyan); border-radius: 50%; cursor: pointer; box-shadow: 0 0 3px var(--color-interface-cyan); }
         .slider-group input[type=range]::-moz-range-thumb { width: 15px; height: 15px; background: var(--color-interface-cyan); border-radius: 50%; cursor: pointer; border: none; box-shadow: 0 0 3px var(--color-interface-cyan); }
-        .slider-group span { font-size: 0.9em; color: var(--color-interface-cyan); min-width: 35px; /* Ajustado */ text-align: right; flex-shrink: 0; /* Não encolher valor */ }
-
-        /* Controles de Movimento */
+        .slider-group span { font-size: 0.9em; color: var(--color-interface-cyan); min-width: 35px; text-align: right; flex-shrink: 0; }
         #controls { padding: 15px; border: 1px solid var(--color-interface-cyan); background-color: rgba(45, 226, 230, 0.05); display: flex; flex-direction: column; align-items: center; gap: 10px; }
         .control-group { display: flex; align-items: center; width: 100%; justify-content: space-between; }
         #controls label { margin-right: 5px; color: var(--color-text-lime); white-space: nowrap; font-size: 0.9em;}
@@ -58,24 +55,20 @@
         #controls button#reset-button { border-color: var(--color-highlight-gold); color: var(--color-highlight-gold); box-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
         #controls button#reset-button:hover { background-color: rgba(255, 215, 0, 0.2); color: #fff; box-shadow: 0 0 10px var(--color-highlight-gold), 0 0 15px var(--color-highlight-gold); }
 
+        /* Mensagens e Legenda (Mantidas) */
         #message-area { padding: 10px 15px; min-height: 60px; text-align: center; border: 1px solid var(--color-interface-cyan); background-color: rgba(0,0,0, 0.5); font-weight: normal; line-height: 1.4; color: var(--color-interface-cyan); overflow-y: auto; }
         #message-area.error { color: red; border-color: red; text-shadow: 0 0 5px red; }
         #message-area.success { color: var(--color-text-lime); border-color: var(--color-text-lime); text-shadow: 0 0 5px var(--color-text-lime); }
         #message-area span.vector { color: var(--color-text-lime); font-weight: bold; }
-
         #legend { padding: 10px; border: 1px solid var(--color-interface-cyan); background-color: rgba(0,0,0, 0.3); font-size: 0.85em; }
         #legend h3 { text-align: center; margin-top: 0; margin-bottom: 10px; color: var(--color-highlight-gold); }
         .legend-item { display: flex; align-items: center; margin-bottom: 4px; }
         .legend-icon { font-size: 1.3em; width: 30px; text-align: center; margin-right: 8px; line-height: 1; }
         .legend-text { color: var(--color-text-lime); }
         .legend-text strong { color: var(--color-interface-cyan); }
-        .coord-note { font-size: 0.8em; color: yellow; text-align: center; margin-top: 5px;} /* Nota sobre coordenadas */
 
-        /* --- Responsividade --- */
-        @media (max-width: 1000px) { /* Ajustado breakpoint */
-            #main-container { flex-direction: column; align-items: center; }
-            #sidebar { width: 90%; max-width: 500px; margin-top: 20px; }
-        }
+        /* --- Responsividade (Mantida) --- */
+        @media (max-width: 1000px) { #main-container { flex-direction: column; align-items: center; } #sidebar { width: 90%; max-width: 500px; margin-top: 20px; } }
     </style>
 </head>
 <body>
@@ -87,6 +80,8 @@
             <div id="game-wrapper">
                 <div id="game-container">
                     <canvas id="gameCanvas">Seu navegador não suporta Canvas.</canvas>
+                     <!-- Canvas para Fogos de Artifício -->
+                    <canvas id="fireworksCanvas"></canvas>
                     <div id="gameOverOverlay"></div>
                 </div>
             </div>
@@ -94,279 +89,293 @@
 
         <!-- Coluna Direita: Barra Lateral -->
         <div id="sidebar">
+            <!-- Info Area com Explicação Cartesiana -->
             <div id="info-area">
-                <p>Posição (Grid): <span id="current-pos">(x, y)</span> | Destino (Grid): <span id="target-pos">(x, y)</span></p>
-                <p>Vetor Posição (Grid): <span id="pos-vector">[x, y]</span></p>
-                <p class="coord-note">(Grid Y=0 é em baixo, Y+ é para cima)</p> <!-- Nota sobre coordenadas exibidas -->
+                <p>Posição Atual (X, Y): <span id="current-pos">(x, y)</span></p>
+                <p>Destino (X, Y): <span id="target-pos">(x, y)</span></p>
+                <!-- Explicação Clara da Convenção Cartesiana -->
+                <p class="coord-note"><strong>Ref. Cartesiana:</strong> (0,0) = Canto INFERIOR ESQUERDO. Y aumenta para CIMA.</p>
             </div>
 
             <!-- Controles de Geração -->
             <div id="generation-controls">
-                <h3>Parâmetros do Mapa</h3>
-                <div class="slider-group">
-                    <label for="obstacle-density">Obstáculos (%):</label>
-                    <input type="range" id="obstacle-density" min="10" max="60" value="35">
-                    <span id="obstacle-density-value">35%</span>
-                </div>
-                 <div class="slider-group">
-                    <label for="hazard-density">Perigos (%):</label>
-                    <!-- Aumentado max para 50 -->
-                    <input type="range" id="hazard-density" min="2" max="50" value="10"> <!-- Default 10% -->
-                    <span id="hazard-density-value">10%</span>
-                </div>
+                 <h3>Parâmetros do Mapa</h3>
+                 <div class="slider-group"><label for="obstacle-density">Obstáculos (%):</label><input type="range" id="obstacle-density" min="10" max="60" value="35"><span id="obstacle-density-value">35%</span></div>
+                 <div class="slider-group"><label for="hazard-density">Perigos (%):</label><input type="range" id="hazard-density" min="2" max="50" value="10"><span id="hazard-density-value">10%</span></div>
             </div>
 
-            <!-- Controles de Movimento -->
+            <!-- Controles de Movimento com Explicação Cartesiana -->
             <div id="controls">
-                 <div class="control-group">
-                     <label for="input-dx">Vetor Δx:</label>
-                     <input type="number" id="input-dx" value="0" title="Componente X do deslocamento">
-                 </div>
-                 <div class="control-group">
-                     <label for="input-dy">Vetor Δy:</label>
-                     <!-- Atualizado title -->
-                     <input type="number" id="input-dy" value="0" title="Componente Y do deslocamento (+ CIMA, - baixo)">
-                 </div>
-                  <p class="coord-note">(Entrada Δy: Positivo = Cima)</p> <!-- Nota sobre entrada de Y -->
-                 <div class="button-group">
-                    <button id="move-button">Mover</button>
-                    <button id="reset-button">Novo Mapa</button>
-                 </div>
+                 <div class="control-group"><label for="input-dx">Vetor Δx:</label><input type="number" id="input-dx" value="0" title="Componente X"></div>
+                 <div class="control-group"><label for="input-dy">Vetor Δy:</label><input type="number" id="input-dy" value="0" title="+ CIMA, - baixo"></div>
+                 <p class="coord-note"><strong>Ref. Vetor:</strong> Δy positivo = mover para CIMA.</p>
+                 <div class="button-group"><button id="move-button">Mover</button><button id="reset-button">Novo Mapa</button></div>
             </div>
 
             <div id="message-area">Gerando mapa tático inicial...</div>
 
+            <!-- Legenda -->
             <div id="legend">
-                 <h3>Legenda Tática</h3>
-                 <div class="legend-item"><span class="legend-icon" id="icon-survivor"></span><span class="legend-text"><strong>Sobrevivente</strong></span></div>
-                 <div class="legend-item"><span class="legend-icon" id="icon-target"></span><span class="legend-text"><strong>Abrigo / Vault</strong></span></div>
-                 <div class="legend-item"><span class="legend-icon">👣</span><span class="legend-text" style="color: var(--color-path-brown-light)"><strong>Trilha Gerada</strong></span></div>
-                 <div class="legend-item"><span class="legend-icon" id="icon-hazard"></span><span class="legend-text" style="color: var(--color-hazard-toxic)"><strong>Perigo</strong> (Morte!)</span></div>
-                 <div class="legend-item"><span class="legend-icon" id="icon-obstacle-wall"></span><span class="legend-text" style="color: var(--color-wall-gray)"><strong>Muralha</strong></span></div>
-                 <div class="legend-item"><span class="legend-icon" id="icon-obstacle-tree"></span><span class="legend-text" style="color: var(--color-wall-gray)"><strong>Árvore</strong></span></div>
+                  <h3>Legenda Tática</h3>
+                  <div class="legend-item"><span class="legend-icon" id="icon-survivor"></span><span class="legend-text"><strong>Sobrevivente</strong></span></div>
+                  <div class="legend-item"><span class="legend-icon" id="icon-target"></span><span class="legend-text"><strong>Abrigo / Vault</strong></span></div>
+                  <div class="legend-item"><span class="legend-icon">👣</span><span class="legend-text" style="color: var(--color-path-brown-light)"><strong>Trilha Gerada</strong></span></div>
+                  <div class="legend-item"><span class="legend-icon" id="icon-hazard"></span><span class="legend-text" style="color: var(--color-hazard-toxic)"><strong>Perigo</strong> (Morte!)</span></div>
+                  <div class="legend-item"><span class="legend-icon" id="icon-obstacle-wall"></span><span class="legend-text" style="color: var(--color-wall-gray)"><strong>Muralha</strong></span></div>
+                  <div class="legend-item"><span class="legend-icon" id="icon-obstacle-tree"></span><span class="legend-text" style="color: var(--color-wall-gray)"><strong>Árvore</strong></span></div>
+                  <div class="legend-item"><span class="legend-icon" style="color:rgba(255,255,255,0.3)">⇢</span><span class="legend-text" style="color:rgba(255,255,255,0.5)">Rastro Vetorial (Início->Pos)</span></div>
             </div>
         </div> <!-- Fim da Sidebar -->
     </div> <!-- Fim do Main Container -->
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // --- Configuração ---
+            // --- Configuração e Constantes ---
             const GRID_COLS = 15; const GRID_ROWS = 15; const CELL_SIZE = 40;
             const CANVAS_WIDTH = GRID_COLS * CELL_SIZE; const CANVAS_HEIGHT = GRID_ROWS * CELL_SIZE;
-            const START_POS_DEFAULT = { x: 1, y: GRID_ROWS - 2 }; const TARGET_POS_DEFAULT = { x: GRID_COLS - 2, y: 1 };
+            // Posições internas (Grid: Y=0 é topo)
+            const START_POS_GRID = { x: 1, y: GRID_ROWS - 2 }; // Grid Y = 13 (perto de baixo)
+            const TARGET_POS_GRID = { x: GRID_COLS - 2, y: 1 }; // Grid Y = 1 (perto de cima)
+
             const ICON_SURVIVOR = '🧙‍♂️'; const ICON_TARGET = '🏠'; const ICON_HAZARD_RADIATION = '☢️'; const ICON_HAZARD_TROLL = '👹'; const ICON_HAZARD_IMP = '😈'; const ICON_OBSTACLE_WALL = '🧱'; const ICON_OBSTACLE_TREE = '🌲'; const ICON_DEATH = '☠️';
             const COLOR_BASE_GREEN = getComputedStyle(document.documentElement).getPropertyValue('--color-base-green'); const COLOR_PATH_DARK = getComputedStyle(document.documentElement).getPropertyValue('--color-path-brown-dark'); const COLOR_PATH_LIGHT = getComputedStyle(document.documentElement).getPropertyValue('--color-path-brown-light'); const COLOR_INTERFACE_CYAN = getComputedStyle(document.documentElement).getPropertyValue('--color-interface-cyan'); const COLOR_HIGHLIGHT_GOLD = getComputedStyle(document.documentElement).getPropertyValue('--color-highlight-gold'); const COLOR_HAZARD_TOXIC = getComputedStyle(document.documentElement).getPropertyValue('--color-hazard-toxic'); const COLOR_WALL_GRAY = getComputedStyle(document.documentElement).getPropertyValue('--color-wall-gray'); const COLOR_TEXT_LIME = getComputedStyle(document.documentElement).getPropertyValue('--color-text-lime'); const COLOR_GAMEOVER_RED = getComputedStyle(document.documentElement).getPropertyValue('--color-gameover-red');
+            const COLOR_POS_VECTOR_TRACE = getComputedStyle(document.documentElement).getPropertyValue('--color-pos-vector-trace');
 
             // --- Variáveis de Estado ---
-            let currentPos = { ...START_POS_DEFAULT }; let targetPos = { ...TARGET_POS_DEFAULT };
-            let pathTaken = []; let gameActive = true;
-            let generatedPath = []; let generatedObstacles = []; let generatedHazards = [];
-            let mapElements = new Map();
+            let currentPosGrid = { ...START_POS_GRID }; // Posição atual no sistema do GRID (Y=0 topo)
+            let targetPosGrid = { ...TARGET_POS_GRID }; // Alvo no sistema do GRID
+            let pathTakenGrid = []; // Histórico no sistema do GRID
+            let gameActive = true; let mapElements = new Map();
+            let fireworksAnimationId = null; // Para animação de fogos
 
             // --- DOM Refs ---
             const canvas = document.getElementById('gameCanvas'); const ctx = canvas.getContext('2d');
+            const fireworksCanvas = document.getElementById('fireworksCanvas'); const fwCtx = fireworksCanvas.getContext('2d'); // Contexto para fogos
             const dxInput = document.getElementById('input-dx'); const dyInput = document.getElementById('input-dy');
             const moveButton = document.getElementById('move-button'); const resetButton = document.getElementById('reset-button');
             const messageArea = document.getElementById('message-area');
             const currentPosDisplay = document.getElementById('current-pos'); const targetPosDisplay = document.getElementById('target-pos');
-            const posVectorDisplay = document.getElementById('pos-vector'); const gameOverOverlay = document.getElementById('gameOverOverlay');
+            const gameOverOverlay = document.getElementById('gameOverOverlay');
             const obstacleDensitySlider = document.getElementById('obstacle-density'); const obstacleDensityValue = document.getElementById('obstacle-density-value');
             const hazardDensitySlider = document.getElementById('hazard-density'); const hazardDensityValue = document.getElementById('hazard-density-value');
             document.getElementById('icon-survivor').textContent = ICON_SURVIVOR; document.getElementById('icon-target').textContent = ICON_TARGET; document.getElementById('icon-hazard').textContent = `${ICON_HAZARD_RADIATION}/${ICON_HAZARD_TROLL}/${ICON_HAZARD_IMP}`; document.getElementById('icon-obstacle-wall').textContent = ICON_OBSTACLE_WALL; document.getElementById('icon-obstacle-tree').textContent = ICON_OBSTACLE_TREE;
             canvas.width = CANVAS_WIDTH; canvas.height = CANVAS_HEIGHT;
+            fireworksCanvas.width = CANVAS_WIDTH; fireworksCanvas.height = CANVAS_HEIGHT; // Mesmo tamanho
 
-            // --- Funções de Geração (Com inércia/bias ajustados) ---
-            function generatePath(start, end) {
-                let path = [{...start}]; let current = {...start}; let visited = new Set([`${start.x},${start.y}`]);
-                let stuckCounter = 0; const MAX_STUCK = GRID_COLS * GRID_ROWS * 3; // Mais tolerância
-                let triedBacktracking = new Set(); let lastDx = 0, lastDy = 0;
-                while ((current.x !== end.x || current.y !== end.y) && stuckCounter < MAX_STUCK) {
-                    let possibleMoves = [];
-                    // Direções: dy -1 é para CIMA no grid, +1 é para BAIXO no grid
-                    const directions = [ {dx:0, dy:-1}, {dx:0, dy:1}, {dx:-1, dy:0}, {dx:1, dy:0} ];
-                    for (const dir of directions) {
-                        const nextX = current.x + dir.dx; const nextY = current.y + dir.dy; const nextKey = `${nextX},${nextY}`;
-                        // Permanece dentro dos limites 0..GRID-1
-                        if (nextX >= 0 && nextX < GRID_COLS && nextY >= 0 && nextY < GRID_ROWS && !visited.has(nextKey)) {
-                            const currentDist = Math.abs(end.x - current.x) + Math.abs(end.y - current.y);
-                            const nextDist = Math.abs(end.x - nextX) + Math.abs(end.y - nextY);
-                            let weight = 1.0;
-                            if (nextDist < currentDist) weight = 1.8; // Bias leve para alvo
-                            else if (nextDist === currentDist) weight = 1.1; // Preferir lateral a voltar
-                            // Inércia
-                            if (dir.dx === lastDx && dir.dy === lastDy && (lastDx !== 0 || lastDy !== 0)) { weight += 1.2; } // Bônus maior para continuar reto
-                            possibleMoves.push({ x: nextX, y: nextY, weight: weight, dx: dir.dx, dy: dir.dy });
-                        }
-                    }
-                    if (possibleMoves.length === 0) { /* ... (Lógica de backtrack mantida) ... */
-                         const currentKey = `${current.x},${current.y}`;
-                         if (path.length > 1 && !triedBacktracking.has(currentKey)) {
-                             triedBacktracking.add(currentKey); path.pop(); current = {...path[path.length - 1]};
-                             if(path.length > 1) { lastDx = current.x - path[path.length-2].x; lastDy = current.y - path[path.length-2].y; }
-                             else { lastDx = 0; lastDy = 0;}
-                             stuckCounter++; continue;
-                         } else { console.error("Path generation failed: Stuck at", current); return [{...start}]; } // Falha
-                    }
-                    const totalWeight = possibleMoves.reduce((sum, move) => sum + move.weight, 0); let randomChoice = Math.random() * totalWeight;
-                    let chosenMove = possibleMoves[possibleMoves.length - 1];
-                    for (const move of possibleMoves) { randomChoice -= move.weight; if (randomChoice <= 0) { chosenMove = move; break; } }
-                    current = { x: chosenMove.x, y: chosenMove.y }; path.push({...current}); visited.add(`${current.x},${current.y}`);
-                    lastDx = chosenMove.dx; lastDy = chosenMove.dy; stuckCounter = 0; triedBacktracking.clear();
+             // --- Funções de Transformação de Coordenadas ---
+             const gridToCartesian = (gridPos) => ({
+                 x: gridPos.x,
+                 y: (GRID_ROWS - 1) - gridPos.y
+             });
+             // Não precisamos converter Cartesiano -> Grid explicitamente, pois faremos a inversão de deltaY
+
+             // --- Funções de Geração (Internas usam Coordenadas do Grid) ---
+            function generatePath(startGrid, endGrid) { /* ... (Lógica interna usa grid coords, mantida) ... */ let path = [{...startGrid}]; let current = {...startGrid}; let visited = new Set([`${startGrid.x},${startGrid.y}`]); let stuckCounter = 0; const MAX_STUCK = GRID_COLS * GRID_ROWS * 3; let triedBacktracking = new Set(); let lastDx = 0, lastDy = 0; while ((current.x !== endGrid.x || current.y !== endGrid.y) && stuckCounter < MAX_STUCK) { let possibleMoves = []; const directions = [ {dx:0, dy:-1}, {dx:0, dy:1}, {dx:-1, dy:0}, {dx:1, dy:0} ]; for (const dir of directions) { const nextX = current.x + dir.dx; const nextY = current.y + dir.dy; const nextKey = `${nextX},${nextY}`; if (nextX >= 0 && nextX < GRID_COLS && nextY >= 0 && nextY < GRID_ROWS && !visited.has(nextKey)) { const currentDist = Math.abs(endGrid.x - current.x) + Math.abs(endGrid.y - current.y); const nextDist = Math.abs(endGrid.x - nextX) + Math.abs(endGrid.y - nextY); let weight = 1.0; if (nextDist < currentDist) weight = 1.8; else if (nextDist === currentDist) weight = 1.1; if (dir.dx === lastDx && dir.dy === lastDy && (lastDx !== 0 || lastDy !== 0)) { weight += 1.2; } possibleMoves.push({ x: nextX, y: nextY, weight: weight, dx: dir.dx, dy: dir.dy }); } } if (possibleMoves.length === 0) { const currentKey = `${current.x},${current.y}`; if (path.length > 1 && !triedBacktracking.has(currentKey)) { triedBacktracking.add(currentKey); path.pop(); current = {...path[path.length - 1]}; if(path.length > 1) { lastDx = current.x - path[path.length-2].x; lastDy = current.y - path[path.length-2].y; } else { lastDx = 0; lastDy = 0;} stuckCounter++; continue; } else { console.error("Path generation failed: Stuck at", current); return [{...startGrid}]; } } const totalWeight = possibleMoves.reduce((sum, move) => sum + move.weight, 0); let randomChoice = Math.random() * totalWeight; let chosenMove = possibleMoves[possibleMoves.length - 1]; for (const move of possibleMoves) { randomChoice -= move.weight; if (randomChoice <= 0) { chosenMove = move; break; } } current = { x: chosenMove.x, y: chosenMove.y }; path.push({...current}); visited.add(`${current.x},${current.y}`); lastDx = chosenMove.dx; lastDy = chosenMove.dy; stuckCounter = 0; triedBacktracking.clear(); } if (stuckCounter >= MAX_STUCK) console.warn("Path generation might be incomplete."); return path; }
+            function placeObstacles(pathCellsGrid, densityPercent) { /* ... (Lógica interna usa grid coords, mantida) ... */ let obstacles = []; const pathSet = new Set(pathCellsGrid.map(p => `${p.x},${p.y}`)); const startKey = `${START_POS_GRID.x},${START_POS_GRID.y}`; const endKey = `${TARGET_POS_GRID.x},${TARGET_POS_GRID.y}`; const baseDensity = densityPercent / 100.0; for (let y = 0; y < GRID_ROWS; y++) { for (let x = 0; x < GRID_COLS; x++) { const cellKey = `${x},${y}`; if (!pathSet.has(cellKey) && cellKey !== startKey && cellKey !== endKey) { let probability = baseDensity * 0.8; if (x <= 0 || x >= GRID_COLS - 1 || y <= 0 || y >= GRID_ROWS - 1) probability = 0.95; else { let adjacentToPath = false; const neighbors = [{dx:0,dy:-1},{dx:0,dy:1},{dx:-1,dy:0},{dx:1,dy:0}]; for(const n of neighbors){ if(pathSet.has(`${x+n.dx},${y+n.dy}`)){adjacentToPath=true; break;} } if (!adjacentToPath) probability = baseDensity * 1.2; } if (Math.random() < Math.min(probability, 0.9)) obstacles.push({ x, y, type: Math.random() < 0.8 ? 'wall' : 'tree' }); } } } return obstacles; }
+            function placeHazards(pathCellsGrid, obstacles, densityPercent) { /* ... (Lógica interna usa grid coords, mantida) ... */ let hazards = []; const occupiedSet = new Set([...pathCellsGrid.map(p => `${p.x},${p.y}`), ...obstacles.map(o => `${o.x},${o.y}`), `${START_POS_GRID.x},${START_POS_GRID.y}`, `${TARGET_POS_GRID.x},${TARGET_POS_GRID.y}`]); const hazardDensity = densityPercent / 100.0; const availableCells = []; for (let y=0; y<GRID_ROWS; y++) { for (let x=0; x<GRID_COLS; x++) { if(!occupiedSet.has(`${x},${y}`)) availableCells.push({x,y}); }} availableCells.sort(() => Math.random() - 0.5); const numHazardsToPlace = Math.floor(availableCells.length * hazardDensity); for(let i = 0; i < Math.min(numHazardsToPlace, availableCells.length); i++) { const cell = availableCells[i]; const randType = Math.random(); let type = 'radiation'; if (randType < 0.3) type = 'troll'; else if (randType < 0.5) type = 'imp'; hazards.push({ x: cell.x, y: cell.y, type: type }); } if (hazards.length < numHazardsToPlace) console.warn(`Could only place ${hazards.length} hazards.`); return hazards; }
+            function generateMapData() { /* ... (Usa coords do grid internamente) ... */ console.log("Generating new map..."); mapElements.clear(); let generatedPathGrid = []; let generatedObstacles = []; let generatedHazards = []; currentPosGrid = { ...START_POS_GRID }; targetPosGrid = { ...TARGET_POS_GRID }; generatedPathGrid = generatePath(currentPosGrid, targetPosGrid); mapElements.set(`${currentPosGrid.x},${currentPosGrid.y}`, { type: 'start', info: currentPosGrid }); generatedPathGrid.forEach((p, index) => { if(index > 0) mapElements.set(`${p.x},${p.y}`, { type: 'path', info: p }) }); console.log(`Path generated with ${generatedPathGrid.length} cells.`); const obsDensity = parseInt(obstacleDensitySlider.value); const hazDensity = parseInt(hazardDensitySlider.value); generatedObstacles = placeObstacles(generatedPathGrid, obsDensity); generatedObstacles.forEach(o => mapElements.set(`${o.x},${o.y}`, { type: 'obstacle', info: o })); console.log(`Placed ${generatedObstacles.length} obstacles (Density: ${obsDensity}%).`); generatedHazards = placeHazards(generatedPathGrid, generatedObstacles, hazDensity); generatedHazards.forEach(h => mapElements.set(`${h.x},${h.y}`, { type: 'hazard', info: h })); console.log(`Placed ${generatedHazards.length} hazards (Density: ${hazDensity}%).`); mapElements.set(`${targetPosGrid.x},${targetPosGrid.y}`, { type: 'target', info: targetPosGrid }); }
+
+
+            // --- Funções de Desenho (Usam Coordenadas do Grid) ---
+            function drawGridWithAxes() { /* ... (Pode mostrar números cartesianos) ... */
+                ctx.strokeStyle = 'rgba(45, 226, 230, 0.2)'; ctx.lineWidth = 1; ctx.beginPath();
+                for (let x = 0; x <= GRID_COLS; x++) { ctx.moveTo(x * CELL_SIZE, 0); ctx.lineTo(x * CELL_SIZE, CANVAS_HEIGHT); }
+                for (let y = 0; y <= GRID_ROWS; y++) { ctx.moveTo(0, y * CELL_SIZE); ctx.lineTo(CANVAS_WIDTH, y * CELL_SIZE); }
+                ctx.stroke();
+                // Números dos Eixos (X na base, Y na esquerda, estilo Cartesiano)
+                ctx.fillStyle = COLOR_INTERFACE_CYAN; ctx.font = `${CELL_SIZE*0.25}px ${getComputedStyle(document.documentElement).getPropertyValue('--font-mono')}`;
+                ctx.textAlign = 'center'; ctx.textBaseline = 'top'; // X na base
+                for (let x = 0; x < GRID_COLS; x++) { ctx.fillText(x, x * CELL_SIZE + CELL_SIZE / 2, CANVAS_HEIGHT + 3); }
+                ctx.textAlign = 'right'; ctx.textBaseline = 'middle'; // Y na esquerda
+                for (let y = 0; y < GRID_ROWS; y++) {
+                    const cartesianY = (GRID_ROWS - 1) - y; // Converte y do grid para y cartesiano
+                    ctx.fillText(cartesianY, -3, y * CELL_SIZE + CELL_SIZE / 2);
                 }
-                if (stuckCounter >= MAX_STUCK) console.warn("Path generation might be incomplete.");
-                return path;
-            }
-            function placeObstacles(pathCells, densityPercent) { /* ... (Usa densityPercent, lógica mantida) ... */
-                let obstacles = []; const pathSet = new Set(pathCells.map(p => `${p.x},${p.y}`));
-                const startKey = `${START_POS_DEFAULT.x},${START_POS_DEFAULT.y}`; const endKey = `${TARGET_POS_DEFAULT.x},${TARGET_POS_DEFAULT.y}`;
-                const baseDensity = densityPercent / 100.0;
-                for (let y = 0; y < GRID_ROWS; y++) { for (let x = 0; x < GRID_COLS; x++) { const cellKey = `${x},${y}`;
-                    if (!pathSet.has(cellKey) && cellKey !== startKey && cellKey !== endKey) {
-                        let probability = baseDensity * 0.8; if (x <= 0 || x >= GRID_COLS - 1 || y <= 0 || y >= GRID_ROWS - 1) probability = 0.95;
-                        else { let adjacentToPath = false; const neighbors = [{dx:0,dy:-1},{dx:0,dy:1},{dx:-1,dy:0},{dx:1,dy:0}]; for(const n of neighbors){ if(pathSet.has(`${x+n.dx},${y+n.dy}`)){adjacentToPath=true; break;} } if (!adjacentToPath) probability = baseDensity * 1.2; }
-                        if (Math.random() < Math.min(probability, 0.9)) obstacles.push({ x, y, type: Math.random() < 0.8 ? 'wall' : 'tree' });
-                    } } } return obstacles;
-            }
-             function placeHazards(pathCells, obstacles, densityPercent) { /* ... (Usa densityPercent, lógica mantida) ... */
-                 let hazards = []; const occupiedSet = new Set([...pathCells.map(p => `${p.x},${p.y}`), ...obstacles.map(o => `${o.x},${o.y}`), `${START_POS_DEFAULT.x},${START_POS_DEFAULT.y}`, `${TARGET_POS_DEFAULT.x},${TARGET_POS_DEFAULT.y}`]);
-                 const hazardDensity = densityPercent / 100.0; const availableCells = [];
-                 for (let y=0; y<GRID_ROWS; y++) { for (let x=0; x<GRID_COLS; x++) { if(!occupiedSet.has(`${x},${y}`)) availableCells.push({x,y}); }}
-                 availableCells.sort(() => Math.random() - 0.5); const numHazardsToPlace = Math.floor(availableCells.length * hazardDensity);
-                 for(let i = 0; i < Math.min(numHazardsToPlace, availableCells.length); i++) { const cell = availableCells[i]; const randType = Math.random(); let type = 'radiation'; if (randType < 0.3) type = 'troll'; else if (randType < 0.5) type = 'imp'; hazards.push({ x: cell.x, y: cell.y, type: type }); }
-                 if (hazards.length < numHazardsToPlace) console.warn(`Could only place ${hazards.length} hazards.`); return hazards;
-            }
-            function generateMapData() { /* ... (Lê sliders, chama as funções acima, preenche mapElements) ... */
-                console.log("Generating new map..."); mapElements.clear(); generatedPath = []; generatedObstacles = []; generatedHazards = [];
-                currentPos = { ...START_POS_DEFAULT }; targetPos = { ...TARGET_POS_DEFAULT };
-                generatedPath = generatePath(currentPos, targetPos);
-                mapElements.set(`${currentPos.x},${currentPos.y}`, { type: 'start', info: currentPos });
-                generatedPath.forEach((p, index) => { if(index > 0) mapElements.set(`${p.x},${p.y}`, { type: 'path', info: p }) });
-                console.log(`Path generated with ${generatedPath.length} cells.`);
-                const obsDensity = parseInt(obstacleDensitySlider.value); const hazDensity = parseInt(hazardDensitySlider.value);
-                generatedObstacles = placeObstacles(generatedPath, obsDensity); generatedObstacles.forEach(o => mapElements.set(`${o.x},${o.y}`, { type: 'obstacle', info: o }));
-                console.log(`Placed ${generatedObstacles.length} obstacles (Density: ${obsDensity}%).`);
-                generatedHazards = placeHazards(generatedPath, generatedObstacles, hazDensity); generatedHazards.forEach(h => mapElements.set(`${h.x},${h.y}`, { type: 'hazard', info: h }));
-                console.log(`Placed ${generatedHazards.length} hazards (Density: ${hazDensity}%).`);
-                mapElements.set(`${targetPos.x},${targetPos.y}`, { type: 'target', info: targetPos });
-            }
+             }
+            function drawCellContent(gridX, gridY, cellData) { /* ... (Mantida - usa grid coords para desenhar) ... */ const xPx = gridX * CELL_SIZE; const yPx = gridY * CELL_SIZE; let icon = null; let iconColor = '#000'; let fillColor = 'transparent'; if (!cellData) return; const type = cellData.type; const info = cellData.info; if (type === 'path' || type === 'start') fillColor = COLOR_PATH_LIGHT; else if (type === 'target') fillColor = 'rgba(0,0,0,0)'; else if (type === 'obstacle') fillColor = info?.type === 'tree' ? 'rgba(0, 50, 0, 0.8)' : COLOR_WALL_GRAY; else if (type === 'hazard') fillColor = 'rgba(255, 0, 0, 0.1)'; if (fillColor !== 'transparent') { ctx.fillStyle = fillColor; ctx.fillRect(xPx, yPx, CELL_SIZE, CELL_SIZE); if (type === 'path') { const gradient = ctx.createLinearGradient(xPx, yPx, xPx + CELL_SIZE, yPx + CELL_SIZE); gradient.addColorStop(0, COLOR_PATH_LIGHT); gradient.addColorStop(1, COLOR_PATH_DARK); ctx.fillStyle = gradient; ctx.fillRect(xPx, yPx, CELL_SIZE, CELL_SIZE); } } if (type === 'target') { const centerX = xPx + CELL_SIZE / 2; const centerY = yPx + CELL_SIZE / 2; const gradient = ctx.createRadialGradient(centerX, centerY, CELL_SIZE * 0.1, centerX, centerY, CELL_SIZE * 0.5); gradient.addColorStop(0, COLOR_HIGHLIGHT_GOLD); gradient.addColorStop(1, 'rgba(255, 215, 0, 0)'); ctx.fillStyle = gradient; ctx.fillRect(xPx, yPx, CELL_SIZE, CELL_SIZE); icon = ICON_TARGET; iconColor = '#FFF'; } else if (type === 'hazard') { if (info.type === 'radiation') { const centerX = xPx + CELL_SIZE / 2; const centerY = yPx + CELL_SIZE / 2; const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, CELL_SIZE * 0.7); gradient.addColorStop(0, `rgba(0, 255, 50, 0.7)`); gradient.addColorStop(1, `rgba(0, 255, 50, 0)`); ctx.fillStyle = gradient; ctx.fillRect(xPx, yPx, CELL_SIZE, CELL_SIZE); icon = ICON_HAZARD_RADIATION; iconColor = '#FFF'; } else if (info.type === 'troll') icon = ICON_HAZARD_TROLL; else if (info.type === 'imp') icon = ICON_HAZARD_IMP; } else if (type === 'obstacle' && info?.type !== 'tree') { ctx.strokeStyle = 'rgba(0, 0, 0, 0.5)'; ctx.lineWidth = 1; ctx.beginPath(); for(let i=1;i<3;i++){ctx.moveTo(xPx,yPx+i*CELL_SIZE/3); ctx.lineTo(xPx+CELL_SIZE,yPx+i*CELL_SIZE/3);} ctx.moveTo(xPx+CELL_SIZE/2,yPx); ctx.lineTo(xPx+CELL_SIZE/2,yPx+CELL_SIZE/3); ctx.moveTo(xPx+CELL_SIZE/2,yPx+2*CELL_SIZE/3); ctx.lineTo(xPx+CELL_SIZE/2,yPx+CELL_SIZE); ctx.moveTo(xPx+CELL_SIZE/4,yPx+CELL_SIZE/3); ctx.lineTo(xPx+CELL_SIZE/4,yPx+2*CELL_SIZE/3); ctx.moveTo(xPx+3*CELL_SIZE/4,yPx+CELL_SIZE/3); ctx.lineTo(xPx+3*CELL_SIZE/4,yPx+2*CELL_SIZE/3); ctx.stroke(); } else if (type === 'obstacle' && info?.type === 'tree') { icon = ICON_OBSTACLE_TREE; iconColor = COLOR_TEXT_LIME; } else if (type === 'survivor') { ctx.fillStyle = 'rgba(45, 226, 230, 0.3)'; ctx.fillRect(xPx, yPx, CELL_SIZE, CELL_SIZE); icon = ICON_SURVIVOR; iconColor = COLOR_INTERFACE_CYAN; } if (icon) { const fontSize = CELL_SIZE * (icon === ICON_TARGET || icon === ICON_SURVIVOR ? 0.7 : 0.6); ctx.font = `${fontSize}px Arial`; ctx.fillStyle = iconColor; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(icon, xPx + CELL_SIZE / 2, yPx + CELL_SIZE / 2 + fontSize * 0.1); } }
+            function drawPlayerPath() { /* ... (Mantida - usa pathTakenGrid) ... */ if (pathTakenGrid.length < 2) return; ctx.strokeStyle = COLOR_INTERFACE_CYAN; ctx.lineWidth = 2; ctx.setLineDash([4, 4]); ctx.beginPath(); ctx.moveTo(pathTakenGrid[0].x * CELL_SIZE + CELL_SIZE / 2, pathTakenGrid[0].y * CELL_SIZE + CELL_SIZE / 2); for (let i = 1; i < pathTakenGrid.length; i++) { ctx.lineTo(pathTakenGrid[i].x * CELL_SIZE + CELL_SIZE / 2, pathTakenGrid[i].y * CELL_SIZE + CELL_SIZE / 2); } ctx.stroke(); ctx.setLineDash([]); }
+            function drawPositionVectorTraces() { /* ... (Mantida - usa pathTakenGrid) ... */ if (pathTakenGrid.length < 2) return; const startX = pathTakenGrid[0].x; const startY = pathTakenGrid[0].y; const startCenterX = startX * CELL_SIZE + CELL_SIZE / 2; const startCenterY = startY * CELL_SIZE + CELL_SIZE / 2; ctx.strokeStyle = COLOR_POS_VECTOR_TRACE; ctx.lineWidth = 1; ctx.setLineDash([]); for (let i = 1; i < pathTakenGrid.length; i++) { if (pathTakenGrid[i]?.diedHere) continue; const currentX = pathTakenGrid[i].x; const currentY = pathTakenGrid[i].y; const currentCenterX = currentX * CELL_SIZE + CELL_SIZE / 2; const currentCenterY = currentY * CELL_SIZE + CELL_SIZE / 2; ctx.beginPath(); ctx.moveTo(startCenterX, startCenterY); ctx.lineTo(currentCenterX, currentCenterY); ctx.stroke(); } }
+            function drawGame() { /* ... (Mantida - usa currentPosGrid) ... */ ctx.fillStyle = COLOR_BASE_GREEN; ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT); for (let y = 0; y < GRID_ROWS; y++) { for (let x = 0; x < GRID_COLS; x++) { const cellData = mapElements.get(`${x},${y}`); drawCellContent(x, y, cellData); } } drawGridWithAxes(); drawPositionVectorTraces(); drawPlayerPath(); drawCellContent(currentPosGrid.x, currentPosGrid.y, { type: 'survivor' }); if (!gameActive && pathTakenGrid[pathTakenGrid.length - 1]?.diedHere) { const deathPos = pathTakenGrid[pathTakenGrid.length - 1]; const xPx = deathPos.x * CELL_SIZE; const yPx = deathPos.y * CELL_SIZE; const fontSize = CELL_SIZE * 0.7; ctx.font = `${fontSize}px Arial`; ctx.fillStyle = 'red'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(ICON_DEATH, xPx + CELL_SIZE / 2, yPx + CELL_SIZE / 2 + fontSize * 0.1); } updateInfoDisplays(); }
 
 
-            // --- Funções de Desenho ---
-            // ... (drawGridWithAxes, drawCellContent, drawPlayerPath, drawGame - Mantidas) ...
-            function drawGridWithAxes() { ctx.strokeStyle = 'rgba(45, 226, 230, 0.2)'; ctx.lineWidth = 1; ctx.beginPath(); for (let x = 0; x <= GRID_COLS; x++) { ctx.moveTo(x * CELL_SIZE, 0); ctx.lineTo(x * CELL_SIZE, CANVAS_HEIGHT); } for (let y = 0; y <= GRID_ROWS; y++) { ctx.moveTo(0, y * CELL_SIZE); ctx.lineTo(CANVAS_WIDTH, y * CELL_SIZE); } ctx.stroke(); ctx.fillStyle = COLOR_INTERFACE_CYAN; ctx.font = `${CELL_SIZE*0.25}px ${getComputedStyle(document.documentElement).getPropertyValue('--font-mono')}`; ctx.textAlign = 'center'; ctx.textBaseline = 'top'; for (let x = 0; x < GRID_COLS; x++) { ctx.fillText(x, x * CELL_SIZE + CELL_SIZE / 2, CANVAS_HEIGHT + 2); } ctx.textAlign = 'right'; ctx.textBaseline = 'middle'; for (let y = 0; y < GRID_ROWS; y++) { ctx.fillText(y, -2, y * CELL_SIZE + CELL_SIZE / 2); } }
-            function drawCellContent(gridX, gridY, cellData) { const xPx = gridX * CELL_SIZE; const yPx = gridY * CELL_SIZE; let icon = null; let iconColor = '#000'; let fillColor = 'transparent'; if (!cellData) return; const type = cellData.type; const info = cellData.info; if (type === 'path' || type === 'start') fillColor = COLOR_PATH_LIGHT; else if (type === 'target') fillColor = 'rgba(0,0,0,0)'; else if (type === 'obstacle') fillColor = info?.type === 'tree' ? 'rgba(0, 50, 0, 0.8)' : COLOR_WALL_GRAY; else if (type === 'hazard') fillColor = 'rgba(255, 0, 0, 0.1)'; if (fillColor !== 'transparent') { ctx.fillStyle = fillColor; ctx.fillRect(xPx, yPx, CELL_SIZE, CELL_SIZE); if (type === 'path') { const gradient = ctx.createLinearGradient(xPx, yPx, xPx + CELL_SIZE, yPx + CELL_SIZE); gradient.addColorStop(0, COLOR_PATH_LIGHT); gradient.addColorStop(1, COLOR_PATH_DARK); ctx.fillStyle = gradient; ctx.fillRect(xPx, yPx, CELL_SIZE, CELL_SIZE); } } if (type === 'target') { const centerX = xPx + CELL_SIZE / 2; const centerY = yPx + CELL_SIZE / 2; const gradient = ctx.createRadialGradient(centerX, centerY, CELL_SIZE * 0.1, centerX, centerY, CELL_SIZE * 0.5); gradient.addColorStop(0, COLOR_HIGHLIGHT_GOLD); gradient.addColorStop(1, 'rgba(255, 215, 0, 0)'); ctx.fillStyle = gradient; ctx.fillRect(xPx, yPx, CELL_SIZE, CELL_SIZE); icon = ICON_TARGET; iconColor = '#FFF'; } else if (type === 'hazard') { if (info.type === 'radiation') { const centerX = xPx + CELL_SIZE / 2; const centerY = yPx + CELL_SIZE / 2; const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, CELL_SIZE * 0.7); gradient.addColorStop(0, `rgba(0, 255, 50, 0.7)`); gradient.addColorStop(1, `rgba(0, 255, 50, 0)`); ctx.fillStyle = gradient; ctx.fillRect(xPx, yPx, CELL_SIZE, CELL_SIZE); icon = ICON_HAZARD_RADIATION; iconColor = '#FFF'; } else if (info.type === 'troll') icon = ICON_HAZARD_TROLL; else if (info.type === 'imp') icon = ICON_HAZARD_IMP; } else if (type === 'obstacle' && info?.type !== 'tree') { ctx.strokeStyle = 'rgba(0, 0, 0, 0.5)'; ctx.lineWidth = 1; ctx.beginPath(); for(let i=1;i<3;i++){ctx.moveTo(xPx,yPx+i*CELL_SIZE/3); ctx.lineTo(xPx+CELL_SIZE,yPx+i*CELL_SIZE/3);} ctx.moveTo(xPx+CELL_SIZE/2,yPx); ctx.lineTo(xPx+CELL_SIZE/2,yPx+CELL_SIZE/3); ctx.moveTo(xPx+CELL_SIZE/2,yPx+2*CELL_SIZE/3); ctx.lineTo(xPx+CELL_SIZE/2,yPx+CELL_SIZE); ctx.moveTo(xPx+CELL_SIZE/4,yPx+CELL_SIZE/3); ctx.lineTo(xPx+CELL_SIZE/4,yPx+2*CELL_SIZE/3); ctx.moveTo(xPx+3*CELL_SIZE/4,yPx+CELL_SIZE/3); ctx.lineTo(xPx+3*CELL_SIZE/4,yPx+2*CELL_SIZE/3); ctx.stroke(); } else if (type === 'obstacle' && info?.type === 'tree') { icon = ICON_OBSTACLE_TREE; iconColor = COLOR_TEXT_LIME; } else if (type === 'survivor') { ctx.fillStyle = 'rgba(45, 226, 230, 0.3)'; ctx.fillRect(xPx, yPx, CELL_SIZE, CELL_SIZE); icon = ICON_SURVIVOR; iconColor = COLOR_INTERFACE_CYAN; } if (icon) { const fontSize = CELL_SIZE * (icon === ICON_TARGET || icon === ICON_SURVIVOR ? 0.7 : 0.6); ctx.font = `${fontSize}px Arial`; ctx.fillStyle = iconColor; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(icon, xPx + CELL_SIZE / 2, yPx + CELL_SIZE / 2 + fontSize * 0.1); } }
-            function drawPlayerPath() { if (pathTaken.length < 2) return; ctx.strokeStyle = COLOR_INTERFACE_CYAN; ctx.lineWidth = 2; ctx.setLineDash([4, 4]); ctx.beginPath(); ctx.moveTo(pathTaken[0].x * CELL_SIZE + CELL_SIZE / 2, pathTaken[0].y * CELL_SIZE + CELL_SIZE / 2); for (let i = 1; i < pathTaken.length; i++) { ctx.lineTo(pathTaken[i].x * CELL_SIZE + CELL_SIZE / 2, pathTaken[i].y * CELL_SIZE + CELL_SIZE / 2); } ctx.stroke(); ctx.setLineDash([]); }
-            function drawGame() { ctx.fillStyle = COLOR_BASE_GREEN; ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT); for (let y = 0; y < GRID_ROWS; y++) { for (let x = 0; x < GRID_COLS; x++) { const cellData = mapElements.get(`${x},${y}`); drawCellContent(x, y, cellData); } } drawGridWithAxes(); drawPlayerPath(); drawCellContent(currentPos.x, currentPos.y, { type: 'survivor' }); if (!gameActive && pathTaken[pathTaken.length - 1]?.diedHere) { const deathPos = pathTaken[pathTaken.length - 1]; const xPx = deathPos.x * CELL_SIZE; const yPx = deathPos.y * CELL_SIZE; const fontSize = CELL_SIZE * 0.7; ctx.font = `${fontSize}px Arial`; ctx.fillStyle = 'red'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(ICON_DEATH, xPx + CELL_SIZE / 2, yPx + CELL_SIZE / 2 + fontSize * 0.1); } updateInfoDisplays(); }
-
-
-            // --- Funções Auxiliares e Lógica ---
-            function getCellData(x, y) { return mapElements.get(`${x},${y}`); }
-            function isObstacleAt(x, y) { return getCellData(x, y)?.type === 'obstacle'; }
-            function getHazardAt(x, y) { const cell = getCellData(x,y); return cell?.type === 'hazard' ? cell.info : null; }
-            function isWithinBounds(x, y) { return x >= 0 && x < GRID_COLS && y >= 0 && y < GRID_ROWS; }
-            function displayMessage(message, type = 'info') { messageArea.innerHTML = message; messageArea.className = 'message-area'; if (type === 'error') messageArea.classList.add('error'); else if (type === 'success') messageArea.classList.add('success'); }
-            function updateInfoDisplays() { currentPosDisplay.textContent = `(${currentPos.x}, ${currentPos.y})`; targetPosDisplay.textContent = `(${targetPos.x}, ${targetPos.y})`; posVectorDisplay.textContent = `[${currentPos.x}, ${currentPos.y}]`; }
+            // --- Funções Auxiliares (Usam Coordenadas do Grid) ---
+            function getCellData(gridX, gridY) { return mapElements.get(`${gridX},${gridY}`); }
+            function isObstacleAt(gridX, gridY) { return getCellData(gridX, gridY)?.type === 'obstacle'; }
+            function getHazardAt(gridX, gridY) { const cell = getCellData(gridX,gridY); return cell?.type === 'hazard' ? cell.info : null; }
+            function isWithinBounds(gridX, gridY) { return gridX >= 0 && gridX < GRID_COLS && gridY >= 0 && gridY < GRID_ROWS; }
+            function displayMessage(message, type = 'info') { /* ... (Mantida) ... */ messageArea.innerHTML = message; messageArea.className = 'message-area'; if (type === 'error') messageArea.classList.add('error'); else if (type === 'success') messageArea.classList.add('success'); }
             function triggerGameOverAnimation() { gameOverOverlay.classList.add('active'); }
             function resetGameOverAnimation() { gameOverOverlay.classList.remove('active'); void gameOverOverlay.offsetWidth; }
+            // ATUALIZADA para mostrar coords Cartesianas
+            function updateInfoDisplays() {
+                 const currentCartesian = gridToCartesian(currentPosGrid);
+                 const targetCartesian = gridToCartesian(targetPosGrid);
+                 currentPosDisplay.textContent = `(${currentCartesian.x}, ${currentCartesian.y})`;
+                 targetPosDisplay.textContent = `(${targetCartesian.x}, ${targetCartesian.y})`;
+            }
+
+
+             // --- Animação de Fogos de Artifício ---
+             let fireworks = []; // Array para guardar partículas
+             class Particle {
+                 constructor(x, y, color, velocity) {
+                     this.x = x; this.y = y; this.color = color;
+                     this.velocity = velocity; this.alpha = 1;
+                     this.gravity = 0.02; // Efeito de gravidade
+                     this.friction = 0.99; // Desaceleração leve
+                 }
+                 draw(context) {
+                     context.save();
+                     context.globalAlpha = this.alpha;
+                     context.beginPath();
+                     context.arc(this.x, this.y, 2, 0, Math.PI * 2, false); // Círculo pequeno
+                     context.fillStyle = this.color;
+                     context.fill();
+                     context.restore();
+                 }
+                 update(context) {
+                     this.velocity.x *= this.friction;
+                     this.velocity.y *= this.friction;
+                     this.velocity.y += this.gravity; // Aplica gravidade
+                     this.x += this.velocity.x;
+                     this.y += this.velocity.y;
+                     this.alpha -= 0.015; // Desaparece gradualmente
+                     this.draw(context);
+                 }
+             }
+             function createFireworkBurst(x, y) {
+                 const particleCount = 50; // Quantidade de partículas por explosão
+                 const angleIncrement = (Math.PI * 2) / particleCount;
+                 const colors = [COLOR_INTERFACE_CYAN, COLOR_HIGHLIGHT_GOLD, COLOR_TEXT_LIME, '#FFFFFF']; // Cores dos fogos
+
+                 for (let i = 0; i < particleCount; i++) {
+                     const speed = Math.random() * 4 + 1; // Velocidade aleatória
+                     const color = colors[Math.floor(Math.random() * colors.length)];
+                     fireworks.push(new Particle(
+                         x, y, color,
+                         {
+                             x: Math.cos(angleIncrement * i) * speed,
+                             y: Math.sin(angleIncrement * i) * speed
+                         }
+                     ));
+                 }
+             }
+             function animateFireworks() {
+                 // Limpa canvas dos fogos com leve rastro (efeito fade out)
+                 fwCtx.fillStyle = 'rgba(0, 0, 0, 0.1)'; // Fundo escuro semi-transparente
+                 fwCtx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+                 // Adiciona novos fogos aleatoriamente
+                 if (Math.random() < 0.05) { // Chance baixa a cada frame
+                     createFireworkBurst(
+                         Math.random() * CANVAS_WIDTH,
+                         Math.random() * CANVAS_HEIGHT * 0.7 // Explode mais na parte de cima
+                     );
+                 }
+
+                 // Atualiza e desenha partículas existentes
+                 for (let i = fireworks.length - 1; i >= 0; i--) {
+                     fireworks[i].update(fwCtx);
+                     if (fireworks[i].alpha <= 0) {
+                         fireworks.splice(i, 1); // Remove partículas que desapareceram
+                     }
+                 }
+
+                 // Continua a animação se houver partículas ou se o jogo estiver na vitória
+                 if (fireworks.length > 0 || !gameActive) { // Mantem animando um pouco depois de zerar
+                     fireworksAnimationId = requestAnimationFrame(animateFireworks);
+                 } else {
+                      fireworksCanvas.classList.remove('active'); // Esconde canvas qdo acabar
+                 }
+             }
+             function startFireworks() {
+                 if (fireworksAnimationId) cancelAnimationFrame(fireworksAnimationId); // Cancela animação anterior
+                 fireworks = []; // Limpa partículas antigas
+                 fireworksCanvas.classList.add('active'); // Mostra o canvas
+                 animateFireworks(); // Inicia loop
+             }
+             function stopFireworks() {
+                  if (fireworksAnimationId) {
+                      cancelAnimationFrame(fireworksAnimationId);
+                      fireworksAnimationId = null;
+                  }
+                  // Limpar gradualmente as partículas restantes? Ou só esconder? Esconder é mais simples.
+                  fireworksCanvas.classList.remove('active');
+                  fwCtx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT); // Limpa imediatamente
+                  fireworks = []; // Limpa array
+             }
 
 
              // --- Inicialização e Movimento ---
             function initializeGame() {
-                console.log("Initializing game..."); gameActive = true; resetGameOverAnimation(); generateMapData();
-                currentPos = {...START_POS_DEFAULT}; targetPos = {...TARGET_POS_DEFAULT}; pathTaken = [{ ...currentPos }];
+                console.log("Initializing game..."); gameActive = true;
+                resetGameOverAnimation();
+                stopFireworks(); // Para fogos se estiverem rodando
+                generateMapData();
+                currentPosGrid = {...START_POS_GRID}; targetPosGrid = {...TARGET_POS_GRID};
+                pathTakenGrid = [{ ...currentPosGrid }];
                 dxInput.value = "0"; dyInput.value = "0";
-                displayMessage("Novo mapa tático gerado. Insira o vetor deslocamento (Δy+ Cima).", 'info');
+                displayMessage("Novo mapa tático gerado. Insira o vetor deslocamento (Δy+ Cima Cartesiano).", 'info');
                 drawGame(); console.log("Game initialized.");
             }
 
-             // *** handleMove ATUALIZADO para Y+ Cima ***
-             function handleMove() {
-                console.log("Attempting move...");
-                if (!gameActive) { displayMessage("Falha crítica no sistema! Reinicie para novo mapa.", 'error'); console.log("Move blocked: Game not active."); return; }
-
+            // *** handleMove ATUALIZADO para usar coords do GRID internamente ***
+            function handleMove() {
+                if (!gameActive) { displayMessage("Fim de jogo! Reinicie para um novo mapa.", 'error'); return; }
                 const deltaX = parseInt(dxInput.value) || 0;
-                const inputDeltaY = parseInt(dyInput.value) || 0; // Y do input (+ cima)
+                const inputDeltaY = parseInt(dyInput.value) || 0; // Y Cartesiano (+ Cima)
+                const deltaY_internal = -inputDeltaY; // Converte para Grid (+ Baixo)
 
-                // **** INVERTE O SINAL DE Y AQUI ****
-                const deltaY_internal = -inputDeltaY; // Inverte para lógica interna (Y+ baixo)
+                if (deltaX === 0 && deltaY_internal === 0) { displayMessage("Entrada inválida: Vetor [0, 0].", 'error'); return; }
 
-                if (deltaX === 0 && deltaY_internal === 0) { // Usa o interno para checar zero
-                    displayMessage("Entrada inválida: Vetor [0, 0].", 'error'); console.log("Move blocked: Zero vector."); return;
-                }
+                // Usa coords internas (Grid)
+                const nextX = currentPosGrid.x + deltaX;
+                const nextY = currentPosGrid.y + deltaY_internal;
+                const nextPosGridStr = `(${nextX}, ${nextY})`; // Coords internas para log
 
-                // Cálculos usam deltaY_internal
-                const nextX = currentPos.x + deltaX;
-                const nextY = currentPos.y + deltaY_internal; // Usa o Y interno
+                if (!isWithinBounds(nextX, nextY)) { displayMessage(`Erro de Rota: Destino fora da área!`, 'error'); return; }
 
-                const nextPosStr = `(${nextX}, ${nextY})`; // Coordenadas internas
-                console.log(`Current: (${currentPos.x},${currentPos.y}), Input Delta: [${deltaX},${inputDeltaY}], Internal Delta: [${deltaX}, ${deltaY_internal}], Target Next: ${nextPosStr}`);
-
-                if (!isWithinBounds(nextX, nextY)) { displayMessage(`Erro de Rota: Destino ${nextPosStr} fora da área!`, 'error'); console.log("Move blocked: Out of bounds."); return; }
-
-                // Checagem de Caminho (usa deltaX e deltaY_internal)
-                const steps = Math.max(Math.abs(deltaX), Math.abs(deltaY_internal)); // Usa interno
+                // Checagem de Caminho (usa coords internas)
+                const steps = Math.max(Math.abs(deltaX), Math.abs(deltaY_internal));
                 let pathBlockedByObstacle = false; let pathBlockedByHazard = false;
-                let blockingPos = {}; let hazardInfo = null;
-                console.log(`Checking path (${steps} steps)...`);
-                if (steps >= 1) {
-                    let lastCheckedX = currentPos.x; let lastCheckedY = currentPos.y;
-                    for (let i = 1; i <= steps; i++) {
-                        const t = i / steps;
-                        // Interpolação usa deltaX e deltaY_internal
-                        const ix = Math.round(currentPos.x + t * deltaX);
-                        const iy = Math.round(currentPos.y + t * deltaY_internal); // Usa interno
-
-                        if ((ix === currentPos.x && iy === currentPos.y) || (ix === lastCheckedX && iy === lastCheckedY)) continue;
-                        console.log(`Checking step: (${ix}, ${iy})`);
-
-                        if (isObstacleAt(ix, iy)) { pathBlockedByObstacle = true; blockingPos = { x: ix, y: iy }; console.log(`Path blocked by obstacle at (${ix}, ${iy})`); break; }
-                        const hazard = getHazardAt(ix, iy);
-                        if (hazard) { pathBlockedByHazard = true; blockingPos = { x: ix, y: iy }; hazardInfo = hazard; console.log(`Path blocked by hazard at (${ix}, ${iy})`, hazardInfo); break; }
-                        lastCheckedX = ix; lastCheckedY = iy;
-                    }
+                let blockingPosGrid = {}; let hazardInfo = null;
+                if (steps >= 1) { /* ... (Lógica de checagem mantida, usa coords internas) ... */
+                     let lastCheckedX = currentPosGrid.x; let lastCheckedY = currentPosGrid.y;
+                     for (let i = 1; i <= steps; i++) { const t = i / steps; const ix = Math.round(currentPosGrid.x + t * deltaX); const iy = Math.round(currentPosGrid.y + t * deltaY_internal); if ((ix === currentPosGrid.x && iy === currentPosGrid.y) || (ix === lastCheckedX && iy === lastCheckedY)) continue; if (isObstacleAt(ix, iy)) { pathBlockedByObstacle = true; blockingPosGrid = { x: ix, y: iy }; break; } const hazard = getHazardAt(ix, iy); if (hazard) { pathBlockedByHazard = true; blockingPosGrid = { x: ix, y: iy }; hazardInfo = hazard; break; } lastCheckedX = ix; lastCheckedY = iy; }
                 }
 
-                // Mensagens usam inputDeltaY para clareza do usuário
-                const blockerPosStr = `(${blockingPos.x}, ${blockingPos.y})`;
-                const inputVectorStr = `<span class='vector'>[${deltaX}, ${inputDeltaY}]</span>`; // Mostra Y do input
+                // Mensagens usam coords Cartesianas e inputDeltaY
+                const blockerPosCartesian = gridToCartesian(blockingPosGrid); // Converte para exibição
+                const blockerPosCartesianStr = `(${blockerPosCartesian.x}, ${blockerPosCartesian.y})`;
+                const inputVectorStr = `<span class='vector'>[${deltaX}, ${inputDeltaY}]</span>`;
 
-                if (pathBlockedByObstacle) { /* ... (Mensagem de erro mantida) ... */
-                     const obstacleIcon = mapElements.get(`${blockingPos.x},${blockingPos.y}`)?.info.type === 'tree' ? ICON_OBSTACLE_TREE : ICON_OBSTACLE_WALL; displayMessage(`Movimento ${inputVectorStr} falhou! Bloqueado por ${obstacleIcon} em ${blockerPosStr}.`, 'error'); console.log("Move failed: Obstacle block."); return;
-                }
-                if (pathBlockedByHazard) { /* ... (Mensagem de erro mantida) ... */
-                    let hazardIcon = ICON_HAZARD_RADIATION; if(hazardInfo?.type === 'troll') hazardIcon = ICON_HAZARD_TROLL; else if(hazardInfo?.type === 'imp') hazardIcon = ICON_HAZARD_IMP; displayMessage(`!! ALERTA !! Caminho ${inputVectorStr} interceptou ${hazardIcon} em ${blockerPosStr}. Missão falhou! ${ICON_DEATH}`, 'error'); console.log("Move failed: Hazard block. Game Over."); currentPos = { ...blockingPos }; pathTaken.push({ ...currentPos, diedHere: true }); gameActive = false; triggerGameOverAnimation(); drawGame(); return;
-                }
+                if (pathBlockedByObstacle) { const obstacleIcon = mapElements.get(`${blockingPosGrid.x},${blockingPosGrid.y}`)?.info.type === 'tree' ? ICON_OBSTACLE_TREE : ICON_OBSTACLE_WALL; displayMessage(`Movimento ${inputVectorStr} falhou! Bloqueado por ${obstacleIcon} em ${blockerPosCartesianStr}.`, 'error'); return; }
+                if (pathBlockedByHazard) { let hazardIcon = ICON_HAZARD_RADIATION; if(hazardInfo?.type === 'troll') hazardIcon = ICON_HAZARD_TROLL; else if(hazardInfo?.type === 'imp') hazardIcon = ICON_HAZARD_IMP; displayMessage(`!! ALERTA !! Caminho ${inputVectorStr} interceptou ${hazardIcon} em ${blockerPosCartesianStr}. Missão falhou! ${ICON_DEATH}`, 'error'); currentPosGrid = { ...blockingPosGrid }; pathTakenGrid.push({ ...currentPosGrid, diedHere: true }); gameActive = false; triggerGameOverAnimation(); drawGame(); return; }
 
-                // --- Movimento Válido (Usa nextX, nextY calculados com deltaY_internal) ---
-                console.log(`Path clear. Moving player to ${nextPosStr}`);
-                currentPos.x = nextX; currentPos.y = nextY;
-                pathTaken.push({ ...currentPos }); // Adiciona nova posição interna
-                drawGame(); // Redesenha
+                // --- Movimento Válido ---
+                currentPosGrid.x = nextX; currentPosGrid.y = nextY;
+                pathTakenGrid.push({ ...currentPosGrid }); // Guarda coords internas
+                drawGame();
 
                 // --- Verificar Vitória ---
-                if (currentPos.x === targetPos.x && currentPos.y === targetPos.y) {
-                    // Calcular vetor resultante usando Y do *input* para consistência? Não, usar interno é mais direto para o deslocamento total no grid.
-                    const totalDisplacementX = currentPos.x - START_POS_DEFAULT.x;
-                    const totalDisplacementY_internal = currentPos.y - START_POS_DEFAULT.y; // Interno (grid)
-                    // Exibir o vetor resultante com Y invertido para o usuário? Ou explicar? Explicar é melhor.
-                    // Mostrar o vetor deslocamento total no sistema de *entrada* do usuário:
-                    const totalDisplacementY_input = -totalDisplacementY_internal;
+                const currentCartesian = gridToCartesian(currentPosGrid); // Coords cartesianas atuais
+                if (currentPosGrid.x === targetPosGrid.x && currentPosGrid.y === targetPosGrid.y) {
+                     const startCartesian = gridToCartesian(START_POS_GRID);
+                     // Calcula deslocamento total no sistema Cartesiano
+                    const totalDisplacementX = currentCartesian.x - startCartesian.x;
+                    const totalDisplacementY = currentCartesian.y - startCartesian.y;
 
-                    displayMessage(`Navegação bem-sucedida! Objetivo ${ICON_TARGET} alcançado em (${currentPos.x}, ${currentPos.y}). Vetor Deslocamento Total (Entrada): <span class='vector'>[${totalDisplacementX}, ${totalDisplacementY_input}]</span>.`, 'success');
-                    console.log("Game Won!"); gameActive = false;
+                    displayMessage(`🎉 VITÓRIA! 🎉 Objetivo ${ICON_TARGET} alcançado em (${currentCartesian.x}, ${currentCartesian.y}). Vetor Deslocamento Total: <span class='vector'>[${totalDisplacementX}, ${totalDisplacementY}]</span>.`, 'success');
+                    gameActive = false;
+                    startFireworks(); // Inicia fogos!
                 } else {
-                    displayMessage(`Movimento para (${currentPos.x}, ${currentPos.y}) com ${inputVectorStr} OK. Próximo?`, 'info'); console.log("Move successful.");
+                    displayMessage(`Movimento para (${currentCartesian.x}, ${currentCartesian.y}) com ${inputVectorStr} OK. Próximo?`, 'info');
                 }
             }
 
 
             // --- Event Listeners ---
-            moveButton.addEventListener('click', handleMove);
-            resetButton.addEventListener('click', initializeGame);
-            dxInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') dyInput.focus(); });
-            dyInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleMove(); });
-            obstacleDensitySlider.addEventListener('input', (e) => { obstacleDensityValue.textContent = `${e.target.value}%`; });
-            hazardDensitySlider.addEventListener('input', (e) => { hazardDensityValue.textContent = `${e.target.value}%`; });
+            moveButton.addEventListener('click', handleMove); resetButton.addEventListener('click', initializeGame); dxInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') dyInput.focus(); }); dyInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleMove(); }); obstacleDensitySlider.addEventListener('input', (e) => { obstacleDensityValue.textContent = `${e.target.value}%`; }); hazardDensitySlider.addEventListener('input', (e) => { hazardDensityValue.textContent = `${e.target.value}%`; });
 
             // --- Iniciar o Jogo ---
             initializeGame();
