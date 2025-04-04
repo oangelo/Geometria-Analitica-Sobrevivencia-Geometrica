@@ -1,0 +1,1395 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Space Navigator: Colisão Diagonal</title>
+    <style>
+      /* --- Estilos CSS (Mantidos) --- */
+      :root {
+        --color-base-space: #05001a;
+        --color-path-nebula-dark: #4a148c;
+        --color-path-nebula-light: #ab47bc;
+        --color-interface-cyan: #2de2e6;
+        --color-highlight-gold: #ffd700;
+        --color-hazard-asteroid: #ff6f00;
+        --color-wall-debris: #78909c;
+        --color-text-lime: #ccff90;
+        --color-gameover-red: rgba(200, 0, 0, 0.85);
+        --color-pos-vector-trace: rgba(255, 255, 255, 0.15);
+        --font-mono: "Courier New", Courier, monospace;
+        --color-polar-grid: rgba(45, 226, 230, 0.15);
+        --color-fill-debris: rgba(120, 144, 156, 0.7);
+        --color-fill-asteroid: rgba(255, 111, 0, 0.5);
+      }
+      body {
+        font-family: var(--font-mono);
+        background-color: #111;
+        color: var(--color-interface-cyan);
+        margin: 0;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      h1 {
+        color: var(--color-highlight-gold);
+        text-shadow: 0 0 5px var(--color-highlight-gold);
+        margin-bottom: 15px;
+        font-size: 1.8em;
+        border: 1px solid var(--color-interface-cyan);
+        padding: 5px 15px;
+        background-color: rgba(45, 226, 230, 0.1);
+      }
+      #main-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        width: 100%;
+        max-width: 1300px;
+        gap: 20px;
+      }
+      #game-area {
+        display: flex;
+        justify-content: center;
+      }
+      #game-wrapper {
+        border: 2px solid var(--color-interface-cyan);
+        padding: 10px;
+        background-color: #0a0a0a;
+        box-shadow: 0 0 15px var(--color-interface-cyan);
+      }
+      #game-container {
+        margin-bottom: 5px;
+        line-height: 0;
+        position: relative;
+      }
+      #gameCanvas {
+        display: block;
+        background-color: var(--color-base-space);
+      }
+      #gameOverOverlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background: linear-gradient(
+          to bottom,
+          var(--color-gameover-red),
+          rgba(150, 0, 0, 0.9)
+        );
+        overflow: hidden;
+        transition: height 1.5s ease-in-out;
+        z-index: 10;
+        pointer-events: none;
+      }
+      #gameOverOverlay.active {
+        height: 100%;
+      }
+      #fireworksCanvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 20;
+        pointer-events: none;
+        display: none;
+      }
+      #fireworksCanvas.active {
+        display: block;
+      }
+      #sidebar {
+        display: flex;
+        flex-direction: column;
+        width: 350px;
+        flex-shrink: 0;
+        gap: 12px;
+      }
+      #sidebar > div {
+        width: 100%;
+        box-sizing: border-box;
+      }
+      #info-area {
+        text-align: center;
+        font-size: 0.9em;
+        color: var(--color-text-lime);
+        border: 1px dashed var(--color-text-lime);
+        padding: 8px;
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+      #info-area p {
+        margin: 3px 0;
+      }
+      #info-area span {
+        font-weight: bold;
+        color: var(--color-interface-cyan);
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 0 3px;
+      }
+      .coord-note {
+        font-size: 0.8em;
+        color: yellow;
+        text-align: center;
+        margin-top: 6px;
+        padding: 0 5px;
+        line-height: 1.2;
+      }
+      .emphasis-note {
+        font-weight: bold;
+        color: #ffd700;
+      }
+      #generation-controls {
+        padding: 10px 15px;
+        border: 1px solid var(--color-highlight-gold);
+        background-color: rgba(255, 215, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      #generation-controls h3 {
+        margin: 0 0 8px 0;
+        text-align: center;
+        color: var(--color-highlight-gold);
+        font-size: 1em;
+      }
+      .slider-group {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 5px;
+      }
+      .slider-group label {
+        font-size: 0.9em;
+        color: var(--color-text-lime);
+        margin-right: 5px;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .slider-group input[type="range"] {
+        flex-grow: 1;
+        width: auto;
+        cursor: pointer;
+        height: 5px;
+        background: var(--color-wall-debris);
+        border-radius: 5px;
+        appearance: none;
+        -webkit-appearance: none;
+      }
+      .slider-group input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 15px;
+        height: 15px;
+        background: var(--color-interface-cyan);
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 0 3px var(--color-interface-cyan);
+      }
+      .slider-group input[type="range"]::-moz-range-thumb {
+        width: 15px;
+        height: 15px;
+        background: var(--color-interface-cyan);
+        border-radius: 50%;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 0 3px var(--color-interface-cyan);
+      }
+      .slider-group span {
+        font-size: 0.9em;
+        color: var(--color-interface-cyan);
+        min-width: 35px;
+        text-align: right;
+        flex-shrink: 0;
+      }
+      #controls {
+        padding: 15px;
+        border: 1px solid var(--color-interface-cyan);
+        background-color: rgba(45, 226, 230, 0.05);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      .control-group {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+      }
+      #controls label {
+        margin-right: 5px;
+        color: var(--color-text-lime);
+        white-space: nowrap;
+        font-size: 0.9em;
+      }
+      #controls input[type="number"] {
+        width: 60px;
+        padding: 5px;
+        border: 1px solid var(--color-interface-cyan);
+        background-color: #111;
+        color: var(--color-interface-cyan);
+        text-align: center;
+        font-family: var(--font-mono);
+        box-shadow: inset 0 0 5px rgba(45, 226, 230, 0.5);
+        -moz-appearance: textfield;
+      }
+      #controls input[type="number"]::-webkit-inner-spin-button,
+      #controls input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      .button-group {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+        width: 100%;
+      }
+      #controls button {
+        padding: 8px 15px;
+        cursor: pointer;
+        background-color: transparent;
+        color: var(--color-interface-cyan);
+        border: 1px solid var(--color-interface-cyan);
+        font-family: var(--font-mono);
+        font-weight: bold;
+        transition: all 0.2s ease;
+        box-shadow: 0 0 5px rgba(45, 226, 230, 0.5);
+        flex-grow: 1;
+      }
+      #controls button:hover {
+        background-color: rgba(45, 226, 230, 0.2);
+        color: #fff;
+        box-shadow:
+          0 0 10px var(--color-interface-cyan),
+          0 0 15px var(--color-interface-cyan);
+      }
+      #controls button:active {
+        background-color: rgba(45, 226, 230, 0.4);
+        box-shadow: 0 0 5px var(--color-interface-cyan);
+      }
+      #controls button#reset-button {
+        border-color: var(--color-highlight-gold);
+        color: var(--color-highlight-gold);
+        box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+      }
+      #controls button#reset-button:hover {
+        background-color: rgba(255, 215, 0, 0.2);
+        color: #fff;
+        box-shadow:
+          0 0 10px var(--color-highlight-gold),
+          0 0 15px var(--color-highlight-gold);
+      }
+      #controls .coord-note {
+        margin-top: 6px;
+        margin-bottom: 0px;
+      }
+      #controls .discretization-note {
+        font-size: 0.75em;
+        color: #a0a0a0;
+        text-align: center;
+        margin-top: 4px;
+        font-style: italic;
+      }
+
+      #message-area {
+        padding: 10px 15px;
+        min-height: 60px;
+        text-align: center;
+        border: 1px solid var(--color-interface-cyan);
+        background-color: rgba(0, 0, 0, 0.5);
+        font-weight: normal;
+        line-height: 1.4;
+        color: var(--color-interface-cyan);
+        overflow-y: auto;
+      }
+      #message-area.error {
+        color: red;
+        border-color: red;
+        text-shadow: 0 0 5px red;
+      }
+      #message-area.success {
+        color: var(--color-text-lime);
+        border-color: var(--color-text-lime);
+        text-shadow: 0 0 5px var(--color-text-lime);
+      }
+      #message-area span.vector {
+        color: var(--color-text-lime);
+        font-weight: bold;
+      }
+      #legend {
+        padding: 10px;
+        border: 1px solid var(--color-interface-cyan);
+        background-color: rgba(0, 0, 0, 0.3);
+        font-size: 0.85em;
+      }
+      #legend h3 {
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 10px;
+        color: var(--color-highlight-gold);
+      }
+      #legend .legend-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 4px;
+      }
+      #legend .legend-icon {
+        font-size: 1.3em;
+        width: 30px;
+        text-align: center;
+        margin-right: 8px;
+        line-height: 1;
+      }
+      #legend .legend-text {
+        color: var(--color-text-lime);
+      }
+      #legend .legend-text strong {
+        color: var(--color-interface-cyan);
+      }
+      @media (max-width: 1000px) {
+        #main-container {
+          flex-direction: column;
+          align-items: center;
+        }
+        #sidebar {
+          width: 90%;
+          max-width: 500px;
+          margin-top: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Space Navigator: Andando no Espaço Curvo</h1>
+
+    <div id="main-container">
+      <div id="game-area">
+        <div id="game-wrapper">
+          <div id="game-container">
+            <canvas id="gameCanvas">Seu navegador não suporta Canvas.</canvas>
+            <canvas id="fireworksCanvas"></canvas>
+            <div id="gameOverOverlay"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="sidebar">
+        <div id="info-area">
+          <p>Posição Atual (r, θ): <span id="current-pos">(r, θ°)</span></p>
+          <p>Destino (r, θ): <span id="target-pos">(r, θ°)</span></p>
+          <p class="coord-note">
+            <strong>Ref. Polar:</strong> r=Distância, θ=Ângulo Central do Setor
+            (0°, 20°, ... 340°).
+          </p>
+        </div>
+
+        <div id="generation-controls">
+          <h3>Parâmetros do Setor</h3>
+          <div class="slider-group">
+            <label for="obstacle-density">Detritos (%):</label>
+            <input
+              type="range"
+              id="obstacle-density"
+              min="5"
+              max="40"
+              value="20"
+            />
+            <span id="obstacle-density-value">20%</span>
+          </div>
+          <div class="slider-group">
+            <label for="hazard-density">Asteroides (%):</label>
+            <input
+              type="range"
+              id="hazard-density"
+              min="1"
+              max="30"
+              value="8"
+            />
+            <span id="hazard-density-value">8%</span>
+          </div>
+        </div>
+
+        <div id="controls">
+          <div class="control-group">
+            <label for="input-dr">Deslocamento Δr:</label>
+            <input
+              type="number"
+              id="input-dr"
+              value="0"
+              title="Passos Radiais (+ para fora, - para dentro)"
+            />
+          </div>
+          <div class="control-group">
+            <label for="input-theta">Ângulo Final θ (°):</label>
+            <input
+              type="number"
+              id="input-theta"
+              value="0"
+              min="0"
+              max="340"
+              step="20"
+              title="Define o ângulo final (múltiplos de 20°, 0°=Direita)"
+            />
+          </div>
+          <p class="coord-note">
+            <strong>Δr:</strong> Nº de passos para
+            <span class="emphasis-note">AFASTAR</span> (+) ou
+            <span class="emphasis-note">APROXIMAR</span> (-) do centro.
+          </p>
+          <p class="coord-note">
+            <strong>θ (°):</strong> Ângulo
+            <span class="emphasis-note">ABSOLUTO</span> final desejado
+            (múltiplos de 20°).
+          </p>
+          <p class="discretization-note">
+            Nota: Ângulo θ deve ser múltiplo de 20 graus (0, 20, 40,... 340).
+          </p>
+          <div class="button-group">
+            <button id="move-button">Mover</button>
+            <button id="reset-button">Novo Setor</button>
+          </div>
+        </div>
+
+        <div id="message-area">Gerando mapa estelar inicial...</div>
+
+        <div id="legend">
+          <h3>Legenda Estelar</h3>
+          <div class="legend-item">
+            <span class="legend-icon" id="icon-survivor"></span
+            ><span class="legend-text"><strong>Nave Exploradora</strong></span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-icon" id="icon-target"></span
+            ><span class="legend-text"><strong>Estação Espacial</strong></span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-icon">✨</span
+            ><span
+              class="legend-text"
+              style="color: var(--color-path-nebula-light)"
+              ><strong>Rastro de Íons</strong></span
+            >
+          </div>
+          <div class="legend-item">
+            <span class="legend-icon" id="icon-hazard"></span
+            ><span
+              class="legend-text"
+              style="color: var(--color-hazard-asteroid)"
+              ><strong>Asteroide</strong> (Destruição!)</span
+            >
+          </div>
+          <div class="legend-item">
+            <span class="legend-icon" id="icon-obstacle-debris"></span
+            ><span class="legend-text" style="color: var(--color-wall-debris)"
+              ><strong>Campo de Detritos</strong></span
+            >
+          </div>
+          <div class="legend-item">
+            <span style="color: var(--color-polar-grid)">\</span
+            ><span class="legend-text" style="color: rgba(255, 255, 255, 0.5)"
+              >Grade Polar (Linhas: 10°, 30°,...)</span
+            >
+          </div>
+          <div class="legend-item">
+            <span style="color: var(--color-polar-grid)">*</span
+            ><span class="legend-text" style="color: rgba(255, 255, 255, 0.5)"
+              >Setores (Centros: 0°, 20°,...)</span
+            >
+          </div>
+          <div class="legend-item">
+            <span class="legend-icon" style="color: rgba(255, 255, 255, 0.3)"
+              >⇢</span
+            ><span class="legend-text" style="color: rgba(255, 255, 255, 0.5)"
+              >Vetor Posição (Origem->Nave)</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- Configuração e Constantes ---
+        const CANVAS_WIDTH = 600;
+        const CANVAS_HEIGHT = 600;
+        const CENTER_X = CANVAS_WIDTH / 2;
+        const CENTER_Y = CANVAS_HEIGHT / 2;
+        const MAX_R_PIXELS = CANVAS_WIDTH / 2;
+        const NUM_R_STEPS = 12;
+        const R_STEP_PIXELS = MAX_R_PIXELS / NUM_R_STEPS;
+        const THETA_STEP_DEGREES = 20;
+        const NUM_THETA_SECTORS = 18;
+        const THETA_STEP_RADIANS = (2 * Math.PI) / NUM_THETA_SECTORS;
+        const GRID_ANGLE_OFFSET_DEGREES = 10;
+        const GRID_ANGLE_OFFSET_RADIANS =
+          GRID_ANGLE_OFFSET_DEGREES * (Math.PI / 180);
+        const START_POS_POLAR = { r: 1, theta: 0 };
+        const TARGET_POS_POLAR = { r: NUM_R_STEPS - 1, theta: 9 };
+        // --- Ícones e Cores ---
+        const ICON_SURVIVOR = "🚀";
+        const ICON_TARGET = "🛰️";
+        const ICON_HAZARD_ASTEROID = "☄️";
+        const ICON_OBSTACLE_DEBRIS = "🔩";
+        const ICON_DEATH = "💥";
+        const COLOR_BASE_SPACE = getComputedStyle(
+          document.documentElement,
+        ).getPropertyValue("--color-base-space");
+        const COLOR_PATH_DARK = getComputedStyle(
+          document.documentElement,
+        ).getPropertyValue("--color-path-nebula-dark");
+        const COLOR_PATH_LIGHT = getComputedStyle(
+          document.documentElement,
+        ).getPropertyValue("--color-path-nebula-light");
+        const COLOR_INTERFACE_CYAN = getComputedStyle(
+          document.documentElement,
+        ).getPropertyValue("--color-interface-cyan");
+        const COLOR_HIGHLIGHT_GOLD = getComputedStyle(
+          document.documentElement,
+        ).getPropertyValue("--color-highlight-gold");
+        const COLOR_HAZARD_ASTEROID = getComputedStyle(
+          document.documentElement,
+        ).getPropertyValue("--color-hazard-asteroid");
+        const COLOR_WALL_DEBRIS = getComputedStyle(
+          document.documentElement,
+        ).getPropertyValue("--color-wall-debris");
+        const COLOR_TEXT_LIME = getComputedStyle(
+          document.documentElement,
+        ).getPropertyValue("--color-text-lime");
+        const COLOR_GAMEOVER_RED = getComputedStyle(
+          document.documentElement,
+        ).getPropertyValue("--color-gameover-red");
+        const COLOR_POS_VECTOR_TRACE = getComputedStyle(
+          document.documentElement,
+        ).getPropertyValue("--color-pos-vector-trace");
+        const COLOR_POLAR_GRID = getComputedStyle(
+          document.documentElement,
+        ).getPropertyValue("--color-polar-grid");
+        const COLOR_FILL_DEBRIS = getComputedStyle(
+          document.documentElement,
+        ).getPropertyValue("--color-fill-debris");
+        const COLOR_FILL_ASTEROID = getComputedStyle(
+          document.documentElement,
+        ).getPropertyValue("--color-fill-asteroid");
+        // --- Variáveis de Estado ---
+        let currentPosPolar = { ...START_POS_POLAR };
+        let targetPosPolar = { ...TARGET_POS_POLAR };
+        let pathTakenPolar = [];
+        let gameActive = true;
+        let mapElements = new Map();
+        let fireworksAnimationId = null;
+        // --- DOM Refs ---
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+        const fireworksCanvas = document.getElementById("fireworksCanvas");
+        const fwCtx = fireworksCanvas.getContext("2d");
+        const drInput = document.getElementById("input-dr");
+        const thetaInput = document.getElementById("input-theta");
+        const moveButton = document.getElementById("move-button");
+        const resetButton = document.getElementById("reset-button");
+        const messageArea = document.getElementById("message-area");
+        const currentPosDisplay = document.getElementById("current-pos");
+        const targetPosDisplay = document.getElementById("target-pos");
+        const gameOverOverlay = document.getElementById("gameOverOverlay");
+        const obstacleDensitySlider =
+          document.getElementById("obstacle-density");
+        const obstacleDensityValue = document.getElementById(
+          "obstacle-density-value",
+        );
+        const hazardDensitySlider = document.getElementById("hazard-density");
+        const hazardDensityValue = document.getElementById(
+          "hazard-density-value",
+        );
+        document.getElementById("icon-survivor").textContent = ICON_SURVIVOR;
+        document.getElementById("icon-target").textContent = ICON_TARGET;
+        document.getElementById("icon-hazard").textContent =
+          ICON_HAZARD_ASTEROID;
+        document.getElementById("icon-obstacle-debris").textContent =
+          ICON_OBSTACLE_DEBRIS;
+        canvas.width = CANVAS_WIDTH;
+        canvas.height = CANVAS_HEIGHT;
+        fireworksCanvas.width = CANVAS_WIDTH;
+        fireworksCanvas.height = CANVAS_HEIGHT;
+
+        // --- Funções de Conversão ---
+        function polarToCanvas(r_idx, theta_idx, offsetRadius = 0) {
+          if (r_idx < 0) r_idx = 0;
+          const radiusPixels = (r_idx + 0.5) * R_STEP_PIXELS + offsetRadius;
+          const centerAngleRadians = theta_idx * THETA_STEP_RADIANS;
+          const x = CENTER_X + radiusPixels * Math.cos(centerAngleRadians);
+          const y = CENTER_Y - radiusPixels * Math.sin(centerAngleRadians);
+          return { x, y };
+        }
+        function thetaIndexToDegrees(theta_idx) {
+          let centerDegrees = theta_idx * THETA_STEP_DEGREES;
+          centerDegrees = ((centerDegrees % 360) + 360) % 360;
+          return centerDegrees;
+        }
+        function degreesToThetaIndex(degrees) {
+          let normalizedDegrees = ((degrees % 360) + 360) % 360;
+          let index = Math.round(normalizedDegrees / THETA_STEP_DEGREES);
+          index = index % NUM_THETA_SECTORS;
+          return index;
+        }
+
+        // *** NOVA FUNÇÃO: Converte Coordenadas do Canvas para Índices Polares ***
+        function canvasToPolar(x, y) {
+          const dx = x - CENTER_X;
+          const dy = CENTER_Y - y; // dy invertido
+          const distPx = Math.sqrt(dx * dx + dy * dy);
+          let r_idx = Math.max(
+            0,
+            Math.min(NUM_R_STEPS - 1, Math.floor(distPx / R_STEP_PIXELS)),
+          );
+          let theta_idx = 0;
+          if (distPx > 1e-6) {
+            const angleRad = Math.atan2(dy, dx);
+            const normalizedAngleRad = (angleRad + 2 * Math.PI) % (2 * Math.PI);
+            theta_idx = Math.round(normalizedAngleRad / THETA_STEP_RADIANS);
+            theta_idx = theta_idx % NUM_THETA_SECTORS;
+          }
+          // Considerar centro como r=0
+          if (distPx < R_STEP_PIXELS / 3) {
+            // Limiar menor para centro
+            r_idx = 0;
+          }
+          return { r: r_idx, theta: theta_idx };
+        }
+
+        // --- Funções de Geração ---
+        function shortestAngularDistance(theta1_idx, theta2_idx) {
+          const diff = Math.abs(theta1_idx - theta2_idx);
+          return Math.min(diff, NUM_THETA_SECTORS - diff);
+        }
+        function generateGuaranteedPath(startPolar, targetPolar) {
+          console.log("Generating guaranteed path...");
+          let path = [{ ...startPolar }];
+          let current = { ...startPolar };
+          let visited = new Set([`${startPolar.r},${startPolar.theta}`]);
+          const maxSteps = NUM_R_STEPS * NUM_THETA_SECTORS * 2;
+          let steps = 0;
+          while (
+            (current.r !== targetPolar.r ||
+              current.theta !== targetPolar.theta) &&
+            steps < maxSteps
+          ) {
+            steps++;
+            let possibleMoves = [];
+            const potentialDeltas = [
+              [+1, 0],
+              [-1, 0],
+              [0, +1],
+              [0, -1],
+            ];
+            for (const [dr, dtheta] of potentialDeltas) {
+              const nextR = current.r + dr;
+              const nextThetaRaw = current.theta + dtheta;
+              if (nextR >= 0 && nextR < NUM_R_STEPS) {
+                const nextTheta =
+                  ((nextThetaRaw % NUM_THETA_SECTORS) + NUM_THETA_SECTORS) %
+                  NUM_THETA_SECTORS;
+                const nextKey = `${nextR},${nextTheta}`;
+                if (!visited.has(nextKey)) {
+                  const radialDist = Math.abs(targetPolar.r - nextR);
+                  const angularDist = shortestAngularDistance(
+                    targetPolar.theta,
+                    nextTheta,
+                  );
+                  const heuristicDist = radialDist + angularDist;
+                  possibleMoves.push({
+                    r: nextR,
+                    theta: nextTheta,
+                    key: nextKey,
+                    dist: heuristicDist,
+                  });
+                }
+              }
+            }
+            if (possibleMoves.length === 0) {
+              if (path.length > 1) {
+                console.warn("Path generation backtracking from:", current);
+                path.pop();
+                current = { ...path[path.length - 1] };
+              } else {
+                console.error("Path generation failed: Stuck at start!");
+                return [{ ...startPolar }];
+              }
+            } else {
+              possibleMoves.sort((a, b) => a.dist - b.dist);
+              let chosenMove;
+              if (possibleMoves.length > 1 && Math.random() < 0.25) {
+                chosenMove = possibleMoves[1];
+              } else {
+                chosenMove = possibleMoves[0];
+              }
+              current = { r: chosenMove.r, theta: chosenMove.theta };
+              path.push({ ...current });
+              visited.add(chosenMove.key);
+            }
+          }
+          if (steps >= maxSteps) {
+            console.error("Path generation failed: Max steps reached.");
+            return path;
+          }
+          console.log(`Guaranteed path generated with ${path.length} steps.`);
+          return path;
+        }
+        function placeMapElements(
+          obstacleDensityPercent,
+          hazardDensityPercent,
+        ) {
+          mapElements.clear();
+          console.log(
+            `Placing elements - Obstacle Density: ${obstacleDensityPercent}%, Hazard Density: ${hazardDensityPercent}%`,
+          );
+          const guaranteedPath = generateGuaranteedPath(
+            START_POS_POLAR,
+            TARGET_POS_POLAR,
+          );
+          if (!guaranteedPath || guaranteedPath.length < 2) {
+            console.error(
+              "Failed to generate a valid guaranteed path. Map generation aborted.",
+            );
+            mapElements.set(`${START_POS_POLAR.r},${START_POS_POLAR.theta}`, {
+              type: "start",
+              info: { ...START_POS_POLAR },
+            });
+            mapElements.set(`${TARGET_POS_POLAR.r},${TARGET_POS_POLAR.theta}`, {
+              type: "target",
+              info: { ...TARGET_POS_POLAR },
+            });
+            return;
+          }
+          const pathCellsSet = new Set(
+            guaranteedPath.map((p) => `${p.r},${p.theta}`),
+          );
+          console.log("Cells in guaranteed path:", pathCellsSet);
+          mapElements.set(`${START_POS_POLAR.r},${START_POS_POLAR.theta}`, {
+            type: "start",
+            info: { ...START_POS_POLAR },
+          });
+          mapElements.set(`${TARGET_POS_POLAR.r},${TARGET_POS_POLAR.theta}`, {
+            type: "target",
+            info: { ...TARGET_POS_POLAR },
+          });
+          const totalCells = NUM_R_STEPS * NUM_THETA_SECTORS;
+          const numObstacles = Math.floor(
+            totalCells * (obstacleDensityPercent / 100),
+          );
+          const numHazards = Math.floor(
+            totalCells * (hazardDensityPercent / 100),
+          );
+          console.log(
+            `Target Obstacles (Debris): ${numObstacles}, Target Hazards (Asteroids): ${numHazards}`,
+          );
+          let placedObstacles = 0;
+          let placedHazards = 0;
+          let attempts = 0;
+          const maxAttemptsFactor = 10;
+          const maxAttempts = totalCells * maxAttemptsFactor;
+          while (placedObstacles < numObstacles && attempts < maxAttempts) {
+            attempts++;
+            const r = Math.floor(Math.random() * NUM_R_STEPS);
+            if (r < 1 && START_POS_POLAR.r !== 0 && TARGET_POS_POLAR.r !== 0)
+              continue;
+            const theta = Math.floor(Math.random() * NUM_THETA_SECTORS);
+            const key = `${r},${theta}`;
+            if (!mapElements.has(key) && !pathCellsSet.has(key)) {
+              mapElements.set(key, {
+                type: "obstacle",
+                info: { r, theta, type: "debris" },
+              });
+              placedObstacles++;
+            }
+          }
+          console.log(
+            `Placed ${placedObstacles}/${numObstacles} obstacles (Debris) after ${attempts} attempts.`,
+          );
+          attempts = 0;
+          while (placedHazards < numHazards && attempts < maxAttempts) {
+            attempts++;
+            const r = Math.floor(Math.random() * NUM_R_STEPS);
+            if (r < 1 && START_POS_POLAR.r !== 0 && TARGET_POS_POLAR.r !== 0)
+              continue;
+            const theta = Math.floor(Math.random() * NUM_THETA_SECTORS);
+            const key = `${r},${theta}`;
+            if (!mapElements.has(key) && !pathCellsSet.has(key)) {
+              mapElements.set(key, {
+                type: "hazard",
+                info: { r, theta, type: "asteroid" },
+              });
+              placedHazards++;
+            }
+          }
+          console.log(
+            `Placed ${placedHazards}/${numHazards} hazards (Asteroids) after ${attempts} attempts.`,
+          );
+          if (placedObstacles < numObstacles || placedHazards < numHazards) {
+            console.warn(
+              `Could not place all requested elements due to path constraints or density.`,
+            );
+          }
+        }
+
+        // --- Funções de Desenho ---
+        function drawPolarGrid() {
+          ctx.strokeStyle = COLOR_POLAR_GRID;
+          ctx.lineWidth = 1;
+          ctx.fillStyle = COLOR_INTERFACE_CYAN;
+          ctx.font =
+            "10px " +
+            getComputedStyle(document.documentElement).getPropertyValue(
+              "--font-mono",
+            );
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          for (let r_idx = 1; r_idx < NUM_R_STEPS; r_idx++) {
+            const radiusPixels = r_idx * R_STEP_PIXELS;
+            ctx.beginPath();
+            ctx.arc(CENTER_X, CENTER_Y, radiusPixels, 0, 2 * Math.PI);
+            ctx.stroke();
+          }
+          const labelRadiusOffset = 15;
+          for (let i = 0; i < NUM_THETA_SECTORS; i++) {
+            const gridLineAngleRadians =
+              i * THETA_STEP_RADIANS + GRID_ANGLE_OFFSET_RADIANS;
+            const endX =
+              CENTER_X + MAX_R_PIXELS * Math.cos(gridLineAngleRadians);
+            const endY =
+              CENTER_Y - MAX_R_PIXELS * Math.sin(gridLineAngleRadians);
+            ctx.beginPath();
+            ctx.moveTo(CENTER_X, CENTER_Y);
+            ctx.lineTo(endX, endY);
+            ctx.stroke();
+            const labelX =
+              CENTER_X +
+              (MAX_R_PIXELS + labelRadiusOffset) *
+                Math.cos(gridLineAngleRadians);
+            const labelY =
+              CENTER_Y -
+              (MAX_R_PIXELS + labelRadiusOffset) *
+                Math.sin(gridLineAngleRadians);
+            const gridLineAngleDegrees =
+              (i * THETA_STEP_DEGREES + GRID_ANGLE_OFFSET_DEGREES) % 360;
+            ctx.save();
+            ctx.fillText(
+              `${Math.round(gridLineAngleDegrees)}°`,
+              labelX,
+              labelY,
+            );
+            ctx.restore();
+          }
+        }
+        function drawCellContent(r_idx, theta_idx, cellData) {
+          if (!cellData || r_idx < 0) return;
+          const type = cellData.type;
+          const info = cellData.info;
+          const r_inner_px = r_idx * R_STEP_PIXELS;
+          const r_outer_px = (r_idx + 1) * R_STEP_PIXELS;
+          const centerAngleRadians = theta_idx * THETA_STEP_RADIANS;
+          const halfStepRadians = THETA_STEP_RADIANS / 2;
+          const angle_start_rad_fill = centerAngleRadians - halfStepRadians;
+          const angle_end_rad_fill = centerAngleRadians + halfStepRadians;
+          let fillColor = null;
+          if (type === "obstacle" && info?.type === "debris") {
+            fillColor = COLOR_FILL_DEBRIS;
+          } else if (type === "hazard" && info?.type === "asteroid") {
+            fillColor = COLOR_FILL_ASTEROID;
+          }
+          if (fillColor) {
+            ctx.fillStyle = fillColor;
+            ctx.beginPath();
+            ctx.arc(
+              CENTER_X,
+              CENTER_Y,
+              r_outer_px,
+              -angle_start_rad_fill,
+              -angle_end_rad_fill,
+              true,
+            );
+            ctx.arc(
+              CENTER_X,
+              CENTER_Y,
+              r_inner_px,
+              -angle_end_rad_fill,
+              -angle_start_rad_fill,
+              false,
+            );
+            ctx.closePath();
+            ctx.fill();
+          }
+          const { x: px, y: py } = polarToCanvas(r_idx, theta_idx);
+          const approxCellSize = R_STEP_PIXELS * 0.8;
+          let icon = null;
+          let iconColor = "#FFF";
+          if (type === "target") {
+            const gradient = ctx.createRadialGradient(
+              px,
+              py,
+              approxCellSize * 0.1,
+              px,
+              py,
+              approxCellSize * 0.6,
+            );
+            gradient.addColorStop(0, COLOR_HIGHLIGHT_GOLD);
+            gradient.addColorStop(1, "rgba(255, 215, 0, 0)");
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.arc(px, py, approxCellSize * 0.7, 0, Math.PI * 2);
+            ctx.fill();
+            icon = ICON_TARGET;
+            iconColor = "#FFF";
+          } else if (type === "hazard" && info?.type === "asteroid") {
+            icon = ICON_HAZARD_ASTEROID;
+            iconColor = "#FFF";
+          } else if (type === "obstacle" && info?.type === "debris") {
+            icon = ICON_OBSTACLE_DEBRIS;
+            iconColor = "#37474f";
+          } else if (type === "survivor") {
+            ctx.fillStyle = "rgba(45, 226, 230, 0.3)";
+            ctx.beginPath();
+            ctx.arc(px, py, approxCellSize * 0.5, 0, Math.PI * 2);
+            ctx.fill();
+            icon = ICON_SURVIVOR;
+            iconColor = COLOR_INTERFACE_CYAN;
+          } else if (type === "start") {
+            ctx.fillStyle = "rgba(0, 255, 0, 0.3)";
+            ctx.beginPath();
+            ctx.arc(px, py, approxCellSize * 0.2, 0, Math.PI * 2);
+            ctx.fill();
+          }
+          if (icon) {
+            const fontSize =
+              approxCellSize *
+              (icon === ICON_TARGET || icon === ICON_SURVIVOR ? 0.7 : 0.6);
+            ctx.font = `${fontSize}px Arial`;
+            ctx.fillStyle = iconColor;
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.shadowColor = "black";
+            ctx.shadowBlur = 5;
+            ctx.fillText(icon, px, py + fontSize * 0.1);
+            ctx.shadowBlur = 0;
+          }
+        }
+        function drawPlayerPath() {
+          if (pathTakenPolar.length < 2) return;
+          const pathCanvas = pathTakenPolar.map((p) =>
+            polarToCanvas(p.r, p.theta),
+          );
+          ctx.strokeStyle = COLOR_PATH_LIGHT;
+          ctx.lineWidth = 3;
+          ctx.setLineDash([5, 5]);
+          ctx.beginPath();
+          ctx.moveTo(pathCanvas[0].x, pathCanvas[0].y);
+          for (let i = 1; i < pathCanvas.length; i++) {
+            ctx.lineTo(pathCanvas[i].x, pathCanvas[i].y);
+          }
+          ctx.stroke();
+          ctx.setLineDash([]);
+        }
+        function drawPositionVectorTraces() {
+          if (pathTakenPolar.length < 1) return;
+          const origin = { x: CENTER_X, y: CENTER_Y };
+          ctx.strokeStyle = COLOR_POS_VECTOR_TRACE;
+          ctx.lineWidth = 1;
+          ctx.setLineDash([]);
+          for (let i = 1; i < pathTakenPolar.length; i++) {
+            if (pathTakenPolar[i]?.diedHere) continue;
+            const currentCanvasPos = polarToCanvas(
+              pathTakenPolar[i].r,
+              pathTakenPolar[i].theta,
+            );
+            ctx.beginPath();
+            ctx.moveTo(origin.x, origin.y);
+            ctx.lineTo(currentCanvasPos.x, currentCanvasPos.y);
+            ctx.stroke();
+          }
+          const finalCanvasPos = polarToCanvas(
+            currentPosPolar.r,
+            currentPosPolar.theta,
+          );
+          ctx.beginPath();
+          ctx.moveTo(origin.x, origin.y);
+          ctx.lineTo(finalCanvasPos.x, finalCanvasPos.y);
+          ctx.stroke();
+        }
+        function drawGame() {
+          ctx.fillStyle = COLOR_BASE_SPACE;
+          ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+          drawPolarGrid();
+          mapElements.forEach((cellData, key) => {
+            if (cellData.type !== "start" && cellData.type !== "survivor") {
+              const [r_str, theta_str] = key.split(",");
+              drawCellContent(parseInt(r_str), parseInt(theta_str), cellData);
+            }
+          });
+          drawPlayerPath();
+          drawPositionVectorTraces();
+          const startData = mapElements.get(
+            `${START_POS_POLAR.r},${START_POS_POLAR.theta}`,
+          );
+          if (startData)
+            drawCellContent(
+              START_POS_POLAR.r,
+              START_POS_POLAR.theta,
+              startData,
+            );
+          drawCellContent(currentPosPolar.r, currentPosPolar.theta, {
+            type: "survivor",
+          });
+          if (
+            !gameActive &&
+            pathTakenPolar[pathTakenPolar.length - 1]?.diedHere
+          ) {
+            const deathPos = pathTakenPolar[pathTakenPolar.length - 1];
+            const { x: px, y: py } = polarToCanvas(deathPos.r, deathPos.theta);
+            const fontSize = R_STEP_PIXELS * 1.5;
+            ctx.font = `${fontSize}px Arial`;
+            ctx.fillStyle = "red";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.shadowColor = "orange";
+            ctx.shadowBlur = 10;
+            ctx.fillText(ICON_DEATH, px, py);
+            ctx.shadowBlur = 0;
+          }
+          updateInfoDisplays();
+        }
+
+        // --- Funções Auxiliares ---
+        function getCellData(r_idx, theta_idx) {
+          if (r_idx < 0 || r_idx >= NUM_R_STEPS) return null;
+          const normalizedTheta =
+            ((theta_idx % NUM_THETA_SECTORS) + NUM_THETA_SECTORS) %
+            NUM_THETA_SECTORS;
+          return mapElements.get(`${r_idx},${normalizedTheta}`);
+        }
+        function isObstacleAt(r_idx, theta_idx) {
+          const cell = getCellData(r_idx, theta_idx);
+          return cell?.type === "obstacle";
+        }
+        function getHazardAt(r_idx, theta_idx) {
+          const cell = getCellData(r_idx, theta_idx);
+          return cell?.type === "hazard" ? cell.info : null;
+        }
+        function isRWithinBounds(r_idx) {
+          return r_idx >= 0 && r_idx < NUM_R_STEPS;
+        }
+        function displayMessage(message, type = "info") {
+          messageArea.innerHTML = message;
+          messageArea.className = "message-area";
+          if (type === "error") messageArea.classList.add("error");
+          else if (type === "success") messageArea.classList.add("success");
+        }
+        function triggerGameOverAnimation() {
+          gameOverOverlay.classList.add("active");
+        }
+        function resetGameOverAnimation() {
+          gameOverOverlay.classList.remove("active");
+          void gameOverOverlay.offsetWidth;
+        }
+        function updateInfoDisplays() {
+          const currentThetaDegrees = thetaIndexToDegrees(
+            currentPosPolar.theta,
+          );
+          const targetThetaDegrees = thetaIndexToDegrees(targetPosPolar.theta);
+          currentPosDisplay.textContent = `(r=${currentPosPolar.r}, θ=${currentThetaDegrees}°)`;
+          targetPosDisplay.textContent = `(r=${targetPosPolar.r}, θ=${targetThetaDegrees}°)`;
+        }
+
+        // *** checkPathCollision REESCRITA ***
+        function checkPathCollision(startPolar, endPolar) {
+          const startCanvas = polarToCanvas(startPolar.r, startPolar.theta);
+          const endCanvas = polarToCanvas(endPolar.r, endPolar.theta);
+
+          const dx = endCanvas.x - startCanvas.x;
+          const dy = endCanvas.y - startCanvas.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          // Determina o número de passos para a interpolação
+          const numSteps = Math.max(
+            2,
+            Math.ceil(distance / (R_STEP_PIXELS / 2)),
+          ); // Amostra a cada meio passo radial
+
+          const checkedCells = new Set();
+          checkedCells.add(`${startPolar.r},${startPolar.theta}`);
+
+          // Interpola pontos ao longo da linha no canvas
+          for (let i = 1; i <= numSteps; i++) {
+            const t = i / numSteps;
+            const currentX = startCanvas.x + dx * t;
+            const currentY = startCanvas.y + dy * t;
+
+            const intermediatePolar = canvasToPolar(currentX, currentY);
+            const key = `${intermediatePolar.r},${intermediatePolar.theta}`;
+
+            if (!checkedCells.has(key)) {
+              const cellData = getCellData(
+                intermediatePolar.r,
+                intermediatePolar.theta,
+              );
+
+              // Ignora colisão com a própria célula alvo (será checada no final se necessário)
+              // Ou melhor, checa tudo, incluindo o alvo, no loop.
+              // if (intermediatePolar.r === endPolar.r && intermediatePolar.theta === endPolar.theta) {
+              //    checkedCells.add(key);
+              //    continue;
+              // }
+
+              if (cellData?.type === "obstacle") {
+                console.log(
+                  `Collision Check: Obstacle found at step ${i}/${numSteps} -> cell ${key}`,
+                );
+                return { type: "obstacle", pos: { ...intermediatePolar } };
+              }
+              if (cellData?.type === "hazard") {
+                console.log(
+                  `Collision Check: Hazard found at step ${i}/${numSteps} -> cell ${key}`,
+                );
+                return {
+                  type: "hazard",
+                  pos: { ...intermediatePolar },
+                  info: cellData.info,
+                };
+              }
+              checkedCells.add(key);
+            }
+          }
+
+          // A célula final já deve ter sido verificada pelo loop acima se numSteps > 0
+
+          // Nenhuma colisão encontrada
+          return null;
+        }
+
+        // --- Animação de Fogos de Artifício ---
+        let fireworks = [];
+        class Particle {
+          constructor(x, y, color, velocity) {
+            this.x = x;
+            this.y = y;
+            this.color = color;
+            this.velocity = velocity;
+            this.alpha = 1;
+            this.gravity = 0.02;
+            this.friction = 0.99;
+          }
+          draw(context) {
+            context.save();
+            context.globalAlpha = this.alpha;
+            context.beginPath();
+            context.arc(this.x, this.y, 2, 0, Math.PI * 2, false);
+            context.fillStyle = this.color;
+            context.fill();
+            context.restore();
+          }
+          update(context) {
+            this.velocity.x *= this.friction;
+            this.velocity.y *= this.friction;
+            this.velocity.y += this.gravity;
+            this.x += this.velocity.x;
+            this.y += this.velocity.y;
+            this.alpha -= 0.015;
+            this.draw(context);
+          }
+        }
+        function createFireworkBurst(x, y) {
+          const particleCount = 50;
+          const angleIncrement = (Math.PI * 2) / particleCount;
+          const colors = [
+            COLOR_INTERFACE_CYAN,
+            COLOR_HIGHLIGHT_GOLD,
+            COLOR_TEXT_LIME,
+            "#FFFFFF",
+          ];
+          for (let i = 0; i < particleCount; i++) {
+            const speed = Math.random() * 4 + 1;
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            fireworks.push(
+              new Particle(x, y, color, {
+                x: Math.cos(angleIncrement * i) * speed,
+                y: Math.sin(angleIncrement * i) * speed,
+              }),
+            );
+          }
+        }
+        function animateFireworks() {
+          fwCtx.fillStyle = "rgba(0,0,0,.1)";
+          fwCtx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+          if (Math.random() < 0.05) {
+            createFireworkBurst(
+              Math.random() * CANVAS_WIDTH,
+              Math.random() * CANVAS_HEIGHT * 0.7,
+            );
+          }
+          for (let i = fireworks.length - 1; i >= 0; i--) {
+            fireworks[i].update(fwCtx);
+            if (fireworks[i].alpha <= 0) {
+              fireworks.splice(i, 1);
+            }
+          }
+          if (fireworks.length > 0 || !gameActive) {
+            fireworksAnimationId = requestAnimationFrame(animateFireworks);
+          } else {
+            fireworksCanvas.classList.remove("active");
+          }
+        }
+        function startFireworks() {
+          if (fireworksAnimationId) cancelAnimationFrame(fireworksAnimationId);
+          fireworks = [];
+          fireworksCanvas.classList.add("active");
+          animateFireworks();
+        }
+        function stopFireworks() {
+          if (fireworksAnimationId) {
+            cancelAnimationFrame(fireworksAnimationId);
+            fireworksAnimationId = null;
+          }
+          fireworksCanvas.classList.remove("active");
+          fwCtx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+          fireworks = [];
+        }
+
+        // --- Inicialização e Movimento ---
+        function initializeGame() {
+          console.log("Initializing game with diagonal collision check...");
+          gameActive = true;
+          resetGameOverAnimation();
+          stopFireworks();
+          currentPosPolar = { ...START_POS_POLAR };
+          targetPosPolar = { ...TARGET_POS_POLAR };
+          pathTakenPolar = [{ ...currentPosPolar }];
+          const obsDensity = parseInt(obstacleDensitySlider.value);
+          const hazDensity = parseInt(hazardDensitySlider.value);
+          placeMapElements(obsDensity, hazDensity);
+          drInput.value = "0";
+          thetaInput.value = thetaIndexToDegrees(
+            currentPosPolar.theta,
+          ).toString();
+          displayMessage(
+            `Setor mapeado. Insira Δr e ângulo final θ° (múltiplo de 20).`,
+            "info",
+          );
+          drawGame();
+          console.log("Game initialized.");
+        }
+        function handleMove() {
+          if (!gameActive) {
+            displayMessage(
+              "Fim de jogo! Reinicie para um novo setor.",
+              "error",
+            );
+            return;
+          }
+          const deltaR = parseInt(drInput.value) || 0;
+          const targetThetaDegreesInput = parseFloat(thetaInput.value);
+          if (isNaN(targetThetaDegreesInput)) {
+            displayMessage("Ângulo θ inválido.", "error");
+            return;
+          }
+          if (targetThetaDegreesInput % THETA_STEP_DEGREES !== 0) {
+            displayMessage(
+              `Ângulo θ deve ser múltiplo de ${THETA_STEP_DEGREES} graus.`,
+              "error",
+            );
+            return;
+          }
+          const targetThetaDegrees =
+            ((targetThetaDegreesInput % 360) + 360) % 360;
+          let nextR = currentPosPolar.r + deltaR;
+          let nextTheta_idx = degreesToThetaIndex(targetThetaDegrees);
+          if (!isRWithinBounds(nextR)) {
+            displayMessage(
+              `Erro de Rota: Raio ${nextR} fora dos limites.`,
+              "error",
+            );
+            return;
+          }
+          if (deltaR === 0 && nextTheta_idx === currentPosPolar.theta) {
+            displayMessage("Nenhum movimento solicitado.", "info");
+            return;
+          }
+
+          const endPos = { r: nextR, theta: nextTheta_idx };
+          // *** Chama a nova função de checagem ***
+          const collisionInfo = checkPathCollision(currentPosPolar, endPos);
+          const inputParamsStr = `<span class='vector'>[Δr=${deltaR}, θ=${targetThetaDegreesInput.toFixed(0)}°]</span>`;
+
+          if (collisionInfo) {
+            // Lógica de tratamento de colisão mantida
+            const collisionPos = collisionInfo.pos;
+            const collisionThetaDegrees = thetaIndexToDegrees(
+              collisionPos.theta,
+            );
+            const collisionPosStr = `(r=${collisionPos.r}, θ=${collisionThetaDegrees}°)`;
+            let message = "";
+            if (collisionInfo.type === "obstacle") {
+              message = `Movimento ${inputParamsStr} falhou! Caminho bloqueado por Detritos ${ICON_OBSTACLE_DEBRIS} em ${collisionPosStr}.`;
+              displayMessage(message, "error");
+              return;
+            } else if (collisionInfo.type === "hazard") {
+              message = `!! PERIGO !! Rota ${inputParamsStr} interceptou Asteroide ${ICON_HAZARD_ASTEROID} em ${collisionPosStr}. Nave destruída! ${ICON_DEATH}`;
+              displayMessage(message, "error");
+              currentPosPolar = { ...collisionPos };
+              pathTakenPolar.push({ ...currentPosPolar, diedHere: true });
+              gameActive = false;
+              triggerGameOverAnimation();
+              drawGame();
+              return;
+            }
+          }
+
+          // --- Movimento Válido ---
+          currentPosPolar.r = nextR;
+          currentPosPolar.theta = nextTheta_idx;
+          pathTakenPolar.push({ ...currentPosPolar });
+          drawGame();
+          const currentThetaDegreesDisplay = thetaIndexToDegrees(
+            currentPosPolar.theta,
+          );
+          if (
+            currentPosPolar.r === targetPosPolar.r &&
+            currentPosPolar.theta === targetPosPolar.theta
+          ) {
+            displayMessage(
+              `🎉 VITÓRIA! 🎉 Estação ${ICON_TARGET} alcançada em (r=${currentPosPolar.r}, θ=${currentThetaDegreesDisplay}°). Missão cumprida!`,
+              "success",
+            );
+            gameActive = false;
+            startFireworks();
+          } else {
+            displayMessage(
+              `Navegação para (r=${currentPosPolar.r}, θ=${currentThetaDegreesDisplay}°) com ${inputParamsStr} OK. Próximo comando?`,
+              "info",
+            );
+          }
+        }
+
+        // --- Event Listeners ---
+        moveButton.addEventListener("click", handleMove);
+        resetButton.addEventListener("click", initializeGame);
+        drInput.addEventListener("keypress", (e) => {
+          if (e.key === "Enter") thetaInput.focus();
+        });
+        thetaInput.addEventListener("keypress", (e) => {
+          if (e.key === "Enter") handleMove();
+        });
+        obstacleDensitySlider.addEventListener("input", (e) => {
+          obstacleDensityValue.textContent = `${e.target.value}%`;
+        });
+        hazardDensitySlider.addEventListener("input", (e) => {
+          hazardDensityValue.textContent = `${e.target.value}%`;
+        });
+        // obstacleDensitySlider.addEventListener('change', initializeGame);
+        // hazardDensitySlider.addEventListener('change', initializeGame);
+
+        // --- Iniciar o Jogo ---
+        initializeGame();
+      });
+    </script>
+  </body>
+</html>

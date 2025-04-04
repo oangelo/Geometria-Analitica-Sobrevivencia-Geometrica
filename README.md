@@ -78,5 +78,9 @@ São Paulo: Atual, 1982.
 8. [Equação da superfície esférica](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-vi-o-r3-e-a-geometria-analitica-no-espaco/8-equacao-da-superficie-esferica.html)
 9. [Revisão](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-vi-o-r3-e-a-geometria-analitica-no-espaco/index.html)
 
-
+<details>
+<summary>Material Complementar</summary>
 [Roleta](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/roleta.html)
+[🕹️Wastland Navigator](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/games/wasteland-navigator.html)
+[🕹️Space Navigator](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/games/space-navigator.html)
+</details>
