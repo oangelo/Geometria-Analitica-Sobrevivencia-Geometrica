@@ -81,8 +81,8 @@ São Paulo: Atual, 1982.
 <details>
 <summary>Material Complementar</summary>
 
-- [Roleta](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/roleta.html)
-- [🕹️Wastland Navigator](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/games/wasteland-navigator.html)
-- [🕹️Space Navigator](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/games/space-navigator.html)
+- 🎲[Roleta](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/roleta.html)
+- [🕹️🗺️Wastland Navigator](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/games/wasteland-navigator.html)
+- [🕹️🚀Space Navigator](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/games/space-navigator.html)
 
 </details>
