@@ -1,339 +1,340 @@
 # Diretrizes Unificadas para Criação de Slides Interativos de Geometria Analítica: Sobrevivência Geométrica
 
 ## Objetivo
-Criar slides interativos para um curso de Geometria Analítica, usando o tema pós-apocalíptico inspirado em Fallout como contexto narrativo, com foco em visualizações que demonstrem os conceitos matemáticos de forma intuitiva enquanto utilizam metáforas de sobrevivência e reconstrução.
+Criar slides interativos para um curso de Geometria Analítica, usando o tema pós-apocalíptico como contexto narrativo, com foco em visualizações que demonstrem os conceitos matemáticos de forma intuitiva enquanto utilizam metáforas de sobrevivência e reconstrução.
 
 ## Tom e Estilo
 - Manter um tom **bem-humorado**, **sutil** e **sarcástico**, evitando piadas forçadas
-- Utilizar referências temáticas de sobrevivência pós-apocalíptica alinhadas com a estética de **Fallout**
+- Utilizar referências temáticas de sobrevivência pós-apocalíptica sem menções diretas a franquias específicas
 - Preferir humor **sofisticado** e **sutil** que enriqueça o conteúdo sem distrair
-- Utilizar metáforas de sobrevivência para explicar conceitos (ex: "coordenadas são como as coordenadas de radiofrequência do seu Pip-Boy para encontrar abrigos")
+- Utilizar metáforas de sobrevivência para explicar conceitos (ex: "coordenadas são como marcações no seu dispositivo de rastreamento para encontrar abrigos")
 - Incluir mnemônicos temáticos para facilitar a memorização de conceitos e fórmulas
 
-## Recursos Técnicos Existentes
+## Recursos Técnicos e Implementação
 
-### Template HTML
-- Utilizar o `template.html` fornecido como base para todos os slides
-- Estrutura já configurada com Reveal.js e MathJax
-- Navegação horizontal para temas principais, navegação vertical para subtópicos
-- Inclusão de fórmulas LaTeX usando sintaxe `\( ... \)` para inline e `\[ ... \]` para bloco
+### Estrutura do Template HTML
+O template HTML está estruturado da seguinte forma:
+- **Cabeçalho**: Configurações do Reveal.js, referências CSS e MathJax
+- **Corpo**: Divisão em seções com `<section>` aninhadas (horizontais para tópicos principais, verticais para subtópicos)
+- **Scripts**: Inicialização do Reveal.js, MathJax e funções interativas
 
-### Estilização CSS
-- Utilizar o `styles.css` fornecido sem alterações
-- Características principais do CSS:
-  - Títulos em dourado (#FFD700) com sombra
-  - Fórmulas destacadas em verde-limão (#ADFF2F)
-  - Listas não ordenadas com marcador de radiação (☢️)
-  - Listas ordenadas com numeração precedida de símbolo de radiação (☢️1., ☢️2., etc.)
-  - Tamanhos de fonte já otimizados para apresentação
+### Como Utilizar o Template
 
-## Fluxo de Trabalho
-O desenvolvimento dos slides seguirá estas três fases distintas:
+1. **Estrutura de Slides**:
+   ```html
+   <!-- Seção horizontal para um tópico principal -->
+   <section>
+     <!-- Slide vertical 1: Briefing de Missão -->
+     <section class="mission-briefing">
+       <h2>Título do Tópico</h2>
+       <!-- Conteúdo do slide... -->
+     </section>
+     
+     <!-- Slide vertical 2: Relatório de Campo -->
+     <section class="field-report level-basic">
+       <!-- Conteúdo do slide... -->
+     </section>
+     
+     <!-- Mais slides verticais... -->
+   </section>
+   ```
 
-1. **Fase de Discussão Conceitual**
-   - Discussão dos conceitos, estrutura e conteúdo dos slides de forma coloquial
-   - Foco na narrativa pedagógica, exemplos e estratégia didática
-   - Definição das visualizações necessárias para cada conceito sem implementação técnica
-   - Desenvolvimento de metáforas temáticas e mnemônicos relacionados ao universo Fallout
+2. **Classes específicas para tipos de slide**:
+   - `mission-briefing`: Slide de introdução com definição formal
+   - `field-report`: Slide de contextualização e aplicações
+   - `simulator`: Slide com visualização interativa
+   - `survival-training`: Slide de exercícios práticos
+   - `debriefing`: Slide de fechamento e síntese
 
-2. **Fase de Desenvolvimento Modular**
-   - Criação das visualizações interativas em arquivos HTML separados
-   - Cada visualização como um arquivo independente para facilitar o debug
-   - Testagem isolada de cada componente interativo
-   - Refinamento dos elementos visuais antes da integração
+3. **Classes para níveis de complexidade**:
+   - `level-basic`: Nível Básico (iniciante)
+   - `level-intermediate`: Nível Intermediário
+   - `level-advanced`: Nível Avançado
 
-3. **Fase de Integração Final**
-   - Quando solicitado, integração de todos os componentes no template.html
-   - Incorporação das visualizações já testadas dentro da estrutura do Reveal.js
-   - Implementação das transições entre conceitos relacionados
-   - Finalização da apresentação completa com todos os elementos integrados
+4. **Containers para visualizações**:
+   ```html
+   <div class="canvas-container">
+     <canvas id="[id-unico-do-topico]-canvas" width="800" height="500"></canvas>
+     <div class="simulator-controls">
+       <!-- Controles interativos aqui, com IDs específicos do tópico -->
+     </div>
+   </div>
+   ```
 
-## Processo de Desenvolvimento
-O desenvolvimento dos slides seguirá estas etapas sequenciais:
+5. **Formatação de fórmulas**:
+   ```html
+   <p class="formula">\( fórmula_LaTeX_aqui \)</p>
+   ```
 
-1. **Discussão inicial do conteúdo**
-   - Definir escopo e profundidade dos tópicos
-   - Estabelecer conceitos-chave a serem abordados
-   - Planejar a narrativa pedagógica e conexões temáticas com Fallout
-   - Criar mnemônicos temáticos para cada conceito principal
+### Componentes Visuais Temáticos
 
-2. **Elaboração dos slides textuais**
-   - Desenvolver o conteúdo textual completo com o tom apropriado
-   - Estabelecer a estrutura narrativa dos slides
-   - Incluir metáforas de sobrevivência e reconstrução
-   - Submeter para revisão e aprovação antes de prosseguir
+1. **Painel de Informações** (para relatórios e informações):
+   ```html
+   <div class="info-panel">
+     <div class="info-screen">
+       <!-- Conteúdo aqui -->
+     </div>
+   </div>
+   ```
 
-3. **Implementação das visualizações**
-   - Após aprovação do conteúdo textual, desenvolver as visualizações em Canvas
-   - Implementar interatividade conforme especificado
-   - Integrar texto e visualizações na apresentação final
-   - Aplicar estética visual inspirada em Fallout
+2. **Dica de Sobrevivência** (para conceitos importantes):
+   ```html
+   <div class="survival-tip">
+     <p>DICA DE SOBREVIVÊNCIA: Texto da dica aqui.</p>
+   </div>
+   ```
 
-## Estrutura de Cada Tema
-1. **Abertura ("Briefing de Missão")**
-   - Slide principal com definição matemática formal
-   - Conexão narrativa com o universo Fallout
-   - Mnemônico temático para auxiliar a memorização
-   - Decomposição do conceito em partes menores e explicáveis
+3. **Box de Definição** (para fórmulas e definições formais):
+   ```html
+   <div class="definition-box">
+     <p class="formula">\( expressão_matemática \)</p>
+     <p>Explicação da definição.</p>
+   </div>
+   ```
 
-2. **Contextualização ("Relatório de Campo")**
-   - Aplicações práticas (com ênfase em situações de sobrevivência)
-   - Conexões com elementos do universo Fallout (Pip-Boy, V.A.T.S., etc.)
-   - Motivações práticas para usar o conceito (ex: calcular rotas seguras, otimizar recursos)
+4. **Mnemônico Temático** (para memorização):
+   ```html
+   <p class="mnemonic">"Texto do mnemônico temático aqui."</p>
+   ```
 
-3. **Visualizações Interativas ("Simulador Vault-Tec")**
-   - Slides com apenas título, canvas e controles
-   - Interações por arraste, clique ou sliders
-   - Feedback visual temático (sons de Geiger, interface estilo Pip-Boy)
-   - Exibição de valores numéricos que mudam conforme interação
-   - Estética visual remetendo a antigas tecnologias (CRT, gráficos vetoriais estilo anos 50)
+## Implementação de JavaScript com IIFEs
 
-4. **Exercícios Práticos ("Treinamento de Sobrevivência")**
-   - Problema introdutório com resolução guiada
-   - Problema avançado de maior complexidade (para os alunos resolverem)
-   - Soluções em slides separados ("Manuais de Sobrevivência")
-   - Contextualização dos problemas em cenários de sobrevivência
+Para garantir que as diferentes visualizações não interfiram umas nas outras, TODAS as implementações JavaScript devem usar o padrão IIFE (Immediately Invoked Function Expression):
 
-5. **Fechamento ("Debriefing")**
-   - Síntese do tema
-   - Conexão com próximos conceitos
-   - Referência sarcástica ou bem-humorada ao tema
-
-## Níveis de Progressão de Complexidade
-
-Cada tópico deve apresentar progressão clara nos níveis:
-
-1. **Nível Básico ("Morador do Vault")**
-   - Descrição intuitiva com analogias de sobrevivência
-   - Ex: "Coordenadas são como as marcações no seu mapa para encontrar suprimentos"
-   - Visualização: Elementos únicos, estáticos, 2D
-   - Contexto: Situações básicas de sobrevivência (encontrar abrigo, água)
-
-2. **Nível Intermediário ("Explorador da Wasteland")**
-   - Introdução à notação matemática formal junto com interpretação
-   - Ex: "A equação da reta $y = mx + b$ é seu mapa de rota através da wasteland"
-   - Visualização: Múltiplos elementos, interativos, 2D/3D simples
-   - Contexto: Aplicações táticas (otimizar rotas, cálculo de recursos)
-
-3. **Nível Avançado ("Mestre da Wasteland")**
-   - Formalismo completo com conexões conceituais
-   - Ex: "A transformação de coordenadas permite recalibrar seu Pip-Boy para diferentes zonas"
-   - Visualização: Sistemas complexos, interativos, 3D completo
-   - Contexto: Aplicações estratégicas (planejamento de assentamentos, sistemas de defesa)
-
-## Organização de Slides
-- Temas principais: navegação horizontal ("Capítulos do Manual de Sobrevivência")
-- Detalhamento de cada tema: navegação vertical ("Páginas do Manual")
-- Slides com visualizações separados dos slides teóricos
-- Convenção de nomeação temática para cada seção
-- Uso consistente da marcação de radiação (☢️) para listas conforme definido no CSS
-
-## Transições entre Conceitos
-
-Implementar transições significativas que reforcem a continuidade conceitual:
-
-- **Transições Visuais**
-  - Utilizar as transições disponíveis no Reveal.js para criar efeito de "interferência de radiação"
-  - Morphing entre representações relacionadas (ex: ponto → reta → plano)
-  - Zoom progressivo de casos específicos para generalizações
-  - Animações inspiradas na estética retro-futurista de Fallout
-
-- **Transições Narrativas**
-  - Frases de conexão temáticas: "Agora que nossa bússola está calibrada, podemos explorar novos territórios..."
-  - Questões-ponte que ligam conceitos: "Como podemos usar estas coordenadas para mapear áreas seguras?"
-  - Metáforas contínuas que evoluem através dos tópicos
-  - "Transmissões de rádio" entre conceitos como elemento narrativo
-
-- **Recapitulações Estratégicas**
-  - Slide de "Anotações do Pip-Boy" a cada 3-4 tópicos principais
-  - "Holotape" resumindo conceitos anteriores antes de introduzir novos
-  - Comparativo visual "antes/depois" mostrando evolução do entendimento
-
-## Diretrizes de Design
-- Equilibrar formalidade acadêmica com a estética de Fallout
-- Priorizar visualizações e exemplos práticos
-- Incluir momentos de interação com a turma ("Chamados pelo rádio")
-- Manter clareza visual sem sobrecarga de informações
-- Limitar a quantidade de texto por slide
-- Distribuir o conteúdo em múltiplos slides para evitar sobrecarga
-- Utilizar a estilização já definida no CSS fornecido:
-  - Títulos em dourado (#FFD700)
-  - Fórmulas em verde-limão (#ADFF2F) usando a classe "formula"
-  - Listas com marcadores de radiação (☢️)
-
-## Visualizações Interativas
-
-### Indicadores de Interatividade
-
-Implementar convenções visuais consistentes para elementos interativos:
-
-- **Cursores Personalizados**
-  - Objetos arrastáveis: cursor personalizado estilo "mão do Pip-Boy"
-  - Controles ajustáveis: cursor estilo "ferramenta de ajuste"
-  - Elementos clicáveis: cursor estilo "seletor V.A.T.S."
-
-- **Dicas Visuais**
-  - Contorno pulsante ao redor de elementos interativos
-  - Ícone do Vault-Boy fazendo gestos indicativos nos cantos de objetos manipuláveis
-  - Efeito de "destaque radioativo" em elementos interativos na primeira visualização
-  - Tooltip estilo terminal antigo com texto explicativo
-
-- **Tutoriais Integrados**
-  - Overlay inicial estilo "Manual de Sobrevivência Vault-Tec"
-  - Setas indicativas estilo "V.A.T.S." que desaparecem após primeira interação
-  - Instruções de voz estilo "Mr. Handy" introduzindo cada interação
-
-### Feedback Visual
-
-Fornecer feedback imediato e claro durante interações:
-
-- **Feedback Numérico**
-  - Painel estilo "Pip-Boy" com valores atualizados em tempo real
-  - Formatação numérica estilo terminal dos anos 50
-  - "Bip" característico quando valores mudam significativamente
-  - Contadores estilo medidores analógicos
-
-- **Feedback Gráfico**
-  - Rastros fantasma de posições anteriores (estilo "afterglow" de terminal)
-  - Destaque visual momentâneo com efeito "radiação" em elementos afetados
-  - Sons temáticos indicando mudanças (contador Geiger para valores crescentes)
-  - Linhas auxiliares que aparecem durante manipulações (estilo "scan line")
-
-- **Feedback Contextual**
-  - Mensagens do "Overseer" explicando o significado matemático da alteração
-  - Animações do Vault-Boy reagindo às interações (positiva/negativa)
-  - Barras de progresso estilo "XP" para indicar proximidade com soluções
-
-## Tópicos Específicos de Geometria Analítica
-
-1. **Coordenadas e Pontos ("Mapeamento da Wasteland")**
-   - Sistema de coordenadas cartesianas
-   - Distância entre pontos
-   - Ponto médio e baricentro
-   - Contexto: Mapeamento de locais de recursos e abrigos
-
-2. **Vetores no Plano ("Rotas de Caravanas")**
-   - Operações vetoriais básicas
-   - Produto escalar e aplicações
-   - Bases e componentes
-   - Contexto: Planejamento de rotas comerciais seguras
-
-3. **Equações da Reta ("Linhas de Suprimento")**
-   - Formas das equações da reta
-   - Posições relativas entre retas
-   - Distância de ponto à reta
-   - Contexto: Construção de rotas de abastecimento
-
-4. **Vetores no Espaço ("Navegação 3D")**
-   - Produto vetorial e aplicações
-   - Produto misto
-   - Contexto: Navegação em estruturas complexas
-
-5. **Equações do Plano ("Fortificações")**
-   - Formas das equações do plano
-   - Posições relativas entre planos
-   - Distância de ponto a plano
-   - Contexto: Planejamento de assentamentos e defesas
-
-6. **Cônicas ("Zonas de Radiação")**
-   - Circunferência
-   - Elipse
-   - Hipérbole
-   - Parábola
-   - Contexto: Mapeamento de zonas de contaminação e áreas seguras
-
-## Checklist de Implementação
-
-Para cada tópico de Geometria Analítica, verificar:
-
-1. **Progressão pedagógica**
-   - Níveis de complexidade claramente definidos (básico → avançado)
-   - Narrativa coesa conectando a temática Fallout ao conceito matemático
-   - Mnemônico temático desenvolvido para o conceito principal
-
-2. **Design visual**
-   - Uso correto das classes CSS fornecidas (especialmente para fórmulas)
-   - Indicadores de interatividade claros e padronizados
-   - Sistema de feedback visual implementado
-   - Transições significativas entre conceitos relacionados
-   - Estética visual Fallout mantida consistentemente
-
-3. **Interatividade**
-   - Controles intuitivos com resposta imediata
-   - Múltiplos níveis de exploração disponíveis
-   - Feedback contextualizado durante manipulações
-   - Opções para reiniciar/comparar configurações
-   - Interface inspirada em tecnologias retro-futuristas
-
-4. **Avaliação**
-   - Mecanismo para verificar compreensão após interação
-   - Problemas práticos que utilizam a visualização
-   - Conexão explícita entre visualização e formalismo matemático
-   - Desafios temáticos inspirados em situações de sobrevivência
-
-## Uso Correto do Template e CSS
-
-### Estrutura HTML
-```html
-<!-- Exemplo de uso do template para um novo tópico -->
-<section>
-  <!-- Slide principal do tópico -->
-  <section>
-    <h2>Equações da Reta: Linhas de Suprimento</h2>
-    <p>As rotas de suprimento são vitais na wasteland. Aprenda a traçá-las matematicamente.</p>
-  </section>
+```javascript
+// IIFE para visualização de [TÓPICO]
+(function() {
+  // Variáveis privadas - não vazam para o escopo global
+  let canvas, ctx, outrasVariaveis;
   
-  <!-- Slide de subtópico com fórmula -->
-  <section>
-    <h3>Forma Geral da Reta</h3>
-    <p>A forma mais comum de representar uma linha de suprimento na wasteland:</p>
-    <p class="formula">\( Ax + By + C = 0 \)</p>
-    <p>Onde \(A\) e \(B\) não são ambos nulos.</p>
-  </section>
+  // Funções privadas - só acessíveis dentro deste escopo
+  function init() {
+    // Obter elementos do DOM
+    canvas = document.getElementById('[id-do-topico]-canvas');
+    if (!canvas) return; // Sai se o canvas não existir nesta página
+    
+    // Continua inicialização...
+  }
   
-  <!-- Slide com lista não ordenada -->
-  <section>
-    <h3>Propriedades das Rotas</h3>
-    <ul>
-      <li>Toda rota tem uma direção definida</li>
-      <li>Rotas paralelas nunca se encontram</li>
-      <li>Rotas que se cruzam formam postos de troca</li>
-    </ul>
-  </section>
+  function draw() {
+    // Implementação do desenho...
+  }
   
-  <!-- Slide com lista ordenada -->
-  <section>
-    <h3>Passos para Mapear uma Rota</h3>
-    <ol>
-      <li>Identifique dois pontos seguros</li>
-      <li>Calcule a inclinação da rota</li>
-      <li>Determine a equação da reta</li>
-      <li>Verifique se cruza zonas de radiação</li>
-    </ol>
-  </section>
-</section>
+  // Outras funções privadas...
+  
+  // Inicializar quando o DOM estiver pronto
+  document.addEventListener('DOMContentLoaded', init);
+  
+  // OPCIONAL: Expor uma API mínima para interações externas
+  window.[topicoVisualization] = {
+    reset: function() {
+      // Código para resetar...
+    }
+    // Outros métodos públicos se necessário...
+  };
+})();
 ```
 
-### Usando Classes CSS
-- Aplicar a classe `formula` para destacar fórmulas matemáticas importantes:
-  ```html
-  <p class="formula">\( d = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2} \)</p>
-  ```
-- Utilizar listas não ordenadas (ul) e ordenadas (ol) para aproveitar os marcadores personalizados com símbolo de radiação
-- Respeitar as convenções de tamanho de texto já definidas no CSS
+### Benefícios do Padrão IIFE:
 
-## Mnemônicos e Frases Temáticas para Conceitos Principais
+1. **Isolamento de escopo**: Variáveis e funções não vazam para o escopo global
+2. **Prevenção de conflitos**: Mesmo com nomes similares, não há colisão entre visualizações
+3. **Carregamento condicional**: Cada visualização só inicializa se seu canvas estiver presente na página
+4. **API controlada**: Apenas os métodos explicitamente expostos são acessíveis externamente
 
-- **Coordenadas**: "XY marca o ponto - X para a distância leste/oeste da Vault, Y para o norte/sul. Quem não sabe se localizar na wasteland, vira almoço de Deathclaw."
+### Diretrizes para Integridade do Código:
 
-- **Vetores**: "Força, direção e sentido - exatamente o que você precisa para atravessar território de Raiders. Um vetor é seu plano de viagem completo."
+1. **IDs exclusivos por tópico**: Use prefixos consistentes em todos os IDs (ex: `coordenadas-`, `vetores-`, `retas-`)
+2. **Verificação de existência**: Sempre verifique se um elemento existe antes de manipulá-lo
+3. **Desvinculação de eventos**: Ao resetar estados, remova event listeners anteriores para evitar duplicação
+4. **Comentários claros**: Delimite seções de código com comentários descritivos
 
-- **Produto escalar**: "V.A.T.S. de vetores - quanto mais alinhados, maior o dano. Vetores perpendiculares não causam dano entre si."
+## Componentes Interativos para Cada Tópico
 
-- **Equação da reta**: "Ax + By + C = 0 é como um muro de junk - A e B apontam para a perpendicular, e C mostra o deslocamento da origem. Útil para saber se você está do lado seguro ou radioativo."
+Cada tópico de Geometria Analítica DEVE ter sua própria visualização interativa com a mesma estrutura e estética, mas adaptada ao conteúdo específico. Para cada visualização:
 
-- **Produto vetorial**: "Regra da mão direita - aponte o primeiro vetor com o polegar, o segundo com o indicador, e a palma aponta para onde vem o terceiro. Essencial para saber de onde vem o ataque."
+### 1. Estrutura Básica da Visualização
+- Um arquivo HTML independente para desenvolvimento e teste
+- Canvas HTML5 para renderização
+- Controles deslizantes ou outro método de interação
+- Feedback visual temático (interface de dispositivo tecnológico retro-futurista)
+- Tutorial inicial que desaparece após interação
 
-- **Circunferência**: "x² + y² = r² é a zona segura ao redor de um assentamento - r é o alcance dos turrets de defesa."
+### 2. Elementos Interativos por Tópico
 
-- **Elipse**: "A órbita de todo bom explorador ao redor de dois pontos focais - o Vault de origem e o ponto de comercialização. Economiza energia e evita áreas perigosas."
+**Coordenadas e Pontos**:
+- Canvas com plano cartesiano
+- Ponto arrastável com coordenadas visíveis
+- Cálculo automático de distância da origem
+- Identificação de quadrante
+- Feedback visual baseado na "radiação" (distância)
+
+**Vetores no Plano**:
+- Vetores arrastáveis por suas extremidades
+- Visualização de componentes (projeções nos eixos)
+- Controles para soma e subtração de vetores
+- Cálculo de produto escalar com ângulo visível
+- Simulação de "rotas de caravana" usando vetores
+
+**Equações da Reta**:
+- Reta interativa alterável por dois pontos
+- Visualização das diferentes formas da equação
+- Controles para parâmetros (inclinação, intercepto)
+- Distância de ponto à reta com indicação visual
+- Posições relativas entre retas (paralelas, perpendiculares)
+
+**Vetores no Espaço**:
+- Visualização 3D rotacionável
+- Controles para componentes tridimensionais
+- Produto vetorial com regra da mão direita visual
+- Produto misto com visualização de volume
+- Simulação de "navegação em estruturas" com vetores 3D
+
+**Equações do Plano**:
+- Plano 3D interativo
+- Visualização do vetor normal
+- Distância de ponto a plano com indicação visual
+- Interseções com outros planos ou retas
+- Simulação de "construção de fortificações" com planos
+
+**Cônicas**:
+- Visualização interativa de cada cônica
+- Controles para parâmetros (focos, eixos, excentricidade)
+- Transição entre diferentes cônicas
+- Aplicações em "zonas de radiação" com visualização temática
+- Construção geométrica das cônicas com feedback visual
+
+### 3. Implementação do JavaScript com IIFE
+
+Cada visualização deve seguir este padrão de implementação:
+
+```javascript
+// IIFE para isolar o escopo da visualização
+(function() {
+  // 1. Variáveis privadas
+  let canvas, ctx, estado, elementos;
+  
+  // 2. Funções de conversão entre coordenadas matemáticas e canvas
+  function mathToCanvas(x, y) {
+    // Conversão de coordenadas matemáticas para canvas
+  }
+  
+  function canvasToMath(x, y) {
+    // Conversão de coordenadas canvas para matemáticas
+  }
+  
+  // 3. Funções de desenho
+  function drawGrid() {
+    // Desenho do grid e eixos
+  }
+  
+  function drawElements() {
+    // Desenho dos elementos específicos do tópico
+  }
+  
+  function draw() {
+    // Função principal de desenho
+    drawGrid();
+    drawElements();
+    // Outros elementos visuais
+  }
+  
+  // 4. Manipuladores de eventos
+  function handleMouseDown(e) {
+    // Lógica para clique do mouse
+  }
+  
+  function handleMouseMove(e) {
+    // Lógica para movimento do mouse
+  }
+  
+  function handleMouseUp() {
+    // Lógica para soltar o botão do mouse
+  }
+  
+  // 5. Atualização da interface e feedback
+  function updateUI() {
+    // Atualização dos elementos da interface (valores, textos)
+    // Feedback visual baseado no estado atual
+  }
+  
+  // 6. Inicialização - só executa se o canvas existir
+  function init() {
+    // Obter o canvas
+    canvas = document.getElementById('id-unico-do-topico-canvas');
+    if (!canvas) return; // Encerra se o canvas não existir
+    
+    ctx = canvas.getContext('2d');
+    
+    // Configuração inicial
+    // Registro de eventos
+    // Primeiro desenho
+  }
+  
+  // 7. Iniciar a aplicação quando o DOM estiver pronto
+  document.addEventListener('DOMContentLoaded', init);
+  
+  // 8. OPCIONAL: API pública mínima
+  window.topicoVisualization = {
+    // Métodos públicos (apenas o essencial)
+    reset: function() {
+      // Resetar estado
+    }
+    // Outros métodos públicos...
+  };
+})();
+```
+
+### 4. Requisitos de Interatividade
+
+Todas as visualizações DEVEM incluir:
+- **Manipulação direta**: Arrastar elementos para modificar parâmetros
+- **Controles alternativos**: Sliders ou botões para ajustes precisos
+- **Feedback visual temático**: Estilo interface retro-futurista
+- **Feedback numérico**: Valores atualizados em tempo real
+- **Estados múltiplos**: Possibilidade de visualizar diferentes configurações
+- **Mensagens contextuais**: Dicas e explicações matemáticas durante a interação
+- **Tutorial inicial**: Overlay com instruções básicas
+- **Efeitos visuais**: Scan lines, vinheta e outros elementos de estética retro-futurista
+
+## Processo de Integração no Template Principal
+
+1. **Desenvolvimento separado**:
+   - Criar cada visualização como um arquivo HTML independente
+   - Testar completamente a interatividade antes da integração
+
+2. **Integração no template**:
+   - Copiar o HTML do slide para a seção apropriada do template
+   - Adicionar o JavaScript (com IIFE) ao arquivo de scripts da apresentação
+   - Garantir que todos os IDs são únicos usando prefixos consistentes
+
+3. **Teste da integração**:
+   - Verificar se cada visualização funciona corretamente no contexto do Reveal.js
+   - Testar navegação entre slides para confirmar que as visualizações não interferem entre si
+   - Confirmar que as visualizações só inicializam quando seus slides são exibidos
+
+## Checklist Final de Implementação
+
+Para cada tópico, verificar:
+
+1. **Estrutura de slides completa**:
+   - Briefing → Relatório → Simulador → Treinamento → Debriefing
+
+2. **Visualização interativa**:
+   - Implementação com IIFE para isolamento de escopo
+   - IDs únicos com prefixos de tópico
+   - Verificação de existência de elementos antes da manipulação
+   - Feedback visual e contextual adequado à temática pós-apocalíptica
+
+3. **Qualidade técnica**:
+   - Código JavaScript encapsulado e modular
+   - Tratamento adequado de eventos para evitar vazamento de memória
+   - Performance otimizada para desenho em canvas
+   - Consistência visual entre todas as visualizações
+
+4. **Progressão pedagógica**:
+   - Níveis de complexidade claramente definidos (básico → avançado)
+   - Narrativa temática coesa e conectada aos conceitos matemáticos
+   - Feedback contextualizado que reforça a compreensão conceitual
+
+Seguindo estas diretrizes detalhadas e adotando o padrão IIFE para todas as visualizações, você garantirá slides interativos consistentes, modulares e livres de conflitos para uma experiência de aprendizado envolvente em Geometria Analítica com tema pós-apocalíptico.

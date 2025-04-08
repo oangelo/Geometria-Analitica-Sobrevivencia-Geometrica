@@ -1,4 +1,4 @@
-<!-- Reveal.js Template for 'Geometria Analítica: Sobrevivência Geométrica' -->
+<!-- Reveal.js Template para 'Geometria Analítica: Sobrevivência Geométrica' -->
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
@@ -13,49 +13,207 @@
     <!-- For syntax highlighting -->
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css" />
 
-    <!-- Custom styles (if needed) -->
+    <!-- Custom styles -->
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+  </head>
   <body>
     <div class="reveal">
       <div class="slides">
-        <!-- Horizontal Slide 1 (Secão 1) -->
+        <!-- SLIDE DE CAPA -->
         <section>
-          <!-- Vertical Slides for Secão 1 -->
-          <section>
-            <h2>Bem-vindos ao Colapso</h2>
-            <p>Introdução à Geometria Analítica numa terra devastada.</p>
-          </section>
+          <div class="title-screen">
+            <h1>Geometria Analítica</h1>
+            <h2 class="subtitle">Sobrevivência Geométrica</h2>
+            <div class="emblem-number">101</div>
+            <p class="subtitle-warning">CONFIDENCIAL: MANUAL DE TREINAMENTO</p>
+          </div>
+        </section>
 
-          <section>
-            <h3>Equipe de Reconstrução</h3>
-            <p>A mentalidade do <em>Vault</em>: organizar, planejar e reconstruir.</p>
+        <!-- MODELO PARA TÓPICO: COORDENADAS E PONTOS -->
+        <section>
+          <!-- 1. BRIEFING DE MISSÃO - Slide principal com definição formal -->
+          <section class="mission-briefing">
+            <h2>Coordenadas e Pontos</h2>
+            <h3 class="mission-subtitle">Mapeamento da Wasteland</h3>
+            <div class="mission-description">
+              <p>As coordenadas são a diferença entre sobreviver e virar almoço de uma criatura mutante.</p>
+              <p class="mnemonic">"XY marca o ponto - X leste/oeste do Abrigo, Y norte/sul. Quem não sabe se localizar no deserto, vira almoço de predador."</p>
+            </div>
+            <div class="definition-box">
+              <p class="formula">\( P(x,y) \)</p>
+              <p>Um ponto P no plano cartesiano é definido pelo par ordenado de coordenadas (x,y).</p>
+            </div>
+          </section>
+          
+          <!-- 2. RELATÓRIO DE CAMPO - Contextualização e aplicações -->
+          <section class="field-report level-basic">
+            <h3>Relatório de Campo: Nível Básico</h3>
+            <div class="info-panel">
+              <div class="info-screen">
+                <h4>Aplicações:</h4>
+                <ul>
+                  <li>Localização de fontes de água potável</li>
+                  <li>Mapeamento de áreas seguras sem radiação</li>
+                  <li>Marcação de pontos de encontro para caravanas</li>
+                </ul>
+              </div>
+            </div>
+            <div class="survival-tip">
+              <p>DICA DE SOBREVIVÊNCIA: Sempre memorize as coordenadas do seu Abrigo. É o caminho de volta para casa.</p>
+            </div>
+          </section>
+          
+          <!-- 3. SIMULADOR - Visualização interativa -->
+          <section class="simulator">
+            <h3>Simulador: Coordenadas</h3>
+            <div class="canvas-container">
+              <canvas id="coordenadas-canvas" width="800" height="400"></canvas>
+              <div class="simulator-controls">
+                <div class="control-panel">
+                  <label for="coordenadas-x">X:</label>
+                  <input type="range" id="coordenadas-x" min="-10" max="10" value="0" step="0.5">
+                  <span id="coordenadas-x-value">0</span>
+                  
+                  <label for="coordenadas-y">Y:</label>
+                  <input type="range" id="coordenadas-y" min="-10" max="10" value="0" step="0.5">
+                  <span id="coordenadas-y-value">0</span>
+                </div>
+              </div>
+            </div>
+            <div class="hint-message">
+              <p>Arraste o ponto ou use os controles para alterar suas coordenadas.</p>
+            </div>
+          </section>
+          
+          <!-- 4. TREINAMENTO DE SOBREVIVÊNCIA - Exercícios práticos -->
+          <section class="survival-training">
+            <h3>Treinamento de Sobrevivência</h3>
+            <div class="training-problem">
+              <h4>Problema #1: Abastecimento Crítico</h4>
+              <p>Você está no ponto A(3, 4) e precisa alcançar um posto de troca no ponto B(7, -2).</p>
+              <ol>
+                <li>Calcule a distância direta entre os pontos</li>
+                <li>Determine o ponto médio da rota para descanso</li>
+              </ol>
+            </div>
+            <div class="problem-context">
+              <p>Uma tempestade de radiação se aproxima. Você tem tempo limitado para chegar ao abrigo.</p>
+            </div>
+          </section>
+          
+          <!-- 5. DEBRIEFING - Fechamento -->
+          <section class="debriefing">
+            <h3>Debriefing: Coordenadas e Pontos</h3>
+            <div class="summary-box">
+              <p>As coordenadas são a base da sua sobrevivência na wasteland. Dominar este conceito é essencial antes de aventurar-se além dos limites do Abrigo.</p>
+            </div>
+            <div class="next-mission">
+              <p>Próxima missão: Vetores no Plano - A arte de se mover na direção certa.</p>
+            </div>
+            <div class="instructor-note">
+              <p>"Lembre-se: Quem não sabe onde está, não sabe para onde vai. E na wasteland, isso geralmente significa um caminho sem volta."</p>
+            </div>
           </section>
         </section>
 
-        <!-- Horizontal Slide 2 (Secão 2) -->
+        <!-- MODELO PARA TÓPICO: VETORES NO PLANO -->
         <section>
-          <!-- Vertical Slides for Secão 2 -->
-          <section>
-            <h2>Fórmulas e Sobrevivência</h2>
-            <p>Aplicando fórmulas como se fossem manuais de sobrevivência.</p>
-            <p>Exemplo de fórmula usando MathJax:</p>
-            <p>\( y = mx + b \)</p>
+          <!-- 1. BRIEFING DE MISSÃO -->
+          <section class="mission-briefing">
+            <h2>Vetores no Plano</h2>
+            <h3 class="mission-subtitle">Rotas de Caravanas</h3>
+            <div class="mission-description">
+              <p>Vetores são a linguagem matemática do movimento na wasteland.</p>
+              <p class="mnemonic">"Força, direção e sentido - exatamente o que você precisa para atravessar território de saqueadores. Um vetor é seu plano de viagem completo."</p>
+            </div>
+            <div class="definition-box">
+              <p class="formula">\( \vec{v} = (v_x, v_y) \)</p>
+              <p>Um vetor no plano é definido por suas componentes nas direções x e y.</p>
+            </div>
           </section>
-
-          <section>
-            <h3>Mais detalhes sobre a Reta</h3>
-            <p>\( m \) é a inclinação ("Mire"), \( b \) é a interceptação ("Base").</p>
+          
+          <!-- 2. RELATÓRIO DE CAMPO -->
+          <section class="field-report level-intermediate">
+            <h3>Relatório de Campo: Nível Intermediário</h3>
+            <div class="info-panel">
+              <div class="info-screen">
+                <h4>Aplicações:</h4>
+                <ul>
+                  <li>Planejamento de rotas de expedição</li>
+                  <li>Cálculo de forças em estruturas de defesa</li>
+                  <li>Estratégias de combate e desvio de ameaças</li>
+                </ul>
+              </div>
+            </div>
+            <div class="survival-tip">
+              <p>DICA DE SOBREVIVÊNCIA: A magnitude do vetor indica o gasto de energia. Rotas otimizadas conservam recursos.</p>
+            </div>
           </section>
+          
+          <!-- 3. SIMULADOR -->
+          <section class="simulator">
+            <h3>Simulador: Vetores no Plano</h3>
+            <div class="canvas-container">
+              <canvas id="vetores-canvas" width="800" height="400"></canvas>
+              <div class="simulator-controls">
+                <div class="control-panel">
+                  <label for="vetores-a-x">A (x):</label>
+                  <input type="range" id="vetores-a-x" min="-10" max="10" value="5" step="0.5">
+                  <span id="vetores-a-x-value">5</span>
+                  
+                  <label for="vetores-a-y">A (y):</label>
+                  <input type="range" id="vetores-a-y" min="-10" max="10" value="2" step="0.5">
+                  <span id="vetores-a-y-value">2</span>
+                </div>
+                
+                <div class="control-panel" style="margin-top: 5px;">
+                  <button id="vetores-soma" class="operation-btn">A+B</button>
+                  <button id="vetores-subtracao" class="operation-btn">A-B</button>
+                  <button id="vetores-produto" class="operation-btn">A·B</button>
+                  <button id="vetores-reset" class="operation-btn">Reset</button>
+                </div>
+              </div>
+            </div>
+            <div class="hint-message">
+              <p>Arraste as pontas dos vetores ou use os controles para modificar suas componentes.</p>
+            </div>
+          </section>
+          
+          <!-- Outros slides deste tópico... -->
         </section>
+
+        <!-- MODELO PARA TÓPICO: EQUAÇÕES DA RETA -->
+        <section>
+          <!-- 1. BRIEFING DE MISSÃO -->
+          <section class="mission-briefing">
+            <h2>Equações da Reta</h2>
+            <h3 class="mission-subtitle">Linhas de Suprimento</h3>
+            <div class="mission-description">
+              <p>No mundo pós-apocalíptico, a linha reta raramente é o caminho seguro, mas é sempre o mais eficiente.</p>
+              <p class="mnemonic">"Ax + By + C = 0 é como um muro de sucata - A e B apontam para a perpendicular, e C mostra o deslocamento da origem. Útil para saber se você está do lado seguro ou radioativo."</p>
+            </div>
+            <div class="definition-box">
+              <p class="formula">\( Ax + By + C = 0 \)</p>
+              <p>A forma geral da equação da reta no plano cartesiano.</p>
+            </div>
+          </section>
+          
+          <!-- Outros slides deste tópico... -->
+        </section>
+
+        <!-- MAIS SEÇÕES SERIAM ADICIONADAS AQUI PARA OUTROS TÓPICOS -->
       </div>
     </div>
 
-    <!-- Reveal.js -->
+    <!-- Scripts base -->
     <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
-
-    <!-- Reveal Plugins -->
     <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
     <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/math/math.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/zoom/zoom.js"></script>
 
     <!-- MathJax -->
     <script>
@@ -69,25 +227,315 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
+    <!-- Visualizações interativas -->
+    <script>
+      // IIFE para isolar o escopo da visualização de coordenadas
+      (function() {
+        // Variáveis privadas
+        let canvas, ctx;
+        let width, height, centerX, centerY, gridSize;
+        let pointX = 0, pointY = 0;
+        let isDragging = false;
+        
+        // Cores
+        const axisColor = '#ADFF2F';
+        const gridColor = 'rgba(173, 255, 47, 0.2)';
+        const pointColor = '#FF6347';
+        
+        // Função para converter coordenadas matemáticas para coordenadas do canvas
+        function mathToCanvas(x, y) {
+          return {
+            x: centerX + x * gridSize,
+            y: centerY - y * gridSize // Inverte Y pois o canvas cresce para baixo
+          };
+        }
+        
+        // Função para converter coordenadas do canvas para coordenadas matemáticas
+        function canvasToMath(x, y) {
+          return {
+            x: (x - centerX) / gridSize,
+            y: (centerY - y) / gridSize
+          };
+        }
+        
+        // Função para desenhar o grid e os eixos
+        function drawGrid() {
+          ctx.clearRect(0, 0, width, height);
+          
+          // Desenhar linhas de grade
+          ctx.strokeStyle = gridColor;
+          ctx.lineWidth = 1;
+          
+          // Linhas verticais
+          for (let x = centerX % gridSize; x < width; x += gridSize) {
+            ctx.beginPath();
+            ctx.moveTo(x, 0);
+            ctx.lineTo(x, height);
+            ctx.stroke();
+          }
+          
+          // Linhas horizontais
+          for (let y = centerY % gridSize; y < height; y += gridSize) {
+            ctx.beginPath();
+            ctx.moveTo(0, y);
+            ctx.lineTo(width, y);
+            ctx.stroke();
+          }
+          
+          // Desenhar eixos
+          ctx.strokeStyle = axisColor;
+          ctx.lineWidth = 2;
+          
+          // Eixo X
+          ctx.beginPath();
+          ctx.moveTo(0, centerY);
+          ctx.lineTo(width, centerY);
+          ctx.stroke();
+          
+          // Eixo Y
+          ctx.beginPath();
+          ctx.moveTo(centerX, 0);
+          ctx.lineTo(centerX, height);
+          ctx.stroke();
+          
+          // Marcações nos eixos
+          ctx.fillStyle = axisColor;
+          ctx.font = '12px "Courier New", monospace';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          
+          // Marcações no eixo X
+          for (let x = -Math.floor(centerX / gridSize); x <= Math.floor((width - centerX) / gridSize); x += 2) {
+            if (x === 0) continue;
+            const canvasX = centerX + x * gridSize;
+            
+            // Linha de marcação
+            ctx.beginPath();
+            ctx.moveTo(canvasX, centerY - 5);
+            ctx.lineTo(canvasX, centerY + 5);
+            ctx.stroke();
+            
+            // Número
+            ctx.fillText(x.toString(), canvasX, centerY + 15);
+          }
+          
+          // Marcações no eixo Y
+          for (let y = -Math.floor(centerY / gridSize); y <= Math.floor((height - centerY) / gridSize); y += 2) {
+            if (y === 0) continue;
+            const canvasY = centerY - y * gridSize;
+            
+            // Linha de marcação
+            ctx.beginPath();
+            ctx.moveTo(centerX - 5, canvasY);
+            ctx.lineTo(centerX + 5, canvasY);
+            ctx.stroke();
+            
+            // Número
+            ctx.fillText(y.toString(), centerX - 15, canvasY);
+          }
+          
+          // Marcar a origem
+          ctx.fillText('0', centerX - 15, centerY + 15);
+        }
+        
+        // Função para desenhar o ponto
+        function drawPoint() {
+          const canvasCoords = mathToCanvas(pointX, pointY);
+          
+          // Efeito de glow
+          ctx.beginPath();
+          ctx.arc(canvasCoords.x, canvasCoords.y, 8, 0, 2 * Math.PI);
+          ctx.fillStyle = 'rgba(255, 99, 71, 0.3)';
+          ctx.fill();
+          
+          // Ponto
+          ctx.beginPath();
+          ctx.arc(canvasCoords.x, canvasCoords.y, 5, 0, 2 * Math.PI);
+          ctx.fillStyle = pointColor;
+          ctx.fill();
+          ctx.strokeStyle = '#FFF';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+          
+          // Linha tracejada até o eixo X
+          ctx.beginPath();
+          ctx.setLineDash([5, 3]);
+          ctx.moveTo(canvasCoords.x, canvasCoords.y);
+          ctx.lineTo(canvasCoords.x, centerY);
+          ctx.strokeStyle = 'rgba(255, 99, 71, 0.7)';
+          ctx.stroke();
+          
+          // Linha tracejada até o eixo Y
+          ctx.beginPath();
+          ctx.moveTo(canvasCoords.x, canvasCoords.y);
+          ctx.lineTo(centerX, canvasCoords.y);
+          ctx.stroke();
+          ctx.setLineDash([]);
+          
+          // Desenhar coordenadas próximas ao ponto
+          ctx.fillStyle = '#FFF';
+          ctx.font = '12px "Courier New", monospace';
+          ctx.textAlign = 'left';
+          ctx.fillText(`(${pointX.toFixed(1)}, ${pointY.toFixed(1)})`, 
+                      canvasCoords.x + 10, canvasCoords.y - 10);
+        }
+        
+        // Função principal de desenho
+        function draw() {
+          drawGrid();
+          drawPoint();
+        }
+        
+        // Função para atualizar a interface com os novos valores
+        function updateUI() {
+          const xSlider = document.getElementById('coordenadas-x');
+          const ySlider = document.getElementById('coordenadas-y');
+          const xValue = document.getElementById('coordenadas-x-value');
+          const yValue = document.getElementById('coordenadas-y-value');
+          
+          if (xSlider && ySlider && xValue && yValue) {
+            xSlider.value = pointX;
+            ySlider.value = pointY;
+            xValue.textContent = pointX.toFixed(1);
+            yValue.textContent = pointY.toFixed(1);
+          }
+        }
+        
+        // Manipuladores de eventos
+        function handleMouseDown(e) {
+          const rect = canvas.getBoundingClientRect();
+          const mouseX = e.clientX - rect.left;
+          const mouseY = e.clientY - rect.top;
+          const mathCoords = canvasToMath(mouseX, mouseY);
+          
+          // Verificar se o clique foi próximo ao ponto
+          const canvasCoords = mathToCanvas(pointX, pointY);
+          const dx = canvasCoords.x - mouseX;
+          const dy = canvasCoords.y - mouseY;
+          const distance = Math.sqrt(dx*dx + dy*dy);
+          
+          if (distance < 15) {
+            isDragging = true;
+          } else {
+            // Se não clicou no ponto, move o ponto para o local do clique
+            pointX = Math.round(mathCoords.x * 2) / 2; // Arredondar para 0.5 mais próximo
+            pointY = Math.round(mathCoords.y * 2) / 2;
+            updateUI();
+            draw();
+          }
+        }
+        
+        function handleMouseMove(e) {
+          if (!isDragging) return;
+          
+          const rect = canvas.getBoundingClientRect();
+          const mouseX = e.clientX - rect.left;
+          const mouseY = e.clientY - rect.top;
+          const mathCoords = canvasToMath(mouseX, mouseY);
+          
+          // Limitar às coordenadas dentro do intervalo dos sliders
+          pointX = Math.max(-10, Math.min(10, Math.round(mathCoords.x * 2) / 2));
+          pointY = Math.max(-10, Math.min(10, Math.round(mathCoords.y * 2) / 2));
+          
+          updateUI();
+          draw();
+        }
+        
+        function handleMouseUp() {
+          isDragging = false;
+        }
+        
+        // Manipulador para os controles deslizantes
+        function handleControlChange() {
+          const xSlider = document.getElementById('coordenadas-x');
+          const ySlider = document.getElementById('coordenadas-y');
+          
+          if (xSlider && ySlider) {
+            pointX = parseFloat(xSlider.value);
+            pointY = parseFloat(ySlider.value);
+            draw();
+            updateUI();
+          }
+        }
+        
+        // Função de inicialização
+        function init() {
+          // Obter o canvas
+          canvas = document.getElementById('coordenadas-canvas');
+          if (!canvas) return; // Sai se o canvas não existir
+          
+          // Configurar o contexto do canvas
+          ctx = canvas.getContext('2d');
+          width = canvas.width;
+          height = canvas.height;
+          centerX = Math.floor(width / 2);
+          centerY = Math.floor(height / 2);
+          gridSize = 30; // Pixels por unidade
+          
+          // Registrar event listeners
+          canvas.addEventListener('mousedown', handleMouseDown);
+          canvas.addEventListener('mousemove', handleMouseMove);
+          canvas.addEventListener('mouseup', handleMouseUp);
+          canvas.addEventListener('mouseleave', handleMouseUp);
+          
+          // Registrar event listeners para os controles
+          const xSlider = document.getElementById('coordenadas-x');
+          const ySlider = document.getElementById('coordenadas-y');
+          
+          if (xSlider && ySlider) {
+            xSlider.addEventListener('input', handleControlChange);
+            ySlider.addEventListener('input', handleControlChange);
+          }
+          
+          // Desenho inicial
+          draw();
+          updateUI();
+        }
+        
+        // Iniciar quando o DOM estiver pronto
+        document.addEventListener('DOMContentLoaded', init);
+      })();
+
+      // IIFE para isolar o escopo da visualização de vetores
+      (function() {
+        // Implementação para o simulador de vetores 
+        // (código similar ao fornecido para coordenadas, mas adaptado para vetores)
+        
+        // Variáveis privadas
+        let canvas, ctx;
+        let width, height, centerX, centerY, gridSize;
+        let vectorA = { x: 5, y: 2 };
+        let vectorB = { x: -3, y: 4 };
+        let isDragging = null;
+        let currentOperation = 'vetores';
+
+        // Função de inicialização
+        function init() {
+          // Obter o canvas
+          canvas = document.getElementById('vetores-canvas');
+          if (!canvas) return; // Sai se o canvas não existir
+          
+          // Configurar o contexto e implementar funcionalidades
+          // ... (código similar ao da visualização de coordenadas)
+        }
+        
+        // Iniciar quando o DOM estiver pronto
+        document.addEventListener('DOMContentLoaded', init);
+      })();
+    </script>
+
+    <!-- Inicialização do Reveal.js -->
     <script>
       Reveal.initialize({
         hash: true,
         slideNumber: true,
-        plugins: [ RevealNotes, RevealHighlight ]
+        transition: 'convex',
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js',
+          config: 'TeX-AMS_HTML-full',
+        },
+        plugins: [ RevealNotes, RevealHighlight, RevealMath, RevealZoom ]
       });
     </script>
-
-    <!-- Como utilizar este modelo:
-      1. Cada "<section>" dentro de <div class="slides"> representa um slide horizontal.
-      2. Para criar slides verticais (subseções), aninhe <section> dentro de outro <section>.
-      3. Insira fórmulas LaTeX usando MathJax com a sintaxe \( ... \) ou \[ ... \].
-      4. Customize o tema (black.css) trocando o import no <head> ou usando outro tema.
-      5. Edite o CSS interno para atender à estética pós-apocalíptica.
-      6. Adicione novos slides conforme necessário para cada parte do curso.
-      7. Para ver as notas, pressione 's' durante a apresentação (necessário plugin notes).
-      8. Você pode inserir emojis (ex: ☢️, ⚠️, 🏜️) para reforçar a temática, mas use-os de forma pontual para não poluir os slides.
-    -->
-
   </body>
 </html>
-
