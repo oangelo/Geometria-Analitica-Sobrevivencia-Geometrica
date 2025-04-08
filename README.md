@@ -84,5 +84,6 @@ São Paulo: Atual, 1982.
 - 🎲[Roleta](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/roleta.html)
 - [🕹️🗺️Wastland Navigator](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/games/wasteland-navigator.html)
 - [🕹️🚀Space Navigator](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/games/space-navigator.html)
+- [Vetores](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/visualizacoes/vectors-visualization.html)
 
 </details>
