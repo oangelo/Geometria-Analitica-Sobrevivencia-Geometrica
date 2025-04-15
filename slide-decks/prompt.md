@@ -16,6 +16,85 @@ Criar slides interativos para um curso de Geometria Analítica, usando o tema p�
 - Utilizar metáforas de sobrevivência para explicar conceitos (ex: "coordenadas são como marcações no seu dispositivo de rastreamento para encontrar abrigos")
 - Incluir mnemônicos temáticos para facilitar a memorização de conceitos e fórmulas
 
+## Estrutura de Navegação
+O template implementa uma organização hierárquica em dois níveis:
+
+1. **Navegação Horizontal**: Entre diferentes tópicos principais do capítulo e slides finais
+2. **Navegação Vertical**: Para aprofundamento dentro de cada tópico
+
+Cada capítulo deve seguir esta estrutura:
+```
+Slide de Título do Capítulo
+    ↓
+Slide de Contexto Histórico Geral
+    ↓
+Tópico 1 (Horizontal →)
+    ↓ (Vertical ↓)
+    - Slide 1.1: Conceito Principal
+    - Slide 1.2: Visualizações
+    - Slide 1.3: Teorema Relacionado
+    - Slide 1.4: Problema
+    - Slide 1.5: Solução: Sub-problema 1
+    - Slide 1.6: Solução: Sub-problema 2
+    - Slide 1.7: Conclusão
+        
+Tópico 2 (→)
+    ↓ (↓)
+    - Slides 2.x: ...
+
+...
+    
+Slides Finais de Aplicação (→)
+    ↓ (↓)
+    - Slide A.1: Aplicação Histórica
+    - Slide A.2: Aplicação Prática Moderna
+```
+
+## Estrutura Sugerida dos Slides
+
+A seguinte estrutura serve como sugestão, priorizando sempre a didática e a clareza. Nem todos os tópicos precisarão de todos os itens listados:
+
+1. **Slide de título do capítulo**:
+   - Título principal centralizado
+   - Subtítulo relacionado à explorando o espaço através da matemática
+
+Para cada tópico principal (adaptar conforme necessário):
+
+3. **Slide de conceito principal**:
+   - Título centralizado
+   - Definição formal 
+   - Interpretação física
+
+4. **Slide de visualização** (quando necessário):
+   - Apenas o canvas e controles, sem texto competindo por espaço
+   - Interface minimalista para foco na visualização
+
+5. **Slide de teorema relacionado** (quando aplicável):
+   - Desenvolvimento detalhado da teoria
+   - Propriedades e demonstrações relevantes
+
+6. **Slide de problema** (quando didaticamente útil):
+   - Enunciado claro com contexto espacial, mas sem foco histórico
+   - Não incluir a solução no mesmo slide
+
+7. **Slides de solução** (adaptável):
+   - Dividir em subproblemas conforme a complexidade
+   - Cada solução com passos detalhados
+
+8. **Slide de conclusão**:
+   - Interpretação dos resultados
+   - Significado prático no contexto espacial
+
+Após todos os tópicos (no final da apresentação):
+
+9. **Slide de aplicação histórica**:
+   - Conexões entre os conceitos apresentados
+   - Aplicações em missões espaciais históricas
+
+10. **Slide de aplicação prática moderna**:
+    - Aplicações contemporâneas
+    - Visualização relacionada
+
 ## Recursos Técnicos e Implementação
 
 ### Classes CSS Disponíveis
