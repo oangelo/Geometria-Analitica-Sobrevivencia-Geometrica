@@ -2,10 +2,912 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>CAPÍTULO III - ESTUDO DA RETA NO R² - Seção 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+    </script>
+    <title>REFÚGIO-TEC | POSIÇÕES RELATIVAS E INTERSEÇÕES DE RETAS</title>
+    <style>
+        /* Estilo inspirado no tema pós-apocalíptico */
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100px; }
+        }
+
+        body {
+            background-color: #0c0c0c;
+            color: #e6e6e6;
+            font-family: "Courier New", monospace;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #4caf50;
+            max-width: 800px;
+            margin: auto;
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 2px;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+
+        h1, h2, h3 {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .exercise {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border: 1px dashed #4caf50;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        details {
+            background-color: #1c1c1c;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            margin-top: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #4caf50;
+        }
+
+        summary:hover {
+            text-shadow: 0 0 3px #4caf50;
+        }
+
+        code {
+            background-color: #333;
+            padding: 3px 5px;
+            color: #ffeb3b;
+        }
+
+        .hint {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #4caf50;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .hint:before {
+            content: "DICA DE SOBREVIVÊNCIA: ";
+            color: #4caf50;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .solution-steps {
+            margin-left: 20px;
+            counter-reset: step-counter;
+        }
+
+        .solution-steps li {
+            list-style-type: none;
+            counter-increment: step-counter;
+            margin-bottom: 10px;
+        }
+
+        .solution-steps li::before {
+            content: "> PASSO_" counter(step-counter) ": ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .formula {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #000;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .terminal-frame {
+            padding: 10px;
+            background-color: #000;
+            margin-bottom: 20px;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .terminal-header {
+            margin: 0;
+            padding: 3px 10px;
+            background-color: #4caf50;
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .terminal-content {
+            padding: 5px;
+            white-space: pre-wrap;
+            font-size: 1em;
+            line-height: 1.2;
+        }
+
+        .cursor:after {
+            content: "█";
+            animation: blink 1s step-end infinite;
+        }
+
+        .terminal-line {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .terminal-border {
+            border: 1px solid #4caf50;
+            padding: 5px;
+            background-color: #000;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .mission-counter {
+            counter-reset: mission;
+        }
+        
+        .mission-counter .exercise h3:before {
+            content: "MISSÃO " counter(mission) ": ";
+            counter-increment: mission;
+        }
+
+        .warning {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .danger {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #8bc34a;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #4caf50;
+            border-top: 1px solid #4caf50;
+            padding-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>CAPÍTULO III - ESTUDO DA RETA NO R²</h1>
-    <h2>Seção 2: posicoes-relativas-e-intersecoes-de-retas</h2>
+    <!-- TÍTULO E INTRODUÇÃO -->
+    <div class="terminal-frame">
+        <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
+        <div class="terminal-content">
+┌───────────────────────────────────────────────────┐
+│ MÓDULO: POSIÇÕES RELATIVAS E INTERSEÇÕES DE RETAS │
+└───────────────────────────────────────────────────┘
+
+> INICIANDO TRANSMISSÃO...
+> CARREGANDO MÓDULO DE TREINAMENTO...
+> ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
+        </div>
+    </div>
+
+    <div class="terminal-border">
+        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: POSIÇÕES RELATIVAS E INTERSEÇÕES DE RETAS</h2>
+    
+    <p>Sobrevivente, em um mundo onde rotas seguras são escassas e recursos limitados, compreender a interseção de caminhos pode significar a diferença entre vida e morte. As posições relativas entre retas são ferramentas cruciais para mapear a Zona Devastada, planejar rotas de abastecimento e estabelecer perímetros defensivos contra mutantes.</p>
+    
+    <p>Duas retas no plano podem assumir três posições relativas fundamentais: coincidentes (mesma reta), paralelas (nunca se encontram) ou concorrentes (se cruzam em um único ponto). Identificar essas relações rapidamente permite otimizar rotas de exploração e minimizar a exposição à radiação.</p>
+    
+    <p>O estudo das interseções nos fornece pontos estratégicos para trocas de recursos, construção de abrigos ou postos de observação. Dominar este conhecimento é dominar o próprio território devastado à sua volta.</p>
+    
+    <p>Todo sobrevivente deve ser capaz de analisar sistemas de equações lineares e extrair seu significado geométrico - uma habilidade tão vital quanto purificar água contaminada ou reparar um Traje de Proteção danificado.</p>
+    
+    <div class="formula">
+    $$\text{Para duas retas } r: ax + by + c = 0 \text{ e } s: dx + ey + f = 0:$$
+    
+    $$\text{• Paralelas: } \frac{a}{d} = \frac{b}{e} \neq \frac{c}{f}$$
+    
+    $$\text{• Coincidentes: } \frac{a}{d} = \frac{b}{e} = \frac{c}{f}$$
+    
+    $$\text{• Concorrentes: } \frac{a}{d} \neq \frac{b}{e} \text{ ou } \frac{b}{e} \neq \frac{c}{f}$$
+    </div>
+    
+    <p>Para encontrar o ponto de interseção entre retas concorrentes, basta resolver o sistema formado por suas equações. O ponto $(x, y)$ obtido representa o local exato onde os caminhos se cruzam - informação vital para qualquer operação de exploração ou resgate.</p>
+
+    <div class="formula">
+    $$\text{Ponto de interseção entre } r: a_1x + b_1y + c_1 = 0 \text{ e } s: a_2x + b_2y + c_2 = 0:$$
+    
+    $$x = \frac{b_1c_2 - b_2c_1}{a_1b_2 - a_2b_1}, \quad y = \frac{a_2c_1 - a_1c_2}{a_1b_2 - a_2b_1}$$
+    </div>
+    
+    <p>O ângulo entre duas retas concorrentes pode ser calculado a partir de seus coeficientes angulares ou vetores normais - dado valioso para determinar a estabilidade de estruturas ou a velocidade segura de travessia.</p>
+
+    <div class="formula">
+    $$\text{Ângulo entre retas concorrentes:}$$
+    
+    $$\tan\theta = \left|\frac{m_2 - m_1}{1 + m_1m_2}\right|$$
+    
+    $$\text{Ou usando vetores normais } \vec{n}_1 = (a_1, b_1) \text{ e } \vec{n}_2 = (a_2, b_2):$$
+    
+    $$\cos\theta = \frac{|\vec{n}_1 \cdot \vec{n}_2|}{|\vec{n}_1||\vec{n}_2|} = \frac{|a_1a_2 + b_1b_2|}{\sqrt{a_1^2 + b_1^2}\sqrt{a_2^2 + b_2^2}}$$
+    </div>
+
+    <!-- MISSÕES (EXERCÍCIOS) -->
+    <div class="mission-counter">
+        <!-- MISSÃO 1 (BÁSICA) -->
+        <div class="exercise">
+            <h3>MAPEAMENTO DE ROTAS SEGURAS</h3>
+            <p>Durante sua exploração, você encontrou dois caminhos potencialmente seguros representados pelas retas $r: 2x - 3y + 6 = 0$ e $s: 4x - 6y - 12 = 0$. Determine a posição relativa entre essas retas e justifique sua resposta. Caso sejam concorrentes, encontre o ponto de interseção para estabelecer um ponto de parada seguro.</p>
+            
+            <div class="hint">
+                <p>Compare as razões entre os coeficientes correspondentes. Se $\frac{a_1}{a_2} = \frac{b_1}{b_2}$, verifique também a razão $\frac{c_1}{c_2}$ para distinguir entre retas paralelas e coincidentes.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificando os coeficientes: 
+                    $r: a_1 = 2, b_1 = -3, c_1 = 6$ 
+                    $s: a_2 = 4, b_2 = -6, c_2 = -12$</li>
+                    <li>Calculando as razões entre coeficientes correspondentes:
+                    $\frac{a_1}{a_2} = \frac{2}{4} = \frac{1}{2}$
+                    $\frac{b_1}{b_2} = \frac{-3}{-6} = \frac{1}{2}$
+                    $\frac{c_1}{c_2} = \frac{6}{-12} = \frac{-1}{2}$</li>
+                    <li>Como $\frac{a_1}{a_2} = \frac{b_1}{b_2} = \frac{1}{2}$ mas $\frac{c_1}{c_2} = \frac{-1}{2} \neq \frac{1}{2}$, observamos que $\frac{a_1}{a_2} = \frac{b_1}{b_2} \neq \frac{c_1}{c_2}$</li>
+                    <li>Portanto, as retas são paralelas.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Como } \frac{a_1}{a_2} = \frac{b_1}{b_2} \neq \frac{c_1}{c_2}, \text{ temos retas paralelas.}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Retas paralelas representam rotas que nunca se encontram, o que pode ser útil para estabelecer perímetros defensivos ou criar zonas de exclusão para evitar áreas contaminadas. Neste caso, você pode usar estas duas rotas para delimitar um corredor seguro de exploração, sabendo que elas mantêm uma distância constante entre si.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 2 (BÁSICA) -->
+        <div class="exercise">
+            <h3>PONTO DE ENCONTRO DE EMERGÊNCIA</h3>
+            <p>Duas equipes de sobreviventes estão seguindo trajetos lineares representados pelas retas $r: 3x + 2y - 12 = 0$ e $s: x - y + 1 = 0$. Para coordenar o encontro, você precisa determinar exatamente onde esses caminhos se cruzam. Calcule as coordenadas do ponto de interseção para estabelecer o ponto de encontro.</p>
+            
+            <div class="hint">
+                <p>Monte um sistema de equações com as duas retas e resolva-o para encontrar os valores de $x$ e $y$ que satisfazem ambas simultaneamente. Este será seu ponto de encontro.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Representamos as duas retas como um sistema de equações:
+                    $3x + 2y - 12 = 0$
+                    $x - y + 1 = 0$</li>
+                    <li>Da segunda equação, temos $x - y = -1$, portanto $y = x + 1$</li>
+                    <li>Substituindo na primeira equação:
+                    $3x + 2(x + 1) - 12 = 0$
+                    $3x + 2x + 2 - 12 = 0$
+                    $5x - 10 = 0$
+                    $5x = 10$
+                    $x = 2$</li>
+                    <li>Agora encontramos $y$ substituindo $x = 2$ na equação $y = x + 1$:
+                    $y = 2 + 1 = 3$</li>
+                    <li>O ponto de interseção é $(2, 3)$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\begin{cases}
+                    3x + 2y - 12 = 0 \\
+                    x - y + 1 = 0
+                    \end{cases} \Rightarrow (x, y) = (2, 3)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Determinar pontos de encontro precisos é crucial quando recursos de comunicação são limitados. Um erro de cálculo pode significar equipes perdidas na Zona Devastada ou expostas a perigos desnecessários. Ao localizar exatamente as coordenadas $(2,3)$, você garante que as equipes possam se reunir com eficiência, minimizando o tempo exposto a ameaças externas.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 3 (BÁSICA) -->
+        <div class="exercise">
+            <h3>RECONHECIMENTO DE ESTRUTURAS LINEARES</h3>
+            <p>Durante uma missão de reconhecimento aéreo, você identificou três estruturas que parecem formar uma única linha reta. As coordenadas dessas estruturas são: um posto avançado em $A(1,3)$, uma torre de rádio em $B(4,9)$ e um depósito em $C(6,13)$. Determine se essas três construções estão realmente alinhadas, o que poderia indicar uma rota estratégica antiga.</p>
+            
+            <div class="hint">
+                <p>Três pontos estão alinhados se e somente se a área do triângulo formado por eles é zero. Verifique isso calculando o determinante $\begin{vmatrix} x_1 & y_1 & 1 \\ x_2 & y_2 & 1 \\ x_3 & y_3 & 1 \end{vmatrix}$ ou verificando se a inclinação entre quaisquer dois pares de pontos é a mesma.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Uma forma prática de verificar o alinhamento é calcular e comparar a inclinação (coeficiente angular) entre os pontos A e B com a inclinação entre os pontos B e C.</li>
+                    <li>Calculando a inclinação entre A(1,3) e B(4,9):
+                    $m_{AB} = \frac{y_B - y_A}{x_B - x_A} = \frac{9 - 3}{4 - 1} = \frac{6}{3} = 2$</li>
+                    <li>Calculando a inclinação entre B(4,9) e C(6,13):
+                    $m_{BC} = \frac{y_C - y_B}{x_C - x_B} = \frac{13 - 9}{6 - 4} = \frac{4}{2} = 2$</li>
+                    <li>Como $m_{AB} = m_{BC} = 2$, os três pontos estão alinhados.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Para pontos alinhados: } m_{AB} = m_{BC}$$
+                    $$\frac{y_B - y_A}{x_B - x_A} = \frac{y_C - y_B}{x_C - x_B}$$
+                    $$\frac{9 - 3}{4 - 1} = \frac{13 - 9}{6 - 4} = 2$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Identificar estruturas perfeitamente alinhadas na Zona Devastada geralmente revela padrões intencionais da era pré-apocalíptica. Neste caso, a confirmação do alinhamento sugere uma rota planejada que pode guiar você a outros recursos não descobertos ou instalações subterrâneas. Estruturas alinhadas também oferecem linhas de visão diretas, essenciais para sistemas de comunicação visual ou defesa coordenada.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 4 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>DISTÂNCIA ENTRE ZONAS PARALELAS</h3>
+            <p>A sua comunidade descobriu duas zonas de alta radiação que seguem trajetos lineares representados pelas retas $r: 2x - 3y + 6 = 0$ e $s: 2x - 3y - 9 = 0$. Para planejar uma rota segura entre elas, você precisa calcular a distância exata entre essas zonas paralelas.</p>
+            
+            <div class="hint">
+                <p>A distância entre retas paralelas pode ser calculada escolhendo um ponto em uma das retas e encontrando sua distância até a outra reta, usando a fórmula da distância de um ponto a uma reta.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Confirmamos que as retas são paralelas verificando que têm os mesmos coeficientes de $x$ e $y$, diferindo apenas no termo independente.</li>
+                    <li>A distância entre retas paralelas $ax + by + c_1 = 0$ e $ax + by + c_2 = 0$ é dada por:
+                    $d = \frac{|c_1 - c_2|}{\sqrt{a^2 + b^2}}$</li>
+                    <li>Para nossas retas $r: 2x - 3y + 6 = 0$ e $s: 2x - 3y - 9 = 0$:
+                    $a = 2, b = -3, c_1 = 6, c_2 = -9$</li>
+                    <li>Aplicando a fórmula:
+                    $d = \frac{|c_1 - c_2|}{\sqrt{a^2 + b^2}} = \frac{|6 - (-9)|}{\sqrt{2^2 + (-3)^2}} = \frac{|15|}{\sqrt{4 + 9}} = \frac{15}{\sqrt{13}} = \frac{15}{\sqrt{13}} \approx 4,16$ unidades</li>
+                </ol>
+                
+                <div class="formula">
+                    $$d = \frac{|c_1 - c_2|}{\sqrt{a^2 + b^2}} = \frac{|6 - (-9)|}{\sqrt{4 + 9}} = \frac{15}{\sqrt{13}} \approx 4,16$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Conhecer a distância exata entre zonas paralelas de perigo permite planejar corredores seguros com margens precisas. Os 4,16 unidades entre as zonas radioativas representam uma faixa onde sua comunidade pode estabelecer rotas de abastecimento ou mesmo pequenos assentamentos temporários. Esta informação é vital para maximizar o uso do terreno limitado disponível sem expor os sobreviventes à radiação mortal.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 5 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>ÂNGULO DE APROXIMAÇÃO SEGURO</h3>
+            <p>Dois caminhos na Zona Devastada, representados pelas retas $r: 3x - 4y + 2 = 0$ e $s: x + y - 8 = 0$, se cruzam em um ponto de alto risco. Para minimizar a exposição durante a travessia, é necessário calcular o ângulo entre esses caminhos, permitindo determinar a velocidade ideal de aproximação.</p>
+            
+            <div class="hint">
+                <p>Encontre os vetores normais de cada reta $(a, b)$ e calcule o ângulo entre eles usando o produto escalar. Alternativamente, determine os coeficientes angulares $m_1$ e $m_2$ e use a fórmula $\tan\theta = |\frac{m_2-m_1}{1+m_1m_2}|$.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificamos os vetores normais de cada reta:
+                    $\vec{n}_1 = (3, -4)$ para a reta $r$
+                    $\vec{n}_2 = (1, 1)$ para a reta $s$</li>
+                    <li>Calculamos o produto escalar dos vetores normais:
+                    $\vec{n}_1 \cdot \vec{n}_2 = 3 \cdot 1 + (-4) \cdot 1 = 3 - 4 = -1$</li>
+                    <li>Calculamos os módulos dos vetores normais:
+                    $|\vec{n}_1| = \sqrt{3^2 + (-4)^2} = \sqrt{9 + 16} = \sqrt{25} = 5$
+                    $|\vec{n}_2| = \sqrt{1^2 + 1^2} = \sqrt{2}$</li>
+                    <li>Calculamos o cosseno do ângulo entre os vetores normais:
+                    $\cos\theta = \frac{|\vec{n}_1 \cdot \vec{n}_2|}{|\vec{n}_1||\vec{n}_2|} = \frac{|-1|}{5 \cdot \sqrt{2}} = \frac{1}{5\sqrt{2}}$</li>
+                    <li>Calculamos o ângulo:
+                    $\theta = \arccos\left(\frac{1}{5\sqrt{2}}\right) \approx 82,0°$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\cos\theta = \frac{|\vec{n}_1 \cdot \vec{n}_2|}{|\vec{n}_1||\vec{n}_2|} = \frac{|3 \cdot 1 + (-4) \cdot 1|}{5 \cdot \sqrt{2}} = \frac{|-1|}{5\sqrt{2}} = \frac{1}{5\sqrt{2}}$$
+                    $$\theta \approx 82,0°$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O ângulo de aproximadamente 82° entre os caminhos indica uma interseção quase perpendicular, o que exige cautela máxima na travessia. Em termos de sobrevivência, uma interseção em ângulo amplo proporciona melhor visibilidade em ambas as direções, reduzindo o risco de emboscadas ou encontros inesperados com mutantes. Para atravessar com segurança, você deve reduzir a velocidade significativamente e posicionar vigilantes observando ambos os caminhos durante o cruzamento.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 6 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>PERÍMETRO DEFENSIVO PARALELO</h3>
+            <p>Sua base está localizada nas coordenadas $(5,3)$ e existe uma zona de alta atividade de mutantes seguindo a trajetória da reta $r: 2x - 3y + 4 = 0$. Para montar um perímetro defensivo, você precisa determinar a equação da reta que passa por sua base e é paralela à zona de atividade, estabelecendo um limite claro para suas patrulhas.</p>
+            
+            <div class="hint">
+                <p>Para retas paralelas, os coeficientes de $x$ e $y$ devem ser proporcionais. Utilize a fórmula do ponto e coeficiente angular $(y - y_0) = m(x - x_0)$, onde $m$ pode ser obtido da reta original.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>A reta $r: 2x - 3y + 4 = 0$ pode ser reescrita como $3y = 2x + 4$ ou $y = \frac{2}{3}x + \frac{4}{3}$, o que nos dá o coeficiente angular $m = \frac{2}{3}$.</li>
+                    <li>Como queremos uma reta paralela, a nova reta terá o mesmo coeficiente angular $m = \frac{2}{3}$.</li>
+                    <li>Usando a equação do ponto e coeficiente angular, com o ponto $(5,3)$:
+                    $(y - 3) = \frac{2}{3}(x - 5)$</li>
+                    <li>Desenvolvendo a equação:
+                    $y - 3 = \frac{2}{3}x - \frac{10}{3}$
+                    $y = \frac{2}{3}x - \frac{10}{3} + 3$
+                    $y = \frac{2}{3}x - \frac{10}{3} + \frac{9}{3}$
+                    $y = \frac{2}{3}x - \frac{1}{3}$</li>
+                    <li>Reescrevendo na forma geral:
+                    $\frac{2}{3}x - y - \frac{1}{3} = 0$
+                    Multiplicando tudo por 3:
+                    $2x - 3y - 1 = 0$
+                    Ou:
+                    $2x - 3y = 1$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Equação da reta paralela: } 2x - 3y = 1 \text{ ou } 2x - 3y - 1 = 0$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Estabelecer perímetros defensivos paralelos a zonas de ameaça cria uma fronteira clara que suas patrulhas podem monitorar eficientemente. A reta $2x - 3y = 1$ forma uma linha de defesa que mantém a mesma orientação da zona de mutantes, permitindo uma distribuição uniforme de recursos defensivos. Esta configuração geométrica também facilita a criação de pontos de observação equidistantes e rotas de evacuação perpendiculares se a ameaça avançar.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 7 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>TRIANGULAÇÃO DE ZONA SEGURA</h3>
+            <p>Três rotas de patrulha são representadas pelas retas $r_1: 2x + 3y - 12 = 0$, $r_2: x - y + 1 = 0$ e $r_3: 3x - 2y + 4 = 0$. Para estabelecer uma zona segura, você precisa determinar os pontos de interseção entre essas retas e verificar se formam um triângulo. Em caso afirmativo, calcule a área deste triângulo para determinar a capacidade da zona segura.</p>
+            
+            <div class="hint">
+                <p>Encontre os três pontos de interseção resolvendo os sistemas de equações para cada par de retas. Verifique se esses pontos são distintos e use a fórmula da área do triângulo a partir das coordenadas dos vértices.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Primeiramente, encontraremos os pontos de interseção entre cada par de retas.
+                    
+                    Interseção de $r_1: 2x + 3y - 12 = 0$ e $r_2: x - y + 1 = 0$:
+                    Da segunda equação: $y = x + 1$
+                    Substituindo na primeira:
+                    $2x + 3(x + 1) - 12 = 0$
+                    $2x + 3x + 3 - 12 = 0$
+                    $5x - 9 = 0$
+                    $x = \frac{9}{5}$
+                    $y = \frac{9}{5} + 1 = \frac{9}{5} + \frac{5}{5} = \frac{14}{5}$
+                    Ponto $P_1 = (\frac{9}{5}, \frac{14}{5})$</li>
+                    
+                    <li>Interseção de $r_1: 2x + 3y - 12 = 0$ e $r_3: 3x - 2y + 4 = 0$:
+                    Multiplicando $r_1$ por 2: $4x + 6y - 24 = 0$
+                    Multiplicando $r_3$ por 3: $9x - 6y + 12 = 0$
+                    Somando as equações:
+                    $13x - 12 = 0$
+                    $x = \frac{12}{13}$
+                    Substituindo em $r_3$:
+                    $3(\frac{12}{13}) - 2y + 4 = 0$
+                    $\frac{36}{13} - 2y + 4 = 0$
+                    $\frac{36}{13} + \frac{52}{13} - 2y = 0$
+                    $\frac{88}{13} - 2y = 0$
+                    $y = \frac{44}{13}$
+                    Ponto $P_2 = (\frac{12}{13}, \frac{44}{13})$</li>
+                    
+                    <li>Interseção de $r_2: x - y + 1 = 0$ e $r_3: 3x - 2y + 4 = 0$:
+                    Da primeira equação: $y = x + 1$
+                    Substituindo na segunda:
+                    $3x - 2(x + 1) + 4 = 0$
+                    $3x - 2x - 2 + 4 = 0$
+                    $x + 2 = 0$
+                    $x = -2$
+                    $y = -2 + 1 = -1$
+                    Ponto $P_3 = (-2, -1)$</li>
+                    
+                    <li>Agora verificamos se os três pontos são distintos, o que confirmamos, então eles formam um triângulo.</li>
+                    
+                    <li>Calculamos a área do triângulo usando a fórmula com determinante:
+                    $$A = \frac{1}{2}\left|\begin{vmatrix} 
+                    x_1 & y_1 & 1 \\
+                    x_2 & y_2 & 1 \\
+                    x_3 & y_3 & 1
+                    \end{vmatrix}\right|$$
+                    
+                    $$A = \frac{1}{2}\left|\begin{vmatrix} 
+                    \frac{9}{5} & \frac{14}{5} & 1 \\
+                    \frac{12}{13} & \frac{44}{13} & 1 \\
+                    -2 & -1 & 1
+                    \end{vmatrix}\right|$$
+                    
+                    Realizando o cálculo do determinante e simplificando:
+                    $$A \approx 8,26 \text{ unidades de área}$$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Pontos de interseção:}$$
+                    $$P_1 = \left(\frac{9}{5}, \frac{14}{5}\right), \, P_2 = \left(\frac{12}{13}, \frac{44}{13}\right), \, P_3 = (-2, -1)$$
+                    
+                    $$\text{Área do triângulo} \approx 8,26 \text{ unidades de área}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A triangulação de rotas de patrulha cria um perímetro natural de defesa, estabelecendo uma zona segura de aproximadamente 8,26 unidades quadradas. Este espaço pode acomodar um posto avançado pequeno ou servir como ponto de encontro temporário. A geometria triangular oferece excelente visibilidade em todas as direções, permitindo vigilância com recursos humanos limitados - três sentinelas posicionadas nos vértices do triângulo podem monitorar tanto o interior quanto o exterior da zona segura com eficiência máxima.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 8 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>REDE DE INTERSEÇÕES PARA EXPLORAÇÃO</h3>
+            <p>Seu grupo de exploração identificou três rotas principais na Zona Devastada, representadas pelas retas $r: 2x - y - 3 = 0$, $s: x + y - 5 = 0$ e $t: x - 2y + 4 = 0$. Para otimizar a exploração, você precisa determinar os pontos de interseção entre todas as rotas, verificar se formam um triângulo, e em caso afirmativo, determinar suas características (perímetro e tipo de triângulo formado).</p>
+            
+            <div class="hint">
+                <p>Encontre os pontos de interseção e calcule as distâncias entre eles para determinar as características do triângulo. Verifique se as distâncias são iguais (equilátero), se dois lados são iguais (isósceles) ou se é um triângulo retângulo.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Encontramos os pontos de interseção entre cada par de retas:
+                    
+                    Interseção de $r: 2x - y - 3 = 0$ e $s: x + y - 5 = 0$:
+                    Da reta $r$: $y = 2x - 3$
+                    Substituindo em $s$:
+                    $x + (2x - 3) - 5 = 0$
+                    $3x - 8 = 0$
+                    $x = \frac{8}{3}$
+                    $y = 2(\frac{8}{3}) - 3 = \frac{16}{3} - 3 = \frac{16 - 9}{3} = \frac{7}{3}$
+                    Ponto $A = (\frac{8}{3}, \frac{7}{3})$</li>
+                    
+                    <li>Interseção de $r: 2x - y - 3 = 0$ e $t: x - 2y + 4 = 0$:
+                    Da reta $r$: $y = 2x - 3$
+                    Substituindo em $t$:
+                    $x - 2(2x - 3) + 4 = 0$
+                    $x - 4x + 6 + 4 = 0$
+                    $-3x + 10 = 0$
+                    $x = \frac{10}{3}$
+                    $y = 2(\frac{10}{3}) - 3 = \frac{20}{3} - 3 = \frac{20 - 9}{3} = \frac{11}{3}$
+                    Ponto $B = (\frac{10}{3}, \frac{11}{3})$</li>
+                    
+                    <li>Interseção de $s: x + y - 5 = 0$ e $t: x - 2y + 4 = 0$:
+                    Da reta $s$: $y = 5 - x$
+                    Substituindo em $t$:
+                    $x - 2(5 - x) + 4 = 0$
+                    $x - 10 + 2x + 4 = 0$
+                    $3x - 6 = 0$
+                    $x = 2$
+                    $y = 5 - 2 = 3$
+                    Ponto $C = (2, 3)$</li>
+                    
+                    <li>Calculamos as distâncias entre os pontos:
+                    $d_{AB} = \sqrt{(\frac{10}{3} - \frac{8}{3})^2 + (\frac{11}{3} - \frac{7}{3})^2} = \sqrt{(\frac{2}{3})^2 + (\frac{4}{3})^2} = \sqrt{\frac{4}{9} + \frac{16}{9}} = \sqrt{\frac{20}{9}} = \frac{2\sqrt{5}}{3}$
+                    
+                    $d_{BC} = \sqrt{(2 - \frac{10}{3})^2 + (3 - \frac{11}{3})^2} = \sqrt{(\frac{6 - 10}{3})^2 + (\frac{9 - 11}{3})^2} = \sqrt{(\frac{-4}{3})^2 + (\frac{-2}{3})^2} = \sqrt{\frac{16}{9} + \frac{4}{9}} = \sqrt{\frac{20}{9}} = \frac{2\sqrt{5}}{3}$
+                    
+                    $d_{AC} = \sqrt{(2 - \frac{8}{3})^2 + (3 - \frac{7}{3})^2} = \sqrt{(\frac{6 - 8}{3})^2 + (\frac{9 - 7}{3})^2} = \sqrt{(\frac{-2}{3})^2 + (\frac{2}{3})^2} = \sqrt{\frac{4}{9} + \frac{4}{9}} = \sqrt{\frac{8}{9}} = \frac{2\sqrt{2}}{3}$</li>
+                    
+                    <li>Como $d_{AB} = d_{BC} \neq d_{AC}$, temos um triângulo isósceles.
+                    
+                    Perímetro = $d_{AB} + d_{BC} + d_{AC} = \frac{2\sqrt{5}}{3} + \frac{2\sqrt{5}}{3} + \frac{2\sqrt{2}}{3} = \frac{2(2\sqrt{5} + \sqrt{2})}{3} \approx 3,8$ unidades</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Pontos de interseção:}$$
+                    $$A = \left(\frac{8}{3}, \frac{7}{3}\right), \, B = \left(\frac{10}{3}, \frac{11}{3}\right), \, C = (2, 3)$$
+                    
+                    $$\text{Distâncias: } d_{AB} = d_{BC} = \frac{2\sqrt{5}}{3}, \, d_{AC} = \frac{2\sqrt{2}}{3}$$
+                    
+                    $$\text{Perímetro } = \frac{2(2\sqrt{5} + \sqrt{2})}{3} \approx 3,8 \text{ unidades}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Uma rede de interseções isósceles oferece vantagens táticas específicas para exploração da Zona Devastada. Com dois lados iguais, você pode estabelecer rotas padronizadas que permitem calcular com precisão o tempo de deslocamento entre dois pontos de controle. O pequeno perímetro de aproximadamente 3,8 unidades indica uma zona compacta, ideal para exploração rápida com recursos limitados. A configuração isósceles também sugere que dois dos caminhos foram projetados intencionalmente com relação angular similar, possivelmente indicando rotas planejadas para evacuação ou acesso a um ponto estratégico.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 9 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>DESVIO DE ZONA CONTAMINADA</h3>
+            <p>Uma zona altamente contaminada segue a trajetória da reta $r: 3x - 4y + 8 = 0$. Seu grupo precisa viajar do ponto $A(1, 2)$ até o ponto $B(7, 5)$ em linha reta, representada pela reta $s$. Determine se a rota planejada cruza a zona contaminada e, em caso afirmativo, calcule a distância mínima que seria necessário desviar para evitar a contaminação.</p>
+            
+            <div class="hint">
+                <p>Encontre a equação da reta que passa pelos pontos A e B, e depois verifique se existe interseção com a zona contaminada, resolvendo o sistema de equações. Em caso positivo, calcule a distância do ponto de interseção até A e B.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Primeiro, encontramos a equação da reta $s$ que passa pelos pontos $A(1, 2)$ e $B(7, 5)$:
+                    O coeficiente angular é:
+                    $m = \frac{y_B - y_A}{x_B - x_A} = \frac{5 - 2}{7 - 1} = \frac{3}{6} = \frac{1}{2}$
+                    
+                    Usando a equação ponto-angular:
+                    $y - y_A = m(x - x_A)$
+                    $y - 2 = \frac{1}{2}(x - 1)$
+                    $y - 2 = \frac{x - 1}{2}$
+                    $2(y - 2) = x - 1$
+                    $2y - 4 = x - 1$
+                    $2y - x = 3$
+                    
+                    Assim, a equação da reta $s$ é $s: -x + 2y - 3 = 0$ ou $x - 2y + 3 = 0$</li>
+                    
+                    <li>Agora verificamos se existe interseção entre as retas $r: 3x - 4y + 8 = 0$ e $s: x - 2y + 3 = 0$:
+                    
+                    Da reta $s$: $x = 2y - 3$
+                    Substituindo em $r$:
+                    $3(2y - 3) - 4y + 8 = 0$
+                    $6y - 9 - 4y + 8 = 0$
+                    $2y - 1 = 0$
+                    $y = \frac{1}{2}$
+                    
+                    Substituindo de volta em $s$:
+                    $x = 2(\frac{1}{2}) - 3 = 1 - 3 = -2$
+                    
+                    O ponto de interseção é $P = (-2, \frac{1}{2})$</li>
+                    
+                    <li>Como encontramos um ponto de interseção, a rota planejada cruza a zona contaminada. Agora calculamos a distância deste ponto até $A$ e $B$ para determinar o desvio mínimo:
+                    
+                    $d_{PA} = \sqrt{(-2 - 1)^2 + (\frac{1}{2} - 2)^2} = \sqrt{(-3)^2 + (-\frac{3}{2})^2} = \sqrt{9 + \frac{9}{4}} = \sqrt{\frac{36 + 9}{4}} = \sqrt{\frac{45}{4}} = \frac{3\sqrt{5}}{2} \approx 3,35$ unidades
+                    
+                    $d_{PB} = \sqrt{(-2 - 7)^2 + (\frac{1}{2} - 5)^2} = \sqrt{(-9)^2 + (-\frac{9}{2})^2} = \sqrt{81 + \frac{81}{4}} = \sqrt{\frac{324 + 81}{4}} = \sqrt{\frac{405}{4}} = \frac{9\sqrt{5}}{2} \approx 10,06$ unidades</li>
+                    
+                    <li>A distância total percorrida se seguir a rota direta (ignorando a contaminação) seria:
+                    $d_{AB} = \sqrt{(7 - 1)^2 + (5 - 2)^2} = \sqrt{36 + 9} = \sqrt{45} = 3\sqrt{5} \approx 6,71$ unidades</li>
+                    
+                    <li>A distância mínima necessária para desviar seria a soma das distâncias até o ponto de interseção menos a distância direta:
+                    $d_{desvio} = d_{PA} + d_{PB} - d_{AB} = \frac{3\sqrt{5}}{2} + \frac{9\sqrt{5}}{2} - 3\sqrt{5} = \frac{12\sqrt{5}}{2} - 3\sqrt{5} = 6\sqrt{5} - 3\sqrt{5} = 3\sqrt{5} \approx 6,71$ unidades</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Equação da rota planejada: } s: x - 2y + 3 = 0$$
+                    $$\text{Ponto de interseção com a zona contaminada: } P = \left(-2, \frac{1}{2}\right)$$
+                    $$\text{Distância mínima para desvio: } d_{desvio} = 3\sqrt{5} \approx 6,71 \text{ unidades}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Cruzar zonas contaminadas na Zona Devastada é frequentemente fatal, exigindo planejamento preciso de desvios. O cálculo mostra que seria necessário um desvio de aproximadamente 6,71 unidades - mesmo valor da rota direta! Isso revela uma situação incomum onde o desvio necessário dobraria a distância de viagem. Em termos práticos, isso sugere que seria melhor buscar uma rota completamente alternativa ou considerar outros pontos de passagem seguros, pois o custo em tempo, energia e recursos para o desvio é prohibitivo. Este é um exemplo clássico de quando a matemática nos salva de decisões potencialmente fatais baseadas apenas na intuição.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 10 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>SISTEMAS DE PERÍMETRO COMPLEXO</h3>
+            <p>Quatro caminhos na Zona Devastada são representados pelas retas:
+            $r_1: 2x - y + 3 = 0$
+            $r_2: x + 2y - 8 = 0$
+            $r_3: 3x + y - 12 = 0$
+            $r_4: x - 3y + 5 = 0$
+            
+            Determine todos os pontos de interseção entre essas retas e identifique o polígono formado por esses pontos. Calcule a área deste polígono para determinar o tamanho da zona delimitada para o estabelecimento de um novo acampamento.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Primeiro, identificamos os pontos de interseção entre cada par de retas. Com 4 retas, temos $\binom{4}{2} = 6$ possíveis pares e, consequentemente, até 6 pontos de interseção.
+                    
+                    Interseção de $r_1: 2x - y + 3 = 0$ e $r_2: x + 2y - 8 = 0$:
+                    Da reta $r_1$: $y = 2x + 3$
+                    Substituindo em $r_2$:
+                    $x + 2(2x + 3) - 8 = 0$
+                    $x + 4x + 6 - 8 = 0$
+                    $5x - 2 = 0$
+                    $x = \frac{2}{5}$
+                    $y = 2(\frac{2}{5}) + 3 = \frac{4}{5} + 3 = \frac{4 + 15}{5} = \frac{19}{5}$
+                    Ponto $P_{12} = (\frac{2}{5}, \frac{19}{5})$</li>
+                    
+                    <li>Interseção de $r_1: 2x - y + 3 = 0$ e $r_3: 3x + y - 12 = 0$:
+                    Somando as duas equações:
+                    $(2x - y + 3) + (3x + y - 12) = 0 + 0$
+                    $5x - 9 = 0$
+                    $x = \frac{9}{5}$
+                    Substituindo em $r_1$:
+                    $2(\frac{9}{5}) - y + 3 = 0$
+                    $\frac{18}{5} - y + 3 = 0$
+                    $\frac{18}{5} + \frac{15}{5} - y = 0$
+                    $\frac{33}{5} - y = 0$
+                    $y = \frac{33}{5}$
+                    Ponto $P_{13} = (\frac{9}{5}, \frac{33}{5})$</li>
+                    
+                    <li>Interseção de $r_1: 2x - y + 3 = 0$ e $r_4: x - 3y + 5 = 0$:
+                    Da reta $r_1$: $y = 2x + 3$
+                    Substituindo em $r_4$:
+                    $x - 3(2x + 3) + 5 = 0$
+                    $x - 6x - 9 + 5 = 0$
+                    $-5x - 4 = 0$
+                    $x = -\frac{4}{5}$
+                    $y = 2(-\frac{4}{5}) + 3 = -\frac{8}{5} + 3 = -\frac{8}{5} + \frac{15}{5} = \frac{7}{5}$
+                    Ponto $P_{14} = (-\frac{4}{5}, \frac{7}{5})$</li>
+                    
+                    <li>Interseção de $r_2: x + 2y - 8 = 0$ e $r_3: 3x + y - 12 = 0$:
+                    Da reta $r_3$: $y = 12 - 3x$
+                    Substituindo em $r_2$:
+                    $x + 2(12 - 3x) - 8 = 0$
+                    $x + 24 - 6x - 8 = 0$
+                    $-5x + 16 = 0$
+                    $x = \frac{16}{5}$
+                    $y = 12 - 3(\frac{16}{5}) = 12 - \frac{48}{5} = \frac{60 - 48}{5} = \frac{12}{5}$
+                    Ponto $P_{23} = (\frac{16}{5}, \frac{12}{5})$</li>
+                    
+                    <li>Interseção de $r_2: x + 2y - 8 = 0$ e $r_4: x - 3y + 5 = 0$:
+                    Subtraindo $r_4$ de $r_2$:
+                    $(x + 2y - 8) - (x - 3y + 5) = 0 - 0$
+                    $5y - 13 = 0$
+                    $y = \frac{13}{5}$
+                    Substituindo em $r_2$:
+                    $x + 2(\frac{13}{5}) - 8 = 0$
+                    $x + \frac{26}{5} - 8 = 0$
+                    $x + \frac{26}{5} - \frac{40}{5} = 0$
+                    $x - \frac{14}{5} = 0$
+                    $x = \frac{14}{5}$
+                    Ponto $P_{24} = (\frac{14}{5}, \frac{13}{5})$</li>
+                    
+                    <li>Interseção de $r_3: 3x + y - 12 = 0$ e $r_4: x - 3y + 5 = 0$:
+                    Da reta $r_3$: $y = 12 - 3x$
+                    Substituindo em $r_4$:
+                    $x - 3(12 - 3x) + 5 = 0$
+                    $x - 36 + 9x + 5 = 0$
+                    $10x - 31 = 0$
+                    $x = \frac{31}{10}$
+                    $y = 12 - 3(\frac{31}{10}) = 12 - \frac{93}{10} = \frac{120 - 93}{10} = \frac{27}{10}$
+                    Ponto $P_{34} = (\frac{31}{10}, \frac{27}{10})$</li>
+                    
+                    <li>Analisando os seis pontos de interseção, observamos que eles formam um hexágono irregular. Para calcular a área, podemos usar a fórmula do determinante para polígonos:
+                    
+                    $$A = \frac{1}{2}\left|\sum_{i=1}^{n} x_i(y_{i+1} - y_{i-1})\right|$$
+                    
+                    onde $(x_i, y_i)$ são as coordenadas dos vértices numerados em ordem (horária ou anti-horária) ao redor do polígono, com $(x_{n+1}, y_{n+1}) = (x_1, y_1)$ e $(x_0, y_0) = (x_n, y_n)$.
+                    
+                    Organizando os pontos em ordem e aplicando a fórmula:
+                    
+                    $$A \approx 7,26 \text{ unidades de área}$$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Pontos de interseção:}$$
+                    $$P_{12} = \left(\frac{2}{5}, \frac{19}{5}\right), \, P_{13} = \left(\frac{9}{5}, \frac{33}{5}\right), \, P_{14} = \left(-\frac{4}{5}, \frac{7}{5}\right)$$
+                    $$P_{23} = \left(\frac{16}{5}, \frac{12}{5}\right), \, P_{24} = \left(\frac{14}{5}, \frac{13}{5}\right), \, P_{34} = \left(\frac{31}{10}, \frac{27}{10}\right)$$
+                    
+                    $$\text{Área do hexágono} \approx 7,26 \text{ unidades de área}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A análise de sistemas complexos de retas permite identificar áreas naturalmente delimitadas por rotas da Zona Devastada. O hexágono formado, com área de aproximadamente 7,26 unidades quadradas, representa uma zona significativamente maior que a triangular da missão anterior, capaz de abrigar um acampamento médio. Esta configuração particular oferece seis pontos de acesso/saída, o que aumenta as opções de fuga em caso de emergência, mas também requer mais recursos para vigilância efetiva. A forma irregular do hexágono sugere pontos mais vulneráveis onde a distância entre interseções é maior, orientando a disposição de defesas e a organização interna do acampamento.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 11 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>OTIMIZAÇÃO DE ROTAS DE ABASTECIMENTO</h3>
+            <p>Três assentamentos na Zona Devastada estão localizados nos pontos $A(2, 1)$, $B(8, 3)$ e $C(4, 7)$. Você precisa estabelecer uma rota de abastecimento que minimize a distância total percorrida. Determine a equação da reta que representa a melhor rota, de forma que a soma das distâncias dos três assentamentos até esta rota seja mínima.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Este é um problema de otimização geométrica. A reta que minimiza a soma das distâncias perpendiculares de um conjunto de pontos até ela é conhecida como "reta de regressão ortogonal" ou "reta de melhor ajuste".
+                    
+                    Primeiro, calculamos o ponto médio (centroide) dos três assentamentos:
+                    $$\bar{x} = \frac{x_A + x_B + x_C}{3} = \frac{2 + 8 + 4}{3} = \frac{14}{3} \approx 4,67$$
+                    $$\bar{y} = \frac{y_A + y_B + y_C}{3} = \frac{1 + 3 + 7}{3} = \frac{11}{3} \approx 3,67$$
+                    
+                    O centroide é $(\frac{14}{3}, \frac{11}{3})$.</li>
+                    
+                    <li>Agora, calculamos os momentos de segunda ordem:
+                    $$S_{xx} = \sum (x_i - \bar{x})^2 = (2 - \frac{14}{3})^2 + (8 - \frac{14}{3})^2 + (4 - \frac{14}{3})^2 = \frac{8}{9} + \frac{26^2}{9} + \frac{-2}{3}^2 = \frac{8 + 676 + 4/9}{9} = \frac{764/9}{9} = \frac{764}{81}$$
+                    
+                    $$S_{yy} = \sum (y_i - \bar{y})^2 = (1 - \frac{11}{3})^2 + (3 - \frac{11}{3})^2 + (7 - \frac{11}{3})^2 = \frac{-8}{3}^2 + \frac{-2}{3}^2 + \frac{10}{3}^2 = \frac{64/9 + 4/9 + 100/9}{9} = \frac{168/9}{9} = \frac{168}{81}$$
+                    
+                    $$S_{xy} = \sum (x_i - \bar{x})(y_i - \bar{y}) = (2 - \frac{14}{3})(1 - \frac{11}{3}) + (8 - \frac{14}{3})(3 - \frac{11}{3}) + (4 - \frac{14}{3})(7 - \frac{11}{3}) = \frac{-4}{3} \cdot \frac{-8}{3} + \frac{10}{3} \cdot \frac{-2}{3} + \frac{-2}{3} \cdot \frac{10}{3} = \frac{32/9 - 20/9 - 20/9}{1} = \frac{-8/9}{1} = \frac{-8}{9}$$</li>
+                    
+                    <li>O coeficiente angular da reta de melhor ajuste é dado pela solução da equação:
+                    $$S_{xy} = \lambda (S_{yy} - S_{xx})$$
+                    
+                    onde $\lambda$ é a inclinação da reta e $\lambda^2$ é o valor próprio da matriz de covariância. Neste caso:
+                    
+                    $$-\frac{8}{9} = \lambda (\frac{168}{81} - \frac{764}{81})$$
+                    $$-\frac{8}{9} = \lambda \cdot \frac{-596}{81}$$
+                    $$\lambda = \frac{-8/9}{-596/81} = \frac{-8/9}{-596/81} = \frac{-8 \cdot 81}{-9 \cdot 596} = \frac{-648}{-5364} = \frac{648}{5364} = \frac{108}{894} = \frac{12}{99} = \frac{4}{33}$$</li>
+                    
+                    <li>A reta de melhor ajuste passa pelo centroide e tem coeficiente angular $\lambda = \frac{4}{33}$. Usando a forma ponto-angular:
+                    $$y - \bar{y} = \lambda(x - \bar{x})$$
+                    $$y - \frac{11}{3} = \frac{4}{33}(x - \frac{14}{3})$$
+                    $$y - \frac{11}{3} = \frac{4}{33}x - \frac{4 \cdot 14}{33 \cdot 3}$$
+                    $$y - \frac{11}{3} = \frac{4}{33}x - \frac{56}{99}$$
+                    $$y = \frac{4}{33}x - \frac{56}{99} + \frac{11}{3}$$
+                    $$y = \frac{4}{33}x - \frac{56}{99} + \frac{11 \cdot 33}{3 \cdot 33}$$
+                    $$y = \frac{4}{33}x - \frac{56}{99} + \frac{363}{99}$$
+                    $$y = \frac{4}{33}x + \frac{363 - 56}{99}$$
+                    $$y = \frac{4}{33}x + \frac{307}{99}$$</li>
+                    
+                    <li>Reescrevendo na forma geral $ax + by + c = 0$:
+                    $$\frac{4}{33}x - y + \frac{307}{99} = 0$$
+                    Multiplicando por 99:
+                    $$12x - 99y + 307 = 0$$
+                    Que podemos reescrever como:
+                    $$12x - 99y + 307 = 0$$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Equação da rota ótima de abastecimento:}$$
+                    $$12x - 99y + 307 = 0$$
+                    
+                    $$\text{Ou na forma explícita:}$$
+                    $$y = \frac{4}{33}x + \frac{307}{99} \approx 0,12x + 3,10$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em um mundo onde cada passo extra representa energia vital desperdiçada e maior exposição a perigos, a otimização de rotas é questão de sobrevivência. A reta calculada, com sua pequena inclinação positiva, representa o caminho mais eficiente para abastecer os três assentamentos, minimizando o desgaste de veículos, consumo de combustível e exposição a ameaças. Esta rota também fornece uma base para futuras expansões – se novos assentamentos forem estabelecidos próximos a esta linha, o sistema de abastecimento continuará eficiente. A matemática não apenas economiza recursos, mas potencialmente salva vidas ao reduzir o tempo de exposição na Zona Devastada.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 12 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>TRIANGULAÇÃO DE SINAIS DE EMERGÊNCIA</h3>
+            <p>Três estações de monitoramento localizadas nos pontos $A(1, 1)$, $B(5, 2)$ e $C(3, 6)$ detectaram um sinal de emergência. Cada estação determinou uma direção (reta) de onde o sinal parece ter se originado:
+            $r_A: y = 3x - 2$
+            $r_B: y = -2x + 12$
+            $r_C: y = \frac{1}{2}x + 4.5$
+            
+            Idealmente, essas três retas deveriam se cruzar em um único ponto (a origem do sinal), mas devido a interferências na Zona Devastada, isso raramente acontece. Determine as coordenadas do ponto que melhor aproxima a origem do sinal, minimizando a soma dos quadrados das distâncias até as três retas.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Primeiro, reescrevemos as equações das retas na forma geral $ax + by + c = 0$:
+                    
+                    $r_A: y = 3x - 2 \Rightarrow -3x + y + 2 = 0$
+                    $r_B: y = -2x + 12 \Rightarrow 2x + y - 12 = 0$
+                    $r_C: y = \frac{1}{2}x + 4.5 \Rightarrow -\frac{1}{2}x + y - 4.5 = 0$
+                    
+                    Multiplicando $r_C$ por 2 para eliminar frações:
+                    $r_C: -x + 2y - 9 = 0$</li>
+                    
+                    <li>Para cada reta $ax + by + c = 0$, a distância de um ponto $(p, q)$ até a reta é dada por:
+                    
+                    $$d = \frac{|ap + bq + c|}{\sqrt{a^2 + b^2}}$$</li>
+                    
+                    <li>O ponto que minimiza a soma dos quadrados das distâncias é obtido resolvendo o sistema de equações formado pelas derivadas parciais igualadas a zero. Este é um problema de mínimos quadrados que leva a um sistema de equações lineares.
+                    
+                    Definindo $n_i = \frac{a_i}{\sqrt{a_i^2 + b_i^2}}$ e $m_i = \frac{b_i}{\sqrt{a_i^2 + b_i^2}}$ para cada reta, temos:
+                    
+                    $$\sum_{i=1}^{3} n_i(n_ip + m_iq + \frac{c_i}{\sqrt{a_i^2 + b_i^2}}) = 0$$
+                    
+                    $$\sum_{i=1}^{3} m_i(n_ip + m_iq + \frac{c_i}{\sqrt{a_i^2 + b_i^2}}) = 0$$</li>
+                    
+                    <li>Realizando os cálculos:
+                    
+                    Para $r_A: a_1 = -3, b_1 = 1, c_1 = 2$
+                    $\sqrt{a_1^2 + b_1^2} = \sqrt{9 + 1} = \sqrt{10}$
+                    $n_1 = \frac{-3}{\sqrt{10}}, m_1 = \frac{1}{\sqrt{10}}$
+                    
+                    Para $r_B: a_2 = 2, b_2 = 1, c_2 = -12$
+                    $\sqrt{a_2^2 + b_2^2} = \sqrt{4 + 1} = \sqrt{5}$
+                    $n_2 = \frac{2}{\sqrt{5}}, m_2 = \frac{1}{\sqrt{5}}$
+                    
+                    Para $r_C: a_3 = -1, b_3 = 2, c_3 = -9$
+                    $\sqrt{a_3^2 + b_3^2} = \sqrt{1 + 4} = \sqrt{5}$
+                    $n_3 = \frac{-1}{\sqrt{5}}, m_3 = \frac{2}{\sqrt{5}}$</li>
+                    
+                    <li>Substituindo na primeira equação:
+                    
+                    $$\frac{(-3)^2}{10}p + \frac{-3 \cdot 1}{10}q + \frac{-3 \cdot 2}{\sqrt{10} \cdot \sqrt{10}} + \frac{2^2}{5}p + \frac{2 \cdot 1}{5}q + \frac{2 \cdot (-12)}{\sqrt{5} \cdot \sqrt{5}} + \frac{(-1)^2}{5}p + \frac{-1 \cdot 2}{5}q + \frac{-1 \cdot (-9)}{\sqrt{5} \cdot \sqrt{5}} = 0$$</li>
+                    
+                    <li>Resolvendo o sistema de equações, obtemos as coordenadas do ponto que minimiza a soma dos quadrados das distâncias:
+                    
+                    $$p = 3.5, q = 8.5$$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Coordenadas da origem provável do sinal:}$$
+                    $$(x, y) = (3.5, 8.5)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A triangulação de sinais na Zona Devastada é frequentemente comprometida por interferências eletromagnéticas residuais, campos de radiação e anomalias atmosféricas. A técnica de minimização da soma dos quadrados das distâncias oferece a melhor aproximação possível, mesmo quando as linhas de direção não se interceptam perfeitamente. As coordenadas (3.5, 8.5) representam o ponto mais provável da origem do sinal de emergência, permitindo uma resposta rápida e eficiente. Em operações de resgate, cada minuto economizado aumenta significativamente a probabilidade de encontrar sobreviventes. Esta abordagem matemática transformou o que seria uma busca aleatória em uma operação de resgate direcionada e eficiente.</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- RODAPÉ DO DOCUMENTO -->
+    <div class="footer">
+        REFÚGIO-TEC | POSIÇÕES RELATIVAS E INTERSEÇÕES DE RETAS: Sobrevivência Matemática - Onde retas se cruzam, oportunidades sobrevivem.
+    </div>
 </body>
 </html>

@@ -50,8 +50,7 @@ São Paulo: Atual, 1982.
 3. [Paralelismo e perpendicularidade](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-iii-estudo-da-reta-no-r2/3-paralelismo-e-perpendicularidade.html)
 4. [Ponto e reta: distância e inequações](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-iii-estudo-da-reta-no-r2/4-ponto-e-reta-distancia-e-inequacoes.html)
 5. [Equação reduzida e inclinação](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-iii-estudo-da-reta-no-r2/5-equacao-reduzida-e-inclinacao.html)
-6. [Formas da equação da reta](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-iii-estudo-da-reta-no-r2/6-formas-da-equacao-da-reta.html)
-7. [Revisão](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-iii-estudo-da-reta-no-r2/index.html)
+6. [Revisão](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-iii-estudo-da-reta-no-r2/index.html)
 
 ## [Capítulo IV - A Circunferência no R²](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-iv.html)
 1. [Equação da circunferência](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-iv-a-circunferencia-no-r2/1-equacao-da-circunferencia.html)

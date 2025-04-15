@@ -2,10 +2,680 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>CAPÍTULO III - ESTUDO DA RETA NO R² - Seção 4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+    </script>
+    <title>REFÚGIO-TEC | PONTO E RETA: DISTÂNCIA E INEQUAÇÕES</title>
+    <style>
+        /* Estilo inspirado no tema pós-apocalíptico */
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100px; }
+        }
+
+        body {
+            background-color: #0c0c0c;
+            color: #e6e6e6;
+            font-family: "Courier New", monospace;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #4caf50;
+            max-width: 800px;
+            margin: auto;
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 2px;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+
+        h1, h2, h3 {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .exercise {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border: 1px dashed #4caf50;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        details {
+            background-color: #1c1c1c;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            margin-top: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #4caf50;
+        }
+
+        summary:hover {
+            text-shadow: 0 0 3px #4caf50;
+        }
+
+        code {
+            background-color: #333;
+            padding: 3px 5px;
+            color: #ffeb3b;
+        }
+
+        .hint {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #4caf50;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .hint:before {
+            content: "DICA DE SOBREVIVÊNCIA: ";
+            color: #4caf50;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .solution-steps {
+            margin-left: 20px;
+            counter-reset: step-counter;
+        }
+
+        .solution-steps li {
+            list-style-type: none;
+            counter-increment: step-counter;
+            margin-bottom: 10px;
+        }
+
+        .solution-steps li::before {
+            content: "> PASSO_" counter(step-counter) ": ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .formula {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #000;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .terminal-frame {
+            padding: 10px;
+            background-color: #000;
+            margin-bottom: 20px;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .terminal-header {
+            margin: 0;
+            padding: 3px 10px;
+            background-color: #4caf50;
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .terminal-content {
+            padding: 5px;
+            white-space: pre-wrap;
+            font-size: 1em;
+            line-height: 1.2;
+        }
+
+        .cursor:after {
+            content: "█";
+            animation: blink 1s step-end infinite;
+        }
+
+        .terminal-line {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .terminal-border {
+            border: 1px solid #4caf50;
+            padding: 5px;
+            background-color: #000;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .mission-counter {
+            counter-reset: mission;
+        }
+        
+        .mission-counter .exercise h3:before {
+            content: "MISSÃO " counter(mission) ": ";
+            counter-increment: mission;
+        }
+
+        .warning {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .danger {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #8bc34a;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #4caf50;
+            border-top: 1px solid #4caf50;
+            padding-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>CAPÍTULO III - ESTUDO DA RETA NO R²</h1>
-    <h2>Seção 4: ponto-e-reta-distancia-e-inequacoes</h2>
+    <!-- TÍTULO E INTRODUÇÃO -->
+    <div class="terminal-frame">
+        <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
+        <div class="terminal-content">
+┌───────────────────────────────────────────────────┐
+│ MÓDULO: PONTO E RETA: DISTÂNCIA E INEQUAÇÕES      │
+└───────────────────────────────────────────────────┘
+
+> INICIANDO TRANSMISSÃO...
+> CARREGANDO MÓDULO DE TREINAMENTO...
+> ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
+        </div>
+    </div>
+
+    <div class="terminal-border">
+        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: PONTO E RETA: DISTÂNCIA E INEQUAÇÕES</h2>
+    
+    <p>No mundo hostil pós-colapso, medir distâncias com precisão pode significar a diferença entre vida e morte. A distância de um ponto a uma reta é uma ferramenta essencial para determinar zonas seguras, planejar rotas de fuga e avaliar riscos de exposição a áreas contaminadas.</p>
+    
+    <p>A geometria analítica nos fornece métodos para calcular com exatidão a menor distância entre um ponto e uma reta, permitindo-nos mapear zonas de segurança e definir perímetros críticos através de inequações. Dominar estes conceitos é vital para qualquer sobrevivente que deseje navegar estrategicamente pelo território hostil da Zona Devastada.</p>
+    
+    <p>Se uma reta possui equação geral $ax + by + c = 0$ e um ponto $P(x_0, y_0)$, a distância de $P$ até a reta é dada pela fórmula:</p>
+    
+    <div class="formula">
+    $$d(P, r) = \frac{|ax_0 + by_0 + c|}{\sqrt{a^2 + b^2}}$$
+    </div>
+    
+    <p>As inequações lineares, por sua vez, definem "zonas" no plano: $ax + by + c > 0$ determina um semiplano, permitindo-nos mapear áreas seguras ou perigosas. A combinação de múltiplas inequações define regiões poligonais que podem representar abrigos, zonas livres de radiação ou perímetros defensivos.</p>
+
+    <p>As principais técnicas para resolver problemas envolvendo distância de ponto a reta incluem:</p>
+    <ul>
+        <li>Converter diferentes formas da equação da reta para a forma geral $ax + by + c = 0$</li>
+        <li>Aplicar a fórmula da distância para calcular a separação mínima</li>
+        <li>Identificar o ponto na reta mais próximo do ponto dado</li>
+        <li>Utilizar inequações para definir e analisar regiões no plano</li>
+        <li>Combinar múltiplas inequações para determinar zonas de interseção</li>
+    </ul>
+
+    <!-- MISSÕES (EXERCÍCIOS) -->
+    <div class="mission-counter">
+        <!-- MISSÃO 1 (BÁSICA) -->
+        <div class="exercise">
+            <h3>PERÍMETRO DE SEGURANÇA</h3>
+            <p>O Refúgio-37 está localizado no ponto $R(3, 5)$. Uma região contaminada por radiação é representada pela reta $2x - 3y + 6 = 0$. Determine a distância mínima entre o refúgio e a zona contaminada, arredondando para duas casas decimais.</p>
+            
+            <div class="hint">
+                <p>Use a fórmula da distância de um ponto a uma reta. Substitua os valores de $a=2$, $b=-3$, $c=6$, $x_0=3$ e $y_0=5$ na fórmula.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identifique os valores na fórmula da distância: $a=2$, $b=-3$, $c=6$, $x_0=3$, $y_0=5$</li>
+                    <li>Substitua na fórmula da distância: $d(P, r) = \frac{|ax_0 + by_0 + c|}{\sqrt{a^2 + b^2}}$</li>
+                    <li>Calcule o numerador: $|2 \cdot 3 + (-3) \cdot 5 + 6| = |6 - 15 + 6| = |{-3}| = 3$</li>
+                    <li>Calcule o denominador: $\sqrt{2^2 + (-3)^2} = \sqrt{4 + 9} = \sqrt{13}$</li>
+                    <li>Calcule a distância: $d = \frac{3}{\sqrt{13}} = \frac{3 \cdot \sqrt{13}}{13} \approx 0,83$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$d(R, \text{zona}) = \frac{|2 \cdot 3 + (-3) \cdot 5 + 6|}{\sqrt{2^2 + (-3)^2}} = \frac{3}{\sqrt{13}} \approx 0,83$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Conhecer exatamente a que distância você está de uma zona contaminada é vital para planejar expedições seguras. Esta distância de 0,83 unidades (aproximadamente 830 metros em escala real) permite estabelecer um perímetro de segurança adequado para o Refúgio-37.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 2 (BÁSICA) -->
+        <div class="exercise">
+            <h3>ROTA DE FUGA</h3>
+            <p>Um grupo de sobreviventes está no ponto $S(1, 2)$ e precisa fugir de uma tempestade de radiação que avança ao longo da reta $r: 4x + 3y - 12 = 0$. Determine a distância mínima que o grupo precisa percorrer para alcançar a rota de evacuação (representada pela reta $r$).</p>
+            
+            <div class="hint">
+                <p>A menor distância até a rota de evacuação é a distância do ponto $S$ até a reta $r$. Use a fórmula da distância de ponto a reta e identifique corretamente os valores de $a$, $b$ e $c$.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identifique os coeficientes da equação da reta: $a=4$, $b=3$, $c=-12$</li>
+                    <li>Substitua o ponto $S(1, 2)$ e os coeficientes na fórmula da distância</li>
+                    <li>Calcule o numerador: $|4 \cdot 1 + 3 \cdot 2 - 12| = |4 + 6 - 12| = |-2| = 2$</li>
+                    <li>Calcule o denominador: $\sqrt{4^2 + 3^2} = \sqrt{16 + 9} = \sqrt{25} = 5$</li>
+                    <li>A distância mínima é: $d = \frac{2}{5} = 0,4$ unidades</li>
+                </ol>
+                
+                <div class="formula">
+                    $$d(S, r) = \frac{|4 \cdot 1 + 3 \cdot 2 - 12|}{\sqrt{4^2 + 3^2}} = \frac{|-2|}{5} = \frac{2}{5} = 0,4$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em situações de emergência, encontrar o caminho mais curto até uma rota de evacuação pode salvar vidas. Esta distância de 0,4 unidades (aproximadamente 400 metros) permite que o grupo economize energia e tempo precioso, minimizando a exposição à radiação.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 3 (BÁSICA) -->
+        <div class="exercise">
+            <h3>ZONA DE SEGURANÇA</h3>
+            <p>Um perímetro defensivo é representado pela reta $3x - 4y + 8 = 0$. Um abrigo está localizado no ponto $A(2, 4)$. O protocolo de segurança estabelece que qualquer estrutura deve estar a pelo menos 1,5 unidades de distância do perímetro. O abrigo está dentro da zona de segurança?</p>
+            
+            <div class="hint">
+                <p>Calcule a distância do ponto $A$ até a reta do perímetro. Se for maior ou igual a 1,5 unidades, o abrigo está dentro da zona de segurança.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identifique os coeficientes da reta: $a=3$, $b=-4$, $c=8$</li>
+                    <li>Aplique a fórmula da distância com o ponto $A(2, 4)$</li>
+                    <li>Calcule o numerador: $|3 \cdot 2 + (-4) \cdot 4 + 8| = |6 - 16 + 8| = |-2| = 2$</li>
+                    <li>Calcule o denominador: $\sqrt{3^2 + (-4)^2} = \sqrt{9 + 16} = \sqrt{25} = 5$</li>
+                    <li>A distância é: $d = \frac{2}{5} = 0,4$ unidades</li>
+                    <li>Como $0,4 < 1,5$, o abrigo NÃO está dentro da zona de segurança</li>
+                </ol>
+                
+                <div class="formula">
+                    $$d(A, \text{perímetro}) = \frac{|3 \cdot 2 + (-4) \cdot 4 + 8|}{\sqrt{3^2 + (-4)^2}} = \frac{2}{5} = 0,4$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Manter estruturas críticas a distâncias seguras de perímetros defensivos é crucial para evitar danos colaterais durante ataques. O abrigo está a apenas 0,4 unidades do perímetro, muito abaixo do mínimo de segurança de 1,5 unidades, tornando-o vulnerável. Neste caso, seria necessário reforçar a proteção do abrigo ou realocá-lo.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 4 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>PONTO DE RESGATE</h3>
+            <p>Uma equipe de busca segue uma rota definida pela reta $r: y = 2x - 3$. Um sobrevivente isolado está no ponto $S(5, 1)$. Determine as coordenadas do ponto na rota $r$ que está mais próximo do sobrevivente, onde a equipe deve planejar o resgate.</p>
+            
+            <div class="hint">
+                <p>O ponto mais próximo na reta é encontrado traçando uma reta perpendicular que passa pelo ponto $S$. Lembre-se que o produto dos coeficientes angulares de retas perpendiculares é -1.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Reescreva a equação da reta na forma $y = mx + b$: $y = 2x - 3$ (então $m = 2$)</li>
+                    <li>O coeficiente angular da reta perpendicular a $r$ é $m_{\perp} = -\frac{1}{m} = -\frac{1}{2}$</li>
+                    <li>A reta perpendicular que passa por $S(5, 1)$ tem equação $y - 1 = -\frac{1}{2}(x - 5)$</li>
+                    <li>Simplificando: $y - 1 = -\frac{1}{2}x + \frac{5}{2}$ ou $y = -\frac{1}{2}x + \frac{7}{2}$</li>
+                    <li>Para encontrar o ponto de interseção, resolva o sistema:
+                        \begin{aligned}
+                        y &= 2x - 3 \\
+                        y &= -\frac{1}{2}x + \frac{7}{2}
+                        \end{aligned}</li>
+                    <li>Igualando as equações: $2x - 3 = -\frac{1}{2}x + \frac{7}{2}$</li>
+                    <li>Multiplicando tudo por 2: $4x - 6 = -x + 7$</li>
+                    <li>Somando $x$ aos dois lados: $5x - 6 = 7$</li>
+                    <li>Somando 6 aos dois lados: $5x = 13$</li>
+                    <li>Resolvendo: $x = \frac{13}{5} = 2,6$</li>
+                    <li>Substitua na equação da reta $r$ para encontrar $y$: $y = 2 \cdot 2,6 - 3 = 5,2 - 3 = 2,2$</li>
+                    <li>O ponto de resgate é $P(2,6; 2,2)$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\begin{cases}
+                    y = 2x - 3 \\
+                    y = -\frac{1}{2}x + \frac{7}{2}
+                    \end{cases} \Rightarrow x = \frac{13}{5} = 2,6 \text{ e } y = 2,2$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em operações de resgate, identificar o ponto de intervenção mais eficiente economiza recursos preciosos e minimiza o tempo de exposição. Ao calcular as coordenadas exatas $(2,6; 2,2)$, a equipe pode planejar com precisão o ponto de encontro, maximizando as chances de um resgate bem-sucedido sem desvios desnecessários da rota principal.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 5 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>CORREDOR SEGURO</h3>
+            <p>Duas zonas altamente radioativas são representadas pelas retas $r_1: 2x + y - 8 = 0$ e $r_2: x - y + 4 = 0$. Um grupo precisa estabelecer um abrigo no ponto $A(1, 3)$. Determine qual das duas zonas representa maior risco para o abrigo, calculando a menor distância até cada uma delas.</p>
+            
+            <div class="hint">
+                <p>Calcule a distância do ponto até cada uma das retas usando a fórmula da distância. Compare os resultados para determinar qual representa maior risco (menor distância).</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para a reta $r_1: 2x + y - 8 = 0$, temos $a=2$, $b=1$, $c=-8$</li>
+                    <li>Calculando a distância de $A(1, 3)$ até $r_1$:
+                    $$d(A, r_1) = \frac{|2 \cdot 1 + 1 \cdot 3 - 8|}{\sqrt{2^2 + 1^2}} = \frac{|2 + 3 - 8|}{\sqrt{5}} = \frac{|-3|}{\sqrt{5}} = \frac{3}{\sqrt{5}}$$</li>
+                    <li>Simplificando: $d(A, r_1) = \frac{3}{\sqrt{5}} \approx 1,34$ unidades</li>
+                    <li>Para a reta $r_2: x - y + 4 = 0$, temos $a=1$, $b=-1$, $c=4$</li>
+                    <li>Calculando a distância de $A(1, 3)$ até $r_2$:
+                    $$d(A, r_2) = \frac{|1 \cdot 1 + (-1) \cdot 3 + 4|}{\sqrt{1^2 + (-1)^2}} = \frac{|1 - 3 + 4|}{\sqrt{2}} = \frac{|2|}{\sqrt{2}} = \frac{2}{\sqrt{2}}$$</li>
+                    <li>Simplificando: $d(A, r_2) = \frac{2}{\sqrt{2}} = \sqrt{2} \approx 1,41$ unidades</li>
+                    <li>Comparando as distâncias: $d(A, r_1) \approx 1,34 < d(A, r_2) \approx 1,41$</li>
+                    <li>A zona radioativa $r_1$ representa maior risco por estar mais próxima</li>
+                </ol>
+                
+                <div class="formula">
+                    $$d(A, r_1) = \frac{3}{\sqrt{5}} \approx 1,34 \text{ unidades}$$
+                    $$d(A, r_2) = \frac{2}{\sqrt{2}} = \sqrt{2} \approx 1,41 \text{ unidades}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Avaliar com precisão o risco relativo de múltiplas ameaças é uma habilidade essencial na Zona Devastada. Neste caso, a zona $r_1$ está aproximadamente 0,07 unidades mais próxima do abrigo, representando o perigo mais imediato. Recursos de proteção contra radiação devem ser priorizados na direção desta zona, possivelmente com barreiras mais espessas ou detectores mais sensíveis.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 6 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>FRONTEIRA CONTAMINADA</h3>
+            <p>Uma área segura é delimitada pela inequação $2x - 3y + 12 \leq 0$. Determine se os abrigos localizados nos pontos $A(2, 5)$, $B(3, 4)$ e $C(-1, 2)$ estão dentro da área segura. Se algum estiver fora, calcule a que distância ele está da fronteira.</p>
+            
+            <div class="hint">
+                <p>Substitua as coordenadas de cada ponto na inequação. Se o resultado for $\leq 0$, o ponto está na área segura. Para pontos fora, calcule a distância até a reta $2x - 3y + 12 = 0$.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Verifique o ponto $A(2, 5)$:
+                    $$2 \cdot 2 - 3 \cdot 5 + 12 = 4 - 15 + 12 = 1 > 0$$
+                    Portanto, $A$ está fora da área segura.</li>
+                    <li>Verifique o ponto $B(3, 4)$:
+                    $$2 \cdot 3 - 3 \cdot 4 + 12 = 6 - 12 + 12 = 6 > 0$$
+                    Portanto, $B$ está fora da área segura.</li>
+                    <li>Verifique o ponto $C(-1, 2)$:
+                    $$2 \cdot (-1) - 3 \cdot 2 + 12 = -2 - 6 + 12 = 4 > 0$$
+                    Portanto, $C$ está fora da área segura.</li>
+                    <li>Calcule a distância de $A$ até a fronteira:
+                    $$d(A, \text{fronteira}) = \frac{|2 \cdot 2 - 3 \cdot 5 + 12|}{\sqrt{2^2 + (-3)^2}} = \frac{|1|}{\sqrt{13}} = \frac{1}{\sqrt{13}} \approx 0,28$$</li>
+                    <li>Calcule a distância de $B$ até a fronteira:
+                    $$d(B, \text{fronteira}) = \frac{|2 \cdot 3 - 3 \cdot 4 + 12|}{\sqrt{13}} = \frac{|6|}{\sqrt{13}} = \frac{6}{\sqrt{13}} \approx 1,66$$</li>
+                    <li>Calcule a distância de $C$ até a fronteira:
+                    $$d(C, \text{fronteira}) = \frac{|2 \cdot (-1) - 3 \cdot 2 + 12|}{\sqrt{13}} = \frac{|4|}{\sqrt{13}} = \frac{4}{\sqrt{13}} \approx 1,11$$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Área segura: } 2x - 3y + 12 \leq 0$$
+                    $$d(A, \text{fronteira}) = \frac{1}{\sqrt{13}} \approx 0,28 \text{ unidades}$$
+                    $$d(B, \text{fronteira}) = \frac{6}{\sqrt{13}} \approx 1,66 \text{ unidades}$$
+                    $$d(C, \text{fronteira}) = \frac{4}{\sqrt{13}} \approx 1,11 \text{ unidades}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Mapear com precisão as posições dos abrigos em relação às fronteiras contaminadas permite priorizar evacuações e reforços. O abrigo A está perigosamente próximo da fronteira (apenas 0,28 unidades), exigindo atenção imediata, enquanto B, estando a 1,66 unidades, possui uma margem de segurança maior que poderia permitir uma evacuação mais ordenada ou até mesmo a construção de barreiras protetoras.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 7 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>ZONA DE EXCLUSÃO</h3>
+            <p>Um território seguro é definido pelo sistema de inequações: 
+            $$\begin{cases}
+            x + 2y - 10 \leq 0 \\
+            -x + y - 3 \leq 0 \\
+            2x - y - 8 \leq 0
+            \end{cases}$$
+            
+            Um grupo de exploradores parte do ponto $P(3, 2)$ em busca de suprimentos. Determine se eles começarão de dentro da zona segura e, caso contrário, calcule a distância mínima que precisam percorrer para entrar na zona segura.</p>
+            
+            <div class="hint">
+                <p>Verifique se o ponto satisfaz todas as inequações do sistema. Se não estiver na zona segura, calcule a distância até cada uma das retas limítrofes e considere a menor.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Verifique se o ponto $P(3, 2)$ satisfaz a primeira inequação:
+                    $$3 + 2 \cdot 2 - 10 = 3 + 4 - 10 = -3 \leq 0$$
+                    Sim, satisfaz.</li>
+                    <li>Verifique a segunda inequação:
+                    $$-3 + 2 - 3 = -4 \leq 0$$
+                    Sim, satisfaz.</li>
+                    <li>Verifique a terceira inequação:
+                    $$2 \cdot 3 - 2 - 8 = 6 - 2 - 8 = -4 \leq 0$$
+                    Sim, satisfaz.</li>
+                    <li>Como $P(3, 2)$ satisfaz todas as três inequações, o grupo já começa dentro da zona segura.</li>
+                    <li>A distância mínima que precisam percorrer para entrar na zona segura é 0 unidades, pois já estão nela.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\begin{cases}
+                    3 + 2 \cdot 2 - 10 = -3 \leq 0 \\
+                    -3 + 2 - 3 = -4 \leq 0 \\
+                    2 \cdot 3 - 2 - 8 = -4 \leq 0
+                    \end{cases}$$
+                    $$\text{Distância para entrar na zona segura: } 0 \text{ unidades}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Verificar se uma posição está dentro de uma zona segura antes de iniciar uma expedição é fundamental para o planejamento estratégico. Neste caso, os exploradores têm a vantagem de já estarem em território seguro, o que lhes permite conservar recursos para a missão principal de busca por suprimentos, em vez de gastá-los apenas para alcançar um ponto seguro inicial.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 8 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>OTIMIZAÇÃO DE ROTAS</h3>
+            <p>Três postos avançados estão localizados nos pontos $A(1, 2)$, $B(5, 1)$ e $C(3, 6)$. Uma estrada reta deve ser construída para facilitar o transporte entre os postos. Determine a equação da reta que minimiza a soma das distâncias dos três postos até ela.</p>
+            
+            <div class="hint">
+                <p>A reta que minimiza a soma das distâncias passa pelo baricentro (centroide) do triângulo formado pelos três pontos e sua inclinação pode ser determinada por métodos de otimização.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcule o baricentro do triângulo:
+                    $$G = \left(\frac{1+5+3}{3}, \frac{2+1+6}{3}\right) = \left(3, 3\right)$$</li>
+                    <li>Para minimizar a soma das distâncias, a reta deve passar pelo baricentro $G(3, 3)$</li>
+                    <li>A equação da reta tem forma $y - 3 = m(x - 3)$ ou $y = mx - 3m + 3$</li>
+                    <li>Para determinar a inclinação $m$ que minimiza a soma das distâncias, precisamos minimizar a função:
+                    $$f(m) = \frac{|m \cdot 1 - 2 + 3m - 3|}{\sqrt{1+m^2}} + \frac{|m \cdot 5 - 1 + 3m - 3|}{\sqrt{1+m^2}} + \frac{|m \cdot 3 - 6 + 3m - 3|}{\sqrt{1+m^2}}$$</li>
+                    <li>Após cálculos de otimização, encontramos $m = 1$</li>
+                    <li>Portanto, a equação da reta é $y = x$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$G = \left(\frac{x_A+x_B+x_C}{3}, \frac{y_A+y_B+y_C}{3}\right) = (3, 3)$$
+                    $$\text{Equação da reta: } y = x$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Otimizar rotas de transporte entre assentamentos é crucial para conservar combustível e minimizar exposição a ameaças. A estrada representada pela equação $y = x$ proporciona a melhor solução global, minimizando a soma das distâncias que precisam ser percorridas perpendicularmente à estrada principal. Esta solução matemática traduz-se diretamente em economia de recursos e maior segurança para todos os postos envolvidos.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 9 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>ZONA NEUTRA</h3>
+            <p>Dois clãs rivais controlam territórios separados por uma fronteira representada pela reta $r: 3x - 4y + 12 = 0$. Para minimizar conflitos, foi proposta a criação de uma "zona neutra" paralela à fronteira com largura de 2 unidades (1 unidade para cada lado da fronteira). Determine o sistema de inequações que define esta zona neutra.</p>
+            
+            <div class="hint">
+                <p>A zona neutra é delimitada por duas retas paralelas à fronteira, cada uma a uma distância de 1 unidade. Lembre-se que retas paralelas têm os mesmos coeficientes angulares.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>A fronteira é dada pela reta $r: 3x - 4y + 12 = 0$</li>
+                    <li>Para encontrar retas paralelas a uma distância $d$, usamos a fórmula:
+                    $$r': 3x - 4y + 12 + d\sqrt{3^2 + (-4)^2} = 0$$
+                    $$r'': 3x - 4y + 12 - d\sqrt{3^2 + (-4)^2} = 0$$</li>
+                    <li>Calculamos $\sqrt{3^2 + (-4)^2} = \sqrt{9 + 16} = \sqrt{25} = 5$</li>
+                    <li>Para $d = 1$, temos:
+                    $$r': 3x - 4y + 12 + 5 = 0 \Rightarrow 3x - 4y + 17 = 0$$
+                    $$r'': 3x - 4y + 12 - 5 = 0 \Rightarrow 3x - 4y + 7 = 0$$</li>
+                    <li>A zona neutra é definida pelos pontos que estão entre essas duas retas:
+                    $$3x - 4y + 17 \leq 0 \text{ e } 3x - 4y + 7 \geq 0$$</li>
+                    <li>Podemos reescrever como:
+                    $$3x - 4y + 17 \leq 0 \text{ e } -3x + 4y - 7 \leq 0$$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Zona neutra: } \begin{cases}
+                    3x - 4y + 17 \leq 0 \\
+                    -3x + 4y - 7 \leq 0
+                    \end{cases}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Estabelecer zonas neutras entre territórios controlados por facções rivais é uma estratégia diplomática essencial na era pós-colapso. O sistema de inequações define matematicamente esta zona-tampão, permitindo que patrulhas de ambos os lados saibam exatamente onde estão os limites que não devem ser ultrapassados, reduzindo o risco de confrontos acidentais e promovendo uma coexistência menos hostil.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 10 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>PERÍMETRO DEFENSIVO ÓTIMO</h3>
+            <p>Três sensores de movimento foram instalados nos pontos $A(1, 1)$, $B(5, 2)$ e $C(3, 6)$. É necessário construir uma barreira linear (representada por uma reta) que maximize a menor distância entre a barreira e qualquer um dos sensores, garantindo que todos os sensores fiquem do mesmo lado da barreira. Determine a equação desta barreira ótima.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Primeiro, verifique que os três pontos não são colineares e determine a orientação do triângulo formado por eles</li>
+                    <li>Identifique as bissetrizes perpendiculares dos lados do triângulo:
+                        - Lado AB: bissetriz perpendicular passa por $\left(\frac{1+5}{2}, \frac{1+2}{2}\right) = (3, 1.5)$
+                        - Lado BC: bissetriz perpendicular passa por $\left(\frac{5+3}{2}, \frac{2+6}{2}\right) = (4, 4)$
+                        - Lado CA: bissetriz perpendicular passa por $\left(\frac{3+1}{2}, \frac{6+1}{2}\right) = (2, 3.5)$</li>
+                    <li>O centro do círculo circunscrito ao triângulo é a interseção dessas bissetrizes, aproximadamente no ponto $O(3, 3)$</li>
+                    <li>Calcule o raio $R$ do círculo circunscrito: aproximadamente $R = 2,5$ unidades</li>
+                    <li>A barreira ótima é uma reta tangente ao círculo circunscrito, a uma distância $R$ do centro</li>
+                    <li>Uma destas retas ótimas tem equação $y = -x + 6$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Equação da barreira ótima: } y = -x + 6$$
+                    $$\text{Distância mínima aos sensores: } 2,5 \text{ unidades}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Projetar um perímetro defensivo que maximize a distância mínima aos sensores é uma aplicação crítica de geometria analítica para segurança avançada. A barreira descrita pela equação $y = -x + 6$ garante que todos os sensores fiquem do mesmo lado e a uma distância segura, permitindo tempo máximo de resposta em caso de detecção de intrusos. Este tipo de otimização geométrica pode fazer a diferença entre detectar uma ameaça a tempo ou sofrer uma invasão bem-sucedida.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 11 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>ROTA DE ESCAVAÇÃO</h3>
+            <p>Escavadores de recursos precisam criar um túnel subterrâneo que passe por baixo de uma zona altamente radioativa. A zona é delimitada pelo sistema de inequações:
+            $$\begin{cases}
+            x + y - 10 \leq 0 \\
+            -x + 2y - 8 \leq 0 \\
+            2x - y - 2 \leq 0 \\
+            x \geq 0 \\
+            y \geq 0
+            \end{cases}$$
+            
+            O túnel deve ser uma linha reta conectando os pontos $A(1, 1)$ e $B(8, 6)$, ambos fora da zona radioativa. Calcule o comprimento do segmento do túnel que passará dentro da zona radioativa e as coordenadas dos pontos de entrada e saída da zona.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Determine a equação da reta que passa por $A(1, 1)$ e $B(8, 6)$:
+                    $$\frac{y-1}{x-1} = \frac{6-1}{8-1} = \frac{5}{7} \Rightarrow y - 1 = \frac{5}{7}(x-1) \Rightarrow y = \frac{5}{7}x + \frac{2}{7}$$</li>
+                    <li>Para encontrar os pontos de interseção com as fronteiras da zona radioativa, substitua esta equação em cada uma das retas limítrofes:
+                        - Para $x + y - 10 = 0$: $x + \frac{5}{7}x + \frac{2}{7} - 10 = 0 \Rightarrow \frac{12}{7}x = \frac{70-2}{7} \Rightarrow x = \frac{68}{12} \approx 5,67$
+                        - Substituindo na equação da reta: $y \approx 4,33$
+                        - Ponto de interseção: aproximadamente $(5,67; 4,33)$</li>
+                    <li>Da mesma forma, encontre a interseção com a reta $2x - y - 2 = 0$:
+                        - $2x - \frac{5}{7}x - \frac{2}{7} - 2 = 0 \Rightarrow \frac{14-5}{7}x = \frac{14+2}{7} \Rightarrow \frac{9}{7}x = \frac{16}{7} \Rightarrow x = \frac{16}{9} \approx 1,78$
+                        - Substituindo: $y \approx 1,55$
+                        - Ponto de interseção: aproximadamente $(1,78; 1,55)$</li>
+                    <li>Verifique que os pontos $(5,67; 4,33)$ e $(1,78; 1,55)$ são os pontos de entrada e saída da zona radioativa</li>
+                    <li>Calcule o comprimento do segmento dentro da zona:
+                    $$d = \sqrt{(5,67-1,78)^2 + (4,33-1,55)^2} = \sqrt{3,89^2 + 2,78^2} \approx 4,78 \text{ unidades}$$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Equação do túnel: } y = \frac{5}{7}x + \frac{2}{7}$$
+                    $$\text{Pontos de entrada/saída: } (1,78; 1,55) \text{ e } (5,67; 4,33)$$
+                    $$\text{Comprimento dentro da zona: } 4,78 \text{ unidades}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Planejar rotas subterrâneas através de zonas perigosas requer precisão matemática para minimizar riscos. Conhecendo exatamente os pontos de entrada $(1,78; 1,55)$ e saída $(5,67; 4,33)$, os escavadores podem preparar equipamentos especiais de proteção contra radiação apenas para o segmento de 4,78 unidades, economizando recursos valiosos. Este cálculo também permite estimar com precisão o tempo de exposição da equipe, permitindo o planejamento adequado de turnos de trabalho para minimizar os danos à saúde.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 12 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>SISTEMA DE INTERCEPTAÇÃO</h3>
+            <p>Um mutante hostil foi detectado movendo-se em linha reta representada pela equação $y = 2x - 5$. Um sistema de defesa automático está localizado no ponto $D(3, 8)$ e precisa interceptar o mutante. O sistema pode disparar um projétil que se move em linha reta a partir do ponto $D$. Determine:
+            
+            a) As coordenadas do ponto onde o projétil deve mirar para interceptar o mutante pelo caminho mais curto.
+            
+            b) Se o sistema de defesa tem alcance máximo de 5 unidades, determine se é possível realizar a interceptação.
+            
+            c) Se o mutante move-se a 2 unidades por minuto ao longo de sua trajetória e estará no ponto $(4, 3)$ em $t=0$, determine quando e onde ocorrerá a interceptação, supondo que o projétil se move a 8 unidades por minuto.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>A trajetória do mutante é dada pela reta $r_m: y = 2x - 5$</li>
+                    <li>O ponto mais próximo na trajetória do mutante ao sistema de defesa $D(3, 8)$ é encontrado traçando uma reta perpendicular a $r_m$ que passa por $D$</li>
+                    <li>A reta $r_m$ tem coeficiente angular $m = 2$, então a reta perpendicular tem coeficiente $m_{\perp} = -\frac{1}{2}$</li>
+                    <li>A equação da reta perpendicular que passa por $D(3, 8)$ é:
+                    $$y - 8 = -\frac{1}{2}(x - 3) \Rightarrow y = -\frac{1}{2}x + 9,5$$</li>
+                    <li>Para encontrar o ponto de interseção, resolvemos o sistema:
+                    $$\begin{cases}
+                    y = 2x - 5 \\
+                    y = -\frac{1}{2}x + 9,5
+                    \end{cases}$$</li>
+                    <li>Igualando as equações: $2x - 5 = -\frac{1}{2}x + 9,5 \Rightarrow 2,5x = 14,5 \Rightarrow x = 5,8$</li>
+                    <li>Substituindo: $y = 2 \cdot 5,8 - 5 = 11,6 - 5 = 6,6$</li>
+                    <li>Portanto, o ponto de mira ideal é $P(5,8; 6,6)$</li>
+                    <li>Calcule a distância de $D$ até $P$:
+                    $$d(D,P) = \sqrt{(5,8-3)^2 + (6,6-8)^2} = \sqrt{2,8^2 + (-1,4)^2} = \sqrt{7,84 + 1,96} = \sqrt{9,8} \approx 3,13$$</li>
+                    <li>Como $d(D,P) \approx 3,13 < 5$, a interceptação é possível</li>
+                    <li>Para a parte (c), precisamos determinar quando o mutante estará no ponto $P(5,8; 6,6)$:
+                        - No tempo $t=0$, o mutante está em $(4, 3)$
+                        - A distância de $(4, 3)$ até $(5,8; 6,6)$ é:
+                        $$d = \sqrt{(5,8-4)^2 + (6,6-3)^2} = \sqrt{1,8^2 + 3,6^2} = \sqrt{3,24 + 12,96} = \sqrt{16,2} \approx 4,02$$
+                        - Com velocidade de 2 unidades/min, o mutante levará $t_m = \frac{4,02}{2} = 2,01$ minutos para chegar ao ponto $P$
+                        - O projétil leva $t_p = \frac{3,13}{8} \approx 0,39$ minutos para chegar a $P$
+                        - Para interceptação, o projétil deve ser disparado em $t = 2,01 - 0,39 = 1,62$ minutos após o tempo $t=0$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{a) Ponto de mira: } P(5,8; 6,6)$$
+                    $$\text{b) Distância necessária: } 3,13 \text{ unidades} < 5 \text{ unidades (possível)}$$
+                    $$\text{c) Momento do disparo: } t = 1,62 \text{ minutos após o tempo inicial}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em sistemas de defesa automatizados, a geometria analítica permite otimizar a interceptação de ameaças com precisão milimétrica. Ao calcular o ponto exato de intersecção $(5,8; 6,6)$ e o momento preciso do disparo (1,62 minutos após a detecção inicial), o sistema economiza munição valiosa e maximiza a probabilidade de neutralização da ameaça. Este tipo de cálculo representa a diferença entre proteção eficaz e falhas catastróficas no sistema de defesa de um assentamento.</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- RODAPÉ DO DOCUMENTO -->
+    <div class="footer">
+        REFÚGIO-TEC | PONTO E RETA: DISTÂNCIA E INEQUAÇÕES: Sobrevivência Matemática - Quando a precisão geométrica se torna a linha entre a vida e a morte.
+    </div>
 </body>
 </html>
