@@ -1,499 +1,3279 @@
-<!-- Reveal.js Template for 'Geometria Analítica: Sobrevivência Geométrica' -->
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
-    <title>Geometria Analítica: Sobrevivência Geométrica - Capítulo III</title>
-    <meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=no" />
+    <title>Geometria Analítica: Sobrevivência Geométrica</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
     <!-- Reveal.js Styles -->
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" />
 
-    <!-- Para destaque de código -->
+    <!-- For syntax highlighting -->
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css" />
 
-    <!-- Estilos personalizados -->
-    <link rel="stylesheet" href="styles.css">
+    <!-- Custom styles -->
+    <style>
+      /* ==================== 
+         ESTILOS BASE PARA ELEMENTOS REVEAL
+         ==================== */
 
+      /* Cabeçalhos */
+      .reveal h1 {
+        font-size: 2.8rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        color: #FFD700; /* Dourado */
+        margin-bottom: 0.3em;
+        letter-spacing: 0px;
+      }
+
+      .reveal h2 {
+        font-size: 2.4rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        color: #FFD700; /* Dourado */
+        margin-bottom: 0.3em;
+        letter-spacing: 0px;
+      }
+
+      .reveal h3 {
+        font-size: 2rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        color: #FFD700; /* Dourado */
+        margin-bottom: 0.2em;
+        letter-spacing: 0px;
+      }
+
+      .reveal h4 {
+        font-size: 1.6rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        color: #FFD700; /* Dourado */
+        margin-bottom: 0.15em;
+        letter-spacing: 0px;
+      }
+
+      /* Texto */
+      .reveal section p {
+        font-size: 1.4rem;
+        line-height: 1.3;
+        margin-bottom: 0.4em;
+        color: #E0E0E0; /* Cinza claro para melhor legibilidade */
+        letter-spacing: 0px;
+      }
+
+      .reveal section blockquote {
+        font-size: 1.4rem;
+        line-height: 1.3;
+        font-style: italic;
+        border-left: 3px solid #FFD700;
+        padding-left: 0.8em;
+        margin: 0.8em 0;
+        background-color: rgba(50, 50, 50, 0.3);
+      }
+
+      /* Fórmulas */
+      .reveal .formula {
+        color: #ADFF2F; /* Verde-limão */
+        font-weight: bold;
+        font-size: 1.2rem;
+        text-align: center;
+        margin: 0.6em 0;
+        font-family: "Courier New", monospace;
+      }
+
+      /* Listas */
+      .reveal section ul {
+        list-style: none;
+        padding-left: 1.8rem;
+        margin: 0.2em 0;
+      }
+
+      .reveal section ul li {
+        font-size: 1.4rem; /* Base size */
+        line-height: 1.3;
+        position: relative;
+        margin-bottom: 0.4em;
+        color: #E0E0E0;
+      }
+
+      .reveal section ul li::before {
+        content: '☢️'; /* Símbolo de radiação */
+        position: absolute;
+        left: -2.3rem;
+        font-size: 1.4rem; /* Base size */
+        line-height: 1.3;
+      }
+
+      .reveal section ol {
+        list-style: none;
+        counter-reset: radCounter;
+        padding-left: 1.8rem;
+        margin: 0.2em 0;
+      }
+
+      .reveal section ol li {
+        counter-increment: radCounter;
+        font-size: 1.4rem; /* Base size */
+        line-height: 1.3;
+        position: relative;
+        margin-bottom: 0.4em;
+        color: #E0E0E0;
+      }
+
+      .reveal section ol li::before {
+        content: '☢️' counter(radCounter) '. ';
+        position: absolute;
+        left: -3.2rem;
+        font-size: 1.4rem; /* Base size */
+        line-height: 1.3;
+      }
+
+      /* ==================== 
+         ESTILOS TEMÁTICOS ADAPTADOS
+         ==================== */
+
+      /* Tela de título */
+      .title-screen {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 85vh;
+        background: radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,100,0,0.1) 100%);
+        position: relative;
+      }
+
+      .title-screen .subtitle {
+        color: #ADFF2F;
+        font-size: 2rem;
+        margin-top: -0.3em;
+      }
+
+      .emblem-number {
+        font-size: 2.6rem;
+        font-weight: bold;
+        color: #FFD700;
+        margin: 0.8em auto;
+      }
+
+      .subtitle-warning {
+        color: #FF6347; /* Vermelho/laranja */
+        border-top: 1px solid #FF6347;
+        border-bottom: 1px solid #FF6347;
+        padding: 0.4em 0.8em;
+        margin-top: 1.5em;
+        font-weight: bold;
+        font-size: 1.2rem;
+        letter-spacing: 0px;
+      }
+
+      /* Estilos para os tipos de slides específicos */
+
+      /* 1. Briefing de Missão */
+      .mission-briefing {
+        padding: 15px;
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+
+      .mission-subtitle {
+        color: #ADFF2F !important;
+        font-size: 1.8rem !important;
+        margin-top: -0.3em !important;
+      }
+
+      .mnemonic {
+        font-style: italic;
+        background-color: rgba(173, 255, 47, 0.1);
+        padding: 0.4em;
+        border-left: 3px solid #ADFF2F;
+        margin: 0.8em 0;
+        font-size: 1.3rem !important;
+      }
+
+      .definition-box {
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 0.8em;
+        margin-top: 1.2em;
+        border-radius: 3px;
+      }
+
+      /* 2. Relatório de Campo */
+      .field-report {
+        position: relative;
+      }
+
+      .info-panel {
+        background-color: #1A1A1A;
+        padding: 15px;
+        margin: 15px auto;
+        width: 85%;
+        max-width: 650px;
+        box-shadow: inset 0 0 15px #ADFF2F;
+      }
+
+      .info-screen {
+        background-color: #000;
+        color: #ADFF2F;
+        padding: 12px;
+        border-radius: 3px;
+        font-family: 'Courier New', monospace;
+        position: relative;
+      }
+
+      .info-screen h4 {
+        color: #ADFF2F !important;
+        font-size: 1.6rem !important;
+        margin-bottom: 0.4em !important;
+        font-family: 'Courier New', monospace !important;
+      }
+
+      .info-screen ul li {
+        color: #ADFF2F !important;
+      }
+
+      .info-screen::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(
+          0deg,
+          rgba(0, 255, 0, 0.03),
+          rgba(0, 255, 0, 0.03) 1px,
+          transparent 1px,
+          transparent 2px
+        );
+        pointer-events: none;
+      }
+
+      .survival-tip {
+        background-color: rgba(255, 215, 0, 0.1);
+        border: 1px dashed #FFD700;
+        padding: 0.4em 0.8em;
+        margin-top: 0.8em;
+        border-radius: 3px;
+      }
+
+      .survival-tip p {
+        font-size: 1.2rem !important;
+        font-weight: bold;
+        color: #FFD700 !important;
+      }
+
+      /* 3. Simulador */
+      .simulator {
+        text-align: center;
+      }
+
+      .canvas-container {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+        padding: 8px;
+        margin: 15px auto;
+        width: 90%;
+        max-width: 800px;
+        position: relative;
+      }
+
+      .simulator-controls {
+        background-color: #2F2F2F;
+        padding: 5px;
+        border-radius: 0 0 3px 3px;
+        margin-top: 5px;
+      }
+
+      .control-panel {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .control-panel label {
+        color: #ADFF2F;
+        font-weight: bold;
+        font-family: 'Courier New', monospace;
+        font-size: 0.9rem;
+      }
+
+      .control-panel input[type="range"] {
+        width: 120px;
+        accent-color: #ADFF2F;
+        margin: 0 5px;
+      }
+
+      .control-panel input[type="number"] {
+        width: 60px;
+        background-color: #2F2F2F;
+        color: #ADFF2F;
+        border: 1px solid #ADFF2F;
+        padding: 3px;
+        border-radius: 3px;
+        font-family: 'Courier New', monospace;
+      }
+
+      .control-panel span {
+        color: #ADFF2F;
+        font-family: 'Courier New', monospace;
+        background-color: #000;
+        padding: 1px 3px;
+        border-radius: 2px;
+        min-width: 20px;
+        text-align: center;
+        display: inline-block;
+        font-size: 0.9rem;
+      }
+
+      .operation-btn, .preset-button {
+        background-color: #2F2F2F;
+        color: #ADFF2F;
+        border: 1px solid #ADFF2F;
+        padding: 3px 8px;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        margin: 0 3px;
+      }
+
+      .operation-btn:hover, .preset-button:hover {
+        background-color: #3F3F3F;
+        box-shadow: 0 0 5px #ADFF2F;
+      }
+
+      .operation-btn.active {
+        background-color: #ADFF2F;
+        color: #000;
+      }
+
+      .hint-message {
+        font-style: italic;
+        margin-top: 0.8em;
+        color: #ADFF2F;
+        font-size: 1.1rem !important;
+      }
+
+      .hint-message p {
+        color: #ADFF2F !important;
+        font-size: 0.9rem !important;
+      }
+
+      /* Preset buttons */
+      .preset-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 15px;
+        flex-wrap: wrap;
+      }
+
+      .preset-button.perpendicular {
+        color: #00FFFF;
+        border: 1px solid #00FFFF;
+      }
+
+      .preset-button.perpendicular:hover {
+        background-color: rgba(0, 255, 255, 0.2);
+      }
+
+      .preset-button.concurrent {
+        color: #FF6347;
+        border: 1px solid #FF6347;
+      }
+
+      .preset-button.concurrent:hover {
+        background-color: rgba(255, 99, 71, 0.2);
+      }
+
+      .preset-button.parallel {
+        color: #FFD700;
+        border: 1px solid #FFD700;
+      }
+
+      .preset-button.parallel:hover {
+        background-color: rgba(255, 215, 0, 0.2);
+      }
+
+      .preset-button.coincident {
+        color: #ADFF2F;
+        border: 1px solid #ADFF2F;
+      }
+
+      .preset-button.coincident:hover {
+        background-color: rgba(173, 255, 47, 0.2);
+      }
+
+      /* Interseção info */
+      .intersecao-info {
+        text-align: center;
+        font-size: 1.2rem;
+        margin: 15px 0;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 3px;
+        font-family: 'Courier New', monospace;
+      }
+
+      /* 4. Treinamento de Sobrevivência */
+      .survival-training {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+        padding: 12px;
+      }
+
+      .training-problem {
+        background-color: rgba(255, 255, 255, 0.05);
+        padding: 12px;
+        border-radius: 3px;
+        border-left: 3px solid #FFD700;
+        margin-bottom: 0.8em;
+      }
+
+      .problem-context {
+        background-color: rgba(255, 0, 0, 0.1);
+        padding: 8px;
+        border-radius: 3px;
+        border: 1px dashed #FF6347;
+        font-style: italic;
+        margin-top: 0.8em;
+      }
+
+      .problem-context p {
+        color: #FF6347 !important;
+        font-size: 1.2rem !important;
+      }
+
+      /* 5. Debriefing */
+      .debriefing {
+        text-align: center;
+      }
+
+      .summary-box {
+        background-color: rgba(0, 0, 0, 0.2);
+        padding: 12px;
+        border-radius: 3px;
+        margin: 0.8em auto;
+        max-width: 85%;
+      }
+
+      .next-mission {
+        background-color: rgba(173, 255, 47, 0.1);
+        padding: 8px;
+        border-radius: 3px;
+        margin: 0.8em auto;
+        max-width: 85%;
+      }
+
+      .next-mission p {
+        color: #ADFF2F !important;
+        font-weight: bold;
+      }
+
+      .instructor-note {
+        font-style: italic;
+        margin-top: 1.5em;
+        padding: 8px;
+        background-color: rgba(255, 215, 0, 0.1);
+        border-radius: 3px;
+      }
+
+      .instructor-note p {
+        color: #FFD700 !important;
+        font-size: 1.2rem !important;
+      }
+
+      /* Conversões e formas da reta */
+      .conversion-panel {
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 15px;
+        border-radius: 5px;
+        margin: 20px 0;
+        border-left: 3px solid #ADFF2F;
+      }
+
+      .conversion-title {
+        color: #ADFF2F;
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+
+      .conversion-step {
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: rgba(50, 50, 50, 0.3);
+        border-radius: 3px;
+      }
+      .conversion-step p:first-child {
+        font-weight: bold; /* Destaca o passo */
+        color: #FFD700;
+        margin-bottom: 0.3em;
+      }
+
+      /* Tabela */
+      .table-container {
+        width: 100%;
+        overflow-x: auto;
+        margin: 20px 0;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: rgba(0, 0, 0, 0.3);
+        font-size: 1.1rem; /* MODIFICADO: Reduzido tamanho da fonte da tabela */
+      }
+
+      th, td {
+        padding: 8px; /* MODIFICADO: Reduzido padding */
+        text-align: left;
+        border-bottom: 1px solid #444;
+      }
+
+      th {
+        background-color: #2A2A2A;
+        color: #ADFF2F;
+        font-family: 'Courier New', monospace;
+      }
+      
+      /* Ajuste específico para listas dentro da tabela */
+      table .reveal section ul li,
+      table ul li {
+        font-size: 1.1rem !important; /* MODIFICADO: Reduzido tamanho da fonte das listas na tabela */
+        margin-bottom: 0.2em; /* Reduzido espaço entre itens da lista */
+        line-height: 1.2; /* Reduzido espaço entre linhas */
+      }
+
+       table .reveal section ul li::before,
+       table ul li::before {
+         font-size: 1.1rem !important; /* Ajustar tamanho do ícone */
+         left: -2.0rem; /* Ajustar posição do ícone */
+         line-height: 1.2;
+       }
+
+
+      tr:hover {
+        background-color: rgba(173, 255, 47, 0.1);
+      }
+
+      /* Posições relativas */
+      .positions-panel {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin: 20px 0;
+      }
+
+      .position-card {
+        flex: 1;
+        min-width: 200px;
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+        padding: 15px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .position-card.perpendicular {
+        border-left: 3px solid #00FFFF;
+      }
+
+      .position-card.concurrent {
+        border-left: 3px solid #FF6347;
+      }
+
+      .position-card.parallel {
+        border-left: 3px solid #FFD700;
+      }
+
+      .position-card.coincident {
+        border-left: 3px solid #ADFF2F;
+      }
+
+      .position-title {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+
+      .position-card.perpendicular .position-title {
+        color: #00FFFF;
+      }
+
+      .position-card.concurrent .position-title {
+        color: #FF6347;
+      }
+
+      .position-card.parallel .position-title {
+        color: #FFD700;
+      }
+
+      .position-card.coincident .position-title {
+        color: #ADFF2F;
+      }
+
+      .position-desc {
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+      }
+
+      .position-condition {
+        font-family: 'Courier New', monospace;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 5px;
+        border-radius: 3px;
+        font-size: 1rem;
+        margin-top: 10px;
+      }
+
+      /* Conexão vetores-retas */
+      .visual-diagram {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin: 20px 0;
+        gap: 20px;
+      }
+
+      .diagram-container {
+        flex: 1;
+        min-width: 300px;
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 15px;
+        border-radius: 5px;
+        text-align: center;
+      }
+
+      .diagram-title {
+        color: #FFD700;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+
+      .case-study {
+        margin: 20px 0;
+        padding: 15px;
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+      }
+
+      .case-title {
+        color: #FFD700;
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+      }
+
+      .case-description {
+        margin-bottom: 15px;
+      }
+
+      .case-solution {
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 10px;
+        border-radius: 3px;
+        margin-top: 10px;
+      }
+
+      .case-solution-title {
+        color: #ADFF2F;
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+      }
+       .case-step { /* Estilo para os passos da solução */
+         margin-bottom: 0.8em;
+         padding-left: 1em;
+         border-left: 2px solid rgba(173, 255, 47, 0.3); /* Verde fraco */
+       }
+       .case-step strong {
+         color: #FFD700; /* Dourado para o número/nome do passo */
+       }
+
+      .two-column {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin: 20px 0;
+      }
+
+      .column {
+        flex: 1;
+        min-width: 300px;
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 15px;
+        border-radius: 5px;
+      }
+
+      .column-title {
+        color: #FFD700;
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+        padding-bottom: 5px;
+      }
+
+      /* ==================== 
+         EFEITOS VISUAIS ESPECIAIS
+         ==================== */
+
+      /* Efeito de Scan Line para interfaces antigas */
+      .crt-effect {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .crt-effect::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          rgba(18, 16, 16, 0) 50%,
+          rgba(0, 0, 0, 0.1) 50%
+        );
+        background-size: 100% 4px;
+        pointer-events: none;
+        z-index: 10;
+      }
+
+      /* Efeito de Pulsação para elementos interativos */
+      .interactive-element {
+        cursor: pointer;
+        position: relative;
+      }
+
+      .interactive-element::after {
+        content: "";
+        position: absolute;
+        top: -3px;
+        left: -3px;
+        right: -3px;
+        bottom: -3px;
+        border: 1px solid #ADFF2F;
+        border-radius: 3px;
+        animation: pulse 2s infinite;
+        pointer-events: none;
+      }
+
+      @keyframes pulse {
+        0% {
+          opacity: 0.2;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.5;
+          transform: scale(1.03);
+        }
+        100% {
+          opacity: 0.2;
+          transform: scale(1);
+        }
+      }
+
+      /* Efeito de Glow para elementos de destaque */
+      .radiation-glow {
+        text-shadow: 0 0 5px #ADFF2F, 0 0 10px #ADFF2F;
+        transition: text-shadow 0.3s ease;
+      }
+
+      .radiation-glow:hover {
+        text-shadow: 0 0 10px #ADFF2F, 0 0 15px #ADFF2F, 0 0 20px #ADFF2F;
+      }
+
+      /* ==================== 
+         MEDIA QUERIES PARA RESPONSIVIDADE
+         ==================== */
+
+      @media screen and (max-width: 1024px) {
+        .reveal h1 { font-size: 2.4rem; }
+        .reveal h2 { font-size: 2.1rem; }
+        .reveal h3 { font-size: 1.8rem; }
+        .reveal section p { font-size: 1.3rem; }
+        .reveal .formula { font-size: 1.4rem; }
+        .reveal section ul li, .reveal section ol li { font-size: 1.3rem; } /* Base size adjustment */
+        .info-panel { width: 95%; }
+        
+        .control-panel label, 
+        .control-panel span, 
+        .operation-btn {
+          font-size: 0.8rem;
+        }
+        
+        .control-panel input[type="range"] {
+          width: 100px;
+        }
+
+        /* Adjust table font size for medium screens */
+        table { font-size: 1.0rem; }
+        table .reveal section ul li, table ul li { font-size: 1.0rem !important; }
+      }
+
+      @media screen and (max-width: 768px) {
+        .reveal h1 { font-size: 2.2rem; }
+        .reveal h2 { font-size: 1.9rem; }
+        .reveal h3 { font-size: 1.6rem; }
+        .reveal section p { font-size: 1.2rem; }
+        .reveal .formula { font-size: 1.3rem; }
+        .reveal section ul li, .reveal section ol li { font-size: 1.2rem; } /* Base size adjustment */
+        .control-panel { flex-direction: column; align-items: flex-start; gap: 5px; } /* Ajuste para mobile */
+        .emblem-number { width: 100px; height: 100px; font-size: 2.2rem; }
+        
+        .control-panel label, 
+        .control-panel span, 
+        .operation-btn,
+        .preset-button {
+          font-size: 0.8rem;
+        }
+        
+        .control-panel input[type="range"] {
+          width: 150px; /* Um pouco maior no mobile */
+        }
+         .control-panel input[type="number"] {
+           width: 50px;
+         }
+
+        /* Adjust table font size for small screens */
+        table { font-size: 0.9rem; }
+        table th, table td { padding: 6px; }
+        table .reveal section ul li, table ul li { font-size: 0.9rem !important; }
+        table .reveal section ul li::before, table ul li::before { left: -1.8rem; }
+
+        /* Ajustes para diagramas e colunas em mobile */
+        .visual-diagram, .two-column { flex-direction: column; }
+        .diagram-container, .column { min-width: 80%; margin-bottom: 15px;}
+
+        .positions-panel { flex-direction: column; }
+        .position-card { min-width: 80%; }
+      }
+
+      /* Tutorial overlay para visualizações interativas */
+      .tutorial-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+      
+      .tutorial-content {
+        background-color: #1A1A1A;
+        border: 2px solid #ADFF2F;
+        padding: 20px;
+        max-width: 400px;
+        text-align: center;
+        color: #E0E0E0;
+        box-shadow: 0 0 15px rgba(173, 255, 47, 0.5);
+      }
+      
+      .tutorial-close-btn {
+        background-color: #2F2F2F;
+        color: #ADFF2F;
+        border: 1px solid #ADFF2F;
+        padding: 5px 15px;
+        margin-top: 15px;
+        cursor: pointer;
+        font-family: 'Courier New', monospace;
+      }
+      
+      .tutorial-close-btn:hover {
+        background-color: #3F3F3F;
+        box-shadow: 0 0 5px #ADFF2F;
+      }
+    </style>
   </head>
-
   <body>
     <div class="reveal">
       <div class="slides">
-
-        <!-- ======================================== -->
-        <!-- SLIDE 1: TÍTULO DO CAPÍTULO III -->
-        <!-- ======================================== -->
+        <!-- SLIDE DE CAPA -->
         <section>
-          <h1>Capítulo III – Estudo da Reta no R²</h1>
-          <h3>Rotas Seguras em Território Hostil</h3>
-          <p>
-            Se, nos capítulos anteriores, aprendemos a nos situar
-            e a medir distâncias (sem invadir abrigos inimigos),
-            agora precisamos traçar rotas confiáveis para avançar
-            nesse deserto nuclear que chamamos de <strong>R²</strong>.
-          </p>
-          <p><em>Bem-vindos ao Capítulo III!</em></p>
+          <div class="title-screen">
+            <h1>Geometria Analítica</h1>
+            <h2 class="subtitle">Sobrevivência Geométrica</h2>
+            <div class="emblem-number">101</div>
+            <p class="subtitle-warning">CONFIDENCIAL: MANUAL DE TREINAMENTO</p>
+          </div>
         </section>
 
-        <!-- ======================================== -->
-        <!-- SLIDE 2: PRELÚDIO (INTRODUÇÃO) -->
-        <!-- ======================================== -->
+        <!-- SLIDE DE INTRODUÇÃO -->
         <section>
           <h2>Prelúdio</h2>
           <p>
-            Ao atravessar terras desoladas, seguir qualquer caminho ao acaso
-            pode nos levar direto a zonas radiativas (nada agradável).
-            <strong>Equações de retas</strong> são como rotas de fuga:
-            traçar o melhor caminho significa sobrevivência.
+            Bem-vindos ao treinamento avançado de Geometria Analítica para sobreviventes
+            da era pós-apocalíptica. Este conhecimento matemático não é apenas teórico -
+            é uma ferramenta de sobrevivência essencial.
           </p>
           <p>
-            Vamos desvendar as principais formas de equações de retas, analisar
-            como se alinhar (paralelismo) ou bater de frente (perpendicularidade)
-            e até medir distâncias em linhas inimagináveis nesse novo mundo.
+            Enquanto outros lutam para reconstruir a civilização com métodos primitivos,
+            você dominará o espaço utilizando coordenadas, vetores, retas e seus mistérios.
           </p>
+          <div class="survival-tip">
+            <p>DICA DE SOBREVIVÊNCIA: Compreender o espaço ao redor é o primeiro passo para dominá-lo. Domine a matemática, domine a wasteland.</p>
+          </div>
         </section>
 
-<!-- Visão Geral - Horizontal -->
-<section data-transition="slide">
-    <section>
-        <h2>As Três Faces da Reta</h2>
-        <p style="margin-top: 20px;">
-            No deserto matemático do pós-apocalipse, cada reta é como um caminho
-            que nos guia rumo à reconstrução. Porém, essa sobrevivente da Geometria
-            Analítica pode assumir diferentes identidades, dependendo de como a
-            observamos.
-        </p>
-        <div style="display: flex; justify-content: space-around; margin-top: 40px;">
-            <div style="flex: 1; text-align: center;">
-                <h3>Função</h3>
-                <p>\[y = mx + b\]</p>
-            </div>
-            <div style="flex: 1; text-align: center;">
-                <h3>Geral</h3>
-                <p>\[ax + by + c = 0\]</p>
-            </div>
-            <div style="flex: 1; text-align: center;">
-                <h3>Paramétrica</h3>
-                <p>
-                    \[\begin{cases}
-                        x = x_0 + at \\
-                        y = y_0 + bt
-                    \end{cases}\]
-                </p>
-            </div>
-        </div>
-    </section>
-</section>
-
-<!-- Função da Reta - Vertical -->
-<section>
-    <section>
-        <h2>A Função da Reta</h2>
-        <p>\[y = mx + b\]</p>
-        <p>
-            A chamada <strong>Função da Reta</strong> é o rosto mais “amigável”
-            dessa entidade geométrica. Revela claramente onde a reta cruza o eixo y
-            (o ponto de respiro no meio da radiação), além de mostrar como ela se
-            inclina, qual um viaduto que resiste em meio aos escombros.
-        </p>
-        <div class="col">
-            <h4>Coeficiente Angular (m)</h4>
-            <p>\[m = \tan(\theta)\]</p>
-            <p>Onde θ é o ângulo com o eixo x.</p>
-        </div>
-        <div class="col">
-            <h4>Coeficiente Linear (b)</h4>
-            <p>Intersecção com o eixo y:</p>
-            <p>\[y(0) = b\]</p>
-        </div>
-    </section>
-
-    <section>
-        <h3>Exercício: Ângulo e Ponto</h3>
-        <p>
-            Encontre a equação da reta que passa por \(P(2,3)\) e forma 60° com o eixo x.
-            Imagine que esse ponto é nosso abrigo provisório, e precisamos de uma
-            estrada que saia dele exatamente nesse ângulo.
-        </p>
-        <div class="fragment">
-            <p><strong>Solução:</strong></p>
-            <ol>
-                <li>\[m = \tan(60°) = \sqrt{3}\]</li>
-                <li>\[y - 3 = \sqrt{3}(x - 2)\]</li>
-                <li>\[y = \sqrt{3}x - 2\sqrt{3} + 3\]</li>
-            </ol>
-            <p>
-                Assim, traçamos nossa rota estratégica rumo à próxima cidade
-                (ou o que sobrou dela).
-            </p>
-        </div>
-    </section>
-</section>
-
-<!-- Forma Geral - Vertical -->
-<section>
-    <section>
-        <h2>A Forma Geral</h2>
-        <p>\[ax + by + c = 0\]</p>
-        <p>
-            Este é outro ponto de vista da reta, mostrando sua robustez e
-            versatilidade. Por meio de um vetor normal
-            <strong>\(\vec{n} = (a,b)\)</strong>, conseguimos identificá-la
-            de forma clara, o que permite abordar diversos problemas com
-            facilidade.
-        </p>
-        <div style="margin-top: 30px;">
-            <p>
-                Se \(\vec{n} = (a,b)\) é normal à reta, então qualquer
-                <strong>vetor diretor</strong> (que percorre a reta) será
-                \(\vec{v} = (-b,a)\). Assim, é possível prever como a reta
-                se estende no plano, mesmo que ainda estejamos nos adaptando
-                a este novo mundo.
-            </p>
-        </div>
-    </section>
-
-    <section>
-        <h3>Exercício: Vetor Normal</h3>
-        <p>
-            Determine a equação da reta com vetor normal \(\vec{n} = (2,3)\)
-            que passa por \(P(1,1)\). Use esse “guardião” normal para erguer
-            suas defesas no local certo.
-        </p>
-        <div class="fragment">
-            <p><strong>Solução:</strong></p>
-            <ol>
-                <li>\[2x + 3y + c = 0\]</li>
-                <li>Substituindo \(P(1,1)\): \[2(1) + 3(1) + c = 0\]</li>
-                <li>\[2 + 3 + c = 0 \implies c = -5\]</li>
-                <li>Equação: \[2x + 3y - 5 = 0\]</li>
-            </ol>
-            <p>
-                Portanto, nossa barreira está erguida: ela será definida
-                por \(2x + 3y - 5 = 0\).
-            </p>
-        </div>
-    </section>
-</section>
-
-<!-- Forma Paramétrica - Vertical -->
-<section>
-    <section>
-        <h2>A Forma Paramétrica</h2>
-        <p>
-            \[\begin{cases}
-                x = x_0 + at \\
-                y = y_0 + bt
-            \end{cases}\]
-        </p>
-        <p>
-            Eis a face mais “livre” da reta, como um explorador nômade que se
-            desloca sem amarras. Podemos partir de um ponto
-            \((x_0, y_0)\) conhecido (nosso posto avançado) e nos mover na direção
-            do vetor \((a,b)\), ajustando o parâmetro \(t\) como quisermos.
-        </p>
-        <div style="margin-top: 30px;">
-            <p><strong>Lembrete:</strong></p>
-            <ul>
-                <li>\((x_0, y_0)\): ponto inicial</li>
-                <li>\((a,b)\): vetor diretor (a “bússola” da reta)</li>
-                <li>\(t\): parâmetro de deslocamento</li>
-            </ul>
-        </div>
-    </section>
-
-    <section>
-        <h3>Aplicação Física: Movimento Uniforme</h3>
-        <div style="text-align: center;">
-            <p>
-                \[\begin{cases}
-                    x = x_0 + v_x t \\
-                    y = y_0 + v_y t
-                \end{cases}\]
-            </p>
-        </div>
-        <p>
-            Esta mesma ideia paramétrica modela o movimento uniforme, onde
-            \((v_x, v_y)\) é o vetor velocidade. Aqui, \(t\) significa tempo
-            real, e a Reta Paramétrica se torna sua trajetória em um mundo
-            que ainda se move, apesar de tudo.
-        </p>
-    </section>
-
-    <section>
-        <h3>Exercício: Interceptação</h3>
-        <p>
-            Um objeto parte de \((0,5)\) com velocidade \((3,2)\). Calcule a
-            velocidade necessária para interceptá-lo partindo de \((2,0)\)
-            em 1 hora. Imagine que você precisa correr até esse objeto antes
-            que ele caia em mãos erradas.
-        </p>
-        <div class="fragment">
-            <p><strong>Solução:</strong></p>
-            <ol>
-                <li>
-                    Posição final do objeto após 1 hora:
-                    \((0 + 3 \cdot 1,\; 5 + 2 \cdot 1) = (3,7)\).
-                </li>
-                <li>
-                    Deslocamento necessário para interceptar, saindo de \((2,0)\):
-                    \(\vec{d} = (3 - 2,\; 7 - 0) = (1,7)\).
-                </li>
-                <li>
-                    Velocidade de interceptação em 1 hora:
-                    \[\vec{v} = (1,7)\text{ km/h}\].
-                </li>
-            </ol>
-            <p>
-                Dessa forma, você consegue alcançá-lo a tempo, recuperando
-                suprimentos valiosos para a reconstrução.
-            </p>
-        </div>
-    </section>
-
-<!-- Exercício Extra - Todas as Formas -->
-    <section>
-        <h2>Exercício Final: Uma Reta, Três Visões</h2>
-        <p>
-            Dado dois pontos \(A(x_1, y_1)\) e \(B(x_2, y_2)\), encontre as três
-            diferentes formas de sua equação:
-        </p>
-        <ul>
-            <li>Função: \(y = mx + b\)</li>
-            <li>Geral: \(ax + by + c = 0\)</li>
-            <li>Paramétrica: \(\begin{cases} x = x_0 + at \\ y = y_0 + bt \end{cases}\)</li>
-        </ul>
-        <p>
-            Assim, você poderá comparar como cada “face” descreve a mesma reta
-            — seja para planejar rotas, construir barreiras ou simular
-            movimentos em seu mundo reconstruído.
-        </p>
-    </section>
-</section>
-
-    
-        <!-- ======================================== -->
-        <!-- SLIDE 4: POSIÇÕES DE RETAS (PARALELISMO E PERPENDICULARIDADE) -->
-        <!-- ======================================== -->
+        <!-- CAPÍTULO III: AS TRÊS FORMAS DA RETA -->
         <section>
-          <!-- Subslide 4.1: Paralelismo -->
-          <section>
-            <h2>Posições de Retas</h2>
-            <h3>Paralelismo</h3>
+          <section class="mission-briefing">
+            <h2>As Três Formas da Reta</h2>
+            <h3 class="mission-subtitle">Transformação e Versatilidade</h3>
+            
             <p>
-              Como saber se duas rotas não irão se cruzar? Simples:
-              se elas mantêm a mesma <strong>inclinação (m)</strong>, são paralelas.
+              No mundo pós-apocalíptico, adaptabilidade é a chave da sobrevivência. Da mesma forma, 
+              a reta se adapta a diferentes representações matemáticas, cada uma oferecendo vantagens 
+              específicas conforme a situação.
             </p>
-            <p>\( m_1 = m_2 \) implica retas paralelas.</p>
-            <p>
-              <em>Sacada de Sobrevivência:</em> Confiem em rotas paralelas
-              para ações conjuntas; manter o mesmo rumo evita colisões e
-              pode ampliar o alcance de resgate.
+            
+            <p class="mnemonic">
+              "Uma reta, três identidades - como um sobrevivente que pode ser caçador, construtor ou médico
+              dependendo da necessidade. Dominar as três formas é dominar todos os caminhos."
             </p>
           </section>
 
-          <!-- Subslide 4.2: Perpendicularidade -->
           <section>
-            <h3>Perpendicularidade</h3>
+            <div class="info-panel">
+              <div class="info-screen">
+                <h4>As Três Representações:</h4>
+                
+                <p class="formula">\( y = mx + b \) (Forma Funcional)</p>
+                <p class="formula">\( Ax + By + C = 0 \) (Forma Geral)</p>
+                <p class="formula">\( \begin{cases} x = x_0 + at \\ y = y_0 + bt \end{cases} \) (Forma Paramétrica)</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h3>Comparação Entre as Formas</h3>
+            
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Forma</th>
+                    <th>Vantagens</th>
+                    <th>Desvantagens</th>
+                    <th>Uso Tático</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Funcional<br>\( y = mx + b \)</td>
+                    <td>
+                      <ul>
+                        <li>Direta e intuitiva</li>
+                        <li>Fácil visualização</li>
+                      </ul>
+                    </td>
+                    <td>
+                      <ul>
+                        <li>Não representa retas verticais</li>
+                        <li>Menos versátil</li>
+                      </ul>
+                    </td>
+                    <td>
+                      Patrulha e planejamento rápido
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Geral<br>\( Ax + By + C = 0 \)</td>
+                    <td>
+                      <ul>
+                        <li>Representa qualquer reta</li>
+                        <li>Facilita distâncias</li>
+                      </ul>
+                    </td>
+                    <td>
+                      <ul>
+                        <li>Menos intuitiva</li>
+                        <li>Normalização</li>
+                      </ul>
+                    </td>
+                    <td>
+                      Cálculo de zonas de segurança
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Paramétrica<br>\( \begin{cases} x = x_0 + at \\ y = y_0 + bt \end{cases} \)</td>
+                    <td>
+                      <ul>
+                        <li>Representa movimento</li>
+                        <li>Extensível para 3D</li>
+                      </ul>
+                    </td>
+                    <td>
+                      <ul>
+                        <li>Mais complexa</li>
+                        <li>Menos útil para equações</li>
+                      </ul>
+                    </td>
+                    <td>
+                      Rotas de interceptação (tempo)
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="simulator">
+            <h3>Simulador: As Três Formas da Reta</h3>
+            <div class="canvas-container">
+              <canvas id="tres-formas-canvas" width="800" height="400" aria-label="Simulador interativo das três formas da reta" role="img"></canvas>
+              <div class="simulator-controls">
+                <div class="control-panel">
+                  <label for="tres-formas-a-x" aria-label="Coordenada x do ponto A">A (x):</label>
+                  <input type="range" id="tres-formas-a-x" min="-10" max="10" value="-5" step="0.5" aria-valuemin="-10" aria-valuemax="10" aria-valuenow="-5">
+                  <span id="tres-formas-a-x-value">-5.0</span>
+                  
+                  <label for="tres-formas-a-y" aria-label="Coordenada y do ponto A">A (y):</label>
+                  <input type="range" id="tres-formas-a-y" min="-10" max="10" value="2" step="0.5" aria-valuemin="-10" aria-valuemax="10" aria-valuenow="2">
+                  <span id="tres-formas-a-y-value">2.0</span>
+                </div>
+                
+                <div class="control-panel">
+                  <label for="tres-formas-b-x" aria-label="Coordenada x do ponto B">B (x):</label>
+                  <input type="range" id="tres-formas-b-x" min="-10" max="10" value="5" step="0.5" aria-valuemin="-10" aria-valuemax="10" aria-valuenow="5">
+                  <span id="tres-formas-b-x-value">5.0</span>
+                  
+                  <label for="tres-formas-b-y" aria-label="Coordenada y do ponto B">B (y):</label>
+                  <input type="range" id="tres-formas-b-y" min="-10" max="10" value="-3" step="0.5" aria-valuemin="-10" aria-valuemax="10" aria-valuenow="-3">
+                  <span id="tres-formas-b-y-value">-3.0</span>
+                </div>
+              </div>
+              <div class="hint-message">
+                <p>Arraste os pontos A e B para modificar a reta e ver como mudam as três formas da equação.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Conversão 1 -->
+          <section>
+             <h3>Conversão: Funcional para Geral</h3>
+             <div class="conversion-panel">
+               <div class="conversion-title">Funcional (\(y = mx+b\)) ➔ Geral (\(Ax+By+C=0\))</div>
+               <div class="conversion-step">
+                 <p>Passo 1: Mover todos os termos para um lado.</p>
+                 <p class="formula">\( y = mx + b \quad \implies \quad mx - y + b = 0 \)</p>
+               </div>
+               <div class="conversion-step">
+                 <p>Passo 2: Identificar coeficientes (ou multiplicar para inteiros).</p>
+                  <p>Diretamente: \( A = m, B = -1, C = b \)</p>
+                  <p>Exemplo: \( y = \frac{2}{3}x - 5 \implies \frac{2}{3}x - y - 5 = 0 \). Multiplicando por 3: \( 2x - 3y - 15 = 0 \)</p>
+                  <p class="mnemonic">"Reorganize a equação como se estivesse arrumando seu equipamento: tudo junto."</p>
+               </div>
+             </div>
+           </section>
+
+           <!-- Conversão 2 -->
+           <section>
+             <h3>Conversão: Geral para Funcional</h3>
+             <div class="conversion-panel">
+               <div class="conversion-title">Geral (\(Ax+By+C=0\)) ➔ Funcional (\(y = mx+b\))</div>
+               <div class="conversion-step">
+                 <p>Condição: A reta não pode ser vertical (\( B \neq 0 \)).</p>
+                 <p>Passo 1: Isolar o termo com \( y \).</p>
+                 <p class="formula">\( Ax + By + C = 0 \quad \implies \quad By = -Ax - C \)</p>
+               </div>
+               <div class="conversion-step">
+                 <p>Passo 2: Dividir tudo por \( B \).</p>
+                 <p class="formula">\( y = \left(-\frac{A}{B}\right)x + \left(-\frac{C}{B}\right) \)</p>
+                 <p>Identificamos \( m = -\frac{A}{B} \) e \( b = -\frac{C}{B} \).</p>
+                 <p class="mnemonic">"Isole o 'Y' como se estivesse protegendo um recurso vital."</p>
+               </div>
+             </div>
+           </section>
+
+           <!-- Conversão 3 -->
+           <section>
+             <h3>Conversão: Dois Pontos para Paramétrica</h3>
+             <div class="conversion-panel">
+               <div class="conversion-title">Pontos \(P_1(x_1, y_1), P_2(x_2, y_2)\) ➔ Paramétrica</div>
+               <div class="conversion-step">
+                 <p>Passo 1: Escolher um ponto inicial (ex: \( P_1 \)).</p>
+                 <p class="formula">\( P_0 = (x_1, y_1) \)</p>
+               </div>
+               <div class="conversion-step">
+                 <p>Passo 2: Calcular o vetor diretor \( \vec{v} = \overrightarrow{P_1P_2} \).</p>
+                 <p class="formula">\( \vec{v} = (x_2 - x_1, y_2 - y_1) = (a, b) \)</p>
+               </div>
+               <div class="conversion-step">
+                 <p>Passo 3: Montar \( P(t) = P_0 + t\vec{v} \).</p>
+                 <p class="formula">\( \begin{cases} x = x_1 + at \\ y = y_1 + bt \end{cases} \)</p>
+                 <p class="mnemonic">"Ponto de partida + direção da jornada (\(t\) vezes o vetor)."</p>
+               </div>
+             </div>
+             <div class="survival-tip">
+              <p>DICA DE SOBREVIVÊNCIA: Cada forma tem seu propósito. Use a funcional para navegação rápida, a geral para barreiras, e a paramétrica para trajetórias e tempo.</p>
+            </div>
+           </section>
+        </section>
+
+        <!-- CAPÍTULO IV: DISTÂNCIA DE PONTO A RETA -->
+        <section>
+          <section class="mission-briefing">
+            <h2>Distância Ponto-Reta</h2>
+            <h3 class="mission-subtitle">Medindo Zonas de Segurança</h3>
+            
             <p>
-              Às vezes, é preciso “bater de frente” com algum problema.
-              Em geometria analítica, se o produto das inclinações de duas retas
-              é \(-1\), elas são perpendiculares:
+              Em um mundo reconstruído sobre ruínas, saber quão longe você está de uma rota perigosa
+              pode significar a diferença entre sobreviver ou sucumbir à radiação. A distância entre
+              um ponto e uma reta é uma ferramenta essencial no seu arsenal matemático de sobrevivência.
             </p>
-            <p>\( m_1 \cdot m_2 = -1 \).</p>
-            <p>
-              <em>Sacada de Conflito:</em> Use rotas perpendiculares
-              para impor barreiras ou evitar a detecção – seguir um
-              rumo completamente distinto pode salvar seu suprimento.
+            
+            <p class="mnemonic">
+              "A menor distância até o perigo é sempre perpendicular. 
+              Meça com precisão, recue estrategicamente, sobreviva por mais um dia."
             </p>
           </section>
-        </section>
 
-        <!-- ======================================== -->
-        <!-- SLIDE 5: DISTÂNCIA PONTO-RETA -->
-        <!-- ======================================== -->
-        <section>
-          <h2>Medindo Segurança: Distância Ponto-Reta</h2>
-          <p>
-            Às vezes, é vital saber o quão longe estamos de um “raio” de explosão.
-            Na geometria analítica, a <strong>distância de um ponto a uma reta</strong>
-            é dada por:
-          </p>
-          <p>
-            \[
-              d = \frac{|Ax_0 + By_0 + C|}{\sqrt{A^2 + B^2}}
-            \]
-          </p>
-          <p>
-            Onde \(Ax + By + C = 0\) representa a reta e \((x_0, y_0)\) o ponto
-            (nós, sobreviventes, em potencial perigo).
-          </p>
-          <p>
-            <em>Dica Tática:</em> Se a distância é muito pequena,
-            talvez seja hora de mudar de rota ou reforçar a base.
-          </p>
-        </section>
-
-        <!-- ======================================== -->
-        <!-- SLIDE 6: FECHAMENTO E REFLEXÃO -->
-        <!-- ======================================== -->
-        <section>
-          <h2>Fechamento</h2>
-          <p>
-            Neste capítulo, exploramos como as retas podem guiar nossos passos
-            em um terreno repleto de ameaças.
-          </p>
-          <p>
-            <strong>Alinhar-se ou Opor-se?</strong> Sejam rotas paralelas
-            ou perpendiculares, escolher o rumo certo significa decidir
-            entre construir alianças ou combater tiranias. Assim como
-            em qualquer reconstrução, entender a geometria das linhas
-            é entender o próprio caminho a seguir.
-          </p>
-          <p>
-            No próximo desafio, preparem-se para integrar essas rotas
-            em planejamentos maiores, quem sabe até na reconstrução de
-            vias seguras e fortificações. Afinal, sobreviver é uma arte,
-            e a Geometria Analítica é nosso principal instrumento.
-          </p>
-        </section>
-
-        <!-- ======================================== -->
-        <!-- SLIDE 7: EXERCÍCIOS E APLICAÇÕES -->
-        <!-- ======================================== -->
-        <section>
-          <h2>Exercícios e Aplicações</h2>
-          <p>Agora é hora de colocar a mão na massa (ou na areia radioativa!).</p>
-
-          <!-- Subslide 7.1: Perguntas Práticas -->
           <section>
-            <h3>Perguntas Práticas</h3>
-            <ol>
-              <li>
-                Dada a reta \( y = 2x + 1 \), encontre:
+            <div class="info-panel">
+              <div class="info-screen">
+                <h4>Fórmula da Distância Ponto-Reta:</h4>
+                
+                <p class="formula">\( d = \frac{|Ax_0 + By_0 + C|}{\sqrt{A^2 + B^2}} \)</p>
+                
+                <p>Onde:</p>
                 <ul>
-                  <li>Seu coeficiente angular (m) e coeficiente linear (b).</li>
-                  <li>A distância do ponto \((3, 5)\) a essa reta.</li>
+                  <li>\( Ax + By + C = 0 \) é a forma geral da reta</li>
+                  <li>\( (x_0, y_0) \) são as coordenadas do ponto</li>
+                  <li>\( d \) é a distância mínima (perpendicular) do ponto à reta</li>
                 </ul>
-              </li>
-              <li>
-                Considere as retas \( r_1: y = 3x - 1 \) e \( r_2: y = 3x + 4 \).
-                Explique por que elas são paralelas e encontre o ponto médio da
-                segmentação imaginária que liga \((0, -1)\) em \(r_1\) até \((0, 4)\)
-                em \(r_2\).
-              </li>
-              <li>
-                Encontre a equação da reta perpendicular a \( y = -2x + 6 \)
-                que passa pelo ponto \((2, 1)\).
-              </li>
-              <li>
-                Interprete, em termos de "rotas de sobrevivência",
-                as posições relativas das retas obtidas.
-              </li>
-            </ol>
+              </div>
+            </div>
           </section>
 
-          <!-- Subslide 7.2: Aplicações e Exemplos -->
           <section>
-            <h3>Aplicações Temáticas</h3>
-            <p>Exemplos de uso prático das equações de retas:</p>
-            <ul>
-              <li>
-                <strong>Mapeamento de Rotas Seguras:</strong> Planejar caminhos
-                paralelos para comboios, reduzindo risco de emboscadas.
-              </li>
-              <li>
-                <strong>Defesa e Vigilância:</strong> Posicionar torres de vigia
-                em linhas perpendiculares a rotas principais para cobrir
-                mais área.
-              </li>
-              <li>
-                <strong>Comunicações:</strong> Se duas antenas estão alinhadas
-                em retas diferentes, calcular a distância e a interseção
-                ajuda na cobertura de sinais.
-              </li>
-            </ul>
+            <h3>Representação Visual</h3>
+            <div class="visual-diagram">
+              <div class="diagram-container">
+                <div class="diagram-title">Distância Ponto-Reta</div>
+                <!-- SVG com font-size ajustado -->
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="300"
+   height="300"
+   viewBox="0 0 300 300"
+   aria-labelledby="dist-formula-title dist-formula-desc"
+   version="1.1"
+   id="svg7"
+   sodipodi:docname="aux.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="2.6633333"
+     inkscape:cx="150"
+     inkscape:cy="150"
+     inkscape:window-width="2560"
+     inkscape:window-height="1008"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g10" />
+  <title
+     id="dist-formula-title">Representação visual da distância ponto-reta</title>
+  <desc
+     id="dist-formula-desc">Diagrama mostrando um ponto P, uma reta L e a distância perpendicular entre eles</desc>
+  <!-- Sistema de coordenadas -->
+  <!-- Reta L -->
+  <line
+     x1="50"
+     y1="250"
+     x2="250"
+     y2="50"
+     stroke="#FFD700"
+     stroke-width="2"
+     id="line3" />
+  <text
+     x="255"
+     y="45"
+     fill="#FFD700"
+     font-family="monospace"
+     font-size="12"
+     id="text3">L</text>
+  <!-- Ponto P -->
+  <!-- Ponto Q na reta (projeção) -->
+  <!-- Distância d (linha perpendicular) -->
+  <!-- Vetor Normal n -->
+  <!-- Ângulo Reto -->
+  <defs
+     id="defs7">
+    <marker
+       id="arrowhead-dist-n"
+       markerWidth="8"
+       markerHeight="6"
+       refX="0"
+       refY="3"
+       orient="auto">
+      <polygon
+         points="0 0, 8 3, 0 6"
+         fill="#ADFF2F"
+         id="polygon7" />
+    </marker>
+  </defs>
+  <g
+     id="g9"
+     transform="translate(25.156446,-23.279099)">
+    <path
+       id="line6"
+       style="stroke:#adff2f;stroke-width:1.5;stroke-dasharray:3, 2;marker-end:url(#arrowhead-dist-n)"
+       d="m 149.65962,149.76371 29.62454,29.48686"
+       sodipodi:nodetypes="cc" />
+    <text
+       x="188.7547"
+       y="176.22653"
+       fill="#adff2f"
+       font-family="monospace"
+       font-size="12px"
+       id="text7">n(A,B)</text>
+    <path
+       style="opacity:0.4;fill:none;fill-opacity:1;stroke:#7fff2a;stroke-width:2.2;stroke-dasharray:2.2, 2.2;stroke-dashoffset:0"
+       d="m 156.19524,156.94618 6.38298,-6.38298 -6.75844,-7.13392"
+       id="path8"
+       sodipodi:nodetypes="ccc" />
+  </g>
+  <g
+     id="g10"
+     transform="translate(21.401752,-21.401752)">
+    <text
+       x="182.9662"
+       y="235.17522"
+       fill="#ff6347"
+       font-family="monospace"
+       font-size="12px"
+       id="text4">P(x₀,y₀)</text>
+    <text
+       x="109.58699"
+       y="173.41678"
+       fill="#00ffff"
+       font-family="monospace"
+       font-size="12px"
+       id="text5">Q</text>
+    <text
+       x="134.70587"
+       y="213.64706"
+       fill="#00ffff"
+       font-family="monospace"
+       font-size="12px"
+       id="text6">d</text>
+    <g
+       id="g7"
+       transform="translate(-27.784732,27.784728)">
+      <circle
+         cx="150"
+         cy="150"
+         r="4"
+         fill="#00ffff"
+         id="circle4" />
+      <line
+         x1="200.37547"
+         y1="200"
+         x2="150.37547"
+         y2="150"
+         stroke="#00ffff"
+         stroke-width="2"
+         stroke-dasharray="5, 3"
+         id="line5" />
+      <circle
+         cx="199.62453"
+         cy="198.12265"
+         r="5"
+         fill="#ff6347"
+         id="circle3" />
+    </g>
+    <path
+       style="opacity:0.4;fill:none;fill-opacity:1;stroke:#00ffff;stroke-width:2;stroke-opacity:1;stroke-dasharray:2, 2;stroke-dashoffset:0"
+       d="m 130.28786,184.35544 6.38298,-6.38298 -6.75844,-7.13392"
+       id="path9"
+       sodipodi:nodetypes="ccc" />
+  </g>
+</svg>
+              </div>
+              
+              <div class="diagram-container">
+                <div class="diagram-title">Como Funciona</div>
+                <p style="font-size: 1.2rem;">
+                  A distância \(d\) é o comprimento do segmento \(PQ\), onde \(Q\) é a projeção ortogonal de \(P\) sobre a reta \(L\).
+                </p>
+                <p style="font-size: 1.2rem;">
+                  O valor \( Ax_0 + By_0 + C \) mede o quão "fora" da reta o ponto \(P\) está, na direção do vetor normal \( \vec{n}=(A, B) \).
+                </p>
+                <p style="font-size: 1.2rem;">
+                  Dividir por \( |\vec{n}| = \sqrt{A^2 + B^2} \) ajusta essa medida para a distância perpendicular real.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section class="simulator">
+            <h3>Simulador: Distância Ponto-Reta</h3>
+            <div class="canvas-container">
+              <canvas id="distancia-ponto-reta-canvas" width="800" height="400" aria-label="Simulador interativo de distância ponto-reta" role="img"></canvas>
+              <div class="simulator-controls">
+                <div class="control-panel">
+                  <label for="distancia-ponto-x" aria-label="Coordenada x do ponto">P (x):</label>
+                  <input type="range" id="distancia-ponto-x" min="-10" max="10" value="3" step="0.5" aria-valuemin="-10" aria-valuemax="10" aria-valuenow="3">
+                  <span id="distancia-ponto-x-value">3.0</span>
+                  
+                  <label for="distancia-ponto-y" aria-label="Coordenada y do ponto">P (y):</label>
+                  <input type="range" id="distancia-ponto-y" min="-10" max="10" value="4" step="0.5" aria-valuemin="-10" aria-valuemax="10" aria-valuenow="4">
+                  <span id="distancia-ponto-y-value">4.0</span>
+                </div>
+                
+                <div class="control-panel">
+                  <label for="distancia-reta-a" aria-label="Coeficiente A da equação da reta">A:</label>
+                  <input type="number" id="distancia-reta-a" min="-10" max="10" value="1" step="0.1">
+                  
+                  <label for="distancia-reta-b" aria-label="Coeficiente B da equação da reta">B:</label>
+                  <input type="number" id="distancia-reta-b" min="-10" max="10" value="1" step="0.1">
+                  
+                  <label for="distancia-reta-c" aria-label="Coeficiente C da equação da reta">C:</label>
+                  <input type="number" id="distancia-reta-c" min="-10" max="10" value="-1" step="0.1">
+                  
+                  <button id="distancia-reta-update" class="operation-btn" aria-label="Atualizar equação da reta">Atualizar</button>
+                </div>
+                
+                <div class="control-panel">
+                  <label>Distância calculada:</label>
+                  <span id="distancia-value">3.54</span> <label>unidades</label>
+                </div>
+              </div>
+              <div class="hint-message">
+                <p>Arraste o ponto P ou modifique a equação da reta para ver como a distância muda. A "zona de radiação" varia conforme a proximidade do ponto à reta.</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h3>Aplicações na Sobrevivência</h3>
+            
+            <div class="two-column">
+              <div class="column">
+                <div class="column-title">Zonas de Segurança</div>
+                <p>
+                  Uma estrada (reta) controlada por hostis. Onde montar acampamento (ponto) a uma distância \(d\) segura? Calcule \(d\) para locais candidatos.
+                </p>
+              </div>
+              
+              <div class="column">
+                <div class="column-title">Monitoramento de Rotas</div>
+                <p>
+                  Posicionar torres (pontos) para vigiar rotas comerciais (retas). Use a fórmula para otimizar a localização e cobertura.
+                </p>
+              </div>
+            </div>
+            
+            <div class="survival-tip">
+              <p>DICA DE SOBREVIVÊNCIA: A fórmula da distância ponto-reta é seu detector de perigo. Mantenha sempre um "valor mínimo de segurança" para \(d\).</p>
+            </div>
           </section>
         </section>
 
-        <!-- ======================================== -->
-        <!-- SLIDE 8: PERGUNTAS FILOSÓFICAS -->
-        <!-- ======================================== -->
+        <!-- CAPÍTULO V: INTERSEÇÃO DE RETAS -->
         <section>
-          <h2>Reflexões Filosóficas</h2>
-          <p>
-            Nem só de cálculos vive o sobrevivente. Um pouco de filosofia
-            para alimentar a mente:
-          </p>
-          <ol>
-            <li>
-              Se duas retas paralelas nunca se encontram, será que na vida
-              real há caminhos que jamais se cruzarão — e isso é bom ou ruim?
-            </li>
-            <li>
-              Perpendicularidade implica oposição total. Há momentos em que é
-              melhor “bater de frente” com problemas ou pessoas? Como saber?
-            </li>
-            <li>
-              A distância ponto-reta pode ser encarada como nossa resistência
-              a certos ideais. Se estamos muito próximos, vale a pena
-              repensar ou nos afastar para garantir segurança?
-            </li>
-            <li>
-              Assim como uma reta pode ser descrita de várias formas,
-              quantos "desenhos de caminho" podemos ter na vida,
-              e quantas vezes precisamos mudar a perspectiva
-              para entender onde estamos?
-            </li>
-          </ol>
-          <p>
-            <em>Reflita e discuta com seus companheiros de abrigo:</em>
-            às vezes, a teoria é um espelho de nossas decisões.
-          </p>
+          <section class="mission-briefing">
+            <h2>Interseção de Retas</h2>
+            <h3 class="mission-subtitle">Estratégias de Convergência e Desvio</h3>
+            
+            <p>
+              Na Wasteland, onde as rotas são escassas e perigosas,
+              compreender como elas se cruzam, evitam-se ou sobrepõem-se é crucial para
+              planejar missões, interceptações e zonas de proteção.
+            </p>
+            
+            <p class="mnemonic">
+              "Paralelas nunca se encontram; perpendiculares se cruzam em ângulo reto; concorrentes convergem em um único ponto."
+            </p>
+          </section>
+
+          <section>
+            <div class="info-panel">
+              <div class="info-screen">
+                <h4>Sistemas de Equações Lineares:</h4>
+                
+                <p>Interseção de \(L_1: A_1x + B_1y + C_1 = 0\) e \(L_2: A_2x + B_2y + C_2 = 0\)? Resolva o sistema:</p>
+                <p class="formula">\begin{cases} A_1x + B_1y = -C_1 \\ A_2x + B_2y = -C_2 \end{cases}</p>
+                
+                <p>Solução (se \(D = A_1B_2 - A_2B_1 \neq 0\)):</p>
+                <p class="formula">\( x = \frac{-C_1B_2 - (-C_2B_1)}{D} , \quad y = \frac{A_1(-C_2) - A_2(-C_1)}{D} \)</p>
+                
+                <p>O determinante \(D\) revela a natureza da interseção.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Posições Relativas Parte 1 -->
+          <section>
+            <h3>Posições Relativas (1/2)</h3>
+            
+            <div class="positions-panel">
+              <div class="position-card perpendicular">
+                <div class="position-title">Retas Perpendiculares</div>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 200 100"
+   aria-labelledby="perp-title perp-desc"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="aux.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="7.99"
+     inkscape:cx="99.937422"
+     inkscape:cy="50"
+     inkscape:window-width="2560"
+     inkscape:window-height="1008"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <title
+     id="perp-title">Retas Perpendiculares</title>
+  <desc
+     id="perp-desc">Duas retas formando um ângulo de 90 graus</desc>
+  <line
+     x1="20"
+     y1="50"
+     x2="180"
+     y2="50"
+     stroke="#FFD700"
+     stroke-width="2"
+     id="line1" />
+  <line
+     x1="100"
+     y1="10"
+     x2="100"
+     y2="90"
+     stroke="#FF6347"
+     stroke-width="2"
+     id="line2" />
+  <circle
+     cx="100"
+     cy="50"
+     r="4"
+     fill="#00FFFF"
+     id="circle2" />
+  <text
+     x="34.655819"
+     y="63.279099"
+     fill="#00ffff"
+     font-family="monospace"
+     font-size="10px"
+     id="text2">Interseção</text>
+  <path
+     d="m 110,50 c 0,-2.588786 0.76848,-9.703759 -1.09585,-9.852585 C 106.19298,39.930987 102.93406,40 100,40"
+     stroke="#00ffff"
+     stroke-width="1"
+     fill="none"
+     id="path2"
+     sodipodi:nodetypes="csc" />
+  <text
+     x="160"
+     y="40"
+     fill="#FFD700"
+     font-family="monospace"
+     font-size="10"
+     id="text3">r₁</text>
+  <text
+     x="110"
+     y="20"
+     fill="#FF6347"
+     font-family="monospace"
+     font-size="10"
+     id="text4">r₂</text>
+</svg>
+                               <div class="position-desc">
+                  Formam 90°. Interseção estratégica.
+                </div>
+                <div class="position-condition">
+                  Condição: \(A_1A_2 + B_1B_2 = 0\)
+                </div>
+              </div>
+              
+              <div class="position-card concurrent">
+                <div class="position-title">Retas Concorrentes</div>
+                <svg viewBox="0 0 200 100" aria-labelledby="conc-title conc-desc">
+                  <title id="conc-title">Retas Concorrentes</title>
+                  <desc id="conc-desc">Duas retas que se cruzam em um ponto</desc>
+                  <line x1="20" y1="80" x2="180" y2="20" stroke="#FFD700" stroke-width="2" />
+                  <line x1="20" y1="20" x2="180" y2="80" stroke="#FF6347" stroke-width="2" />
+                  <circle cx="100" cy="50" r="4" fill="#FF6347" />
+                  <text x="110" y="45" fill="#FF6347" font-family="monospace" font-size="10">Interseção</text>
+                  <text x="160" y="30" fill="#FFD700" font-family="monospace" font-size="10">r₁</text>
+                  <text x="160" y="70" fill="#FF6347" font-family="monospace" font-size="10">r₂</text>
+                </svg>
+                <div class="position-desc">
+                  Encontram-se em um ponto único.
+                </div>
+                <div class="position-condition">
+                  Condição: \(A_1B_2 - A_2B_1 \neq 0\)
+                </div>
+              </div>
+              
+              <div class="position-card parallel">
+                <div class="position-title">Retas Paralelas</div>
+                <svg viewBox="0 0 200 100" aria-labelledby="para-title para-desc">
+                  <title id="para-title">Retas Paralelas</title>
+                  <desc id="para-desc">Duas retas que nunca se cruzam</desc>
+                  <line x1="20" y1="30" x2="180" y2="30" stroke="#FFD700" stroke-width="2" />
+                  <line x1="20" y1="70" x2="180" y2="70" stroke="#FF6347" stroke-width="2" />
+                  <path d="M 50 30 L 60 30 L 60 70 L 50 70" stroke="#ADFF2F" stroke-width="1" stroke-dasharray="3,2" fill="none" />
+                  <text x="35" y="50" fill="#ADFF2F" font-family="monospace" font-size="10">d</text>
+                  <text x="160" y="25" fill="#FFD700" font-family="monospace" font-size="10">r₁</text>
+                  <text x="160" y="65" fill="#FF6347" font-family="monospace" font-size="10">r₂</text>
+                </svg>
+                <div class="position-desc">
+                  Mesma direção, nunca se cruzam.
+                </div>
+                <div class="position-condition">
+                  Condição: \(\frac{A_1}{A_2} = \frac{B_1}{B_2} \neq \frac{C_1}{C_2}\)
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          <!-- Posições Relativas Parte 2 -->
+           <section>
+             <h3>Posições Relativas (2/2)</h3>
+             <div class="positions-panel">
+                 <div class="position-card coincident" style="min-width: 300px; margin: auto;"> 
+                   <div class="position-title">Retas Coincidentes</div>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 182 62"
+   aria-labelledby="coin-title coin-desc"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="aux.svg"
+   width="182"
+   height="62"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="5.6497832"
+     inkscape:cx="92.658423"
+     inkscape:cy="42.391007"
+     inkscape:window-width="2560"
+     inkscape:window-height="1008"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <title
+     id="coin-title">Retas Coincidentes</title>
+  <desc
+     id="coin-desc">Duas retas que representam o mesmo caminho</desc>
+  <g
+     id="g4"
+     transform="translate(-9,-11.08)">
+    <line
+       x1="20"
+       y1="50"
+       x2="180"
+       y2="50"
+       stroke="#ffd700"
+       stroke-width="4"
+       id="line1" />
+    <line
+       x1="20"
+       y1="50"
+       x2="180"
+       y2="50"
+       stroke="#ff6347"
+       stroke-width="2"
+       stroke-dasharray="5, 5"
+       id="line2" />
+    <text
+       x="160"
+       y="40"
+       fill="#ffd700"
+       font-family="monospace"
+       font-size="10px"
+       id="text2">r₁</text>
+    <text
+       x="160"
+       y="60"
+       fill="#ff6347"
+       font-family="monospace"
+       font-size="10px"
+       id="text3">r₂</text>
+    <text
+       x="90"
+       y="30"
+       fill="#adff2f"
+       font-family="monospace"
+       font-size="10px"
+       id="text4">Mesma Rota</text>
+  </g>
+  <metadata
+     id="metadata4">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>Retas Coincidentes</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>
+                   <div class="position-desc">
+                     Representam o mesmo caminho.
+                   </div>
+                   <div class="position-condition">
+                     Condição: \(\frac{A_1}{A_2} = \frac{B_1}{B_2} = \frac{C_1}{C_2}\)
+                   </div>
+                 </div>
+             </div>
+             <p class="fragment" style="margin-top: 20px;">Coincidentes são a mesma rota disfarçada. Identifica redundâncias.</p>
+           </section>
+
+
+          <section class="simulator">
+            <h3>Simulador: Interseção de Retas</h3>
+            <div class="canvas-container">
+              <canvas id="intersecao-retas-canvas" width="800" height="400" aria-label="Simulador interativo de interseção de retas" role="img"></canvas>
+              <div class="simulator-controls">
+                <div class="preset-buttons">
+                  <button id="intersecao-preset-perpendicular" class="preset-button perpendicular" aria-label="Configurar retas perpendiculares">Perpendiculares</button>
+                  <button id="intersecao-preset-concorrente" class="preset-button concurrent" aria-label="Configurar retas concorrentes">Concorrentes</button>
+                  <button id="intersecao-preset-paralela" class="preset-button parallel" aria-label="Configurar retas paralelas">Paralelas</button>
+                  <button id="intersecao-preset-coincidente" class="preset-button coincident" aria-label="Configurar retas coincidentes">Coincidentes</button>
+                </div>
+                
+                <div class="intersecao-info" id="intersecao-info">
+                  As retas são concorrentes, interseção em (0.00, 0.00)
+                </div>
+                
+                <div class="control-panel">
+                  <label>Reta 1, Ponto A:</label>
+                  <input type="range" id="intersecao-r1a-x" min="-10" max="10" value="-5" step="0.5" aria-label="Reta 1, Ponto A, coordenada X">
+                  <span id="intersecao-r1a-x-value">-5.0</span>
+                  
+                  <input type="range" id="intersecao-r1a-y" min="-10" max="10" value="2" step="0.5" aria-label="Reta 1, Ponto A, coordenada Y">
+                  <span id="intersecao-r1a-y-value">2.0</span>
+                </div>
+                
+                <div class="control-panel">
+                  <label>Reta 1, Ponto B:</label>
+                  <input type="range" id="intersecao-r1b-x" min="-10" max="10" value="5" step="0.5" aria-label="Reta 1, Ponto B, coordenada X">
+                  <span id="intersecao-r1b-x-value">5.0</span>
+                  
+                  <input type="range" id="intersecao-r1b-y" min="-10" max="10" value="-2" step="0.5" aria-label="Reta 1, Ponto B, coordenada Y">
+                  <span id="intersecao-r1b-y-value">-2.0</span>
+                </div>
+                
+                <div class="control-panel">
+                  <label>Reta 2, Ponto A:</label>
+                  <input type="range" id="intersecao-r2a-x" min="-10" max="10" value="-3" step="0.5" aria-label="Reta 2, Ponto A, coordenada X">
+                  <span id="intersecao-r2a-x-value">-3.0</span>
+                  
+                  <input type="range" id="intersecao-r2a-y" min="-10" max="10" value="-4" step="0.5" aria-label="Reta 2, Ponto A, coordenada Y">
+                  <span id="intersecao-r2a-y-value">-4.0</span>
+                </div>
+                
+                <div class="control-panel">
+                  <label>Reta 2, Ponto B:</label>
+                  <input type="range" id="intersecao-r2b-x" min="-10" max="10" value="3" step="0.5" aria-label="Reta 2, Ponto B, coordenada X">
+                  <span id="intersecao-r2b-x-value">3.0</span>
+                  
+                  <input type="range" id="intersecao-r2b-y" min="-10" max="10" value="4" step="0.5" aria-label="Reta 2, Ponto B, coordenada Y">
+                  <span id="intersecao-r2b-y-value">4.0</span>
+                </div>
+              </div>
+              <div class="hint-message">
+                <p>Arraste os pontos ou use os controles deslizantes para modificar as retas. Observe como a posição relativa muda e como isso afeta a interseção.</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h3 class="strategic-title">Aplicações Estratégicas</h3>
+            
+            <div class="two-column">
+              <div class="column">
+                <div class="column-title">Perpendiculares: Defesas</div>
+                <p>
+                  Construir defesas em ângulo reto maximiza visibilidade e eficiência.
+                </p>
+              </div>
+              
+              <div class="column">
+                <div class="column-title">Concorrentes: Encontros</div>
+                <p>
+                  O ponto de interseção é ideal para trocas, emboscadas ou pontos de controle.
+                </p>
+              </div>
+            </div>
+            
+            <div class="survival-tip">
+              <p>DICA DE SOBREVIVÊNCIA: O ponto de interseção de rotas concorrentes é perigoso, mas previsível. Use-o para passagem rápida ou emboscada.</p>
+            </div>
+          </section>
         </section>
 
+        <!-- CAPÍTULO VI: CONEXÃO ENTRE VETORES E RETAS -->
+        <section>
+          <section class="mission-briefing">
+            <h2>Conexão Vetores ⇔ Retas</h2>
+            <h3 class="mission-subtitle">Unificando Ferramentas</h3>
+            
+            <p>
+              Vetores dão a direção, retas marcam o caminho. Juntos, formam um sistema de navegação completo.
+            </p>
+            
+            <p class="mnemonic">
+              "Vetor: bússola. Reta: mapa. Domine ambos para não se perder na wasteland da álgebra."
+            </p>
+          </section>
+
+          <section>
+            <div class="info-panel">
+              <div class="info-screen">
+                <h4>Vetores Associados à Reta \(Ax+By+C=0\)</h4>
+                <ul>
+                  <li><strong>Vetor Normal:</strong> \( \vec{n} = (A, B) \) (Perpendicular à reta).</li>
+                  <li><strong>Vetor Diretor:</strong> \( \vec{v} = (-B, A) \) (Paralelo à reta).</li>
+                </ul>
+                <p>Relação Fundamental: \( \vec{v} \cdot \vec{n} = (-B)(A) + (A)(B) = 0 \). Eles são ortogonais!</p>
+                <p class="formula">\( \vec{v} \perp \vec{n} \)</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <div class="visual-diagram">
+              <div class="diagram-container">
+                <div class="diagram-title">Vetor Diretor \(\vec{v}\)</div>
+                <!-- SVG com font-size ajustado -->
+                <svg width="300" height="250" viewBox="0 0 300 250" aria-labelledby="diretor-title diretor-desc">
+                  <title id="diretor-title">Vetor Diretor e Reta</title>
+                  <desc id="diretor-desc">Ilustração mostrando o vetor diretor ao longo de uma reta</desc>
+                  
+                  <line x1="0" y1="125" x2="300" y2="125" stroke="#555" stroke-width="1" />
+                  <line x1="150" y1="0" x2="150" y2="250" stroke="#555" stroke-width="1" />
+                  
+                  <line x1="50" y1="200" x2="250" y2="50" stroke="#FFD700" stroke-width="2" />
+                  <text x="260" y="50" fill="#FFD700" font-family="monospace" font-size="12">r</text>
+                  
+                  <circle cx="150" cy="125" r="4" fill="#FF6347" />
+                  <text x="155" y="120" fill="#FF6347" font-family="monospace" font-size="12">P</text>
+                  
+                  <line x1="150" y1="125" x2="220" y2="72.5" stroke="#ADFF2F" stroke-width="2" marker-end="url(#arrowhead-v)"/> <!-- Ajustado para slope -3/4 -->
+                  <text x="195" y="85" fill="#ADFF2F" font-family="monospace" font-size="12">\( \vec{v} \)</text>
+                  
+                  <defs>
+                    <marker id="arrowhead-v" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto">
+                      <polygon points="0 0, 8 3, 0 6" fill="#ADFF2F"/>
+                    </marker>
+                  </defs>
+                </svg>
+                <p style="font-size: 1.1rem;">
+                  \(\vec{v} = (-B, A)\) aponta na direção da reta. Usado na forma paramétrica: \( P(t) = P_0 + t\vec{v} \).
+                </p>
+              </div>
+              
+              <div class="diagram-container">
+                <div class="diagram-title">Vetor Normal \(\vec{n}\)</div>
+                 <!-- SVG CORRIGIDO -->
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="300"
+   height="250"
+   viewBox="0 0 300 250"
+   aria-labelledby="normal-title normal-desc"
+   version="1.1"
+   id="svg5"
+   sodipodi:docname="aux.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview5"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="3.196"
+     inkscape:cx="150.03129"
+     inkscape:cy="125"
+     inkscape:window-width="2560"
+     inkscape:window-height="1008"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg5" />
+  <title
+     id="normal-title">Vetor Normal e Reta</title>
+  <desc
+     id="normal-desc">Ilustração mostrando o vetor normal perpendicular a uma reta</desc>
+  <line
+     x1="0"
+     y1="125"
+     x2="300"
+     y2="125"
+     stroke="#555"
+     stroke-width="1"
+     id="line1" />
+  <line
+     x1="150"
+     y1="0"
+     x2="150"
+     y2="250"
+     stroke="#555"
+     stroke-width="1"
+     id="line2" />
+  <text
+     x="251.86484"
+     y="46.558197"
+     fill="#ffd700"
+     font-family="monospace"
+     font-size="12px"
+     id="text3">r</text>
+  <!-- Vetor normal: slope 4/3. Ponto final (150+30, 125+40) = (180, 165) -->
+  <line
+     x1="150"
+     y1="125"
+     x2="180"
+     y2="165"
+     stroke="#00FFFF"
+     stroke-width="2"
+     marker-end="url(#arrowhead-n)"
+     id="line4" />
+  <text
+     x="161.22028"
+     y="192.21527"
+     fill="#00ffff"
+     font-family="monospace"
+     font-size="12px"
+     id="text5">\(\vec{n}\)</text>
+  <!-- Ângulo reto no ponto P(150,125) entre linha (slope -3/4) e normal (slope 4/3) -->
+  <path
+     d="M 149.65044,125.50777 160.04417,138.84694 146.705,149.24067 136.31127,135.9015 Z"
+     fill="none"
+     stroke="#00ffff"
+     stroke-width="0.725029"
+     id="path5" />
+  <defs
+     id="defs5">
+    <marker
+       id="arrowhead-n"
+       markerWidth="8"
+       markerHeight="6"
+       refX="0"
+       refY="3"
+       orient="auto">
+      <polygon
+         points="0 0, 8 3, 0 6"
+         fill="#00FFFF"
+         id="polygon5" />
+    </marker>
+  </defs>
+  <line
+     x1="50"
+     y1="200"
+     x2="250"
+     y2="50"
+     stroke="#FFD700"
+     stroke-width="2"
+     id="line3" />
+  <circle
+     cx="150"
+     cy="125"
+     r="4"
+     fill="#FF6347"
+     id="circle3" />
+  <text
+     x="138.72966"
+     y="120"
+     fill="#ff6347"
+     font-family="monospace"
+     font-size="12px"
+     id="text4">P</text>
+</svg>
+                <p style="font-size: 1.1rem;">
+                  \(\vec{n} = (A, B)\) é perpendicular. Define a forma geral \(Ax+By+C=0\) e é usado em distâncias.
+                </p>
+              </div>
+            </div>
+          </section>
+          
+          <!-- Caso Prático Parte 1: Descrição -->
+          <section>
+            <div class="case-study">
+              <div class="case-title">Caso Prático: Rota de Interceptação</div>
+              <div class="case-description">
+                <p>
+                  Caravana aliada na rota \( L: 3x - 4y + 8 = 0 \).
+                  <br>Sua posição: Posto \( P(2, 5) \).
+                  <br>Missão: Interceptá-la pelo caminho mais curto.
+                </p>
+                <p><strong>Objetivo:</strong> Achar o ponto de encontro \( Q \) e o vetor de deslocamento \( \overrightarrow{PQ} \).</p>
+                <p><strong>Plano de Ação:</strong></p>
+                <ol>
+                  <li>Achar vetor normal \( \vec{n} \) de \( L \).</li>
+                  <li>Definir sua rota \( r \) (passa por \( P \), perpendicular a \( L \)).</li>
+                  <li>Calcular interseção \( Q \) entre \( L \) e \( r \).</li>
+                  <li>Determinar vetor \( \overrightarrow{PQ} \).</li>
+                </ol>
+              </div>
+               <div class="problem-context">
+                 <p>Recursos são escassos. Desvios gastam combustível e aumentam riscos.</p>
+              </div>
+            </div>
+           </section>
+
+           <!-- Caso Prático Parte 2: Solução Algébrica (Passos 1 e 2) -->
+            <section>
+             <h3>Solução (1/4): Vetor Normal e Rota Perpendicular</h3>
+              <div class="case-solution">
+                <div class="case-solution-title">Análise Vetorial e Algébrica</div>
+                 <div class="case-step">
+                   <p><strong>1. Vetor Normal de L:</strong></p>
+                   <p>Para \( L: 3x - 4y + 8 = 0 \), o vetor normal é diretamente dos coeficientes:</p>
+                   <p class="formula">\( \vec{n} = (A, B) = (3, -4) \)</p>
+                   <p>Este vetor é perpendicular à rota da caravana.</p>
+                 </div>
+                 <div class="case-step">
+                   <p><strong>2. Rota de Interceptação (r):</strong></p>
+                   <p>Sua rota \( r \) deve passar por \( P(2, 5) \) e ser perpendicular a \( L \). Logo, o <strong>vetor diretor</strong> de \( r \) é o <strong>vetor normal</strong> de \( L \).</p>
+                    <p class="formula">\( \vec{v}_r = \vec{n}_L = (3, -4) \)</p>
+                   <p>Equação paramétrica de \( r \) ( \( P(t) = P_0 + t\vec{v}_r \) ):</p>
+                   <p class="formula">\( r: \begin{cases} x = 2 + 3t \\ y = 5 - 4t \end{cases} \)</p>
+                 </div>
+              </div>
+           </section>
+
+           <!-- Caso Prático Parte 3: Solução Algébrica (Passos 3 e 4) -->
+           <section>
+             <h3>Solução (2/4): Interseção e Ponto de Encontro</h3>
+             <div class="case-solution">
+               <div class="case-solution-title">Análise Vetorial e Algébrica (cont.)</div>
+                <div class="case-step">
+                  <p><strong>3. Calcular Parâmetro t da Interseção:</strong></p>
+                  <p>O ponto de encontro \( Q \) pertence a \( r \) e a \( L \). Substituímos as equações paramétricas de \( r \) na equação geral de \( L \):</p>
+                  <p class="formula">\( L: 3x - 4y + 8 = 0 \)</p>
+                  <p class="formula">\( 3(2+3t) - 4(5-4t) + 8 = 0 \)</p>
+                  <p>\( 6 + 9t - 20 + 16t + 8 = 0 \)</p>
+                  <p>\( 25t - 6 = 0 \implies \boxed{t = 6/25} \)</p>
+                  <p>Este valor de \(t\) indica "quando" (no parâmetro) você encontra a rota \(L\) seguindo a reta \(r\).</p>
+                </div>
+                <div class="case-step">
+                  <p><strong>4. Coordenadas do Ponto de Encontro Q:</strong></p>
+                  <p>Substituímos \( t = 6/25 \) nas equações paramétricas de \( r \):</p>
+                  <p class="formula">\( x_Q = 2 + 3(6/25) = 50/25 + 18/25 = 68/25 = 2.72 \)</p>
+                  <p class="formula">\( y_Q = 5 - 4(6/25) = 125/25 - 24/25 = 101/25 = 4.04 \)</p>
+                  <p>Ponto de encontro: \( \boxed{Q \approx (2.72, 4.04)} \)</p>
+                </div>
+             </div>
+           </section>
+
+            <!-- Caso Prático Parte 4: Solução Algébrica (Passo 5 e Distância) -->
+           <section>
+             <h3>Solução (3/4): Vetor de Deslocamento e Distância</h3>
+             <div class="case-solution">
+               <div class="case-solution-title">Análise Vetorial e Algébrica (final)</div>
+                <div class="case-step">
+                  <p><strong>5. Vetor de Deslocamento \( \overrightarrow{PQ} \):</strong></p>
+                  <p>É o vetor que leva do seu ponto inicial \( P \) ao ponto de encontro \( Q \):</p>
+                   <p class="formula">\( \overrightarrow{PQ} = Q - P = (x_Q - x_P, y_Q - y_P) \)</p>
+                   <p class="formula">\( \overrightarrow{PQ} = (2.72 - 2, 4.04 - 5) \)</p>
+                   <p class="formula">\( \boxed{\overrightarrow{PQ} = (0.72, -0.96)} \)</p>
+                   <p>Este vetor indica a direção e o sentido do seu movimento.</p>
+                 </div>
+                 <div class="case-step">
+                   <p><strong>Distância da Interceptação:</strong></p>
+                   <p>É a magnitude (comprimento) do vetor de deslocamento \( \overrightarrow{PQ} \):</p>
+                   <p class="formula">\( d = |\overrightarrow{PQ}| = \sqrt{(0.72)^2 + (-0.96)^2} \)</p>
+                   <p class="formula">\( d = \sqrt{0.5184 + 0.9216} = \sqrt{1.44} = \boxed{1.2} \) unidades</p>
+                   <p>(Confirmando a distância ponto-reta calculada anteriormente.)</p>
+                 </div>
+             </div>
+           </section>
+
+           <!-- Caso Prático Parte 5: Interpretação Tática -->
+            <section>
+             <h3>Solução (4/4): Interpretação Tática</h3>
+             <div class="case-solution">
+                <div class="case-solution-title">Conclusões e Ações</div>
+                 <div class="two-column">
+                   <div class="column">
+                     <div class="column-title">Plano Final</div>
+                      <p><strong>Ponto de Encontro:</strong> \( Q(2.72, 4.04) \)</p>
+                      <p><strong>Vetor Direção:</strong> \( \vec{v} = (0.72, -0.96) \)</p>
+                      <p><strong>Distância:</strong> 1.2 unidades</p>
+                   </div>
+                   <div class="column">
+                     <div class="column-title">Ordens de Marcha</div>
+                     <p>Siga na direção \( (0.72, -0.96) \) - ligeiramente para Leste, predominantemente para Sul.</p>
+                     <p>Percorra 1.2 unidades de distância para interceptar a caravana no ponto \( Q \).</p>
+                     <p>Mantenha comunicação para confirmar a posição da caravana.</p>
+                   </div>
+                 </div>
+             </div>
+             <div class="survival-tip" style="margin-top: 15px;">
+              <p>DICA DE SOBREVIVÊNCIA: O sinal de \(Ax_0+By_0+C\) indica de que lado da "fronteira" (reta) você está em relação ao vetor normal. Use isso para navegação rápida.</p>
+            </div>
+           </section>
+        </section>
+
+        <!-- FECHAMENTO -->
+        <section>
+          <div class="debriefing">
+            <h2>Debriefing: Sobrevivência Geométrica</h2>
+            <div class="summary-box">
+              <p>
+                Você agora possui ferramentas matemáticas cruciais para sobreviver e navegar na wasteland:
+              </p>
+              <ul>
+                  <li>Converter entre formas da reta para diferentes tarefas.</li>
+                  <li>Calcular distâncias para avaliar riscos e segurança.</li>
+                  <li>Analisar posições relativas para prever encontros ou evitar conflitos.</li>
+                  <li>Utilizar vetores (normal e diretor) para definir e seguir rotas.</li>
+              </ul>
+            </div>
+            
+            <div class="next-mission">
+              <p>Próxima missão: Geometria Analítica no Espaço 3D - Planos, Retas e Estruturas.</p>
+            </div>
+            
+            <div class="instructor-note">
+              <p>"A matemática é sua melhor ferramenta de sobrevivência. Afie-a constantemente."</p>
+            </div>
+          </div>
+        </section>
       </div> <!-- .slides -->
     </div> <!-- .reveal -->
 
-    <!-- Reveal.js -->
+    <!-- Scripts base -->
     <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
-
-    <!-- Reveal Plugins -->
     <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
     <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/math/math.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/zoom/zoom.js"></script>
 
     <!-- MathJax -->
     <script>
       window.MathJax = {
         tex: {
-          inlineMath: [["\\(","\\)"]],
-          displayMath: [["\\[","\\]"]],
+          inlineMath: [['\\(','\\)']],
+          displayMath: [['\\[','\\]']],
+           macros: {
+              overrightarrow: ["\\overset{\\rightarrow}{#1}", 1] // Definir \overrightarrow se não estiver disponível
+           }
         },
         svg: { fontCache: 'global' }
       };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
+    <!-- Visualizações interativas -->
     <script>
+      // REMOVED: IIFE para visualização de coordenadas
+
+      // Incluir o código do simulador de três formas da reta
+      // IIFE para isolar o escopo da visualização das três formas da reta
+      (function() {
+        // Variáveis privadas
+        let canvas, ctx;
+        let width, height, centerX, centerY, gridSize;
+        let pointA = { x: -5, y: 2 };
+        let pointB = { x: 5, y: -3 };
+        let isDragging = null;
+        // Cores temáticas
+        const axisColor = '#ADFF2F'; // Verde-limão para eixos
+        const gridColor = 'rgba(173, 255, 47, 0.2)'; // Grade mais sutil
+        const pointColor = '#FF6347'; // Vermelho para pontos
+        const lineColor = '#FFD700'; // Dourado para a reta
+        const textColor = '#E0E0E0'; // Cinza claro para texto
+        const highlightColor = '#ADFF2F'; // Verde-limão para destaque
+        
+        // Função para converter coordenadas matemáticas para coordenadas do canvas
+        function mathToCanvas(x, y) {
+          return {
+            x: centerX + x * gridSize,
+            y: centerY - y * gridSize // Inverte Y pois o canvas cresce para baixo
+          };
+        }
+        
+        // Função para converter coordenadas do canvas para coordenadas matemáticas
+        function canvasToMath(x, y) {
+          return {
+            x: (x - centerX) / gridSize,
+            y: (centerY - y) / gridSize
+          };
+        }
+        
+        // Função para calcular o coeficiente angular da reta
+        function calcularCoeficienteAngular() {
+          if (Math.abs(pointB.x - pointA.x) < 1e-9) return Infinity; // Usar tolerância
+          return (pointB.y - pointA.y) / (pointB.x - pointA.x);
+        }
+        
+        // Função para calcular o coeficiente linear da reta (forma y = mx + b)
+        function calcularCoeficienteLinear(m) {
+          if (m === Infinity) return null;
+          return pointA.y - m * pointA.x;
+        }
+        
+         // Função auxiliar GCD para simplificação
+        function gcd(a, b) {
+            a = Math.abs(Math.round(a)); b = Math.abs(Math.round(b));
+            if (b === 0) return a;
+            return gcd(b, a % b);
+        }
+
+        // Função para calcular os coeficientes da forma geral (Ax + By + C = 0)
+        function calcularFormaGeral() {
+          let A = pointB.y - pointA.y;
+          let B = pointA.x - pointB.x;
+          let C = pointB.x * pointA.y - pointA.x * pointB.y;
+          
+          // Tentar simplificar para inteiros se possível
+           const scale = 100; // Precisão para GCD
+           let commonDivisor = gcd(A * scale, gcd(B * scale, C * scale)) / scale;
+            
+           // Evitar divisão por zero ou valores muito pequenos
+           if (Math.abs(commonDivisor) < 1e-6) commonDivisor = 1; 
+
+           A /= commonDivisor;
+           B /= commonDivisor;
+           C /= commonDivisor;
+
+           // Arredondar para evitar erros de precisão muito pequenos
+           A = parseFloat(A.toFixed(5));
+           B = parseFloat(B.toFixed(5));
+           C = parseFloat(C.toFixed(5));
+
+          // Garantir que o primeiro coeficiente não nulo seja positivo (convenção)
+          if (Math.abs(A) < 1e-6 && Math.abs(B) > 1e-6 && B < 0) {
+              A *= -1; B *= -1; C *= -1;
+          } else if (Math.abs(A) > 1e-6 && A < 0) {
+               A *= -1; B *= -1; C *= -1;
+          } else if (Math.abs(A) < 1e-6 && Math.abs(B) < 1e-6 && Math.abs(C) > 1e-6 && C < 0) {
+               // Caso C seja o único e negativo
+               C *= -1;
+          }
+
+
+          return { A: A, B: B, C: C };
+        }
+        
+        // Função para calcular a forma paramétrica da reta
+        function calcularFormaParametrica() {
+          // Vetor diretor: v = (x₂ - x₁, y₂ - y₁)
+          const vx = pointB.x - pointA.x;
+          const vy = pointB.y - pointA.y;
+          
+          return {
+            x0: pointA.x,
+            y0: pointA.y,
+            vx: vx,
+            vy: vy
+          };
+        }
+        
+        // Função para desenhar o grid e os eixos
+        function drawGrid() {
+          ctx.clearRect(0, 0, width, height);
+          
+          // Efeito de vinheta pós-apocalíptica
+          const gradient = ctx.createRadialGradient(centerX, centerY, 50, centerX, centerY, Math.max(width, height)/1.5);
+          gradient.addColorStop(0, 'rgba(0, 0, 0, 0)');
+          gradient.addColorStop(1, 'rgba(0, 0, 0, 0.5)');
+          ctx.fillStyle = gradient;
+          ctx.fillRect(0, 0, width, height);
+          
+          // Desenhar linhas de grade
+          ctx.strokeStyle = gridColor;
+          ctx.lineWidth = 1;
+          
+          // Linhas verticais
+          for (let x = centerX % gridSize; x < width; x += gridSize) {
+            ctx.beginPath();
+            ctx.moveTo(x, 0);
+            ctx.lineTo(x, height);
+            ctx.stroke();
+          }
+          
+          // Linhas horizontais
+          for (let y = centerY % gridSize; y < height; y += gridSize) {
+            ctx.beginPath();
+            ctx.moveTo(0, y);
+            ctx.lineTo(width, y);
+            ctx.stroke();
+          }
+          
+          // Desenhar eixos
+          ctx.strokeStyle = axisColor;
+          ctx.lineWidth = 2;
+          
+          // Eixo X
+          ctx.beginPath();
+          ctx.moveTo(0, centerY);
+          ctx.lineTo(width, centerY);
+          ctx.stroke();
+          
+          // Eixo Y
+          ctx.beginPath();
+          ctx.moveTo(centerX, 0);
+          ctx.lineTo(centerX, height);
+          ctx.stroke();
+          
+          // Marcações nos eixos
+          ctx.fillStyle = axisColor;
+          ctx.font = '12px "Courier New", monospace';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          
+          // Marcações no eixo X
+          for (let x = -Math.floor(centerX / gridSize); x <= Math.floor((width - centerX) / gridSize); x += 2) {
+            if (x === 0) continue;
+            const canvasX = centerX + x * gridSize;
+            
+            // Linha de marcação
+            ctx.beginPath();
+            ctx.moveTo(canvasX, centerY - 5);
+            ctx.lineTo(canvasX, centerY + 5);
+            ctx.stroke();
+            
+            // Número
+            ctx.fillText(x.toString(), canvasX, centerY + 15);
+          }
+          
+          // Marcações no eixo Y
+          for (let y = -Math.floor(centerY / gridSize); y <= Math.floor((height - centerY) / gridSize); y += 2) {
+            if (y === 0) continue;
+            const canvasY = centerY - y * gridSize;
+            
+            // Linha de marcação
+            ctx.beginPath();
+            ctx.moveTo(centerX - 5, canvasY);
+            ctx.lineTo(centerX + 5, canvasY);
+            ctx.stroke();
+            
+            // Número
+            ctx.fillText(y.toString(), centerX - 15, canvasY);
+          }
+          
+          // Marcar a origem
+          ctx.fillText('0', centerX - 15, centerY + 15);
+          
+          // Efeito de scan lines (linhas de escaneamento) para estética retro
+          ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+          for (let y = 0; y < height; y += 4) {
+            ctx.fillRect(0, y, width, 2);
+          }
+        }
+        
+        // Função para desenhar a reta
+        function drawLine() {
+          const canvasA = mathToCanvas(pointA.x, pointA.y);
+          const canvasB = mathToCanvas(pointB.x, pointB.y);
+          
+          // Calcular os pontos extremos da reta no canvas
+          const m = calcularCoeficienteAngular();
+          let startX, startY, endX, endY;
+
+          const minX_math = -width / (2 * gridSize);
+          const maxX_math = width / (2 * gridSize);
+          const minY_math = -height / (2 * gridSize);
+          const maxY_math = height / (2 * gridSize);
+          
+          if (m === Infinity || m === -Infinity) {
+            // Reta vertical
+             startX = canvasA.x;
+             startY = 0;
+             endX = canvasA.x;
+             endY = height;
+          } else {
+            const b = pointA.y - m * pointA.x; // Coeficiente linear
+            
+             // Pontos de interseção com as bordas do canvas (em coordenadas matemáticas)
+             const xAtMinY = (Math.abs(m) < 1e-9) ? Infinity : (minY_math - b) / m;
+             const xAtMaxY = (Math.abs(m) < 1e-9) ? Infinity : (maxY_math - b) / m;
+             const yAtMinX = m * minX_math + b;
+             const yAtMaxX = m * maxX_math + b;
+
+             const points = [];
+             if (yAtMinX >= minY_math && yAtMinX <= maxY_math) points.push(mathToCanvas(minX_math, yAtMinX));
+             if (yAtMaxX >= minY_math && yAtMaxX <= maxY_math) points.push(mathToCanvas(maxX_math, yAtMaxX));
+             if (xAtMinY >= minX_math && xAtMinY <= maxX_math) points.push(mathToCanvas(xAtMinY, minY_math));
+             if (xAtMaxY >= minX_math && xAtMaxY <= maxX_math) points.push(mathToCanvas(xAtMaxY, maxY_math));
+
+              // Remover duplicados (pode acontecer nos cantos)
+               const uniquePoints = points.filter((p, index, self) =>
+                   index === self.findIndex((t) => (Math.abs(t.x - p.x) < 0.1 && Math.abs(t.y - p.y) < 0.1))
+               );
+
+             if (uniquePoints.length >= 2) {
+                 // Ordenar pontos por coordenada x para garantir a direção correta
+                 uniquePoints.sort((p1, p2) => p1.x - p2.x);
+                 startX = uniquePoints[0].x;
+                 startY = uniquePoints[0].y;
+                 endX = uniquePoints[uniquePoints.length - 1].x;
+                 endY = uniquePoints[uniquePoints.length - 1].y;
+             } else {
+                 // Caso de erro ou reta fora da tela, desenhar entre A e B
+                 startX = canvasA.x; startY = canvasA.y;
+                 endX = canvasB.x; endY = canvasB.y;
+             }
+          }
+          
+          // Desenhar a reta com efeito de "radiação"
+          ctx.beginPath();
+          ctx.moveTo(startX, startY);
+          ctx.lineTo(endX, endY);
+          ctx.strokeStyle = lineColor;
+          ctx.lineWidth = 2;
+          ctx.stroke();
+          
+          // Adicionar glow effect para efeito de "radiação"
+          ctx.beginPath();
+          ctx.moveTo(startX, startY);
+          ctx.lineTo(endX, endY);
+          ctx.strokeStyle = 'rgba(255, 215, 0, 0.3)';
+          ctx.lineWidth = 6;
+          ctx.stroke();
+        }
+        
+        // Função para desenhar os pontos
+        function drawPoints() {
+          const canvasA = mathToCanvas(pointA.x, pointA.y);
+          const canvasB = mathToCanvas(pointB.x, pointB.y);
+          
+          // Desenhar ponto A
+          ctx.beginPath();
+          ctx.arc(canvasA.x, canvasA.y, 8, 0, 2 * Math.PI);
+          ctx.fillStyle = 'rgba(255, 99, 71, 0.3)';
+          ctx.fill();
+          
+          ctx.beginPath();
+          ctx.arc(canvasA.x, canvasA.y, 5, 0, 2 * Math.PI);
+          ctx.fillStyle = pointColor;
+          ctx.fill();
+          ctx.strokeStyle = '#FFF';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+          
+          // Desenhar ponto B
+          ctx.beginPath();
+          ctx.arc(canvasB.x, canvasB.y, 8, 0, 2 * Math.PI);
+          ctx.fillStyle = 'rgba(255, 99, 71, 0.3)';
+          ctx.fill();
+          
+          ctx.beginPath();
+          ctx.arc(canvasB.x, canvasB.y, 5, 0, 2 * Math.PI);
+          ctx.fillStyle = pointColor;
+          ctx.fill();
+          ctx.strokeStyle = '#FFF';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+          
+          // Desenhar rótulos
+          ctx.fillStyle = '#FFF';
+          ctx.font = '14px "Courier New", monospace';
+          ctx.textAlign = 'left';
+          ctx.fillText(`A(${pointA.x.toFixed(1)}, ${pointA.y.toFixed(1)})`, 
+                      canvasA.x + 10, canvasA.y - 10);
+          ctx.fillText(`B(${pointB.x.toFixed(1)}, ${pointB.y.toFixed(1)})`, 
+                      canvasB.x + 10, canvasB.y - 10);
+        }
+
+         // Função para formatar número para equação (reutilizada)
+         function formatCoef(n, showSign = false, isFirst = false, isParam = false) {
+            if (Math.abs(n) < 1e-6) return ""; // Ignora coeficiente zero
+            let sign = n < 0 ? "-" : (showSign ? "+" : "");
+            let val = Math.abs(n);
+            
+            // Formatar como fração se for razoável, senão decimal
+            let numStr = val.toFixed(2).replace(/\.?0+$/, ""); // Decimal por padrão
+             if (numStr.endsWith('.')) numStr = numStr.slice(0,-1); // Remover ponto final
+            
+            // Se for 1 ou -1 e não for o termo constante/parâmetro, omite o 1
+             let omitOne = !isFirst && !isParam; // Omitir '1' se não for o primeiro termo nem parâmetro
+             if (Math.abs(val - 1) < 1e-6) {
+                numStr = omitOne ? "" : "1";
+             }
+             
+            // Casos especiais para o primeiro termo
+             if (isFirst && !showSign) {
+                 if (Math.abs(val - 1) < 1e-6) numStr = ""; // caso x + ...
+                 else if (n < 0 && Math.abs(val - 1) < 1e-6) { sign = "-"; numStr = ""; } // caso -x + ...
+                 else if (n < 0) sign = "-"; // caso -ax + ...
+                 else sign = ""; // caso ax + ...
+             }
+             
+            // Evita "+ -"
+             if (sign === "+" && numStr.startsWith("-")) {
+                 sign = ""; // O sinal negativo já está no número
+             } else if (sign === "+" && n < 0) {
+                 sign = "-"; // Garante que seja menos
+                 numStr = Math.abs(n).toFixed(2).replace(/\.?0+$/, "");
+                 if (numStr.endsWith('.')) numStr = numStr.slice(0,-1);
+                 if (Math.abs(Math.abs(n) - 1) < 1e-6 && omitOne) numStr = "";
+             }
+            
+            return `${sign} ${numStr}`;
+        }
+        
+        // Função para desenhar as equações das três formas
+        function drawEquations() {
+          const m = calcularCoeficienteAngular();
+          const b = calcularCoeficienteLinear(m);
+          const formaGeral = calcularFormaGeral();
+          const formaParametrica = calcularFormaParametrica();
+          
+          ctx.fillStyle = textColor;
+          ctx.font = '14px "Courier New", monospace';
+          ctx.textAlign = 'left';
+          ctx.textBaseline = 'top';
+          
+          // Desenhar fundo dos painéis de informação
+          ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+          ctx.fillRect(10, 10, 380, 100);
+          ctx.strokeStyle = highlightColor;
+          ctx.lineWidth = 1;
+          ctx.strokeRect(10, 10, 380, 100);
+          
+          // Reiniciar estilo de texto
+          ctx.fillStyle = textColor;
+          
+          // Forma como função: y = mx + b
+          let equacaoFuncao;
+          if (m === Infinity) {
+            equacaoFuncao = `x = ${pointA.x.toFixed(1)}`;
+          } else {
+             let mStr = formatCoef(m, false, true);
+             let bStr = formatCoef(b, true, false);
+             
+             if (Math.abs(m) < 1e-6) { // Reta Horizontal
+                  equacaoFuncao = `y = ${b.toFixed(1)}`;
+             } else {
+                  let xTerm = `${mStr === "1" ? "" : (mStr === "-1" ? "-" : mStr)}x`;
+                  if (mStr === "") xTerm = "x"; // Caso m=1
+                  equacaoFuncao = `y = ${xTerm} ${bStr}`;
+                  if (Math.abs(b) < 1e-6) equacaoFuncao = `y = ${xTerm}`; // Caso b=0
+             }
+          }
+          ctx.fillText(`Funcional: ${equacaoFuncao}`, 20, 20);
+          
+          // Forma geral: Ax + By + C = 0
+          let equacaoGeral = "";
+          let firstTerm = true;
+          if (Math.abs(formaGeral.A) > 1e-6) {
+              equacaoGeral += `${formatCoef(formaGeral.A, false, true)}x`;
+              firstTerm = false;
+          }
+           if (Math.abs(formaGeral.B) > 1e-6) {
+               equacaoGeral += ` ${formatCoef(formaGeral.B, !firstTerm, firstTerm)}y`;
+               firstTerm = false;
+           }
+           if (Math.abs(formaGeral.C) > 1e-6) {
+                equacaoGeral += ` ${formatCoef(formaGeral.C, !firstTerm, firstTerm)}`;
+                firstTerm = false;
+           }
+           if(firstTerm) equacaoGeral = "0 = 0"; // Caso degenerado (pontos iguais)
+           else equacaoGeral += " = 0";
+           // Limpeza de espaços extras
+           equacaoGeral = equacaoGeral.replace(/\s+/g, ' ').replace(' + -', ' - ').replace(' - -', ' + ').trim();
+           if (equacaoGeral.startsWith('+ ')) equacaoGeral = equacaoGeral.substring(2);
+
+
+          ctx.fillText(`Geral: ${equacaoGeral}`, 20, 50);
+          
+          // Forma paramétrica
+           let vxStr = formatCoef(formaParametrica.vx, true, false, true);
+           let vyStr = formatCoef(formaParametrica.vy, true, false, true);
+           let xParam = `x = ${formaParametrica.x0.toFixed(1)}${vxStr}t`;
+           let yParam = `y = ${formaParametrica.y0.toFixed(1)}${vyStr}t`;
+           // Substituir '1t' por 't' e '-1t' por '-t'
+           xParam = xParam.replace(/ \+ 1t/g, '+t').replace(/ - 1t/g, '-t').replace(/ 1t/g, 't');
+           yParam = yParam.replace(/ \+ 1t/g, '+t').replace(/ - 1t/g, '-t').replace(/ 1t/g, 't');
+           xParam = xParam.replace(/\s\+\s/g,'+').replace(/\s-\s/g,'-'); // Remover espaços extras
+           yParam = yParam.replace(/\s\+\s/g,'+').replace(/\s-\s/g,'-');
+
+          ctx.fillText(`Paramétrica: ${xParam}, ${yParam}`, 20, 80);
+        }
+        
+        // Função principal de desenho
+        function draw() {
+          drawGrid();
+          drawLine();
+          drawPoints();
+          drawEquations();
+        }
+        
+        // Função para atualizar a interface com os novos valores
+        function updateUI() {
+          const aXInput = document.getElementById('tres-formas-a-x');
+          const aYInput = document.getElementById('tres-formas-a-y');
+          const bXInput = document.getElementById('tres-formas-b-x');
+          const bYInput = document.getElementById('tres-formas-b-y');
+          
+          const aXValue = document.getElementById('tres-formas-a-x-value');
+          const aYValue = document.getElementById('tres-formas-a-y-value');
+          const bXValue = document.getElementById('tres-formas-b-x-value');
+          const bYValue = document.getElementById('tres-formas-b-y-value');
+          
+          if (aXInput && aYInput && bXInput && bYInput && 
+              aXValue && aYValue && bXValue && bYValue) {
+            aXInput.value = pointA.x;
+            aYInput.value = pointA.y;
+            bXInput.value = pointB.x;
+            bYInput.value = pointB.y;
+            
+            aXValue.textContent = pointA.x.toFixed(1);
+            aYValue.textContent = pointA.y.toFixed(1);
+            bXValue.textContent = pointB.x.toFixed(1);
+            bYValue.textContent = pointB.y.toFixed(1);
+          }
+        }
+        
+        // Manipuladores de eventos
+        function handleMouseDown(e) {
+          const rect = canvas.getBoundingClientRect();
+          const mouseX = e.clientX - rect.left;
+          const mouseY = e.clientY - rect.top;
+          
+          // Verificar se o clique foi próximo a algum ponto
+          const canvasA = mathToCanvas(pointA.x, pointA.y);
+          const canvasB = mathToCanvas(pointB.x, pointB.y);
+          
+          const dxA = canvasA.x - mouseX;
+          const dyA = canvasA.y - mouseY;
+          const distanceA = Math.sqrt(dxA*dxA + dyA*dyA);
+          
+          const dxB = canvasB.x - mouseX;
+          const dyB = canvasB.y - mouseY;
+          const distanceB = Math.sqrt(dxB*dxB + dyB*dyB);
+          
+          if (distanceA < 15) { // Aumentar área de clique
+            isDragging = 'A';
+          } else if (distanceB < 15) { // Aumentar área de clique
+            isDragging = 'B';
+          } else {
+            isDragging = null;
+          }
+        }
+        
+        function handleMouseMove(e) {
+          if (!isDragging) return;
+          
+          const rect = canvas.getBoundingClientRect();
+          const mouseX = e.clientX - rect.left;
+          const mouseY = e.clientY - rect.top;
+          const mathCoords = canvasToMath(mouseX, mouseY);
+          
+          // Limitar às coordenadas dentro do intervalo dos sliders
+          const newX = Math.max(-10, Math.min(10, Math.round(mathCoords.x * 2) / 2));
+          const newY = Math.max(-10, Math.min(10, Math.round(mathCoords.y * 2) / 2));
+          
+          if (isDragging === 'A') {
+            // Evitar que A e B sejam o mesmo ponto
+             if (Math.abs(newX - pointB.x) > 1e-6 || Math.abs(newY - pointB.y) > 1e-6) {
+                pointA.x = newX;
+                pointA.y = newY;
+            }
+          } else if (isDragging === 'B') {
+            // Evitar que A e B sejam o mesmo ponto
+             if (Math.abs(newX - pointA.x) > 1e-6 || Math.abs(newY - pointA.y) > 1e-6) {
+                pointB.x = newX;
+                pointB.y = newY;
+            }
+          }
+          
+          updateUI();
+          draw();
+        }
+        
+        function handleMouseUp() {
+          isDragging = null;
+        }
+        
+        // Adicionar suporte para eventos de toque
+        function handleTouchStart(e) {
+          if (e.touches.length === 1) { // Ignorar gestos multi-toque
+             e.preventDefault();
+             const touch = e.touches[0];
+             const mouseEvent = new MouseEvent('mousedown', {
+                 clientX: touch.clientX,
+                 clientY: touch.clientY
+             });
+             canvas.dispatchEvent(mouseEvent);
+           }
+        }
+        
+        function handleTouchMove(e) {
+          if (e.touches.length === 1) { // Ignorar gestos multi-toque
+            e.preventDefault();
+            const touch = e.touches[0];
+            const mouseEvent = new MouseEvent('mousemove', {
+              clientX: touch.clientX,
+              clientY: touch.clientY
+            });
+             // Disparar no document para continuar arrastando fora do canvas
+             document.dispatchEvent(mouseEvent); 
+           }
+        }
+        
+        function handleTouchEnd(e) {
+           // Não precisa de preventDefault aqui se os outros já tiveram
+           const mouseEvent = new MouseEvent('mouseup', {});
+           // Disparar no document pois o mousemove foi nele
+           document.dispatchEvent(mouseEvent); 
+        }
+        
+        // Manipulador para os controles deslizantes
+        function handleControlChange() {
+          const aXInput = document.getElementById('tres-formas-a-x');
+          const aYInput = document.getElementById('tres-formas-a-y');
+          const bXInput = document.getElementById('tres-formas-b-x');
+          const bYInput = document.getElementById('tres-formas-b-y');
+          
+          if (aXInput && aYInput && bXInput && bYInput) {
+             const newAx = parseFloat(aXInput.value);
+             const newAy = parseFloat(aYInput.value);
+             const newBx = parseFloat(bXInput.value);
+             const newBy = parseFloat(bYInput.value);
+
+             // Evitar pontos coincidentes via slider
+             if (Math.abs(newAx - newBx) > 1e-6 || Math.abs(newAy - newBy) > 1e-6) {
+                pointA.x = newAx;
+                pointA.y = newAy;
+                pointB.x = newBx;
+                pointB.y = newBy;
+            } else {
+                 // Se ficarem coincidentes, reverter um dos sliders para o valor anterior
+                 // Atualiza a UI para refletir os valores válidos anteriores
+                 updateUI(); 
+                 return; 
+             }
+
+            
+            draw();
+            updateUI();
+          }
+        }
+        
+        // Função de inicialização
+        function init() {
+          // Obter o canvas
+          canvas = document.getElementById('tres-formas-canvas');
+          if (!canvas || canvas.getAttribute('data-initialized') === 'true') return; // Sai se não existir ou já inicializado
+          
+          // Configurar o contexto do canvas
+          ctx = canvas.getContext('2d');
+          width = canvas.width;
+          height = canvas.height;
+          centerX = Math.floor(width / 2);
+          centerY = Math.floor(height / 2);
+          gridSize = 30; // Pixels por unidade
+          
+          // Registrar event listeners para mouse (apenas uma vez)
+          canvas.addEventListener('mousedown', handleMouseDown);
+           document.addEventListener('mousemove', handleMouseMove); 
+           document.addEventListener('mouseup', handleMouseUp); 
+          
+          // Registrar event listeners para toque (apenas uma vez)
+          canvas.addEventListener('touchstart', handleTouchStart, { passive: false });
+          document.addEventListener('touchmove', handleTouchMove, { passive: false }); 
+          document.addEventListener('touchend', handleTouchEnd); 
+          
+          // Registrar event listeners para os controles (apenas uma vez)
+          const aXInput = document.getElementById('tres-formas-a-x');
+          const aYInput = document.getElementById('tres-formas-a-y');
+          const bXInput = document.getElementById('tres-formas-b-x');
+          const bYInput = document.getElementById('tres-formas-b-y');
+          
+          if (aXInput && !aXInput.hasAttribute('data-listener-set')) {
+            aXInput.addEventListener('input', handleControlChange); aXInput.setAttribute('data-listener-set', 'true');
+            aYInput.addEventListener('input', handleControlChange); aYInput.setAttribute('data-listener-set', 'true');
+            bXInput.addEventListener('input', handleControlChange); bXInput.setAttribute('data-listener-set', 'true');
+            bYInput.addEventListener('input', handleControlChange); bYInput.setAttribute('data-listener-set', 'true');
+          }
+          
+          // Desenho inicial
+          draw();
+          updateUI();
+          canvas.setAttribute('data-initialized', 'true'); // Marcar como inicializado
+        }
+        
+        // Iniciar quando o DOM estiver pronto ou quando o slide for visível
+         if (document.readyState === 'complete' || document.readyState === 'interactive') {
+             // Atraso pequeno para garantir que o DOM está pronto
+             setTimeout(init, 50); 
+         } else {
+             document.addEventListener('DOMContentLoaded', init);
+         }
+
+         // Garantir redesenho se o slide ficar visível depois
+         if (typeof Reveal !== 'undefined') {
+             Reveal.addEventListener('slidechanged', event => {
+                 const currentCanvas = event.currentSlide.querySelector('#tres-formas-canvas');
+                 if (currentCanvas) {
+                      init(); // Re-init para garantir que está pronto
+                      draw(); 
+                      updateUI(); 
+                 }
+             });
+             Reveal.on('ready', event => {
+                  const currentCanvas = event.currentSlide.querySelector('#tres-formas-canvas');
+                  if (currentCanvas) {
+                     init();
+                  }
+             });
+         } else {
+             init(); // Fallback se Reveal não estiver definido
+         }
+
+      })();
+
+      // IIFE para isolar o escopo da visualização de distância ponto-reta
+      (function() {
+        // Variáveis privadas
+        let canvas, ctx;
+        let width, height, centerX, centerY, gridSize;
+        let ponto = { x: 3, y: 4 };
+        let retaCoefs = { A: 1, B: 1, C: -1 }; 
+        let isDragging = null; 
+        
+        const axisColor = '#ADFF2F', gridColor = 'rgba(173, 255, 47, 0.2)', pointColor = '#FF6347', lineColor = '#FFD700', distanceColor = '#00FFFF', textColor = '#E0E0E0', dangerColor = '#FF6347', safeColor = '#ADFF2F'; 
+        
+        function mathToCanvas(x, y) { return { x: centerX + x * gridSize, y: centerY - y * gridSize }; }
+        function canvasToMath(x, y) { return { x: (x - centerX) / gridSize, y: (centerY - y) / gridSize }; }
+        
+        function calcularDistanciaPontoReta() {
+          const { A, B, C } = retaCoefs;
+          const denominador = Math.sqrt(A*A + B*B);
+          if (denominador < 1e-9) return Infinity; 
+          const numerador = Math.abs(A * ponto.x + B * ponto.y + C);
+          return numerador / denominador;
+        }
+        
+        function encontrarPontoMaisProximo() {
+          const { A, B, C } = retaCoefs;
+          const denominator = A*A + B*B;
+          if (denominator < 1e-9) return { x: NaN, y: NaN }; 
+          const x = (B * (B * ponto.x - A * ponto.y) - A * C) / denominator;
+          const y = (A * (-B * ponto.x + A * ponto.y) - B * C) / denominator;
+          return { x, y };
+        }
+        
+        function drawGrid() {
+          if (!ctx) return;
+          ctx.clearRect(0, 0, width, height);
+          const gradient = ctx.createRadialGradient(centerX, centerY, 50, centerX, centerY, Math.max(width, height)/1.5);
+          gradient.addColorStop(0, 'rgba(0, 0, 0, 0)'); gradient.addColorStop(1, 'rgba(0, 0, 0, 0.5)');
+          ctx.fillStyle = gradient; ctx.fillRect(0, 0, width, height);
+          ctx.strokeStyle = gridColor; ctx.lineWidth = 1;
+          for (let x = centerX % gridSize; x < width; x += gridSize) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, height); ctx.stroke(); }
+          for (let y = centerY % gridSize; y < height; y += gridSize) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(width, y); ctx.stroke(); }
+          ctx.strokeStyle = axisColor; ctx.lineWidth = 2;
+          ctx.beginPath(); ctx.moveTo(0, centerY); ctx.lineTo(width, centerY); ctx.stroke(); 
+          ctx.beginPath(); ctx.moveTo(centerX, 0); ctx.lineTo(centerX, height); ctx.stroke(); 
+          ctx.fillStyle = axisColor; ctx.font = '12px "Courier New", monospace';
+          ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+          for (let x = -Math.floor(centerX / gridSize); x <= Math.floor((width - centerX) / gridSize); x += 2) {
+            if (x === 0) continue; const cX = centerX + x * gridSize;
+            ctx.beginPath(); ctx.moveTo(cX, centerY - 5); ctx.lineTo(cX, centerY + 5); ctx.stroke();
+            ctx.fillText(x.toString(), cX, centerY + 15);
+          }
+          for (let y = -Math.floor(centerY / gridSize); y <= Math.floor((height - centerY) / gridSize); y += 2) {
+            if (y === 0) continue; const cY = centerY - y * gridSize;
+            ctx.beginPath(); ctx.moveTo(centerX - 5, cY); ctx.lineTo(centerX + 5, cY); ctx.stroke();
+            ctx.fillText(y.toString(), centerX - 15, cY);
+          }
+          ctx.fillText('0', centerX - 15, centerY + 15); 
+          ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+          for (let y = 0; y < height; y += 4) ctx.fillRect(0, y, width, 2);
+        }
+        
+        function drawLine() {
+           if (!ctx) return;
+           const { A, B, C } = retaCoefs;
+           if (Math.abs(A) < 1e-9 && Math.abs(B) < 1e-9) return;
+           let x1_c, y1_c, x2_c, y2_c; 
+           const minX_math = -width / (2 * gridSize), maxX_math = width / (2 * gridSize);
+           const minY_math = -height / (2 * gridSize), maxY_math = height / (2 * gridSize);
+           const points = [];
+           if (Math.abs(B) > 1e-9) { 
+               let y_at_minX = (-C - A * minX_math) / B; if (y_at_minX >= minY_math && y_at_minX <= maxY_math) points.push(mathToCanvas(minX_math, y_at_minX));
+               let y_at_maxX = (-C - A * maxX_math) / B; if (y_at_maxX >= minY_math && y_at_maxX <= maxY_math) points.push(mathToCanvas(maxX_math, y_at_maxX));
+           }
+           if (Math.abs(A) > 1e-9) { 
+               let x_at_minY = (-C - B * minY_math) / A; if (x_at_minY >= minX_math && x_at_minY <= maxX_math) points.push(mathToCanvas(x_at_minY, minY_math));
+               let x_at_maxY = (-C - B * maxY_math) / A; if (x_at_maxY >= minX_math && x_at_maxY <= maxX_math) points.push(mathToCanvas(x_at_maxY, maxY_math));
+           }
+            if (points.length < 2) {
+                 if (Math.abs(B) < 1e-9 && Math.abs(A) > 1e-9) { let x_v = -C / A; if (x_v >= minX_math && x_v <= maxX_math) { points.push(mathToCanvas(x_v, minY_math)); points.push(mathToCanvas(x_v, maxY_math)); } } 
+                 else if (Math.abs(A) < 1e-9 && Math.abs(B) > 1e-9) { let y_h = -C / B; if (y_h >= minY_math && y_h <= maxY_math) { points.push(mathToCanvas(minX_math, y_h)); points.push(mathToCanvas(maxX_math, y_h)); } }
+            }
+           const uniquePoints = points.filter((p, i, self) => i === self.findIndex((t) => (Math.abs(t.x - p.x) < 0.1 && Math.abs(t.y - p.y) < 0.1)));
+           if (uniquePoints.length >= 2) {
+               uniquePoints.sort((p1, p2) => (p1.x !== p2.x) ? p1.x - p2.x : p1.y - p2.y);
+               x1_c = uniquePoints[0].x; y1_c = uniquePoints[0].y;
+               x2_c = uniquePoints[uniquePoints.length - 1].x; y2_c = uniquePoints[uniquePoints.length - 1].y;
+           } else return; 
+           ctx.beginPath(); ctx.moveTo(x1_c, y1_c); ctx.lineTo(x2_c, y2_c); ctx.strokeStyle = lineColor; ctx.lineWidth = 2; ctx.stroke();
+           ctx.beginPath(); ctx.moveTo(x1_c, y1_c); ctx.lineTo(x2_c, y2_c); ctx.strokeStyle = 'rgba(255, 215, 0, 0.3)'; ctx.lineWidth = 6; ctx.stroke();
+        }
+        
+        function formatCoef(n, showSign = false, isFirst = false, isParam = false) {
+            if (Math.abs(n) < 1e-6) return ""; 
+            let sign = n < 0 ? "-" : (showSign ? "+" : "");
+            let val = Math.abs(n);
+            let numStr = val.toFixed(2).replace(/\.?0+$/, ""); 
+             if (numStr.endsWith('.')) numStr = numStr.slice(0,-1); 
+            let omitOne = !isFirst && !isParam; 
+             if (Math.abs(val - 1) < 1e-6) numStr = omitOne ? "" : "1";
+             if (isFirst && !showSign) {
+                 if (Math.abs(val - 1) < 1e-6) numStr = ""; 
+                 else if (n < 0 && Math.abs(val - 1) < 1e-6) { sign = "-"; numStr = ""; } 
+                 else if (n < 0) sign = "-"; 
+                 else sign = ""; 
+             }
+             if (sign === "+" && numStr.startsWith("-")) sign = ""; 
+             else if (sign === "+" && n < 0) {
+                 sign = "-"; 
+                 numStr = Math.abs(n).toFixed(2).replace(/\.?0+$/, "");
+                 if (numStr.endsWith('.')) numStr = numStr.slice(0,-1);
+                 if (Math.abs(Math.abs(n) - 1) < 1e-6 && omitOne) numStr = "";
+             }
+            return `${sign} ${numStr}`;
+        }
+
+        function drawPointAndDistance() {
+          if (!ctx) return;
+          const canvasPonto = mathToCanvas(ponto.x, ponto.y);
+          const pontoMaisProximo = encontrarPontoMaisProximo();
+           if (!isFinite(pontoMaisProximo.x) || !isFinite(pontoMaisProximo.y)) return;
+          const canvasPontoProximo = mathToCanvas(pontoMaisProximo.x, pontoMaisProximo.y);
+          const distancia = calcularDistanciaPontoReta();
+           if (!isFinite(distancia)) return;
+
+          const maxDistancia = 5; 
+          const raioExterno = Math.max(10, Math.min(150, distancia * gridSize * 1.5)); 
+          const perigo = Math.max(0, Math.min(1, (maxDistancia - distancia) / maxDistancia));
+          const corGradiente = `rgba(${Math.round(255 * perigo)}, ${Math.round(173 * (1 - perigo))}, ${Math.round(47 * (1-perigo))}, 0.3)`; 
+          const gradientRad = ctx.createRadialGradient(canvasPonto.x, canvasPonto.y, 0, canvasPonto.x, canvasPonto.y, raioExterno);
+          gradientRad.addColorStop(0, corGradiente); gradientRad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+          ctx.fillStyle = gradientRad; ctx.beginPath(); ctx.arc(canvasPonto.x, canvasPonto.y, raioExterno, 0, Math.PI * 2); ctx.fill();
+          
+          ctx.beginPath(); ctx.moveTo(canvasPonto.x, canvasPonto.y); ctx.lineTo(canvasPontoProximo.x, canvasPontoProximo.y);
+          ctx.setLineDash([5, 3]); ctx.strokeStyle = distanceColor; ctx.lineWidth = 2; ctx.stroke(); ctx.setLineDash([]); 
+          
+          ctx.beginPath(); ctx.arc(canvasPonto.x, canvasPonto.y, 8, 0, 2*Math.PI); ctx.fillStyle = 'rgba(255, 99, 71, 0.3)'; ctx.fill();
+          ctx.beginPath(); ctx.arc(canvasPonto.x, canvasPonto.y, 5, 0, 2*Math.PI); ctx.fillStyle = pointColor; ctx.fill(); ctx.strokeStyle = '#FFF'; ctx.lineWidth = 1; ctx.stroke();
+          ctx.beginPath(); ctx.arc(canvasPontoProximo.x, canvasPontoProximo.y, 4, 0, 2*Math.PI); ctx.fillStyle = distanceColor; ctx.fill();
+          
+          const distanciaTexto = `d = ${distancia.toFixed(2)}`;
+          const textX = (canvasPonto.x + canvasPontoProximo.x) / 2; const textY = (canvasPonto.y + canvasPontoProximo.y) / 2;
+          const textAngle = Math.atan2(canvasPontoProximo.y - canvasPonto.y, canvasPontoProximo.x - canvasPonto.x);
+          ctx.save(); ctx.translate(textX, textY); ctx.rotate(textAngle + Math.PI / 2); 
+          ctx.font = '12px "Courier New", monospace'; ctx.fillStyle = distanceColor; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; 
+          ctx.fillText(distanciaTexto, 0, -5); ctx.restore(); 
+
+          ctx.fillStyle = '#FFF'; ctx.textAlign = 'left'; ctx.font = '14px "Courier New", monospace';
+          ctx.fillText(`P(${ponto.x.toFixed(1)}, ${ponto.y.toFixed(1)})`, canvasPonto.x + 10, canvasPonto.y - 10);
+          
+          ctx.fillStyle = 'rgba(0, 0, 0, 0.7)'; ctx.fillRect(10, 10, 380, 50);
+          ctx.strokeStyle = perigo > 0.6 ? dangerColor : safeColor; ctx.lineWidth = 2; ctx.strokeRect(10, 10, 380, 50);
+          ctx.fillStyle = textColor; ctx.textAlign = 'left'; ctx.textBaseline = 'top'; ctx.font = '14px "Courier New", monospace';
+          let statusTexto;
+          if (perigo > 0.8) statusTexto = "ALERTA: Zona Crítica!";
+          else if (perigo > 0.6) statusTexto = "AVISO: Perigo Próximo";
+          else if (perigo > 0.3) statusTexto = "CUIDADO: Radiação Moderada";
+          else statusTexto = "STATUS: Seguro";
+          
+           let eq = ""; let first = true;
+            if (Math.abs(retaCoefs.A) > 1e-6) { eq += `${formatCoef(retaCoefs.A, false, true)}x`; first = false; }
+            if (Math.abs(retaCoefs.B) > 1e-6) { eq += ` ${formatCoef(retaCoefs.B, !first, first)}y`; first = false; }
+            if (Math.abs(retaCoefs.C) > 1e-6) { eq += ` ${formatCoef(retaCoefs.C, !first, first)}`; first = false; }
+            if(first) eq = "0 = 0"; else eq += " = 0";
+            eq = eq.replace(/\s+/g, ' ').replace(' + -', ' - ').replace(' - -', ' + ').trim();
+             if (eq.startsWith('+ ')) eq = eq.substring(2);
+          
+          ctx.fillText(statusTexto, 20, 20);
+          ctx.fillText(`Reta: ${eq}`, 20, 40);
+        }
+        
+        function draw() {
+          if (!ctx) return;
+          drawGrid();
+          drawLine();
+          drawPointAndDistance();
+        }
+        
+        function updateUI() {
+          const pXI = document.getElementById('distancia-ponto-x'), pYI = document.getElementById('distancia-ponto-y');
+          const rAI = document.getElementById('distancia-reta-a'), rBI = document.getElementById('distancia-reta-b'), rCI = document.getElementById('distancia-reta-c');
+          const pXV = document.getElementById('distancia-ponto-x-value'), pYV = document.getElementById('distancia-ponto-y-value');
+          const dV = document.getElementById('distancia-value');
+          
+          if (pXI && pYI && pXV && pYV && dV && rAI && rBI && rCI) {
+            pXI.value = ponto.x; pYI.value = ponto.y;
+            pXV.textContent = ponto.x.toFixed(1); pYV.textContent = ponto.y.toFixed(1);
+             if(document.activeElement !== rAI) rAI.value = retaCoefs.A.toFixed(1);
+             if(document.activeElement !== rBI) rBI.value = retaCoefs.B.toFixed(1);
+             if(document.activeElement !== rCI) rCI.value = retaCoefs.C.toFixed(1);
+            const dist = calcularDistanciaPontoReta();
+             if (isFinite(dist)) {
+                 dV.textContent = dist.toFixed(2);
+                 const maxDist = 5, perigo = Math.max(0, Math.min(1, (maxDist - dist) / maxDist));
+                 dV.style.color = perigo > 0.6 ? dangerColor : safeColor;
+             } else { dV.textContent = "---"; dV.style.color = textColor; }
+          }
+        }
+        
+        function handleMouseDown(e) {
+          const rect = canvas.getBoundingClientRect();
+          const mX = e.clientX - rect.left, mY = e.clientY - rect.top;
+          const cP = mathToCanvas(ponto.x, ponto.y);
+          const dx = cP.x - mX, dy = cP.y - mY;
+          if (Math.sqrt(dx*dx + dy*dy) < 15) isDragging = 'ponto'; else isDragging = null;
+        }
+        function handleMouseMove(e) {
+          if (isDragging !== 'ponto') return;
+          const rect = canvas.getBoundingClientRect();
+          const mX = e.clientX - rect.left, mY = e.clientY - rect.top;
+          const mathC = canvasToMath(mX, mY);
+          ponto.x = Math.max(-10, Math.min(10, Math.round(mathC.x * 2) / 2));
+          ponto.y = Math.max(-10, Math.min(10, Math.round(mathC.y * 2) / 2));
+          updateUI(); draw();
+        }
+        function handleMouseUp() { isDragging = null; }
+        
+        function handleTouchStart(e) { if (e.touches.length === 1) { e.preventDefault(); const t=e.touches[0]; canvas.dispatchEvent(new MouseEvent('mousedown', {clientX: t.clientX, clientY: t.clientY})); } }
+        function handleTouchMove(e) { if (e.touches.length === 1) { e.preventDefault(); const t=e.touches[0]; document.dispatchEvent(new MouseEvent('mousemove', {clientX: t.clientX, clientY: t.clientY})); } }
+        function handleTouchEnd(e) { document.dispatchEvent(new MouseEvent('mouseup', {})); }
+
+        function handlePointControlChange() {
+          const pXI = document.getElementById('distancia-ponto-x'), pYI = document.getElementById('distancia-ponto-y');
+          if (pXI && pYI) { ponto.x = parseFloat(pXI.value); ponto.y = parseFloat(pYI.value); draw(); updateUI(); }
+        }
+        
+        function handleRetaUpdate() {
+          const rAI = document.getElementById('distancia-reta-a'), rBI = document.getElementById('distancia-reta-b'), rCI = document.getElementById('distancia-reta-c');
+          if (rAI && rBI && rCI) {
+            const A = parseFloat(rAI.value) || 0, B = parseFloat(rBI.value) || 0, C = parseFloat(rCI.value) || 0;
+            if (Math.abs(A) < 1e-9 && Math.abs(B) < 1e-9) { updateUI(); return; }
+            retaCoefs = { A, B, C };
+            draw(); updateUI(); 
+          }
+        }
+        
+        function init() {
+          canvas = document.getElementById('distancia-ponto-reta-canvas');
+          if (!canvas || canvas.getAttribute('data-initialized') === 'true') return; 
+          ctx = canvas.getContext('2d');
+          width = canvas.width; height = canvas.height;
+          centerX = Math.floor(width / 2); centerY = Math.floor(height / 2); gridSize = 30; 
+          
+          canvas.addEventListener('mousedown', handleMouseDown); document.addEventListener('mousemove', handleMouseMove); document.addEventListener('mouseup', handleMouseUp); 
+          canvas.addEventListener('touchstart', handleTouchStart, { passive: false }); document.addEventListener('touchmove', handleTouchMove, { passive: false }); document.addEventListener('touchend', handleTouchEnd);
+          
+          const pXI = document.getElementById('distancia-ponto-x'), pYI = document.getElementById('distancia-ponto-y');
+          if (pXI && !pXI.hasAttribute('data-listener-set')) { pXI.addEventListener('input', handlePointControlChange); pXI.setAttribute('data-listener-set', 'true'); }
+          if (pYI && !pYI.hasAttribute('data-listener-set')) { pYI.addEventListener('input', handlePointControlChange); pYI.setAttribute('data-listener-set', 'true'); }
+          
+          const rAI = document.getElementById('distancia-reta-a'), rBI = document.getElementById('distancia-reta-b'), rCI = document.getElementById('distancia-reta-c'), rUB = document.getElementById('distancia-reta-update');
+          if (rUB && !rUB.hasAttribute('data-listener-set')) { rUB.addEventListener('click', handleRetaUpdate); rUB.setAttribute('data-listener-set', 'true'); }
+           if (rAI && !rAI.hasAttribute('data-listener-set')) { rAI.addEventListener('change', handleRetaUpdate); rAI.setAttribute('data-listener-set', 'true'); }
+           if (rBI && !rBI.hasAttribute('data-listener-set')) { rBI.addEventListener('change', handleRetaUpdate); rBI.setAttribute('data-listener-set', 'true'); }
+           if (rCI && !rCI.hasAttribute('data-listener-set')) { rCI.addEventListener('change', handleRetaUpdate); rCI.setAttribute('data-listener-set', 'true'); }
+          
+          draw(); updateUI();
+          canvas.setAttribute('data-initialized', 'true'); 
+        }
+        
+         if (document.readyState === 'complete' || document.readyState === 'interactive') { setTimeout(init, 50); } else { document.addEventListener('DOMContentLoaded', init); }
+         if (typeof Reveal !== 'undefined') {
+             Reveal.addEventListener('slidechanged', event => { const currentCanvas = event.currentSlide.querySelector('#distancia-ponto-reta-canvas'); if (currentCanvas) { init(); draw(); updateUI(); } });
+             Reveal.on('ready', event => { const currentCanvas = event.currentSlide.querySelector('#distancia-ponto-reta-canvas'); if (currentCanvas) { init(); } });
+         } else { init(); }
+      })();
+
+      // IIFE para isolar o escopo da visualização de interseção de retas
+      (function() {
+        let canvas, ctx;
+        let width, height, centerX, centerY, gridSize;
+        let reta1Ponto1 = { x: -5, y: 2 }, reta1Ponto2 = { x: 5, y: -2 };
+        let reta2Ponto1 = { x: -3, y: -4 }, reta2Ponto2 = { x: 3, y: 4 };
+        let isDragging = null; 
+        
+        const axisColor = '#ADFF2F', gridColor = 'rgba(173, 255, 47, 0.2)', reta1Color = '#FFD700', reta2Color = '#FF6347', intersectionColor = '#00FFFF', textColor = '#E0E0E0', pointColorR1 = '#FFD700', pointColorR2 = '#FF6347'; 
+        
+        function mathToCanvas(x, y) { return { x: centerX + x * gridSize, y: centerY - y * gridSize }; }
+        function canvasToMath(x, y) { return { x: (x - centerX) / gridSize, y: (centerY - y) / gridSize }; }
+        
+        function calcularCoeficientesReta(p1, p2) {
+          const A = p2.y - p1.y, B = p1.x - p2.x, C = p2.x * p1.y - p1.x * p2.y;
+           if (Math.abs(A) < 1e-9 && Math.abs(B) < 1e-9) return { A: 0, B: 0, C: 0, valid: false }; 
+           return {A, B, C, valid: true}; 
+        }
+
+        function formatCoef(n, showSign = false, isFirst = false, isParam = false) {
+            if (Math.abs(n) < 1e-6) return ""; 
+            let sign = n < 0 ? "-" : (showSign ? "+" : ""); let val = Math.abs(n);
+            let numStr = val.toFixed(2).replace(/\.?0+$/, ""); if (numStr.endsWith('.')) numStr = numStr.slice(0,-1); 
+            let omitOne = !isFirst && !isParam; 
+             if (Math.abs(val - 1) < 1e-6) numStr = omitOne ? "" : "1";
+             if (isFirst && !showSign) { if (Math.abs(val - 1) < 1e-6) numStr = ""; else if (n < 0 && Math.abs(val - 1) < 1e-6) { sign = "-"; numStr = ""; } else if (n < 0) sign = "-"; else sign = ""; }
+             if (sign === "+" && numStr.startsWith("-")) sign = ""; else if (sign === "+" && n < 0) { sign = "-"; numStr = Math.abs(n).toFixed(2).replace(/\.?0+$/, ""); if (numStr.endsWith('.')) numStr = numStr.slice(0,-1); if (Math.abs(Math.abs(n) - 1) < 1e-6 && omitOne) numStr = ""; }
+            return `${sign} ${numStr}`;
+        }
+        
+        function calcularIntersecao() {
+          const r1 = calcularCoeficientesReta(reta1Ponto1, reta1Ponto2); const r2 = calcularCoeficientesReta(reta2Ponto1, reta2Ponto2);
+          if (!r1.valid || !r2.valid) return null; 
+          const det = r1.A * r2.B - r2.A * r1.B;
+          if (Math.abs(det) < 1e-9) return null;
+          const x = (r1.B * r2.C - r2.B * r1.C) / det; const y = (r2.A * r1.C - r1.A * r2.C) / det;
+          if (!isFinite(x) || !isFinite(y)) return null; 
+          return { x, y };
+        }
+        
+        function determinarPosicaoRelativa() {
+          const r1 = calcularCoeficientesReta(reta1Ponto1, reta1Ponto2); const r2 = calcularCoeficientesReta(reta2Ponto1, reta2Ponto2);
+           if (!r1.valid || !r2.valid) return "inválida"; 
+          const det = r1.A * r2.B - r2.A * r1.B;
+          if (Math.abs(det) < 1e-9) { if (Math.abs(r2.A * reta1Ponto1.x + r2.B * reta1Ponto1.y + r2.C) < 1e-6) return "coincidentes"; else return "paralelas"; } 
+          else { const pEN = r1.A * r2.A + r1.B * r2.B; if (Math.abs(pEN) < 1e-9) return "perpendiculares"; else return "concorrentes"; }
+        }
+        
+        function calcularAngulo() {
+          const pos = determinarPosicaoRelativa();
+           if (pos === "paralelas" || pos === "coincidentes") return 0; if (pos === "perpendiculares") return 90; if (pos === "inválida") return NaN;
+          const r1 = calcularCoeficientesReta(reta1Ponto1, reta1Ponto2); const r2 = calcularCoeficientesReta(reta2Ponto1, reta2Ponto2);
+           if (!r1.valid || !r2.valid) return NaN;
+          const dot = r1.A * r2.A + r1.B * r2.B; const m1 = Math.sqrt(r1.A*r1.A + r1.B*r1.B); const m2 = Math.sqrt(r2.A*r2.A + r2.B*r2.B);
+          if (m1 < 1e-9 || m2 < 1e-9) return NaN; 
+          const cosT = Math.max(-1, Math.min(1, dot / (m1 * m2))); 
+          const ang = Math.acos(cosT) * 180 / Math.PI;
+          return Math.min(ang, 180 - ang);
+        }
+        
+        function drawGrid() {
+           if (!ctx) return;
+           ctx.clearRect(0, 0, width, height);
+          const g = ctx.createRadialGradient(centerX, centerY, 50, centerX, centerY, Math.max(width, height)/1.5); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,0.5)'); ctx.fillStyle = g; ctx.fillRect(0,0,width,height);
+          ctx.strokeStyle = gridColor; ctx.lineWidth = 1;
+          for (let x=centerX%gridSize; x<width; x+=gridSize) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,height); ctx.stroke(); } for (let y=centerY%gridSize; y<height; y+=gridSize) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(width,y); ctx.stroke(); }
+          ctx.strokeStyle = axisColor; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(0,centerY); ctx.lineTo(width,centerY); ctx.stroke(); ctx.beginPath(); ctx.moveTo(centerX,0); ctx.lineTo(centerX,height); ctx.stroke(); 
+          ctx.fillStyle = axisColor; ctx.font = '12px "Courier New", monospace'; ctx.textAlign='center'; ctx.textBaseline='middle';
+          for (let x=-Math.floor(centerX/gridSize); x<=Math.floor((width-centerX)/gridSize); x+=2) { if (x===0) continue; const cX=centerX+x*gridSize; ctx.beginPath(); ctx.moveTo(cX,centerY-5); ctx.lineTo(cX,centerY+5); ctx.stroke(); ctx.fillText(x.toString(),cX,centerY+15); }
+          for (let y=-Math.floor(centerY/gridSize); y<=Math.floor((height-centerY)/gridSize); y+=2) { if (y===0) continue; const cY=centerY-y*gridSize; ctx.beginPath(); ctx.moveTo(centerX-5,cY); ctx.lineTo(centerX+5,cY); ctx.stroke(); ctx.fillText(y.toString(),centerX-15,cY); } ctx.fillText('0',centerX-15,centerY+15); 
+          ctx.fillStyle='rgba(0,0,0,0.1)'; for(let y=0; y<height; y+=4) ctx.fillRect(0,y,width,2);
+        }
+        
+        function drawSingleLine(p1, p2, color, espessura = 2, tracejada = false) {
+           if (!ctx) return;
+           const r = calcularCoeficientesReta(p1, p2); if (!r.valid) return;
+           let x1_c, y1_c, x2_c, y2_c; 
+           const minX_m = -width/(2*gridSize), maxX_m = width/(2*gridSize); const minY_m = -height/(2*gridSize), maxY_m = height/(2*gridSize); const pts = [];
+           if (Math.abs(r.B)>1e-9) { let yMinX=(-r.C-r.A*minX_m)/r.B; if (yMinX>=minY_m&&yMinX<=maxY_m) pts.push(mathToCanvas(minX_m,yMinX)); let yMaxX=(-r.C-r.A*maxX_m)/r.B; if(yMaxX>=minY_m&&yMaxX<=maxY_m) pts.push(mathToCanvas(maxX_m,yMaxX)); }
+           if (Math.abs(r.A)>1e-9) { let xMinY=(-r.C-r.B*minY_m)/r.A; if (xMinY>=minX_m&&xMinY<=maxX_m) pts.push(mathToCanvas(xMinY,minY_m)); let xMaxY=(-r.C-r.B*maxY_m)/r.A; if(xMaxY>=minX_m&&xMaxY<=maxX_m) pts.push(mathToCanvas(xMaxY,maxY_m)); }
+            if (pts.length<2) { if (Math.abs(r.B)<1e-9&&Math.abs(r.A)>1e-9) { let x_v=-r.C/r.A; if(x_v>=minX_m&&x_v<=maxX_m) { pts.push(mathToCanvas(x_v,minY_m)); pts.push(mathToCanvas(x_v,maxY_m)); } } else if (Math.abs(r.A)<1e-9&&Math.abs(r.B)>1e-9) { let y_h=-r.C/r.B; if (y_h>=minY_m&&y_h<=maxY_m) { pts.push(mathToCanvas(minX_m,y_h)); pts.push(mathToCanvas(maxX_m,y_h)); } } }
+           const uPts=pts.filter((p,i,s)=>i===s.findIndex((t)=>(Math.abs(t.x-p.x)<0.1&&Math.abs(t.y-p.y)<0.1)));
+           if (uPts.length>=2) { uPts.sort((p1,p2)=>(p1.x!==p2.x)?p1.x-p2.x:p1.y-p2.y); x1_c=uPts[0].x; y1_c=uPts[0].y; x2_c=uPts[uPts.length-1].x; y2_c=uPts[uPts.length-1].y; } else return; 
+          ctx.beginPath(); if (tracejada) ctx.setLineDash([5,3]); ctx.moveTo(x1_c,y1_c); ctx.lineTo(x2_c,y2_c); ctx.strokeStyle=color; ctx.lineWidth=espessura; ctx.stroke(); ctx.setLineDash([]);
+          if (!tracejada) { ctx.beginPath(); ctx.moveTo(x1_c,y1_c); ctx.lineTo(x2_c,y2_c); ctx.strokeStyle=`${color}33`; ctx.lineWidth=espessura+4; ctx.stroke(); }
+        }
+        
+        function drawInteractivePoint(p, color, raio = 4, label = "") {
+          if (!ctx) return;
+          const cP = mathToCanvas(p.x, p.y);
+          ctx.beginPath(); ctx.arc(cP.x,cP.y,raio+4,0,2*Math.PI); ctx.fillStyle=`${color}33`; ctx.fill(); 
+          ctx.beginPath(); ctx.arc(cP.x,cP.y,raio,0,2*Math.PI); ctx.fillStyle=color; ctx.fill(); ctx.strokeStyle='#FFF'; ctx.lineWidth=1; ctx.stroke();
+          if (label) { ctx.fillStyle='#FFF'; ctx.font='12px "Courier New", monospace'; ctx.textAlign='left'; ctx.textBaseline='bottom'; ctx.fillText(label, cP.x+raio+2, cP.y-raio-2); }
+        }
+        
+        function drawScene() {
+           if (!ctx) return;
+          const pos = determinarPosicaoRelativa();
+          drawSingleLine(reta1Ponto1, reta1Ponto2, reta1Color);
+          if(pos === "coincidentes") drawSingleLine(reta2Ponto1, reta2Ponto2, reta2Color, 2, true); else if (pos !== "inválida") drawSingleLine(reta2Ponto1, reta2Ponto2, reta2Color);
+          drawInteractivePoint(reta1Ponto1, pointColorR1, 4, "R₁A"); drawInteractivePoint(reta1Ponto2, pointColorR1, 4, "R₁B");
+          drawInteractivePoint(reta2Ponto1, pointColorR2, 4, "R₂A"); drawInteractivePoint(reta2Ponto2, pointColorR2, 4, "R₂B");
+          const inter = calcularIntersecao();
+           if (inter && pos !== "paralelas" && pos !== "coincidentes" && pos !== "inválida") {
+               const cI = mathToCanvas(inter.x, inter.y);
+               ctx.beginPath(); ctx.arc(cI.x,cI.y,8,0,2*Math.PI); ctx.fillStyle=`${intersectionColor}33`; ctx.fill();
+               ctx.beginPath(); ctx.arc(cI.x,cI.y,5,0,2*Math.PI); ctx.fillStyle=intersectionColor; ctx.fill(); ctx.strokeStyle='#000'; ctx.lineWidth=1; ctx.stroke();
+               ctx.fillStyle=intersectionColor; ctx.font='14px "Courier New", monospace'; ctx.textAlign='center'; ctx.textBaseline='top'; ctx.fillText(`(${inter.x.toFixed(2)}, ${inter.y.toFixed(2)})`, cI.x, cI.y+10);
+           }
+        }
+        
+        function drawInfoPanel() {
+          if (!ctx) return;
+          const pos = determinarPosicaoRelativa(); const ang = calcularAngulo(); const inter = calcularIntersecao();
+          let desc, iCol;
+          switch (pos) { case "coincidentes": desc="COINCIDENTES"; iCol="#ADFF2F"; break; case "paralelas": desc="PARALELAS"; iCol="#FFD700"; break; case "perpendiculares": desc="PERPENDICULARES"; iCol="#00FFFF"; break; case "inválida": desc="RETA INVÁLIDA"; iCol="#888888"; break; default: desc="CONCORRENTES"; iCol="#FF6347"; }
+          ctx.fillStyle='rgba(0,0,0,0.7)'; ctx.fillRect(10,10,380,60); ctx.strokeStyle=iCol; ctx.lineWidth=2; ctx.strokeRect(10,10,380,60);
+          ctx.fillStyle=iCol; ctx.font='bold 16px "Courier New", monospace'; ctx.textAlign='left'; ctx.textBaseline='top'; ctx.fillText(`Status: ${desc}`, 20, 20);
+          ctx.fillStyle=textColor; ctx.font='14px "Courier New", monospace';
+          let det = "";
+           if (pos === "concorrentes" || pos === "perpendiculares") { det += `Ângulo: ${ang.toFixed(1)}°`; if (inter) det += ` | I:(${inter.x.toFixed(1)}, ${inter.y.toFixed(1)})`; } 
+           else if (pos === "paralelas") det = "Ângulo: 0° | Sem Interseção"; else if (pos === "coincidentes") det = "Ângulo: 0° | Interseção Infinita"; else det = "Verifique os pontos.";
+          ctx.fillText(det, 20, 45);
+        }
+        
+        function draw() { if (!ctx) return; drawGrid(); drawScene(); drawInfoPanel(); }
+        
+        function updateUI() {
+          const ids = ['r1a-x','r1a-y','r1b-x','r1b-y','r2a-x','r2a-y','r2b-x','r2b-y'];
+          const pts = [reta1Ponto1,reta1Ponto1,reta1Ponto2,reta1Ponto2,reta2Ponto1,reta2Ponto1,reta2Ponto2,reta2Ponto2];
+          const crds = ['x','y','x','y','x','y','x','y'];
+          ids.forEach((id, i) => { const inp=document.getElementById(`intersecao-${id}`), valS=document.getElementById(`intersecao-${id}-value`); if(inp&&valS){ inp.value=pts[i][crds[i]]; valS.textContent=pts[i][crds[i]].toFixed(1); } });
+          const infoUI = document.getElementById('intersecao-info');
+          if (infoUI) {
+            const pos=determinarPosicaoRelativa(); const inter=calcularIntersecao(); const ang=calcularAngulo(); let msg=''; let mCol=textColor;
+             switch (pos) { case "coincidentes": msg='RETAS COINCIDENTES'; mCol="#ADFF2F"; break; case "paralelas": msg='RETAS PARALELAS'; mCol="#FFD700"; break; case "perpendiculares": msg=`PERPENDICULARES(90.0°)`; if(inter) msg+=` em (${inter.x.toFixed(1)},${inter.y.toFixed(1)})`; mCol="#00FFFF"; break; case "inválida": msg='RETA INVÁLIDA'; mCol="#888888"; break; default: msg=`CONCORRENTES(${ang.toFixed(1)}°)`; if(inter) msg+=` em (${inter.x.toFixed(1)},${inter.y.toFixed(1)})`; mCol="#FF6347"; }
+            infoUI.textContent = msg; infoUI.style.color = mCol;
+          }
+        }
+        
+        function handleMouseDown(e) {
+           const rect = canvas.getBoundingClientRect(); const mX=e.clientX-rect.left, mY=e.clientY-rect.top;
+           const ptsCtrl=[{p:reta1Ponto1,id:"r1p1"},{p:reta1Ponto2,id:"r1p2"},{p:reta2Ponto1,id:"r2p1"},{p:reta2Ponto2,id:"r2p2"}];
+           let minDist=15, dPt=null;
+           for(const{p,id} of ptsCtrl) { const cP=mathToCanvas(p.x,p.y); const dx=cP.x-mX, dy=cP.y-mY, dist=Math.sqrt(dx*dx+dy*dy); if(dist<minDist){minDist=dist; dPt=id;} }
+           isDragging=dPt;
+        }
+        function handleMouseMove(e) {
+          if (!isDragging) return;
+           const rect = canvas.getBoundingClientRect(); const mX=e.clientX-rect.left, mY=e.clientY-rect.top; const mC=canvasToMath(mX,mY);
+           const nX=Math.max(-10,Math.min(10,Math.round(mC.x*2)/2)), nY=Math.max(-10,Math.min(10,Math.round(mC.y*2)/2));
+            let ok=true;
+            if (isDragging==="r1p1" && Math.abs(nX-reta1Ponto2.x)<1e-6 && Math.abs(nY-reta1Ponto2.y)<1e-6) ok=false; if (isDragging==="r1p2" && Math.abs(nX-reta1Ponto1.x)<1e-6 && Math.abs(nY-reta1Ponto1.y)<1e-6) ok=false;
+            if (isDragging==="r2p1" && Math.abs(nX-reta2Ponto2.x)<1e-6 && Math.abs(nY-reta2Ponto2.y)<1e-6) ok=false; if (isDragging==="r2p2" && Math.abs(nX-reta2Ponto1.x)<1e-6 && Math.abs(nY-reta2Ponto1.y)<1e-6) ok=false;
+            if(ok) { switch(isDragging) { case "r1p1": reta1Ponto1={x:nX,y:nY}; break; case "r1p2": reta1Ponto2={x:nX,y:nY}; break; case "r2p1": reta2Ponto1={x:nX,y:nY}; break; case "r2p2": reta2Ponto2={x:nX,y:nY}; break; } updateUI(); draw(); }
+        }
+        function handleMouseUp() { isDragging = null; }
+        
+        function handleTouchStart(e) { if (e.touches.length===1) { e.preventDefault(); const t=e.touches[0]; canvas.dispatchEvent(new MouseEvent('mousedown',{clientX:t.clientX,clientY:t.clientY})); } }
+        function handleTouchMove(e) { if (e.touches.length===1) { e.preventDefault(); const t=e.touches[0]; document.dispatchEvent(new MouseEvent('mousemove',{clientX:t.clientX,clientY:t.clientY})); } }
+        function handleTouchEnd(e) { document.dispatchEvent(new MouseEvent('mouseup',{})); }
+        
+        function handleControlChange() {
+             const ids=['r1a-x','r1a-y','r1b-x','r1b-y','r2a-x','r2a-y','r2b-x','r2b-y'];
+             const tPts={r1p1:{...reta1Ponto1},r1p2:{...reta1Ponto2},r2p1:{...reta2Ponto1},r2p2:{...reta2Ponto2}};
+             const pMap={'r1a':tPts.r1p1,'r1b':tPts.r1p2,'r2a':tPts.r2p1,'r2b':tPts.r2p2}; const cMap={'x':'x','y':'y'}; let ch=false;
+             ids.forEach((id)=>{ const inp=document.getElementById(`intersecao-${id}`); if(inp){ const nV=parseFloat(inp.value), pK=id.substring(0,3), cK=id.substring(4,5); if(pMap[pK][cMap[cK]]!==nV){pMap[pK][cMap[cK]]=nV; ch=true;} } });
+             let r1v=Math.abs(tPts.r1p1.x-tPts.r1p2.x)>1e-6||Math.abs(tPts.r1p1.y-tPts.r1p2.y)>1e-6; let r2v=Math.abs(tPts.r2p1.x-tPts.r2p2.x)>1e-6||Math.abs(tPts.r2p1.y-tPts.r2p2.y)>1e-6;
+             if(r1v&&r2v){ reta1Ponto1=tPts.r1p1; reta1Ponto2=tPts.r1p2; reta2Ponto1=tPts.r2p1; reta2Ponto2=tPts.r2p2; } else { ch=false; updateUI(); return; }
+             if(ch){ draw(); updateUI(); }
+        }
+        
+        function setPreset(preset) {
+          switch(preset) { case "perpendicular": reta1Ponto1={x:-5,y:0};reta1Ponto2={x:5,y:0};reta2Ponto1={x:0,y:-5};reta2Ponto2={x:0,y:5}; break; case "paralela": reta1Ponto1={x:-5,y:2};reta1Ponto2={x:5,y:2};reta2Ponto1={x:-5,y:-2};reta2Ponto2={x:5,y:-2}; break; case "coincidente": reta1Ponto1={x:-6,y:3};reta1Ponto2={x:6,y:-3};reta2Ponto1={x:-2,y:1};reta2Ponto2={x:2,y:-1}; break; case "concorrente": default: reta1Ponto1={x:-5,y:2};reta1Ponto2={x:5,y:-2};reta2Ponto1={x:-3,y:-4};reta2Ponto2={x:3,y:4}; break; }
+          draw(); updateUI();
+        }
+        
+        function init() {
+          canvas = document.getElementById('intersecao-retas-canvas');
+          if (!canvas || canvas.getAttribute('data-initialized') === 'true') return; 
+          ctx = canvas.getContext('2d'); width = canvas.width; height = canvas.height; centerX = Math.floor(width/2); centerY = Math.floor(height/2); gridSize = 30; 
+          
+          canvas.addEventListener('mousedown', handleMouseDown); document.addEventListener('mousemove', handleMouseMove); document.addEventListener('mouseup', handleMouseUp); 
+          canvas.addEventListener('touchstart', handleTouchStart, { passive: false }); document.addEventListener('touchmove', handleTouchMove, { passive: false }); document.addEventListener('touchend', handleTouchEnd); 
+          
+          const sliders = document.querySelectorAll('#intersecao-retas-canvas + .simulator-controls input[type="range"]'); sliders.forEach(s => { if (!s.hasAttribute('data-listener-set')) { s.addEventListener('input', handleControlChange); s.setAttribute('data-listener-set', 'true'); } });
+          const pBtns={'intersecao-preset-perpendicular':'perpendicular','intersecao-preset-paralela':'paralela','intersecao-preset-coincidente':'coincidente','intersecao-preset-concorrente':'concorrente'};
+          for (const[id,pre] of Object.entries(pBtns)) { const btn=document.getElementById(id); if (btn && !btn.hasAttribute('data-listener-set')) { btn.addEventListener('click',()=>setPreset(pre)); btn.setAttribute('data-listener-set', 'true'); } }
+          
+          setPreset('concorrente'); 
+          canvas.setAttribute('data-initialized', 'true'); 
+        }
+        
+         if (document.readyState === 'complete' || document.readyState === 'interactive') { setTimeout(init, 50); } else { document.addEventListener('DOMContentLoaded', init); }
+         if (typeof Reveal !== 'undefined') {
+              Reveal.addEventListener('slidechanged', event => { const currentCanvas = event.currentSlide.querySelector('#intersecao-retas-canvas'); if (currentCanvas) { init(); draw(); updateUI(); } });
+              Reveal.on('ready', event => { const currentCanvas = event.currentSlide.querySelector('#intersecao-retas-canvas'); if (currentCanvas) { init(); } });
+          } else { init(); }
+      })();
+
+      // Inicialização do Reveal.js
       Reveal.initialize({
         hash: true,
         slideNumber: true,
-        plugins: [ RevealNotes, RevealHighlight ]
+        transition: 'convex', // Ou 'slide', 'fade', 'concave', etc.
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js',
+          config: 'TeX-AMS_HTML-full',
+        },
+        plugins: [ RevealNotes, RevealHighlight, RevealMath, RevealZoom ]
       });
-    </script>
 
-    <!-- Como utilizar este modelo:
-      1. Cada "<section>" dentro de <div class="slides"> representa um slide horizontal.
-      2. Para criar slides verticais (subseções), aninhe <section> dentro de outro <section>.
-      3. Insira fórmulas LaTeX usando MathJax com a sintaxe \( ... \) ou \[ ... \].
-      4. Customize o tema (black.css) trocando o import no <head> ou usando outro tema.
-      5. Edite o CSS interno para atender à estética pós-apocalíptica.
-      6. Adicione novos slides conforme necessário para cada parte do curso.
-      7. Para ver as notas, pressione 's' durante a apresentação (necessário plugin notes).
-      8. Emojis (☢, ⚠, 🏜) podem ser usados pontualmente para reforçar a temática.
-    -->
+       // Adicional: Forçar renderização do MathJax ao mudar de slide
+       if (typeof Reveal !== 'undefined') {
+           Reveal.addEventListener('slidechanged', function(event) {
+               if (window.MathJax && window.MathJax.typesetPromise) {
+                   window.MathJax.typesetPromise();
+               }
+           });
+            // E na inicialização
+           Reveal.on('ready', function(event) {
+               if (window.MathJax && window.MathJax.typesetPromise) {
+                   window.MathJax.typesetPromise();
+               }
+           });
+       }
+
+    </script>
   </body>
 </html>
-
