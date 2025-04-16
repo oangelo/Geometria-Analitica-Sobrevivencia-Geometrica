@@ -1,9 +1,8 @@
-<!-- Reveal.js Template for 'Geometria Analítica: Sobrevivência Geométrica' -->
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
+<head>
     <meta charset="utf-8" />
-    <title>Geometria Analítica: Sobrevivência Geométrica</title>
+    <title>Geometria Analítica: Sobrevivência Geométrica - A Circunferência</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
     <!-- Reveal.js Styles -->
@@ -12,109 +11,1024 @@
 
     <!-- For syntax highlighting -->
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css" />
+
+    <!-- IMPORTANTE: Estilos customizados -->
     <link rel="stylesheet" href="styles.css">
-  </head>
 
-  <body>
-    <div class="reveal">
-      <div class="slides">
-  <section>
-    <h2>Capítulo IV — A Circunferência no \( R^2 \) 🛡️</h2>
-    <p>Redomas de proteção em terras devastadas: a arte de traçar limites seguros no caos.</p>
-  </section>
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-  <section>
-    <h3>Definição da Circunferência 🧭</h3>
-    <p>Conjunto de pontos equidistantes de um centro:</p>
-    <p>\[
-    (x - a)^2 + (y - b)^2 = r^2
-    \]</p>
-    <p>Onde \((a, b)\) é o "centro do refúgio" e \(r\) o "raio de segurança".</p>
-  </section>
-
-  <section>
-    <h3>O Perímetro da Última Fortaleza ⚔️</h3>
-    <p>Visualização da circunferência como a fronteira entre o conhecido e o perigoso.</p>
-  </section>
-
-  <section>
-    <h3>Definida por Três Pontos 🔍</h3>
-    <p>Se encontrar três marcos em ruínas, você pode traçar uma redoma ao redor deles.</p>
-    <p>Desde que não estejam alinhados, eles definem uma única circunferência.</p>
-  </section>
-
-  <section>
-    <h3>Posições Relativas 🚧</h3>
-    <ul>
-      <li>Ponto dentro da circunferência: "Zona segura"</li>
-      <li>Ponto sobre a circunferência: "Na fronteira"</li>
-      <li>Ponto fora da circunferência: "Em território hostil"</li>
-    </ul>
-  </section>
-
-  <section>
-    <h3>Interseções Entre Circunferências ☢️</h3>
-    <ul>
-      <li>Externamente tangentes: Alianças frágeis</li>
-      <li>Internamente tangentes: Proteções sobrepostas</li>
-      <li>Secantes: Territórios em conflito</li>
-      <li>Concêntricas: Cúpulas dentro de cúpulas</li>
-    </ul>
-  </section>
-
-  <section>
-    <h3>Interseção com Retas ⚠️</h3>
-    <p>Quando uma rota ameaça romper sua barreira:</p>
-    <p>O número de pontos de interseção depende do discriminante da equação quadrática resultante.</p>
-  </section>
-
-  <section>
-    <h3>Reflexão Final 💀</h3>
-    <p>"Cercar-se para sobreviver ou para excluir?"</p>
-    <p>Uma analogia com cúpulas de defesa nuclear e comunidades isoladas em um mundo em colapso.</p>
-  </section>
-
-      </div>
-    </div>
-
-    <!-- Reveal.js -->
-    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
-
-    <!-- Reveal Plugins -->
-    <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
-    <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
-
-    <!-- MathJax -->
+    <!-- MathJax Configuration -->
     <script>
       window.MathJax = {
         tex: {
           inlineMath: [['\\(','\\)']],
           displayMath: [['\\[','\\]']],
+          processEscapes: true
         },
         svg: { fontCache: 'global' }
       };
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
 
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- ============================ -->
+            <!-- INTRODUÇÃO (HORIZONTAL START) -->
+            <!-- ============================ -->
+            <section>
+                <!-- Slide 0.1: Título do Capítulo -->
+                <section class="title-screen">
+                    <h1>Capítulo II</h1>
+                    <h2 class="subtitle">A Circunferência: Criando Zonas Seguras</h2>
+                    <div class="emblem-number">02</div>
+                    <p class="subtitle-warning">Definição, Equações e Posições Relativas</p>
+                </section>
+
+                <!-- Slide 0.2: Contexto Histórico Geral -->
+                <section class="field-report">
+                    <h3>Contexto: A Forma da Proteção</h3>
+                    <div class="info-panel">
+                        <div class="info-screen crt-effect">
+                            <h4>O Círculo na História e na Ruína</h4>
+                            <p>Desde Stonehenge aos escudos, o círculo sempre representou unidade e defesa. Euclides e Apolônio desvendaram suas propriedades matemáticas.</p>
+                            <p>A geometria analítica deu-lhe poder algébrico, permitindo cálculos precisos de perímetros, áreas de influência e interações.</p>
+                            <p>Na wasteland, é a forma da zona segura, do alcance do sinal, da área de explosão. Dominá-la é essencial para o planejamento estratégico.</p>
+                        </div>
+                    </div>
+                     <div class="survival-tip">
+                        <p>DICA HISTÓRICA: Apolônio de Perga, "O Grande Geômetra", deixou um legado crucial sobre cônicas.</p>
+                    </div>
+                </section>
+            </section>
+
+            <!-- ============================ -->
+            <!-- TÓPICO 1: EQUAÇÃO DA CIRCUNFERÊNCIA (HORIZONTAL →) -->
+            <!-- ============================ -->
+            <section>
+                <!-- Slide 1.1: Conceito Principal -->
+                <section class="mission-briefing">
+                    <h2>Tópico 1: Equação da Circunferência</h2>
+                    <h3 class="mission-subtitle">A Assinatura da Redoma</h3>
+                    <div class="definition-box">
+                        <p>Descrição matemática dos pontos \(P(x, y)\) à distância \(R\) (raio) de um centro \(C(a, b)\).</p>
+                        <h4>Equação Reduzida (A Forma Explícita):</h4>
+                        <p class="formula">\((x - a)^2 + (y - b)^2 = R^2\)</p>
+                        <p><strong>\(C(a, b)\)</strong>: Centro.<br><strong>\(R\)</strong>: Raio (\(R > 0\)).</p>
+                    </div>
+                     <p class="mnemonic">"X menos 'a', Y menos 'b', ao quadrado somados, igual a R ao quadrado, segredos revelados."</p>
+                </section>
+
+                <!-- Slide 1.2: Visualizações -->
+                <section class="simulator">
+                    <h3>Visualização: Forjando a Equação</h3>
+                    <p>Ajuste o centro (a,b) e o raio R. Observe a equação e a forma resultante.</p>
+                    <div class="canvas-container interactive-element">
+                        <canvas id="circunferencia-eq-canvas" width="800" height="400"></canvas>
+                        <div class="simulator-controls">
+                            <div class="control-panel">
+                                <label for="circ-eq-cx">Centro X (a):</label>
+                                <input type="range" id="circ-eq-cx" min="-8" max="8" value="0" step="0.5">
+                                <span id="circ-eq-cx-value">0</span>
+                                <label for="circ-eq-cy">Centro Y (b):</label>
+                                <input type="range" id="circ-eq-cy" min="-5" max="5" value="0" step="0.5">
+                                <span id="circ-eq-cy-value">0</span>
+                                <label for="circ-eq-r">Raio (R):</label>
+                                <input type="range" id="circ-eq-r" min="1" max="8" value="3" step="0.5">
+                                <span id="circ-eq-r-value">3</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hint-message">
+                        <p>Equação Resultante: <span id="circ-eq-equation-display" class="formula radiation-glow">(x - 0)² + (y - 0)² = 3²</span>.</p>
+                    </div>
+                </section>
+
+                <!-- Slide 1.3: Teorema Relacionado - Eq. Geral -->
+                 <section class="field-report">
+                    <h3>Teorema: A Equação Geral (Forma Implícita)</h3>
+                    <div class="info-panel">
+                      <div class="info-screen">
+                        <p>Desenvolvendo a equação reduzida \((x-a)^2+(y-b)^2=R^2\), chegamos à forma geral:</p>
+                        <p class="formula">\(x^2 + y^2 + Dx + Ey + F = 0\)</p>
+                        <p>Onde os coeficientes D, E, F estão relacionados com o centro (a,b) e o raio R:</p>
+                        <p>\(D = -2a\),   \(E = -2b\),   \(F = a^2 + b^2 - R^2\).</p>
+                        <p><em>Esta forma pode aparecer em sinais interceptados ou dados corrompidos.</em></p>
+                      </div>
+                    </div>
+                </section>
+
+                <!-- Slide 1.4: Teorema Relacionado - Condição de Existência -->
+                 <section class="field-report">
+                    <h3>Teorema: Condição de Existência</h3>
+                    <div class="info-panel">
+                      <div class="info-screen">
+                        <p>Uma equação da forma \(x^2 + y^2 + Dx + Ey + F = 0\) SÓ representa uma circunferência se a seguinte condição for satisfeita:</p>
+                        <p class="formula">\( D^2 + E^2 - 4F > 0 \)</p>
+                        <p>Por quê? Porque o termo à esquerda está relacionado ao quadrado do raio (<(>R^2 = \frac{D^2+E^2-4F}{4}\)). E o raio deve ser real e positivo.</p>
+                        <ul>
+                            <li>Se \(D^2+E^2-4F = 0 \implies\) Representa um único ponto (raio zero).</li>
+                            <li>Se \(D^2+E^2-4F < 0 \implies\) Conjunto vazio (raio imaginário).</li>
+                        </ul>
+                      </div>
+                    </div>
+                </section>
+
+                <!-- Slide 1.5: Teorema Relacionado - Conversão Geral -> Reduzida -->
+                 <section class="field-report">
+                    <h3>Teorema: Decodificando a Eq. Geral</h3>
+                    <div class="info-panel">
+                      <div class="info-screen">
+                         <p>Se \( D^2 + E^2 - 4F > 0 \), podemos encontrar o centro e o raio a partir de D, E, F:</p>
+                         <h4>Centro \(C(a,b)\):</h4>
+                         <p class="formula">\(a = -\frac{D}{2}\)      \(b = -\frac{E}{2}\)</p>
+                         <h4>Raio \(R\):</h4>
+                         <p class="formula">\(R = \sqrt{a^2 + b^2 - F} = \frac{\sqrt{D^2+E^2-4F}}{2}\)</p>
+                         <p><em>(Estes resultados vêm da técnica de completar quadrados na equação geral).</em></p>
+                      </div>
+                    </div>
+                </section>
+
+                <!-- Slide 1.6: Problema -->
+                <section class="survival-training">
+                    <h3>Problema: Decodificar Sinal Inimigo</h3>
+                    <div class="training-problem">
+                      <h4>Cenário:</h4>
+                      <p>Interceptamos a descrição de uma zona de perigo:</p>
+                      <p class="formula">\(x^2 + y^2 - 6x + 8y + 9 = 0\)</p>
+                      <h4>Missão:</h4>
+                      <p>Determinar o centro \(C\) e o raio \(R\) desta zona.</p>
+                    </div>
+                    <div class="problem-context">
+                      <p>Precisamos saber o alcance exato do perigo.</p>
+                    </div>
+                </section>
+
+                <!-- Slide 1.7: Solução - Passo 1: Coeficientes -->
+                 <section class="field-report">
+                    <h3>Solução: Passo 1 - Identificar D, E, F</h3>
+                    <div class="info-panel">
+                      <div class="info-screen">
+                         <p>Equação: \(x^2 + y^2 - 6x + 8y + 9 = 0\)</p>
+                         <p>Forma Geral: \(x^2 + y^2 + Dx + Ey + F = 0\)</p>
+                         <p>Comparando termo a termo:</p>
+                         <p>\(D = -6\)</p>
+                         <p>\(E = 8\)</p>
+                         <p>\(F = 9\)</p>
+                      </div>
+                    </div>
+                </section>
+
+                <!-- Slide 1.8: Solução - Passo 2: Verificar Condição -->
+                 <section class="field-report">
+                    <h3>Solução: Passo 2 - Verificar \(D^2+E^2-4F > 0\)</h3>
+                    <div class="info-panel">
+                      <div class="info-screen">
+                         <p>Usando \(D=-6\), \(E=8\), \(F=9\):</p>
+                         <p>\( D^2 + E^2 - 4F = (-6)^2 + (8)^2 - 4(9) \)</p>
+                         <p>\( = 36 + 64 - 36 \)</p>
+                         <p class="formula">\( = 64 \)</p>
+                         <p>Como \(64 > 0\), a equação representa uma circunferência válida.</p>
+                      </div>
+                    </div>
+                </section>
+
+                 <!-- Slide 1.9: Solução - Passo 3: Calcular Centro -->
+                 <section class="field-report">
+                    <h3>Solução: Passo 3 - Calcular Centro \(C(a,b)\)</h3>
+                    <div class="info-panel">
+                      <div class="info-screen">
+                         <p>Usando as fórmulas de conversão:</p>
+                         <p>\(a = -D/2 = -(-6)/2 = 6/2 = 3\)</p>
+                         <p>\(b = -E/2 = -(8)/2 = -8/2 = -4\)</p>
+                         <p>Portanto, o centro da zona de perigo é:</p>
+                         <p class="formula">\( C = (3, -4) \)</p>
+                      </div>
+                    </div>
+                </section>
+
+                 <!-- Slide 1.10: Solução - Passo 4: Calcular Raio -->
+                 <section class="field-report">
+                    <h3>Solução: Passo 4 - Calcular Raio \(R\)</h3>
+                    <div class="info-panel">
+                      <div class="info-screen">
+                         <p>Usando a fórmula de conversão:</p>
+                         <p>\(R = \frac{\sqrt{D^2+E^2-4F}}{2}\)</p>
+                         <p>Já calculamos \(D^2+E^2-4F = 64\).</p>
+                         <p>\(R = \frac{\sqrt{64}}{2} = \frac{8}{2} = 4\)</p>
+                         <p>Portanto, o raio da zona de perigo é:</p>
+                         <p class="formula">\( R = 4 \)</p>
+                      </div>
+                    </div>
+                </section>
+
+                <!-- Slide 1.11: Conclusão -->
+                 <section class="debriefing">
+                    <h3>Conclusão: Equações da Redoma</h3>
+                    <div class="summary-box">
+                      <h4>Lições Aprendidas:</h4>
+                      <ul>
+                          <li>Equação Reduzida: Clara e direta para C e R.</li>
+                          <li>Equação Geral: Requer verificação e decodificação.</li>
+                          <li>A condição \(D^2+E^2-4F>0\) é o teste de validade.</li>
+                      </ul>
+                      <p>Ambas as formas são ferramentas essenciais no arsenal do sobrevivente geométrico.</p>
+                    </div>
+                </section>
+            </section>
+
+            <!-- ============================ -->
+            <!-- TÓPICO 2: POSIÇÃO DE PONTO   (HORIZONTAL →) -->
+            <!-- ============================ -->
+            <section>
+                 <!-- Slide 2.1: Conceito Principal -->
+                <section class="mission-briefing">
+                    <h2>Tópico 2: Posição de Ponto vs. Circunferência</h2>
+                    <h3 class="mission-subtitle">Dentro, Fora ou na Linha?</h3>
+                    <div class="definition-box">
+                        <p>Como saber se um ponto \(P(x_p, y_p)\) está dentro, fora ou na fronteira de uma zona segura \(\lambda(C(a, b), R)\)?</p>
+                        <p>A resposta está na comparação da distância do ponto ao centro com o raio.</p>
+                        <ul>
+                            <li><strong>Interno:</strong> \(d(P,C) < R\)</li>
+                            <li><strong>Pertencente:</strong> \(d(P,C) = R\)</li>
+                            <li><strong>Externo:</strong> \(d(P,C) > R\)</li>
+                        </ul>
+                    </div>
+                     <p class="mnemonic">"Distância ao quadrado calculada, com Raio ao quadrado comparada. Menor, igual ou maior dirá, se seguro o ponto está."</p>
+                </section>
+
+                <!-- Slide 2.2: Visualizações -->
+                <section class="simulator">
+                    <h3>Visualização: Testando a Posição</h3>
+                    <p>Defina a zona segura (C, R) e gere pontos aleatórios para ver onde caem.</p>
+                     <div class="canvas-container interactive-element">
+                        <canvas id="circunferencia-pos-canvas" width="800" height="400"></canvas>
+                        <div class="simulator-controls">
+                             <div class="control-panel">
+                                <label for="circ-pos-cx">Centro X (a):</label>
+                                <input type="range" id="circ-pos-cx" min="-8" max="8" value="1" step="0.5">
+                                <span id="circ-pos-cx-value">1</span>
+                                <label for="circ-pos-cy">Centro Y (b):</label>
+                                <input type="range" id="circ-pos-cy" min="-5" max="5" value="-1" step="0.5">
+                                <span id="circ-pos-cy-value">-1</span>
+                                <label for="circ-pos-r">Raio (R):</label>
+                                <input type="range" id="circ-pos-r" min="1" max="8" value="4" step="0.5">
+                                <span id="circ-pos-r-value">4</span>
+                            </div>
+                            <div class="control-panel">
+                                <button id="circ-pos-add-point-btn" class="operation-btn radiation-glow">Testar Ponto Aleatório</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hint-message">
+                        <p>Verde (Interno), Amarelo (Na Fronteira), Vermelho (Externo).</p>
+                    </div>
+                </section>
+
+                <!-- Slide 2.3: Teorema Relacionado -->
+                 <section class="field-report">
+                    <h3>Teorema: Critério de Posição (Cálculo Eficiente)</h3>
+                    <div class="info-panel">
+                      <div class="info-screen">
+                         <p>Para evitar raízes quadradas, comparamos as distâncias <strong>ao quadrado</strong>.</p>
+                         <p>Dada \(\lambda: (x - a)^2 + (y - b)^2 = R^2\) e \(P(x_p, y_p)\):</p>
+                         <ol>
+                            <li>Calcule: <span class="formula">\(d^2 = (x_p - a)^2 + (y_p - b)^2\)</span></li>
+                            <li>Compare \(d^2\) com \(R^2\):
+                                <ul>
+                                    <li>\(d^2 < R^2 \implies\) Interno</li>
+                                    <li>\(d^2 = R^2 \implies\) Pertencente</li>
+                                    <li>\(d^2 > R^2 \implies\) Externo</li>
+                                </ul>
+                            </li>
+                         </ol>
+                         <p><em>Simples, rápido e eficaz para análise de campo.</em></p>
+                      </div>
+                    </div>
+                </section>
+
+                <!-- Slide 2.4: Problema -->
+                <section class="survival-training">
+                    <h3>Problema: Avaliar Ponto de Interesse</h3>
+                    <div class="training-problem">
+                      <h4>Cenário:</h4>
+                      <p>Sua zona segura: Centro \(C(2, 1)\), Raio \(R=5\).</p>
+                      <p>Sinal detectado em: \(P(6, 4)\).</p>
+                       <h4>Missão:</h4>
+                       <p>Classificar a posição do ponto \(P\) (interno, pertencente ou externo).</p>
+                    </div>
+                    <div class="problem-context">
+                      <p>É um aliado dentro dos muros ou uma ameaça na fronteira?</p>
+                    </div>
+                </section>
+
+                <!-- Slide 2.5: Solução - Passo 1: Dados e R² -->
+                 <section class="field-report">
+                    <h3>Solução: Passo 1 - Organizar Dados</h3>
+                    <div class="info-panel">
+                      <div class="info-screen">
+                         <p>Centro \(C = (a, b) = (2, 1)\)</p>
+                         <p>Raio \(R = 5 \implies R^2 = 5^2 = 25\)</p>
+                         <p>Ponto \(P = (x_p, y_p) = (6, 4)\)</p>
+                         <p><em>Objetivo: Comparar \(d(P,C)^2\) com \(R^2\).</em></p>
+                      </div>
+                    </div>
+                </section>
+
+                <!-- Slide 2.6: Solução - Passo 2: Calcular d² -->
+                 <section class="field-report">
+                    <h3>Solução: Passo 2 - Calcular \(d^2\)</h3>
+                    <div class="info-panel">
+                      <div class="info-screen">
+                         <p>Fórmula da distância ao quadrado:</p>
+                         <p>\(d^2 = (x_p - a)^2 + (y_p - b)^2\)</p>
+                         <p>Substituindo os valores:</p>
+                         <p>\(d^2 = (6 - 2)^2 + (4 - 1)^2\)</p>
+                         <p>\(d^2 = (4)^2 + (3)^2\)</p>
+                         <p>\(d^2 = 16 + 9\)</p>
+                         <p class="formula">\(d^2 = 25\)</p>
+                      </div>
+                    </div>
+                </section>
+
+                <!-- Slide 2.7: Solução - Passo 3: Comparar e Classificar -->
+                 <section class="field-report">
+                    <h3>Solução: Passo 3 - Comparar e Classificar</h3>
+                     <div class="info-panel">
+                      <div class="info-screen">
+                         <p>Calculamos \(d^2 = 25\).</p>
+                         <p>Temos \(R^2 = 25\).</p>
+                         <p>Comparando: \(d^2 = R^2\)</p>
+                         <p>Conclusão: Como \(d^2\) é <strong>igual</strong> a \(R^2\), o ponto P é <strong>Pertencente</strong> (está na fronteira).</p>
+                         <p class="formula">Resultado: O sinal vem da borda da zona segura!</p>
+                      </div>
+                    </div>
+                </section>
+
+                <!-- Slide 2.8: Conclusão -->
+                 <section class="debriefing">
+                    <h3>Conclusão: Mapeando Inclusão/Exclusão</h3>
+                    <div class="summary-box">
+                      <h4>Lições Aprendidas:</h4>
+                      <ul>
+                          <li>A classificação (interno/pertencente/externo) depende da distância \(d(P,C)\) vs Raio \(R\).</li>
+                          <li>Comparar \(d^2\) com \(R^2\) é o método prático.</li>
+                      </ul>
+                      <p>Permite avaliar rapidamente a localização de qualquer ponto em relação a uma zona circular.</p>
+                    </div>
+                </section>
+            </section>
+
+            <!-- ============================ -->
+            <!-- TÓPICO 3: CIRC. POR 3 PONTOS (HORIZONTAL →) -->
+            <!-- ============================ -->
+             <section>
+                 <!-- Slide 3.1: Conceito Principal -->
+                <section class="mission-briefing">
+                    <h2>Tópico 3: Circunferência por Três Pontos</h2>
+                    <h3 class="mission-subtitle">Traçando a partir de Marcos</h3>
+                    <div class="definition-box">
+                        <p>Se tivermos três pontos \(A, B, C\) que <strong>não</strong> formam uma linha reta (não colineares), existe exatamente <strong>uma</strong> circunferência que passa por todos eles.</p>
+                        <p>O centro desta circunferência única é o <strong>Circuncentro</strong> do triângulo ABC (ponto equidistante de A, B e C).</p>
+                    </div>
+                    <p class="mnemonic">"Três pontos no mapa, não em linha reta? Um círculo os abraça, missão completa!"</p>
+                </section>
+
+                <!-- Slide 3.2: Visualizações - Conceito Geométrico -->
+                 <section class="field-report">
+                    <h3>Visualização: O Encontro das Mediatrizes</h3>
+                     <div class="info-panel">
+                         <div class="info-screen">
+                             <p>O centro C deve estar à mesma distância de A e B. Logo, C pertence à <strong>mediatriz</strong> do segmento AB.</p>
+                              <p class="formula">[Mediatriz: reta perpendicular a AB passando pelo ponto médio de AB]</p>
+                             <p>O centro C também deve estar à mesma distância de B e C. Logo, C pertence à mediatriz de BC.</p>
+                             <p>O ponto onde essas duas mediatrizes se cruzam é o único ponto equidistante de A, B e C: o Circuncentro!</p>
+                             <p class="formula">[Diagrama: Triângulo ABC, mediatrizes de AB e BC se cruzando em C, circunferência passando por A,B,C]</p>
+                         </div>
+                     </div>
+                </section>
+
+                 <!-- Slide 3.3: Teorema Relacionado - Método das Mediatrizes (Passos 1-3) -->
+                 <section class="field-report">
+                    <h3>Teorema: Método das Mediatrizes (Parte 1)</h3>
+                     <div class="info-panel">
+                      <div class="info-screen">
+                         <h4>Como Encontrar C e R:</h4>
+                         <ol>
+                             <li><strong>Verificar Colinearidade:</strong> Calcule as inclinações mAB e mBC. Se mAB = mBC, pare (pontos colineares).</li>
+                             <li><strong>Mediatriz 1 (ex: de AB):</strong>
+                                <ul>
+                                    <li>Ache o Ponto Médio \(M_{AB}\).</li>
+                                    <li>Ache a Inclinação Perpendicular \(m_{\perp AB} = -1/m_{AB}\).</li>
+                                    <li>Obtenha a Equação da reta mediatriz (usando \(M_{AB}\) e \(m_{\perp AB}\)).</li>
+                                </ul>
+                            </li>
+                         </ol>
+                         <p><em>Primeiro passo: garantir que existe um círculo e encontrar a equação da primeira mediatriz.</em></p>
+                      </div>
+                    </div>
+                </section>
+
+                 <!-- Slide 3.4: Teorema Relacionado - Método das Mediatrizes (Passos 4-6) -->
+                 <section class="field-report">
+                    <h3>Teorema: Método das Mediatrizes (Parte 2)</h3>
+                     <div class="info-panel">
+                      <div class="info-screen">
+                         <h4>Como Encontrar C e R (cont.):</h4>
+                         <ol start="3">
+                             <li><strong>Mediatriz 2 (ex: de BC):</strong>
+                                 <ul>
+                                     <li>Ache o Ponto Médio \(M_{BC}\).</li>
+                                     <li>Ache a Inclinação Perpendicular \(m_{\perp BC} = -1/m_{BC}\).</li>
+                                     <li>Obtenha a Equação da reta mediatriz de BC.</li>
+                                 </ul>
+                            </li>
+                             <li><strong>Encontrar Centro C (Interseção):</strong> Resolva o sistema linear formado pelas equações das duas mediatrizes encontradas. A solução \((x, y)\) é o centro \(C(a, b)\).</li>
+                             <li><strong>Calcular Raio R:</strong> Calcule a distância do centro \(C\) a *qualquer* um dos pontos originais (A, B ou C). Ex: \(R = d(C, A)\).</li>
+                         </ol>
+                          <p><em>Com as duas mediatrizes, achamos o centro; com o centro e um ponto, achamos o raio.</em></p>
+                      </div>
+                    </div>
+                </section>
+
+                <!-- Slide 3.5: Problema -->
+                <section class="survival-training">
+                    <h3>Problema: Perímetro do Posto Avançado</h3>
+                    <div class="training-problem">
+                        <h4>Cenário:</h4>
+                        <p>Sensores posicionados em \(P(1,1)\), \(Q(5,3)\), e \(R(2,6)\).</p>
+                         <h4>Missão:</h4>
+                        <p>Determinar a equação da circunferência que passa por P, Q e R.</p>
+                    </div>
+                    <div class="problem-context">
+                        <p>Definir a redoma ideal com base nos marcos.</p>
+                    </div>
+                 </section>
+
+                <!-- Slide 3.6: Solução - Passo 1: Colinearidade -->
+                 <section class="field-report">
+                    <h3>Solução: Passo 1 - Verificar Colinearidade</h3>
+                    <div class="info-panel">
+                      <div class="info-screen">
+                        <p>Inclinação PQ: \( m_{PQ} = \frac{y_Q - y_P}{x_Q - x_P} = \frac{3-1}{5-1} = \frac{2}{4} = \frac{1}{2} \)</p>
+                        <p>Inclinação QR: \( m_{QR} = \frac{y_R - y_Q}{x_R - x_Q} = \frac{6-3}{2-5} = \frac{3}{-3} = -1 \)</p>
+                        <p>Como \(m_{PQ} \ne m_{QR}\), os pontos <strong>não são colineares</strong>. Uma circunferência pode ser definida.</p>
+                      </div>
+                    </div>
+                </section>
+
+                 <!-- Slide 3.7: Solução - Passo 2: Mediatriz de PQ -->
+                 <section class="field-report">
+                    <h3>Solução: Passo 2 - Mediatriz de PQ</h3>
+                    <div class="info-panel">
+                      <div class="info-screen">
+                         <p>Ponto Médio \(M_{PQ} = (\frac{1+5}{2}, \frac{1+3}{2}) = (3, 2)\)</p>
+                         <p>Inclinação de PQ: \(m_{PQ} = 1/2\)</p>
+                         <p>Inclinação Perpendicular: \(m_{\perp PQ} = -1 / (1/2) = -2\)</p>
+                         <p>Equação (ponto-inclinação): \( y - y_{M} = m_{\perp}(x - x_{M}) \)</p>
+                         <p>\( y - 2 = -2(x - 3) \implies y - 2 = -2x + 6 \)</p>
+                         <p class="formula">Eq. Mediatriz PQ: \( 2x + y - 8 = 0 \)    (Eq. 1)</p>
+                      </div>
+                    </div>
+                </section>
+
+                <!-- Slide 3.8: Solução - Passo 3: Mediatriz de QR -->
+                <section class="field-report">
+                    <h3>Solução: Passo 3 - Mediatriz de QR</h3>
+                    <div class="info-panel">
+                      <div class="info-screen">
+                         <p>Ponto Médio \(M_{QR} = (\frac{5+2}{2}, \frac{3+6}{2}) = (3.5, 4.5)\)</p>
+                         <p>Inclinação de QR: \(m_{QR} = -1\)</p>
+                         <p>Inclinação Perpendicular: \(m_{\perp QR} = -1 / (-1) = 1\)</p>
+                         <p>Equação (ponto-inclinação): \( y - y_{M} = m_{\perp}(x - x_{M}) \)</p>
+                         <p>\( y - 4.5 = 1(x - 3.5) \implies y - 4.5 = x - 3.5 \)</p>
+                         <p class="formula">Eq. Mediatriz QR: \( x - y + 1 = 0 \)    (Eq. 2)</p>
+                      </div>
+                    </div>
+                </section>
+
+                <!-- Slide 3.9: Solução - Passo 4: Encontrar Centro C -->
+                <section class="field-report">
+                    <h3>Solução: Passo 4 - Encontrar Centro (Interseção)</h3>
+                    <div class="info-panel">
+                      <div class="info-screen">
+                         <p>Resolver o sistema formado pelas equações das mediatrizes:</p>
+                         <p>\( \begin{cases} 2x + y = 8 & \text{(Eq. 1)} \\ x - y = -1 & \text{(Eq. 2)} \end{cases} \)</p>
+                         <p>Método da Adição (somar as duas equações):</p>
+                         <p>\((2x + y) + (x - y) = 8 + (-1)\)</p>
+                         <p>\(3x = 7 \implies x = 7/3\)</p>
+                         <p>Substituir x na Eq. 2:</p>
+                         <p>\( (7/3) - y = -1 \implies y = 7/3 + 1 = 7/3 + 3/3 = 10/3 \)</p>
+                         <p>O centro (Circuncentro) é:</p>
+                         <p class="formula">\( C = (7/3, 10/3) \)</p>
+                      </div>
+                    </div>
+                </section>
+
+                <!-- Slide 3.10: Solução - Passo 5: Calcular Raio R -->
+                 <section class="field-report">
+                    <h3>Solução: Passo 5 - Calcular Raio \(R\)</h3>
+                    <div class="info-panel">
+                      <div class="info-screen">
+                         <p>O raio é a distância do centro \(C(7/3, 10/3)\) a qualquer um dos pontos (P, Q ou R). Vamos usar P(1,1).</p>
+                         <p>Calculamos o raio ao quadrado \(R^2 = d(C, P)^2\):</p>
+                         <p>\( R^2 = (x_P - x_C)^2 + (y_P - y_C)^2 \)</p>
+                         <p>\( R^2 = (1 - 7/3)^2 + (1 - 10/3)^2 \)</p>
+                         <p>\( R^2 = (3/3 - 7/3)^2 + (3/3 - 10/3)^2 \)</p>
+                         <p>\( R^2 = (-4/3)^2 + (-7/3)^2 = \frac{16}{9} + \frac{49}{9} = \frac{65}{9} \)</p>
+                         <p>O raio ao quadrado é \(R^2 = 65/9\). O raio é \(R = \sqrt{65}/3\).</p>
+                      </div>
+                    </div>
+                </section>
+
+                <!-- Slide 3.11: Solução - Passo 6: Equação Final -->
+                <section class="field-report">
+                    <h3>Solução: Passo 6 - Equação da Circunferência</h3>
+                    <div class="info-panel">
+                      <div class="info-screen">
+                         <p>Temos o Centro \(C(7/3, 10/3)\) e o Raio ao Quadrado \(R^2 = 65/9\).</p>
+                         <p>Substituímos na equação reduzida \((x-a)^2 + (y-b)^2 = R^2\):</p>
+                         <p class="formula">\( (x - 7/3)^2 + (y - 10/3)^2 = 65/9 \)</p>
+                         <p>Esta é a equação da circunferência que passa pelos três sensores.</p>
+                      </div>
+                    </div>
+                </section>
+
+                <!-- Slide 3.12: Conclusão -->
+                 <section class="debriefing">
+                    <h3>Conclusão: Círculo a Partir de Pontos</h3>
+                    <div class="summary-box">
+                      <h4>Lições Aprendidas:</h4>
+                      <ul>
+                          <li>O método das mediatrizes permite encontrar o centro único equidistante de 3 pontos não colineares.</li>
+                          <li>A resolução de um sistema linear é chave para achar o centro.</li>
+                          <li>O raio é simplesmente a distância do centro a um dos pontos.</li>
+                      </ul>
+                      <p>Permite definir perímetros baseados em marcos existentes no terreno.</p>
+                    </div>
+                </section>
+            </section>
+
+            <!-- ============================ -->
+            <!-- TÓPICO 4: POSIÇÕES RELATIVAS (HORIZONTAL →) -->
+            <!-- ============================ -->
+            <section>
+                 <!-- Slide 4.1: Conceito Principal -->
+                <section class="mission-briefing">
+                    <h2>Tópico 4: Posições Relativas e Interseções</h2>
+                    <h3 class="mission-subtitle">Analisando Contato e Sobreposição</h3>
+                    <div class="definition-box">
+                        <p>Estudar como retas e outras circunferências interagem com uma circunferência base.</p>
+                         <h4>Interação Reta-Circunferência:</h4>
+                         <p>Externa (sem toque), Tangente (1 ponto), Secante (2 pontos).</p>
+                         <h4>Interação Circunferência-Circunferência:</h4>
+                         <p>Externas, Tangentes (Ext/Int), Secantes, Internas, Concêntricas.</p>
+                    </div>
+                    <p class="mnemonic">"Distância 'd' versus Raio(s) 'R'. A comparação revela os laços (ou a falta deles)."</p>
+                </section>
+
+                <!-- Slide 4.2: Visualizações -->
+                 <section class="field-report">
+                    <h3>Visualização: Cenários de Interação</h3>
+                     <div class="info-panel">
+                         <div class="info-screen">
+                            <h4>Reta vs. Circunferência:</h4>
+                             <p class="formula">[Diagrama: Circulo com reta externa, tangente, secante. Indicar d>R, d=R, d<R]</p>
+                             <hr style="border-color: #ADFF2F; opacity: 0.2;">
+                             <h4>Circunferência vs. Circunferência:</h4>
+                             <p class="formula">[Diagrama: 2 Círculos em várias posições. Indicar d>R1+R2, d=R1+R2, |R1-R2|<d<R1+R2, d=|R1-R2|, d<|R1-R2|]</p>
+                             <p><em>(Nota: Adicionar diagramas aqui seria ideal)</em></p>
+                         </div>
+                     </div>
+                </section>
+
+                <!-- Slide 4.3: Teorema Relacionado - Reta vs Circ -->
+                 <section class="field-report">
+                    <h3>Teorema: Posição Reta-Circunferência</h3>
+                    <div class="info-panel">
+                      <div class="info-screen">
+                         <p>Dada a reta \(r\) e a circunferência \(\lambda\) de centro \(C\) e raio \(R\).</p>
+                         <p>Calcule a distância \(d = d(C, r)\) do centro C à reta r.</p>
+                         <ul>
+                             <li>Se \(d > R \implies\) A reta é <strong>Externa</strong> (0 pontos comuns).</li>
+                             <li>Se \(d = R \implies\) A reta é <strong>Tangente</strong> (1 ponto comum).</li>
+                             <li>Se \(d < R \implies\) A reta é <strong>Secante</strong> (2 pontos comuns).</li>
+                         </ul>
+                         <p class="formula">Lembrete Distância: \( d(C(x_c,y_c), r:Ax+By+K=0) = \frac{|Ax_c + By_c + K|}{\sqrt{A^2+B^2}} \)</p>
+                      </div>
+                    </div>
+                </section>
+
+                <!-- Slide 4.4: Teorema Relacionado - Circ vs Circ -->
+                 <section class="field-report">
+                    <h3>Teorema: Posição Circunferência-Circunferência</h3>
+                    <div class="info-panel">
+                      <div class="info-screen">
+                         <p>Dadas \(\lambda_1(C_1, R_1)\) e \(\lambda_2(C_2, R_2)\).</p>
+                         <p>Calcule a distância \(d = d(C_1, C_2)\) entre os centros.</p>
+                          <ul>
+                             <li>\(d > R_1 + R_2 \implies\) <strong>Externas</strong></li>
+                             <li>\(d = R_1 + R_2 \implies\) <strong>Tangentes Externas</strong></li>
+                             <li>\(|R_1 - R_2| < d < R_1 + R_2 \implies\) <strong>Secantes</strong></li>
+                             <li>\(d = |R_1 - R_2| > 0 \implies\) <strong>Tangentes Internas</strong></li>
+                             <li>\(0 \le d < |R_1 - R_2| \implies\) <strong>Internas</strong></li>
+                             <li>\(d = 0 \implies\) <strong>Concêntricas</strong></li>
+                          </ul>
+                      </div>
+                    </div>
+                </section>
+
+                <!-- Slide 4.5: Problema -->
+                 <section class="survival-training">
+                    <h3>Problema: Análise de Rotas e Zonas</h3>
+                    <div class="training-problem">
+                        <h4>Cenário 1 (Reta-Circ):</h4>
+                        <p>Base \(C(2, -1)\), \(R=5\). Rota \(r: 3x - 4y + k = 0\).</p>
+                        <p><em>Missão 1:</em> Achar \(k\) para a rota ser tangente à base.</p>
+                        <h4>Cenário 2 (Circ-Circ):</h4>
+                        <p>Base 1 \(\lambda_1: C_1(0,0), R_1=3\).</p>
+                        <p>Base 2 \(\lambda_2: C_2(5,0), R_2=1\).</p>
+                        <p><em>Missão 2:</em> Classificar a posição relativa entre as bases.</p>
+                    </div>
+                    <div class="problem-context">
+                      <p>Planejamento tático requer análise precisa das interações.</p>
+                    </div>
+                 </section>
+
+                <!-- Slide 4.6: Solução - Cenário 1, Passo 1: Condição -->
+                 <section class="field-report">
+                    <h3>Solução 1: Condição de Tangência</h3>
+                    <div class="info-panel">
+                      <div class="info-screen">
+                         <p>Cenário 1: Base \(C(2, -1)\), \(R=5\). Rota \(r: 3x - 4y + k = 0\).</p>
+                         <p>Para tangência, a distância do centro à reta deve ser igual ao raio.</p>
+                         <p class="formula">\(d(C, r) = R = 5\)</p>
+                      </div>
+                    </div>
+                </section>
+
+                <!-- Slide 4.7: Solução - Cenário 1, Passo 2: Calcular Distância -->
+                 <section class="field-report">
+                    <h3>Solução 1: Calcular \(d(C, r)\)</h3>
+                    <div class="info-panel">
+                      <div class="info-screen">
+                         <p>Usando \(C(x_c=2, y_c=-1)\) e \(3x - 4y + k = 0\) (A=3, B=-4, C=k):</p>
+                         <p>\( d(C, r) = \frac{|A x_c + B y_c + C|}{\sqrt{A^2+B^2}} = \frac{|3(2) + (-4)(-1) + k|}{\sqrt{3^2+(-4)^2}} \)</p>
+                         <p>\( d(C, r) = \frac{|6 + 4 + k|}{\sqrt{25}} = \frac{|10 + k|}{5} \)</p>
+                      </div>
+                    </div>
+                </section>
+
+                 <!-- Slide 4.8: Solução - Cenário 1, Passo 3: Resolver para k -->
+                 <section class="field-report">
+                    <h3>Solução 1: Resolver para \(k\)</h3>
+                    <div class="info-panel">
+                      <div class="info-screen">
+                         <p>Igualando a distância ao raio: \( \frac{|10 + k|}{5} = 5 \)</p>
+                         <p>\( |10 + k| = 25 \)</p>
+                         <p>Duas possibilidades:</p>
+                         <p>1) \(10 + k = 25 \implies \mathbf{k = 15}\) </p>
+                         <p>2) \(10 + k = -25 \implies \mathbf{k = -35}\) </p>
+                         <p>Resultado: Rotas tangentes: \(3x-4y+15=0\) e \(3x-4y-35=0\).</p>
+                      </div>
+                    </div>
+                </section>
+
+                <!-- Slide 4.9: Solução - Cenário 2, Passos 1-3: Dados e Cálculos -->
+                 <section class="field-report">
+                    <h3>Solução 2: Análise Circ-Circ (Dados)</h3>
+                    <div class="info-panel">
+                      <div class="info-screen">
+                         <p>Cenário 2:</p>
+                         <p>\(\lambda_1: C_1(0,0), R_1=3\)</p>
+                         <p>\(\lambda_2: C_2(5,0), R_2=1\)</p>
+                         <h4>Passo 1: Distância \(d\) entre Centros</h4>
+                         <p>\(d = d(C_1, C_2) = \sqrt{(5-0)^2 + (0-0)^2} = 5\)</p>
+                         <h4>Passo 2: Soma/Diferença dos Raios</h4>
+                         <p>\(R_1 + R_2 = 3 + 1 = 4\)</p>
+                         <p>\(|R_1 - R_2| = |3 - 1| = 2\)</p>
+                      </div>
+                    </div>
+                </section>
+
+                 <!-- Slide 4.10: Solução - Cenário 2, Passos 4-5: Comparar e Classificar -->
+                 <section class="field-report">
+                    <h3>Solução 2: Análise Circ-Circ (Classificação)</h3>
+                    <div class="info-panel">
+                      <div class="info-screen">
+                         <h4>Passo 3: Comparar</h4>
+                         <p>Temos: \(d = 5\), \(R_1 + R_2 = 4\), \(|R_1 - R_2| = 2\).</p>
+                         <p>Observamos que \(d = 5 > R_1 + R_2 = 4\).</p>
+                         <p class="formula">\(d > R_1 + R_2\)</p>
+                         <h4>Passo 4: Classificar</h4>
+                         <p>A condição \(d > R_1 + R_2\) significa que as circunferências são <strong>Externas</strong>.</p>
+                         <p>Resultado: As bases não se tocam.</p>
+                      </div>
+                    </div>
+                </section>
+
+                <!-- Slide 4.11: Conclusão -->
+                 <section class="debriefing">
+                    <h3>Conclusão: Análise de Interações</h3>
+                    <div class="summary-box">
+                      <h4>Lições Aprendidas:</h4>
+                      <ul>
+                          <li>A posição relativa (reta-circ, circ-circ) é determinada comparando distâncias com raios.</li>
+                          <li>Tangência é um caso especial importante.</li>
+                          <li>Secantes indicam interseção/sobreposição.</li>
+                      </ul>
+                      <p>Permite prever colisões, planejar rotas seguras e analisar fronteiras.</p>
+                    </div>
+                </section>
+            </section>
+
+             <!-- ============================ -->
+            <!-- SLIDES FINAIS DE APLICAÇÃO (HORIZONTAL →) -->
+            <!-- ============================ -->
+            <section>
+                <!-- Slide A.1: Aplicação Histórica -->
+                <section class="field-report">
+                    <h3>Aplicação Histórica: Modelos Celestes</h3>
+                    <div class="info-panel">
+                      <div class="info-screen crt-effect">
+                        <h4>Círculos no Cosmos</h4>
+                         <p>Modelos geocêntricos (Ptolomeu) e heliocêntricos iniciais (Copérnico) dependiam fortemente de órbitas circulares e combinações (epiciclos) para explicar o movimento planetário.</p>
+                         <p>A análise da posição relativa desses círculos era fundamental para prever as posições planetárias.</p>
+                      </div>
+                    </div>
+                </section>
+
+                <!-- Slide A.2: Aplicação Prática Moderna -->
+                 <section class="field-report">
+                    <h3>Aplicação Moderna: Tecnologia e Design</h3>
+                    <div class="info-panel">
+                      <div class="info-screen crt-effect">
+                        <h4>Do GPS à Robótica</h4>
+                        <p><strong>GPS/Trilateração:</strong> Interseção de esferas (círculos em 2D) para localização.</p>
+                        <p><strong>CAD/Engenharia:</strong> Tangências e interseções são base para design mecânico e arquitetônico.</p>
+                        <p><strong>Robótica/Jogos:</strong> Círculos como "bounding volumes" para detecção rápida de colisão.</p>
+                        <p><strong>Geofencing:</strong> Criação de perímetros virtuais circulares para alertas.</p>
+                      </div>
+                    </div>
+                </section>
+            </section>
+
+
+        </div> <!-- Fim de .slides -->
+    </div> <!-- Fim de .reveal -->
+
+    <!-- ==================== -->
+    <!--      SCRIPTS         -->
+    <!-- ==================== -->
+
+    <!-- Reveal.js Core and Plugins -->
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/math/math.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/zoom/zoom.js"></script>
+
+    <!-- Embedded Visualizations Script -->
+    <script>
+        // ==========================================
+        // VISUALIZAÇÕES INTERATIVAS - SOBREVIVÊNCIA GEOMÉTRICA
+        // ==========================================
+        (function() { // IIFE Principal
+
+            function drawGridAndAxes(ctx, canvas, scale) {
+                // ... (Implementation from previous version - unchanged) ...
+                 if (!ctx || !canvas) return;
+                const width = canvas.width;
+                const height = canvas.height;
+                const originX = width / 2;
+                const originY = height / 2;
+
+                ctx.clearRect(0, 0, width, height);
+                ctx.fillStyle = 'rgba(10, 10, 10, 0.9)';
+                ctx.fillRect(0, 0, width, height);
+
+                ctx.strokeStyle = 'rgba(173, 255, 47, 0.08)';
+                ctx.lineWidth = 0.5;
+                const step = scale;
+                for (let x = originX + step; x < width; x += step) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, height); ctx.stroke(); }
+                for (let x = originX - step; x > 0; x -= step) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, height); ctx.stroke(); }
+                for (let y = originY + step; y < height; y += step) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(width, y); ctx.stroke(); }
+                for (let y = originY - step; y > 0; y -= step) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(width, y); ctx.stroke(); }
+
+                ctx.strokeStyle = '#ADFF2F';
+                ctx.lineWidth = 1;
+                ctx.beginPath(); ctx.moveTo(0, originY); ctx.lineTo(width, originY); ctx.stroke(); // Eixo X
+                ctx.beginPath(); ctx.moveTo(originX, 0); ctx.lineTo(originX, height); ctx.stroke(); // Eixo Y
+
+                ctx.fillStyle = '#ADFF2F';
+                ctx.font = '10px Courier New';
+                for (let i = -15; i <= 15; i++) {
+                    if (i === 0 || Math.abs(i * scale) > originX || Math.abs(i * scale) > originY) continue;
+                     if (i % 2 === 0) {
+                        ctx.fillText(i, originX + i * scale - (i > 0 ? 3 : 6), originY + 12);
+                        ctx.fillText(-i, originX + 5, originY + i * scale + 4); // Y invertido e Negativo
+                     }
+                }
+            }
+
+            // --- Lógica para: VISUALIZAÇÃO DA EQUAÇÃO DA CIRCUNFERÊNCIA ---
+            function setupCircunferenciaEq() {
+                const canvasId = 'circunferencia-eq-canvas';
+                const cxSliderId = 'circ-eq-cx', cySliderId = 'circ-eq-cy', rSliderId = 'circ-eq-r';
+                const cxValueId = 'circ-eq-cx-value', cyValueId = 'circ-eq-cy-value', rValueId = 'circ-eq-r-value';
+                const equationDisplayId = 'circ-eq-equation-display';
+
+                let canvas = document.getElementById(canvasId);
+                if (!canvas) return;
+                let ctx = canvas.getContext('2d');
+                const scale = 25;
+                let originX = canvas.width / 2;
+                let originY = canvas.height / 2;
+                let centerX = 0, centerY = 0, radius = 3; // Default values
+
+                const cxSlider = document.getElementById(cxSliderId);
+                const cySlider = document.getElementById(cySliderId);
+                const rSlider = document.getElementById(rSliderId);
+                const cxValueSpan = document.getElementById(cxValueId);
+                const cyValueSpan = document.getElementById(cyValueId);
+                const rValueSpan = document.getElementById(rValueId);
+                const equationDisplay = document.getElementById(equationDisplayId);
+
+                 if (!cxSlider || !cySlider || !rSlider || !equationDisplay) return;
+
+                function drawCircunferenciaEq() {
+                    if (!ctx) return;
+                    drawGridAndAxes(ctx, canvas, scale);
+                    const screenCX = originX + centerX * scale;
+                    const screenCY = originY - centerY * scale;
+                    const screenR = radius * scale;
+                    ctx.strokeStyle = '#FFD700'; ctx.lineWidth = 2;
+                    ctx.beginPath(); ctx.arc(screenCX, screenCY, screenR, 0, Math.PI * 2); ctx.stroke();
+                    ctx.fillStyle = '#FF6347';
+                    ctx.beginPath(); ctx.arc(screenCX, screenCY, 5, 0, Math.PI * 2); ctx.fill();
+                    ctx.strokeStyle = '#000'; ctx.lineWidth = 1; ctx.stroke();
+                    ctx.fillStyle = '#FFF'; ctx.font = 'bold 11px Courier New';
+                    ctx.fillText(`C(${centerX.toFixed(1)}, ${centerY.toFixed(1)})`, screenCX + 8, screenCY - 8);
+                }
+
+                function updateAndDrawEq() {
+                    // Read values ONLY if the element exists
+                    centerX = cxSlider ? parseFloat(cxSlider.value) : centerX;
+                    centerY = cySlider ? parseFloat(cySlider.value) : centerY;
+                    radius = rSlider ? parseFloat(rSlider.value) : radius;
+                    // Update spans ONLY if they exist
+                    if(cxValueSpan) cxValueSpan.textContent = centerX.toFixed(1);
+                    if(cyValueSpan) cyValueSpan.textContent = centerY.toFixed(1);
+                    if(rValueSpan) rValueSpan.textContent = radius.toFixed(1);
+
+                    const xTerm = `(x ${centerX >= 0 ? '-' : '+'} ${Math.abs(centerX).toFixed(1)})²`;
+                    const yTerm = `(y ${centerY >= 0 ? '-' : '+'} ${Math.abs(centerY).toFixed(1)})²`;
+                    const rTerm = `${radius.toFixed(1)}²`;
+                    if (equationDisplay) equationDisplay.innerHTML = `${xTerm} + ${yTerm} = ${rTerm}`;
+                    drawCircunferenciaEq();
+                }
+
+                // Attach listeners only if sliders exist
+                if (cxSlider) cxSlider.addEventListener('input', updateAndDrawEq);
+                if (cySlider) cySlider.addEventListener('input', updateAndDrawEq);
+                if (rSlider) rSlider.addEventListener('input', updateAndDrawEq);
+
+                // Set initial values from HTML (important if not starting at 0,0,3)
+                updateAndDrawEq();
+                // console.log("Circ Eq Vis Initialized");
+            }
+
+             // --- Lógica para: VISUALIZAÇÃO POSIÇÃO PONTO vs CIRCUNFERÊNCIA ---
+             function setupCircunferenciaPos() {
+                const canvasId = 'circunferencia-pos-canvas';
+                const cxSliderId = 'circ-pos-cx', cySliderId = 'circ-pos-cy', rSliderId = 'circ-pos-r';
+                const cxValueId = 'circ-pos-cx-value', cyValueId = 'circ-pos-cy-value', rValueId = 'circ-pos-r-value';
+                const addPointBtnId = 'circ-pos-add-point-btn';
+
+                let canvas = document.getElementById(canvasId);
+                if (!canvas) return;
+                let ctx = canvas.getContext('2d');
+                const scale = 25;
+                let originX = canvas.width / 2;
+                let originY = canvas.height / 2;
+                let centerX = 1, centerY = -1, radius = 4; // Defaults matching HTML
+                let testPoints = [];
+
+                const cxSlider = document.getElementById(cxSliderId);
+                const cySlider = document.getElementById(cySliderId);
+                const rSlider = document.getElementById(rSliderId);
+                const cxValueSpan = document.getElementById(cxValueId);
+                const cyValueSpan = document.getElementById(cyValueId);
+                const rValueSpan = document.getElementById(rValueId);
+                const addPointBtn = document.getElementById(addPointBtnId);
+
+                 if (!cxSlider || !cySlider || !rSlider || !addPointBtn) return;
+
+                function drawCircunferenciaPos() {
+                    if (!ctx) return;
+                    drawGridAndAxes(ctx, canvas, scale);
+                    const screenCX = originX + centerX * scale;
+                    const screenCY = originY - centerY * scale;
+                    const screenR = radius * scale;
+                    ctx.strokeStyle = '#FFD700'; ctx.lineWidth = 2;
+                    ctx.beginPath(); ctx.arc(screenCX, screenCY, screenR, 0, Math.PI * 2); ctx.stroke();
+                    ctx.fillStyle = '#FF6347';
+                    ctx.beginPath(); ctx.arc(screenCX, screenCY, 5, 0, Math.PI * 2); ctx.fill();
+                    ctx.strokeStyle = '#000'; ctx.lineWidth = 1; ctx.stroke();
+                    ctx.fillStyle = '#FFF'; ctx.font = 'bold 11px Courier New';
+                    ctx.fillText(`C(${centerX.toFixed(1)}, ${centerY.toFixed(1)})`, screenCX + 8, screenCY - 8);
+
+                    // Draw points AFTER circle/center
+                    testPoints.forEach(p => {
+                        const screenPX = originX + p.x * scale;
+                        const screenPY = originY - p.y * scale; // Y inverted
+                        ctx.fillStyle = p.color;
+                        ctx.beginPath(); ctx.arc(screenPX, screenPY, 5, 0, Math.PI * 2); ctx.fill();
+                        ctx.strokeStyle = 'rgba(0,0,0,0.7)'; ctx.lineWidth = 1; ctx.stroke();
+                        ctx.fillStyle = p.color; ctx.font = '10px Courier New';
+                        ctx.fillText(`(${p.x.toFixed(1)}, ${p.y.toFixed(1)}) [${p.position}]`, screenPX + 8, screenPY + 4);
+                    });
+                }
+
+                 function updateBaseCircle() {
+                    centerX = cxSlider ? parseFloat(cxSlider.value) : centerX;
+                    centerY = cySlider ? parseFloat(cySlider.value) : centerY;
+                    radius = rSlider ? parseFloat(rSlider.value) : radius;
+                    if(cxValueSpan) cxValueSpan.textContent = centerX.toFixed(1);
+                    if(cyValueSpan) cyValueSpan.textContent = centerY.toFixed(1);
+                    if(rValueSpan) rValueSpan.textContent = radius.toFixed(1);
+                    testPoints = []; // Clear points when circle params change
+                    drawCircunferenciaPos();
+                 }
+
+                 function addRandomTestPointPos() {
+                     const maxCoord = 12;
+                     const testX = (Math.random() * 2 * maxCoord) - maxCoord;
+                     const testY = (Math.random() * 2 * maxCoord) - maxCoord;
+                     const dx = testX - centerX; const dy = testY - centerY;
+                     const distSq = dx * dx + dy * dy; const radiusSq = radius * radius;
+                     const tolerance = 0.05 * radiusSq;
+                     let position = 'Na Fronteira'; let color = '#FFD700'; // Yellow/Gold
+                     if (distSq < radiusSq - tolerance) { position = 'Interno'; color = '#ADFF2F'; } // Green
+                     else if (distSq > radiusSq + tolerance) { position = 'Externo'; color = '#FF6347'; } // Red/Orange
+                     testPoints.push({ x: testX, y: testY, color: color, position: position });
+                     if (testPoints.length > 6) testPoints.shift();
+                     drawCircunferenciaPos(); // Redraw *with* the new point added
+                 }
+
+                 // Attach listeners only if elements exist
+                 if (cxSlider) cxSlider.addEventListener('input', updateBaseCircle);
+                 if (cySlider) cySlider.addEventListener('input', updateBaseCircle);
+                 if (rSlider) rSlider.addEventListener('input', updateBaseCircle);
+                 if (addPointBtn) addPointBtn.addEventListener('click', addRandomTestPointPos);
+
+
+                updateBaseCircle(); // Initial draw based on HTML values
+                 // console.log("Circ Pos Vis Initialized");
+             }
+
+            // --- Inicialização Geral ---
+            function initializeVisualizations(slideElement) {
+                if (!slideElement) return;
+                if (slideElement.querySelector('#circunferencia-eq-canvas')) {
+                    setupCircunferenciaEq();
+                 }
+                 if (slideElement.querySelector('#circunferencia-pos-canvas')) {
+                     setupCircunferenciaPos();
+                 }
+            }
+
+            Reveal.on('ready', event => { initializeVisualizations(event.currentSlide); });
+            Reveal.on('slidechanged', event => { initializeVisualizations(event.currentSlide); });
+
+        })(); // Fim da IIFE Principal
+    </script>
+
+    <!-- Reveal.js Initialization -->
     <script>
       Reveal.initialize({
         hash: true,
-        slideNumber: true,
-        plugins: [ RevealNotes, RevealHighlight ]
+        slideNumber: 'c/t',
+        transition: 'convex',
+        backgroundTransition: 'fade',
+        width: 1024,
+        height: 768,
+        margin: 0.04,
+        minScale: 0.2,
+	    maxScale: 1.5,
+        controlsLayout: 'edges',
+        controlsTutorial: true,
+        navigationMode: 'default',
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js',
+          config: 'TeX-AMS_HTML-full',
+        },
+        plugins: [ RevealNotes, RevealHighlight, RevealMath.MathJax3, RevealZoom ]
       });
     </script>
 
-    <!-- Como utilizar este modelo:
-      1. Cada "<section>" dentro de <div class="slides"> representa um slide horizontal.
-      2. Para criar slides verticais (subseções), aninhe <section> dentro de outro <section>.
-      3. Insira fórmulas LaTeX usando MathJax com a sintaxe \( ... \) ou \[ ... \].
-      4. Customize o tema (black.css) trocando o import no <head> ou usando outro tema.
-      5. Edite o CSS interno para atender à estética pós-apocalíptica.
-      6. Adicione novos slides conforme necessário para cada parte do curso.
-      7. Para ver as notas, pressione 's' durante a apresentação (necessário plugin notes).
-      8. Você pode inserir emojis (ex: ☢️, ⚠️, 🏜️) para reforçar a temática, mas use-os de forma pontual para não poluir os slides.
-    -->
-
-  </body>
+</body>
 </html>
-
