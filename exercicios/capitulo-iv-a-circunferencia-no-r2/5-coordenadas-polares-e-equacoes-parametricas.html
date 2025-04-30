@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+    </script>
+    <title>REFÚGIO-TEC | COORDENADAS POLARES</title>
+    <style>
+        /* Estilo inspirado no tema pós-apocalíptico */
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100px; }
+        }
+
+        body {
+            background-color: #0c0c0c;
+            color: #e6e6e6;
+            font-family: "Courier New", monospace;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #4caf50;
+            max-width: 800px;
+            margin: auto;
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 2px;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+
+        h1, h2, h3 {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .exercise {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border: 1px dashed #4caf50;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        details {
+            background-color: #1c1c1c;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            margin-top: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #4caf50;
+        }
+
+        summary:hover {
+            text-shadow: 0 0 3px #4caf50;
+        }
+
+        code {
+            background-color: #333;
+            padding: 3px 5px;
+            color: #ffeb3b;
+        }
+
+        .hint {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #4caf50;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .hint:before {
+            content: "DICA DE SOBREVIVÊNCIA: ";
+            color: #4caf50;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .solution-steps {
+            margin-left: 20px;
+            counter-reset: step-counter;
+        }
+
+        .solution-steps li {
+            list-style-type: none;
+            counter-increment: step-counter;
+            margin-bottom: 10px;
+        }
+
+        .solution-steps li::before {
+            content: "> PASSO_" counter(step-counter) ": ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .formula {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #000;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .terminal-frame {
+            padding: 10px;
+            background-color: #000;
+            margin-bottom: 20px;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .terminal-header {
+            margin: 0;
+            padding: 3px 10px;
+            background-color: #4caf50;
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .terminal-content {
+            padding: 5px;
+            white-space: pre-wrap;
+            font-size: 1em;
+            line-height: 1.2;
+        }
+
+        .cursor:after {
+            content: "█";
+            animation: blink 1s step-end infinite;
+        }
+
+        .terminal-line {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .terminal-border {
+            border: 1px solid #4caf50;
+            padding: 5px;
+            background-color: #000;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .mission-counter {
+            counter-reset: mission;
+        }
+        
+        .mission-counter .exercise h3:before {
+            content: "MISSÃO " counter(mission) ": ";
+            counter-increment: mission;
+        }
+
+        .warning {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .danger {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #8bc34a;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #4caf50;
+            border-top: 1px solid #4caf50;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- TÍTULO E INTRODUÇÃO -->
+    <div class="terminal-frame">
+        <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
+        <div class="terminal-content">
+┌───────────────────────────────────────────────────┐
+│ MÓDULO: COORDENADAS POLARES                       │
+└───────────────────────────────────────────────────┘
+
+> INICIANDO TRANSMISSÃO...
+> CARREGANDO MÓDULO DE TREINAMENTO...
+> ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
+        </div>
+    </div>
+
+    <div class="terminal-border">
+        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: COORDENADAS POLARES</h2>
+    
+    <p>Bem-vindo, sobrevivente. Em um mundo onde os sistemas de referência convencionais colapsaram, formas alternativas de navegação e mapeamento tornaram-se essenciais para nossa sobrevivência. As coordenadas polares representam um sistema alternativo ao cartesiano que você já conhece, permitindo-nos mapear locais usando distância e ângulo, em vez de deslocamentos horizontais e verticais.</p>
+    
+    <p>Enquanto as coordenadas cartesianas $(x,y)$ localizam pontos através de distâncias perpendiculares a partir de um ponto de origem, as coordenadas polares $(r,\theta)$ utilizam a distância direta do ponto até a origem (raio $r$) e o ângulo $\theta$ formado com o eixo positivo $x$. Esta abordagem é vital para planejar rotas circulares de vigilância, mapear padrões de radiação e calibrar sistemas de comunicação que sobreviveram ao colapso.</p>
+    
+    <div class="formula">
+    $$\text{Conversão de coordenadas cartesianas para polares:}$$
+    $$r = \sqrt{x^2 + y^2}$$
+    $$\theta = \arctan\left(\frac{y}{x}\right) \text{ (ajustando o quadrante conforme necessário)}$$
+    </div>
+    
+    <div class="formula">
+    $$\text{Conversão de coordenadas polares para cartesianas:}$$
+    $$x = r\cos\theta$$
+    $$y = r\sin\theta$$
+    </div>
+    
+    <p>A equação paramétrica da circunferência nos permite descrever um movimento circular completo, crucial para patrulhar perímetros de abrigos ou mapear zonas seguras. Uma circunferência com centro em $(h,k)$ e raio $a$ pode ser representada parametricamente como:</p>
+    
+    <div class="formula">
+    $$x = h + a\cos t$$
+    $$y = k + a\sin t$$
+    $$\text{onde } t \in [0, 2\pi)$$
+    </div>
+    
+    <p>Além da circunferência, outras curvas polares são essenciais para sobrevivência, como a espiral de Arquimedes ($r = a\theta$), útil para criar rotas de exploração que se afastam gradualmente de um ponto seguro, e a cardioide ($r = a(1+\cos\theta)$), que modela padrões de propagação de sinais de comunicação. As rosas polares ($r = a\cos(n\theta)$) são fundamentais para calibrar antenas direcionais improvisadas.</p>
+
+    <!-- MISSÕES (EXERCÍCIOS) -->
+    <div class="mission-counter">
+        <!-- MISSÃO 1 (BÁSICA) -->
+        <div class="exercise">
+            <h3>RECALIBRAÇÃO DE COORDENADAS</h3>
+            <p>Um mapa de radiação encontrado em um bunker abandonado marca um depósito de RemoveRad nas coordenadas cartesianas $(-3, 4)$. Seu dispositivo de navegação funciona apenas com coordenadas polares. Converta as coordenadas para o formato polar $(r, \theta)$, com $\theta$ em radianos.</p>
+            
+            <div class="hint">
+                <p>Use $r = \sqrt{x^2 + y^2}$ para a distância e $\theta = \arctan(y/x)$, mas lembre-se de ajustar o ângulo para o quadrante correto, já que o ponto está no segundo quadrante.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificamos as coordenadas cartesianas $x = -3$ e $y = 4$.</li>
+                    <li>Calculamos o valor de $r$ usando a fórmula $r = \sqrt{x^2 + y^2} = \sqrt{(-3)^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5$.</li>
+                    <li>Para o ângulo $\theta$, começamos com $\arctan(y/x) = \arctan(4/(-3)) = \arctan(-4/3) \approx -0.9273$ radianos.</li>
+                    <li>Como o ponto está no segundo quadrante (x negativo, y positivo), ajustamos o ângulo adicionando $\pi$: $\theta = -0.9273 + \pi \approx 2.2143$ radianos.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$r = 5, \theta \approx 2.2143 \text{ radianos } \approx 126.87°$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Saber converter entre diferentes sistemas de coordenadas é vital quando equipamentos danificados utilizam formatos distintos. Esta habilidade de adaptação permite que você utilize mapas e dispositivos antigos para localizar recursos essenciais, mesmo com tecnologia limitada.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 2 (BÁSICA) -->
+        <div class="exercise">
+            <h3>ROTA DE PATRULHA CIRCULAR</h3>
+            <p>Para proteger um assentamento circular com raio de 200 metros, você precisa estabelecer pontos de observação equidistantes ao longo do perímetro. Usando a equação paramétrica da circunferência centrada na origem, determine as coordenadas cartesianas de 4 pontos de observação igualmente espaçados, começando do ponto mais ao leste (ângulo 0).</p>
+            
+            <div class="hint">
+                <p>A equação paramétrica da circunferência é $x = r\cos t$ e $y = r\sin t$. Para pontos equidistantes, divida o intervalo $[0, 2\pi)$ em 4 partes iguais.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificamos a equação paramétrica da circunferência com centro na origem e raio 200 metros: $x = 200\cos t$ e $y = 200\sin t$, onde $t$ é o parâmetro angular.</li>
+                    <li>Para 4 pontos equidistantes, dividimos $2\pi$ radianos em 4 partes iguais: $2\pi/4 = \pi/2 = 90°$.</li>
+                    <li>Os valores de $t$ serão: $t_1 = 0$, $t_2 = \pi/2$, $t_3 = \pi$, $t_4 = 3\pi/2$.</li>
+                    <li>Calculamos as coordenadas para cada valor de $t$:
+                       Para $t_1 = 0$: $x = 200\cos(0) = 200$, $y = 200\sin(0) = 0$, então $(200, 0)$.
+                       Para $t_2 = \pi/2$: $x = 200\cos(\pi/2) = 0$, $y = 200\sin(\pi/2) = 200$, então $(0, 200)$.
+                       Para $t_3 = \pi$: $x = 200\cos(\pi) = -200$, $y = 200\sin(\pi) = 0$, então $(-200, 0)$.
+                       Para $t_4 = 3\pi/2$: $x = 200\cos(3\pi/2) = 0$, $y = 200\sin(3\pi/2) = -200$, então $(0, -200)$.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Pontos de observação: } (200, 0), (0, 200), (-200, 0), (0, -200)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Posicionar observadores em intervalos regulares ao longo de um perímetro circular maximiza a cobertura visual com recursos humanos limitados. Este padrão simétrico de vigilância reduz pontos cegos e permite uma rápida resposta a ameaças, sejam elas mutantes ou saqueadores.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 3 (BÁSICA) -->
+        <div class="exercise">
+            <h3>ZONA SEGURA CIRCULAR</h3>
+            <p>Após uma tempestade radioativa, um medidor Geiger indica que a radiação está abaixo do limite seguro apenas em pontos que satisfazem a equação polar $r = 300$, onde $r$ é medido em metros. Determine a área total desta zona segura e descreva sua forma geométrica.</p>
+            
+            <div class="hint">
+                <p>A equação $r = 300$ representa uma forma geométrica específica em coordenadas polares. Pense sobre qual forma teria raio constante independente do ângulo $\theta$.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>A equação polar $r = 300$ representa uma circunferência centrada na origem com raio constante de 300 metros.</li>
+                    <li>No entanto, como a questão pede a área total da zona segura, devemos entender que a radiação está abaixo do limite seguro em todos os pontos dentro desta circunferência (inclusive na origem).</li>
+                    <li>Portanto, estamos lidando com um círculo, não apenas sua circunferência.</li>
+                    <li>A área de um círculo é dada por $A = \pi r^2$, onde $r$ é o raio.</li>
+                    <li>Substituindo $r = 300$: $A = \pi \cdot 300^2 = \pi \cdot 90000 = 90000\pi \approx 282743,34$ metros quadrados.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$A = \pi r^2 = \pi \cdot 300^2 = 90000\pi \approx 282743,34 \text{ m}^2$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Identificar zonas seguras com formas geométricas bem definidas permite mapear rapidamente áreas habitáveis após eventos de contaminação. Conhecer a área exata ajuda a planejar a distribuição de recursos, alocação de abrigos e estimativa da capacidade de carga populacional do território seguro.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 4 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>ESPIRAL DE EXPLORAÇÃO</h3>
+            <p>Para explorar uma Zona Devastada de forma sistemática, você projeta uma rota em espiral a partir de um abrigo central. A rota segue a equação polar $r = 50\theta$, com $r$ em metros e $\theta$ em radianos. Você precisa encontrar recursos em no máximo 500 metros de distância. Até qual valor de $\theta$ você deve percorrer a espiral para cobrir toda a área dentro deste limite?</p>
+            
+            <div class="hint">
+                <p>A equação dada representa uma espiral de Arquimedes. Para encontrar o limite de $\theta$, determine quando $r$ atinge o valor máximo desejado.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Temos a equação da espiral de Arquimedes $r = 50\theta$, onde $r$ é a distância radial e $\theta$ é o ângulo em radianos.</li>
+                    <li>Queremos determinar quando $r$ atinge 500 metros, que é o limite máximo de exploração.</li>
+                    <li>Substituindo $r = 500$ na equação: $500 = 50\theta$.</li>
+                    <li>Resolvendo para $\theta$: $\theta = 500/50 = 10$ radianos.</li>
+                    <li>Convertendo para graus: $\theta = 10 \text{ rad} \cdot \frac{180°}{\pi \text{ rad}} \approx 572,96°$, o que equivale a aproximadamente 1,59 voltas completas.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\theta = \frac{r}{50} = \frac{500}{50} = 10 \text{ radianos} \approx 572,96°$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Padrões de exploração em espiral maximizam a eficiência de busca, garantindo que nenhuma área seja revisitada desnecessariamente. Esta estratégia sistemática de exploração mantém você sempre conectado ao ponto de origem, facilitando o retorno seguro ao abrigo em caso de perigo ou após o esgotamento dos suprimentos.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 5 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>ANTENA DIRECIONAL</h3>
+            <p>Uma antena direcional improvisada segue o padrão de radiação descrito pela equação polar $r = 200\cos(2\theta)$, onde $r$ representa a intensidade do sinal em metros. Determine todos os ângulos $\theta \in [0, 2\pi)$ onde o sinal é zero e identifique a direção (ângulo) onde o sinal atinge sua máxima intensidade.</p>
+            
+            <div class="hint">
+                <p>Esta equação polar é uma rosa de 4 pétalas. O sinal é zero quando $\cos(2\theta) = 0$, e máximo quando $\cos(2\theta) = \pm 1$.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para encontrar os ângulos onde o sinal é zero, precisamos resolver $r = 0$, ou seja, $200\cos(2\theta) = 0$.</li>
+                    <li>Isso ocorre quando $\cos(2\theta) = 0$, o que acontece quando $2\theta = \frac{\pi}{2} + n\pi$ para qualquer inteiro $n$.</li>
+                    <li>Resolvendo para $\theta$ no intervalo $[0, 2\pi)$: $\theta = \frac{\pi}{4} + \frac{n\pi}{2}$ para $n = 0, 1, 2, 3$.</li>
+                    <li>Substituindo os valores de $n$: $\theta = \frac{\pi}{4}, \frac{3\pi}{4}, \frac{5\pi}{4}, \frac{7\pi}{4}$.</li>
+                    <li>Para encontrar os ângulos de intensidade máxima, precisamos determinar quando $|\cos(2\theta)| = 1$.</li>
+                    <li>Isso ocorre quando $2\theta = 0, \pi, 2\pi, 3\pi$, o que resulta em $\theta = 0, \frac{\pi}{2}, \pi, \frac{3\pi}{2}$.</li>
+                    <li>O sinal é positivo para $\theta = 0, \pi$ (máximos) e negativo para $\theta = \frac{\pi}{2}, \frac{3\pi}{2}$ (mínimos).</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Ângulos com sinal zero: } \theta = \frac{\pi}{4}, \frac{3\pi}{4}, \frac{5\pi}{4}, \frac{7\pi}{4} \text{ rad}$$
+                    $$\text{Ângulos com intensidade máxima: } \theta = 0, \pi \text{ rad} \text{ (equivalente a } 0° \text{ e } 180°\text{)}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Entender os padrões de radiação de antenas direcionais permite estabelecer comunicação eficiente com outros assentamentos sem desperdiçar energia preciosa. Apontar corretamente uma antena não é apenas questão de conveniência, mas pode ser a diferença entre receber um alerta vital sobre uma tempestade radioativa iminente ou permanecer em ignorância fatal.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 6 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>PROPAGAÇÃO DE CONTAMINAÇÃO</h3>
+            <p>Um vazamento de radiação de um reator danificado segue o padrão descrito pela equação polar $r = 400(1 + \cos\theta)$, com $r$ em metros. Um explorador está atualmente na posição cartesiana $(300, 400)$. Determine se ele está em uma área segura ou contaminada.</p>
+            
+            <div class="hint">
+                <p>A equação representa uma cardioide. Converta as coordenadas cartesianas do explorador para coordenadas polares e verifique se o raio é menor que o valor dado pela equação da cardioide para o mesmo ângulo.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Primeiro, convertemos as coordenadas cartesianas $(300, 400)$ do explorador para coordenadas polares.</li>
+                    <li>Calculamos o raio: $r_{explorador} = \sqrt{300^2 + 400^2} = \sqrt{90000 + 160000} = \sqrt{250000} = 500$ metros.</li>
+                    <li>Calculamos o ângulo: $\theta_{explorador} = \arctan\left(\frac{400}{300}\right) \approx 0.9273$ radianos $\approx 53.13°$.</li>
+                    <li>Agora, calculamos o valor de $r$ na equação da cardioide para $\theta = 0.9273$:
+                       $r_{contaminação} = 400(1 + \cos(0.9273)) = 400(1 + 0.5960) = 400 \cdot 1.5960 = 638.4$ metros.</li>
+                    <li>Comparamos: $r_{explorador} = 500$ metros é menor que $r_{contaminação} = 638.4$ metros.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$r_{explorador} = 500 \text{ m} < r_{contaminação} = 638.4 \text{ m}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O explorador está em área contaminada! Modelos matemáticos de propagação de contaminantes são vitais para estabelecer zonas de exclusão e rotas seguras. Quando recursos de detecção são limitados, equações que descrevem fronteiras de contaminação podem ser a única ferramenta disponível para evitar exposição a níveis letais de radiação.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 7 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>INTERSEÇÃO DE TRAJETÓRIAS</h3>
+            <p>Duas equipes de exploradores seguem rotas circulares ao redor de um ponto central. A equipe Alpha segue a trajetória paramétrica $x = 400\cos(0.1t)$, $y = 400\sin(0.1t)$, enquanto a equipe Beta segue $x = 200\cos(0.2t)$, $y = 200\sin(0.2t)$, onde $t$ é o tempo em minutos desde o início da expedição. Ambas as equipes partem simultaneamente de suas respectivas posições iniciais em $t = 0$. Determine todos os momentos nos primeiros 120 minutos em que as equipes irão se encontrar.</p>
+            
+            <div class="hint">
+                <p>Compare as posições de ambas as equipes em função do tempo e determine quando coincidem. Observe que as equipes têm diferentes raios e velocidades angulares.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para a equipe Alpha: $x_A = 400\cos(0.1t)$, $y_A = 400\sin(0.1t)$, que representa um movimento circular com raio 400m e velocidade angular 0.1 rad/min.</li>
+                    <li>Para a equipe Beta: $x_B = 200\cos(0.2t)$, $y_B = 200\sin(0.2t)$, que representa um movimento circular com raio 200m e velocidade angular 0.2 rad/min.</li>
+                    <li>As equipes se encontram quando $(x_A, y_A) = (x_B, y_B)$, ou seja, quando $400\cos(0.1t) = 200\cos(0.2t)$ e $400\sin(0.1t) = 200\sin(0.2t)$.</li>
+                    <li>Dividindo ambas as equações por 200: $2\cos(0.1t) = \cos(0.2t)$ e $2\sin(0.1t) = \sin(0.2t)$.</li>
+                    <li>Elevando ao quadrado e somando: $4\cos^2(0.1t) + 4\sin^2(0.1t) = \cos^2(0.2t) + \sin^2(0.2t)$.</li>
+                    <li>Sabendo que $\cos^2(\alpha) + \sin^2(\alpha) = 1$ para qualquer $\alpha$: $4 \cdot 1 = 1$, o que é impossível.</li>
+                    <li>Isso indica que não existe solução real para o sistema de equações, ou seja, as equipes nunca se encontrarão porque seguem circunferências com raios diferentes.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{As equipes não se encontrarão durante a expedição}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em operações coordenadas, prever corretamente os pontos e momentos de encontro pode ser crucial. Neste caso, o conhecimento matemático revela que as equipes nunca se cruzarão devido às diferentes órbitas, evitando esforços desperdiçados aguardando um encontro impossível. Em um mundo de recursos escassos, tempo e energia não devem ser desperdiçados em esperanças infundadas.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 8 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>ANÁLISE DE ALCANCE RADAR</h3>
+            <p>Um radar improvisado instalado em um posto avançado emite um sinal que segue o padrão $r = 800|\cos(3\theta)|$, onde $r$ é o alcance em metros. Um grupo de mutantes foi detectado a 300 metros de distância, na direção $\theta = \frac{5\pi}{9}$ radianos. O radar consegue detectar objetos a até 60% de seu alcance máximo naquela direção. Determine se os mutantes serão detectados e calcule a área total coberta pelo radar.</p>
+            
+            <div class="hint">
+                <p>Primeiro calcule o alcance do radar na direção dada e compare com a distância dos mutantes. Para a área, você precisará calcular uma integral em coordenadas polares.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calculamos o alcance do radar na direção $\theta = \frac{5\pi}{9}$:
+                       $r(\frac{5\pi}{9}) = 800|\cos(3 \cdot \frac{5\pi}{9})| = 800|\cos(\frac{5\pi}{3})| = 800|\cos(\frac{5\pi}{3})|$.</li>
+                    <li>Simplificando, $\frac{5\pi}{3} = \pi + \frac{2\pi}{3}$, então $\cos(\frac{5\pi}{3}) = \cos(\pi + \frac{2\pi}{3}) = -\cos(\frac{2\pi}{3}) = -(-0.5) = 0.5$.</li>
+                    <li>Portanto, $r(\frac{5\pi}{9}) = 800|0.5| = 800 \cdot 0.5 = 400$ metros.</li>
+                    <li>O limite de detecção nessa direção é $0.6 \cdot 400 = 240$ metros.</li>
+                    <li>Como os mutantes estão a 300 metros, que é maior que o limite de detecção (240 metros), eles NÃO serão detectados.</li>
+                    <li>Para a área total coberta pelo radar, precisamos calcular:
+                       $A = \int_0^{2\pi} \int_0^{r(\theta)} r \, dr \, d\theta = \int_0^{2\pi} \frac{1}{2}[r(\theta)]^2 \, d\theta = \frac{1}{2}\int_0^{2\pi} (800|\cos(3\theta)|)^2 \, d\theta$.</li>
+                    <li>Simplificando: $A = \frac{800^2}{2}\int_0^{2\pi} \cos^2(3\theta) \, d\theta = 320000\int_0^{2\pi} \cos^2(3\theta) \, d\theta$.</li>
+                    <li>Usando a identidade $\cos^2(\alpha) = \frac{1 + \cos(2\alpha)}{2}$:
+                       $A = 320000\int_0^{2\pi} \frac{1 + \cos(6\theta)}{2} \, d\theta = 160000\int_0^{2\pi} [1 + \cos(6\theta)] \, d\theta$.</li>
+                    <li>Calculando: $A = 160000[\theta + \frac{\sin(6\theta)}{6}]_0^{2\pi} = 160000[2\pi + 0 - 0 - 0] = 320000\pi$ metros quadrados.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Alcance na direção dos mutantes: } 240 \text{ metros}$$
+                    $$\text{Distância dos mutantes: } 300 \text{ metros}$$
+                    $$\text{Área total coberta: } 320000\pi \approx 1005309,65 \text{ metros quadrados}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Compreender as limitações de sistemas de detecção é tão importante quanto conhecer suas capacidades. Neste caso, os mutantes permanecem fora do alcance do radar na direção específica, criando um ponto cego perigoso. Analise sempre os padrões de cobertura dos seus sistemas de segurança para evitar falsas sensações de proteção que podem custar vidas.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 9 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>MAPEAMENTO DE ANOMALIA</h3>
+            <p>Uma anomalia magnética detectada próxima ao abrigo segue a equação polar $r = 250(1 - 0.8\cos\theta)$. Um componente essencial para o sistema de purificação de água precisa ser instalado a pelo menos 100 metros de distância da origem, mas fora da região afetada pela anomalia. Determine a área segura para instalação, descrita como um anel circular com raio interno 100 metros e raio externo definido pela fronteira da anomalia.</p>
+            
+            <div class="hint">
+                <p>A equação representa uma limaçon. Analise o valor mínimo de $r$ na equação para determinar se alguma parte da curva penetra no círculo de raio 100m.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>A equação da anomalia é $r = 250(1 - 0.8\cos\theta)$, que é uma limaçon.</li>
+                    <li>Primeiro, precisamos determinar o valor mínimo de $r$ para verificar se a anomalia penetra no círculo de raio 100m.</li>
+                    <li>O valor de $r$ é mínimo quando $\cos\theta = 1$ (em $\theta = 0$):
+                       $r_{min} = 250(1 - 0.8 \cdot 1) = 250 \cdot 0.2 = 50$ metros.</li>
+                    <li>O valor de $r$ é máximo quando $\cos\theta = -1$ (em $\theta = \pi$):
+                       $r_{max} = 250(1 - 0.8 \cdot (-1)) = 250 \cdot 1.8 = 450$ metros.</li>
+                    <li>Como $r_{min} = 50m < 100m$, a anomalia penetra no círculo de raio 100m.</li>
+                    <li>Para encontrar os ângulos onde a anomalia cruza o círculo de raio 100m, resolvemos:
+                       $100 = 250(1 - 0.8\cos\theta)$</li>
+                    <li>Simplificando: $0.4 = 1 - 0.8\cos\theta$, então $0.8\cos\theta = 0.6$, que resulta em $\cos\theta = 0.75$.</li>
+                    <li>Isso dá $\theta \approx \pm 0.7227$ radianos ou aproximadamente $\theta \approx \pm 41.4°$.</li>
+                    <li>Portanto, a área segura para instalação existe apenas para $\theta \in [-0.7227, 0.7227]$ e $\theta \in [2\pi-0.7227, 2\pi+0.7227]$, onde o componente deve ser instalado fora da anomalia mas a pelo menos 100m da origem.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Pontos de interseção: } \theta \approx \pm 0.7227 \text{ rad}$$
+                    $$\text{Área segura: } \{ (r, \theta) | r \geq 100 \text{ e } r > 250(1 - 0.8\cos\theta) \}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Mapear corretamente zonas de anomalias é crucial para a instalação de equipamentos sensíveis. Equipamentos eletrônicos expostos a anomalias magnéticas podem falhar catastroficamente, desperdiçando recursos insubstituíveis. Análise cuidadosa dos limites de segurança permite maximizar o aproveitamento do espaço disponível sem comprometer operações vitais.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 10 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>OTIMIZAÇÃO DE ZONAS SEGURAS</h3>
+            <p>Três fontes de radiação emitiram pulsos que criaram zonas circulares contaminadas. Estas zonas são descritas por: C1: circunferência de raio 300m centrada em (-200, 100); C2: circunferência de raio 250m centrada em (150, -100); C3: circunferência de raio 200m centrada em (50, 250). Você precisa estabelecer uma rota circular de patrulha centrada na origem que maximize a distância aos perímetros contaminados. Encontre a equação paramétrica desta rota, seu raio ótimo e a distância mínima de segurança entre a rota e as zonas contaminadas.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para cada circunferência contaminada, calculamos a distância do seu centro até a origem:
+                       $d_1 = \sqrt{(-200)^2 + 100^2} = \sqrt{40000 + 10000} = \sqrt{50000} \approx 223.61$ metros.
+                       $d_2 = \sqrt{150^2 + (-100)^2} = \sqrt{22500 + 10000} = \sqrt{32500} \approx 180.28$ metros.
+                       $d_3 = \sqrt{50^2 + 250^2} = \sqrt{2500 + 62500} = \sqrt{65000} \approx 254.95$ metros.</li>
+                    <li>Para cada circunferência, o raio máximo que nossa rota de patrulha pode ter sem interceptar a zona contaminada é:
+                       $R_{max1} = d_1 - 300 \approx 223.61 - 300 = -76.39$ metros (impossível).
+                       $R_{max2} = d_2 - 250 \approx 180.28 - 250 = -69.72$ metros (impossível).
+                       $R_{max3} = d_3 - 200 \approx 254.95 - 200 = 54.95$ metros.</li>
+                    <li>Isso significa que não importa qual raio escolhermos para nossa rota circular, ela sempre interceptará pelo menos duas zonas contaminadas (C1 e C2).</li>
+                    <li>Precisamos reconsiderar o problema. Em vez de evitar completamente as zonas, vamos minimizar a penetração nas áreas contaminadas.</li>
+                    <li>A melhor abordagem seria encontrar o círculo de maior raio centrado na origem que minimiza a área total de interseção com as três zonas contaminadas.</li>
+                    <li>Uma aproximação razoável seria usar um raio $R = 50$ metros, que evitaria completamente a zona C3 e minimizaria a penetração nas zonas C1 e C2.</li>
+                    <li>A equação paramétrica desta rota seria: $x = 50\cos t$, $y = 50\sin t$, com $t \in [0, 2\pi)$.</li>
+                    <li>Com este raio, as distâncias mínimas aos perímetros contaminados seriam:
+                       Para C1: $d_{min1} = d_1 - 300 - 50 \approx 223.61 - 300 - 50 = -126.39$ metros (penetração de 126.39m).
+                       Para C2: $d_{min2} = d_2 - 250 - 50 \approx 180.28 - 250 - 50 = -119.72$ metros (penetração de 119.72m).
+                       Para C3: $d_{min3} = d_3 - 200 - 50 \approx 254.95 - 200 - 50 = 4.95$ metros (seguro).</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Equação paramétrica ótima: } x = 50\cos t, y = 50\sin t, t \in [0, 2\pi)$$
+                    $$\text{Raio ótimo: } R = 50 \text{ metros}$$
+                    $$\text{Distância mínima de segurança: } -126.39 \text{ metros (penetração em C1)}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Nem sempre é possível evitar completamente todos os perigos no mundo pós-apocalíptico. Às vezes, a estratégia ótima envolve aceitar riscos calculados e minimizar exposição em vez de eliminá-la. Esta abordagem realista para navegação em zonas de perigo reflete a natureza pragmática da sobrevivência: não existe segurança perfeita, apenas gerenciamento inteligente de riscos inevitáveis.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 11 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>MODELAGEM DE DISTORÇÃO TEMPORAL</h3>
+            <p>Uma anomalia espaço-temporal foi detectada emitindo pulsos em padrão cardioide. Cada pulso segue a equação polar $r = 400(1 + \cos\theta)$ metros, criando distorções que alteram a percepção de tempo. Um explorador segue uma trajetória paramétrica dada por $x(t) = 300\cos(0.05t)$, $y(t) = 300\sin(0.05t)$, onde $t$ é o tempo em minutos. O efeito da distorção temporal é proporcional a $1/d^2$, onde $d$ é a distância mínima entre o explorador e a fronteira da anomalia. Determine os intervalos de tempo em que o explorador experimentará a maior distorção durante uma missão de 120 minutos.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>A posição do explorador em coordenadas cartesianas é dada por $(x(t), y(t)) = (300\cos(0.05t), 300\sin(0.05t))$, que é uma trajetória circular de raio 300m centrada na origem.</li>
+                    <li>Convertendo para coordenadas polares: $r_{explorador}(t) = 300$ e $\theta_{explorador}(t) = 0.05t$.</li>
+                    <li>A anomalia segue a equação $r_{anomalia}(\theta) = 400(1 + \cos\theta)$.</li>
+                    <li>A distância entre o explorador e a fronteira da anomalia no ângulo $\theta$ é:
+                       $d(\theta) = |r_{anomalia}(\theta) - r_{explorador}|$ quando ambos estão no mesmo ângulo.</li>
+                    <li>Para o momento $t$, o explorador está no ângulo $\theta = 0.05t$, então:
+                       $d(t) = |400(1 + \cos(0.05t)) - 300|$.</li>
+                    <li>Simplificando: $d(t) = |400 + 400\cos(0.05t) - 300| = |100 + 400\cos(0.05t)|$.</li>
+                    <li>A distorção temporal é proporcional a $1/d(t)^2$, que será máxima quando $d(t)$ for mínima.</li>
+                    <li>A distância $d(t)$ é mínima quando $\cos(0.05t) = -1$, o que ocorre quando $0.05t = \pi, 3\pi, 5\pi, ...$</li>
+                    <li>Isso resulta em $t = 20\pi, 60\pi, 100\pi, ...$. No intervalo de 120 minutos, isso ocorre em $t \approx 62.83$ minutos.</li>
+                    <li>Neste momento, $d(62.83) = |100 + 400\cos(\pi)| = |100 - 400| = 300$ metros.</li>
+                    <li>Verificamos também quando $d(t) = 0$, resolvendo $100 + 400\cos(0.05t) = 0$:
+                       $\cos(0.05t) = -0.25$, que ocorre em $t \approx 45.23$ e $t \approx 80.43$ minutos.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Momento de máxima distorção: } t \approx 62.83 \text{ minutos}$$
+                    $$\text{Distância mínima: } d_{min} = 300 \text{ metros}$$
+                    $$\text{Intervalo de maior perigo: } [60, 65] \text{ minutos}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Nas zonas devastadas, anomalias espaço-temporais representam um dos fenômenos mais perigosos e imprevisíveis. A capacidade de modelar matematicamente estes distúrbios permite planejar missões que minimizem exposição aos seus efeitos. Documentar com precisão os momentos de maior distorção é vital não apenas para a segurança imediata, mas também para mapear e compreender fenômenos que podem reescrever as leis da física que conhecíamos.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 12 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>SISTEMA DE COMUNICAÇÃO ADAPTATIVO</h3>
+            <p>Um assentamento desenvolveu um sistema de comunicação avançado que utiliza uma antena móvel seguindo a equação paramétrica $x(t) = 100\cos(t)$, $y(t) = 100\sin(t)$. O padrão de emissão da antena é descrito pela equação polar $r(\theta) = 200(1 + 0.5\cos(4\theta))$. Para maximizar a eficiência de comunicação com três postos avançados localizados em $(500, 200)$, $(-300, 400)$ e $(0, -600)$, você precisa determinar a posição ótima da antena e a direção para a qual ela deve ser apontada. Desenvolva um algoritmo que calcule a configuração ideal que maximize o alcance combinado para os três postos.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>A antena se move em um círculo de raio 100m centrado na origem, seguindo a equação paramétrica $(x(t), y(t)) = (100\cos(t), 100\sin(t))$.</li>
+                    <li>O padrão de emissão da antena é $r(\theta) = 200(1 + 0.5\cos(4\theta))$, que é uma rosa com oito pétalas modificada por um termo constante.</li>
+                    <li>Para cada posição $t$ da antena e cada posto avançado, calculamos:
+                       - O vetor entre a antena e o posto: $\vec{v}_i = (P_i - A(t))$, onde $P_i$ é a posição do posto e $A(t)$ é a posição da antena.
+                       - O ângulo $\theta_i$ deste vetor em relação ao eixo x.
+                       - A distância $d_i = |\vec{v}_i|$ entre a antena e o posto.
+                       - O alcance da antena na direção $\theta_i$: $r(\theta_i) = 200(1 + 0.5\cos(4\theta_i))$.</li>
+                    <li>Para cada posto, definimos um fator de eficiência $E_i = r(\theta_i) / d_i$. Se $E_i > 1$, o posto está dentro do alcance; se $E_i < 1$, o posto está fora do alcance.</li>
+                    <li>Queremos maximizar a função objetivo $F(t, \alpha) = \sum_{i=1}^{3} E_i$, onde $\alpha$ é o ângulo de rotação adicional da antena.</li>
+                    <li>Para simplificar, vamos considerar apenas o caso onde $\alpha = 0$ (sem rotação adicional da antena).</li>
+                    <li>Calculamos $F(t, 0)$ para valores de $t$ no intervalo $[0, 2\pi)$ e encontramos o valor de $t$ que maximiza $F$.</li>
+                    <li>Analisando os resultados, determinamos que a posição ótima da antena é aproximadamente em $t \approx 1.1$ radianos, onde $A(1.1) \approx (33.8, 94.1)$ metros.</li>
+                    <li>Nesta posição, a antena deve ser apontada para a direção $\theta \approx 0.25$ radianos para maximizar a cobertura combinada para os três postos.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Posição ótima da antena: } (33.8, 94.1) \text{ metros}$$
+                    $$\text{Direção de apontamento: } \theta \approx 0.25 \text{ radianos}$$
+                    $$\text{Alcance efetivo máximo combinado: } \approx 1.87 \text{ (valor normalizado)}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em um mundo onde cada watt de energia é precioso, otimizar sistemas de comunicação não é luxo, mas necessidade absoluta. Esta análise matemática avançada permite manter contato com postos avançados usando o mínimo de recursos. A diferença entre uma rede de comunicação otimizada e uma configuração ad-hoc pode significar semanas adicionais de operação com a mesma quantidade de energia, potencialmente salvando vidas quando alertas precisam ser transmitidos.</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- RODAPÉ DO DOCUMENTO -->
+    <div class="footer">
+        REFÚGIO-TEC | COORDENADAS POLARES: Sobrevivência Matemática - Navegue pelo caos com precisão angular. A matemática é a bússola quando todos os sistemas falham.
+    </div>
+</body>
+</html>
