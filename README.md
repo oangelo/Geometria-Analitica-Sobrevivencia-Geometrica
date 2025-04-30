@@ -56,8 +56,8 @@ São Paulo: Atual, 1982.
 1. [Equação da circunferência](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-iv-a-circunferencia-no-r2/1-equacao-da-circunferencia.html)
 2. [A circunferência definida por três pontos](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-iv-a-circunferencia-no-r2/2-circunferencia-definida-por-tres-pontos.html)
 3. [Posições relativas e interseções](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-iv-a-circunferencia-no-r2/3-posicoes-relativas-e-intersecoes.html)
-4. [Posições de um ponto em relação a uma circunferência](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-iv-a-circunferencia-no-r2/4-posicoes-de-um-ponto-em-relacao-a-circunferencia.html)
-5. [Revisão](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-iv-a-circunferencia-no-r2/index.html)
+5. [Coordenadas Polares e equação paramétrica](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-iv-a-circunferencia-no-r2/5-coordenadas-polares-e-equacoes-parametricas.html)
+6. [Revisão](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-iv-a-circunferencia-no-r2/index.html)
 
 ## [Capítulo V - Lugares Geométricos: As Cônicas](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-v.html)
 1. [Lugares geométricos](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-v-lugares-geometricos-as-conicas/1-lugares-geometricos.html)
