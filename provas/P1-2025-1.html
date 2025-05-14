@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabarito da Prova com MathJax e SVG</title>
+    <script>
+        MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+    <style>
+        body {
+            font-family: "Computer Modern Serif", serif; /* Fonte similar ao LaTeX */
+            line-height: 1.8; /* Aumentar espaçamento para fórmulas */
+            margin: 20px;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        .conteudo-prova {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .questao {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .questao:last-child {
+            border-bottom: none;
+        }
+        .questao h2 {
+            color: #0056b3;
+            margin-top: 0;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 5px;
+        }
+        .item {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            border-left: 3px solid #007bff;
+        }
+        .item p {
+            margin: 8px 0; /* Aumentar margem para parágrafos */
+        }
+        details {
+            margin-top: 5px;
+            margin-bottom: 15px;
+            background-color: #eef8ff; /* Cor de fundo mais suave */
+            border: 1px solid #cce5ff;
+            border-radius: 4px;
+            padding: 15px; /* Aumentar padding */
+        }
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #004085;
+            font-size: 1.1em; /* Aumentar fonte do summary */
+        }
+        .resposta-item {
+            padding-top: 10px;
+        }
+        .resposta-item p, .resposta-item div {
+            margin: 8px 0;
+        }
+        /* Estilo para o SVG */
+        .svg-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        .svg-triangle {
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 400px; /* Limite máximo para SVG */
+            height: auto;
+        }
+        /* Classe para destacar fórmulas em display */
+        .formula-display {
+            display: block; /* Garante que o $$...$$ fique em linha própria */
+            text-align: center; /* Centraliza a fórmula */
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gabarito da Prova</h1>
+    <div class="conteudo-prova">
+        <div class="questao">
+            <h2>Questão 1: Determinação do Circuncentro (2,0 pts)</h2>
+            <p>Sejam os pontos $A = (1, 2)$, $B = (5, 4)$ e $C = (3, 8)$ no plano cartesiano.</p>
+            
+            <div class="item">
+                <p><strong>a)</strong> (0,3 pt) Calcule os pontos médios $M_{AB}$, $M_{BC}$ e $M_{AC}$.</p>
+            </div>
+            <details>
+                <summary>Gabarito</summary>
+                <div class="resposta-item">
+                    <p>$M_{AB} = \left(\frac{x_A + x_B}{2}, \frac{y_A + y_B}{2}\right) = \left(\frac{1+5}{2}, \frac{2+4}{2}\right) = \left(\frac{6}{2}, \frac{6}{2}\right) = \mathbf{(3, 3)}$</p>
+                    <p>$M_{BC} = \left(\frac{x_B + x_C}{2}, \frac{y_B + y_C}{2}\right) = \left(\frac{5+3}{2}, \frac{4+8}{2}\right) = \left(\frac{8}{2}, \frac{12}{2}\right) = \mathbf{(4, 6)}$</p>
+                    <p>$M_{AC} = \left(\frac{x_A + x_C}{2}, \frac{y_A + y_C}{2}\right) = \left(\frac{1+3}{2}, \frac{2+8}{2}\right) = \left(\frac{4}{2}, \frac{10}{2}\right) = \mathbf{(2, 5)}$</p>
+                </div>
+            </details>
+            
+            <div class="item">
+                <p><strong>b)</strong> (0,4 pt) Determine as equações das retas (mediatrizes):</p>
+                <p>- t: perpendicular a AB passando por $M_{AB}$</p>
+                <p>- r: perpendicular a BC passando por $M_{BC}$</p>
+                <p>- v: perpendicular a AC passando por $M_{AC}$</p>
+            </div>
+            <details>
+                <summary>Gabarito</summary>
+                <div class="resposta-item">
+                    <p><strong>Reta t (mediatriz de AB):</strong></p>
+                    <p>Vetor $\vec{AB} = B - A = (5-1, 4-2) = (4, 2)$. Este vetor é normal à reta $t$.</p>
+                    <p>A equação de $t$ é da forma $4x + 2y + c_t = 0$.</p>
+                    <p>Como $M_{AB}=(3,3)$ pertence a $t$: $4(3) + 2(3) + c_t = 0 \Rightarrow 12 + 6 + c_t = 0 \Rightarrow c_t = -18$.</p>
+                    <p>$t: 4x + 2y - 18 = 0 \Rightarrow \mathbf{2x + y - 9 = 0}$.</p>
+
+                    <p><strong>Reta r (mediatriz de BC):</strong></p>
+                    <p>Vetor $\vec{BC} = C - B = (3-5, 8-4) = (-2, 4)$. Este vetor é normal à reta $r$.</p>
+                    <p>A equação de $r$ é da forma $-2x + 4y + c_r = 0$.</p>
+                    <p>Como $M_{BC}=(4,6)$ pertence a $r$: $-2(4) + 4(6) + c_r = 0 \Rightarrow -8 + 24 + c_r = 0 \Rightarrow 16 + c_r = 0 \Rightarrow c_r = -16$.</p>
+                    <p>$r: -2x + 4y - 16 = 0 \Rightarrow \mathbf{x - 2y + 8 = 0}$.</p>
+
+                    <p><strong>Reta v (mediatriz de AC):</strong></p>
+                    <p>Vetor $\vec{AC} = C - A = (3-1, 8-2) = (2, 6)$. Este vetor é normal à reta $v$.</p>
+                    <p>A equação de $v$ é da forma $2x + 6y + c_v = 0$.</p>
+                    <p>Como $M_{AC}=(2,5)$ pertence a $v$: $2(2) + 6(5) + c_v = 0 \Rightarrow 4 + 30 + c_v = 0 \Rightarrow 34 + c_v = 0 \Rightarrow c_v = -34$.</p>
+                    <p>$v: 2x + 6y - 34 = 0 \Rightarrow \mathbf{x + 3y - 17 = 0}$.</p>
+                </div>
+            </details>
+            
+            <div class="item">
+                <p><strong>c)</strong> (0,5 pt) Calcule as intersecções: $P_1 (t \cap r)$, $P_2 (r \cap v)$, $P_3 (t \cap v)$. (Circuncentro O)</p>
+            </div>
+            <details>
+                <summary>Gabarito</summary>
+                <div class="resposta-item">
+                    <p>As três mediatrizes se interceptam no circuncentro $O$. Vamos calcular $t \cap r$.</p>
+                    <p>$t: 2x + y = 9 \Rightarrow y = 9 - 2x$</p>
+                    <p>$r: x - 2y = -8$</p>
+                    <p>Substituindo $y$ em $r$: $x - 2(9 - 2x) = -8 \Rightarrow x - 18 + 4x = -8 \Rightarrow 5x = 10 \Rightarrow x = 2$.</p>
+                    <p>$y = 9 - 2(2) = 9 - 4 = 5$.</p>
+                    <p>O circuncentro é $O = (2, 5)$.</p>
+                    <p>Portanto, $P_1 = P_2 = P_3 = \mathbf{(2, 5)}$.</p>
+                </div>
+            </details>
+            
+            <div class="item">
+                <p><strong>d)</strong> (0,3 pt) Calcule o raio $R$ do círculo circunscrito.</p>
+            </div>
+            <details>
+                <summary>Gabarito</summary>
+                <div class="resposta-item">
+                    <p>O circuncentro é $O = (2, 5)$. O raio $R$ é a distância de $O$ a qualquer vértice. Usando $A=(1,2)$:</p>
+                    <p class="formula-display">$$ R = d(O, A) = \sqrt{(x_A - x_O)^2 + (y_A - y_O)^2} $$</p>
+                    <p class="formula-display">$$ R = \sqrt{(1 - 2)^2 + (2 - 5)^2} = \sqrt{(-1)^2 + (-3)^2} = \sqrt{1 + 9} = \sqrt{10} $$</p>
+                    <p>$\mathbf{R = \sqrt{10}}$.</p>
+                </div>
+            </details>
+            
+            <div class="item">
+                <p><strong>e)</strong> (0,5 pt) Escreva a equação da circunferência.</p>
+            </div>
+            <details>
+                <summary>Gabarito</summary>
+                <div class="resposta-item">
+                    <p>A equação da circunferência com centro $(h, k)=(2,5)$ e raio $R=\sqrt{10}$ ($R^2=10$) é:</p>
+                    <p class="formula-display">$$ (x - h)^2 + (y - k)^2 = R^2 $$</p>
+                    <p class="formula-display">$$ \mathbf{(x - 2)^2 + (y - 5)^2 = 10} $$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="questao">
+            <h2>Questão 2: Distância de Ponto a Reta (2,0 pts)</h2>
+            <p>Reta $r: 2x - 3y + 6 = 0$ e ponto $P = (4, 5)$.</p>
+            
+            <div class="item">
+                <p><strong>a)</strong> (0,25 pt) Determine o vetor normal à reta $r$.</p>
+            </div>
+            <details>
+                <summary>Gabarito</summary>
+                <div class="resposta-item">
+                    <p>Para uma reta na forma $ax + by + c = 0$, o vetor normal é $\vec{n}=(a, b)$.</p>
+                    <p>Para $r: 2x - 3y + 6 = 0$, o vetor normal é $\mathbf{\vec{n_r} = (2, -3)}$.</p>
+                </div>
+            </details>
+            
+            <div class="item">
+                <p><strong>b)</strong> (0,35 pt) Encontre a equação da reta $t$ perpendicular a $r$ passando por $P$.</p>
+            </div>
+            <details>
+                <summary>Gabarito</summary>
+                <div class="resposta-item">
+                    <p>Se $t \perp r$, o vetor normal de $r$, $\vec{n_r} = (2, -3)$, é o vetor diretor de $t$, $\vec{v_t} = (2, -3)$.</p>
+                    <p>Um vetor normal a $t$, $\vec{n_t}$, é perpendicular a $\vec{v_t}$. Podemos usar $\vec{n_t} = (3, 2)$.</p>
+                    <p>A equação de $t$ é da forma $3x + 2y + c_t = 0$.</p>
+                    <p>Como $P=(4,5)$ pertence a $t$: $3(4) + 2(5) + c_t = 0 \Rightarrow 12 + 10 + c_t = 0 \Rightarrow c_t = -22$.</p>
+                    <p>$t: \mathbf{3x + 2y - 22 = 0}$.</p>
+                </div>
+            </details>
+            
+            <div class="item">
+                <p><strong>c)</strong> (0,35 pt) Calcule $I$, intersecção entre $r$ e $t$.</p>
+            </div>
+            <details>
+                <summary>Gabarito</summary>
+                <div class="resposta-item">
+                    <p>$r: 2x - 3y = -6$</p>
+                    <p>$t: 3x + 2y = 22$</p>
+                    <p>Multiplicando a primeira por 2 e a segunda por 3:</p>
+                    <p>$4x - 6y = -12$</p>
+                    <p>$9x + 6y = 66$</p>
+                    <p>Somando as equações: $13x = 54 \Rightarrow x = \frac{54}{13}$.</p>
+                    <p>Substituindo $x$ em $2x - 3y = -6$: $2\left(\frac{54}{13}\right) - 3y = -6 \Rightarrow \frac{108}{13} - 3y = -\frac{78}{13}$</p>
+                    <p>$-3y = -\frac{78}{13} - \frac{108}{13} = -\frac{186}{13} \Rightarrow y = \frac{186}{3 \cdot 13} = \frac{62}{13}$.</p>
+                    <p>$\mathbf{I = \left(\frac{54}{13}, \frac{62}{13}\right)}$.</p>
+                </div>
+            </details>
+            
+            <div class="item">
+                <p><strong>d)</strong> (0,25 pt) Calcule a distância entre $P$ e $I$.</p>
+            </div>
+            <details>
+                <summary>Gabarito</summary>
+                <div class="resposta-item">
+                    <p>$P=(4,5) = \left(\frac{52}{13}, \frac{65}{13}\right)$ e $I=\left(\frac{54}{13}, \frac{62}{13}\right)$.</p>
+                    <p class="formula-display">$$ d(P, I) = \sqrt{\left(\frac{54}{13} - \frac{52}{13}\right)^2 + \left(\frac{62}{13} - \frac{65}{13}\right)^2} = \sqrt{\left(\frac{2}{13}\right)^2 + \left(\frac{-3}{13}\right)^2} $$</p>
+                    <p class="formula-display">$$ = \sqrt{\frac{4}{169} + \frac{9}{169}} = \sqrt{\frac{13}{169}} = \frac{\sqrt{13}}{\sqrt{169}} = \mathbf{\frac{\sqrt{13}}{13}} $$</p>
+                    <p>Alternativamente, usando a fórmula da distância de $P(x_0, y_0)$ à reta $ax+by+c=0$: $d = \frac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}}$</p>
+                    <p>$d(P,r) = \frac{|2(4) - 3(5) + 6|}{\sqrt{2^2 + (-3)^2}} = \frac{|8 - 15 + 6|}{\sqrt{4+9}} = \frac{|-1|}{\sqrt{13}} = \frac{1}{\sqrt{13}} = \mathbf{\frac{\sqrt{13}}{13}}$.</p>
+                </div>
+            </details>
+            
+            <div class="item">
+                <p><strong>e)</strong> (0,35 pt) Escolha $A \in r$ e calcule o vetor $\vec{PA}$.</p>
+            </div>
+            <details>
+                <summary>Gabarito</summary>
+                <div class="resposta-item">
+                    <p>Reta $r: 2x - 3y + 6 = 0$. Ponto $P = (4, 5)$.</p>
+                    <p>Para encontrar um ponto $A$ em $r$, fazemos $x=0$: $2(0) - 3y + 6 = 0 \Rightarrow -3y = -6 \Rightarrow y = 2$.</p>
+                    <p>Então, $A = (0, 2)$ é um ponto em $r$.</p>
+                    <p>Vetor $\vec{PA} = A - P = (0 - 4, 2 - 5) = \mathbf{(-4, -3)}$.</p>
+                </div>
+            </details>
+            
+            <div class="item">
+                <p><strong>f)</strong> (0,45 pt) Calcule a projeção do vetor $\vec{PA}$ sobre o vetor normal $\vec{n_r}$.</p>
+            </div>
+            <details>
+                <summary>Gabarito</summary>
+                <div class="resposta-item">
+                    <p>$\vec{PA} = (-4, -3)$ e $\vec{n_r} = (2, -3)$.</p>
+                    <p class="formula-display">$$ \text{proj}_{\vec{n_r}} \vec{PA} = \frac{\vec{PA} \cdot \vec{n_r}}{||\vec{n_r}||^2} \vec{n_r} $$</p>
+                    <p>$\vec{PA} \cdot \vec{n_r} = (-4)(2) + (-3)(-3) = -8 + 9 = 1$.</p>
+                    <p>$||\vec{n_r}||^2 = 2^2 + (-3)^2 = 4 + 9 = 13$.</p>
+                    <p>$\text{proj}_{\vec{n_r}} \vec{PA} = \frac{1}{13} (2, -3) = \mathbf{\left(\frac{2}{13}, -\frac{3}{13}\right)}$.</p>
+                    <p>O módulo desta projeção é $||\text{proj}_{\vec{n_r}} \vec{PA}|| = \frac{|\vec{PA} \cdot \vec{n_r}|}{||\vec{n_r}||} = \frac{|1|}{\sqrt{13}} = \frac{1}{\sqrt{13}} = \frac{\sqrt{13}}{13}$, que é a distância $d(P,r)$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="questao">
+            <h2>Questão 3: Inequações e Região Triangular (2,0 pts)</h2>
+            <p>Pontos $A = (-2, 1)$, $B = (4, 2)$ e $C = (1, 5)$.</p>
+            
+            <div class="item">
+                <p><strong>a)</strong> (0,5 pt) Determine as equações das retas:</p>
+                <p>- $r_1$: passa por A e B</p>
+                <p>- $r_2$: passa por B e C</p>
+                <p>- $r_3$: passa por C e A</p>
+            </div>
+            <details>
+                <summary>Gabarito</summary>
+                <div class="resposta-item">
+                    <p><strong>$r_1$ (passa por $A=(-2,1)$ e $B=(4,2)$):</strong></p>
+                    <p>Vetor diretor $\vec{v_1} = \vec{AB} = (4 - (-2), 2 - 1) = (6, 1)$.</p>
+                    <p>Vetor normal $\vec{n_1} = (1, -6)$ (troca componentes de $\vec{v_1}$ e inverte sinal de uma).</p>
+                    <p>Equação de $r_1: 1x - 6y + c_1 = 0$. Usando $A(-2,1)$: $(-2) - 6(1) + c_1 = 0 \Rightarrow c_1 = 8$.</p>
+                    <p>$r_1: \mathbf{x - 6y + 8 = 0}$.</p>
+
+                    <p><strong>$r_2$ (passa por $B=(4,2)$ e $C=(1,5)$):</strong></p>
+                    <p>Vetor diretor $\vec{v_2} = \vec{BC} = (1 - 4, 5 - 2) = (-3, 3)$.</p>
+                    <p>Vetor normal $\vec{n_2} = (3, 3)$ ou, simplificado, $(1, 1)$.</p>
+                    <p>Equação de $r_2: x + y + c_2 = 0$. Usando $B(4,2)$: $(4) + (2) + c_2 = 0 \Rightarrow c_2 = -6$.</p>
+                    <p>$r_2: \mathbf{x + y - 6 = 0}$.</p>
+
+                    <p><strong>$r_3$ (passa por $C=(1,5)$ e $A=(-2,1)$):</strong></p>
+                    <p>Vetor diretor $\vec{v_3} = \vec{CA} = (-2 - 1, 1 - 5) = (-3, -4)$.</p>
+                    <p>Vetor normal $\vec{n_3} = (4, -3)$ (ou $(-4,3)$).</p>
+                    <p>Equação de $r_3: 4x - 3y + c_3 = 0$. Usando $C(1,5)$: $4(1) - 3(5) + c_3 = 0 \Rightarrow 4 - 15 + c_3 = 0 \Rightarrow c_3 = 11$.</p>
+                    <p>$r_3: \mathbf{4x - 3y + 11 = 0}$.</p>
+                </div>
+            </details>
+            
+            <div class="item">
+                <p><strong>b)</strong> (0,4 pt) Ilustre o triângulo com vetores normais (apontando para fora).</p>
+            </div>
+            <details>
+                <summary>Gabarito</summary>
+                <div class="resposta-item">
+                    <p>A ilustração mostra o triângulo ABC e os vetores normais a cada lado, originados nos pontos médios e apontando para fora da região triangular.</p>
+                    <div class="svg-container">
+                        <svg viewBox="-3 0 8 6" class="svg-triangle" preserveAspectRatio="xMidYMid meet">
+                            <defs>
+                                <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="3.5" markerHeight="3.5" orient="auto-start-reverse">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="green" />
+                                </marker>
+                            </defs>
+                            <g transform="translate(0, 6) scale(1, -1)"> <!-- y_svg = 6 - y_cartesian -->
+                                <!-- Triângulo -->
+                                <polygon points="-2,1 4,2 1,5" fill="#e0f2fe" stroke="#0284c7" stroke-width="0.07"/>
+                                
+                                <!-- Vértices -->
+                                <circle cx="-2" cy="1" r="0.1" fill="#ef4444"/> <text x="-2.4" y="0.9" font-size="0.3" style="transform: scale(1, -1) translate(0, -1.5px);">A</text>
+                                <circle cx="4" cy="2" r="0.1" fill="#ef4444"/> <text x="4.2" y="1.9" font-size="0.3" style="transform: scale(1, -1) translate(0, -3.5px);">B</text>
+                                <circle cx="1" cy="5" r="0.1" fill="#ef4444"/> <text x="0.8" y="5.3" font-size="0.3" style="transform: scale(1, -1) translate(0, -10.5px);">C</text>
+
+                                <!-- Pontos Médios (para origem dos vetores normais) -->
+                                <!-- M_AB = (1, 1.5) -->
+                                <!-- M_BC = (2.5, 3.5) -->
+                                <!-- M_CA = (-0.5, 3) -->
+
+                                <!-- Vetores Normais (apontando para fora, escalados em 0.5 unidades) -->
+                                <!-- n1 (para r1: x-6y+8=0) é (1,-6). L_C(1,5) = 1-30+8 = -21 < 0. Normal (1,-6) aponta para L>0, logo para fora. -->
+                                <!-- Vetor (1,-6) normalizado e escalado por 0.5: (0.082, -0.493) -->
+                                <line x1="1" y1="1.5" x2="1.082" y2="1.007" stroke="green" stroke-width="0.05" marker-end="url(#arrow)"/>
+                                
+                                <!-- n2 (para r2: x+y-6=0) é (1,1). L_A(-2,1) = -2+1-6 = -7 < 0. Normal (1,1) aponta para L>0, logo para fora. -->
+                                <!-- Vetor (1,1) normalizado e escalado por 0.5: (0.353, 0.353) -->
+                                <line x1="2.5" y1="3.5" x2="2.853" y2="3.853" stroke="green" stroke-width="0.05" marker-end="url(#arrow)"/>
+                                
+                                <!-- n3 (para r3: 4x-3y+11=0) é (4,-3). L_B(4,2) = 16-6+11 = 21 > 0. Normal (4,-3) aponta para L>0, logo para dentro. Usar (-4,3). -->
+                                <!-- Vetor (-4,3) normalizado e escalado por 0.5: (-0.4, 0.3) -->
+                                <line x1="-0.5" y1="3" x2="-0.9" y2="3.3" stroke="green" stroke-width="0.05" marker-end="url(#arrow)"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <p>Notas sobre o SVG: A transformação `translate(0,6) scale(1,-1)` ajusta o sistema de coordenadas para que o Y aumente para cima, com origem no canto inferior esquerdo do `viewBox`. Textos têm uma transformação adicional para reverter o espelhamento local.</p>
+                </div>
+            </details>
+            
+            <div class="item">
+                <p><strong>c)</strong> (0,5 pt) Determine de que lado da reta está o terceiro ponto (para definir as inequações do triângulo).</p>
+            </div>
+            <details>
+                <summary>Gabarito</summary>
+                <div class="resposta-item">
+                    <p>Para cada reta $ax+by+c=0$, substituímos as coordenadas do terceiro vértice (que não pertence à reta) para determinar o sinal da expressão $ax+by+c$. Este sinal define o semiplano que contém o interior do triângulo em relação àquela reta.</p>
+                    <p><strong>Para $r_1: x - 6y + 8 = 0$ e o ponto $C=(1,5)$:</strong></p>
+                    <p>$L_1(C) = (1) - 6(5) + 8 = 1 - 30 + 8 = -21$.</p>
+                    <p>Como $L_1(C) < 0$, a inequação para o interior é $\mathbf{x - 6y + 8 \le 0}$.</p>
+
+                    <p><strong>Para $r_2: x + y - 6 = 0$ e o ponto $A=(-2,1)$:</strong></p>
+                    <p>$L_2(A) = (-2) + (1) - 6 = -7$.</p>
+                    <p>Como $L_2(A) < 0$, a inequação para o interior é $\mathbf{x + y - 6 \le 0}$.</p>
+
+                    <p><strong>Para $r_3: 4x - 3y + 11 = 0$ e o ponto $B=(4,2)$:</strong></p>
+                    <p>$L_3(B) = 4(4) - 3(2) + 11 = 16 - 6 + 11 = 21$.</p>
+                    <p>Como $L_3(B) > 0$, a inequação para o interior é $\mathbf{4x - 3y + 11 \ge 0}$.</p>
+                </div>
+            </details>
+            
+            <div class="item">
+                <p><strong>d)</strong> (0,6 pt) Verifique se $P = (1, 2)$ está dentro do triângulo.</p>
+            </div>
+            <details>
+                <summary>Gabarito</summary>
+                <div class="resposta-item">
+                    <p>Para $P=(1,2)$ estar dentro do triângulo, deve satisfazer as três inequações:</p>
+                    <p>1. $x - 6y + 8 \le 0 \Rightarrow (1) - 6(2) + 8 = 1 - 12 + 8 = -3$. Como $-3 \le 0$, é <strong>Verdadeiro</strong>.</p>
+                    <p>2. $x + y - 6 \le 0 \Rightarrow (1) + (2) - 6 = 3 - 6 = -3$. Como $-3 \le 0$, é <strong>Verdadeiro</strong>.</p>
+                    <p>3. $4x - 3y + 11 \ge 0 \Rightarrow 4(1) - 3(2) + 11 = 4 - 6 + 11 = 9$. Como $9 \ge 0$, é <strong>Verdadeiro</strong>.</p>
+                    <p>Como $P=(1,2)$ satisfaz todas as inequações, <strong>sim, o ponto P está dentro do triângulo</strong>.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="questao">
+            <h2>Questão 4: Cálculo de Área de Triângulos (2,0 pts)</h2>
+            <p>Pontos $A = (2, 1)$, $B = (6, 3)$ e $C = (4, 7)$.</p>
+            
+            <div class="item">
+                <p><strong>a)</strong> (0,3 pt) Determine a equação da reta AB.</p>
+            </div>
+            <details>
+                <summary>Gabarito</summary>
+                <div class="resposta-item">
+                    <p>Vetor diretor $\vec{v}_{AB} = B - A = (6-2, 3-1) = (4, 2)$.</p>
+                    <p>Vetor normal $\vec{n}_{AB} = (2, -4)$ ou, simplificado, $(1, -2)$.</p>
+                    <p>Equação da reta AB: $x - 2y + c = 0$. Usando $A(2,1)$: $(2) - 2(1) + c = 0 \Rightarrow c = 0$.</p>
+                    <p>Reta AB: $\mathbf{x - 2y = 0}$.</p>
+                </div>
+            </details>
+            
+            <div class="item">
+                <p><strong>b)</strong> (0,4 pt) Calcule a altura $h_C$ de $C$ até AB.</p>
+            </div>
+            <details>
+                <summary>Gabarito</summary>
+                <div class="resposta-item">
+                    <p>A altura $h_C$ é a distância do ponto $C=(4,7)$ à reta AB ($x - 2y = 0$).</p>
+                    <p class="formula-display">$$ h_C = \frac{|ax_C + by_C + c|}{\sqrt{a^2+b^2}} = \frac{|1(4) - 2(7) + 0|}{\sqrt{1^2 + (-2)^2}} = \frac{|4 - 14|}{\sqrt{1+4}} = \frac{|-10|}{\sqrt{5}} = \frac{10}{\sqrt{5}} $$</p>
+                    <p>Racionalizando: $h_C = \frac{10\sqrt{5}}{5} = \mathbf{2\sqrt{5}}$.</p>
+                </div>
+            </details>
+            
+            <div class="item">
+                <p><strong>c)</strong> (0,4 pt) Calcule a área usando $\frac{\text{base} \times \text{altura}}{2}$.</p>
+            </div>
+            <details>
+                <summary>Gabarito</summary>
+                <div class="resposta-item">
+                    <p>Base = comprimento do segmento AB = $||\vec{AB}||$. $\vec{AB} = (4,2)$.</p>
+                    <p>$||\vec{AB}|| = \sqrt{4^2 + 2^2} = \sqrt{16+4} = \sqrt{20} = \sqrt{4 \cdot 5} = 2\sqrt{5}$.</p>
+                    <p>Altura $h_C = 2\sqrt{5}$.</p>
+                    <p class="formula-display">$$ \text{Área} = \frac{\text{base} \times h_C}{2} = \frac{(2\sqrt{5})(2\sqrt{5})}{2} = \frac{4 \cdot 5}{2} = \frac{20}{2} = \mathbf{10} $$</p>
+                </div>
+            </details>
+            
+            <div class="item">
+                <p><strong>d)</strong> (0,4 pt) Calcule o módulo do determinante dos vetores $\vec{AB}$ e $\vec{AC}$.</p>
+            </div>
+            <details>
+                <summary>Gabarito</summary>
+                <div class="resposta-item">
+                    <p>$\vec{AB} = (4, 2)$.</p>
+                    <p>$\vec{AC} = C - A = (4-2, 7-1) = (2, 6)$.</p>
+                    <p class="formula-display">$$ \det(\vec{AB}, \vec{AC}) = \begin{vmatrix} 4 & 2 \\ 2 & 6 \end{vmatrix} = (4)(6) - (2)(2) = 24 - 4 = 20 $$</p>
+                    <p>Módulo do determinante = $|20| = \mathbf{20}$.</p>
+                </div>
+            </details>
+            
+            <div class="item">
+                <p><strong>e)</strong> (0,5 pt) Compare os resultados de c) e d).</p>
+            </div>
+            <details>
+                <summary>Gabarito</summary>
+                <div class="resposta-item">
+                    <p>Resultado de (c) - Área do triângulo: $10$.</p>
+                    <p>Resultado de (d) - Módulo do determinante: $20$.</p>
+                    <p>A área do triângulo é metade do módulo do determinante formado pelos vetores que definem dois de seus lados com origem comum:</p>
+                    <p class="formula-display">$$ \text{Área} = \frac{1}{2} |\det(\vec{AB}, \vec{AC})| $$</p>
+                    <p>$10 = \frac{1}{2} \cdot 20$.</p>
+                    <p><strong>A comparação confirma a relação: a área (10) é metade do módulo do determinante (20).</strong></p>
+                </div>
+            </details>
+        </div>
+
+        <div class="questao">
+            <h2>Questão 5: Classificação de Retas (2,0 pts)</h2>
+            <p style="font-size: 10pt;">
+            <strong>a:</strong> $x = 1 + 2t, y = 3 + t$<br>
+            <strong>b:</strong> $x - 2y + 5 = 0$<br>
+            <strong>c:</strong> $y = \frac{1}{2}x + 1$<br>
+            <strong>d:</strong> $y = -2x + 7$<br>
+            <strong>e:</strong> $\frac{x-2}{3} = \frac{y-0}{-1}$
+            </p>
+            
+            <div class="item">
+                <p><strong>a)</strong> (0,4 pt) Converta todas para forma geral $Ax+By+C=0$.</p>
+            </div>
+            <details>
+                <summary>Gabarito</summary>
+                <div class="resposta-item">
+                    <p><strong>Reta a:</strong> $x = 1 + 2t, y = 3 + t$. Vetor diretor $\vec{v_a} = (2,1)$. Vetor normal $\vec{n_a} = (1,-2)$.</p>
+                    <p>Equação: $x - 2y + k_a = 0$. Ponto $(1,3)$ (para $t=0$) está na reta: $1 - 2(3) + k_a = 0 \Rightarrow 1-6+k_a=0 \Rightarrow k_a=5$.</p>
+                    <p>$\mathbf{a: x - 2y + 5 = 0}$</p>
+
+                    <p><strong>Reta b:</strong> Já está na forma geral.</p>
+                    <p>$\mathbf{b: x - 2y + 5 = 0}$</p>
+
+                    <p><strong>Reta c:</strong> $y = \frac{1}{2}x + 1 \Rightarrow \frac{1}{2}x - y + 1 = 0$. Multiplicando por 2:</p>
+                    <p>$\mathbf{c: x - 2y + 2 = 0}$</p>
+
+                    <p><strong>Reta d:</strong> $y = -2x + 7 \Rightarrow 2x + y - 7 = 0$.</p>
+                    <p>$\mathbf{d: 2x + y - 7 = 0}$</p>
+
+                    <p><strong>Reta e:</strong> $\frac{x-2}{3} = \frac{y}{-1}$. Vetor diretor $\vec{v_e} = (3,-1)$. Vetor normal $\vec{n_e} = (1,3)$.</p>
+                    <p>Equação: $x + 3y + k_e = 0$. Ponto $(2,0)$ está na reta: $2 + 3(0) + k_e = 0 \Rightarrow k_e=-2$.</p>
+                    <p>$\mathbf{e: x + 3y - 2 = 0}$</p>
+                </div>
+            </details>
+            
+            <div class="item">
+                <p><strong>b)</strong> (0,3 pt) Determine os vetores normais.</p>
+            </div>
+            <details>
+                <summary>Gabarito</summary>
+                <div class="resposta-item">
+                    <p>Da forma geral $Ax+By+C=0$, $\vec{n}=(A,B)$.</p>
+                    <p>$\mathbf{\vec{n_a} = (1, -2)}$</p>
+                    <p>$\mathbf{\vec{n_b} = (1, -2)}$</p>
+                    <p>$\mathbf{\vec{n_c} = (1, -2)}$</p>
+                    <p>$\mathbf{\vec{n_d} = (2, 1)}$</p>
+                    <p>$\mathbf{\vec{n_e} = (1, 3)}$</p>
+                </div>
+            </details>
+            
+            <div class="item">
+                <p><strong>c)</strong> (0,4 pt) Identifique retas paralelas.</p>
+            </div>
+            <details>
+                <summary>Gabarito</summary>
+                <div class="resposta-item">
+                    <p>Retas são paralelas se seus vetores normais são paralelos ($\vec{n_1} = k \vec{n_2}$). Se as equações são idênticas (ou uma múltipla da outra, incluindo o termo independente), são coincidentes.</p>
+                    <p>$\vec{n_a}=(1,-2)$, $\vec{n_b}=(1,-2)$, $\vec{n_c}=(1,-2)$.</p>
+                    <p>- $\mathbf{a \parallel b}$: Como $x-2y+5=0$ é idêntica para ambas, $\mathbf{a \text{ e } b \text{ são coincidentes}}$.</p>
+                    <p>- $\mathbf{a \parallel c}$: $\vec{n_a}=\vec{n_c}$. Equações: $x-2y+5=0$ e $x-2y+2=0$. Termos independentes diferentes. $\mathbf{a \text{ e } c \text{ são paralelas distintas}}$.</p>
+                    <p>- $\mathbf{b \parallel c}$: Similarmente, $\mathbf{b \text{ e } c \text{ são paralelas distintas}}$.</p>
+                </div>
+            </details>
+            
+            <div class="item">
+                <p><strong>d)</strong> (0,4 pt) Identifique retas perpendiculares.</p>
+            </div>
+            <details>
+                <summary>Gabarito</summary>
+                <div class="resposta-item">
+                    <p>Retas são perpendiculares se o produto escalar de seus vetores normais é zero ($\vec{n_1} \cdot \vec{n_2} = 0$).</p>
+                    <p>- $\vec{n_a} \cdot \vec{n_d} = (1)(2) + (-2)(1) = 2 - 2 = 0$. Então $\mathbf{a \perp d}$.</p>
+                    <p>- Como $a \parallel b$, também $\mathbf{b \perp d}$.</p>
+                    <p>- Como $a \parallel c$, também $\mathbf{c \perp d}$.</p>
+                    <p>Outras combinações: $\vec{n_a} \cdot \vec{n_e} = (1)(1)+(-2)(3) = 1-6 = -5 \ne 0$. $\vec{n_d} \cdot \vec{n_e} = (2)(1)+(1)(3) = 2+3 = 5 \ne 0$.</p>
+                </div>
+            </details>
+            
+            <div class="item">
+                <p><strong>e)</strong> (0,5 pt) Encontre intersecções entre não paralelas.</p>
+            </div>
+            <details>
+                <summary>Gabarito</summary>
+                <div class="resposta-item">
+                    <p><strong>Intersecção $a \cap d$ (ou $b \cap d$, já que $a,b$ são coincidentes):</strong></p>
+                    <p>$a: x - 2y = -5 \Rightarrow x = 2y - 5$</p>
+                    <p>$d: 2x + y = 7$. Substituindo $x$: $2(2y-5)+y=7 \Rightarrow 4y-10+y=7 \Rightarrow 5y=17 \Rightarrow y=\frac{17}{5}$.</p>
+                    <p>$x = 2(\frac{17}{5}) - 5 = \frac{34}{5} - \frac{25}{5} = \frac{9}{5}$.  $P_{ad} = P_{bd} = \mathbf{\left(\frac{9}{5}, \frac{17}{5}\right)}$.</p>
+
+                    <p><strong>Intersecção $c \cap d$:</strong></p>
+                    <p>$c: x - 2y = -2 \Rightarrow x = 2y - 2$</p>
+                    <p>$d: 2x + y = 7$. Substituindo $x$: $2(2y-2)+y=7 \Rightarrow 4y-4+y=7 \Rightarrow 5y=11 \Rightarrow y=\frac{11}{5}$.</p>
+                    <p>$x = 2(\frac{11}{5}) - 2 = \frac{22}{5} - \frac{10}{5} = \frac{12}{5}$. $P_{cd} = \mathbf{\left(\frac{12}{5}, \frac{11}{5}\right)}$.</p>
+
+                    <p><strong>Intersecção $a \cap e$ (ou $b \cap e$):</strong></p>
+                    <p>$a: x - 2y = -5 \Rightarrow x = 2y - 5$</p>
+                    <p>$e: x + 3y = 2$. Substituindo $x$: $(2y-5)+3y=2 \Rightarrow 5y-5=2 \Rightarrow 5y=7 \Rightarrow y=\frac{7}{5}$.</p>
+                    <p>$x = 2(\frac{7}{5}) - 5 = \frac{14}{5} - \frac{25}{5} = -\frac{11}{5}$. $P_{ae} = P_{be} = \mathbf{\left(-\frac{11}{5}, \frac{7}{5}\right)}$.</p>
+
+                    <p><strong>Intersecção $c \cap e$:</strong></p>
+                    <p>$c: x - 2y = -2 \Rightarrow x = 2y - 2$</p>
+                    <p>$e: x + 3y = 2$. Substituindo $x$: $(2y-2)+3y=2 \Rightarrow 5y-2=2 \Rightarrow 5y=4 \Rightarrow y=\frac{4}{5}$.</p>
+                    <p>$x = 2(\frac{4}{5}) - 2 = \frac{8}{5} - \frac{10}{5} = -\frac{2}{5}$. $P_{ce} = \mathbf{\left(-\frac{2}{5}, \frac{4}{5}\right)}$.</p>
+
+                    <p><strong>Intersecção $d \cap e$:</strong></p>
+                    <p>$d: 2x + y = 7 \Rightarrow y = 7 - 2x$</p>
+                    <p>$e: x + 3y = 2$. Substituindo $y$: $x + 3(7-2x)=2 \Rightarrow x+21-6x=2 \Rightarrow -5x = -19 \Rightarrow x=\frac{19}{5}$.</p>
+                    <p>$y = 7 - 2(\frac{19}{5}) = \frac{35}{5} - \frac{38}{5} = -\frac{3}{5}$. $P_{de} = \mathbf{\left(\frac{19}{5}, -\frac{3}{5}\right)}$.</p>
+                </div>
+            </details>
+        </div>
+    </div>
+</body>
+</html>
