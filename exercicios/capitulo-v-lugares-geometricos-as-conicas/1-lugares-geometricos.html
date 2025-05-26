@@ -2,10 +2,556 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>CAPÍTULO V - LUGARES GEOMÉTRICOS: AS CÔNICAS - Seção 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+    </script>
+    <title>REFÚGIO-TEC | Lugares Geométricos</title>
+    <style>
+        /* Estilo inspirado no tema pós-apocalíptico */
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100px; }
+        }
+
+        body {
+            background-color: #0c0c0c;
+            color: #e6e6e6;
+            font-family: "Courier New", monospace;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #4caf50;
+            max-width: 800px;
+            margin: auto;
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 2px;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+
+        h1, h2, h3 {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .exercise {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border: 1px dashed #4caf50;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        details {
+            background-color: #1c1c1c;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            margin-top: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #4caf50;
+        }
+
+        summary:hover {
+            text-shadow: 0 0 3px #4caf50;
+        }
+
+        code {
+            background-color: #333;
+            padding: 3px 5px;
+            color: #ffeb3b;
+        }
+
+        .hint {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #4caf50;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .hint:before {
+            content: "DICA DE SOBREVIVÊNCIA: ";
+            color: #4caf50;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .solution-steps {
+            margin-left: 20px;
+            counter-reset: step-counter;
+        }
+
+        .solution-steps li {
+            list-style-type: none;
+            counter-increment: step-counter;
+            margin-bottom: 10px;
+        }
+
+        .solution-steps li::before {
+            content: "> PASSO_" counter(step-counter) ": ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .formula {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #000;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .terminal-frame {
+            padding: 10px;
+            background-color: #000;
+            margin-bottom: 20px;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .terminal-header {
+            margin: 0;
+            padding: 3px 10px;
+            background-color: #4caf50;
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .terminal-content {
+            padding: 5px;
+            white-space: pre-wrap;
+            font-size: 1em;
+            line-height: 1.2;
+        }
+
+        .cursor:after {
+            content: "█";
+            animation: blink 1s step-end infinite;
+        }
+
+        .terminal-line {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .terminal-border {
+            border: 1px solid #4caf50;
+            padding: 5px;
+            background-color: #000;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .mission-counter {
+            counter-reset: mission;
+        }
+        
+        .mission-counter .exercise h3:before {
+            content: "MISSÃO " counter(mission) ": ";
+            counter-increment: mission;
+        }
+
+        .warning {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .danger {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #8bc34a;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #4caf50;
+            border-top: 1px solid #4caf50;
+            padding-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>CAPÍTULO V - LUGARES GEOMÉTRICOS: AS CÔNICAS</h1>
-    <h2>Seção 1: lugares-geometricos</h2>
+    <!-- TÍTULO E INTRODUÇÃO -->
+    <div class="terminal-frame">
+        <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
+        <div class="terminal-content">
+┌───────────────────────────────────────────────────┐
+│ MÓDULO: LUGARES GEOMÉTRICOS                       │
+└───────────────────────────────────────────────────┘
+
+> INICIANDO TRANSMISSÃO...
+> CARREGANDO MÓDULO DE TREINAMENTO...
+> ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
+        </div>
+    </div>
+
+    <div class="terminal-border">
+        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: LUGARES GEOMÉTRICOS</h2>
+    
+    <p>Na Zona Devastada, sobreviver significa encontrar padrões e localizações estratégicas. Um <strong>lugar geométrico</strong> é o conjunto de todos os pontos do plano que satisfazem uma determinada propriedade geométrica. É como um mapa de coordenadas que identifica onde os recursos estão localizados baseado em condições específicas.</p>
+    
+    <p>Os lugares geométricos são fundamentais para estabelecer rotas seguras, delimitar territórios protegidos e calcular distâncias estratégicas. Cada ponto que pertence ao lugar geométrico compartilha a mesma propriedade matemática, criando padrões previsíveis essenciais para navegação pós-apocalíptica.</p>
+    
+    <div class="formula">
+    $$\text{Lugar Geométrico} = \{P(x,y) \mid P \text{ satisfaz uma condição geométrica específica}\}$$
+    </div>
+    
+    <p>Os principais lugares geométricos incluem: <strong>mediatriz</strong> (pontos equidistantes de dois locais), <strong>bissetriz</strong> (pontos equidistantes de duas rotas), <strong>circunferência</strong> (pontos a distância fixa de um centro), e as futuras <strong>cônicas</strong> que definirão zonas de alcance, órbitas de patrulha e campos de detecção.</p>
+
+    <!-- MISSÕES (EXERCÍCIOS) -->
+    <div class="mission-counter">
+        <!-- MISSÃO 1 (BÁSICA) -->
+        <div class="exercise">
+            <h3>MAPEAMENTO DA MEDIATRIZ</h3>
+            <p>Durante uma expedição de reconhecimento, você descobriu dois abrigos abandonados: Abrigo Alpha em A(2, 1) e Abrigo Beta em B(8, 5). Para estabelecer um posto de comunicação equidistante dos dois abrigos, determine a equação da mediatriz do segmento AB.</p>
+            
+            <div class="hint">
+                <p>A mediatriz é o lugar geométrico dos pontos equidistantes dos extremos de um segmento. Passe pelo ponto médio e seja perpendicular ao segmento.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcular o ponto médio M do segmento AB: $M = \left(\frac{2+8}{2}, \frac{1+5}{2}\right) = (5, 3)$</li>
+                    <li>Calcular o coeficiente angular do segmento AB: $m_{AB} = \frac{5-1}{8-2} = \frac{4}{6} = \frac{2}{3}$</li>
+                    <li>O coeficiente angular da mediatriz é o inverso negativo: $m_{mediatriz} = -\frac{3}{2}$</li>
+                    <li>Usar a forma ponto-coeficiente angular: $y - 3 = -\frac{3}{2}(x - 5)$</li>
+                    <li>Simplificar: $y - 3 = -\frac{3}{2}x + \frac{15}{2}$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$y = -\frac{3}{2}x + \frac{21}{2}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A mediatriz garante que seu posto de comunicação tenha acesso igualmente eficiente aos dois abrigos, otimizando recursos e tempo de deslocamento em emergências.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 2 -->
+        <div class="exercise">
+            <h3>PERÍMETRO DE SEGURANÇA CIRCULAR</h3>
+            <p>Seu abrigo principal está localizado no ponto C(3, -2) e você precisa estabelecer um perímetro de segurança circular com raio de 5 unidades para detectar aproximação de mutantes. Determine a equação da circunferência que delimita esta zona de proteção.</p>
+            
+            <div class="hint">
+                <p>A circunferência é o lugar geométrico dos pontos que estão a uma distância fixa (raio) de um ponto fixo (centro).</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificar o centro C(3, -2) e o raio r = 5</li>
+                    <li>Aplicar a forma geral da circunferência: $(x - h)^2 + (y - k)^2 = r^2$</li>
+                    <li>Substituir os valores: $(x - 3)^2 + (y - (-2))^2 = 5^2$</li>
+                    <li>Simplificar: $(x - 3)^2 + (y + 2)^2 = 25$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$(x - 3)^2 + (y + 2)^2 = 25$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Este perímetro circular garante detecção precoce de ameaças, permitindo tempo adequado para ativar defesas ou iniciar evacuação do abrigo principal.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 3 -->
+        <div class="exercise">
+            <h3>ROTA DE EQUIDISTÂNCIA</h3>
+            <p>Dois grupos de sobreviventes estabeleceram campos em A(-1, 4) e B(7, -2). Você precisa traçar uma rota que mantenha igual distância dos dois campos para evitar conflitos territoriais. Encontre todos os pontos P(x, y) que satisfazem esta condição.</p>
+            
+            <div class="hint">
+                <p>Use a fórmula da distância entre dois pontos e iguale as distâncias de P até A e de P até B.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Estabelecer a condição: $d(P,A) = d(P,B)$</li>
+                    <li>Aplicar a fórmula da distância: $\sqrt{(x+1)^2 + (y-4)^2} = \sqrt{(x-7)^2 + (y+2)^2}$</li>
+                    <li>Elevar ambos os lados ao quadrado: $(x+1)^2 + (y-4)^2 = (x-7)^2 + (y+2)^2$</li>
+                    <li>Expandir: $x^2 + 2x + 1 + y^2 - 8y + 16 = x^2 - 14x + 49 + y^2 + 4y + 4$</li>
+                    <li>Simplificar: $2x - 8y + 17 = -14x + 4y + 53$</li>
+                    <li>Reagrupar: $16x - 12y = 36$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$4x - 3y = 9$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Esta linha de equidistância funciona como zona neutra, evitando conflitos territoriais e permitindo comércio seguro entre os dois grupos.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 4 -->
+        <div class="exercise">
+            <h3>ZONA DE CONTAMINAÇÃO ELÍPTICA</h3>
+            <p>Detectores de radiação identificaram duas fontes de contaminação em F₁(-3, 0) e F₂(3, 0). A zona perigosa é formada por todos os pontos onde a soma das distâncias até as duas fontes é exatamente 10 unidades. Determine a equação deste lugar geométrico.</p>
+            
+            <div class="hint">
+                <p>Este é o lugar geométrico de uma elipse: pontos cuja soma das distâncias a dois focos é constante.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificar os focos: F₁(-3, 0) e F₂(3, 0), com c = 3</li>
+                    <li>A soma das distâncias é 2a = 10, logo a = 5</li>
+                    <li>Calcular b usando a relação: $c^2 = a^2 - b^2$</li>
+                    <li>Substituir: $9 = 25 - b^2$, então $b^2 = 16$ e $b = 4$</li>
+                    <li>Como os focos estão no eixo x, a elipse tem centro na origem</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\frac{x^2}{25} + \frac{y^2}{16} = 1$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Conhecer os limites exatos da zona elíptica de contaminação permite planejar rotas seguras e estabelecer protocolos de descontaminação adequados.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 5 -->
+        <div class="exercise">
+            <h3>CAMPO DE DETECÇÃO PARABÓLICO</h3>
+            <p>Uma torre de vigilância em F(0, 2) emite sinais de radar. Uma barreira refletora está posicionada na reta y = -2. O campo de detecção efetivo é formado por pontos que estão equidistantes da torre e da barreira. Encontre a equação deste campo.</p>
+            
+            <div class="hint">
+                <p>Este é o lugar geométrico de uma parábola: pontos equidistantes de um foco e de uma diretriz.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificar o foco F(0, 2) e a diretriz y = -2</li>
+                    <li>O vértice está no ponto médio: V(0, 0)</li>
+                    <li>A distância do vértice ao foco é p = 2</li>
+                    <li>Como a parábola abre para cima, usar a forma: $x^2 = 4py$</li>
+                    <li>Substituir p = 2: $x^2 = 4(2)y = 8y$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$x^2 = 8y$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O campo parabólico concentra a detecção de forma eficiente, maximizando a cobertura frontal enquanto economiza energia da torre de vigilância.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 6 -->
+        <div class="exercise">
+            <h3>ZONA DE INTERFERÊNCIA HIPERBÓLICA</h3>
+            <p>Duas estações de rádio estão localizadas em A(-4, 0) e B(4, 0). Uma zona de interferência destrutiva ocorre onde a diferença absoluta das distâncias até as duas estações é exatamente 6 unidades. Determine esta região problemática.</p>
+            
+            <div class="hint">
+                <p>Este é o lugar geométrico de uma hipérbole: pontos cuja diferença de distâncias a dois focos é constante.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificar os focos: A(-4, 0) e B(4, 0), com c = 4</li>
+                    <li>A diferença das distâncias é 2a = 6, logo a = 3</li>
+                    <li>Calcular b usando: $c^2 = a^2 + b^2$</li>
+                    <li>Substituir: $16 = 9 + b^2$, então $b^2 = 7$</li>
+                    <li>A hipérbole tem centro na origem e focos no eixo x</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\frac{x^2}{9} - \frac{y^2}{7} = 1$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Mapear a zona hiperbólica de interferência evita problemas de comunicação e permite reposicionar equipamentos para máxima eficiência.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 7 -->
+        <div class="exercise">
+            <h3>TRIÂNGULO DE NAVEGAÇÃO</h3>
+            <p>Três marcos de navegação estão em A(1, 1), B(5, 1) e C(3, 4). Determine o lugar geométrico dos pontos que estão equidistantes de A e B, e identifique onde esta linha intersecta o lado AC do triângulo.</p>
+            
+            <div class="hint">
+                <p>Encontre primeiro a mediatriz de AB, depois calcule sua interseção com a reta AC.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Ponto médio de AB: $M = (3, 1)$</li>
+                    <li>Segmento AB é horizontal, então a mediatriz é vertical: $x = 3$</li>
+                    <li>Equação da reta AC: coeficiente angular = $\frac{4-1}{3-1} = \frac{3}{2}$</li>
+                    <li>Equação de AC: $y - 1 = \frac{3}{2}(x - 1)$ → $y = \frac{3}{2}x - \frac{1}{2}$</li>
+                    <li>Interseção: substituir $x = 3$ em AC: $y = \frac{3}{2}(3) - \frac{1}{2} = 4$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Mediatriz: } x = 3 \text{ | Interseção: } (3, 4)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A interseção da mediatriz com o lado do triângulo identifica um ponto estratégico para instalação de equipamentos com acesso otimizado aos marcos A e B.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 8 -->
+        <div class="exercise">
+            <h3>SISTEMA DE DEFESA CONCÊNTRICO</h3>
+            <p>Um abrigo central está em O(2, -1). Você precisa estabelecer três perímetros de defesa circulares concêntricos com raios 3, 5 e 7 unidades. Um invasor está se movendo pela reta y = x + 1. Determine em quantos pontos cada círculo intersecta a trajetória do invasor.</p>
+            
+            <div class="hint">
+                <p>Substitua a equação da reta na equação de cada círculo e analise o discriminante da equação quadrática resultante.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Círculo 1: $(x-2)^2 + (y+1)^2 = 9$. Substituir $y = x + 1$:</li>
+                    <li>$(x-2)^2 + (x+1+1)^2 = 9$ → $(x-2)^2 + (x+2)^2 = 9$</li>
+                    <li>$x^2 - 4x + 4 + x^2 + 4x + 4 = 9$ → $2x^2 + 8 = 9$ → $2x^2 = 1$</li>
+                    <li>$\Delta > 0$: duas interseções para todos os círculos</li>
+                    <li>Verificar que a reta passa por todos os três círculos calculando a distância do centro à reta</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Cada círculo intersecta a reta em exatamente 2 pontos}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Conhecer os pontos de interseção permite calcular exatamente quando o invasor cruzará cada perímetro, otimizando o tempo de resposta defensiva.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 9 -->
+        <div class="exercise">
+            <h3>CORREDOR DE COMUNICAÇÃO SEGURA</h3>
+            <p>Duas bases de operação estão em P₁(-2, 3) e P₂(4, -1). Você precisa encontrar todos os pontos que estão a uma distância total de 10 unidades das duas bases (soma das distâncias). Determine se este lugar geométrico intersecta a reta y = 2x - 3.</p>
+            
+            <div class="hint">
+                <p>Este lugar geométrico forma uma elipse. Encontre sua equação e verifique interseção com a reta dada.</p>
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Centro da elipse: $C = (1, 1)$ (ponto médio entre P₁ e P₂)</li>
+                    <li>Distância entre focos: $2c = \sqrt{36 + 16} = 2\sqrt{13}$, então $c = \sqrt{13}$</li>
+                    <li>Soma das distâncias: $2a = 10$, então $a = 5$</li>
+                    <li>Calcular $b$: $b^2 = a^2 - c^2 = 25 - 13 = 12$</li>
+                    <li>A elipse está rotacionada. Para verificar interseção, use método algébrico complexo</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Elipse centrada em (1,1) com } a = 5, b = 2\sqrt{3}, c = \sqrt{13}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O corredor elíptico de comunicação garante que mensagens possam ser transmitidas entre as bases mantendo uma distância total controlada para segurança.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 10 -->
+        <div class="exercise">
+            <h3>CAMPO DE FORÇA PARABÓLICO DESLOCADO</h3>
+            <p>Uma instalação de energia em F(3, 1) gera um campo de força. Uma barreira absorvente está na reta 2x - y - 3 = 0. O campo efetivo é formado pelos pontos equidistantes da instalação e da barreira. Encontre a equação do lugar geométrico e determine seus pontos de interseção com a circunferência x² + y² = 25.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Usar a definição: $d(P,F) = d(P,\text{reta})$</li>
+                    <li>$\sqrt{(x-3)^2 + (y-1)^2} = \frac{|2x - y - 3|}{\sqrt{5}}$</li>
+                    <li>Elevar ao quadrado e simplificar: $(x-3)^2 + (y-1)^2 = \frac{(2x-y-3)^2}{5}$</li>
+                    <li>Expandir e reagrupar para obter a equação da parábola</li>
+                    <li>Para interseção com $x^2 + y^2 = 25$, resolver o sistema simultaneamente</li>
+                </ol>
+                
+                <div class="formula">
+                    $$x^2 - 4xy + 4y^2 + 6x + 2y - 4 = 0$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O campo parabólico deslocado cria uma zona de proteção assimétrica, essencial para defender instalações críticas contra ataques direcionais.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 11 -->
+        <div class="exercise">
+            <h3>REDE DE VIGILÂNCIA INTEGRADA</h3>
+            <p>Três torres de vigilância estão em A(0, 0), B(6, 0) e C(3, 3√3). Cada torre tem alcance de 4 unidades. Determine o lugar geométrico dos pontos que estão simultaneamente dentro do alcance de exatamente duas torres, formando as zonas de sobreposição do sistema de vigilância.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Círculo A: $x^2 + y^2 = 16$</li>
+                    <li>Círculo B: $(x-6)^2 + y^2 = 16$</li>
+                    <li>Círculo C: $(x-3)^2 + (y-3\sqrt{3})^2 = 16$</li>
+                    <li>Zona AB: interseção de A e B, mas fora de C</li>
+                    <li>Calcular interseções: AB se encontram em $(3, \pm\sqrt{7})$</li>
+                    <li>Verificar quais pontos estão fora do terceiro círculo</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Três zonas: } Z_{AB}, Z_{AC}, Z_{BC} \text{ (interseções dois a dois)}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> As zonas de sobreposição dupla garantem redundância na vigilância, eliminando pontos cegos críticos no perímetro de segurança integrado.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 12 -->
+        <div class="exercise">
+            <h3>PROTOCOLO DE EVACUAÇÃO OTIMIZADA</h3>
+            <p>Durante uma emergência, sobreviventes em posição S(x, y) devem evacuar para uma das duas saídas: E₁(-5, 2) ou E₂(5, -2). O protocolo estabelece que cada sobrevivente deve usar a saída mais próxima. Determine a equação da fronteira que divide o território entre as duas zonas de evacuação e encontre onde esta fronteira intersecta a elipse de segurança 4x² + 9y² = 36.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>A fronteira é a mediatriz do segmento E₁E₂</li>
+                    <li>Ponto médio: $M = (0, 0)$</li>
+                    <li>Coeficiente angular de E₁E₂: $m = \frac{-2-2}{5-(-5)} = -\frac{2}{5}$</li>
+                    <li>Coeficiente da mediatriz: $m_{med} = \frac{5}{2}$</li>
+                    <li>Equação da fronteira: $y = \frac{5}{2}x$</li>
+                    <li>Interseção com elipse: substituir na equação $4x^2 + 9(\frac{5x}{2})^2 = 36$</li>
+                    <li>$4x^2 + 9 \cdot \frac{25x^2}{4} = 36$ → $x^2(4 + \frac{225}{4}) = 36$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Fronteira: } y = \frac{5}{2}x \text{ | Interseções: } (\pm\frac{12}{\sqrt{61}}, \pm\frac{30}{\sqrt{61}})$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A fronteira de evacuação otimizada garante que cada sobrevivente use a rota mais eficiente, minimizando tempo de exposição e congestionamento nas saídas.</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- RODAPÉ DO DOCUMENTO -->
+    <div class="footer">
+        REFÚGIO-TEC | LUGARES GEOMÉTRICOS: Sobrevivência Matemática - "Na geometria encontramos os caminhos, na álgebra deciframos os destinos"
+    </div>
 </body>
 </html>
