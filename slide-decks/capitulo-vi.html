@@ -1,9 +1,8 @@
-<!-- Reveal.js Template for 'Geometria Analítica: Sobrevivência Geométrica' -->
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
-    <title>Geometria Analítica: Sobrevivência Geométrica</title>
+    <title>Geometria Analítica: Sobrevivência Geométrica - Cap. VI - Parte 1</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
     <!-- Reveal.js Styles -->
@@ -13,77 +12,483 @@
     <!-- For syntax highlighting -->
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css" />
 
-    <!-- Custom styles (if needed) -->
+    <!-- IMPORTANTE: Estilos customizados -->
     <link rel="stylesheet" href="styles.css">
+    
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
   </head>
-
   <body>
     <div class="reveal">
       <div class="slides">
+        <!-- SLIDE DE TÍTULO DO CAPÍTULO (PARTE 1) -->
         <section>
-          <h2>Capítulo VI — O \( R^3 \) e a Geometria Analítica no Espaço 🌌</h2>
-          <p>Explorando o mundo tridimensional: possibilidades infinitas em um cenário devastado.</p>
+          <div class="title-screen">
+            <h1>Vetores no Espaço</h1>
+            <h2 class="subtitle">Da Planície à Conquista Vertical - Parte 1</h2>
+            <div class="emblem-number">VI-A</div>
+            <p class="subtitle-warning">O que era útil no mapa agora ganha profundidade... e altura.</p>
+          </div>
         </section>
 
+        <!-- TÓPICO 1: O Espaço Vetorial R³ -->
         <section>
-          <h3>O Espaço Tridimensional 🌍</h3>
-          <p>Agora saímos do plano e mergulhamos no espaço com três coordenadas:</p>
-          <p>\[
-          (x, y, z)
-          \]</p>
-          <p>Cada eixo representa uma nova dimensão de riscos e oportunidades.</p>
+          <!-- 1.1 Conceito e Paralelo R² -->
+          <section class="mission-briefing">
+            <h2>O Espaço Vetorial \(R^3\): Uma Nova Dimensão</h2>
+            <h3 class="mission-subtitle">Do Mapa Plano ao Holograma de Sobrevivência</h3>
+            <p><strong>Paralelo \(R^2\):</strong> Lembram-se do \(R^2\)? Dois eixos (X, Y) para mapear a 'wasteland' em uma superfície. Coordenadas \( P(x,y) \), vetores \( \vec{v}=(x,y) \). Essencial para rotas terrestres e posicionamento básico.</p>
+            <p><strong>Introdução \(R^3\):</strong> Agora, adicionamos o eixo Z (altura/profundidade). Coordenadas \( P(x,y,z) \), vetores \( \vec{v}=(x,y,z) \). O mundo ganhou volume! Pense em ruínas verticais, cavernas profundas, o voo rasante de drones hostis.</p>
+            <div class="definition-box">
+              <p>Ponto em \(R^3\): <span class="formula">\( P(x,y,z) \)</span></p>
+              <p>Vetor em \(R^3\): <span class="formula">\( \vec{v} = (x,y,z) = x\vec{i} + y\vec{j} + z\vec{k} \)</span></p>
+            </div>
+            <p class="mnemonic">"R² era o chão, R³ é o edifício inteiro. Quem só olha pro mapa, não vê o drone traiçoeiro."</p>
+          </section>
+
+          <!-- 1.2 Visualização Comparativa -->
+          <section class="simulator">
+            <h3>Simulador: \(R^2\) vs. \(R^3\)</h3>
+            <div class="canvas-container">
+              <canvas id="r2-vs-r3-canvas" width="800" height="400"></canvas>
+              <div class="simulator-controls">
+                <div class="control-panel">
+                  <label for="r2vsr3-x-slider">X:</label>
+                  <input type="range" id="r2vsr3-x-slider" min="-10" max="10" value="2" step="0.5">
+                  <span id="r2vsr3-x-slider-value">2</span>
+                </div>
+                <div class="control-panel">
+                  <label for="r2vsr3-y-slider">Y:</label>
+                  <input type="range" id="r2vsr3-y-slider" min="-10" max="10" value="3" step="0.5">
+                  <span id="r2vsr3-y-slider-value">3</span>
+                </div>
+                <div class="control-panel">
+                  <label for="r2vsr3-z-slider">Z (R³):</label>
+                  <input type="range" id="r2vsr3-z-slider" min="-10" max="10" value="0" step="0.5" disabled> <!-- Inicia desabilitado -->
+                  <span id="r2vsr3-z-slider-value">0</span>
+                </div>
+                <div class="control-panel">
+                    <button id="r2vsr3-toggle-btn" class="operation-btn">Ativar Eixo Z</button>
+                </div>
+              </div>
+            </div>
+            <div class="hint-message">
+              <p>Observe como o ponto que antes só se movia no plano agora ganha liberdade vertical.</p>
+            </div>
+          </section>
+
+          <!-- 1.3 Generalizações e Novidades -->
+          <section class="field-report">
+            <h3>Relatório de Campo: O Que Muda, O Que Permanece?</h3>
+            <div class="info-panel">
+              <div class="info-screen">
+                <h4>Análise Dimensional:</h4>
+                <ul>
+                  <li><strong>Generalizações:</strong> Muitas operações, como soma de vetores \( (\vec{u}+\vec{v}) \) e multiplicação por escalar \( (k\vec{v}) \), funcionam de forma análoga – só adicionamos o componente Z. A distância entre pontos também segue o padrão.</li>
+                  <li><strong>Novidades:</strong> Mas o \(R^3\) traz ferramentas exclusivas, como o Produto Vetorial. E algumas 'velhas conhecidas' do \(R^2\), como as equações da reta, se comportam de maneira surpreendentemente diferente aqui.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="survival-tip">
+              <p>DICA DE SOBREVIVÊNCIA: Não presuma que tudo do \(R^2\) se aplica diretamente. A terceira dimensão tem suas próprias regras e armadilhas.</p>
+            </div>
+          </section>
+
+          <!-- 1.4 Conclusão Tópico 1 -->
+          <section class="debriefing">
+            <h3>Debriefing: Fundamentos Tridimensionais</h3>
+            <div class="summary-box">
+              <p>O \(R^3\) é uma expansão natural do \(R^2\), mas com complexidades e ferramentas próprias. Entender a representação de pontos e vetores é o alicerce para toda a navegação e construção no espaço.</p>
+            </div>
+            <div class="next-mission">
+              <p>Próximo briefing: Produto Interno em \(R^3\) - Será que é só mais um 'Z' na conta?</p>
+            </div>
+            <div class="instructor-note">
+              <p>"No térreo você sobrevive, mas é nos andares superiores que a verdadeira reconstrução (ou destruição) acontece. Bem-vindos ao \(R^3\)."</p>
+            </div>
+          </section>
         </section>
 
+        <!-- TÓPICO 2: Produto Interno no R³ -->
         <section>
-          <h3>Produto Vetorial ⚔️</h3>
-          <p>O produto vetorial entre dois vetores resulta em um novo vetor perpendicular aos dois:</p>
-          <p>\[
-          \vec{a} \times \vec{b} = \vec{c}
-          \]</p>
-          <p>Essencial para calcular áreas e determinar orientações no espaço — como planejar a defesa de um posto avançado.</p>
+          <!-- 2.1 Conceito e Paralelo R² -->
+          <section class="mission-briefing">
+            <h2>Produto Interno (Escalar) em \(R^3\)</h2>
+            <h3 class="mission-subtitle">Sintonizando Sinais e Ângulos no Espaço</h3>
+            <p><strong>Revisão \(R^2\):</strong> No \(R^2\), o produto escalar \( \vec{u} \cdot \vec{v} = x_1x_2 + y_1y_2 \) nos ajudou a encontrar ângulos entre rotas e a projetar sombras de barricadas.</p>
+            <p><strong>Generalização \(R^3\):</strong> Em \(R^3\), é uma generalização direta! Adicionamos o produto dos componentes Z:
+            <p class="formula">\( \vec{u} \cdot \vec{v} = x_1x_2 + y_1y_2 + z_1z_2 \)</p>
+            As interpretações de ângulo (\( \cos \theta = \frac{\vec{u} \cdot \vec{v}}{||\vec{u}|| \cdot ||\vec{v}||} \)), ortogonalidade (\( \vec{u} \cdot \vec{v} = 0 \)) e projeção permanecem válidas e ainda mais cruciais.</p>
+            <div class="definition-box">
+              <p>Interpretação R³: Alinhar uma antena parabólica (ângulo com o sinal do satélite), verificar se uma viga de suporte está perpendicular ao chão (\(90^\circ\)), calcular o trabalho realizado por uma força ao longo de um deslocamento espacial.</p>
+            </div>
+          </section>
+
+          <!-- 2.2 Visualização -->
+          <section class="simulator">
+            <h3>Simulador: Ângulos e Ortogonalidade em 3D</h3>
+            <div class="canvas-container">
+              <canvas id="produto-interno-r3-canvas" width="800" height="400"></canvas>
+              <div class="simulator-controls">
+                <p>Vetor \( \vec{u} \):</p>
+                <div class="control-panel">
+                  <label for="pi-r3-ux">\(u_x\):</label> <input type="range" id="pi-r3-ux" min="-5" max="5" value="2" step="0.1"> <span id="pi-r3-ux-value">2</span>
+                  <label for="pi-r3-uy">\(u_y\):</label> <input type="range" id="pi-r3-uy" min="-5" max="5" value="1" step="0.1"> <span id="pi-r3-uy-value">1</span>
+                  <label for="pi-r3-uz">\(u_z\):</label> <input type="range" id="pi-r3-uz" min="-5" max="5" value="1" step="0.1"> <span id="pi-r3-uz-value">1</span>
+                </div>
+                <p>Vetor \( \vec{v} \):</p>
+                <div class="control-panel">
+                  <label for="pi-r3-vx">\(v_x\):</label> <input type="range" id="pi-r3-vx" min="-5" max="5" value="-1" step="0.1"> <span id="pi-r3-vx-value">-1</span>
+                  <label for="pi-r3-vy">\(v_y\):</label> <input type="range" id="pi-r3-vy" min="-5" max="5" value="2" step="0.1"> <span id="pi-r3-vy-value">2</span>
+                  <label for="pi-r3-vz">\(v_z\):</label> <input type="range" id="pi-r3-vz" min="-5" max="5" value="0" step="0.1"> <span id="pi-r3-vz-value">0</span>
+                </div>
+                <p>Produto Escalar: <span id="pi-r3-dot-value" class="formula">0</span> | Ângulo: <span id="pi-r3-angle-value" class="formula">90°</span></p>
+              </div>
+            </div>
+            <div class="hint-message">
+              <p>Confirme: quando o produto escalar é zero, os vetores formam um ângulo de 90 graus, mesmo no espaço!</p>
+            </div>
+          </section>
+
+          <!-- 2.3 Problema -->
+          <section class="survival-training">
+            <h3>Treinamento de Sobrevivência: Alvo Iluminado</h3>
+            <div class="training-problem">
+              <h4>Problema #VI.2.1:</h4>
+              <p>Um holofote de vigilância em seu posto está direcionado ao longo do vetor \( \vec{h}=(1, 1, 2) \). Um drone espião, possivelmente hostil, é detectado aproximando-se pela trajetória retilínea momentaneamente paralela ao vetor \( \vec{d}=(-2, 0, 1) \).</p>
+              <ol>
+                <li>O holofote está perpendicular à trajetória do drone neste instante? Justifique com o produto escalar.</li>
+                <li>Se não, qual o ângulo \( \theta \) entre a direção do holofote e a trajetória do drone? (Use \(||\vec{h}||=\sqrt{6}\) e \(||\vec{d}||=\sqrt{5}\))</li>
+              </ol>
+            </div>
+            <div class="problem-context">
+              <p>Detectar e iluminar ameaças é fundamental. Um alinhamento errado pode ser o último erro que você comete.</p>
+            </div>
+            <!-- Solução (pode ser um slide separado ou aqui) -->
+            <div class="definition-box fragment">
+                <p><strong>Solução Breve:</strong></p>
+                <p>1. \( \vec{h} \cdot \vec{d} = (1)(-2) + (1)(0) + (2)(1) = -2 + 0 + 2 = 0 \). Sim, são perpendiculares!</p>
+                <p>2. Como \( \vec{h} \cdot \vec{d} = 0 \), então \( \cos \theta = 0 \), o que implica \( \theta = 90^\circ \). O drone está perfeitamente iluminado (ou você está na mira perfeita!).</p>
+            </div>
+          </section>
+
+          <!-- 2.4 Conclusão Tópico 2 -->
+          <section class="debriefing">
+            <h3>Debriefing: Precisão Angular no Espaço</h3>
+            <div class="summary-box">
+              <p>Produto Interno em \(R^3\): uma generalização poderosa e intuitiva do conceito em \(R^2\). A matemática é similar, mas as aplicações se expandem para todas as três dimensões da sobrevivência.</p>
+            </div>
+            <div class="next-mission">
+              <p>Próximo contato: Algo que NÃO existia em \(R^2\) - o Produto Vetorial. Preparem-se para novas direções!</p>
+            </div>
+            <div class="instructor-note">
+              <p>"Saber o ângulo certo pode diferenciar um tiro de advertência de um tiro fatal. Ou o alinhamento de uma antena que salva sua vida."</p>
+            </div>
+          </section>
+        </section>
+        
+        <!-- TÓPICO 3: Produto Vetorial e Produto Misto -->
+        <section>
+          <!-- 3.1 Produto Vetorial - Novidade R³ -->
+          <section class="mission-briefing">
+            <h2>Produto Vetorial: Exclusivo do \(R^3\)</h2>
+            <h3 class="mission-subtitle">Gerando Direções e Forças Perpendiculares</h3>
+            <p><strong>Contraste \(R^2\):</strong> No \(R^2\), não tínhamos uma operação padrão que, a partir de dois vetores do plano, gerasse um terceiro vetor *dentro* do mesmo plano de forma tão significativa. Qualquer "produto vetorial" 2D trivialmente sairia do plano ou seria nulo.</p>
+            <p><strong>Introdução \(R^3\):</strong> Em \(R^3\), o produto vetorial \( \vec{u} \times \vec{v} \) nos dá um NOVO vetor \( \vec{w} \) que é SIMULTANEAMENTE PERPENDICULAR a \( \vec{u} \) e a \( \vec{v} \). Pense na direção do eixo de uma roda que gira, ou a normal (perpendicular) a uma superfície plana.</p>
+            <p>Seu módulo \( ||\vec{u} \times \vec{v}|| = ||\vec{u}|| \cdot ||\vec{v}|| \sin \theta \) representa a ÁREA do paralelogramo formado por \( \vec{u} \) e \( \vec{v} \). A direção é dada pela regra da mão direita.</p>
+            <div class="definition-box">
+                <p class="formula">\( \vec{u} \times \vec{v} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ u_x & u_y & u_z \\ v_x & v_y & v_z \end{vmatrix} = (u_y v_z - u_z v_y)\vec{i} - (u_x v_z - u_z v_x)\vec{j} + (u_x v_y - u_y v_x)\vec{k} \)</p>
+                <p>Interpretação: Determinar a direção para fixar um suporte perpendicular a duas paredes. Calcular a área de uma vela solar improvisada para captar vento.</p>
+            </div>
+          </section>
+
+          <!-- 3.2 Visualização - Vetorial -->
+          <section class="simulator">
+            <h3>Simulador: Produto Vetorial em Ação</h3>
+            <div class="canvas-container">
+              <canvas id="produto-vetorial-canvas" width="800" height="400"></canvas>
+              <div class="simulator-controls">
+                <p>Vetor \( \vec{u} \):</p>
+                <div class="control-panel">
+                  <label for="pv-ux">\(u_x\):</label> <input type="range" id="pv-ux" min="-3" max="3" value="2" step="0.1"> <span id="pv-ux-value">2</span>
+                  <label for="pv-uy">\(u_y\):</label> <input type="range" id="pv-uy" min="-3" max="3" value="0" step="0.1"> <span id="pv-uy-value">0</span>
+                  <label for="pv-uz">\(u_z\):</label> <input type="range" id="pv-uz" min="-3" max="3" value="0" step="0.1"> <span id="pv-uz-value">0</span>
+                </div>
+                <p>Vetor \( \vec{v} \):</p>
+                <div class="control-panel">
+                  <label for="pv-vx">\(v_x\):</label> <input type="range" id="pv-vx" min="-3" max="3" value="0" step="0.1"> <span id="pv-vx-value">0</span>
+                  <label for="pv-vy">\(v_y\):</label> <input type="range" id="pv-vy" min="-3" max="3" value="2" step="0.1"> <span id="pv-vy-value">2</span>
+                  <label for="pv-vz">\(v_z\):</label> <input type="range" id="pv-vz" min="-3" max="3" value="0" step="0.1"> <span id="pv-vz-value">0</span>
+                </div>
+                <p>\( \vec{u} \times \vec{v} \): <span id="pv-result-vector" class="formula">(0,0,4)</span> | Área: <span id="pv-area-value" class="formula">4</span></p>
+              </div>
+            </div>
+            <div class="hint-message">
+              <p>Mude os vetores e veja como a normal (\(\vec{u} \times \vec{v}\)) e a área do paralelogramo se alteram. Use a regra da mão direita!</p>
+            </div>
+          </section>
+
+          <!-- 3.3 Produto Misto -->
+          <section class="mission-briefing">
+            <h2>Produto Misto: Volumes na Prática</h2>
+            <h3 class="mission-subtitle">Capacidade de Carga e Escavações Estratégicas</h3>
+            <p>Com o produto vetorial em mãos, podemos combiná-lo com o produto interno para criar o <strong>produto misto</strong>: \( [\vec{u}, \vec{v}, \vec{w}] = (\vec{u} \times \vec{v}) \cdot \vec{w} \).</p>
+            <p>O valor absoluto do produto misto, \( |(\vec{u} \times \vec{v}) \cdot \vec{w}| \), nos dá o VOLUME do paralelepípedo formado pelos três vetores \( \vec{u}, \vec{v}, \vec{w} \) (desde que não sejam coplanares).</p>
+            <div class="definition-box">
+              <p class="formula">\( (\vec{u} \times \vec{v}) \cdot \vec{w} = \begin{vmatrix} u_x & u_y & u_z \\ v_x & v_y & v_z \\ w_x & w_y & w_z \end{vmatrix} \)</p>
+              <p>Interpretação: Essencial para calcular o volume de um abrigo subterrâneo improvisado, a capacidade de carga de um veículo modificado, ou o deslocamento de terra em uma escavação defensiva.</p>
+            </div>
+            <p class="mnemonic">"Vetorial primeiro, escalar depois. O misto dá o volume, para sobreviver com menos estresse e 'caôs'."</p>
+          </section>
+
+          <!-- 3.4 Visualização - Misto -->
+          <section class="simulator">
+            <h3>Simulador: Volume com Produto Misto</h3>
+            <div class="canvas-container">
+              <canvas id="produto-misto-canvas" width="800" height="400"></canvas>
+              <div class="simulator-controls">
+                 <p>\( \vec{u} \): (<span id="pm-ux-val">1</span>,<span id="pm-uy-val">0</span>,<span id="pm-uz-val">0</span>), 
+                    \( \vec{v} \): (<span id="pm-vx-val">0</span>,<span id="pm-vy-val">1</span>,<span id="pm-vz-val">0</span>), 
+                    \( \vec{w} \): (<span id="pm-wx-val">0</span>,<span id="pm-wy-val">0</span>,<span id="pm-wz-val">1</span>)</p>
+                <!-- Simplified controls for brevity, real one would have sliders -->
+                <div class="control-panel">
+                  <label for="pm-wz">\(w_z\):</label> <input type="range" id="pm-wz" min="-2" max="2" value="1" step="0.1"> <span id="pm-wz-display">1</span>
+                  <button id="pm-reset-btn" class="operation-btn">Resetar Vetores</button>
+                </div>
+                <p>Volume do Paralelepípedo: <span id="pm-volume-value" class="formula">1</span></p>
+              </div>
+            </div>
+            <div class="hint-message">
+              <p>Manipule os vetores (especialmente \(w_z\)) e veja o paralelepípedo se formar. O valor exibido é seu volume (ou zero se coplanares).</p>
+            </div>
+          </section>
+
+          <!-- 3.5 Problema - Áreas e Volumes -->
+          <section class="survival-training level-intermediate">
+            <h3>Treinamento Avançado: Mineração de Recursos</h3>
+            <div class="training-problem">
+              <h4>Problema #VI.3.1:</h4>
+              <p>Você descobriu um veio promissor de minério. A equipe de prospecção delimitou a exploração inicial no solo com vetores (a partir de um marco zero) \( \vec{a}=(4, 1, 0) \) metros e \( \vec{b}=(1, 3, 0) \) metros. A estimativa de profundidade útil do veio é dada pelo vetor vertical \( \vec{c}=(0, 0, 5) \) metros.</p>
+              <ol>
+                <li>Qual a área da base da prospecção no solo?</li>
+                <li>Qual o volume estimado de material (paralelepípedo) a ser extraído?</li>
+              </ol>
+            </div>
+            <div class="problem-context">
+              <p>Recursos são a chave para a reconstrução. Calcular errado significa esforço desperdiçado ou oportunidade perdida nas profundezas.</p>
+            </div>
+             <div class="definition-box fragment">
+                <p><strong>Solução Breve:</strong></p>
+                <p>1. Área da base: \( ||\vec{a} \times \vec{b}|| \). \( \vec{a} \times \vec{b} = (0,0, 4 \cdot 3 - 1 \cdot 1) = (0,0,11) \). Área = \( ||(0,0,11)|| = 11 \) m².</p>
+                <p>2. Volume: \( |(\vec{a} \times \vec{b}) \cdot \vec{c}| = |(0,0,11) \cdot (0,0,5)| = |0 \cdot 0 + 0 \cdot 0 + 11 \cdot 5| = |55| = 55 \) m³.</p>
+            </div>
+          </section>
+
+          <!-- 3.6 Conclusão Tópico 3 -->
+          <section class="debriefing">
+            <h3>Debriefing: Arsenal Tridimensional</h3>
+            <div class="summary-box">
+              <p>Produto vetorial e misto: ferramentas 3D poderosas, sem análogo direto em \(R^2\). São essenciais para engenharia de sobrevivência, construção de abrigos, cálculo de áreas de varredura e volumes de recursos.</p>
+            </div>
+            <div class="next-mission">
+              <p>Próxima diretiva: Como definimos as grandes superfícies do nosso mundo 3D? Começando com a Equação do Plano.</p>
+            </div>
+            <div class="instructor-note">
+              <p>"Com estas ferramentas, vocês não apenas medem o mundo, vocês começam a moldá-lo. Usem com sabedoria... ou não."</p>
+            </div>
+          </section>
         </section>
 
+        <!-- TÓPICO 4: Equação do Plano -->
         <section>
-          <h3>Áreas e Volumes 🏗️</h3>
-          <p>Do cálculo da área de uma superfície ao volume de um abrigo subterrâneo:</p>
-          <p>\[
-          V = | \vec{a} \cdot (\vec{b} \times \vec{c}) |
-          \]</p>
-          <p>Porque entender o espaço é vital para construir — ou desmantelar — estruturas de sobrevivência.</p>
+          <!-- 4.1 Conceito e Paralelo R² -->
+          <section class="mission-briefing">
+            <h2>Equação do Plano</h2>
+            <h3 class="mission-subtitle">As 'Superfícies Retas' do Mundo Tridimensional</h3>
+            <p><strong>Comparação \(R^2\):</strong> No \(R^2\), a equação geral \(ax+by+c=0\) definia uma RETA. Uma linha infinita no seu mapa tático.</p>
+            <p><strong>Introdução \(R^3\):</strong> Em \(R^3\), a equação análoga \(ax+by+cz+d=0\) define um PLANO! Pense no chão do seu abrigo, uma parede de fortificação, a superfície de um lago radioativo. É uma superfície bidimensional infinita que corta o espaço 3D.</p>
+            <p>O vetor \( \vec{n}=(a,b,c) \), formado pelos coeficientes de x, y, z, é o VETOR NORMAL (perpendicular) ao plano. Esta é uma propriedade fundamental e distintiva.</p>
+            <div class="definition-box">
+              <p>Equação Geral: <span class="formula">\( ax+by+cz+d=0 \)</span></p>
+              <p>Equação Vetorial (Normal): <span class="formula">\( \vec{n} \cdot (\vec{X} - \vec{P_0}) = 0 \)</span>, onde \( \vec{P_0} \) é um ponto no plano e \( \vec{X}=(x,y,z) \) é um ponto genérico.</p>
+              <p>Interpretação: Modelar a base de uma torre de vigia, a inclinação de um telhado para escoamento de chuva ácida, uma barreira de proteção invisível (campo de força?).</p>
+            </div>
+          </section>
+
+          <!-- 4.2 Visualização -->
+          <section class="simulator">
+            <h3>Simulador: Manipulando Planos</h3>
+            <div class="canvas-container">
+              <canvas id="equacao-plano-canvas" width="800" height="400"></canvas>
+              <div class="simulator-controls">
+                <p>Vetor Normal \( \vec{n}=(a,b,c) \), Ponto \( P_0=(x_0,y_0,z_0) \) ou Termo \(d\):</p>
+                <div class="control-panel">
+                  <label for="plano-a">a:</label> <input type="range" id="plano-a" min="-2" max="2" value="1" step="0.1"> <span id="plano-a-value">1</span>
+                  <label for="plano-b">b:</label> <input type="range" id="plano-b" min="-2" max="2" value="1" step="0.1"> <span id="plano-b-value">1</span>
+                  <label for="plano-c">c:</label> <input type="range" id="plano-c" min="-2" max="2" value="1" step="0.1"> <span id="plano-c-value">1</span>
+                  <label for="plano-d">d:</label> <input type="range" id="plano-d" min="-5" max="5" value="-2" step="0.1"> <span id="plano-d-value">-2</span>
+                </div>
+                 <p>Equação: <span id="plano-eq-display" class="formula">1x + 1y + 1z - 2 = 0</span></p>
+              </div>
+            </div>
+            <div class="hint-message">
+              <p>Altere os componentes do vetor normal (\(a,b,c\)) para ver a orientação do plano mudar. Ajuste 'd' para deslocá-lo paralelamente.</p>
+            </div>
+          </section>
+
+          <!-- 4.3 Distância Ponto-Plano -->
+          <section class="field-report">
+            <h3>Relatório de Campo: Distâncias e Segurança Estrutural</h3>
+            <div class="info-panel">
+              <div class="info-screen">
+                <h4>Distância de Ponto a Plano:</h4>
+                <p><strong>Comparação \(R^2\):</strong> Lembram da distância de ponto \(P(x_0,y_0)\) à RETA \(ax+by+c=0\) em \(R^2\)? A fórmula era \( \frac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}} \).</p>
+                <p><strong>Generalização \(R^3\):</strong> Para distância de ponto \(P(x_0,y_0,z_0)\) ao PLANO \(ax+by+cz+d=0\) em \(R^3\), a ideia é similar, só adicionamos os termos em Z:</p>
+                <p class="formula">\( D = \frac{|ax_0+by_0+cz_0+d|}{\sqrt{a^2+b^2+c^2}} \)</p>
+              </div>
+            </div>
+            <div class="survival-tip">
+              <p>DICA DE SOBREVIVÊNCIA: Saber a que distância seu abrigo subterrâneo (\(P_0\)) está da superfície (um plano hostil \(ax+by+cz+d=0\)) pode ser a diferença entre ser detectado por scanners ou permanecer em segurança invisível.</p>
+            </div>
+          </section>
+
+          <!-- 4.4 Problema -->
+          <section class="survival-training">
+            <h3>Treinamento de Engenharia: Fundações</h3>
+            <div class="training-problem">
+              <h4>Problema #VI.4.1:</h4>
+              <p>Um scanner geológico avançado detecta uma grande falha subterrânea, que pode ser aproximada pelo plano \( 2x - y + 3z - 12 = 0 \). Seu novo posto de comando subterrâneo está planejado para ser centrado no ponto \( P_C(1, 1, 1) \).</p>
+              <ol>
+                <li>Qual a distância perpendicular (a menor distância) do centro do posto de comando à falha geológica?</li>
+                <li>Considerando que uma distância segura mínima é de 3 unidades de medida, é seguro construir ali?</li>
+              </ol>
+            </div>
+            <div class="problem-context">
+              <p>Construir sobre terreno instável é um convite a desastres estruturais. A wasteland já tem ruínas suficientes.</p>
+            </div>
+            <div class="definition-box fragment">
+                <p><strong>Solução Breve:</strong></p>
+                <p>1. Usando a fórmula: \( D = \frac{|2(1) - 1(1) + 3(1) - 12|}{\sqrt{2^2+(-1)^2+3^2}} = \frac{|2 - 1 + 3 - 12|}{\sqrt{4+1+9}} = \frac{|-8|}{\sqrt{14}} = \frac{8}{\sqrt{14}} \approx \frac{8}{3.74} \approx 2.14 \) unidades.</p>
+                <p>2. Como \(2.14 < 3\), NÃO é seguro construir o posto de comando no local planejado sem medidas adicionais de reforço ou realocação.</p>
+            </div>
+          </section>
+
+          <!-- 4.5 Conclusão Tópico 4 -->
+          <section class="debriefing">
+            <h3>Debriefing: Definindo Superfícies Essenciais</h3>
+            <div class="summary-box">
+              <p>Planos são os blocos de construção de superfícies em \(R^3\). Sua equação geral é uma adaptação da reta em \(R^2\), mas com um significado geométrico completamente diferente e um poderoso vetor normal associado.</p>
+            </div>
+            <div class="next-mission">
+              <p>Alerta de Navegação: E a RETA em \(R^3\)? Se \(ax+by+cz+d=0\) é um plano, como descrevemos um caminho linear preciso no espaço?</p>
+            </div>
+            <div class="instructor-note">
+              <p>"Um bom plano pode ser a diferença entre um abrigo seguro e uma armadilha mortal. Literalmente."</p>
+            </div>
+          </section>
         </section>
 
+        <!-- TÓPICO 5: Equações da Reta no Espaço -->
         <section>
-          <h3>Planos e Retas no Espaço 📡</h3>
-          <p>Equação do plano:</p>
-          <p>\[
-          ax + by + cz + d = 0
-          \]</p>
-          <p>Definindo superfícies invisíveis que separam zonas seguras de territórios perigosos.</p>
+          <!-- 5.1 Conceito e Diferença Crucial R² -->
+          <section class="mission-briefing">
+            <h2>Equações da Reta no Espaço</h2>
+            <h3 class="mission-subtitle">Trajetórias Definidas: Muito Diferente do Plano!</h3>
+            <p><strong>Contraste \(R^2\):</strong> No \(R^2\), tínhamos várias formas para a equação da reta: geral (\(ax+by+c=0\)), reduzida (\(y=mx+q\)), paramétrica. Todas descreviam a mesma entidade unidimensional no mapa.</p>
+            <p><strong>Mudança Crítica em \(R^3\):</strong> Em \(R^3\), como vimos, uma ÚNICA equação linear \(ax+by+cz+d=0\) define um PLANO (bidimensional). Para definir uma RETA (unidimensional) em \(R^3\), precisamos de outra abordagem!</p>
+            <p><strong>Solução Paramétrica/Vetorial:</strong> A forma mais natural e direta é a equação vetorial (ou suas componentes, as paramétricas):
+            <p class="formula">\( \vec{X} = \vec{P_0} + t\vec{v} \)</p>
+            onde \( \vec{P_0}=(x_0,y_0,z_0) \) é um ponto inicial na reta, \( \vec{v}=(a,b,c) \) é o vetor diretor (paralelo à reta), e \(t\) é um parâmetro real. Isso SIM define uma linha no espaço.</p>
+            <p><strong>Outra Perspectiva:</strong> Uma reta em \(R^3\) também pode ser vista como a INTERSEÇÃO de DOIS planos não paralelos. Cada plano tem sua equação; o sistema formado por elas define a reta.</p>
+            <p class="mnemonic">"No R³, uma equação só não faz verão (pra reta). Paramétrica é a salvação, ou dois planos em união!"</p>
+          </section>
+
+          <!-- 5.2 Visualização -->
+          <section class="simulator">
+            <h3>Simulador: Desenhando Retas no Espaço</h3>
+            <div class="canvas-container">
+              <canvas id="equacao-reta-espaco-canvas" width="800" height="400"></canvas>
+              <div class="simulator-controls">
+                <p>Ponto \( P_0=(x_0,y_0,z_0) \), Vetor Diretor \( \vec{v}=(a,b,c) \)</p>
+                <div class="control-panel">
+                  <label>\(x_0\):</label> <input type="range" id="reta-x0" min="-5" max="5" value="0" step="0.5"> <span id="reta-x0-val">0</span>
+                  <label>\(y_0\):</label> <input type="range" id="reta-y0" min="-5" max="5" value="0" step="0.5"> <span id="reta-y0-val">0</span>
+                  <label>\(z_0\):</label> <input type="range" id="reta-z0" min="-5" max="5" value="0" step="0.5"> <span id="reta-z0-val">0</span>
+                </div>
+                <div class="control-panel">
+                  <label>\(v_a\):</label> <input type="range" id="reta-va" min="-2" max="2" value="1" step="0.1"> <span id="reta-va-val">1</span>
+                  <label>\(v_b\):</label> <input type="range" id="reta-vb" min="-2" max="2" value="1" step="0.1"> <span id="reta-vb-val">1</span>
+                  <label>\(v_c\):</label> <input type="range" id="reta-vc" min="-2" max="2" value="1" step="0.1"> <span id="reta-vc-val">1</span>
+                </div>
+              </div>
+            </div>
+            <div class="hint-message">
+              <p>Ajuste o ponto inicial (\(P_0\)) e o vetor diretor (\(\vec{v}\)) para ver como a reta se orienta e se posiciona no vasto espaço 3D.</p>
+            </div>
+          </section>
+
+          <!-- 5.3 Posições Relativas entre Retas -->
+          <section class="field-report level-intermediate">
+            <h3>Relatório de Campo Avançado: Encontros e Desencontros em 3D</h3>
+            <div class="info-panel">
+              <div class="info-screen">
+                <h4>Posições Relativas entre Duas Retas em \(R^3\):</h4>
+                <ul>
+                  <li><strong>Comparação \(R^2\):</strong> No plano, duas retas ou eram paralelas (distintas ou coincidentes), ou concorrentes (um único ponto de interseção).</li>
+                  <li><strong>Novidade \(R^3\):</strong> No espaço, além dessas possibilidades, surge uma nova e crucial: retas <strong>REVERSAS</strong>! Elas não se interceptam e não são paralelas. Imagine duas rotas de drones em altitudes e direções diferentes que se cruzam no mapa 2D projetado no chão, mas nunca colidem no ar.</li>
+                  <li>Análise envolve vetores diretores (paralelismo) e verificação de pontos em comum / coplanaridade.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="survival-tip">
+              <p>DICA DE ESTRATEGISTA: Não assuma que duas trajetórias que parecem se cruzar em um mapa 2D de reconhecimento aéreo realmente o farão. A altitude (coordenada Z) é tudo! Retas reversas podem ser suas aliadas... ou inimigas sorrateiras.</p>
+            </div>
+          </section>
+
+          <!-- 5.4 Problema -->
+          <section class="survival-training level-advanced">
+            <h3>Treinamento de Elite: Navegação de Precisão</h3>
+            <div class="training-problem">
+              <h4>Problema #VI.5.1: Rota de Tirolesa</h4>
+              <p>Sua equipe de elite está instalando uma tirolesa para transporte rápido de suprimentos entre dois edifícios em ruínas. O ponto de partida é A(0, 10, 5) e o ponto de chegada é B(20, 0, 2). Uma torre de rádio inimiga, muito alta e fina, pode ser modelada como uma reta vertical que passa pelo ponto \(P_T(10, 6, 0)\) no solo e tem vetor diretor \( \vec{d}=(0,0,1) \).</p>
+              <ol>
+                <li>Determine a equação vetorial da reta que representa a tirolesa.</li>
+                <li>A tirolesa corre o risco de colidir com a torre de rádio? (Verifique se as retas são concorrentes ou reversas/paralelas).</li>
+              </ol>
+            </div>
+            <div class="problem-context">
+              <p>Segurança em primeiro lugar. Uma colisão em alta velocidade com uma estrutura inimiga não é uma forma recomendada de entregar suprimentos... nem pessoal.</p>
+            </div>
+            <!-- Solução pode ser um slide separado ou aqui. Dada a complexidade, um slide dedicado seria melhor, mas por ora, uma dica. -->
+            <div class="hint-message fragment">
+                <p>Dica de Solução: Para verificar colisão, tente igualar as equações paramétricas das duas retas. Se encontrar um valor de \(t\) (para a tirolesa) e \(s\) (para a torre) que satisfaça todas as três equações de coordenadas simultaneamente, elas colidem. Caso contrário, são reversas ou paralelas.</p>
+            </div>
+          </section>
+
+          <!-- 5.5 Conclusão Tópico 5 e Parte 1 -->
+          <section class="debriefing">
+            <h3>Debriefing: Dominando as Linhas do Espaço</h3>
+            <div class="summary-box">
+              <p>A reta em \(R^3\) exige uma nova forma de pensar em comparação com \(R^2\). A equação paramétrica (vetorial) é a ferramenta principal, e o conceito de retas reversas adiciona uma camada fundamental à complexidade estratégica da navegação tridimensional.</p>
+            </div>
+            <div class="next-mission">
+              <p><strong>FIM DA TRANSMISSÃO - PARTE 1.</strong> Recarreguem seus dispositivos e preparem-se.</p>
+              <p>Próxima Transmissão (Parte 2): Sistemas Lineares em \(R^3\), a Esfera Protetora e uma Revisão Geral para consolidar sua Navegação 3D Avançada.</p>
+            </div>
+            <div class="instructor-note radiation-glow">
+              <p>"Vocês agora têm as ferramentas para não apenas sobreviver no espaço 3D, mas para começar a redesenhar suas próprias linhas de abastecimento e defesa. Mantenham os olhos (e os cálculos) afiados. Dispensados!"</p>
+            </div>
+          </section>
         </section>
 
-        <section>
-          <h3>Superfícies Esféricas ☢️</h3>
-          <p>Equação da esfera:</p>
-          <p>\[
-          (x - a)^2 + (y - b)^2 + (z - c)^2 = r^2
-          \]</p>
-          <p>Modelando desde domos de proteção até zonas de impacto radioativo.</p>
-        </section>
-
-        <section>
-          <h3>Reflexão Final 🤔</h3>
-          <p>Em um mundo tridimensional, cada decisão ressoa em todas as direções.</p>
-          <p>A responsabilidade científica e ética é o verdadeiro equilíbrio entre construir e destruir.</p>
-        </section>
       </div>
     </div>
 
-    <!-- Reveal.js -->
+    <!-- Scripts base -->
     <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
-
-    <!-- Reveal Plugins -->
     <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
     <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/math/math.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/zoom/zoom.js"></script>
 
     <!-- MathJax -->
     <script>
@@ -95,27 +500,100 @@
         svg: { fontCache: 'global' }
       };
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
 
+    <!-- Visualizações interativas - Coloque o JS para os canvas aqui ou em um arquivo separado -->
+    <!-- Exemplo de IIFE para um canvas (adaptar para cada um) -->
+    <script>
+      // IIFE para visualização de r2-vs-r3-canvas (Exemplo Simples)
+      (function() {
+        const canvas = document.getElementById('r2-vs-r3-canvas');
+        if (!canvas) return; 
+        const ctx = canvas.getContext('2d');
+        const xSlider = document.getElementById('r2vsr3-x-slider');
+        const ySlider = document.getElementById('r2vsr3-y-slider');
+        const zSlider = document.getElementById('r2vsr3-z-slider');
+        const xValue = document.getElementById('r2vsr3-x-slider-value');
+        const yValue = document.getElementById('r2vsr3-y-slider-value');
+        const zValue = document.getElementById('r2vsr3-z-slider-value');
+        const toggleBtn = document.getElementById('r2vsr3-toggle-btn');
+        let isR3 = false;
+
+        function draw() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.fillStyle = '#ADFF2F'; // Verde-limão para elementos
+          ctx.strokeStyle = '#444';
+
+          // Eixos
+          ctx.beginPath();
+          ctx.moveTo(canvas.width / 2, 0); ctx.lineTo(canvas.width / 2, canvas.height); // Y
+          ctx.moveTo(0, canvas.height / 2); ctx.lineTo(canvas.width, canvas.height / 2); // X
+          ctx.stroke();
+          
+          if (isR3) {
+            ctx.beginPath(); // Eixo Z simulado
+            ctx.moveTo(canvas.width/2 - 50, canvas.height/2 + 50); 
+            ctx.lineTo(canvas.width/2 + 50, canvas.height/2 - 50);
+            ctx.strokeStyle = '#777';
+            ctx.stroke();
+            ctx.strokeStyle = '#444'; // reset
+          }
+          
+          // Ponto
+          const x = parseFloat(xSlider.value) * 20 + canvas.width / 2;
+          const y = -parseFloat(ySlider.value) * 20 + canvas.height / 2; // Y invertido no canvas
+          let zEffect = 0;
+          if (isR3) {
+             zEffect = parseFloat(zSlider.value) * 5; // Simples efeito de perspectiva/tamanho
+          }
+
+          ctx.beginPath();
+          ctx.arc(x + zEffect/2, y - zEffect/2, 5 + Math.abs(zEffect)/5, 0, 2 * Math.PI);
+          ctx.fill();
+
+          // Labels
+          xValue.textContent = xSlider.value;
+          yValue.textContent = ySlider.value;
+          zValue.textContent = zSlider.value;
+        }
+
+        function setupControls() {
+            [xSlider, ySlider, zSlider].forEach(slider => {
+                slider.addEventListener('input', draw);
+            });
+            toggleBtn.addEventListener('click', () => {
+                isR3 = !isR3;
+                zSlider.disabled = !isR3;
+                if (!isR3) zSlider.value = 0; // Reset Z if switching to R2
+                toggleBtn.textContent = isR3 ? "Desativar Eixo Z" : "Ativar Eixo Z";
+                draw();
+            });
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            setupControls();
+            draw();
+        });
+      })();
+      // Adicione mais IIFEs para os outros simuladores aqui...
+    </script>
+
+    <!-- Inicialização do Reveal.js -->
     <script>
       Reveal.initialize({
         hash: true,
-        slideNumber: true,
-        plugins: [ RevealNotes, RevealHighlight ]
+        slideNumber: 'c/t', // Current slide / total slides
+        transition: 'convex', // 'slide', 'fade', 'convex', 'concave', 'zoom'
+        backgroundTransition: 'fade',
+        center: true, // Vertical centering
+        math: {
+          // mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js', // já incluído acima
+          // config: 'TeX-AMS_HTML-full', // Config padrão do MathJax 3 é suficiente
+        },
+        plugins: [ RevealNotes, RevealHighlight, RevealMath.MathJax3, RevealZoom ]
       });
     </script>
-
-    <!-- Como utilizar este modelo:
-      1. Cada "<section>" dentro de <div class="slides"> representa um slide horizontal.
-      2. Para criar slides verticais (subseções), aninhe <section> dentro de outro <section>.
-      3. Insira fórmulas LaTeX usando MathJax com a sintaxe \( ... \) ou \[ ... \].
-      4. Customize o tema (black.css) trocando o import no <head> ou usando outro tema.
-      5. Edite o CSS interno para atender à estética pós-apocalíptica.
-      6. Adicione novos slides conforme necessário para cada parte do curso.
-      7. Para ver as notas, pressione 's' durante a apresentação (necessário plugin notes).
-      8. Você pode inserir emojis (ex: ☢️, ⚠️, 🏜️) para reforçar a temática, mas use-os de forma pontual para não poluir os slides.
-    -->
-
   </body>
 </html>
-
