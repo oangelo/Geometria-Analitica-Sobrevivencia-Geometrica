@@ -2,10 +2,570 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>CAPÍTULO VI - O R³ E A GEOMETRIA ANALÍTICA NO ESPAÇO - Seção 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+    </script>
+    <title>REFÚGIO-TEC | Produto Vetorial e Produto Misto</title>
+    <style>
+        /* Estilo inspirado no tema pós-apocalíptico */
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100px; }
+        }
+
+        body {
+            background-color: #0c0c0c;
+            color: #e6e6e6;
+            font-family: "Courier New", monospace;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #4caf50;
+            max-width: 800px;
+            margin: auto;
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 2px;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+
+        h1, h2, h3 {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .exercise {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border: 1px dashed #4caf50;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        details {
+            background-color: #1c1c1c;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            margin-top: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #4caf50;
+        }
+
+        summary:hover {
+            text-shadow: 0 0 3px #4caf50;
+        }
+
+        code {
+            background-color: #333;
+            padding: 3px 5px;
+            color: #ffeb3b;
+        }
+
+        .hint {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #4caf50;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .hint:before {
+            content: "DICA DE SOBREVIVÊNCIA: ";
+            color: #4caf50;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .solution-steps {
+            margin-left: 20px;
+            counter-reset: step-counter;
+        }
+
+        .solution-steps li {
+            list-style-type: none;
+            counter-increment: step-counter;
+            margin-bottom: 10px;
+        }
+
+        .solution-steps li::before {
+            content: "> PASSO_" counter(step-counter) ": ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .formula {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #000;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .terminal-frame {
+            padding: 10px;
+            background-color: #000;
+            margin-bottom: 20px;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .terminal-header {
+            margin: 0;
+            padding: 3px 10px;
+            background-color: #4caf50;
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .terminal-content {
+            padding: 5px;
+            white-space: pre-wrap;
+            font-size: 1em;
+            line-height: 1.2;
+        }
+
+        .cursor:after {
+            content: "█";
+            animation: blink 1s step-end infinite;
+        }
+
+        .terminal-line {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .terminal-border {
+            border: 1px solid #4caf50;
+            padding: 5px;
+            background-color: #000;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .mission-counter {
+            counter-reset: mission;
+        }
+        
+        .mission-counter .exercise h3:before {
+            content: "MISSÃO " counter(mission) ": ";
+            counter-increment: mission;
+        }
+
+        .warning {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .danger {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #8bc34a;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #4caf50;
+            border-top: 1px solid #4caf50;
+            padding-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>CAPÍTULO VI - O R³ E A GEOMETRIA ANALÍTICA NO ESPAÇO</h1>
-    <h2>Seção 2: produto-interno-no-r3</h2>
+    <!-- TÍTULO E INTRODUÇÃO -->
+    <div class="terminal-frame">
+        <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
+        <div class="terminal-content">
+┌───────────────────────────────────────────────────┐
+│ MÓDULO: PRODUTO VETORIAL E PRODUTO MISTO          │
+└───────────────────────────────────────────────────┘
+
+> INICIANDO TRANSMISSÃO...
+> CARREGANDO MÓDULO DE TREINAMENTO...
+> ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
+        </div>
+    </div>
+
+    <div class="terminal-border">
+        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: PRODUTO VETORIAL E PRODUTO MISTO</h2>
+    
+    <p>Sobrevivente, no espaço tridimensional da Zona Devastada, a orientação espacial pode significar a diferença entre encontrar suprimentos e se perder nas ruínas radioativas. O produto vetorial é nossa ferramenta para determinar direções perpendiculares - essencial para construir estruturas estáveis em seu abrigo e calcular a eficiência de painéis solares em relação ao sol.</p>
+    
+    <p>O <strong>produto vetorial</strong> de dois vetores $\vec{u} = (u_1, u_2, u_3)$ e $\vec{v} = (v_1, v_2, v_3)$ resulta em um novo vetor perpendicular a ambos, crucial para detectar mutações espaciais nos campos de força magnética. Sua magnitude representa a área do paralelogramo formado pelos dois vetores - útil para calcular áreas de terrenos seguros para estabelecer acampamentos.</p>
+    
+    <div class="formula">
+        $$\vec{u} \times \vec{v} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3 \end{vmatrix} = (u_2v_3 - u_3v_2, u_3v_1 - u_1v_3, u_1v_2 - u_2v_1)$$
+    </div>
+    
+    <p>O <strong>produto misto</strong> de três vetores $\vec{u}$, $\vec{v}$ e $\vec{w}$ é definido como $\vec{u} \cdot (\vec{v} \times \vec{w})$, representando o volume do paralelepípedo formado pelos três vetores. Este cálculo é vital para determinar a capacidade de armazenamento de bunkers subterrâneos e verificar se três forças atuam no mesmo plano - informação crítica para estruturas anti-radiação.</p>
+    
+    <div class="formula">
+        $$[\vec{u}, \vec{v}, \vec{w}] = \vec{u} \cdot (\vec{v} \times \vec{w}) = \begin{vmatrix} u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3 \\ w_1 & w_2 & w_3 \end{vmatrix}$$
+    </div>
+    
+    <p>Propriedades essenciais para sobrevivência: o produto vetorial é anticomutativo ($\vec{u} \times \vec{v} = -\vec{v} \times \vec{u}$), distributivo em relação à adição, e seu módulo equals $|\vec{u}||\vec{v}|\sin\theta$. Quando o produto misto é zero, os três vetores são coplanares - indicando que as forças estão alinhadas, potencialmente perigoso para estruturas de suporte.</p>
+
+    <!-- MISSÕES (EXERCÍCIOS) -->
+    <div class="mission-counter">
+        <!-- MISSÃO 1 (BÁSICA) -->
+        <div class="exercise">
+            <h3>Primeiras Coordenadas de Defesa</h3>
+            <p>Os sensores do seu abrigo detectaram dois drones mutantes se movendo segundo os vetores $\vec{u} = (2, -1, 3)$ e $\vec{v} = (1, 4, -2)$. Para ativar o sistema de defesa automático, você precisa calcular o vetor direção do campo eletromagnético perpendicular a ambos os movimentos. Determine $\vec{u} \times \vec{v}$.</p>
+            
+            <div class="hint">
+                Use a fórmula do determinante 3×3 expandindo pela primeira linha. Lembre-se: $\vec{i} \times \vec{j} = \vec{k}$, $\vec{j} \times \vec{k} = \vec{i}$, $\vec{k} \times \vec{i} = \vec{j}$.
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Montamos o determinante com $\vec{i}$, $\vec{j}$, $\vec{k}$ na primeira linha, coordenadas de $\vec{u}$ na segunda e coordenadas de $\vec{v}$ na terceira.</li>
+                    <li>Expandindo pela primeira linha: $\vec{u} \times \vec{v} = \vec{i}((-1)(-2) - (3)(4)) - \vec{j}((2)(-2) - (3)(1)) + \vec{k}((2)(4) - (-1)(1))$</li>
+                    <li>Calculamos cada componente: $\vec{i}(2 - 12) - \vec{j}(-4 - 3) + \vec{k}(8 + 1)$</li>
+                    <li>Simplificando: $\vec{i}(-10) - \vec{j}(-7) + \vec{k}(9) = -10\vec{i} + 7\vec{j} + 9\vec{k}$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\vec{u} \times \vec{v} = (-10, 7, 9)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Este vetor perpendicular define a direção ótima para posicionar antenas de comunicação, garantindo máxima eficiência na transmissão de sinais de socorro através das interferências magnéticas da Zona Devastada.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 2 (BÁSICA) -->
+        <div class="exercise">
+            <h3>Anticomutatividade das Forças</h3>
+            <p>Durante a construção de um gerador eólico, você precisa verificar a propriedade anticomutativa dos vetores de força. Dados $\vec{a} = (3, 0, -2)$ e $\vec{b} = (-1, 2, 4)$, calcule $\vec{a} \times \vec{b}$ e $\vec{b} \times \vec{a}$ para confirmar que $\vec{a} \times \vec{b} = -(\vec{b} \times \vec{a})$.</p>
+            
+            <div class="hint">
+                Calcule os dois produtos vetoriais separadamente e verifique se são opostos. Esta propriedade é fundamental para entender a orientação de campos magnéticos.
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calculamos $\vec{a} \times \vec{b}$: $\begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 3 & 0 & -2 \\ -1 & 2 & 4 \end{vmatrix}$</li>
+                    <li>$\vec{a} \times \vec{b} = \vec{i}(0 \cdot 4 - (-2) \cdot 2) - \vec{j}(3 \cdot 4 - (-2) \cdot (-1)) + \vec{k}(3 \cdot 2 - 0 \cdot (-1))$</li>
+                    <li>$\vec{a} \times \vec{b} = \vec{i}(4) - \vec{j}(12 - 2) + \vec{k}(6) = (4, -10, 6)$</li>
+                    <li>Calculamos $\vec{b} \times \vec{a}$: $\begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ -1 & 2 & 4 \\ 3 & 0 & -2 \end{vmatrix}$</li>
+                    <li>$\vec{b} \times \vec{a} = \vec{i}(2 \cdot (-2) - 4 \cdot 0) - \vec{j}((-1) \cdot (-2) - 4 \cdot 3) + \vec{k}((-1) \cdot 0 - 2 \cdot 3)$</li>
+                    <li>$\vec{b} \times \vec{a} = \vec{i}(-4) - \vec{j}(2 - 12) + \vec{k}(-6) = (-4, 10, -6)$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\vec{a} \times \vec{b} = (4, -10, 6) \text{ e } \vec{b} \times \vec{a} = (-4, 10, -6)$$
+                    $$\text{Verificação: } \vec{a} \times \vec{b} = -(\vec{b} \times \vec{a}) \checkmark$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A anticomutatividade garante que a orientação das turbinas eólicas seja precisa - trocar a ordem dos vetores de vento inverte completamente a direção de rotação, podendo causar falha catastrófica nos sistemas de energia.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 3 (BÁSICA) -->
+        <div class="exercise">
+            <h3>Volume do Abrigo Subterrâneo</h3>
+            <p>Para escavar um bunker anti-radiação, você precisa calcular o volume do paralelepípedo formado pelas dimensões estruturais $\vec{u} = (4, 2, 0)$, $\vec{v} = (1, 3, 2)$ e $\vec{w} = (2, -1, 5)$. Determine o produto misto $[\vec{u}, \vec{v}, \vec{w}]$ para descobrir a capacidade em metros cúbicos.</p>
+            
+            <div class="hint">
+                O produto misto é o determinante da matriz 3×3 formada pelos três vetores. Pode ser calculado como $\vec{u} \cdot (\vec{v} \times \vec{w})$ ou diretamente pelo determinante.
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Montamos o determinante com os três vetores: $\begin{vmatrix} 4 & 2 & 0 \\ 1 & 3 & 2 \\ 2 & -1 & 5 \end{vmatrix}$</li>
+                    <li>Expandindo pela primeira linha: $4 \begin{vmatrix} 3 & 2 \\ -1 & 5 \end{vmatrix} - 2 \begin{vmatrix} 1 & 2 \\ 2 & 5 \end{vmatrix} + 0 \begin{vmatrix} 1 & 3 \\ 2 & -1 \end{vmatrix}$</li>
+                    <li>Calculamos os determinantes 2×2: $4(3 \cdot 5 - 2 \cdot (-1)) - 2(1 \cdot 5 - 2 \cdot 2) + 0$</li>
+                    <li>$4(15 + 2) - 2(5 - 4) = 4(17) - 2(1) = 68 - 2 = 66$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$[\vec{u}, \vec{v}, \vec{w}] = 66 \text{ metros cúbicos}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Um volume de 66 m³ é suficiente para abrigar 8-10 sobreviventes com suprimentos para 3 meses, considerando espaço para filtragem de ar e armazenamento de RemoveRad. A estrutura triangular garante máxima resistência contra ondas de choque.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 4 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>Coplanaridade dos Sinais de Socorro</h3>
+            <p>Três torres de comunicação transmitem sinais nas direções $\vec{r_1} = (2, -3, 1)$, $\vec{r_2} = (4, 1, -2)$ e $\vec{r_3} = (6, -5, 0)$. Para evitar interferência destrutiva, você precisa verificar se os três vetores são coplanares. Use o produto misto para determinar se existe algum plano que contenha todas as três direções.</p>
+            
+            <div class="hint">
+                Três vetores são coplanares se e somente se seu produto misto é igual a zero. Calcule o determinante da matriz formada pelos três vetores.
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Montamos o determinante: $\begin{vmatrix} 2 & -3 & 1 \\ 4 & 1 & -2 \\ 6 & -5 & 0 \end{vmatrix}$</li>
+                    <li>Expandindo pela terceira coluna (tem zero): $1 \begin{vmatrix} 4 & 1 \\ 6 & -5 \end{vmatrix} - (-2) \begin{vmatrix} 2 & -3 \\ 6 & -5 \end{vmatrix} + 0$</li>
+                    <li>$1(4 \cdot (-5) - 1 \cdot 6) + 2(2 \cdot (-5) - (-3) \cdot 6)$</li>
+                    <li>$1(-20 - 6) + 2(-10 + 18) = -26 + 2(8) = -26 + 16 = -10$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$[\vec{r_1}, \vec{r_2}, \vec{r_3}] = -10 \neq 0$$
+                    $$\text{Os vetores NÃO são coplanares}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Como os vetores não são coplanares, as torres transmitem em direções verdadeiramente tridimensionais, garantindo cobertura espacial completa. Isso elimina zonas mortas de comunicação - essencial para coordenar resgates em terreno acidentado.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 5 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>Área da Zona de Quarentena</h3>
+            <p>Para estabelecer uma barreira de descontaminação, você precisa cercar uma área retangular definida pelos vetores $\vec{AB} = (3, 4, 0)$ e $\vec{AC} = (2, -1, 6)$. A quantidade de material de vedação necessária depende da área do paralelogramo formado por esses vetores. Calcule essa área usando a magnitude do produto vetorial.</p>
+            
+            <div class="hint">
+                A área do paralelogramo formado por dois vetores é igual à magnitude (módulo) do produto vetorial entre eles: $A = |\vec{u} \times \vec{v}|$.
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calculamos $\vec{AB} \times \vec{AC}$: $\begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 3 & 4 & 0 \\ 2 & -1 & 6 \end{vmatrix}$</li>
+                    <li>$\vec{AB} \times \vec{AC} = \vec{i}(4 \cdot 6 - 0 \cdot (-1)) - \vec{j}(3 \cdot 6 - 0 \cdot 2) + \vec{k}(3 \cdot (-1) - 4 \cdot 2)$</li>
+                    <li>$= \vec{i}(24) - \vec{j}(18) + \vec{k}(-3 - 8) = (24, -18, -11)$</li>
+                    <li>Calculamos a magnitude: $|\vec{AB} \times \vec{AC}| = \sqrt{24^2 + (-18)^2 + (-11)^2}$</li>
+                    <li>$= \sqrt{576 + 324 + 121} = \sqrt{1021} \approx 31.95$ unidades de área</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Área} = |\vec{AB} \times \vec{AC}| = \sqrt{1021} \approx 31.95 \text{ m}^2$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Com aproximadamente 32 m² de área de quarentena, você precisará de cerca de 25 metros lineares de cerca de contenção e 4 geradores de campo eletromagnético para manter a zona de descontaminação ativa 24 horas por dia.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 6 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>Estabilidade do Tripé de Comunicação</h3>
+            <p>Um tripé para antena parabólica tem suas pernas fixadas nos vetores $\vec{p_1} = (5, 0, 2)$, $\vec{p_2} = (1, 4, 3)$ e $\vec{p_3} = (2, 2, 6)$. Para garantir estabilidade estrutural, determine se estes três vetores geram um volume significativo no espaço calculando o produto misto e interpretando o resultado.</p>
+            
+            <div class="hint">
+                Um produto misto próximo de zero indica que os vetores estão quase coplanares, resultando em estrutura instável. Valores maiores indicam melhor distribuição espacial.
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calculamos o produto misto: $\begin{vmatrix} 5 & 0 & 2 \\ 1 & 4 & 3 \\ 2 & 2 & 6 \end{vmatrix}$</li>
+                    <li>Expandindo pela primeira linha: $5 \begin{vmatrix} 4 & 3 \\ 2 & 6 \end{vmatrix} - 0 + 2 \begin{vmatrix} 1 & 4 \\ 2 & 2 \end{vmatrix}$</li>
+                    <li>$5(4 \cdot 6 - 3 \cdot 2) + 2(1 \cdot 2 - 4 \cdot 2)$</li>
+                    <li>$5(24 - 6) + 2(2 - 8) = 5(18) + 2(-6) = 90 - 12 = 78$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$[\vec{p_1}, \vec{p_2}, \vec{p_3}] = 78$$
+                    $$\text{Volume do paralelepípedo} = |78| = 78 \text{ unidades cúbicas}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Um produto misto de 78 indica excelente distribuição espacial das pernas do tripé. Esta configuração resistirá a ventos de até 120 km/h e terremotos de magnitude 6.5, garantindo comunicação estável mesmo durante tempestades radioativas.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 7 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>Orientação da Turbina Eólica</h3>
+            <p>Uma turbina eólica precisa ser posicionada perpendicular ao plano formado pelos vetores de vento predominantes $\vec{v_1} = (2, 3, -1)$ e $\vec{v_2} = (4, -2, 5)$. Determine o vetor direção do eixo da turbina e calcule sua magnitude. Além disso, verifique se o vetor $\vec{n} = (13, -14, -16)$ está na mesma direção ou direção oposta.</p>
+            
+            <div class="hint">
+                O eixo da turbina deve ser paralelo ao produto vetorial dos ventos. Compare seu resultado com o vetor dado verificando se são múltiplos escalares.
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calculamos $\vec{v_1} \times \vec{v_2}$: $\begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 2 & 3 & -1 \\ 4 & -2 & 5 \end{vmatrix}$</li>
+                    <li>$= \vec{i}(3 \cdot 5 - (-1) \cdot (-2)) - \vec{j}(2 \cdot 5 - (-1) \cdot 4) + \vec{k}(2 \cdot (-2) - 3 \cdot 4)$</li>
+                    <li>$= \vec{i}(15 - 2) - \vec{j}(10 + 4) + \vec{k}(-4 - 12) = (13, -14, -16)$</li>
+                    <li>Magnitude: $|\vec{v_1} \times \vec{v_2}| = \sqrt{13^2 + 14^2 + 16^2} = \sqrt{169 + 196 + 256} = \sqrt{621}$</li>
+                    <li>Comparando com $\vec{n} = (13, -14, -16)$: são exatamente iguais!</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\vec{v_1} \times \vec{v_2} = (13, -14, -16) = \vec{n}$$
+                    $$|\vec{v_1} \times \vec{v_2}| = \sqrt{621} \approx 24.92$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O vetor $\vec{n}$ está na direção exata para máxima eficiência da turbina! Com magnitude de quase 25 unidades, esta orientação capturará energia de ventos cruzados otimizando a geração para manter sistemas críticos funcionando durante tempestades.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 8 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>Detecção de Radiação Tridimensional</h3>
+            <p>Três detectores Geiger posicionados nos vetores $\vec{d_1} = (1, 2, 3)$, $\vec{d_2} = (2, -1, 1)$ e $\vec{d_3} = (3, 0, 7)$ medem radiação em direções diferentes. Para calibrar o sistema de triangulação, você precisa determinar se os três detectores estão alinhados no mesmo plano ou se formam uma configuração tridimensional verdadeira. Calcule e interprete o produto misto.</p>
+            
+            <div class="hint">
+                Se os detectores estiverem no mesmo plano (coplanares), o produto misto será zero e a triangulação falhará. Caso contrário, você terá detecção 3D completa.
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Montamos o determinante: $\begin{vmatrix} 1 & 2 & 3 \\ 2 & -1 & 1 \\ 3 & 0 & 7 \end{vmatrix}$</li>
+                    <li>Expandindo pela segunda linha: $-2 \begin{vmatrix} 2 & 3 \\ 0 & 7 \end{vmatrix} + (-1) \begin{vmatrix} 1 & 3 \\ 3 & 7 \end{vmatrix} - 1 \begin{vmatrix} 1 & 2 \\ 3 & 0 \end{vmatrix}$</li>
+                    <li>$-2(2 \cdot 7 - 3 \cdot 0) - 1(1 \cdot 7 - 3 \cdot 3) - 1(1 \cdot 0 - 2 \cdot 3)$</li>
+                    <li>$-2(14) - 1(7 - 9) - 1(-6) = -28 - 1(-2) + 6 = -28 + 2 + 6 = -20$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$[\vec{d_1}, \vec{d_2}, \vec{d_3}] = -20 \neq 0$$
+                    $$\text{Configuração tridimensional confirmada}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Excelente! Com produto misto de -20, os detectores formam uma configuração 3D verdadeira, permitindo triangulação precisa de fontes radioativas. O sinal negativo apenas indica orientação, mas a magnitude garante detecção omnidirecional para localizar mutantes radioativos.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 9 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>Campo Magnético Resultante</h3>
+            <p>Dois geradores de campo magnético produzem campos $\vec{B_1} = (6, -3, 2)$ e $\vec{B_2} = (1, 4, -5)$ (em Tesla). Para criar uma barreira anti-mutante, você precisa de um terceiro campo $\vec{B_3}$ perpendicular aos dois primeiros e com magnitude igual à área do paralelogramo que eles formam. Determine as componentes e magnitude de $\vec{B_3}$.</p>
+            
+            <div class="hint">
+                O terceiro campo deve ser $\vec{B_3} = \vec{B_1} \times \vec{B_2}$. Sua magnitude automaticamente será igual à área do paralelogramo formado pelos dois primeiros campos.
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calculamos $\vec{B_3} = \vec{B_1} \times \vec{B_2}$: $\begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 6 & -3 & 2 \\ 1 & 4 & -5 \end{vmatrix}$</li>
+                    <li>$= \vec{i}((-3)(-5) - (2)(4)) - \vec{j}((6)(-5) - (2)(1)) + \vec{k}((6)(4) - (-3)(1))$</li>
+                    <li>$= \vec{i}(15 - 8) - \vec{j}(-30 - 2) + \vec{k}(24 + 3)$</li>
+                    <li>$= \vec{i}(7) - \vec{j}(-32) + \vec{k}(27) = (7, 32, 27)$</li>
+                    <li>Magnitude: $|\vec{B_3}| = \sqrt{7^2 + 32^2 + 27^2} = \sqrt{49 + 1024 + 729} = \sqrt{1802} \approx 42.46$ Tesla</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\vec{B_3} = (7, 32, 27) \text{ Tesla}$$
+                    $$|\vec{B_3}| = \sqrt{1802} \approx 42.46 \text{ Tesla}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O campo resultante de 42.46 Tesla é suficiente para repelir mutantes com alterações magnéticas até 500 metros de distância. As componentes (7, 32, 27) indicam que o campo deve ser orientado principalmente nas direções y e z para máxima eficácia defensiva.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 10 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>Estratégia de Evacuação Tridimensional</h3>
+            <p>Uma tempestade radioativa se aproxima e você precisa coordenar três rotas de fuga: $\vec{r_1} = (2a, -a, 3)$, $\vec{r_2} = (1, 2a, -4)$ e $\vec{r_3} = (a+1, 3, 2a-1)$. Para garantir que as rotas não se concentrem no mesmo plano (o que criaria gargalos perigosos), determine para quais valores de $a$ os três vetores são coplanares e evite esses valores.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Os vetores são coplanares quando o produto misto é zero: $\begin{vmatrix} 2a & -a & 3 \\ 1 & 2a & -4 \\ a+1 & 3 & 2a-1 \end{vmatrix} = 0$</li>
+                    <li>Expandindo pela primeira linha: $2a \begin{vmatrix} 2a & -4 \\ 3 & 2a-1 \end{vmatrix} - (-a) \begin{vmatrix} 1 & -4 \\ a+1 & 2a-1 \end{vmatrix} + 3 \begin{vmatrix} 1 & 2a \\ a+1 & 3 \end{vmatrix}$</li>
+                    <li>$2a(2a(2a-1) - (-4)(3)) + a(1(2a-1) - (-4)(a+1)) + 3(1 \cdot 3 - 2a(a+1))$</li>
+                    <li>$2a(4a^2 - 2a + 12) + a(2a - 1 + 4a + 4) + 3(3 - 2a^2 - 2a)$</li>
+                    <li>$2a(4a^2 - 2a + 12) + a(6a + 3) + 3(3 - 2a^2 - 2a)$</li>
+                    <li>$8a^3 - 4a^2 + 24a + 6a^2 + 3a + 9 - 6a^2 - 6a = 8a^3 - 4a^2 + 21a + 9 = 0$</li>
+                    <li>Fatorando: $(a + \frac{1}{2})(8a^2 - 8a + 18) = 0$</li>
+                    <li>$a = -\frac{1}{2}$ ou $8a^2 - 8a + 18 = 0$ (sem soluções reais)</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Vetores coplanares quando } a = -\frac{1}{2}$$
+                    $$\text{Para evacuação segura: } a \neq -\frac{1}{2}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Evitando $a = -\frac{1}{2}$, você garante que as três rotas de fuga se espalhem verdadeiramente no espaço 3D, eliminando pontos de congestionamento. Valores como $a = 0, 1, 2$ criam rotas ótimas com dispersão máxima para evacuação de até 200 pessoas simultaneamente.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 11 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>Otimização da Central de Energia Solar</h3>
+            <p>Para maximizar a captação de energia, três painéis solares devem ser posicionados nos vetores $\vec{p_1} = (3, 1, 2)$, $\vec{p_2} = (2, -1, 1)$ e $\vec{p_3} = (k, 2, 3)$. A eficiência máxima ocorre quando o volume do paralelepípedo formado pelos três vetores é exatamente 25 unidades cúbicas. Determine o valor de $k$ que otimiza o sistema.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>O volume é dado pelo produto misto: $\begin{vmatrix} 3 & 1 & 2 \\ 2 & -1 & 1 \\ k & 2 & 3 \end{vmatrix} = \pm 25$</li>
+                    <li>Expandindo pela primeira linha: $3 \begin{vmatrix} -1 & 1 \\ 2 & 3 \end{vmatrix} - 1 \begin{vmatrix} 2 & 1 \\ k & 3 \end{vmatrix} + 2 \begin{vmatrix} 2 & -1 \\ k & 2 \end{vmatrix}$</li>
+                    <li>$3((-1)(3) - (1)(2)) - 1((2)(3) - (1)(k)) + 2((2)(2) - (-1)(k))$</li>
+                    <li>$3(-3 - 2) - 1(6 - k) + 2(4 + k)$</li>
+                    <li>$3(-5) - (6 - k) + 2(4 + k) = -15 - 6 + k + 8 + 2k = 3k - 13$</li>
+                    <li>Para volume = 25: $3k - 13 = 25$ ou $3k - 13 = -25$</li>
+                    <li>$3k = 38 \Rightarrow k = \frac{38}{3}$ ou $3k = -12 \Rightarrow k = -4$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$k = \frac{38}{3} \approx 12.67 \text{ ou } k = -4$$
+                    $$\text{Volume} = |3k - 13| = 25$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Para $k = \frac{38}{3}$, os painéis captam luz solar de manhã e tarde otimamente. Para $k = -4$, a configuração favorece radiação solar direta ao meio-dia. Escolha $k = \frac{38}{3}$ para locais com névoa matinal frequente, ou $k = -4$ para desertos com sol intenso constante.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 12 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>Sistema de Defesa Antimíssil Tridimensional</h3>
+            <p>Um míssil mutante se move na direção $\vec{v} = (4, -2, 3)$ e você tem dois interceptadores com trajetórias $\vec{i_1} = (1, 3, -1)$ e $\vec{i_2} = (2, 0, 5)$. Para destruir o míssil, os interceptadores devem criar uma explosão perpendicular à trajetória do míssil. Determine se os vetores $\vec{i_1}$ e $\vec{i_2}$ podem gerar um campo de explosão adequado calculando $(\vec{i_1} \times \vec{i_2}) \cdot \vec{v}$ e interpretando se o resultado garante interceptação eficaz.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Primeiro calculamos $\vec{i_1} \times \vec{i_2}$: $\begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 1 & 3 & -1 \\ 2 & 0 & 5 \end{vmatrix}$</li>
+                    <li>$= \vec{i}(3 \cdot 5 - (-1) \cdot 0) - \vec{j}(1 \cdot 5 - (-1) \cdot 2) + \vec{k}(1 \cdot 0 - 3 \cdot 2)$</li>
+                    <li>$= \vec{i}(15) - \vec{j}(5 + 2) + \vec{k}(-6) = (15, -7, -6)$</li>
+                    <li>Agora calculamos $(\vec{i_1} \times \vec{i_2}) \cdot \vec{v} = (15, -7, -6) \cdot (4, -2, 3)$</li>
+                    <li>$= 15 \cdot 4 + (-7) \cdot (-2) + (-6) \cdot 3 = 60 + 14 - 18 = 56$</li>
+                    <li>Como o resultado é não-zero, $\vec{v}$ não é perpendicular ao plano formado por $\vec{i_1}$ e $\vec{i_2}$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$(\vec{i_1} \times \vec{i_2}) \cdot \vec{v} = 56 \neq 0$$
+                    $$\text{O míssil NÃO está no plano dos interceptadores}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> ALERTA CRÍTICO! O valor 56 ≠ 0 indica que o míssil não está no plano de interceptação. Os interceptadores falharão em criar uma barreira eficaz. Você precisa ajustar a trajetória de pelo menos um interceptador ou ativar sistemas de defesa auxiliares imediatamente para evitar impacto catastrófico no abrigo.</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- RODAPÉ DO DOCUMENTO -->
+    <div class="footer">
+        REFÚGIO-TEC | PRODUTO VETORIAL E PRODUTO MISTO: Sobrevivência Matemática - "A orientação espacial é a diferença entre abrigo e exposição letal"
+    </div>
 </body>
 </html>

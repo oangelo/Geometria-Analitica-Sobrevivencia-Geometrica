@@ -2,10 +2,577 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>CAPÍTULO VI - O R³ E A GEOMETRIA ANALÍTICA NO ESPAÇO - Seção 6</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+    </script>
+    <title>REFÚGIO-TEC | Equações da Reta no R³</title>
+    <style>
+        /* Estilo inspirado no tema pós-apocalíptico */
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100px; }
+        }
+
+        body {
+            background-color: #0c0c0c;
+            color: #e6e6e6;
+            font-family: "Courier New", monospace;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #4caf50;
+            max-width: 800px;
+            margin: auto;
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 2px;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+
+        h1, h2, h3 {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .exercise {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border: 1px dashed #4caf50;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        details {
+            background-color: #1c1c1c;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            margin-top: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #4caf50;
+        }
+
+        summary:hover {
+            text-shadow: 0 0 3px #4caf50;
+        }
+
+        code {
+            background-color: #333;
+            padding: 3px 5px;
+            color: #ffeb3b;
+        }
+
+        .hint {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #4caf50;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .hint:before {
+            content: "DICA DE SOBREVIVÊNCIA: ";
+            color: #4caf50;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .solution-steps {
+            margin-left: 20px;
+            counter-reset: step-counter;
+        }
+
+        .solution-steps li {
+            list-style-type: none;
+            counter-increment: step-counter;
+            margin-bottom: 10px;
+        }
+
+        .solution-steps li::before {
+            content: "> PASSO_" counter(step-counter) ": ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .formula {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #000;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .terminal-frame {
+            padding: 10px;
+            background-color: #000;
+            margin-bottom: 20px;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .terminal-header {
+            margin: 0;
+            padding: 3px 10px;
+            background-color: #4caf50;
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .terminal-content {
+            padding: 5px;
+            white-space: pre-wrap;
+            font-size: 1em;
+            line-height: 1.2;
+        }
+
+        .cursor:after {
+            content: "█";
+            animation: blink 1s step-end infinite;
+        }
+
+        .terminal-line {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .terminal-border {
+            border: 1px solid #4caf50;
+            padding: 5px;
+            background-color: #000;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .mission-counter {
+            counter-reset: mission;
+        }
+        
+        .mission-counter .exercise h3:before {
+            content: "MISSÃO " counter(mission) ": ";
+            counter-increment: mission;
+        }
+
+        .warning {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .danger {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #8bc34a;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #4caf50;
+            border-top: 1px solid #4caf50;
+            padding-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>CAPÍTULO VI - O R³ E A GEOMETRIA ANALÍTICA NO ESPAÇO</h1>
-    <h2>Seção 6: equacoes-da-reta</h2>
+    <!-- TÍTULO E INTRODUÇÃO -->
+    <div class="terminal-frame">
+        <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
+        <div class="terminal-content">
+┌───────────────────────────────────────────────────┐
+│ MÓDULO: EQUAÇÕES DA RETA NO R³                     │
+└───────────────────────────────────────────────────┘
+
+> INICIANDO TRANSMISSÃO...
+> CARREGANDO MÓDULO DE TREINAMENTO...
+> ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
+        </div>
+    </div>
+
+    <div class="terminal-border">
+        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: EQUAÇÕES DA RETA NO R³</h2>
+    
+    <p>Na Zona Devastada tridimensional, a capacidade de definir trajetórias lineares no espaço pode determinar a diferença entre uma rota segura para o abrigo e um encontro indesejado com mutantes. As retas no espaço R³ são fundamentais para navegação, construção de túneis subterrâneos e estabelecimento de rotas de fuga.</p>
+    
+    <p>Uma reta no espaço pode ser determinada por um ponto conhecido e um vetor diretor, representando a direção da trajetória. Alternativamente, dois pontos distintos também definem uma única reta, essencial para traçar rotas entre abrigos distantes.</p>
+    
+    <div class="formula">
+    $$\text{Equação Vetorial: } \vec{r} = \vec{P_0} + t \cdot \vec{v}$$
+    $$\text{Equações Paramétricas: } \begin{cases} x = x_0 + a \cdot t \\ y = y_0 + b \cdot t \\ z = z_0 + c \cdot t \end{cases}$$
+    $$\text{Equações Simétricas: } \frac{x - x_0}{a} = \frac{y - y_0}{b} = \frac{z - z_0}{c}$$
+    </div>
+    
+    <p>As diferentes formas de equação da reta servem propósitos distintos: a forma vetorial para análise teórica, as paramétricas para cálculos computacionais de trajetória, e a simétrica para determinar rapidamente se um ponto específico está sobre a rota planejada. Dominar essas representações é crucial para sobrevivência em ambientes hostis tridimensionais.</p>
+
+    <!-- MISSÕES (EXERCÍCIOS) -->
+    <div class="mission-counter">
+        <!-- MISSÃO 1 (BÁSICA) -->
+        <div class="exercise">
+            <h3>Estabelecendo Rota Básica de Evacuação</h3>
+            <p>O abrigo principal está localizado no ponto A(2, -1, 3) e você precisa estabelecer uma rota linear de evacuação na direção do vetor $\vec{v} = (1, 2, -1)$. Determine a equação vetorial desta rota de fuga.</p>
+            
+            <div class="hint">
+                Substitua diretamente o ponto conhecido e o vetor diretor na fórmula da equação vetorial da reta.
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificar o ponto inicial $P_0 = (2, -1, 3)$ e o vetor diretor $\vec{v} = (1, 2, -1)$</li>
+                    <li>Aplicar a fórmula da equação vetorial: $\vec{r} = \vec{P_0} + t \cdot \vec{v}$</li>
+                    <li>Substituir os valores conhecidos na equação</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\vec{r} = (2, -1, 3) + t \cdot (1, 2, -1)$$
+                    $$\vec{r} = (2 + t, -1 + 2t, 3 - t)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Esta equação permite calcular qualquer ponto da rota de evacuação substituindo diferentes valores do parâmetro t, essencial para determinar pontos de parada e verificar a segurança do trajeto.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 2 -->
+        <div class="exercise">
+            <h3>Coordenadas de Checkpoint de Segurança</h3>
+            <p>Uma rota de patrulha segue as equações paramétricas: $x = 1 + 2t$, $y = -3 + t$, $z = 2 - 3t$. Determine as coordenadas do checkpoint quando $t = 2$ e também quando $t = -1$.</p>
+            
+            <div class="hint">
+                Substitua os valores de t nas três equações paramétricas para obter as coordenadas (x, y, z) de cada checkpoint.
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para $t = 2$: Substituir em cada equação paramétrica</li>
+                    <li>$x = 1 + 2(2) = 1 + 4 = 5$</li>
+                    <li>$y = -3 + 2 = -1$</li>
+                    <li>$z = 2 - 3(2) = 2 - 6 = -4$</li>
+                    <li>Para $t = -1$: Repetir o processo</li>
+                    <li>$x = 1 + 2(-1) = 1 - 2 = -1$</li>
+                    <li>$y = -3 + (-1) = -4$</li>
+                    <li>$z = 2 - 3(-1) = 2 + 3 = 5$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Para } t = 2: \text{ Checkpoint em } (5, -1, -4)$$
+                    $$\text{Para } t = -1: \text{ Checkpoint em } (-1, -4, 5)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Estes checkpoints representam posições estratégicas ao longo da rota, permitindo calcular distâncias percorridas e planejar paradas para descanso e reabastecimento de RemoveRad.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 3 -->
+        <div class="exercise">
+            <h3>Conectando Dois Abrigos</h3>
+            <p>Você descobriu dois abrigos nas coordenadas A(1, 2, -1) e B(4, -1, 2). Estabeleça a equação vetorial da reta que conecta estes dois pontos seguros.</p>
+            
+            <div class="hint">
+                Primeiro calcule o vetor diretor $\overrightarrow{AB}$ subtraindo as coordenadas de A das coordenadas de B, depois use um dos pontos para formar a equação vetorial.
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcular o vetor diretor: $\overrightarrow{AB} = B - A = (4, -1, 2) - (1, 2, -1)$</li>
+                    <li>$\overrightarrow{AB} = (4-1, -1-2, 2-(-1)) = (3, -3, 3)$</li>
+                    <li>Usar o ponto A como referência na equação vetorial</li>
+                    <li>Aplicar a fórmula: $\vec{r} = \vec{A} + t \cdot \overrightarrow{AB}$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\vec{r} = (1, 2, -1) + t \cdot (3, -3, 3)$$
+                    $$\vec{r} = (1 + 3t, 2 - 3t, -1 + 3t)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Esta rota direta entre abrigos minimiza exposição à radiação e mutantes. Note que quando t = 0 estamos no abrigo A, e quando t = 1 chegamos ao abrigo B.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 4 -->
+        <div class="exercise">
+            <h3>Verificação de Ponto na Rota</h3>
+            <p>Uma rota de escape tem equações paramétricas: $x = 2 + 3t$, $y = -1 + 2t$, $z = 4 - t$. Verifique se o ponto de suprimentos P(8, 3, 2) está localizado nesta rota.</p>
+            
+            <div class="hint">
+                Se o ponto está na reta, deve existir um valor de t que satisfaça simultaneamente as três equações paramétricas.
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Assumir que P(8, 3, 2) está na reta e encontrar t em cada equação</li>
+                    <li>Da primeira equação: $8 = 2 + 3t \Rightarrow 6 = 3t \Rightarrow t = 2$</li>
+                    <li>Da segunda equação: $3 = -1 + 2t \Rightarrow 4 = 2t \Rightarrow t = 2$</li>
+                    <li>Da terceira equação: $2 = 4 - t \Rightarrow t = 4 - 2 = 2$</li>
+                    <li>Como t = 2 em todas as três equações, o ponto está na reta</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Verificação: } t = 2 \text{ em todas as equações}$$
+                    $$\therefore P(8, 3, 2) \in \text{reta}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Confirmar que depósitos de suprimentos estão na rota planejada evita desvios desnecessários e economiza recursos vitais durante a jornada.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 5 -->
+        <div class="exercise">
+            <h3>Convertendo Formatos de Navegação</h3>
+            <p>O sistema de navegação do Traje de Proteção fornece a equação simétrica de uma rota: $\frac{x-1}{2} = \frac{y+3}{-1} = \frac{z-2}{3}$. Converta para equações paramétricas para programar o autopiloto.</p>
+            
+            <div class="hint">
+                Iguale cada fração ao parâmetro t e isole x, y e z em função de t.
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Igualar as frações ao parâmetro t: $\frac{x-1}{2} = \frac{y+3}{-1} = \frac{z-2}{3} = t$</li>
+                    <li>Da primeira fração: $x - 1 = 2t \Rightarrow x = 1 + 2t$</li>
+                    <li>Da segunda fração: $y + 3 = -t \Rightarrow y = -3 - t$</li>
+                    <li>Da terceira fração: $z - 2 = 3t \Rightarrow z = 2 + 3t$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\begin{cases} 
+                    x = 1 + 2t \\ 
+                    y = -3 - t \\ 
+                    z = 2 + 3t 
+                    \end{cases}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A conversão entre formatos permite compatibilidade com diferentes sistemas de navegação, essencial quando equipamentos de diferentes fabricantes precisam trabalhar juntos na Zona Devastada.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 6 -->
+        <div class="exercise">
+            <h3>Estabelecendo Rota por Coordenadas Específicas</h3>
+            <p>Dois sobreviventes se encontram nos pontos A(-2, 1, 4) e B(1, -2, 0). Determine as equações simétricas da reta que representa a rota de encontro entre eles.</p>
+            
+            <div class="hint">
+                Primeiro encontre o vetor diretor, depois use as coordenadas de um dos pontos para formar a equação simétrica.
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcular o vetor diretor: $\overrightarrow{AB} = (1, -2, 0) - (-2, 1, 4) = (3, -3, -4)$</li>
+                    <li>Usar o ponto A(-2, 1, 4) como referência</li>
+                    <li>Aplicar a forma simétrica: $\frac{x - x_0}{a} = \frac{y - y_0}{b} = \frac{z - z_0}{c}$</li>
+                    <li>Substituir: $(x_0, y_0, z_0) = (-2, 1, 4)$ e $(a, b, c) = (3, -3, -4)$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\frac{x - (-2)}{3} = \frac{y - 1}{-3} = \frac{z - 4}{-4}$$
+                    $$\frac{x + 2}{3} = \frac{y - 1}{-3} = \frac{z - 4}{-4}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Esta equação permite que ambos os sobreviventes calculem qualquer ponto da rota de encontro, facilitando a coordenação e definição de pontos intermediários de segurança.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 7 -->
+        <div class="exercise">
+            <h3>Análise de Rotas Paralelas</h3>
+            <p>Duas patrulhas seguem as rotas: R₁: $\vec{r_1} = (1, 2, -1) + s(2, -1, 3)$ e R₂: $\vec{r_2} = (3, 0, 1) + t(-4, 2, -6)$. Determine se estas rotas são paralelas.</p>
+            
+            <div class="hint">
+                Duas retas são paralelas se seus vetores diretores são paralelos (um é múltiplo escalar do outro).
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificar os vetores diretores: $\vec{v_1} = (2, -1, 3)$ e $\vec{v_2} = (-4, 2, -6)$</li>
+                    <li>Verificar se $\vec{v_2} = k \cdot \vec{v_1}$ para algum escalar k</li>
+                    <li>$(-4, 2, -6) = k(2, -1, 3)$</li>
+                    <li>Da primeira componente: $-4 = 2k \Rightarrow k = -2$</li>
+                    <li>Verificar nas outras componentes: $2 = (-2)(-1) = 2$ ✓ e $-6 = (-2)(3) = -6$ ✓</li>
+                    <li>Como $\vec{v_2} = -2\vec{v_1}$, os vetores são paralelos</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\vec{v_2} = -2\vec{v_1}$$
+                    $$\therefore \text{As rotas são paralelas}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Rotas paralelas significam que as patrulhas nunca se encontrarão, importante para evitar conflitos territoriais ou coordenar operações independentes em áreas adjacentes.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 8 -->
+        <div class="exercise">
+            <h3>Ponto de Encontro Calculado</h3>
+            <p>Duas expedições seguem: R₁: $\frac{x-1}{2} = \frac{y+1}{1} = \frac{z}{-1}$ e R₂: $\frac{x-3}{1} = \frac{y-1}{-2} = \frac{z+2}{1}$. Determine se e onde estas rotas se intersectam.</p>
+            
+            <div class="hint">
+                Converta para forma paramétrica usando parâmetros diferentes (s e t) e iguale as coordenadas correspondentes.
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Converter R₁ para paramétrica com parâmetro s: $(x, y, z) = (1 + 2s, -1 + s, -s)$</li>
+                    <li>Converter R₂ para paramétrica com parâmetro t: $(x, y, z) = (3 + t, 1 - 2t, -2 + t)$</li>
+                    <li>Igualar as coordenadas: $1 + 2s = 3 + t$, $-1 + s = 1 - 2t$, $-s = -2 + t$</li>
+                    <li>Da terceira equação: $s = 2 - t$</li>
+                    <li>Substituir na primeira: $1 + 2(2 - t) = 3 + t \Rightarrow 5 - 2t = 3 + t \Rightarrow 2 = 3t \Rightarrow t = \frac{2}{3}$</li>
+                    <li>Logo $s = 2 - \frac{2}{3} = \frac{4}{3}$</li>
+                    <li>Verificar na segunda: $-1 + \frac{4}{3} = \frac{1}{3}$ e $1 - 2(\frac{2}{3}) = 1 - \frac{4}{3} = -\frac{1}{3}$ ✗</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Sistema inconsistente: as retas não se intersectam}$$
+                    $$\text{As retas são reversas (não coplanares)}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Rotas reversas indicam que as expedições seguem caminhos que não se cruzam no espaço tridimensional, eliminando a possibilidade de encontro sem mudança de trajetória.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 9 -->
+        <div class="exercise">
+            <h3>Navegação por Interceptação</h3>
+            <p>Uma reta passa pelo ponto A(2, -1, 3) e é paralela ao vetor $\vec{v} = (1, 2, -2)$. Determine em que ponto esta reta intercepta o plano xy (onde z = 0).</p>
+            
+            <div class="hint">
+                Escreva a equação paramétrica da reta e substitua z = 0 para encontrar o valor de t, depois calcule x e y.
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Escrever a equação paramétrica: $(x, y, z) = (2, -1, 3) + t(1, 2, -2)$</li>
+                    <li>Expandir: $x = 2 + t$, $y = -1 + 2t$, $z = 3 - 2t$</li>
+                    <li>Para interceptar o plano xy, fazer z = 0: $3 - 2t = 0$</li>
+                    <li>Resolver: $2t = 3 \Rightarrow t = \frac{3}{2}$</li>
+                    <li>Calcular x: $x = 2 + \frac{3}{2} = \frac{7}{2}$</li>
+                    <li>Calcular y: $y = -1 + 2(\frac{3}{2}) = -1 + 3 = 2$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Ponto de interceptação: } \left(\frac{7}{2}, 2, 0\right)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Determinar onde uma rota intercepta o nível do solo (z = 0) é crucial para identificar pontos de entrada/saída de túneis subterrâneos ou passagens elevadas.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 10 -->
+        <div class="exercise">
+            <h3>Análise Completa de Trajetórias</h3>
+            <p>Dados os pontos A(1, 0, -2), B(3, 2, 1) e C(0, -1, 4), determine a equação da reta que passa por A e é perpendicular ao plano formado pelos vetores $\overrightarrow{AB}$ e $\overrightarrow{AC}$.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcular $\overrightarrow{AB} = (3, 2, 1) - (1, 0, -2) = (2, 2, 3)$</li>
+                    <li>Calcular $\overrightarrow{AC} = (0, -1, 4) - (1, 0, -2) = (-1, -1, 6)$</li>
+                    <li>O vetor perpendicular ao plano é $\overrightarrow{AB} \times \overrightarrow{AC}$</li>
+                    <li>$\overrightarrow{AB} \times \overrightarrow{AC} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 2 & 2 & 3 \\ -1 & -1 & 6 \end{vmatrix}$</li>
+                    <li>$= \vec{i}(2 \cdot 6 - 3 \cdot (-1)) - \vec{j}(2 \cdot 6 - 3 \cdot (-1)) + \vec{k}(2 \cdot (-1) - 2 \cdot (-1))$</li>
+                    <li>$= \vec{i}(12 + 3) - \vec{j}(12 + 3) + \vec{k}(-2 + 2) = (15, -15, 0)$</li>
+                    <li>Equação da reta: $\vec{r} = (1, 0, -2) + t(15, -15, 0)$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\vec{r} = (1, 0, -2) + t(15, -15, 0)$$
+                    $$\text{ou } \vec{r} = (1, 0, -2) + t(1, -1, 0)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Trajetórias perpendiculares a planos específicos são essenciais para estratégias de escape vertical, permitindo sair rapidamente de situações de cerco em terrenos acidentados.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 11 -->
+        <div class="exercise">
+            <h3>Sistema de Coordenadas de Emergência</h3>
+            <p>Uma equipe de resgate precisa estabelecer uma rota que passe pelos pontos P₁(2, 1, -3) e P₂(-1, 4, 0), e encontre onde esta rota cruza com a superfície definida por x + y + z = 6.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Determinar o vetor diretor: $\overrightarrow{P_1P_2} = (-1, 4, 0) - (2, 1, -3) = (-3, 3, 3)$</li>
+                    <li>Equação paramétrica usando P₁: $(x, y, z) = (2, 1, -3) + t(-3, 3, 3)$</li>
+                    <li>Expandir: $x = 2 - 3t$, $y = 1 + 3t$, $z = -3 + 3t$</li>
+                    <li>Substituir na equação do plano: $(2 - 3t) + (1 + 3t) + (-3 + 3t) = 6$</li>
+                    <li>Simplificar: $2 - 3t + 1 + 3t - 3 + 3t = 6$</li>
+                    <li>$0 + 3t = 6 \Rightarrow t = 2$</li>
+                    <li>Ponto de interseção: $x = 2 - 3(2) = -4$, $y = 1 + 3(2) = 7$, $z = -3 + 3(2) = 3$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Ponto de interseção: } (-4, 7, 3)$$
+                    $$\text{Verificação: } (-4) + 7 + 3 = 6 \checkmark$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Identificar onde rotas de resgate cruzam com barreiras naturais ou artificiais permite planejamento de equipamentos especiais necessários para atravessar essas superfícies críticas.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 12 -->
+        <div class="exercise">
+            <h3>Operação de Triangulação Avançada</h3>
+            <p>Três torres de comunicação estão em A(1, 2, 3), B(4, 0, -1) e C(-2, 3, 2). Determine se existe uma reta que passa por A e é simultaneamente paralela aos vetores $\overrightarrow{BC}$ e perpendicular ao vetor $\overrightarrow{AB}$. Se existir, forneça sua equação.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcular $\overrightarrow{BC} = (-2, 3, 2) - (4, 0, -1) = (-6, 3, 3)$</li>
+                    <li>Calcular $\overrightarrow{AB} = (4, 0, -1) - (1, 2, 3) = (3, -2, -4)$</li>
+                    <li>Para a reta ser paralela a $\overrightarrow{BC}$, seu vetor diretor deve ser múltiplo de $(-6, 3, 3)$</li>
+                    <li>Para ser perpendicular a $\overrightarrow{AB}$, o produto escalar deve ser zero</li>
+                    <li>Testar se $\overrightarrow{BC} \cdot \overrightarrow{AB} = 0$:</li>
+                    <li>$(-6, 3, 3) \cdot (3, -2, -4) = (-6)(3) + (3)(-2) + (3)(-4) = -18 - 6 - 12 = -36 \neq 0$</li>
+                    <li>Como o produto escalar não é zero, não existe reta com essas propriedades</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\overrightarrow{BC} \cdot \overrightarrow{AB} = -36 \neq 0$$
+                    $$\therefore \text{Não existe tal reta}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Nem sempre é possível estabelecer rotas com todas as propriedades desejadas simultaneamente. Esta análise evita perda de tempo tentando implementar estratégias impossíveis na Zona Devastada.</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- RODAPÉ DO DOCUMENTO -->
+    <div class="footer">
+        REFÚGIO-TEC | EQUAÇÕES DA RETA NO R³: Sobrevivência Matemática - "O caminho mais curto entre dois pontos é uma linha reta... se não houver mutantes no meio."
+    </div>
 </body>
 </html>
