@@ -66,8 +66,7 @@ São Paulo: Atual, 1982.
 4. [A hipérbole](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-v-lugares-geometricos-as-conicas/4-hiperbole.html)
 5. [Revisão](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-v-lugares-geometricos-as-conicas/index.html)
 
-## [Capítulo VI - O R³ e a Geometria Analítica no Espaço](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-vi.html)
- [Parte 2](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-vi-2.html)
+## [Capítulo VI - O R³ e a Geometria Analítica no Espaço](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-vi.html) [Parte 2](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-vi-2.html)
 1. [O espaço vetorial R³](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-vi-o-r3-e-a-geometria-analitica-no-espaco/1-espaco-vetorial-r3.html)
 2. [Produto interno no R³](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-vi-o-r3-e-a-geometria-analitica-no-espaco/2-produto-interno-no-r3.html)
 3. [Produto vetorial e produto misto](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-vi-o-r3-e-a-geometria-analitica-no-espaco/3-produto-vetorial-e-produto-misto.html)
