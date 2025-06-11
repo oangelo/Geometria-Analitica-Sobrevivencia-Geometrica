@@ -74,7 +74,6 @@ São Paulo: Atual, 1982.
 5. [Equação do plano](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-vi-o-r3-e-a-geometria-analitica-no-espaco/5-equacao-do-plano.html)
 6. [Equações da reta](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-vi-o-r3-e-a-geometria-analitica-no-espaco/6-equacoes-da-reta.html)
 7. [Sistemas de equações lineares a três incógnitas](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-vi-o-r3-e-a-geometria-analitica-no-espaco/7-sistemas-de-equacoes-lineares-a-tres-incognitas.html)
-8. [Equação da superfície esférica](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-vi-o-r3-e-a-geometria-analitica-no-espaco/8-equacao-da-superficie-esferica.html)
 9. [Revisão](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-vi-o-r3-e-a-geometria-analitica-no-espaco/index.html)
 
 <details>
