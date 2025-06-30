@@ -10,6 +10,8 @@ São Paulo: Atual, 1982.
 
 </details>
 
+# [Notas 2025](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/notas/2025.md) 
+
 # Índice de Conteúdo
 
 ## [Capítulo 0 - Preparação para a Wasteland](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-0.html)
