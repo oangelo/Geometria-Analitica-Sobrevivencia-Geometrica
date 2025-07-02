@@ -10,7 +10,7 @@ São Paulo: Atual, 1982.
 
 </details>
 
-# [Notas 2025](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/notas/2025.md) 
+# [Notas 2025](notas/2025.md) 
 
 # Índice de Conteúdo
 
