@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gabarito - Prova Substitutiva</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <script>
+        // Configuração do MathJax para funcionar com <details>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            options: {
+                skipHtmlTags: ['details'] // Permite que MathJax renderize dentro de <details>
+            },
+            startup: {
+                ready: () => {
+                    MathJax.startup.defaultReady();
+                }
+            }
+        };
+    </script>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            background-color: #fff;
+            color: #000;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .header h1 {
+            text-align: center;
+            font-size: 16pt;
+            font-weight: bold;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .question {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+        }
+
+        .question:last-child {
+            border-bottom: none;
+        }
+        
+        .question-header {
+            font-weight: bold;
+            font-size: 13pt;
+            color: #000;
+            border-left: 4px solid #000;
+            padding: 8px 10px;
+            background-color: #f0f0f0;
+            margin-bottom: 12px;
+        }
+        
+        .subquestion {
+            margin: 10px 0 10px 20px;
+        }
+        
+        details {
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        summary {
+            font-weight: bold;
+            padding: 8px 12px;
+            cursor: pointer;
+            background-color: #e9e9e9;
+            font-size: 10pt;
+            border-radius: 3px;
+        }
+        .answer {
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            background-color: #fff;
+        }
+        .answer p {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Gabarito - Prova Substitutiva</h1>
+        </div>
+        <div class="content">
+            <!-- Questão 1 -->
+            <div class="question">
+                <div class="question-header">Questão 1: Geometria Plana Analítica</div>
+                <p>Considere o triângulo de vértices \(A=(0, 0)\), \(B=(6, 0)\) e \(C=(4, 4)\).</p>
+                <p><em><b>Justificativa Didática:</b> Questão completa que avalia a base de geometria analítica no plano, exigindo a aplicação sequencial e integrada de múltiplos conceitos.</em></p>
+                <div class="subquestion">
+                    <strong>a)</strong> Determine a equação da mediatriz do lado AB.
+                    <details><summary>Ver Resposta</summary><div class="answer">
+                        <p>A mediatriz é a reta perpendicular ao segmento que passa pelo seu ponto médio. Ponto médio de AB: \(M_{AB} = (\frac{0+6}{2}, \frac{0+0}{2}) = (3, 0)\). O vetor \(\vec{AB} = (6,0)\) é horizontal. Uma reta perpendicular a ele é vertical. A reta vertical que passa por \((3,0)\) é \(x=3\).</p>
+                        <p><strong>Resposta:</strong> \(x=3\).</p>
+                    </div></details>
+                </div>
+                <div class="subquestion">
+                    <strong>b)</strong> Determine a equação da mediatriz do lado AC.
+                    <details><summary>Ver Resposta</summary><div class="answer">
+                        <p>Ponto médio de AC: \(M_{AC} = (\frac{0+4}{2}, \frac{0+4}{2}) = (2, 2)\). O vetor diretor \(\vec{AC} = (4,4)\) é paralelo a \((1,1)\). Um vetor normal à mediatriz é \((1,1)\). A equação é da forma \(x+y+c=0\). Usando o ponto \((2,2)\): \(2+2+c=0 \implies c=-4\).</p>
+                        <p><strong>Resposta:</strong> \(x+y-4=0\).</p>
+                    </div></details>
+                </div>
+                <div class="subquestion">
+                    <strong>c)</strong> Calcule as coordenadas do circuncentro.
+                    <details><summary>Ver Resposta</summary><div class="answer">
+                        <p>O circuncentro é a interseção das mediatrizes. Temos o sistema:</p>
+                        <p>\[ \begin{cases} x = 3 \\ x+y-4=0 \end{cases} \]</p>
+                        <p>Substituindo \(x=3\) na segunda equação: \(3+y-4=0 \implies y=1\).</p>
+                        <p><strong>Resposta:</strong> O circuncentro é o ponto \((3, 1)\).</p>
+                    </div></details>
+                </div>
+                <div class="subquestion">
+                    <strong>d)</strong> Determine a equação da circunferência circunscrita ao triângulo.
+                    <details><summary>Ver Resposta</summary><div class="answer">
+                        <p>O centro da circunferência é o circuncentro \(C'=(3,1)\). O raio \(R\) é a distância do centro a qualquer um dos vértices. Usando o vértice \(A=(0,0)\):</p>
+                        <p>\(R^2 = (3-0)^2 + (1-0)^2 = 3^2 + 1^2 = 10\)</p>
+                        <p>A equação é \((x-h)^2 + (y-k)^2 = R^2\).</p>
+                        <p><strong>Resposta:</strong> \((x-3)^2 + (y-1)^2 = 10\).</p>
+                    </div></details>
+                </div>
+            </div>
+
+            <!-- Questão 2 -->
+            <div class="question">
+                <div class="question-header">Questão 2: Cônicas - Elipse</div>
+                <p>Considere a cônica descrita pela equação geral: \(9x^2 + 25y^2 - 18x + 100y - 116 = 0\).</p>
+                <p><em><b>Justificativa Didática:</b> Avalia a capacidade do aluno de identificar e analisar uma cônica a partir de sua equação geral e extrair seus elementos geométricos.</em></p>
+                <div class="subquestion">
+                    <strong>a)</strong> Encontre a equação reduzida da elipse.
+                    <details><summary>Ver Resposta</summary><div class="answer">
+                        <p>Agrupamos os termos e completamos os quadrados:</p>
+                        <p>\((9x^2 - 18x) + (25y^2 + 100y) = 116\)</p>
+                        <p>\(9(x^2 - 2x) + 25(y^2 + 4y) = 116\)</p>
+                        <p>\(9(x^2 - 2x + 1) + 25(y^2 + 4y + 4) = 116 + 9(1) + 25(4)\)</p>
+                        <p>\(9(x - 1)^2 + 25(y + 2)^2 = 116 + 9 + 100 = 225\)</p>
+                        <p>Dividindo tudo por 225:</p>
+                        <p><strong>Resposta:</strong> \(\frac{(x-1)^2}{25} + \frac{(y+2)^2}{9} = 1\).</p>
+                    </div></details>
+                </div>
+                <div class="subquestion">
+                    <strong>b)</strong> Determine as coordenadas do centro, dos vértices \(A_1, A_2\) e dos focos \(F_1, F_2\).
+                    <details><summary>Ver Resposta</summary><div class="answer">
+                        <p>Da equação reduzida: Centro \(C=(1, -2)\). \(a^2=25 \implies a=5\). \(b^2=9 \implies b=3\). Como \(a^2\) está sob o termo x, a elipse é horizontal.</p>
+                        <p>Relação: \(a^2 = b^2 + c^2 \implies 25 = 9 + c^2 \implies c^2 = 16 \implies c=4\).</p>
+                        <p>Vértices \(A_{1,2} = (h \pm a, k) = (1 \pm 5, -2)\). Então \(A_1 = (-4, -2)\) e \(A_2 = (6, -2)\).</p>
+                        <p>Focos \(F_{1,2} = (h \pm c, k) = (1 \pm 4, -2)\). Então \(F_1 = (-3, -2)\) e \(F_2 = (5, -2)\).</p>
+                        <p><strong>Resposta:</strong> Centro: \((1,-2)\); Vértices: \((-4,-2)\) e \((6,-2)\); Focos: \((-3,-2)\) e \((5,-2)\).</p>
+                    </div></details>
+                </div>
+            </div>
+
+            <!-- Questão 3 -->
+            <div class="question">
+                <div class="question-header">Questão 3: Posições Relativas no R³</div>
+                 <p>Considere o plano \(\pi: x - 2y + z = 3\).</p>
+                <p><em><b>Justificativa Didática:</b> Testa a competência de analisar e construir relações espaciais entre retas e planos, interligando análise vetorial e resolução de sistemas.</em></p>
+                <div class="subquestion">
+                    <strong>a)</strong> Determine a posição relativa entre \(\pi\) e a reta \(r: (x,y,z) = (1, 0, 0) + t(1, 1, 1)\).
+                    <details><summary>Ver Resposta</summary><div class="answer">
+                        <p>Vetor normal do plano: \(\vec{n}_\pi = (1, -2, 1)\). Vetor diretor da reta: \(\vec{v}_r = (1, 1, 1)\). Calculamos o produto escalar: \(\vec{n}_\pi \cdot \vec{v}_r = (1)(1) + (-2)(1) + (1)(1) = 1 - 2 + 1 = 0\). Como o produto é zero, a reta é paralela ou está contida no plano. Para verificar, pegamos um ponto da reta, \(P_r=(1,0,0)\), e substituímos no plano: \(1 - 2(0) + 0 = 1\). Como \(1 \neq 3\), o ponto não pertence ao plano.</p>
+                        <p><strong>Resposta:</strong> A reta é paralela e distinta do plano.</p>
+                    </div></details>
+                </div>
+                <div class="subquestion">
+                    <strong>b)</strong> Determine a posição relativa entre \(\pi\) e o plano \(\sigma: 2x + y - z = 5\).
+                    <details><summary>Ver Resposta</summary><div class="answer">
+                        <p>Vetores normais: \(\vec{n}_\pi = (1, -2, 1)\) e \(\vec{n}_\sigma = (2, 1, -1)\). Como os vetores não são múltiplos um do outro, os planos são concorrentes. A reta de interseção tem vetor diretor \(\vec{v} = \vec{n}_\pi \times \vec{n}_\sigma = (2-1, 2-(-1), 1-(-4)) = (1, 3, 5)\). Para achar um ponto, fazemos \(z=0\) no sistema: \(x-2y=3\) e \(2x+y=5\). Resolvendo, encontramos \(x=13/5\) e \(y=-1/5\). O ponto é \((13/5, -1/5, 0)\).</p>
+                        <p><strong>Resposta:</strong> Os planos são concorrentes. A reta de interseção é \( (x,y,z) = (13/5, -1/5, 0) + t(1, 3, 5)\).</p>
+                    </div></details>
+                </div>
+                <div class="subquestion">
+                    <strong>c)</strong> Encontre a equação geral de um plano \(\gamma\) perpendicular a \(\pi\) e \(\sigma\) que passa pela origem.
+                    <details><summary>Ver Resposta</summary><div class="answer">
+                        <p>Se \(\gamma\) é perpendicular a \(\pi\) e \(\sigma\), seu vetor normal \(\vec{n}_\gamma\) é paralelo ao vetor diretor da reta de interseção, calculado no item b: \(\vec{n}_\gamma = (1, 3, 5)\). A equação do plano é \(1x + 3y + 5z + d = 0\). Como passa pela origem \((0,0,0)\), \(d=0\).</p>
+                        <p><strong>Resposta:</strong> \(x + 3y + 5z = 0\).</p>
+                    </div></details>
+                </div>
+            </div>
+
+            <!-- Questão 4 -->
+            <div class="question">
+                <div class="question-header">Questão 4: Interseção de Planos e Sistemas Lineares</div>
+                <p>Três planos são dados por: \( \begin{cases} x + y + z = 2 \\ 2x - y + z = 3 \\ x - 2y - z = 0 \end{cases} \)</p>
+                <p><em><b>Justificativa Didática:</b> Avalia a compreensão da conexão entre a álgebra de sistemas lineares e sua interpretação geométrica, incluindo a análise prévia da natureza da solução.</em></p>
+                <div class="subquestion">
+                    <strong>a)</strong> Calcule o determinante da matriz dos coeficientes e relacione com o tipo de solução.
+                    <details><summary>Ver Resposta</summary><div class="answer">
+                        <p>A matriz dos coeficientes é \( M = \begin{pmatrix} 1 & 1 & 1 \\ 2 & -1 & 1 \\ 1 & -2 & -1 \end{pmatrix} \).</p>
+                        <p>\(\det(M) = 1(1 - (-2)) - 1(-2 - 1) + 1(-4 - (-1)) = 1(3) - 1(-3) + 1(-3) = 3 + 3 - 3 = 3\).</p>
+                        <p><strong>Relação:</strong> Como o determinante é diferente de zero (\(\det(M) = 3 \neq 0\)), o sistema é Possível e Determinado (SPD). Geometricamente, isso significa que os três planos se interceptam em um único ponto.</p>
+                    </div></details>
+                </div>
+                <div class="subquestion">
+                    <strong>b)</strong> Resolva o sistema para encontrar o ponto de interseção.
+                    <details><summary>Ver Resposta</summary><div class="answer">
+                        <p>Somando a primeira e a terceira equação: \((x+y+z) + (x-2y-z) = 2+0 \implies 2x - y = 2\). Somando a segunda e a terceira: \((2x-y+z) + (x-2y-z) = 3+0 \implies 3x - 3y = 3 \implies x - y = 1\), ou \(y = x-1\). Substituindo \(y\) na primeira relação: \(2x - (x-1) = 2 \implies x+1 = 2 \implies x=1\). Se \(x=1\), então \(y = 1-1 = 0\). Substituindo \(x\) e \(y\) na primeira equação original: \(1 + 0 + z = 2 \implies z=1\).</p>
+                        <p><strong>Resposta:</strong> O ponto de interseção é \((1, 0, 1)\).</p>
+                    </div></details>
+                </div>
+                <div class="subquestion">
+                    <strong>c)</strong> Verifique se o ponto encontrado pertence ao terceiro plano.
+                    <details><summary>Ver Resposta</summary><div class="answer">
+                        <p>O ponto é \((1,0,1)\) e o terceiro plano é \(\pi_3: x - 2y - z = 0\).</p>
+                        <p>Substituindo: \((1) - 2(0) - (1) = 1 - 0 - 1 = 0\). A igualdade é satisfeita.</p>
+                        <p><strong>Resposta:</strong> A verificação confirma que o ponto pertence ao terceiro plano.</p>
+                    </div></details>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
