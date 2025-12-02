@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="500"
+   height="400"
+   viewBox="-125 -100 250 200"
+   style="background-color: #111;"
+   version="1.1"
+   id="svg9"
+   sodipodi:docname="elipse_relacao_abc.svg"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs9" />
+  <sodipodi:namedview
+     id="namedview9"
+     pagecolor="#000000"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.9975"
+     inkscape:cx="249.81227"
+     inkscape:cy="200"
+     inkscape:window-width="2560"
+     inkscape:window-height="1008"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg9" />
+  <style
+     id="style1">
+    .main-shape { stroke: #ADFF2F; stroke-width: 2; fill: rgba(173, 255, 47, 0.1); }
+    .axis-line { stroke: #E0E0E0; stroke-width: 1; }
+    .focus-point { fill: #FFD700; }
+    .vertex-point { fill: #FFD700; }
+    .text-label { fill: #FFFFFF; font-family: 'Courier New', monospace; font-size: 10px; text-anchor: middle; }
+    .text-side-label { fill: #4682B4; font-family: 'Courier New', monospace; font-size: 12px; font-weight: bold; text-anchor: middle; }
+    .text-formula { fill: #ADFF2F; font-family: 'Courier New', monospace; font-size: 12px; font-weight: bold; text-anchor: middle; }
+    .text-bg { fill: rgba(0,0,0,0.6); stroke: #ADFF2F; stroke-width: 0.5px; }
+    .triangle { stroke: #FF6347; stroke-width: 1.5; fill: rgba(255, 99, 71, 0.2); }
+    .triangle-hypot { stroke: #4682B4; stroke-width: 2; }
+    .triangle-cathetus { stroke: #4682B4; stroke-width: 2; }
+    .right-angle-mark { stroke: #FF6347; stroke-width: 1; fill: none; }
+  </style>
+  <!-- Elipse: a=100, b=60, c=80 -->
+  <ellipse
+     cx="0"
+     cy="0"
+     rx="100"
+     ry="60"
+     class="main-shape"
+     id="ellipse1" />
+  <!-- Eixos -->
+  <line
+     x1="-120"
+     y1="0"
+     x2="120"
+     y2="0"
+     class="axis-line"
+     id="line1" />
+  <!-- Eixo X -->
+  <line
+     x1="0"
+     y1="-90"
+     x2="0"
+     y2="90"
+     class="axis-line"
+     id="line2" />
+  <!-- Eixo Y -->
+  <!-- Pontos Chave -->
+  <circle
+     cx="0"
+     cy="0"
+     r="2.5"
+     class="focus-point"
+     id="circle2" />
+  <!-- Centro O -->
+  <text
+     x="-5"
+     y="12"
+     class="text-label"
+     id="text2">O</text>
+  <circle
+     cx="80"
+     cy="0"
+     r="2.5"
+     class="focus-point"
+     id="circle3" />
+  <!-- Foco F1(c,0) -->
+  <text
+     x="80"
+     y="-7"
+     class="text-label"
+     id="text3">F₁</text>
+  <circle
+     cx="0"
+     cy="-60"
+     r="2.5"
+     class="vertex-point"
+     id="circle4" />
+  <!-- Co-vértice B1(0,-b) -->
+  <text
+     x="10"
+     y="-65.006256"
+     class="text-label"
+     id="text4">B₁</text>
+  <!-- Triângulo Retângulo OF₁B₁ -->
+  <polygon
+     points="0,0 80,0 0,-60"
+     class="triangle"
+     id="polygon4" />
+  <!-- Lados do Triângulo com rótulos -->
+  <!-- Cateto c (OF₁) -->
+  <line
+     x1="0"
+     y1="0"
+     x2="80"
+     y2="0"
+     class="triangle-cathetus"
+     id="line4" />
+  <text
+     x="40"
+     y="12"
+     class="text-side-label"
+     id="text5">c</text>
+  <!-- Cateto b (OB₁) -->
+  <line
+     x1="0"
+     y1="0"
+     x2="0"
+     y2="-60"
+     class="triangle-cathetus"
+     id="line5" />
+  <text
+     x="-10"
+     y="-30"
+     class="text-side-label"
+     id="text6">b</text>
+  <!-- Hipotenusa a (F₁B₁) -->
+  <line
+     x1="80"
+     y1="0"
+     x2="0"
+     y2="-60"
+     class="triangle-hypot"
+     id="line6" />
+  <text
+     x="45"
+     y="-35"
+     class="text-side-label"
+     id="text7">a</text>
+  <!-- Marcação de ângulo reto em O -->
+  <polyline
+     points="5,0 5,-5 0,-5"
+     class="right-angle-mark"
+     id="polyline7" />
+  <!-- Relação -->
+  <rect
+     x="-47.473648"
+     y="68.123405"
+     width="95.698242"
+     height="21.840855"
+     rx="2.3924558"
+     class="text-bg"
+     id="rect7" />
+  <text
+     x="0"
+     y="83"
+     class="text-formula"
+     id="text8">a² = b² + c²</text>
+  <text
+     x="0"
+     y="-85"
+     class="text-label"
+     style="font-size:12px; font-weight:bold;"
+     id="text9">Elipse: Relação a,b,c</text>
+</svg>

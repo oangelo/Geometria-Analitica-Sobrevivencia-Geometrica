@@ -1,0 +1,171 @@
+<!-- Reveal.js Template para 'Geometria Analítica: Sobrevivência Geométrica' -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Geometria Analítica: Sobrevivência Geométrica</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Reveal.js Styles -->
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" />
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css" />
+
+    <!-- IMPORTANTE: Estilos customizados - NÃO ADICIONE NOVOS ESTILOS INLINE OU EM BLOCOS <style> -->
+    <!-- Sempre use APENAS as classes definidas neste arquivo CSS externo -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <!-- 
+    INSTRUÇÕES IMPORTANTES SOBRE CSS:
+    1. NUNCA gere CSS adicional em blocos de estilo ou estilos inline
+    2. SEMPRE use apenas as classes existentes no arquivo style.css fornecido
+    3. NÃO crie novas classes ou estilos personalizados - use apenas o que já existe
+    4. Todas as visualizações e elementos interativos devem usar apenas as classes CSS já definidas
+    -->
+    
+    <div class="reveal">
+      <div class="slides">
+        <!-- SLIDE DE CAPA -->
+        <section>
+          <div class="title-screen">
+            <h1>Geometria Analítica</h1>
+            <h2 class="subtitle">Sobrevivência Geométrica</h2>
+            <div class="emblem-number">101</div>
+            <p class="subtitle-warning">CONFIDENCIAL: MANUAL DE TREINAMENTO</p>
+          </div>
+        </section>
+
+        <!-- MODELO PARA TÓPICO: COORDENADAS E PONTOS -->
+        <section>
+          <!-- 1. BRIEFING DE MISSÃO - Slide principal com definição formal -->
+          <section class="mission-briefing">
+            <h2>Coordenadas e Pontos</h2>
+            <h3 class="mission-subtitle">Mapeamento da Wasteland</h3>
+            <div class="mission-description">
+              <p>As coordenadas são a diferença entre sobreviver e virar almoço de uma criatura mutante.</p>
+              <p class="mnemonic">"XY marca o ponto - X leste/oeste do Abrigo, Y norte/sul. Quem não sabe se localizar no deserto, vira almoço de predador."</p>
+            </div>
+            <div class="definition-box">
+              <p class="formula">\( P(x,y) \)</p>
+              <p>Um ponto P no plano cartesiano é definido pelo par ordenado de coordenadas (x,y).</p>
+            </div>
+          </section>
+          
+          <!-- 2. RELATÓRIO DE CAMPO - Contextualização e aplicações -->
+          <section class="field-report level-basic">
+            <h3>Relatório de Campo: Nível Básico</h3>
+            <div class="info-panel">
+              <div class="info-screen">
+                <h4>Aplicações:</h4>
+                <ul>
+                  <li>Localização de fontes de água potável</li>
+                  <li>Mapeamento de áreas seguras sem radiação</li>
+                  <li>Marcação de pontos de encontro para caravanas</li>
+                </ul>
+              </div>
+            </div>
+            <div class="survival-tip">
+              <p>DICA DE SOBREVIVÊNCIA: Sempre memorize as coordenadas do seu Abrigo. É o caminho de volta para casa.</p>
+            </div>
+          </section>
+          
+          <!-- 3. SIMULADOR - Visualização interativa -->
+          <section class="simulator">
+            <h3>Simulador: Coordenadas</h3>
+            <div class="canvas-container">
+              <canvas id="coordenadas-canvas" width="800" height="400"></canvas>
+              <div class="simulator-controls">
+                <div class="control-panel">
+                  <label for="coordenadas-x">X:</label>
+                  <input type="range" id="coordenadas-x" min="-10" max="10" value="0" step="0.5">
+                  <span id="coordenadas-x-value">0</span>
+                  
+                  <label for="coordenadas-y">Y:</label>
+                  <input type="range" id="coordenadas-y" min="-10" max="10" value="0" step="0.5">
+                  <span id="coordenadas-y-value">0</span>
+                </div>
+              </div>
+            </div>
+            <div class="hint-message">
+              <p>Arraste o ponto ou use os controles para alterar suas coordenadas.</p>
+            </div>
+          </section>
+          
+          <!-- 4. TREINAMENTO DE SOBREVIVÊNCIA - Exercícios práticos -->
+          <section class="survival-training">
+            <h3>Treinamento de Sobrevivência</h3>
+            <div class="training-problem">
+              <h4>Problema #1: Abastecimento Crítico</h4>
+              <p>Você está no ponto A(3, 4) e precisa alcançar um posto de troca no ponto B(7, -2).</p>
+              <ol>
+                <li>Calcule a distância direta entre os pontos</li>
+                <li>Determine o ponto médio da rota para descanso</li>
+              </ol>
+            </div>
+            <div class="problem-context">
+              <p>Uma tempestade de radiação se aproxima. Você tem tempo limitado para chegar ao abrigo.</p>
+            </div>
+          </section>
+          
+          <!-- 5. DEBRIEFING - Fechamento -->
+          <section class="debriefing">
+            <h3>Debriefing: Coordenadas e Pontos</h3>
+            <div class="summary-box">
+              <p>As coordenadas são a base da sua sobrevivência na wasteland. Dominar este conceito é essencial antes de aventurar-se além dos limites do Abrigo.</p>
+            </div>
+            <div class="next-mission">
+              <p>Próxima missão: Vetores no Plano - A arte de se mover na direção certa.</p>
+            </div>
+            <div class="instructor-note">
+              <p>"Lembre-se: Quem não sabe onde está, não sabe para onde vai. E na wasteland, isso geralmente significa um caminho sem volta."</p>
+            </div>
+          </section>
+        </section>
+
+        <!-- Adicione mais seções conforme necessário, SEMPRE usando apenas as classes existentes no styles.css -->
+      </div>
+    </div>
+
+    <!-- Scripts base -->
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/math/math.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/zoom/zoom.js"></script>
+
+    <!-- MathJax -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['\\(','\\)']],
+          displayMath: [['\\[','\\]']],
+        },
+        svg: { fontCache: 'global' }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+    <!-- Visualizações interativas - arquivo separado para melhor organização -->
+    <script src="visualizacoes.js"></script>
+
+    <!-- Inicialização do Reveal.js -->
+    <script>
+      Reveal.initialize({
+        hash: true,
+        slideNumber: true,
+        transition: 'convex',
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js',
+          config: 'TeX-AMS_HTML-full',
+        },
+        plugins: [ RevealNotes, RevealHighlight, RevealMath, RevealZoom ]
+      });
+    </script>
+  </body>
+</html>
