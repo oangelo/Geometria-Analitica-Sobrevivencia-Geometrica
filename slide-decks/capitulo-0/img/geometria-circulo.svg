@@ -1,0 +1,52 @@
+                <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+                  <circle
+                    cx="100"
+                    cy="100"
+                    r="80"
+                    fill="rgba(51, 255, 51, 0.2)"
+                    stroke="#33ff33"
+                    stroke-width="3"
+                  />
+                  <text x="80" y="105" fill="#FFD700" font-size="20">πr²</text>
+                  <!-- Raio -->
+                  <line
+                    x1="100"
+                    y1="100"
+                    x2="180"
+                    y2="100"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <text x="130" y="90" fill="#FFD700" font-size="14">
+                    raio (r)
+                  </text>
+                  <!-- Diâmetro -->
+                  <line
+                    x1="20"
+                    y1="140"
+                    x2="180"
+                    y2="140"
+                    stroke="#FFD700"
+                    stroke-width="1"
+                    stroke-dasharray="5,5"
+                  />
+                  <line
+                    x1="20"
+                    y1="135"
+                    x2="20"
+                    y2="145"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="180"
+                    y1="135"
+                    x2="180"
+                    y2="145"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <text x="90" y="160" fill="#FFD700" font-size="14">
+                    diâmetro (2r)
+                  </text>
+                </svg>

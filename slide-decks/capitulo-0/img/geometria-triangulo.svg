@@ -1,0 +1,60 @@
+                <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+                  <polygon
+                    points="20,150 180,150 100,50"
+                    fill="rgba(51, 255, 51, 0.2)"
+                    stroke="#33ff33"
+                    stroke-width="3"
+                  />
+                  <text x="90" y="120" fill="#FFD700" font-size="18">
+                    b × h/2
+                  </text>
+                  <!-- Base -->
+                  <line
+                    x1="20"
+                    y1="170"
+                    x2="180"
+                    y2="170"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="20"
+                    y1="165"
+                    x2="20"
+                    y2="175"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="180"
+                    y1="165"
+                    x2="180"
+                    y2="175"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <text x="90" y="190" fill="#FFD700" font-size="14">
+                    base (b)
+                  </text>
+                  <!-- Altura -->
+                  <line
+                    x1="100"
+                    y1="150"
+                    x2="100"
+                    y2="50"
+                    stroke="#FFD700"
+                    stroke-width="1"
+                    stroke-dasharray="5,5"
+                  />
+                  <line
+                    x1="95"
+                    y1="50"
+                    x2="105"
+                    y2="50"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <text x="105" y="100" fill="#FFD700" font-size="14">
+                    altura (h)
+                  </text>
+                </svg>

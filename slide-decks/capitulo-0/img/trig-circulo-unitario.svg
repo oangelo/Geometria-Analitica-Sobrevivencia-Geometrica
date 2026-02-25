@@ -1,0 +1,46 @@
+            <svg xmlns="http://www.w3.org/2000/svg"
+              width="300"
+              height="200"
+              viewBox="0 0 300 200"
+              style="margin: 20px auto; display: block"
+            >
+              <!-- Círculo trigonométrico simplificado -->
+              <circle
+                cx="150"
+                cy="100"
+                r="80"
+                fill="none"
+                stroke="#33ff33"
+                stroke-width="2"
+              />
+              <line
+                x1="150"
+                y1="100"
+                x2="230"
+                y2="100"
+                stroke="#33ff33"
+                stroke-width="2"
+              />
+              <line
+                x1="150"
+                y1="100"
+                x2="150"
+                y2="20"
+                stroke="#33ff33"
+                stroke-width="2"
+              />
+              <line
+                x1="150"
+                y1="100"
+                x2="206"
+                y2="50"
+                stroke="#FFD700"
+                stroke-width="3"
+              />
+              <text x="235" y="100" fill="#33ff33" font-size="15">1</text>
+              <text x="150" y="15" fill="#33ff33" font-size="15">1</text>
+              <text x="185" y="65" fill="#FFD700" font-size="15">r=1</text>
+              <text x="206" y="50" fill="#ff3333" font-size="15">
+                (cos θ, sen θ)
+              </text>
+            </svg>
