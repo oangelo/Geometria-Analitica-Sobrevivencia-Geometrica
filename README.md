@@ -10,7 +10,7 @@ São Paulo: Atual, 1982.
 
 </details>
 
-# [Notas 2025](notas/2025.md) 
+# [Notas 2025](notas/2025.md) | [Provas](PROVAS.md)
 
 # Índice de Conteúdo
 
