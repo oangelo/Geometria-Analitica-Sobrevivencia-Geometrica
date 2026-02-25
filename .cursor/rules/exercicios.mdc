@@ -1,0 +1,35 @@
+---
+description: Padrões para criação de listas de exercícios do curso
+globs: exercicios/**/*.html
+alwaysApply: false
+---
+
+# Exercícios — Sobrevivência Geométrica
+
+Use o `exercicios/template.html` como base estrutural.
+
+## Temática e Tom
+- Cenário pós-apocalíptico: "Zona Devastada", "Abrigo", "Mutantes", "Traje de Proteção", "RemoveRad", "SUPERVISOR"
+- Tom sério com humor sutil e sarcástico — sem piadas forçadas
+- Cada exercício termina com uma **"Reflexão de Sobrevivência"** conectando o problema ao contexto
+
+## Estrutura
+- Exatamente **12 exercícios** com progressão de dificuldade:
+  - Q1–3: básico, com dicas explícitas
+  - Q4–6: intermediário, com algumas dicas
+  - Q7–9: avançado, dicas mínimas
+  - Q10–12: desafiador, sem dicas, múltiplos conceitos
+- Introdução de 3–5 parágrafos explicando os conceitos do tópico
+
+## Classes CSS obrigatórias
+- `mission-counter` — numeração automática das missões
+- `formula` — todas as fórmulas e variáveis matemáticas (MathJax)
+- `hint` — dicas, sempre iniciando com "DICA DE SOBREVIVÊNCIA: "
+- `solution-steps` — passos da solução
+- Soluções dentro de `<details>` com título "ACESSO NÍVEL: SUPERVISOR"
+
+## Restrições matemáticas
+- **NUNCA** usar cálculo diferencial ou integral
+- Apenas álgebra, geometria e trigonometria básica
+- Respeitar a progressão do curso: não antecipar conceitos de capítulos futuros
+- Referência de progressão detalhada em `exercicios/prompt.md`
