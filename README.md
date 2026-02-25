@@ -28,11 +28,11 @@ São Paulo: Atual, 1982.
 
 6. [Revisão](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-0/revisao.html) — [sistemas de equações](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-0/sistemas-equacoes-lineares.html)
 
-## [Capítulo I - O Espaço Vetorial R²](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-i.html)
-1. [O conjunto R²](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-i-o-espaco-vetorial-r2/1-conjunto-r2.html)
-2. [Igualdade e operações com pares ordenados](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-i-o-espaco-vetorial-r2/2-igualdade-e-operacoes-com-pares-ordenados.html)
-3. [Vetores no plano](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-i-o-espaco-vetorial-r2/3-vetores-no-plano.html)
-4. [Aplicações: ponto médio e baricentro](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-i-o-espaco-vetorial-r2/4-aplicacoes-ponto-medio-e-baricentro.html)
+## Capítulo I - O Espaço Vetorial R²
+1. [O conjunto R²](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-i/1-conjunto-r2.html) — [exercícios](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-i-o-espaco-vetorial-r2/1-conjunto-r2.html)
+2. [Igualdade e operações com pares ordenados](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-i/2-operacoes-pares-ordenados.html) — [exercícios](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-i-o-espaco-vetorial-r2/2-igualdade-e-operacoes-com-pares-ordenados.html)
+3. [Vetores no plano](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-i/3-vetores.html) — [exercícios](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-i-o-espaco-vetorial-r2/3-vetores-no-plano.html)
+4. [Aplicações: ponto médio e baricentro](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-i/4-aplicacoes.html) — [exercícios](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-i-o-espaco-vetorial-r2/4-aplicacoes-ponto-medio-e-baricentro.html)
 5. [Revisão](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-i-o-espaco-vetorial-r2/index.html)
 
 ## [Capítulo II - Produto Interno no R²](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-ii.html)
