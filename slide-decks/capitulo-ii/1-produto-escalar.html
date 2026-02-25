@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cap. II — Produto Escalar</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <!-- Reveal.js Styles -->
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/reveal.js/dist/theme/black.css"
+      id="theme"
+    />
+
+    <!-- For syntax highlighting -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css"
+    />
+
+    <!-- Custom styles (if needed) -->
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      /* Adicione estes estilos ao seu styles.css existente */
+
+      /* Estilo para o display de informações de posição vetorial */
+      #position-info {
+        background: rgba(0, 0, 0, 0.7);
+        color: #adff2f;
+        padding: 5px 10px;
+        font-family: monospace;
+        text-align: center;
+        border-radius: 4px;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+
+      /* Estilos para o container de canvas */
+      .canvas-container {
+        position: relative;
+        width: 450px;
+        height: 450px;
+        margin: 0 auto;
+        border-radius: 4px;
+        overflow: hidden;
+      }
+
+      /* Estilos para layouts flexíveis nas caixas de explicação */
+      .flex-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin: 20px 0;
+      }
+
+      .flex-item {
+        flex: 1;
+        padding: 15px;
+        background-color: rgba(0, 0, 0, 0.4);
+        border-radius: 5px;
+        margin: 0 10px;
+      }
+
+      /* Estilos para exemplos e cenários de missão */
+      .mission-box {
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 15px;
+        border: 1px solid #0f0;
+        border-radius: 5px;
+        margin: 20px 0;
+      }
+
+      .mission-title {
+        color: #ffd700;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Capítulo II – Produto Interno no R²</h1>
+          <p>
+            Em terras arruinadas, às vezes a melhor forma de sobreviver é
+            entender como forças aparentemente opostas podem se alinhar ou
+            coexistir.
+          </p>
+        </section>
+
+        <!-- Slide Horizontal 3: Produto Escalar & Reflexão Rápida -->
+        <section>
+          <section>
+            <h2>Definição do Produto Escalar</h2>
+            <p>
+              O <strong>Produto Interno</strong> (ou escalar) de dois vetores
+              \(\vec{u}\) e \(\vec{v}\) em \(\mathbb{R}^2\) é dado por:
+            </p>
+            <p class="formula">
+              \[ \vec{u} \cdot \vec{v} = x_u\,x_v + y_u\,y_v \]
+            </p>
+            <p>
+              Interpretação: quanto maior o valor, mais “alinhados” (menos
+              atrito) os vetores estão.
+            </p>
+          </section>
+
+          <section>
+            <h3>Exercício</h3>
+            <p>
+              Um exercício simples num mundo difícil: sejam \(\vec{u} = (1,2)\)
+              e \(\vec{v} = (3,-1)\). Calcule o produto escalar.
+            </p>
+          </section>
+          <section>
+            <h2>Propriedades do Produto Escalar</h2>
+            <p>Há certas “leis” que nem mesmo o apocalipse consegue revogar:</p>
+            <ul>
+              <li>
+                <strong>Comutatividade:</strong> \(\vec{u} \cdot \vec{v} =
+                \vec{v} \cdot \vec{u}\)
+              </li>
+              <li>
+                <strong>Distributividade:</strong> \(\vec{u} \cdot (\vec{v} +
+                \vec{w}) = \vec{u} \cdot \vec{v} + \vec{u} \cdot \vec{w}\)
+              </li>
+              <li>
+                <strong>Associatividade com escalar:</strong> \((\alpha \vec{u})
+                \cdot \vec{v} = \alpha (\vec{u} \cdot \vec{v})\)
+              </li>
+              <li>
+                <strong>Auto produto:</strong> \(\vec{v} \cdot \vec{v} =
+                \|\vec{v}\|^2\), a “potência” ou “força” do vetor medido ao
+                quadrado.
+              </li>
+            </ul>
+            <p>
+              Em termos de ângulo, \(\vec{u} \cdot \vec{v} =
+              \|\vec{u}\|\|\vec{v}\|\cos(\theta)\). Um valor positivo indica
+              vetores “cooperando”, enquanto um negativo sugere competição
+              intensa.
+            </p>
+          </section>
+
+          <section>
+            <h2>Reflexão Rápida</h2>
+            <p>
+              Nesses tempos hostis, aprender a medir “afinidade” ou
+              “desalinhamento” entre vetores é como negociar com facções rivais:
+              às vezes um simples acordo (produto escalar positivo) evita
+              catástrofes nucleares.
+            </p>
+            <p><em>Teoria dos Jogos</em> (versão pós-apocalipse):</p>
+            <ul>
+              <li>
+                Vetores cooperativos (ângulo menor que 90°) tendem a somar
+                forças.
+              </li>
+              <li>
+                Vetores concorrentes (ângulo maior que 90°) podem se anular ou
+                destruir.
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Pergunta Filosófica</h3>
+            <p>
+              <em
+                >Em que ponto a competição extrema entre grupos (vetores
+                concorrentes) deixa de ser produtiva e passa a ser
+                destrutiva?</em
+              >
+            </p>
+          </section>
+
+          <section>
+            <h2>Exemplos e Reflexões</h2>
+            <p>
+              Vamos analisar alguns cenários clássicos (como investigar ruínas
+              diferentes em busca de suprimentos):
+            </p>
+            <ol>
+              <li>
+                <strong>Vetores no eixo x e no eixo y:</strong><br />
+                <em>Pergunta:</em> Se \(\vec{u} = (a,0)\) e \(\vec{v} = (0,b)\),
+                qual o valor de \(\vec{u} \cdot \vec{v}\)?<br />
+                <em>Reflexão:</em> O que esse resultado diz sobre o
+                “alinhamento” desses vetores?
+              </li>
+              <li>
+                <strong>Vetores na mesma reta (colineares):</strong><br />
+                <em>Pergunta:</em> Se \(\vec{u} = (2,0)\) e \(\vec{v} = (3,0)\),
+                qual o valor de \(\vec{u} \cdot \vec{v}\)?<br />
+                <em>Reflexão:</em> Como interpretar esse número em termos de
+                cooperação ou competição?
+              </li>
+              <li>
+                <strong>Produto escalar de um vetor consigo mesmo:</strong
+                ><br />
+                <em>Pergunta:</em> Se \(\vec{w} = (4,0)\), qual o valor de
+                \(\vec{w} \cdot \vec{w}\)?<br />
+                <em>Reflexão:</em> Consegue ver uma relação entre esse valor e o
+                comprimento do vetor?
+              </li>
+            </ol>
+            <p>
+              Use esses exemplos para notar padrões: vetores perpendiculares
+              <em>(nada a acrescentar)</em>, vetores alinhados
+              <em>(reforçando o mesmo rumo)</em> e a conexão entre o produto
+              escalar e o comprimento do vetor
+              <em>(sua “força” intrínseca)</em>.
+            </p>
+          </section>
+          <section>
+            <h2>O Produto Escalar e a Física Pós-Apocalíptica</h2>
+            <p>
+              Em um mundo onde cada gota de energia é vital, compreender como o
+              produto escalar funciona na Física é questão de sobrevivência.
+              Afinal, mover entulhos e abrir bunkers exige um planejamento
+              preciso dos esforços.
+            </p>
+            <p>
+              <strong>Trabalho (Work) em Física:</strong><br />
+              \( W = \vec{F} \cdot \vec{d} = \|\vec{F}\|\|\vec{d}\|\cos(\theta)
+              \)<br />
+              Se a força estiver “alinhada” ao deslocamento, o trabalho é
+              positivo (contribui para o progresso). Se estiver na direção
+              oposta, é como remar contra a maré radioativa.
+            </p>
+            <p>
+              Essa mesma ideia de alinhamento (ou desalinhamento) se aplica em
+              diversas grandezas físicas, pois o produto escalar aparece em
+              contextos como energia, potência e até em eletromagnetismo. Em
+              última análise, você está medindo quão “úteis” (ou não) forças e
+              campos podem ser em relação a um determinado movimento ou direção.
+            </p>
+          </section>
+          <section>
+            <h3>Reflexão Estratégica</h3>
+            <p>
+              Se o seu objetivo é empurrar uma barricada até o abrigo, use a
+              força no mesmo sentido do deslocamento. Forças perpendiculares (ou
+              contrárias) resultam em perda de esforços preciosos — e nenhum
+              sobrevivente quer desperdiçar recursos em tempos tão austeros.
+            </p>
+            <p>
+              <em>Dica de Sobrevivência:</em> ao planejar qualquer movimento,
+              avalie o ângulo entre força e deslocamento. Um simples cálculo de
+              produto escalar pode ser a diferença entre encontrar suprimentos
+              ou ficar à deriva no ermo.
+            </p>
+          </section>
+        </section>
+
+      </div>
+      <!-- .slides -->
+    </div>
+    <!-- .reveal -->
+
+    <!-- Reveal.js -->
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+
+    <!-- MathJax -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["\\(", "\\)"]],
+          displayMath: [["\\[", "\\]"]],
+        },
+        svg: { fontCache: "global" },
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+    <script>
+      Reveal.initialize({
+        hash: true,
+        slideNumber: true,
+        plugins: [RevealNotes, RevealHighlight],
+      });
+    </script>
+  </body>
+</html>

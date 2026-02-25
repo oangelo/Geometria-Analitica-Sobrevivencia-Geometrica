@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cap. II — Módulo e Versores</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <!-- Reveal.js Styles -->
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/reveal.js/dist/theme/black.css"
+      id="theme"
+    />
+
+    <!-- For syntax highlighting -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css"
+    />
+
+    <!-- Custom styles (if needed) -->
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      /* Adicione estes estilos ao seu styles.css existente */
+
+      /* Estilo para o display de informações de posição vetorial */
+      #position-info {
+        background: rgba(0, 0, 0, 0.7);
+        color: #adff2f;
+        padding: 5px 10px;
+        font-family: monospace;
+        text-align: center;
+        border-radius: 4px;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+
+      /* Estilos para o container de canvas */
+      .canvas-container {
+        position: relative;
+        width: 450px;
+        height: 450px;
+        margin: 0 auto;
+        border-radius: 4px;
+        overflow: hidden;
+      }
+
+      /* Estilos para layouts flexíveis nas caixas de explicação */
+      .flex-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin: 20px 0;
+      }
+
+      .flex-item {
+        flex: 1;
+        padding: 15px;
+        background-color: rgba(0, 0, 0, 0.4);
+        border-radius: 5px;
+        margin: 0 10px;
+      }
+
+      /* Estilos para exemplos e cenários de missão */
+      .mission-box {
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 15px;
+        border: 1px solid #0f0;
+        border-radius: 5px;
+        margin: 20px 0;
+      }
+
+      .mission-title {
+        color: #ffd700;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <!-- Slide Vertical: Definição do Módulo -->
+          <section>
+            <h2>Módulo (Comprimento) de um Vetor</h2>
+            <p>
+              Para medir a intensidade de um vetor \(\vec{v} = (x, y)\) em
+              \(\mathbb{R}^2\), utilizamos:
+            </p>
+            <p class="formula">
+              \[ |\vec{v}| = \sqrt{x^2 + y^2} = \sqrt{\vec{v} \cdot \vec{v}} \]
+            </p>
+            <p class="formula">\[ |\vec{v}|^2 = \vec{v} \cdot \vec{v} \]</p>
+
+            <p>
+              Essa fórmula deriva diretamente do Teorema de Pitágoras,
+              considerando \(x\) e \(y\) como os catetos de um triângulo
+              retângulo, cujo comprimento da hipotenusa é \(|\vec{v}|\).
+            </p>
+            <p>
+              Em aplicações práticas, o módulo indica a “intensidade” ou “força”
+              que esse vetor representa (por exemplo, a intensidade de uma força
+              ou velocidade).
+            </p>
+          </section>
+
+          <!-- Slide Vertical: Versor e Escrita de um Vetor -->
+          <section>
+            <h2>Versor (Vetor Unitário)</h2>
+            <p>
+              Qualquer vetor \(\vec{v}\) pode ser decomposto como seu módulo
+              vezes um <em>vetor unitário</em>, também chamado de
+              <em>versor</em>, que indica apenas a direção e o sentido:
+            </p>
+            <p class="formula">
+              \[ \vec{v} = |\vec{v}|\hat{v}, \quad\text{onde}\quad \hat{v} =
+              \frac{\vec{v}}{|\vec{v}|}. \]
+            </p>
+            <p>
+              Assim, <em>\(\hat{v}\)</em> possui módulo igual a 1 e aponta
+              exatamente na direção de \(\vec{v}\). Esse conceito é útil para
+              normalizar vetores em diversos cálculos, como projeções e direções
+              de movimento.
+            </p>
+          </section>
+
+          <!-- Slide Vertical: Base Canônica -->
+          <section>
+            <h2>Base Canônica em \(\mathbb{R}^2\)</h2>
+            <p>
+              Em \(\mathbb{R}^2\), a forma mais comum de representar um vetor é
+              usando a base canônica:
+            </p>
+            <ul>
+              <li>\(\hat{i} = (1,0)\)</li>
+              <li>\(\hat{j} = (0,1)\)</li>
+            </ul>
+            <p class="formula">\[ \vec{v} = x \hat{i} + y \hat{j}\]</p>
+            <p></p>
+            <p class="formula">
+              \[ \vec{v} = (\vec{v} \cdot \hat{i}) \hat{i} + (\vec{v} \cdot
+              \hat{J}) \hat{j} \]
+            </p>
+            <p>
+              É outra maneira de ver a mesma informação: em vez de agrupar em um
+              par ordenado \((x,y)\), distribuímos as componentes como “pesos”
+              dos vetores unitários \(\hat{i}\) e \(\hat{j}\).
+            </p>
+          </section>
+
+          <!-- Slide Vertical: Exercícios -->
+          <section>
+            <h2>Exercícios</h2>
+            <ol>
+              <li>
+                Calcule o módulo de \(\vec{u} = (3, -2)\) usando \(\displaystyle
+                |\vec{u}| = \sqrt{x^2 + y^2}\). Em seguida, escreva \(\vec{u}\)
+                na forma \(|\vec{u}|\hat{u}\).
+              </li>
+              <li>
+                Represente o mesmo vetor \(\vec{u} = (3, -2)\) em função da base
+                canônica, \(\hat{i}\) e \(\hat{j}\).
+              </li>
+              <li>
+                Escolha outro vetor \(\vec{v} = (x, y)\) e repita o processo:
+                <ul>
+                  <li>Encontre \(|\vec{v}|\).</li>
+                  <li>Determine \(\hat{v}\).</li>
+                  <li>
+                    Escreva \(\vec{v}\) em termos de \(\hat{i}\) e \(\hat{j}\).
+                  </li>
+                </ul>
+              </li>
+            </ol>
+          </section>
+        </section>
+
+      </div>
+      <!-- .slides -->
+    </div>
+    <!-- .reveal -->
+
+    <!-- Reveal.js -->
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+
+    <!-- MathJax -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["\\(", "\\)"]],
+          displayMath: [["\\[", "\\]"]],
+        },
+        svg: { fontCache: "global" },
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+    <script>
+      Reveal.initialize({
+        hash: true,
+        slideNumber: true,
+        plugins: [RevealNotes, RevealHighlight],
+      });
+    </script>
+  </body>
+</html>

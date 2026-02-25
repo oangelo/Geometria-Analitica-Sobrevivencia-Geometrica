@@ -32,16 +32,17 @@ São Paulo: Atual, 1982.
 1. [O conjunto R²](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-i/1-conjunto-r2.html) — [exercícios](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-i-o-espaco-vetorial-r2/1-conjunto-r2.html)
 2. [Igualdade e operações com pares ordenados](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-i/2-operacoes-pares-ordenados.html) — [exercícios](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-i-o-espaco-vetorial-r2/2-igualdade-e-operacoes-com-pares-ordenados.html)
 3. [Vetores no plano](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-i/3-vetores.html) — [exercícios](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-i-o-espaco-vetorial-r2/3-vetores-no-plano.html)
+   - [Vetores posição e deslocamento](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-i/5-vetores-posicao-deslocamento.html) *(slides complementares)*
 4. [Aplicações: ponto médio e baricentro](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-i/4-aplicacoes.html) — [exercícios](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-i-o-espaco-vetorial-r2/4-aplicacoes-ponto-medio-e-baricentro.html)
 5. [Revisão](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-i-o-espaco-vetorial-r2/index.html)
 
-## [Capítulo II - Produto Interno no R²](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-ii.html)
-1. [Produto escalar de dois vetores](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-ii-produto-interno-no-r2/1-produto-escalar-de-dois-vetores.html)
-2. [Módulo de um vetor](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-ii-produto-interno-no-r2/2-modulo-de-um-vetor.html)
-3. [Distância entre dois pontos](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-ii-produto-interno-no-r2/3-distancia-entre-dois-pontos.html)
-4. [Paralelismo e ortogonalidade](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-ii-produto-interno-no-r2/4-paralelismo-e-ortogonalidade.html)
-5. [Ângulo de dois vetores](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-ii-produto-interno-no-r2/5-angulo-de-dois-vetores.html)
-6. [Área de um triângulo e alinhamento de três pontos](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-ii-produto-interno-no-r2/6-area-de-triangulo-e-alinhamento-de-tres-pontos.html)
+## Capítulo II - Produto Interno no R²
+1. [Produto escalar](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-ii/1-produto-escalar.html) — [exercícios](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-ii-produto-interno-no-r2/1-produto-escalar-de-dois-vetores.html)
+2. [Projeção vetorial](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-ii/2-projecao-vetorial.html)
+3. [Módulo de um vetor](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-ii/3-modulo.html) — [exercícios](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-ii-produto-interno-no-r2/2-modulo-de-um-vetor.html)
+4. [Distância entre dois pontos](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-ii-produto-interno-no-r2/3-distancia-entre-dois-pontos.html) *(exercícios)*
+5. [Paralelismo, ortogonalidade e área](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-ii/4-paralelismo-ortogonalidade-area.html) — [exercícios paralel.](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-ii-produto-interno-no-r2/4-paralelismo-e-ortogonalidade.html) / [área](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-ii-produto-interno-no-r2/6-area-de-triangulo-e-alinhamento-de-tres-pontos.html)
+6. [Ângulo de dois vetores](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-ii-produto-interno-no-r2/5-angulo-de-dois-vetores.html) *(exercícios)*
 7. [Revisão](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-ii-produto-interno-no-r2/index.html)
 
 ## [Capítulo III - Estudo da Reta no R²](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-iii.html)
