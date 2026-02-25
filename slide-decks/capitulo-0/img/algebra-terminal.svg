@@ -12,8 +12,8 @@
                 height="100"
                 rx="5"
                 fill="#111"
-                stroke="#33ff33"
-                stroke-width="2"
+                stroke="#ADFF2F"
+                stroke-width="3"
               />
               <rect
                 x="30"
@@ -22,10 +22,10 @@
                 height="80"
                 rx="2"
                 fill="#222"
-                stroke="#33ff33"
+                stroke="#ADFF2F"
                 stroke-width="1"
               />
-              <text x="40" y="40" fill="#33ff33" font-size="14">
+              <text x="40" y="40" fill="#ADFF2F" font-size="14" font-family="monospace">
                 2(3x - 4) + 5 = 7(x + 1) - 10
               </text>
               <line
@@ -33,14 +33,14 @@
                 y1="50"
                 x2="260"
                 y2="50"
-                stroke="#33ff33"
+                stroke="#ADFF2F"
                 stroke-width="1"
                 stroke-dasharray="2,2"
               />
-              <text x="40" y="70" fill="#33ff33" font-size="14">
+              <text x="40" y="70" fill="#ADFF2F" font-size="14" font-family="monospace">
                 6x - 8 + 5 = 7x + 7 - 10
               </text>
-              <text x="40" y="90" fill="#33ff33" font-size="14">
+              <text x="40" y="90" fill="#ADFF2F" font-size="14" font-family="monospace">
                 6x - 3 = 7x - 3 → x = 0
               </text>
             </svg>

@@ -8,10 +8,9 @@
                     fill="#FFD700"
                     font-size="20"
                     text-anchor="middle"
-                  >
+                   font-family="monospace">
                     a(b + c)
                   </text>
-
                   <!-- Retângulo representando a(b+c) -->
                   <rect
                     x="30"
@@ -19,21 +18,19 @@
                     width="140"
                     height="120"
                     fill="none"
-                    stroke="#33ff33"
+                    stroke="#ADFF2F"
                     stroke-width="3"
                   />
-
                   <!-- Divisão entre b e c -->
                   <line
                     x1="100"
                     y1="50"
                     x2="100"
                     y2="170"
-                    stroke="#33ff33"
-                    stroke-width="2"
+                    stroke="#ADFF2F"
+                    stroke-width="3"
                     stroke-dasharray="5,5"
                   />
-
                   <!-- Barra horizontal com tics para b+c -->
                   <line
                     x1="30"
@@ -41,7 +38,7 @@
                     x2="170"
                     y2="190"
                     stroke="#FFD700"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
                   <line
                     x1="30"
@@ -49,7 +46,7 @@
                     x2="30"
                     y2="195"
                     stroke="#FFD700"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
                   <line
                     x1="100"
@@ -57,7 +54,7 @@
                     x2="100"
                     y2="195"
                     stroke="#FFD700"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
                   <line
                     x1="170"
@@ -65,7 +62,7 @@
                     x2="170"
                     y2="195"
                     stroke="#FFD700"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
                   <text
                     x="65"
@@ -73,7 +70,7 @@
                     fill="#FFD700"
                     font-size="18"
                     text-anchor="middle"
-                  >
+                   font-family="monospace">
                     b
                   </text>
                   <text
@@ -82,10 +79,9 @@
                     fill="#FFD700"
                     font-size="18"
                     text-anchor="middle"
-                  >
+                   font-family="monospace">
                     c
                   </text>
-
                   <!-- Barra vertical para a -->
                   <line
                     x1="10"
@@ -93,7 +89,7 @@
                     x2="10"
                     y2="170"
                     stroke="#FFD700"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
                   <line
                     x1="5"
@@ -101,7 +97,7 @@
                     x2="15"
                     y2="50"
                     stroke="#FFD700"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
                   <line
                     x1="5"
@@ -109,7 +105,7 @@
                     x2="15"
                     y2="170"
                     stroke="#FFD700"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
                   <text
                     x="10"
@@ -118,11 +114,10 @@
                     font-size="18"
                     text-anchor="middle"
                     transform="rotate(-90,10,110)"
-                  >
+                   font-family="monospace">
                     a
                   </text>
                 </g>
-
                 <!-- Sinal de igual -->
                 <text
                   x="275"
@@ -130,10 +125,9 @@
                   fill="#FFD700"
                   font-size="32"
                   text-anchor="middle"
-                >
+                 font-family="monospace">
                   =
                 </text>
-
                 <!-- Lado direito: ab + ac -->
                 <g transform="translate(300,10)">
                   <!-- Título -->
@@ -143,50 +137,47 @@
                     fill="#FFD700"
                     font-size="20"
                     text-anchor="middle"
-                  >
+                   font-family="monospace">
                     ab + ac
                   </text>
-
                   <!-- Primeiro retângulo (ab) -->
                   <rect
                     x="30"
                     y="50"
                     width="70"
                     height="120"
-                    fill="rgba(51, 255, 51, 0.3)"
-                    stroke="#33ff33"
+                    fill="rgba(173, 255, 47, 0.3)"
+                    stroke="#ADFF2F"
                     stroke-width="3"
                   />
                   <text
                     x="65"
                     y="110"
-                    fill="#33ff33"
+                    fill="#ADFF2F"
                     font-size="24"
                     text-anchor="middle"
-                  >
+                   font-family="monospace">
                     ab
                   </text>
-
                   <!-- Segundo retângulo (ac) -->
                   <rect
                     x="130"
                     y="50"
                     width="70"
                     height="120"
-                    fill="rgba(51, 255, 51, 0.3)"
-                    stroke="#33ff33"
+                    fill="rgba(173, 255, 47, 0.3)"
+                    stroke="#ADFF2F"
                     stroke-width="3"
                   />
                   <text
                     x="165"
                     y="110"
-                    fill="#33ff33"
+                    fill="#ADFF2F"
                     font-size="24"
                     text-anchor="middle"
-                  >
+                   font-family="monospace">
                     ac
                   </text>
-
                   <!-- Sinal de + -->
                   <text
                     x="110"
@@ -194,10 +185,9 @@
                     fill="#FFD700"
                     font-size="24"
                     text-anchor="middle"
-                  >
+                   font-family="monospace">
                     +
                   </text>
-
                   <!-- Barra horizontal com tics -->
                   <line
                     x1="30"
@@ -205,7 +195,7 @@
                     x2="200"
                     y2="190"
                     stroke="#FFD700"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
                   <line
                     x1="30"
@@ -213,7 +203,7 @@
                     x2="30"
                     y2="195"
                     stroke="#FFD700"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
                   <line
                     x1="100"
@@ -221,7 +211,7 @@
                     x2="100"
                     y2="195"
                     stroke="#FFD700"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
                   <line
                     x1="130"
@@ -229,7 +219,7 @@
                     x2="130"
                     y2="195"
                     stroke="#FFD700"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
                   <line
                     x1="200"
@@ -237,7 +227,7 @@
                     x2="200"
                     y2="195"
                     stroke="#FFD700"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
                   <text
                     x="65"
@@ -245,7 +235,7 @@
                     fill="#FFD700"
                     font-size="18"
                     text-anchor="middle"
-                  >
+                   font-family="monospace">
                     b
                   </text>
                   <text
@@ -254,10 +244,9 @@
                     fill="#FFD700"
                     font-size="18"
                     text-anchor="middle"
-                  >
+                   font-family="monospace">
                     c
                   </text>
-
                   <!-- Barra vertical para a -->
                   <line
                     x1="10"
@@ -265,7 +254,7 @@
                     x2="10"
                     y2="170"
                     stroke="#FFD700"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
                   <line
                     x1="5"
@@ -273,7 +262,7 @@
                     x2="15"
                     y2="50"
                     stroke="#FFD700"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
                   <line
                     x1="5"
@@ -281,7 +270,7 @@
                     x2="15"
                     y2="170"
                     stroke="#FFD700"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
                   <text
                     x="10"
@@ -290,7 +279,7 @@
                     font-size="18"
                     text-anchor="middle"
                     transform="rotate(-90,10,110)"
-                  >
+                   font-family="monospace">
                     a
                   </text>
                 </g>

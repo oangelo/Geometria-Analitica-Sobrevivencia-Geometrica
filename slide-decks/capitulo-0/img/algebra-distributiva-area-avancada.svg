@@ -7,10 +7,9 @@
                     fill="#FFD700"
                     font-size="18"
                     text-anchor="middle"
-                  >
+                   font-family="monospace">
                     (a + b)(c + d) = ac + ad + bc + bd
                   </text>
-
                   <!-- Grade principal -->
                   <rect
                     x="50"
@@ -18,30 +17,27 @@
                     width="300"
                     height="150"
                     fill="none"
-                    stroke="#33ff33"
+                    stroke="#ADFF2F"
                     stroke-width="3"
                   />
-
                   <!-- Divisão vertical -->
                   <line
                     x1="200"
                     y1="50"
                     x2="200"
                     y2="200"
-                    stroke="#33ff33"
-                    stroke-width="2"
+                    stroke="#ADFF2F"
+                    stroke-width="3"
                   />
-
                   <!-- Divisão horizontal -->
                   <line
                     x1="50"
                     y1="125"
                     x2="350"
                     y2="125"
-                    stroke="#33ff33"
-                    stroke-width="2"
+                    stroke="#ADFF2F"
+                    stroke-width="3"
                   />
-
                   <!-- Quadrantes com termos -->
                   <g>
                     <!-- ac -->
@@ -50,8 +46,8 @@
                       y="50"
                       width="150"
                       height="75"
-                      fill="rgba(51, 255, 51, 0.2)"
-                      stroke="#33ff33"
+                      fill="rgba(173, 255, 47, 0.2)"
+                      stroke="#ADFF2F"
                       stroke-width="1"
                     />
                     <text
@@ -60,18 +56,17 @@
                       fill="#FFD700"
                       font-size="24"
                       text-anchor="middle"
-                    >
+                     font-family="monospace">
                       ac
                     </text>
-
                     <!-- ad -->
                     <rect
                       x="200"
                       y="50"
                       width="150"
                       height="75"
-                      fill="rgba(51, 255, 51, 0.2)"
-                      stroke="#33ff33"
+                      fill="rgba(173, 255, 47, 0.2)"
+                      stroke="#ADFF2F"
                       stroke-width="1"
                     />
                     <text
@@ -80,18 +75,17 @@
                       fill="#FFD700"
                       font-size="24"
                       text-anchor="middle"
-                    >
+                     font-family="monospace">
                       ad
                     </text>
-
                     <!-- bc -->
                     <rect
                       x="50"
                       y="125"
                       width="150"
                       height="75"
-                      fill="rgba(51, 255, 51, 0.2)"
-                      stroke="#33ff33"
+                      fill="rgba(173, 255, 47, 0.2)"
+                      stroke="#ADFF2F"
                       stroke-width="1"
                     />
                     <text
@@ -100,18 +94,17 @@
                       fill="#FFD700"
                       font-size="24"
                       text-anchor="middle"
-                    >
+                     font-family="monospace">
                       bc
                     </text>
-
                     <!-- bd -->
                     <rect
                       x="200"
                       y="125"
                       width="150"
                       height="75"
-                      fill="rgba(51, 255, 51, 0.2)"
-                      stroke="#33ff33"
+                      fill="rgba(173, 255, 47, 0.2)"
+                      stroke="#ADFF2F"
                       stroke-width="1"
                     />
                     <text
@@ -120,11 +113,10 @@
                       fill="#FFD700"
                       font-size="24"
                       text-anchor="middle"
-                    >
+                     font-family="monospace">
                       bd
                     </text>
                   </g>
-
                   <!-- Barra vertical com tics para (a+b) -->
                   <line
                     x1="20"
@@ -132,7 +124,7 @@
                     x2="20"
                     y2="200"
                     stroke="#FFD700"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
                   <line
                     x1="15"
@@ -140,7 +132,7 @@
                     x2="25"
                     y2="50"
                     stroke="#FFD700"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
                   <line
                     x1="15"
@@ -148,7 +140,7 @@
                     x2="25"
                     y2="125"
                     stroke="#FFD700"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
                   <line
                     x1="15"
@@ -156,11 +148,10 @@
                     x2="25"
                     y2="200"
                     stroke="#FFD700"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
-                  <text x="35" y="87" fill="#FFD700" font-size="18">a</text>
-                  <text x="35" y="162" fill="#FFD700" font-size="18">b</text>
-
+                  <text x="35" y="87" fill="#FFD700" font-size="18" font-family="monospace">a</text>
+                  <text x="35" y="162" fill="#FFD700" font-size="18" font-family="monospace">b</text>
                   <!-- Barra horizontal com tics para (c+d) -->
                   <line
                     x1="50"
@@ -168,7 +159,7 @@
                     x2="350"
                     y2="220"
                     stroke="#FFD700"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
                   <line
                     x1="50"
@@ -176,7 +167,7 @@
                     x2="50"
                     y2="225"
                     stroke="#FFD700"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
                   <line
                     x1="200"
@@ -184,7 +175,7 @@
                     x2="200"
                     y2="225"
                     stroke="#FFD700"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
                   <line
                     x1="350"
@@ -192,7 +183,7 @@
                     x2="350"
                     y2="225"
                     stroke="#FFD700"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
                   <text
                     x="125"
@@ -200,7 +191,7 @@
                     fill="#FFD700"
                     font-size="18"
                     text-anchor="middle"
-                  >
+                   font-family="monospace">
                     c
                   </text>
                   <text
@@ -209,7 +200,7 @@
                     fill="#FFD700"
                     font-size="18"
                     text-anchor="middle"
-                  >
+                   font-family="monospace">
                     d
                   </text>
                 </g>

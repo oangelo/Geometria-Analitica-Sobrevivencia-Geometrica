@@ -5,8 +5,8 @@
                     width="160"
                     height="160"
                     fill="none"
-                    stroke="#33ff33"
-                    stroke-width="2"
+                    stroke="#ADFF2F"
+                    stroke-width="3"
                   />
                   <!-- a² -->
                   <rect
@@ -15,8 +15,8 @@
                     width="160"
                     height="160"
                     fill="none"
-                    stroke="#33ff33"
-                    stroke-width="2"
+                    stroke="#ADFF2F"
+                    stroke-width="3"
                   />
                   <!-- b² -->
                   <rect
@@ -26,12 +26,12 @@
                     height="80"
                     fill="rgba(255, 0, 0, 0.2)"
                     stroke="#ff3333"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
                   <!-- Rótulos -->
-                  <text x="30" y="30" fill="#33ff33" font-size="16">a²</text>
-                  <text x="90" y="90" fill="#ff3333" font-size="16">b²</text>
-                  <text x="90" y="160" fill="#FFD700" font-size="12">
+                  <text x="30" y="30" fill="#ADFF2F" font-size="16" font-family="monospace">a²</text>
+                  <text x="90" y="90" fill="#ff3333" font-size="16" font-family="monospace">b²</text>
+                  <text x="90" y="160" fill="#FFD700" font-size="12" font-family="monospace">
                     a² - b² = área em verde
                   </text>
                 </svg>

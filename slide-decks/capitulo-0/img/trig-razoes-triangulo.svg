@@ -5,33 +5,8 @@
               style="margin: 10px auto; display: block"
               version="1.1"
               id="svg4"
-              sodipodi:docname="aux.svg"
-              inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
-              xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-              xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:svg="http://www.w3.org/2000/svg"
             >
-              <defs id="defs4" />
-              <sodipodi:namedview
-                id="namedview4"
-                pagecolor="#ffffff"
-                bordercolor="#000000"
-                borderopacity="0.25"
-                inkscape:showpageshadow="2"
-                inkscape:pageopacity="0.0"
-                inkscape:pagecheckerboard="0"
-                inkscape:deskcolor="#d1d1d1"
-                inkscape:zoom="2.76"
-                inkscape:cx="173.73188"
-                inkscape:cy="98.188406"
-                inkscape:window-width="1280"
-                inkscape:window-height="761"
-                inkscape:window-x="0"
-                inkscape:window-y="0"
-                inkscape:window-maximized="1"
-                inkscape:current-layer="svg4"
-              />
               <!-- Corrigido: Semicírculo para o ângulo θ -->
               <g
                 id="g5"
@@ -40,8 +15,8 @@
                 <polygon
                   points="50,150 200,150 200,50 "
                   fill="none"
-                  stroke="#33ff33"
-                  stroke-width="2"
+                  stroke="#ADFF2F"
+                  stroke-width="3"
                   id="polygon1"
                 />
                 <g id="g4">
@@ -51,7 +26,7 @@
                     fill="#ffd700"
                     font-size="12px"
                     id="text1"
-                  >
+                   font-family="monospace">
                     Adjacente (x)
                   </text>
                   <text
@@ -61,7 +36,7 @@
                     font-size="12px"
                     id="text2"
                     transform="rotate(88.57281)"
-                  >
+                   font-family="monospace">
                     Oposto (y)
                   </text>
                   <text
@@ -71,7 +46,7 @@
                     font-size="12px"
                     id="text3"
                     transform="rotate(-34.30849)"
-                  >
+                   font-family="monospace">
                     Hipotenusa (r)
                   </text>
                   <path
@@ -89,7 +64,7 @@
                     fill="#ffd700"
                     font-size="12px"
                     id="text4"
-                  >
+                   font-family="monospace">
                     θ
                   </text>
                 </g>

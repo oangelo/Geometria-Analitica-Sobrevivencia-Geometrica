@@ -11,7 +11,7 @@
                 width="10"
                 height="120"
                 fill="#777"
-                stroke="#33ff33"
+                stroke="#ADFF2F"
                 stroke-width="1"
               />
               <rect
@@ -20,7 +20,7 @@
                 width="50"
                 height="20"
                 fill="#777"
-                stroke="#33ff33"
+                stroke="#ADFF2F"
                 stroke-width="1"
               />
               <line
@@ -37,40 +37,38 @@
                 y1="150"
                 x2="300"
                 y2="150"
-                stroke="#33ff33"
-                stroke-width="2"
+                stroke="#ADFF2F"
+                stroke-width="3"
               />
               <line
                 x1="300"
                 y1="150"
                 x2="300"
                 y2="120"
-                stroke="#33ff33"
-                stroke-width="2"
+                stroke="#ADFF2F"
+                stroke-width="3"
               />
               <line
                 x1="300"
                 y1="120"
                 x2="60"
                 y2="30"
-                stroke="#33ff33"
-                stroke-width="2"
+                stroke="#ADFF2F"
+                stroke-width="3"
               />
-
-              <text x="170" y="165" fill="#FFD700" font-size="12">
+              <text x="170" y="165" fill="#FFD700" font-size="12" font-family="monospace">
                 Distância medida (240m)
               </text>
-              <text x="305" y="135" fill="#FFD700" font-size="12">
+              <text x="305" y="135" fill="#FFD700" font-size="12" font-family="monospace">
                 Altura do observador (1.7m)
               </text>
-              <text x="20" y="20" fill="#FFD700" font-size="12">
+              <text x="20" y="20" fill="#FFD700" font-size="12" font-family="monospace">
                 Torre (h = ?)
               </text>
-
-              <text x="150" y="100" fill="#ADFF2F" font-size="14">
+              <text x="150" y="100" fill="#ADFF2F" font-size="14" font-family="monospace">
                 h/1.7 = 240/(300-60)
               </text>
-              <text x="150" y="120" fill="#ADFF2F" font-size="14">
+              <text x="150" y="120" fill="#ADFF2F" font-size="14" font-family="monospace">
                 h = 1.7 × 240/240 = 1.7m
               </text>
             </svg>

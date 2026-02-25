@@ -4,11 +4,11 @@
                     y="50"
                     width="160"
                     height="100"
-                    fill="rgba(51, 255, 51, 0.2)"
-                    stroke="#33ff33"
+                    fill="rgba(173, 255, 47, 0.2)"
+                    stroke="#ADFF2F"
                     stroke-width="3"
                   />
-                  <text x="90" y="105" fill="#FFD700" font-size="20">
+                  <text x="90" y="105" fill="#FFD700" font-size="20" font-family="monospace">
                     b × h
                   </text>
                   <!-- Medidas -->
@@ -18,7 +18,7 @@
                     x2="180"
                     y2="170"
                     stroke="#FFD700"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
                   <line
                     x1="20"
@@ -26,7 +26,7 @@
                     x2="20"
                     y2="175"
                     stroke="#FFD700"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
                   <line
                     x1="180"
@@ -34,9 +34,9 @@
                     x2="180"
                     y2="175"
                     stroke="#FFD700"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
-                  <text x="90" y="190" fill="#FFD700" font-size="14">
+                  <text x="90" y="190" fill="#FFD700" font-size="14" font-family="monospace">
                     base (b)
                   </text>
                   <!-- Altura -->
@@ -46,7 +46,7 @@
                     x2="200"
                     y2="150"
                     stroke="#FFD700"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
                   <line
                     x1="195"
@@ -54,7 +54,7 @@
                     x2="205"
                     y2="50"
                     stroke="#FFD700"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
                   <line
                     x1="195"
@@ -62,7 +62,7 @@
                     x2="205"
                     y2="150"
                     stroke="#FFD700"
-                    stroke-width="2"
+                    stroke-width="3"
                   />
                   <text
                     x="215"
@@ -70,7 +70,7 @@
                     fill="#FFD700"
                     font-size="14"
                     transform="rotate(90, 215, 105)"
-                  >
+                   font-family="monospace">
                     altura (h)
                   </text>
                 </svg>
