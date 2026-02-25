@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8"/>
@@ -10,508 +9,56 @@
 </head>
 <body>
 <div class="reveal">
-<div class="slides">
-<!-- PÁGINA DE TÍTULO APRIMORADA -->
-<section data-background="#1d3557">
-<h1>Capítulo I: O Espaço Vetorial \( \mathbb{R}^2 \)</h1>
-<h3>Navegando no Deserto Matemático</h3>
-<p class="quote">"Quando o mundo desmoronou, restaram apenas as coordenadas do nosso destino."</p>
-<div class="narrative-text">
-<p>Ano 2157. Três décadas após a Grande Catástrofe. A humanidade sobrevive em comunidades isoladas, conectadas apenas por cartógrafos matemáticos que dominam a linguagem universal: a geometria do plano.</p>
+  <div class="slides" id="slides"></div>
 </div>
-</section>
-<!-- INTRODUÇÃO EXPANDIDA -->
-<section>
-<!-- Contexto Histórico -->
-<section>
-<h2>A Geografia da Sobrevivência</h2>
-<div class="narrative-text">
-<p>Quando as redes digitais colapsaram e os satélites caíram, os sobreviventes precisaram redescobrir algo que a humanidade tinha esquecido: como mapear o mundo com apenas régua e compasso.</p>
-</div>
-<p>O espaço \( \mathbb{R}^2 \) se tornou não apenas um conceito matemático, mas a <strong>linguagem universal</strong> da reconstrução.</p>
-<div class="survival-tip">
-<span class="emoji-icon">📜</span> <strong>Lição de Sobrevivência:</strong> "Aquele que compreende o plano coordenado nunca está verdadeiramente perdido."
-          </div>
-</section>
-<!-- Por que estudar R² -->
-<section>
-<h3>Por que \( \mathbb{R}^2 \) Importa?</h3>
-<p>Em um mundo devastado, compreender o espaço vetorial bidimensional oferece três vantagens cruciais:</p>
-<ol>
-<li><strong>Otimização de Rotas</strong>: Economizar recursos calculando o caminho mais curto</li>
-<li><strong>Mapeamento Territorial</strong>: Estabelecer fronteiras e zonas de recursos</li>
-<li><strong>Planejamento Estrutural</strong>: Base para toda reconstrução arquitetônica</li>
-</ol>
-<p>O plano cartesiano transformou-se de abstração matemática em <em>ferramenta de sobrevivência</em>.</p>
-</section>
-</section>
-<!-- SEÇÃO 1: O CONJUNTO R² EXPANDIDO -->
-<section>
-<!-- Definição formal expandida -->
-<section>
-<h2>O Conjunto \( \mathbb{R}^2 \): O Mapa Universal</h2>
-<div class="concept-definition">
-<p>\[ \mathbb{R}^2 = \{(x, y)\,\mid\, x, y \in \mathbb{R}\} \]</p>
-<p>O conjunto de todos os pares ordenados de números reais, representando cada possível localização no nosso plano de sobrevivência.</p>
-</div>
-<p>Imagine o deserto pós-apocalíptico como uma vasta folha de papel quadriculado, onde cada junção das linhas é um potencial ponto de interesse: um refúgio, um depósito de recursos, ou uma zona contaminada.</p>
-<div class="narrative-text">
-<p>Os antigos usavam GPS. Nós temos apenas as coordenadas cartesianas. Como eles descobririam que estamos a (3,4) unidades da Zona Segura sem suas tecnologias? Agora entendemos por que nossos ancestrais insistiam tanto no estudo da matemática básica.</p>
-</div>
-</section>
-<!-- VISUALIZAÇÃO: Plano Cartesiano -->
-<section>
-<h3>Visualização: O Plano Cartesiano</h3>
-<div class="visualization-container">
-<img alt="Descrição" src="svg/extracted_1.svg"/>
-</div>
-</section>
-<!-- Pares ordenados com profundidade -->
-<section>
-<h3>A Linguagem dos Pares Ordenados</h3>
-<p>Cada localização no mundo pós-catástrofe é codificada como um par ordenado \((x, y)\), onde:</p>
-<div class="concept-definition">
-<p>\((x, y) \neq (y, x)\) quando \(x \neq y\)</p>
-<p>A ordem dos componentes é <em>crucial</em> – confundir coordenadas pode ser fatal.</p>
-</div>
-<p>Esta convenção matemática reflete a realidade implacável de nosso mundo: precisão é sobrevivência.</p>
-<div class="narrative-text">
-<p>O Cartógrafo Jensen confundiu as coordenadas da Fonte Limpa. Anotou (8,3) quando deveria ser (3,8). Sua equipe nunca mais foi vista após partir em busca de água.</p>
-</div>
-<div class="survival-tip">
-<span class="emoji-icon">📝</span> <strong>Protocolo de Registro:</strong> "Sempre anote coordenadas no formato (Leste, Norte) e confirme a leitura duas vezes."
-          </div>
-</section>
-<!-- VISUALIZAÇÃO: Pares Ordenados -->
-<section>
-<h3>Visualização: Pares Ordenados</h3>
-<div class="visualization-container">
-<img alt="Descrição" src="svg/extracted_2.svg"/>
-</div>
-</section>
-<!-- Distância no R² -->
-<section>
-<h4>Distância no Plano: Calculando o Custo da Jornada</h4>
-<div class="concept-definition">
-<p>A distância entre pontos \((x_1, y_1)\) e \((x_2, y_2)\) é dada por:</p>
-<p>\[ d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \]</p>
-</div>
-<p>Esta fórmula, derivada do Teorema de Pitágoras, permite-nos calcular o <strong>custo real</strong> de uma jornada através do deserto – em distância, tempo, e recursos necessários.</p>
-<div class="narrative-text">
-<p>As caravanas da Comunidade Norte calculam um "índice de custo" para cada expedição: cada unidade de distância representa 0,5L de água e 300kcal de ração por pessoa.</p>
-</div>
-</section>
 
-</section>
-<!-- SEÇÃO 2: OPERAÇÕES COM PARES ORDENADOS APRIMORADO -->
-<section>
-<!-- Introdução às operações -->
-<section>
-<h2>Álgebra da Sobrevivência: Operações em \(\mathbb{R}^2\)</h2>
-<p>As operações matemáticas no plano não são apenas abstração – são ferramentas práticas para gestão de recursos e planejamento.</p>
-<div class="concept-definition">
-<p><strong>Adição:</strong> \((a, b) + (c, d) = (a+c, b+d)\)</p>
-<p><strong>Multiplicação por escalar:</strong> \(\lambda(a, b) = (\lambda a, \lambda b)\)</p>
-</div>
-<div class="narrative-text">
-<p>O Conselho dos Anciões desenvolveu um sistema de contabilidade baseado em vetores para gerenciar os recursos de toda a comunidade durante os longos invernos nucleares.</p>
-</div>
-</section>
-<!-- VISUALIZAÇÃO: Adição de Vetores -->
-<section>
-<h3>Visualização: Adição de Vetores</h3>
-<div class="visualization-container">
-<img alt="Descrição" src="svg/extracted_3.svg"/>
-</div>
-</section>
-<!-- Multiplicação por escalar em contexto -->
-<section>
-<h3>Multiplicação por Escalar: Escalando Recursos</h3>
-<p>A multiplicação de um vetor por um número escalar permite:</p>
-<ul>
-<li><strong>Ampliação/Redução</strong>: Ajustar a escala de um deslocamento ou plano</li>
-<li><strong>Direção Oposta</strong>: Multiplicar por -1 inverte a direção</li>
-<li><strong>Logística</strong>: Calcular recursos para grupos de tamanhos diferentes</li>
-</ul>
-<div class="narrative-text">
-<p>Para uma expedição de 5 pessoas, o Oficial de Recursos multiplica o vetor de suprimentos básicos (2,3,1) – representando água, comida e medicamentos – pelo escalar 5, obtendo (10,15,5).</p>
-</div>
-</section>
-<!-- VISUALIZAÇÃO: Multiplicação por Escalar -->
-<section>
-<h3>Visualização: Multiplicação por Escalar</h3>
-<div class="visualization-container">
-<img alt="Descrição" src="svg/extracted_4.svg"/>
-</div>
-</section>
-<!-- Propriedades em contexto -->
-<section>
-<h3>Propriedades das Operações: Leis da Navegação</h3>
-<div class="concept-definition">
-<p><strong>Associatividade:</strong> \((\vec{u} + \vec{v}) + \vec{w} = \vec{u} + (\vec{v} + \vec{w})\)</p>
-<p><strong>Comutatividade:</strong> \(\vec{u} + \vec{v} = \vec{v} + \vec{u}\)</p>
-<p><strong>Distributividade:</strong> \(\lambda(\vec{u} + \vec{v}) = \lambda\vec{u} + \lambda\vec{v}\)</p>
-</div>
-<p>Estas propriedades garantem que, não importa como planejamos nossas rotas ou dividimos nossos recursos, os resultados finais serão consistentes – uma certeza vital em um mundo cheio de incertezas.</p>
-<div class="narrative-text">
-<p>As leis vetoriais são tão confiáveis quanto as leis da física. Os planejadores podem reorganizar uma cadeia de suprimentos de múltiplas maneiras, sabendo que o resultado final se manterá o mesmo, reduzindo erros fatais de logística.</p>
-</div>
-</section>
-</section>
-<!-- SEÇÃO 3: VETORES APRIMORADA -->
-<section>
-<!-- Conceito de vetor expandido -->
-<section>
-<h2>Vetores: As Setas da Sobrevivência</h2>
-<div class="concept-definition">
-<p>Um <strong>vetor</strong> \(\vec{v}\) no plano é uma quantidade com magnitude e direção, representado geometricamente por uma seta direcionada e algebricamente por um par ordenado \((x,y)\).</p>
-</div>
-<p>Os vetores são a linguagem matemática de:</p>
-<ul>
-<li><strong>Movimento</strong>: Deslocamentos entre locais</li>
-<li><strong>Força</strong>: Direção e intensidade de efeitos físicos</li>
-<li><strong>Tendência</strong>: Padrões direcionais em fenômenos naturais</li>
-</ul>
-<div class="narrative-text">
-<p>Os Cartógrafos usam notação vetorial para marcar não apenas locais, mas também rotas seguras, correntes de vento, fluxos de radiação e padrões migratórios de criaturas mutantes.</p>
-</div>
-</section>
-        <!-- Slide Horizontal 2: Notação -->
-        <section>
-          <h2>Notação de Pontos, Vetores e Escalares</h2>
-          <p>Em <strong>R²</strong>, tanto pontos quanto vetores são pares ordenados (x, y). Entretanto, o que muda é a forma de rotular e interpretar:</p>
-          <ul>
-            <li><strong>Pontos</strong>: Letras maiúsculas (p. ex. A, B), indicando posições específicas no plano. Ex.: A(2,3), B(-1,4).</li>
-            <li><strong>Vetores</strong>: Letras minúsculas com a notação de seta, (por exemplo \(\vec{u}\), \(\vec{v}\)). Outro exemplo, \(\vec{u} = (2,3)\) pode representar um deslocamento.</li>
-            <li><strong>Escalares</strong>: Letras gregas minúsculas (por exemplo \(\alpha\), \(\beta\), \(\theta)\), representando valores numéricos que podem escalonar vetores. Ex.: \(\alpha = 2\).</li>
-          </ul>
-        </section>
-
-<!-- vetor definido por dois pontos -->
-      <section>
-        <h3>Vetor Definido por Dois Pontos: A Rota Direta</h3>
-        
-        <div class="concept-definition">
-          <p>Para dois pontos \(A(x_1, y_1)\) e \(B(x_2, y_2)\), o vetor \(\overrightarrow{AB}\) é definido como:</p>
-          <p>\[ \overrightarrow{AB} = (x_2 - x_1, y_2 - y_1) \]</p>
-          <p>Representa o deslocamento <em>direcionado</em> necessário para ir do ponto A ao ponto B.</p>
-        </div>
-        
-        <p>Este vetor captura a <strong>direção</strong> e <strong>magnitude</strong> exatas para ir de uma localização a outra no deserto pós-apocalíptico.</p>
-        
-        
-        <div class="survival-tip">
-          <span class="emoji-icon">🧭</span> <strong>Diretiva de Navegação:</strong> "Sempre calcule o vetor exato entre sua posição atual e o destino. Um erro de cálculo não permite segunda tentativa."
-        </div>
-      </section>
-<section>
-<h3>Visualização: Vetor definido por dois pontos</h3>
-<div class="visualization-container">
-<img alt="Descrição" src="svg/vetor-dois-pontos.svg"/>
-</div>
-</section>
-
-<!-- Norma de vetor em contexto -->
-<section>
-<h3>Norma do Vetor: Medindo o Esforço</h3>
-<div class="concept-definition">
-<p>A <strong>norma</strong> (ou magnitude) de um vetor \(\vec{v} = (x,y)\) é dada por:</p>
-<p>\[ \|\vec{v}\| = \sqrt{x^2 + y^2} \]</p>
-<p>Geometricamente, representa o comprimento da seta vetorial.</p>
-</div>
-<p>A norma quantifica o "custo total" de um deslocamento, independentemente da direção – seja em termos de energia, tempo, ou recursos necessários.</p>
-<div class="survival-tip">
-<span class="emoji-icon">⚡</span> <strong>Protocolo de Eficiência:</strong> "Entre dois vetores que conduzem ao mesmo destino, aquele com menor norma sempre preservará mais recursos vitais."
-          </div>
-</section>
-<!-- Vetores unitários e direção -->
-<section>
-<h3>Vetores Unitários: A Bússola Matemática</h3>
-<div class="concept-definition">
-<p>Um <strong>vetor unitário</strong> \(\hat{u}\) tem norma igual a 1 e preserva apenas a informação de direção:</p>
-<p>\[ \hat{u} = \frac{\vec{v}}{\|\vec{v}\|} \]</p>
-</div>
-<p>Vetores unitários funcionam como bússolas matemáticas, apontando direções sem comprometimento com distâncias específicas. São fundamentais para:</p>
-<ul>
-<li>Navegar seguindo uma direção específica</li>
-<li>Padronizar indicações de rota entre comunidades</li>
-<li>Calcular componentes direcionais de forças naturais</li>
-</ul>
-<div class="narrative-text">
-<p>As bandeiras de sinalização dos guias de caravana usam um sistema codificado por cores baseado nos oito vetores unitários principais, permitindo comunicação visual à distância mesmo durante tempestades de poeira.</p>
-</div>
-</section>
-<!-- Base canônica -->
- <section>
-        <h3>Base Canônica: Os Vetores Fundamentais</h3>
-        
-        <div class="concept-definition">
-          <p>A <strong>base canônica</strong> de \(\mathbb{R}^2\) consiste em dois vetores unitários:</p>
-          <p>\[ \hat{\imath} = (1,0) \quad \text{e} \quad \hat{\jmath} = (0,1) \]</p>
-          <p>Qualquer vetor \(\vec{v} = (a,b)\) pode ser escrito como combinação linear:</p>
-          <p>\[ \vec{v} = a\hat{\imath} + b\hat{\jmath} \]</p>
-        </div>
-        
-        <p>Estes vetores formam as <strong>direções fundamentais</strong> do nosso sistema de coordenadas, como as direções cardeais Leste (\(\hat{\imath}\)) e Norte (\(\hat{\jmath}\)) em uma bússola.</p>
-        
-        <div class="survival-tip">
-          <span class="emoji-icon">🧭</span> <strong>Protocolo de Orientação:</strong> "Se você se perder, primeiro determine a direção dos vetores \(\hat{\imath}\) e \(\hat{\jmath}\) em relação a pontos de referência estáveis, como montanhas ou ruínas destacadas."
-        </div>
-      </section>
-<section>
-<h3>Visualização: Base Canônica</h3>
-<div class="visualization-container">
-<img alt="Descrição" src="svg/base-canonica.svg"/>
-</div>
-</section>
-
-</section>
-<!-- SEÇÃO 4: APLICAÇÕES AMPLIADAS -->
-<section>
-<!-- Ponto médio contextualizado -->
-<section>
-<h2>Pontos Estratégicos no Plano</h2>
-<h3>O Ponto Médio: Local de Encontro</h3>
-<div class="concept-definition">
-<p>O <strong>ponto médio</strong> entre \((x_1, y_1)\) e \((x_2, y_2)\) é dado por:</p>
-<p>\[ M = \left(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}\right) \]</p>
-</div>
-<p>O ponto médio representa o equilíbrio perfeito entre dois locais, sendo crucial para:</p>
-<ul>
-<li>Estabelecer postos de troca entre comunidades rivais</li>
-<li>Determinar pontos de encontro equidistantes</li>
-<li>Distribuir recursos de forma equilibrada</li>
-</ul>
-<div class="narrative-text">
-<p>O Tratado da Confederação do Vale estabeleceu postos neutros de comércio exatamente nos pontos médios entre os cinco principais assentamentos, criando uma rede pentagonal de rotas comerciais que nenhuma comunidade poderia monopolizar.</p>
-</div>
-</section>
-<!-- VISUALIZAÇÃO: Ponto Médio -->
-<section>
-<h3>Visualização: Ponto Médio</h3>
-<div class="visualization-container">
-<img alt="Descrição" src="svg/extracted_5.svg"/>
-</div>
-</section>
-<!-- Baricentro expandido -->
-<section>
-<h3>O Baricentro: Centro de Equilíbrio</h3>
-<div class="concept-definition">
-<p>O <strong>baricentro</strong> de um triângulo com vértices \((x_1, y_1)\), \((x_2, y_2)\) e \((x_3, y_3)\) é dado por:</p>
-<p>\[ G = \left(\frac{x_1 + x_2 + x_3}{3}, \frac{y_1 + y_2 + y_3}{3}\right) \]</p>
-<p>Geometricamente, é o ponto de interseção das medianas do triângulo.</p>
-</div>
-<p>O baricentro representa o ponto de equilíbrio perfeito entre três locais, sendo aplicado para:</p>
-<ul>
-<li>Posicionar centros de comando que supervisionam três postos</li>
-<li>Estabelecer distribuição equitativa de recursos entre três comunidades</li>
-<li>Determinar o centro de massa de estruturas triangulares</li>
-</ul>
-<div class="survival-tip">
-<span class="emoji-icon">⚖️</span> <strong>Princípio de Justiça Geométrica:</strong> "Quando três comunidades disputam recursos, o centro de distribuição no baricentro garante que nenhuma terá vantagem geográfica sobre as outras."
-          </div>
-</section>
-<!-- VISUALIZAÇÃO: Baricentro -->
-<section>
-<h3>Visualização: Baricentro</h3>
-<div class="visualization-container">
-<img alt="Descrição" src="svg/extracted_6.svg"/>
-</div>
-</section>
-<!-- Nova aplicação: Circuncentro -->
-<section>
-<h3>O Circuncentro: Abrangência Máxima</h3>
-<div class="concept-definition">
-<p>O <strong>circuncentro</strong> de um triângulo é o centro da circunferência que passa pelos três vértices. É o ponto de interseção das mediatrizes dos lados.</p>
-</div>
-<p>O circuncentro é essencial em situações onde a equidistância é crucial:</p>
-<ul>
-<li>Posicionamento de torres de transmissão com alcance uniforme</li>
-<li>Planejamento de zonas de quarentena com raio definido</li>
-<li>Determinação de áreas de resgate equidistantes de pontos críticos</li>
-</ul>
-<div class="narrative-text">
-<p>Quando a Grande Tempestade se aproximava, os Engenheiros posicionaram o gerador de campo protetor exatamente no circuncentro da região triangular entre os três principais abrigos, garantindo que todos estivessem exatamente à mesma distância da fonte de proteção.</p>
-</div>
-</section>
-<!-- VISUALIZAÇÃO: Circuncentro (continuação) -->
-<section>
-<h3>Visualização: Circuncentro</h3>
-<div class="visualization-container">
-<img alt="Descrição" src="svg/extracted_7.svg"/>
-</div>
-</section>
-<!-- Nova aplicação: Ortocentro -->
-<section>
-<h3>O Ortocentro: Convergência de Perpendiculares</h3>
-<div class="concept-definition">
-<p>O <strong>ortocentro</strong> de um triângulo é o ponto de interseção das três alturas (linhas perpendiculares dos vértices aos lados opostos).</p>
-</div>
-<p>O ortocentro é aplicado em situações onde relações perpendiculares são importantes:</p>
-<ul>
-<li>Sistemas de drenagem e gestão de fluxos</li>
-<li>Estruturas arquitetônicas com suportes perpendiculares</li>
-<li>Análise de forças ortogonais em construções</li>
-</ul>
-<div class="narrative-text">
-<p>Os Construtores aprenderam da pior maneira possível que, em terrenos triangulares irregulares, o sistema de drenagem central precisa estar no ortocentro, não no baricentro, para que a água flua perpendicularmente aos limites da área.</p>
-</div>
-</section>
-<!-- VISUALIZAÇÃO: Ortocentro -->
-<section>
-<h3>Visualização: Ortocentro</h3>
-<div class="visualization-container">
-<img alt="Descrição" src="svg/extracted_8.svg"/>
-</div>
-</section>
-<!-- VISUALIZAÇÃO: Pontos Notáveis e Reta de Euler -->
-<section>
-<h3>Visualização: Pontos Notáveis e Reta de Euler</h3>
-<div class="visualization-container">
-<img alt="Descrição" src="svg/extracted_9.svg"/>
-</div>
-</section>
-</section>
-
-<section>
-<!-- Exercícios todos -->
-<!-- Exercícios aprimorados -->
-<section>
-<h4 class="exercise-title">Exercícios de Sobrevivência</h4>
-<p>Gostaria de apresentar alguns problemas que podem parecer desafiadores neste momento do curso, mas que se tornarão mais simples à medida que avançarmos. Porém, é importante refletir sobre isto: se você encontrar o 🧌, talvez esses exercícios estejam difíceis demais com as ferramentas que já vimos até agora. Será que, com ferramentas mais avançadas, eles se tornarão mais fáceis?</p>
-</section>
-<section>
-<h4 class="exercise-title">Exercícios de Sobrevivência Cartesiana</h4>
-<ol>
-<li>
-<strong>Mapeamento de Recursos:</strong>
-<p>Três fontes de água foram descobertas nas coordenadas (3,5), (7,2) e (4,8). Qual delas está mais próxima do abrigo localizado em (2,3)? Justifique calculando as distâncias.</p>
-</li>
-<li>
-<strong>Planejamento de Rotas:</strong>
-<p>Uma caravana precisa viajar de (0,0) para (9,6). Se eles se deslocam apenas em linhas retas paralelas aos eixos (devido a obstáculos), qual é a distância total percorrida? Compare com a distância euclidiana direta e calcule o "custo adicional" do desvio.</p>
-</li>
-<li>
-<strong>Reflexão Crítica:</strong>
-<p>"A matemática é a única ruína que ficou intacta após o colapso." Discuta esta afirmação considerando como o conhecimento do \(\mathbb{R}^2\) sobreviveu à catástrofe.</p>
-</li>
-</ol>
-</section>
-<!-- Exercícios contextualizados -->
-<section>
-<h4 class="exercise-title">Operações de Campo</h4>
-<ol>
-<li>
-<strong>Logística de Expedição:</strong>
-<p>A Comunidade Oeste precisa enviar recursos para três assentamentos localizados a (5,2), (3,7) e (8,4) a partir de sua base em (0,0). Se cada unidade de distância requer 2 unidades de combustível, e eles desejam otimizar o percurso visitando os três locais antes de retornar, calcule pelo menos duas rotas possíveis e identifique a mais eficiente.</p>
-</li>
-<li>
-<strong>Planejamento de Expansão:</strong>
-<p>Um novo abrigo será construído a 1.5 vezes a distância do abrigo atual em (4,6) na mesma direção da fonte de água em (7,10). Determine as coordenadas exatas para o novo abrigo.</p>
-</li>
-<li>
-<strong>Dilema do Explorador:</strong>
-<p>Um explorador se encontra na posição (8,3) e tem combustível para percorrer 10 unidades de distância. Represente graficamente a região que ele pode explorar e determine se ele pode alcançar os seguintes pontos de interesse: (15,8), (6,-5), (0,0).</p>
-</li>
-</ol>
-</section>
-<!-- Exercícios avançados -->
-<section>
-<h4 class="exercise-title">Problemas Vetoriais de Campo</h4>
-<ol>
-<li>
-<strong>Navegação em Tempestade:</strong>
-<p>Uma expedição se move com velocidade constante representada pelo vetor \(\vec{v} = (3,4)\) km/h. Uma tempestade de radiação cria um vento constante representado pelo vetor \(\vec{w} = (-2,1)\) km/h. Determine:</p>
-<p>a) O vetor velocidade resultante</p>
-<p>b) A velocidade efetiva (norma do vetor resultante)</p>
-<p>c) O desvio angular causado pela tempestade🧌</p>
-</li>
-<li>
-<strong>Triangulação de Sinal:</strong>
-<p>Três torres de rádio estão localizadas nas coordenadas A(0,0), B(10,0) e C(5,8). Um sinal misterioso é detectado em um local P tal que os vetores \(\overrightarrow{AP}\) e \(\overrightarrow{BP}\) formam um ângulo de 45°, e P está a 6.5 unidades de distância de C. Determine as coordenadas exatas de P.🧌</p>
-</li>
-</ol>
-</section>
-<!-- Exercícios de pontos notáveis -->
-<section>
-<h4 class="exercise-title">Cálculos de Pontos Estratégicos</h4>
-<ol>
-<li>
-<strong>Planejamento Territorial:</strong>
-<p>Três comunidades estão localizadas em A(0,0), B(12,0) e C(6,8). Elas precisam:</p>
-<p>a) Construir um posto de troca no baricentro do triângulo</p>
-<p>b) Posicionar uma torre de rádio no circuncentro 🧌</p>
-<p>c) Instalar um sistema de alarme no ortocentro 🧌</p>
-<p>Calcule as coordenadas exatas de cada instalação e a distância entre elas.🧌</p>
-</li>
-</ol>
-</section>
-<section>
-<strong>Planejamento Territorial (parte 2):</strong>
-<ol>
-<li>
-<strong>Rede de Segurança:</strong>
-<p>Uma região retangular é definida pelos pontos (0,0), (10,0), (10,8) e (0,8). Determine as coordenadas dos pontos médios de cada lado. Se uma patrulha circular seguir o caminho formado pelos pontos médios, qual será a distância total percorrida?</p>
-</li>
-<li>
-<strong>Análise de Campo:</strong>
-<p>"Quando quatro pontos notáveis de um triângulo coincidem, o triângulo é equilátero." Verifique esta afirmação matematicamente e explique por que triângulos equiláteros são estruturalmente importantes na reconstrução pós-apocalíptica.🧌</p>
-</li>
-</ol>
-</section>
-
-</section>
-<!-- Exercícios todos fim -->
-
-
-<!-- CONCLUSÃO INTEGRADA -->
-<!-- Síntese dos conceitos -->
-<section>
-<section>
-<h2>A Matemática da Reconstrução</h2>
-<p>O espaço vetorial \(\mathbb{R}^2\) não é apenas um conceito abstrato – é a <strong>linguagem fundamental</strong> para reconstruir o que foi perdido. Revisitamos:</p>
-<ul>
-<li>O <strong>plano cartesiano</strong> como nosso novo mapa universal</li>
-<li>Os <strong>vetores</strong> como ferramentas para entender movimento e força</li>
-<li>As <strong>operações</strong> que nos permitem planejar e calcular</li>
-<li>Os <strong>pontos notáveis</strong> que revelam propriedades ocultas do espaço</li>
-</ul>
-<div class="narrative-text">
-<p>Os historiadores dizem que, antes da Catástrofe, a matemática era vista como abstrata e distante da "vida real". A ironia é que, quando quase todo o conhecimento prático se perdeu, foram os princípios matemáticos que permitiram às comunidades sobreviventes reconstruir desde o básico.</p>
-</div>
-</section>
-<!-- Reflexão final -->
-<section>
-<h2>O Futuro no Plano</h2>
-<div class="quote">
-<p>"Nas cinzas da civilização, redescobrimos que o mundo sempre teve coordenadas – apenas tínhamos nos esquecido de como lê-las."</p>
-</div>
-<p>A jornada através do \(\mathbb{R}^2\) é apenas o começo. Nos próximos capítulos, expandiremos para:</p>
-<ul>
-<li>\(\mathbb{R}^3\) – O espaço de reconstrução das estruturas tridimensionais</li>
-<li>Transformações lineares – A matemática da adaptação e mudança</li>
-<li>Sistemas de coordenadas polares – Navegação baseada em ângulos e distâncias</li>
-</ul>
-<div class="survival-tip">
-<span class="emoji-icon">🧠</span> <strong>Lição Final:</strong> "A matemática é o único mapa que nunca se desgasta e nunca perde sua precisão, mesmo após o fim do mundo."
-          </div>
-</section>
-</section>
-      </div>
-</div>
 <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 <script>
-    window.MathJax = {
-      tex: {
-        inlineMath: [['\\(','\\)']],
-        displayMath: [['\\[','\\]']]
-      }
-    };
-    Reveal.initialize({
-      hash: true,
-      slideNumber: true
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+
+const SECTIONS = [
+  'capitulo-i/1-conjunto-r2.html',
+  'capitulo-i/2-operacoes-pares-ordenados.html',
+  'capitulo-i/3-vetores.html',
+  'capitulo-i/4-aplicacoes.html',
+];
+
+async function loadAndInit() {
+  const container = document.getElementById('slides');
+
+  for (const url of SECTIONS) {
+    const res  = await fetch(url);
+    const text = await res.text();
+    const doc  = new DOMParser().parseFromString(text, 'text/html');
+
+    // Inject any <style> blocks from the section file
+    doc.querySelectorAll('head style').forEach(style => {
+      document.head.appendChild(document.adoptNode(style));
     });
-  </script>
+
+    // Inject slide sections
+    const slides = doc.querySelector('.slides');
+    if (slides) {
+      [...slides.children].forEach(child =>
+        container.appendChild(document.adoptNode(child))
+      );
+    }
+  }
+
+  Reveal.initialize({ hash: true, slideNumber: true });
+
+  if (window.MathJax && MathJax.typesetPromise) {
+    MathJax.typesetPromise();
+  }
+}
+
+loadAndInit();
+</script>
 </body>
 </html>
