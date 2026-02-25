@@ -208,3 +208,17 @@ Todos os arquivos usam o mesmo esquema de cores. Não criar novas cores.
 | Texto dentro de fórmula | `\text{Foco: }` |
 | Sistemas | `\begin{cases} ... \end{cases}` |
 | Determinante | `\begin{vmatrix} ... \end{vmatrix}` |
+
+---
+
+## 9. Diretrizes Visuais (SVGs)
+
+### 9.1 Limpeza e Simplicidade
+- **Minimalismo Matemático:** SVGs devem focar nas *formas geométricas* (retângulos, ângulos, triângulos).
+- **Sem poluição de texto:** **Evite** colocar fórmulas longas, equações detalhadas ou blocos de texto denso *dentro do próprio SVG* (como "Área = $\pi r^2$"). Coloque as fórmulas e cálculos no *HTML do slide* adjacente à imagem, onde o MathJax pode renderizá-las nativamente.
+- **Limpeza do Código SVG:** Se usar softwares externos (como Inkscape), limpe o código antes de usar. Remova metadados (`<sodipodi>`, `<inkscape>`) para manter o arquivo leve e editável.
+
+### 9.2 Estilo Fallout (Terminal)
+- **Cores Oficiais:** Utilize a paleta de cores definida na Seção 6. O fundo padrão pode ser um `#0A0A0A` com opacidade, linhas principais no verde-terminal `#ADFF2F` e destaques em dourado `#FFD700`.
+- **Tipografia:** Quando precisar usar texto no SVG (como rótulos de ângulos ou medidas simples como `r` ou `30°`), defina explicitamente o atributo `font-family="monospace"` para combinar com a temática do terminal Pip-Boy.
+- **Espessura de Linhas (Legibilidade):** Use `stroke-width="3"` ou `4` para os contornos principais de polígonos/triângulos/eixos e `stroke-width="1"` ou `2` para grades, linhas pontilhadas de referência e auxiliares. Lembre-se de que a imagem será projetada, então linhas muito finas (`width="1"`) desaparecem.

@@ -47,34 +47,34 @@
                     repeatCount="indefinite"
                   />
                 </circle>
-                <!-- Linhas do ângulo -->
+                <!-- Linhas do ângulo (30 graus: 80 * cos(30) ~ 69.3, 80 * sin(-30) = -40) -->
                 <line
                   x1="0"
                   y1="0"
                   x2="80"
                   y2="0"
                   stroke="#ADFF2F"
-                  stroke-width="2.5"
+                  stroke-width="3"
                 />
                 <line
                   x1="0"
                   y1="0"
-                  x2="40"
-                  y2="-50"
+                  x2="69.3"
+                  y2="-40"
                   stroke="#ADFF2F"
-                  stroke-width="2.5"
+                  stroke-width="3"
                 />
                 <!-- Arco do ângulo com animação -->
                 <path
-                  d="M15,0 A15,15 0 0,1 7.5,-13"
+                  d="M 20,0 A 20,20 0 0,0 17.3,-10"
                   stroke="#FFD700"
-                  stroke-width="1.5"
+                  stroke-width="2"
                   fill="none"
                 />
                 <path
-                  d="M14,0 A14,14 0 0,1 7,-12.1"
+                  d="M 18,0 A 18,18 0 0,0 15.6,-9"
                   stroke="#FFD700"
-                  stroke-width="0.5"
+                  stroke-width="1"
                   fill="none"
                   opacity="0.6"
                 >
