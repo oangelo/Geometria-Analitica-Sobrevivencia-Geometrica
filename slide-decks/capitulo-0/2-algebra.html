@@ -1,0 +1,1571 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cap. 0 — Preparação para a Wasteland: Álgebra</title>
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/reveal.js/dist/theme/black.css"
+      id="theme"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+
+    <style>
+      .formula-container {
+        width: 90%;
+        margin: 0 auto;
+        background-color: rgba(40, 44, 52, 0.7);
+        border: 1px solid #33ff33;
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+
+      .two-columns {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .column {
+        width: 48%;
+      }
+
+      .formula-item {
+        margin: 15px 0;
+      }
+
+      .formula-item p:not(.formula) {
+        font-size: 1.4rem;
+        margin: 5px 0 15px 0;
+        color: #aaa;
+      }
+    </style>
+    <style>
+      .formula-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+
+      .concept-box {
+        background-color: rgba(40, 44, 52, 0.7);
+        border: 1px solid #33ff33;
+        border-radius: 5px;
+        padding: 15px;
+      }
+
+      .concept-box h4 {
+        color: #ffd700;
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 1.8rem;
+      }
+
+      .concept-box ul {
+        list-style: none;
+        padding-left: 10px;
+        margin-top: 5px;
+      }
+
+      .concept-box ul li {
+        font-size: 1.4rem;
+        margin-bottom: 5px;
+        line-height: 1.2;
+      }
+
+      .concept-box ul li::before {
+        content: ""; /* Removendo o ícone de radiação padrão para estas listas específicas */
+        position: static;
+      }
+
+      .example-box {
+        background-color: rgba(40, 44, 52, 0.7);
+        border: 1px solid #33ff33;
+        border-radius: 5px;
+        padding: 15px;
+        margin-top: 20px;
+      }
+    </style>
+    <style>
+      .canvas-container {
+        display: flex;
+        justify-content: center;
+        margin: 10px 0;
+      }
+
+      .warning-text {
+        font-family: monospace;
+        text-align: center;
+        margin-top: 10px;
+        animation: pulse 2s infinite;
+      }
+
+      .warning-text span {
+        color: #ff3333;
+        font-weight: bold;
+        padding: 5px 10px;
+        border: 1px solid #ff3333;
+        background-color: rgba(40, 44, 52, 0.7);
+      }
+
+      @keyframes pulse {
+        0% {
+          opacity: 0.7;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.7;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- ÁLGEBRA BÁSICA -->
+        <section>
+          <!-- Slide principal sobre álgebra -->
+          <section>
+            <h2>Álgebra Básica</h2>
+            <h3>Ferramentas de Sobrevivência Matemática</h3>
+            <p>
+              Como desativar armadilhas complexas com táticas algébricas
+              simples.
+            </p>
+
+            <svg
+              width="300"
+              height="120"
+              viewBox="0 0 300 120"
+              style="margin: 20px auto; display: block"
+            >
+              <!-- Terminal com equação em destaque -->
+              <rect
+                x="20"
+                y="10"
+                width="260"
+                height="100"
+                rx="5"
+                fill="#111"
+                stroke="#33ff33"
+                stroke-width="2"
+              />
+              <rect
+                x="30"
+                y="20"
+                width="240"
+                height="80"
+                rx="2"
+                fill="#222"
+                stroke="#33ff33"
+                stroke-width="1"
+              />
+              <text x="40" y="40" fill="#33ff33" font-size="14">
+                2(3x - 4) + 5 = 7(x + 1) - 10
+              </text>
+              <line
+                x1="40"
+                y1="50"
+                x2="260"
+                y2="50"
+                stroke="#33ff33"
+                stroke-width="1"
+                stroke-dasharray="2,2"
+              />
+              <text x="40" y="70" fill="#33ff33" font-size="14">
+                6x - 8 + 5 = 7x + 7 - 10
+              </text>
+              <text x="40" y="90" fill="#33ff33" font-size="14">
+                6x - 3 = 7x - 3 → x = 0
+              </text>
+            </svg>
+
+            <p>
+              Dominar a álgebra significa sobreviver onde outros falham:
+              terminais bloqueados, cálculos de radiação, e sistemas de
+              segurança complexos.
+            </p>
+          </section>
+
+          <!-- Slide sobre propriedades distributivas -->
+          <!-- Slide 1: Forma Básica -->
+          <section>
+            <h3>Propriedade Distributiva: Tática de Desmontagem</h3>
+            <p>
+              Decomponha expressões complexas, ótimo para desmontar armadilhas
+              na wasteland.
+            </p>
+
+            <div class="formula-container">
+              <p class="formula">\( a(b + c) = ab + ac \)</p>
+            </div>
+
+            <div class="visual-container">
+              <svg width="550" height="220" viewBox="0 0 550 220">
+                <!-- Lado esquerdo: a(b+c) -->
+                <g transform="translate(20,10)">
+                  <!-- Título -->
+                  <text
+                    x="100"
+                    y="30"
+                    fill="#FFD700"
+                    font-size="20"
+                    text-anchor="middle"
+                  >
+                    a(b + c)
+                  </text>
+
+                  <!-- Retângulo representando a(b+c) -->
+                  <rect
+                    x="30"
+                    y="50"
+                    width="140"
+                    height="120"
+                    fill="none"
+                    stroke="#33ff33"
+                    stroke-width="3"
+                  />
+
+                  <!-- Divisão entre b e c -->
+                  <line
+                    x1="100"
+                    y1="50"
+                    x2="100"
+                    y2="170"
+                    stroke="#33ff33"
+                    stroke-width="2"
+                    stroke-dasharray="5,5"
+                  />
+
+                  <!-- Barra horizontal com tics para b+c -->
+                  <line
+                    x1="30"
+                    y1="190"
+                    x2="170"
+                    y2="190"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="30"
+                    y1="185"
+                    x2="30"
+                    y2="195"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="100"
+                    y1="185"
+                    x2="100"
+                    y2="195"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="170"
+                    y1="185"
+                    x2="170"
+                    y2="195"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <text
+                    x="65"
+                    y="210"
+                    fill="#FFD700"
+                    font-size="18"
+                    text-anchor="middle"
+                  >
+                    b
+                  </text>
+                  <text
+                    x="135"
+                    y="210"
+                    fill="#FFD700"
+                    font-size="18"
+                    text-anchor="middle"
+                  >
+                    c
+                  </text>
+
+                  <!-- Barra vertical para a -->
+                  <line
+                    x1="10"
+                    y1="50"
+                    x2="10"
+                    y2="170"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="5"
+                    y1="50"
+                    x2="15"
+                    y2="50"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="5"
+                    y1="170"
+                    x2="15"
+                    y2="170"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <text
+                    x="10"
+                    y="110"
+                    fill="#FFD700"
+                    font-size="18"
+                    text-anchor="middle"
+                    transform="rotate(-90,10,110)"
+                  >
+                    a
+                  </text>
+                </g>
+
+                <!-- Sinal de igual -->
+                <text
+                  x="275"
+                  y="120"
+                  fill="#FFD700"
+                  font-size="32"
+                  text-anchor="middle"
+                >
+                  =
+                </text>
+
+                <!-- Lado direito: ab + ac -->
+                <g transform="translate(300,10)">
+                  <!-- Título -->
+                  <text
+                    x="100"
+                    y="30"
+                    fill="#FFD700"
+                    font-size="20"
+                    text-anchor="middle"
+                  >
+                    ab + ac
+                  </text>
+
+                  <!-- Primeiro retângulo (ab) -->
+                  <rect
+                    x="30"
+                    y="50"
+                    width="70"
+                    height="120"
+                    fill="rgba(51, 255, 51, 0.3)"
+                    stroke="#33ff33"
+                    stroke-width="3"
+                  />
+                  <text
+                    x="65"
+                    y="110"
+                    fill="#33ff33"
+                    font-size="24"
+                    text-anchor="middle"
+                  >
+                    ab
+                  </text>
+
+                  <!-- Segundo retângulo (ac) -->
+                  <rect
+                    x="130"
+                    y="50"
+                    width="70"
+                    height="120"
+                    fill="rgba(51, 255, 51, 0.3)"
+                    stroke="#33ff33"
+                    stroke-width="3"
+                  />
+                  <text
+                    x="165"
+                    y="110"
+                    fill="#33ff33"
+                    font-size="24"
+                    text-anchor="middle"
+                  >
+                    ac
+                  </text>
+
+                  <!-- Sinal de + -->
+                  <text
+                    x="110"
+                    y="110"
+                    fill="#FFD700"
+                    font-size="24"
+                    text-anchor="middle"
+                  >
+                    +
+                  </text>
+
+                  <!-- Barra horizontal com tics -->
+                  <line
+                    x1="30"
+                    y1="190"
+                    x2="200"
+                    y2="190"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="30"
+                    y1="185"
+                    x2="30"
+                    y2="195"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="100"
+                    y1="185"
+                    x2="100"
+                    y2="195"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="130"
+                    y1="185"
+                    x2="130"
+                    y2="195"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="200"
+                    y1="185"
+                    x2="200"
+                    y2="195"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <text
+                    x="65"
+                    y="210"
+                    fill="#FFD700"
+                    font-size="18"
+                    text-anchor="middle"
+                  >
+                    b
+                  </text>
+                  <text
+                    x="165"
+                    y="210"
+                    fill="#FFD700"
+                    font-size="18"
+                    text-anchor="middle"
+                  >
+                    c
+                  </text>
+
+                  <!-- Barra vertical para a -->
+                  <line
+                    x1="10"
+                    y1="50"
+                    x2="10"
+                    y2="170"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="5"
+                    y1="50"
+                    x2="15"
+                    y2="50"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="5"
+                    y1="170"
+                    x2="15"
+                    y2="170"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <text
+                    x="10"
+                    y="110"
+                    fill="#FFD700"
+                    font-size="18"
+                    text-anchor="middle"
+                    transform="rotate(-90,10,110)"
+                  >
+                    a
+                  </text>
+                </g>
+              </svg>
+            </div>
+          </section>
+
+          <!-- Slide 2: Aplicação Avançada -->
+          <section>
+            <h3>Propriedade Distributiva: Aplicação Avançada</h3>
+            <p>
+              Enfrentando expressões mais complexas na wasteland matemática.
+            </p>
+
+            <div class="formula-container">
+              <p class="formula">\( (a + b)(c + d) = ac + ad + bc + bd \)</p>
+            </div>
+
+            <div class="visual-container">
+              <svg width="600" height="290" viewBox="0 0 600 260">
+                <g transform="translate(100,30)">
+                  <!-- Título -->
+                  <text
+                    x="200"
+                    y="20"
+                    fill="#FFD700"
+                    font-size="18"
+                    text-anchor="middle"
+                  >
+                    (a + b)(c + d) = ac + ad + bc + bd
+                  </text>
+
+                  <!-- Grade principal -->
+                  <rect
+                    x="50"
+                    y="50"
+                    width="300"
+                    height="150"
+                    fill="none"
+                    stroke="#33ff33"
+                    stroke-width="3"
+                  />
+
+                  <!-- Divisão vertical -->
+                  <line
+                    x1="200"
+                    y1="50"
+                    x2="200"
+                    y2="200"
+                    stroke="#33ff33"
+                    stroke-width="2"
+                  />
+
+                  <!-- Divisão horizontal -->
+                  <line
+                    x1="50"
+                    y1="125"
+                    x2="350"
+                    y2="125"
+                    stroke="#33ff33"
+                    stroke-width="2"
+                  />
+
+                  <!-- Quadrantes com termos -->
+                  <g>
+                    <!-- ac -->
+                    <rect
+                      x="50"
+                      y="50"
+                      width="150"
+                      height="75"
+                      fill="rgba(51, 255, 51, 0.2)"
+                      stroke="#33ff33"
+                      stroke-width="1"
+                    />
+                    <text
+                      x="125"
+                      y="87"
+                      fill="#FFD700"
+                      font-size="24"
+                      text-anchor="middle"
+                    >
+                      ac
+                    </text>
+
+                    <!-- ad -->
+                    <rect
+                      x="200"
+                      y="50"
+                      width="150"
+                      height="75"
+                      fill="rgba(51, 255, 51, 0.2)"
+                      stroke="#33ff33"
+                      stroke-width="1"
+                    />
+                    <text
+                      x="275"
+                      y="87"
+                      fill="#FFD700"
+                      font-size="24"
+                      text-anchor="middle"
+                    >
+                      ad
+                    </text>
+
+                    <!-- bc -->
+                    <rect
+                      x="50"
+                      y="125"
+                      width="150"
+                      height="75"
+                      fill="rgba(51, 255, 51, 0.2)"
+                      stroke="#33ff33"
+                      stroke-width="1"
+                    />
+                    <text
+                      x="125"
+                      y="162"
+                      fill="#FFD700"
+                      font-size="24"
+                      text-anchor="middle"
+                    >
+                      bc
+                    </text>
+
+                    <!-- bd -->
+                    <rect
+                      x="200"
+                      y="125"
+                      width="150"
+                      height="75"
+                      fill="rgba(51, 255, 51, 0.2)"
+                      stroke="#33ff33"
+                      stroke-width="1"
+                    />
+                    <text
+                      x="275"
+                      y="162"
+                      fill="#FFD700"
+                      font-size="24"
+                      text-anchor="middle"
+                    >
+                      bd
+                    </text>
+                  </g>
+
+                  <!-- Barra vertical com tics para (a+b) -->
+                  <line
+                    x1="20"
+                    y1="50"
+                    x2="20"
+                    y2="200"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="15"
+                    y1="50"
+                    x2="25"
+                    y2="50"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="15"
+                    y1="125"
+                    x2="25"
+                    y2="125"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="15"
+                    y1="200"
+                    x2="25"
+                    y2="200"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <text x="35" y="87" fill="#FFD700" font-size="18">a</text>
+                  <text x="35" y="162" fill="#FFD700" font-size="18">b</text>
+
+                  <!-- Barra horizontal com tics para (c+d) -->
+                  <line
+                    x1="50"
+                    y1="220"
+                    x2="350"
+                    y2="220"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="50"
+                    y1="215"
+                    x2="50"
+                    y2="225"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="200"
+                    y1="215"
+                    x2="200"
+                    y2="225"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="350"
+                    y1="215"
+                    x2="350"
+                    y2="225"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <text
+                    x="125"
+                    y="240"
+                    fill="#FFD700"
+                    font-size="18"
+                    text-anchor="middle"
+                  >
+                    c
+                  </text>
+                  <text
+                    x="275"
+                    y="240"
+                    fill="#FFD700"
+                    font-size="18"
+                    text-anchor="middle"
+                  >
+                    d
+                  </text>
+                </g>
+              </svg>
+            </div>
+          </section>
+
+          <!-- Slide 3: Exemplos Práticos -->
+          <section>
+            <h3>Propriedade Distributiva: Exemplos de Sobrevivência</h3>
+            <p>Aplicações práticas para sua jornada na wasteland.</p>
+
+            <div class="examples-container">
+              <div class="example-box forma-basica">
+                <h4>Forma Básica</h4>
+                <div class="example-content">
+                  <p class="formula">
+                    \( 3(x + 2) = 3 \cdot x + 3 \cdot 2 = 3x + 6 \)
+                  </p>
+                </div>
+                <p class="explanation">
+                  Distribua o multiplicador externo (3) para cada termo dentro
+                  dos parênteses.
+                </p>
+              </div>
+
+              <div class="example-box prod-binomios">
+                <h4>Produto de Binômios</h4>
+                <div class="example-content">
+                  <p class="formula">
+                    \( (x + 3)(x + 2) = x \cdot x + x \cdot 2 + 3 \cdot x + 3
+                    \cdot 2 = x^2 + 2x + 3x + 6 =\)
+                  </p>
+                  <p class="formula">\(= x^2 + 5x + 6 \)</p>
+                </div>
+                <p class="explanation">
+                  Multiplique cada termo do primeiro parênteses por cada termo
+                  do segundo. Essencial para calcular áreas em planejamento de
+                  assentamentos.
+                </p>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div class="tactical-tip">
+              <p>
+                <strong>DICA TÁTICA:</strong> Quando desmonta uma expressão
+                distributiva, sempre verifique seu trabalho multiplicando cada
+                termo externo por cada termo interno. Contabilize todos os
+                produtos - uma omissão pode ser fatal na wasteland matemática.
+              </p>
+            </div>
+          </section>
+
+          <!-- Slide sobre potências-->
+          <section>
+            <h3>Propriedades das Potências: Protocolos de Amplificação</h3>
+
+            <div class="formula-container">
+              <div class="two-columns">
+                <div class="column">
+                  <div class="formula-item">
+                    <p class="formula">\( x^a \cdot x^b = x^{a+b} \)</p>
+                    <p>Multiplicação: some os expoentes</p>
+                  </div>
+                  <div class="formula-item">
+                    <p class="formula">\( (x^a)^b = x^{a \cdot b} \)</p>
+                    <p>Potência de potência: multiplique os expoentes</p>
+                  </div>
+                  <div class="formula-item">
+                    <p class="formula">\( (x/y)^a = x^a / y^a \)</p>
+                    <p>Potência de quociente: distribua o expoente</p>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="formula-item">
+                    <p class="formula">\( x^a \div x^b = x^{a-b} \)</p>
+                    <p>Divisão: subtraia os expoentes</p>
+                  </div>
+                  <div class="formula-item">
+                    <p class="formula">\( (x \cdot y)^a = x^a \cdot y^a \)</p>
+                    <p>Potência de produto: distribua o expoente</p>
+                  </div>
+                  <div class="formula-item">
+                    <p class="formula">\( x^{-a} = 1/x^a \)</p>
+                    <p>Expoente negativo: inverta a base</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p>
+              <em
+                >Memorize estas leis para sobreviver a cálculos complexos quando
+                cada segundo conta.</em
+              >
+            </p>
+          </section>
+
+          <!-- Slide sobre aplicações das potências (separado) -->
+          <section>
+            <h3>Aplicações das Potências</h3>
+            <p>Fórmulas essenciais para modelar fenômenos da wasteland.</p>
+
+            <div class="formula-grid">
+              <div class="concept-box">
+                <h4>Crescimento Populacional</h4>
+                <p class="formula">\( P = P_0(1+r)^t \)</p>
+                <ul>
+                  <li>\( P_0 \) = população inicial</li>
+                  <li>\( r \) = taxa de crescimento</li>
+                  <li>\( t \) = tempo</li>
+                </ul>
+              </div>
+
+              <div class="concept-box">
+                <h4>Decaimento Radioativo</h4>
+                <p class="formula">\( A = A_0(1/2)^{t/h} \)</p>
+                <ul>
+                  <li>\( A_0 \) = atividade inicial</li>
+                  <li>\( h \) = meia-vida</li>
+                  <li>\( t \) = tempo</li>
+                </ul>
+              </div>
+            </div>
+            <div class="example-box">
+              <p>
+                <strong>Exemplo prático:</strong> Se sua colônia começa com 20
+                pessoas e cresce 10% ao ano, após 5 anos terá:
+              </p>
+              <p class="formula">
+                \( P = 20 \cdot (1+0.1)^5 = 20 \cdot 1.1^5 = 20 \cdot 1.61
+                \approx 32 \text{ pessoas} \)
+              </p>
+            </div>
+          </section>
+
+          <!-- Slide sobre produtos notáveis - quadrados -->
+          <section>
+            <h3>Produtos Notáveis: Quadrados de Binômios</h3>
+            <p>
+              Padrões reconhecíveis que economizam tempo e recursos em cálculos
+              complexos.
+            </p>
+
+            <div class="concept-box">
+              <h3>Quadrado da Soma</h3>
+              <p class="formula">(a + b)² = a² + 2ab + b²</p>
+              <svg width="120" height="120" viewBox="0 0 120 120">
+                <rect
+                  x="10"
+                  y="10"
+                  width="100"
+                  height="100"
+                  fill="none"
+                  stroke="#33ff33"
+                  stroke-width="2"
+                />
+                <line
+                  x1="70"
+                  y1="10"
+                  x2="70"
+                  y2="110"
+                  stroke="#33ff33"
+                  stroke-width="2"
+                />
+                <line
+                  x1="10"
+                  y1="70"
+                  x2="110"
+                  y2="70"
+                  stroke="#33ff33"
+                  stroke-width="2"
+                />
+                <text x="35" y="40" fill="#33ff33" font-size="16">a²</text>
+                <text x="85" y="40" fill="#33ff33" font-size="16">ab</text>
+                <text x="35" y="90" fill="#33ff33" font-size="16">ab</text>
+                <text x="85" y="90" fill="#33ff33" font-size="16">b²</text>
+              </svg>
+            </div>
+          </section>
+          <section>
+            <h3>Produtos Notáveis: Quadrados de Binômios</h3>
+
+            <div class="flex-container">
+              <div class="concept-box">
+                <h3>Quadrado da Diferença</h3>
+                <p class="formula">(a - b)² = a² - 2ab + b²</p>
+                <svg width="120" height="120" viewBox="0 0 120 120">
+                  <rect
+                    x="10"
+                    y="10"
+                    width="100"
+                    height="100"
+                    fill="none"
+                    stroke="#33ff33"
+                    stroke-width="2"
+                  />
+                  <rect
+                    x="70"
+                    y="10"
+                    width="40"
+                    height="60"
+                    fill="rgba(255, 0, 0, 0.2)"
+                    stroke="none"
+                  />
+                  <rect
+                    x="10"
+                    y="70"
+                    width="60"
+                    height="40"
+                    fill="rgba(255, 0, 0, 0.2)"
+                    stroke="none"
+                  />
+                  <line
+                    x1="70"
+                    y1="10"
+                    x2="70"
+                    y2="110"
+                    stroke="#33ff33"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="10"
+                    y1="70"
+                    x2="110"
+                    y2="70"
+                    stroke="#33ff33"
+                    stroke-width="2"
+                  />
+                  <text x="35" y="40" fill="#33ff33" font-size="16">a²</text>
+                  <text x="85" y="40" fill="#ff3333" font-size="16">-ab</text>
+                  <text x="35" y="90" fill="#ff3333" font-size="16">-ab</text>
+                  <text x="85" y="90" fill="#33ff33" font-size="16">b²</text>
+                </svg>
+              </div>
+            </div>
+
+            <div
+              style="
+                background-color: rgba(40, 44, 52, 0.7);
+                border: 1px solid #33ff33;
+                padding: 10px;
+                margin-top: 20px;
+                border-radius: 5px;
+              "
+            >
+              <div style="display: flex; justify-content: space-around">
+                <div style="width: 45%">
+                  <p><strong>Exemplo:</strong> Expandir (x + 3)²</p>
+                  <p class="formula">= x² + 2(x)(3) + 3²</p>
+                  <p class="formula">= x² + 6x + 9</p>
+                </div>
+                <div style="width: 45%">
+                  <p><strong>Exemplo:</strong> Expandir (2x - 5)²</p>
+                  <p class="formula">= (2x)² - 2(2x)(5) + 5²</p>
+                  <p class="formula">= 4x² - 20x + 25</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide sobre diferença de quadrados -->
+          <section>
+            <h3>Produtos Notáveis: Diferença de Quadrados</h3>
+            <p>
+              Um padrão essencial para fatoração e simplificação de expressões.
+            </p>
+
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 20px 0;
+              "
+            >
+              <div
+                style="
+                  width: 55%;
+                  background-color: rgba(40, 44, 52, 0.7);
+                  border: 1px solid #33ff33;
+                  padding: 15px;
+                  border-radius: 5px;
+                "
+              >
+                <p class="formula" style="font-size: 1.3em; text-align: center">
+                  a² - b² = (a + b)(a - b)
+                </p>
+
+                <div style="margin-top: 20px">
+                  <p style="margin: 5px 0">
+                    <strong>Exemplo 1:</strong> Fatorar x² - 4
+                  </p>
+                  <p class="formula">= x² - 2²</p>
+                  <p class="formula">= (x + 2)(x - 2)</p>
+                </div>
+
+                <div style="margin-top: 20px">
+                  <p style="margin: 5px 0">
+                    <strong>Exemplo 2:</strong> Fatorar 9y² - 25
+                  </p>
+                  <p class="formula">= (3y)² - 5²</p>
+                  <p class="formula">= (3y + 5)(3y - 5)</p>
+                </div>
+              </div>
+
+              <div style="width: 40%">
+                <svg width="180" height="180" viewBox="0 0 180 180">
+                  <rect
+                    x="10"
+                    y="10"
+                    width="160"
+                    height="160"
+                    fill="none"
+                    stroke="#33ff33"
+                    stroke-width="2"
+                  />
+                  <!-- a² -->
+                  <rect
+                    x="10"
+                    y="10"
+                    width="160"
+                    height="160"
+                    fill="none"
+                    stroke="#33ff33"
+                    stroke-width="2"
+                  />
+                  <!-- b² -->
+                  <rect
+                    x="50"
+                    y="50"
+                    width="80"
+                    height="80"
+                    fill="rgba(255, 0, 0, 0.2)"
+                    stroke="#ff3333"
+                    stroke-width="2"
+                  />
+                  <!-- Rótulos -->
+                  <text x="30" y="30" fill="#33ff33" font-size="16">a²</text>
+                  <text x="90" y="90" fill="#ff3333" font-size="16">b²</text>
+                  <text x="90" y="160" fill="#FFD700" font-size="12">
+                    a² - b² = área em verde
+                  </text>
+                </svg>
+              </div>
+            </div>
+
+            <p style="text-align: center">
+              Aplicação na wasteland: Decompor áreas complexas para cálculos de
+              perímetros defensivos e divisão de território entre assentamentos.
+            </p>
+          </section>
+
+          <!-- Slide sobre cubo de binômio (separado) -->
+          <section>
+            <h3>Cubo de Binômio: Expansão de Volume</h3>
+            <p>Para calcular espaços tridimensionais de forma eficiente.</p>
+
+            <div class="formula-container">
+              <p class="formula">\( (a + b)^3 = a^3 + 3a^2b + 3ab^2 + b^3 \)</p>
+            </div>
+
+            <div class="visual-container">
+              <svg width="780" height="250" viewBox="0 0 780 250">
+                <!-- Cubo a³ (amarelo) -->
+                <g transform="translate(30,60)">
+                  <!-- Face frontal -->
+                  <polygon
+                    points="0,0 0,80 80,80 80,0"
+                    fill="#FFED97"
+                    stroke="#33ff33"
+                    stroke-width="2"
+                  />
+                  <!-- Face superior -->
+                  <polygon
+                    points="0,0 30,-20 110,-20 80,0"
+                    fill="#FFE970"
+                    stroke="#33ff33"
+                    stroke-width="2"
+                  />
+                  <!-- Face lateral -->
+                  <polygon
+                    points="80,0 110,-20 110,60 80,80"
+                    fill="#FFD970"
+                    stroke="#33ff33"
+                    stroke-width="2"
+                  />
+                  <text
+                    x="40"
+                    y="40"
+                    fill="#000"
+                    font-size="24"
+                    text-anchor="middle"
+                    dominant-baseline="middle"
+                  >
+                    a³
+                  </text>
+                </g>
+
+                <!-- Sinal de + -->
+                <text
+                  x="150"
+                  y="100"
+                  fill="#33ff33"
+                  font-size="36"
+                  text-anchor="middle"
+                >
+                  +
+                </text>
+
+                <!-- 3a²b (três prismas retangulares) em azul claro -->
+                <g transform="translate(190,60)">
+                  <!-- Primeiro prisma a²b -->
+                  <polygon
+                    points="0,0 0,80 20,80 20,0"
+                    fill="#97CAFF"
+                    stroke="#33ff33"
+                    stroke-width="2"
+                  />
+                  <polygon
+                    points="0,0 10,-8 30,-8 20,0"
+                    fill="#AAD4FF"
+                    stroke="#33ff33"
+                    stroke-width="2"
+                  />
+                  <polygon
+                    points="20,0 30,-8 30,72 20,80"
+                    fill="#88C0FF"
+                    stroke="#33ff33"
+                    stroke-width="2"
+                  />
+
+                  <!-- Segundo prisma a²b (deslocado) -->
+                  <g transform="translate(25,0)">
+                    <polygon
+                      points="0,0 0,80 20,80 20,0"
+                      fill="#97CAFF"
+                      stroke="#33ff33"
+                      stroke-width="2"
+                    />
+                    <polygon
+                      points="0,0 10,-8 30,-8 20,0"
+                      fill="#AAD4FF"
+                      stroke="#33ff33"
+                      stroke-width="2"
+                    />
+                    <polygon
+                      points="20,0 30,-8 30,72 20,80"
+                      fill="#88C0FF"
+                      stroke="#33ff33"
+                      stroke-width="2"
+                    />
+                  </g>
+
+                  <!-- Terceiro prisma a²b (deslocado mais) -->
+                  <g transform="translate(50,0)">
+                    <polygon
+                      points="0,0 0,80 20,80 20,0"
+                      fill="#97CAFF"
+                      stroke="#33ff33"
+                      stroke-width="2"
+                    />
+                    <polygon
+                      points="0,0 10,-8 30,-8 20,0"
+                      fill="#AAD4FF"
+                      stroke="#33ff33"
+                      stroke-width="2"
+                    />
+                    <polygon
+                      points="20,0 30,-8 30,72 20,80"
+                      fill="#88C0FF"
+                      stroke="#33ff33"
+                      stroke-width="2"
+                    />
+                  </g>
+
+                  <text
+                    x="40"
+                    y="95"
+                    fill="#FFD700"
+                    font-size="16"
+                    text-anchor="middle"
+                  >
+                    3a²b
+                  </text>
+                </g>
+
+                <!-- Sinal de + -->
+                <text
+                  x="310"
+                  y="100"
+                  fill="#33ff33"
+                  font-size="36"
+                  text-anchor="middle"
+                >
+                  +
+                </text>
+
+                <!-- 3ab² (três prismas planos) em laranja -->
+                <g transform="translate(350,60)">
+                  <!-- Primeiro prisma ab² -->
+                  <polygon
+                    points="0,0 0,20 80,20 80,0"
+                    fill="#FFAA77"
+                    stroke="#33ff33"
+                    stroke-width="2"
+                  />
+                  <polygon
+                    points="0,0 15,-10 95,-10 80,0"
+                    fill="#FFBB88"
+                    stroke="#33ff33"
+                    stroke-width="2"
+                  />
+                  <polygon
+                    points="80,0 95,-10 95,10 80,20"
+                    fill="#FF9966"
+                    stroke="#33ff33"
+                    stroke-width="2"
+                  />
+
+                  <!-- Segundo prisma ab² (deslocado para baixo) -->
+                  <g transform="translate(0,25)">
+                    <polygon
+                      points="0,0 0,20 80,20 80,0"
+                      fill="#FFAA77"
+                      stroke="#33ff33"
+                      stroke-width="2"
+                    />
+                    <polygon
+                      points="0,0 15,-10 95,-10 80,0"
+                      fill="#FFBB88"
+                      stroke="#33ff33"
+                      stroke-width="2"
+                    />
+                    <polygon
+                      points="80,0 95,-10 95,10 80,20"
+                      fill="#FF9966"
+                      stroke="#33ff33"
+                      stroke-width="2"
+                    />
+                  </g>
+
+                  <!-- Terceiro prisma ab² (deslocado mais para baixo) -->
+                  <g transform="translate(0,50)">
+                    <polygon
+                      points="0,0 0,20 80,20 80,0"
+                      fill="#FFAA77"
+                      stroke="#33ff33"
+                      stroke-width="2"
+                    />
+                    <polygon
+                      points="0,0 15,-10 95,-10 80,0"
+                      fill="#FFBB88"
+                      stroke="#33ff33"
+                      stroke-width="2"
+                    />
+                    <polygon
+                      points="80,0 95,-10 95,10 80,20"
+                      fill="#FF9966"
+                      stroke="#33ff33"
+                      stroke-width="2"
+                    />
+                  </g>
+
+                  <text
+                    x="45"
+                    y="115"
+                    fill="#FFD700"
+                    font-size="16"
+                    text-anchor="middle"
+                  >
+                    3ab²
+                  </text>
+                </g>
+
+                <!-- Sinal de + -->
+                <text
+                  x="470"
+                  y="100"
+                  fill="#33ff33"
+                  font-size="36"
+                  text-anchor="middle"
+                >
+                  +
+                </text>
+
+                <!-- b³ (cubo vermelho) -->
+                <g transform="translate(500,75)">
+                  <polygon
+                    points="0,0 0,30 30,30 30,0"
+                    fill="#FF6655"
+                    stroke="#33ff33"
+                    stroke-width="2"
+                  />
+                  <polygon
+                    points="0,0 15,-10 45,-10 30,0"
+                    fill="#FF7766"
+                    stroke="#33ff33"
+                    stroke-width="2"
+                  />
+                  <polygon
+                    points="30,0 45,-10 45,20 30,30"
+                    fill="#FF5544"
+                    stroke="#33ff33"
+                    stroke-width="2"
+                  />
+                  <text
+                    x="15"
+                    y="45"
+                    fill="#FFD700"
+                    font-size="16"
+                    text-anchor="middle"
+                  >
+                    b³
+                  </text>
+                </g>
+
+                <!-- Sinal de = -->
+                <text
+                  x="570"
+                  y="100"
+                  fill="#33ff33"
+                  font-size="36"
+                  text-anchor="middle"
+                >
+                  =
+                </text>
+
+                <!-- Cubo completo (a+b)³ -->
+                <g transform="translate(610,30)">
+                  <!-- Face frontal -->
+                  <polygon
+                    points="0,0 0,110 110,110 110,0"
+                    fill="rgba(255,255,220,0.2)"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <!-- Face superior -->
+                  <polygon
+                    points="0,0 30,-20 140,-20 110,0"
+                    fill="rgba(230,230,255,0.2)"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <!-- Face lateral -->
+                  <polygon
+                    points="110,0 140,-20 140,90 110,110"
+                    fill="rgba(255,220,200,0.2)"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+
+                  <!-- Linhas internas para mostrar a divisão -->
+                  <line
+                    x1="80"
+                    y1="0"
+                    x2="80"
+                    y2="110"
+                    stroke="#FFD700"
+                    stroke-width="1"
+                    stroke-dasharray="4,2"
+                  />
+                  <line
+                    x1="0"
+                    y1="80"
+                    x2="110"
+                    y2="80"
+                    stroke="#FFD700"
+                    stroke-width="1"
+                    stroke-dasharray="4,2"
+                  />
+                  <line
+                    x1="30"
+                    y1="-20"
+                    x2="30"
+                    y2="90"
+                    stroke="#FFD700"
+                    stroke-width="1"
+                    stroke-dasharray="4,2"
+                  />
+                  <line
+                    x1="110"
+                    y1="30"
+                    x2="140"
+                    y2="10"
+                    stroke="#FFD700"
+                    stroke-width="1"
+                    stroke-dasharray="4,2"
+                  />
+
+                  <text
+                    x="55"
+                    y="130"
+                    fill="#FFD700"
+                    font-size="18"
+                    text-anchor="middle"
+                  >
+                    (a+b)³
+                  </text>
+                </g>
+              </svg>
+            </div>
+
+            <p class="footer-note">
+              Aplicação na wasteland: Cálculo preciso de volume de bunkers,
+              reservatórios de água e depósitos de suprimentos.
+            </p>
+          </section>
+
+          <section>
+            <h3>Cubo de Binômio: Exemplos de Cálculo</h3>
+            <p>Simulações do "Vault-Tec" para cálculos volumétricos rápidos.</p>
+
+            <div class="examples-container">
+              <div class="example-box">
+                <h4>Exemplo: Expandir \( (x + 2)^3 \)</h4>
+                <div class="formula-steps">
+                  <p class="formula">
+                    \( (x + 2)^3 = x^3 + 3x^2(2) + 3x(2)^2 + 2^3 \)
+                  </p>
+                  <p class="formula">\( = x^3 + 6x^2 + 12x + 8 \)</p>
+                </div>
+                <p class="example-note">
+                  Use esta fórmula para calcular o volume de um abrigo cúbico
+                  com extensão.
+                </p>
+              </div>
+
+              <div class="example-box">
+                <h4>Exemplo: Expandir \( (x - 1)^3 \)</h4>
+                <div class="formula-steps">
+                  <p class="formula">
+                    \( (x - 1)^3 = x^3 + 3x^2(-1) + 3x(-1)^2 + (-1)^3 \)
+                  </p>
+                  <p class="formula">\( = x^3 - 3x^2 + 3x - 1 \)</p>
+                </div>
+                <p class="example-note">
+                  Útil para calcular reduções de volume em projetos de
+                  engenharia.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h3>Cubo de Binômio: Exemplos de Cálculo 2</h3>
+            <p>Simulações do "Vault-Tec" para cálculos volumétricos rápidos.</p>
+
+            <div class="examples-container">
+              <div class="example-box">
+                <h4>Exemplo: Expandir \( (2x + y)^3 \)</h4>
+                <div class="formula-steps">
+                  <p class="formula">
+                    \( (2x + y)^3 = (2x)^3 + 3(2x)^2(y) + 3(2x)(y)^2 + y^3 \)
+                  </p>
+                  <p class="formula">\( = 8x^3 + 12x^2y + 6xy^2 + y^3 \)</p>
+                </div>
+                <p class="example-note">
+                  Aplicável no dimensionamento de bunkers com diferentes
+                  proporções.
+                </p>
+              </div>
+            </div>
+            <div class="training-note">
+              <p>
+                <strong>Treinamento de Sobrevivência:</strong> Calcule o volume
+                do abrigo expresso como \( (3r + h)^3 \), onde \( r \) é o raio
+                de proteção e \( h \) é a altura da blindagem.
+              </p>
+            </div>
+          </section>
+
+          <!-- Slide sobre simplificação de expressões -->
+          <section>
+            <h3>Simplificação de Expressões: Protocolo de Otimização</h3>
+            <p>
+              Método para reduzir a complexidade e economizar recursos mentais
+              em situações de estresse.
+            </p>
+
+            <div
+              style="
+                background-color: rgba(40, 44, 52, 0.7);
+                border: 1px solid #33ff33;
+                padding: 15px;
+                margin: 10px 0;
+                border-radius: 5px;
+              "
+            >
+              <h3>Exemplo: Desativação de Sistema de Segurança</h3>
+              <p class="formula">\(\frac{x^2 - 4x + 4}{x - 2}\)</p>
+
+              <ol style="text-align: left">
+                <li>Identificar padrões: \(x^2 - 4x + 4 = (x - 2)^2\)</li>
+                <li>Substituir: \(\frac{(x - 2)^2}{x - 2}\)</li>
+                <li>
+                  Simplificar: \(\frac{(x - 2)^2}{x - 2} = (x - 2)\) para \(x
+                  \neq 2\)
+                </li>
+                <li>
+                  Verificar restrições: \(x \neq 2\) (valor que anula o
+                  denominador)
+                </li>
+                <li>Resultado final: \(x - 2\)</li>
+              </ol>
+            </div>
+          </section>
+          <section>
+            <p>Passos táticos para simplificação eficiente:</p>
+            <ul>
+              <li>Agrupar termos semelhantes (estratégia de agrupamento)</li>
+              <li>
+                Fatorar expressões quando possível (tática de decomposição)
+              </li>
+              <li>Identificar produtos notáveis (reconhecimento de padrões)</li>
+              <li>Racionalizar denominadores (neutralização de ameaças)</li>
+              <li>Verifique sempre as restrições (protocolo de segurança)</li>
+            </ul>
+          </section>
+        </section>
+
+      </div>
+    </div>
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["\\(", "\\)"]],
+          displayMath: [["\\[", "\\]"]],
+        },
+      };
+      Reveal.initialize({
+        hash: true,
+        slideNumber: true,
+      });
+    </script>
+  </body>
+</html>

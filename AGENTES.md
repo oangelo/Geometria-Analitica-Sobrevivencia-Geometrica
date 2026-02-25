@@ -29,6 +29,8 @@ Os arquivos `prompt.md` originais em cada pasta continuam como **referência det
 
 ## Convenções gerais
 
+> Ver **[ESTILO.md](ESTILO.md)** para o guia completo de notação matemática, paleta de cores e critérios de qualidade dos enunciados.
+
 - **Nomenclatura de arquivos**: kebab-case minúsculo (ex: `p1-2025-1.html`)
 - **Fórmulas**: sempre MathJax com a classe `formula`
 - **Sem cálculo**: todo o material usa apenas álgebra, geometria e trigonometria básica

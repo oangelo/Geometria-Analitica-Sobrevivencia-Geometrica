@@ -1,0 +1,1069 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cap. 0 — Preparação para a Wasteland: Introdução</title>
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/reveal.js/dist/theme/black.css"
+      id="theme"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+
+    <style>
+      .formula-container {
+        width: 90%;
+        margin: 0 auto;
+        background-color: rgba(40, 44, 52, 0.7);
+        border: 1px solid #33ff33;
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+
+      .two-columns {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .column {
+        width: 48%;
+      }
+
+      .formula-item {
+        margin: 15px 0;
+      }
+
+      .formula-item p:not(.formula) {
+        font-size: 1.4rem;
+        margin: 5px 0 15px 0;
+        color: #aaa;
+      }
+    </style>
+    <style>
+      .formula-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+
+      .concept-box {
+        background-color: rgba(40, 44, 52, 0.7);
+        border: 1px solid #33ff33;
+        border-radius: 5px;
+        padding: 15px;
+      }
+
+      .concept-box h4 {
+        color: #ffd700;
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 1.8rem;
+      }
+
+      .concept-box ul {
+        list-style: none;
+        padding-left: 10px;
+        margin-top: 5px;
+      }
+
+      .concept-box ul li {
+        font-size: 1.4rem;
+        margin-bottom: 5px;
+        line-height: 1.2;
+      }
+
+      .concept-box ul li::before {
+        content: ""; /* Removendo o ícone de radiação padrão para estas listas específicas */
+        position: static;
+      }
+
+      .example-box {
+        background-color: rgba(40, 44, 52, 0.7);
+        border: 1px solid #33ff33;
+        border-radius: 5px;
+        padding: 15px;
+        margin-top: 20px;
+      }
+    </style>
+    <style>
+      .canvas-container {
+        display: flex;
+        justify-content: center;
+        margin: 10px 0;
+      }
+
+      .warning-text {
+        font-family: monospace;
+        text-align: center;
+        margin-top: 10px;
+        animation: pulse 2s infinite;
+      }
+
+      .warning-text span {
+        color: #ff3333;
+        font-weight: bold;
+        padding: 5px 10px;
+        border: 1px solid #ff3333;
+        background-color: rgba(40, 44, 52, 0.7);
+      }
+
+      @keyframes pulse {
+        0% {
+          opacity: 0.7;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.7;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- SLIDE PRINCIPAL DO CAPÍTULO 0 -->
+        <section>
+          <h1>Capítulo 0: Preparação para a Wasteland</h1>
+          <h3>Manual de Sobrevivência Matemática Vault-Tec</h3>
+          <div class="canvas-container">
+            <canvas id="wastelandCanvas" width="700" height="400"></canvas>
+          </div>
+          <div class="warning-text">
+            <span>AVISO: A matemática salva vidas</span>
+          </div>
+        </section>
+
+        <!-- INDUÇÃO AO VAULT -->
+        <section>
+          <!-- Slide principal da seção -->
+          <section>
+            <h2>Indução ao Vault: Bem-vindo Sobrevivente</h2>
+            <p>
+              Antes de explorar a wasteland, você precisa entender como funciona
+              este mundo pós-apocalíptico.
+            </p>
+
+            <div class="pip-boy-container">
+              <div class="pip-boy">
+                <div class="pip-boy-header">
+                  <span class="voltage">VAULT-TEC OS v7.1.0</span>
+                  <span class="signal">SINAL: FORTE</span>
+                </div>
+
+                <div class="pip-boy-screen">
+                  <div class="screen-overlay"></div>
+                  <div class="screen-scanline"></div>
+
+                  <div class="terminal-content">
+                    <div class="terminal-header">
+                      <div class="logo-container">
+                        <div class="radiation-symbol">
+                          <div class="circle"></div>
+                          <div class="ray ray1"></div>
+                          <div class="ray ray2"></div>
+                          <div class="ray ray3"></div>
+                        </div>
+                        <span>VAULT-TEC</span>
+                      </div>
+                    </div>
+
+                    <div class="terminal-message">
+                      <div class="message-title">
+                        COMUNICADO OFICIAL DO OVERSEER
+                      </div>
+
+                      <div class="message-body">
+                        <p>MORADOR #1337:</p>
+                        <p>
+                          GEOMETRIA ANALÍTICA É ESSENCIAL PARA SUA
+                          SOBREVIVÊNCIA.
+                        </p>
+                        <p>
+                          DOMINAR COORDENADAS E VETORES AUMENTARÁ SUA TAXA DE
+                          SOBREVIVÊNCIA EM 73%.
+                        </p>
+                        <p>
+                          IGNORAR ESTAS LIÇÕES RESULTARÁ EM CONSEQUÊNCIAS
+                          FATAIS.
+                        </p>
+                      </div>
+
+                      <div class="message-footer">
+                        <p class="blinking">
+                          [ PROSSIGA PARA INICIAÇÃO MATEMÁTICA ]
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pip-boy-controls">
+                  <div class="control-knob"></div>
+                  <div class="control-buttons">
+                    <div class="button"></div>
+                    <div class="button"></div>
+                  </div>
+                  <div class="control-knob"></div>
+                </div>
+              </div>
+            </div>
+
+            <p>
+              O treinamento S.P.E.C.I.A.L. matemático é sua vantagem de
+              sobrevivência.
+            </p>
+          </section>
+
+          <style>
+            .pip-boy-container {
+              display: flex;
+              justify-content: center;
+              margin: 15px auto;
+            }
+
+            .pip-boy {
+              width: 600px;
+              background-color: #272b23;
+              border-radius: 10px;
+              padding: 15px;
+              box-shadow: 0 0 20px rgba(51, 255, 51, 0.3);
+              border: 2px solid #33ff33;
+            }
+
+            .pip-boy-header {
+              display: flex;
+              justify-content: space-between;
+              color: #33ff33;
+              font-family: monospace;
+              font-size: 0.9rem;
+              margin-bottom: 5px;
+              padding: 0 5px;
+            }
+
+            .pip-boy-screen {
+              background-color: #0a0a0a;
+              height: 300px;
+              border: 3px solid #444;
+              border-radius: 5px;
+              position: relative;
+              overflow: hidden;
+            }
+
+            .screen-overlay {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: radial-gradient(
+                circle,
+                transparent 50%,
+                rgba(0, 10, 2, 0.4) 100%
+              );
+              pointer-events: none;
+              z-index: 10;
+            }
+
+            .screen-scanline {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(
+                to bottom,
+                rgba(51, 255, 51, 0.02) 0%,
+                rgba(51, 255, 51, 0.05) 50%,
+                rgba(51, 255, 51, 0.02) 100%
+              );
+              background-size: 100% 8px;
+              pointer-events: none;
+              z-index: 9;
+              animation: scanline 8s linear infinite;
+            }
+
+            .terminal-content {
+              color: #33ff33;
+              font-family: monospace;
+              padding: 20px;
+              height: 100%;
+              position: relative;
+            }
+
+            .terminal-header {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border-bottom: 2px solid #33ff33;
+              padding-bottom: 10px;
+              margin-bottom: 15px;
+            }
+
+            .logo-container {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+            }
+
+            .radiation-symbol {
+              position: relative;
+              width: 30px;
+              height: 30px;
+              margin-right: 5px;
+            }
+
+            .radiation-symbol .circle {
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
+              width: 10px;
+              height: 10px;
+              background-color: #33ff33;
+              border-radius: 50%;
+            }
+
+            .radiation-symbol .ray {
+              position: absolute;
+              width: 25px;
+              height: 8px;
+              background-color: #33ff33;
+              left: 50%;
+              top: 50%;
+              transform-origin: 0 50%;
+            }
+
+            .ray1 {
+              transform: translateY(-50%) rotate(0deg);
+            }
+
+            .ray2 {
+              transform: translateY(-50%) rotate(120deg);
+            }
+
+            .ray3 {
+              transform: translateY(-50%) rotate(240deg);
+            }
+
+            .terminal-message {
+              display: flex;
+              flex-direction: column;
+              height: calc(100% - 50px);
+              justify-content: space-between;
+            }
+
+            .message-title {
+              text-align: center;
+              font-size: 1.1rem;
+              margin-bottom: 15px;
+              font-weight: bold;
+              letter-spacing: 1px;
+            }
+
+            .message-body {
+              font-size: 0.9rem;
+              line-height: 1.5;
+            }
+
+            .message-body p {
+              margin: 8px 0;
+            }
+
+            .message-footer {
+              text-align: center;
+              margin-top: 15px;
+            }
+
+            .blinking {
+              animation: blink 1s step-end infinite;
+            }
+
+            .pip-boy-controls {
+              display: flex;
+              justify-content: space-between;
+              margin-top: 10px;
+              padding: 0 20px;
+            }
+
+            .control-knob {
+              width: 25px;
+              height: 25px;
+              background-color: #222;
+              border: 2px solid #444;
+              border-radius: 50%;
+            }
+
+            .control-buttons {
+              display: flex;
+              gap: 15px;
+            }
+
+            .button {
+              width: 20px;
+              height: 20px;
+              background-color: #444;
+              border-radius: 4px;
+            }
+
+            @keyframes blink {
+              0%,
+              100% {
+                opacity: 1;
+              }
+              50% {
+                opacity: 0;
+              }
+            }
+
+            @keyframes scanline {
+              0% {
+                background-position: 0 0;
+              }
+              100% {
+                background-position: 0 100%;
+              }
+            }
+          </style>
+
+          <!-- Slide sobre a Grande Guerra -->
+          <section>
+            <h3>A Grande Guerra e o Mundo de Fallout</h3>
+            <p>
+              Nossa aventura começa em 23 de outubro de 2077, a Grande Guerra
+              nuclear mudou para sempre a face da Terra.
+            </p>
+            <ul>
+              <li>Conflito entre EUA e China pelos últimos recursos</li>
+              <li>
+                Bombas nucleares lançadas, destruição global em duas horas
+              </li>
+              <li>
+                Vault-Tec construiu abrigos subterrâneos para preservar a
+                humanidade
+              </li>
+              <li>A radiação criou mutantes e criaturas hostis</li>
+            </ul>
+            <p>
+              Os conhecimentos do mundo antigo são sua maior arma para a
+              reconstrução.
+            </p>
+          </section>
+
+          <!-- Slide sobre O Sistema S.P.E.C.I.A.L. Matemático (corrigido) -->
+          <section>
+            <h3>Sistema S.P.E.C.I.A.L. Matemático</h3>
+            <div
+              style="display: flex; justify-content: space-between; width: 100%"
+            >
+              <div style="width: 48%">
+                <div class="concept-box" style="width: 90%; margin: 10px auto">
+                  <p><strong>S</strong>implificação</p>
+                  <p class="formula">Frações e operações básicas</p>
+                </div>
+                <div class="concept-box" style="width: 90%; margin: 10px auto">
+                  <p><strong>P</strong>osicionamento</p>
+                  <p class="formula">Geometria e coordenadas</p>
+                </div>
+                <div class="concept-box" style="width: 90%; margin: 10px auto">
+                  <p><strong>E</strong>quações</p>
+                  <p class="formula">Álgebra para resolver problemas</p>
+                </div>
+                <div class="concept-box" style="width: 90%; margin: 10px auto">
+                  <p><strong>C</strong>álculo</p>
+                  <p class="formula">Estimativas e aproximações</p>
+                </div>
+              </div>
+              <div style="width: 48%">
+                <div class="concept-box" style="width: 90%; margin: 10px auto">
+                  <p><strong>I</strong>nterseções</p>
+                  <p class="formula">Geometria analítica</p>
+                </div>
+                <div class="concept-box" style="width: 90%; margin: 10px auto">
+                  <p><strong>A</strong>ngulação</p>
+                  <p class="formula">Trigonometria</p>
+                </div>
+                <div class="concept-box" style="width: 90%; margin: 10px auto">
+                  <p><strong>L</strong>ógica</p>
+                  <p class="formula">Pensamento estruturado</p>
+                </div>
+                <div
+                  style="
+                    width: 90%;
+                    margin: 10px auto;
+                    padding-top: 10px;
+                    text-align: center;
+                  "
+                >
+                  <p>
+                    Na wasteland, seu cérebro matemático é a diferença entre
+                    vida e morte.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide sobre a vida nos vaults -->
+          <section>
+            <h3>Vida nos Vaults: Matemática para Sobrevivência</h3>
+            <p>A matemática é crucial para:</p>
+            <ul>
+              <li>
+                Gerenciamento de recursos limitados (racionamento de água,
+                comida, medicamentos)
+              </li>
+              <li>
+                Manutenção de sistemas de suporte à vida (filtração, geração de
+                energia)
+              </li>
+              <li>Planejamento de espaço e infraestrutura</li>
+              <li>Cálculo de tempo seguro para expedições à superfície</li>
+            </ul>
+            <p class="formula">
+              Cálculo incorreto = Extinção da população do vault
+            </p>
+            <div class="quote-box">
+              <p>
+                "A matemática não é negociável. Ela é a lei natural que persiste
+                mesmo quando as leis humanas falham." — Supervisor do Vault
+              </p>
+            </div>
+          </section>
+        </section>
+
+      </div>
+    </div>
+    </div>
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["\\(", "\\)"]],
+          displayMath: [["\\[", "\\]"]],
+        },
+      };
+      Reveal.initialize({
+        hash: true,
+        slideNumber: true,
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const canvas = document.getElementById("wastelandCanvas");
+        const ctx = canvas.getContext("2d");
+
+        // Configuração da animação
+        const gridSize = 40;
+        let angle = 0;
+        let time = 0;
+        let radiation = 0;
+
+        // Para movimento de personagens
+        let playerX = 150;
+        let playerY = 200;
+        let playerTargetX = playerX;
+        let playerTargetY = playerY;
+
+        // Para Deathclaw
+        let deathclawX = 550;
+        let deathclawY = 150;
+        let deathclawActive = false;
+        let deathclawTimer = 0;
+
+        // Coordenadas de recursos
+        const resources = [
+          { x: 250, y: 150, type: "water", collected: false },
+          { x: 450, y: 250, type: "food", collected: false },
+          { x: 350, y: 100, type: "shelter", collected: false },
+        ];
+
+        // Pontos de radiação
+        const radiationPoints = [
+          { x: 200, y: 300, intensity: 0.8 },
+          { x: 500, y: 180, intensity: 0.6 },
+          { x: 400, y: 320, intensity: 0.9 },
+        ];
+
+        // Cores temáticas de Fallout
+        const colors = {
+          pipBoy: "#33ff33",
+          radiation: "#9acd32",
+          danger: "#ff3333",
+          gold: "#FFD700",
+          background: "#1a1a2e",
+          grid: "rgba(51, 255, 51, 0.2)",
+          gridStrong: "rgba(51, 255, 51, 0.4)",
+          water: "#4169e1",
+          food: "#ff9800",
+          shelter: "#9c27b0",
+        };
+
+        // Eventos de clique para interatividade
+        canvas.addEventListener("click", function (e) {
+          const rect = canvas.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+
+          playerTargetX = x;
+          playerTargetY = y;
+
+          // Verifica se clicou próximo ao Deathclaw
+          const deathclawDist = Math.sqrt(
+            Math.pow(x - deathclawX, 2) + Math.pow(y - deathclawY, 2),
+          );
+          if (deathclawDist < 50 && !deathclawActive) {
+            deathclawActive = true;
+            deathclawTimer = 0;
+          }
+        });
+
+        // Função para desenhar o mapa de fundo estilo Pip-Boy
+        function drawBackground() {
+          // Fundo escuro
+          ctx.fillStyle = colors.background;
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+          // Grade de coordenadas
+          ctx.strokeStyle = colors.grid;
+          ctx.lineWidth = 1;
+
+          // Linhas horizontais
+          for (let y = 0; y < canvas.height; y += gridSize) {
+            ctx.beginPath();
+            ctx.moveTo(0, y);
+            ctx.lineTo(canvas.width, y);
+            ctx.stroke();
+          }
+
+          // Linhas verticais
+          for (let x = 0; x < canvas.width; x += gridSize) {
+            ctx.beginPath();
+            ctx.moveTo(x, 0);
+            ctx.lineTo(x, canvas.height);
+            ctx.stroke();
+          }
+
+          // Eixos principais
+          ctx.strokeStyle = colors.gridStrong;
+          ctx.lineWidth = 2;
+
+          // Eixo X
+          ctx.beginPath();
+          ctx.moveTo(0, canvas.height / 2);
+          ctx.lineTo(canvas.width, canvas.height / 2);
+          ctx.stroke();
+
+          // Eixo Y
+          ctx.beginPath();
+          ctx.moveTo(canvas.width / 2, 0);
+          ctx.lineTo(canvas.width / 2, canvas.height);
+          ctx.stroke();
+
+          // Rótulos dos eixos
+          ctx.fillStyle = colors.gold;
+          ctx.font = "16px monospace";
+          ctx.fillText("x", canvas.width - 20, canvas.height / 2 - 10);
+          ctx.fillText("y", canvas.width / 2 + 10, 20);
+
+          // Bordas estilo Pip-Boy
+          ctx.strokeStyle = colors.pipBoy;
+          ctx.lineWidth = 4;
+          ctx.strokeRect(10, 10, canvas.width - 20, canvas.height - 20);
+
+          // Efeito de escaneamento
+          ctx.fillStyle = `rgba(51, 255, 51, ${0.03 + Math.sin(time * 0.1) * 0.02})`;
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // Função para desenhar áreas de radiação
+        function drawRadiation() {
+          radiationPoints.forEach((point) => {
+            const radius = 80 + Math.sin(time * 0.2) * 10;
+            const gradient = ctx.createRadialGradient(
+              point.x,
+              point.y,
+              0,
+              point.x,
+              point.y,
+              radius,
+            );
+
+            gradient.addColorStop(
+              0,
+              `rgba(154, 205, 50, ${0.6 * point.intensity})`,
+            );
+            gradient.addColorStop(
+              0.7,
+              `rgba(154, 205, 50, ${0.2 * point.intensity})`,
+            );
+            gradient.addColorStop(1, "rgba(154, 205, 50, 0)");
+
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.arc(point.x, point.y, radius, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Símbolo de radiação
+            ctx.save();
+            ctx.translate(point.x, point.y);
+            ctx.rotate(time * 0.5);
+
+            ctx.strokeStyle = colors.radiation;
+            ctx.lineWidth = 2;
+
+            // Desenha o símbolo de radiação
+            const size = 15;
+            for (let i = 0; i < 3; i++) {
+              ctx.save();
+              ctx.rotate((i * Math.PI * 2) / 3);
+              ctx.beginPath();
+              ctx.arc(0, size * 1.5, size, 0, Math.PI);
+              ctx.stroke();
+              ctx.restore();
+            }
+
+            ctx.beginPath();
+            ctx.arc(0, 0, size * 0.8, 0, Math.PI * 2);
+            ctx.stroke();
+
+            ctx.restore();
+          });
+        }
+
+        // Função para desenhar recursos
+        function drawResources() {
+          resources.forEach((resource) => {
+            if (resource.collected) return;
+
+            ctx.save();
+            ctx.translate(resource.x, resource.y);
+
+            // Pulsar para chamar atenção
+            const pulse = 1 + Math.sin(time * 2) * 0.1;
+            ctx.scale(pulse, pulse);
+
+            // Desenha o recurso baseado no tipo
+            ctx.lineWidth = 2;
+
+            switch (resource.type) {
+              case "water":
+                ctx.fillStyle = colors.water;
+                ctx.beginPath();
+                ctx.arc(0, 0, 10, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Símbolo de água
+                ctx.beginPath();
+                ctx.moveTo(-5, -3);
+                ctx.lineTo(5, -3);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(-3, 0);
+                ctx.lineTo(3, 0);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(-1, 3);
+                ctx.lineTo(1, 3);
+                ctx.stroke();
+                break;
+
+              case "food":
+                ctx.fillStyle = colors.food;
+                ctx.beginPath();
+                ctx.moveTo(0, -10);
+                ctx.lineTo(-8, 5);
+                ctx.lineTo(8, 5);
+                ctx.closePath();
+                ctx.fill();
+                break;
+
+              case "shelter":
+                ctx.fillStyle = colors.shelter;
+                ctx.fillRect(-10, -10, 20, 20);
+                // Símbolo de porta
+                ctx.strokeStyle = "#000";
+                ctx.beginPath();
+                ctx.moveTo(-3, 10);
+                ctx.lineTo(-3, 0);
+                ctx.lineTo(3, 0);
+                ctx.lineTo(3, 10);
+                ctx.stroke();
+                break;
+            }
+
+            // Rótulo do recurso
+            ctx.fillStyle = colors.gold;
+            ctx.font = "12px monospace";
+            ctx.textAlign = "center";
+            ctx.fillText(
+              `(${Math.round(resource.x / 10)},${Math.round(resource.y / 10)})`,
+              0,
+              -15,
+            );
+
+            ctx.restore();
+
+            // Verifica se o jogador coletou
+            const dist = Math.sqrt(
+              Math.pow(playerX - resource.x, 2) +
+                Math.pow(playerY - resource.y, 2),
+            );
+            if (dist < 20) {
+              resource.collected = true;
+            }
+          });
+        }
+
+        // Função para desenhar o jogador (Vault Boy)
+        function drawPlayer() {
+          // Atualiza a posição do jogador
+          playerX += (playerTargetX - playerX) * 0.05;
+          playerY += (playerTargetY - playerY) * 0.05;
+
+          ctx.save();
+          ctx.translate(playerX, playerY);
+
+          // Cabeça
+          ctx.fillStyle = "#f5d742";
+          ctx.beginPath();
+          ctx.arc(0, -8, 10, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Corpo (jumpsuit azul)
+          ctx.fillStyle = "#1a75ff";
+          ctx.beginPath();
+          ctx.moveTo(-8, 2);
+          ctx.lineTo(-5, 16);
+          ctx.lineTo(5, 16);
+          ctx.lineTo(8, 2);
+          ctx.closePath();
+          ctx.fill();
+
+          // Número do vault
+          ctx.fillStyle = "#f5d742";
+          ctx.font = "10px Arial";
+          ctx.textAlign = "center";
+          ctx.fillText("13", 0, 12);
+
+          // Olhos
+          ctx.fillStyle = "#000";
+          ctx.beginPath();
+          ctx.arc(-3, -10, 1.5, 0, Math.PI * 2);
+          ctx.arc(3, -10, 1.5, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Sorriso
+          ctx.beginPath();
+          ctx.arc(0, -5, 5, 0.1, Math.PI - 0.1);
+          ctx.stroke();
+
+          // Vetores de movimento
+          if (
+            Math.abs(playerTargetX - playerX) > 5 ||
+            Math.abs(playerTargetY - playerY) > 5
+          ) {
+            const dx = playerTargetX - playerX;
+            const dy = playerTargetY - playerY;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            ctx.strokeStyle = colors.gold;
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(0, 0);
+            ctx.lineTo((dx / dist) * 30, (dy / dist) * 30);
+            ctx.stroke();
+
+            // Mostra as coordenadas do vetor
+            ctx.fillStyle = colors.gold;
+            ctx.font = "12px monospace";
+            ctx.fillText(
+              `(${Math.round(dx / 10)},${Math.round(dy / 10)})`,
+              (dx / dist) * 40,
+              (dy / dist) * 40,
+            );
+          }
+
+          ctx.restore();
+
+          // Coordenadas do jogador
+          ctx.fillStyle = colors.pipBoy;
+          ctx.font = "14px monospace";
+          ctx.fillText(
+            `Posição: (${Math.round(playerX / 10)},${Math.round(playerY / 10)})`,
+            20,
+            30,
+          );
+        }
+
+        // Função para desenhar o Deathclaw
+        function drawDeathclaw() {
+          ctx.save();
+          ctx.translate(deathclawX, deathclawY);
+
+          if (deathclawActive) {
+            deathclawTimer += 0.05;
+
+            // Movimento em direção ao jogador
+            const dx = playerX - deathclawX;
+            const dy = playerY - deathclawY;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist > 10) {
+              deathclawX += dx * 0.03;
+              deathclawY += dy * 0.03;
+            }
+
+            // Se o timer excede, desativa
+            if (deathclawTimer > 5) {
+              deathclawActive = false;
+              deathclawX =
+                Math.random() * canvas.width * 0.8 + canvas.width * 0.1;
+              deathclawY =
+                Math.random() * canvas.height * 0.8 + canvas.height * 0.1;
+            }
+          }
+
+          // Corpo
+          ctx.fillStyle = deathclawActive ? colors.danger : "#8B4513";
+
+          // Corpo principal
+          ctx.beginPath();
+          ctx.ellipse(0, 0, 20, 15, 0, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Cabeça
+          ctx.beginPath();
+          ctx.ellipse(15, 0, 12, 8, Math.PI / 4, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Chifres
+          ctx.strokeStyle = "#000";
+          ctx.lineWidth = 3;
+          ctx.beginPath();
+          ctx.moveTo(20, -5);
+          ctx.lineTo(30, -15);
+          ctx.stroke();
+
+          ctx.beginPath();
+          ctx.moveTo(18, -8);
+          ctx.lineTo(25, -20);
+          ctx.stroke();
+
+          // Garras
+          ctx.strokeStyle = "#000";
+          ctx.lineWidth = 2;
+          for (let i = 0; i < 3; i++) {
+            ctx.beginPath();
+            ctx.moveTo(15 + i * 4, 10);
+            ctx.lineTo(25 + i * 4, 18);
+            ctx.stroke();
+          }
+
+          // Vetor de distância até o jogador
+          const dx = playerX - deathclawX;
+          const dy = playerY - deathclawY;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 200) {
+            ctx.strokeStyle = deathclawActive
+              ? colors.danger
+              : "rgba(255, 51, 51, 0.5)";
+            ctx.setLineDash([5, 5]);
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(0, 0);
+            ctx.lineTo(dx, dy);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Distância
+            ctx.fillStyle = deathclawActive ? colors.danger : colors.gold;
+            ctx.font = "12px monospace";
+            ctx.fillText(`d = ${Math.round(dist)}`, dx / 2, dy / 2);
+          }
+
+          ctx.restore();
+
+          // Alerta quando o Deathclaw está ativo
+          if (deathclawActive) {
+            const alertPulse = Math.sin(time * 10) > 0 ? 1 : 0;
+
+            ctx.fillStyle = `rgba(255, 51, 51, ${0.3 + alertPulse * 0.2})`;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = colors.danger;
+            ctx.font = "20px monospace";
+            ctx.textAlign = "center";
+            ctx.fillText(
+              "! PERIGO: DEATHCLAW DETECTADO !",
+              canvas.width / 2,
+              50,
+            );
+            ctx.textAlign = "left";
+          }
+        }
+
+        // Função para desenhar fórmulas matemáticas relevantes
+        function drawFormulas() {
+          ctx.fillStyle = colors.gold;
+          ctx.font = "14px monospace";
+
+          // Coordenadas
+          ctx.fillText("Coordenadas: (x,y)", 20, canvas.height - 80);
+
+          // Distância
+          ctx.fillText(
+            "Distância: d = √[(x₂-x₁)² + (y₂-y₁)²]",
+            20,
+            canvas.height - 60,
+          );
+
+          // Vetor
+          ctx.fillText("Vetor: v = (dx,dy)", 20, canvas.height - 40);
+
+          // Vault-Tec logo no canto
+          ctx.save();
+          ctx.translate(canvas.width - 50, canvas.height - 50);
+
+          ctx.fillStyle = colors.pipBoy;
+          ctx.beginPath();
+          ctx.arc(0, 0, 20, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.fillStyle = "#000";
+          ctx.font = "bold 20px monospace";
+          ctx.textAlign = "center";
+          ctx.fillText("13", 0, 7);
+
+          ctx.restore();
+        }
+
+        // Função principal de animação
+        function animate() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+          time += 0.05;
+          angle += 0.01;
+
+          drawBackground();
+          drawRadiation();
+          drawResources();
+          drawDeathclaw();
+          drawPlayer();
+          drawFormulas();
+
+          requestAnimationFrame(animate);
+        }
+
+        // Inicia a animação
+        animate();
+      });
+    </script>
+  </body>
+</html>

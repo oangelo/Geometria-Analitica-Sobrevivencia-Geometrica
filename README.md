@@ -10,25 +10,23 @@ São Paulo: Atual, 1982.
 
 </details>
 
-# [Notas 2025](notas/2025.md) | [Provas](PROVAS.md) | [Guia para Agentes](AGENTES.md)
+# [Notas 2025](notas/2025.md) | [Provas](PROVAS.md) | [Guia para Agentes](AGENTES.md) | [Guia de Estilo](ESTILO.md)
 
 # Índice de Conteúdo
 
-## [Capítulo 0 - Preparação para a Wasteland](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-0.html)
+## Capítulo 0 - Preparação para a Wasteland
 
-1. Introdução ao cenário pós-apocalíptico
+1. [Introdução ao cenário pós-apocalíptico](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-0/1-introducao.html)
 
-2. Sistema S.P.E.C.I.A.L. matemático
+2. [Propriedades algébricas fundamentais](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-0/2-algebra.html) — [exercícios](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-0/algebra.html)
 
-3. [Propriedades algébricas fundamentais](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-0/algebra.html)
+3. [Operações com frações e proporções](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-0/3-fracoes.html) — [exercícios](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-0/fracoes.html)
 
-4. [Operações com frações e proporções](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-0/fracoes.html)
+4. [Geometria plana](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-0/4-geometria.html)
 
-5. [Equações lineares e sistemas](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-0/sistemas-equacoes-lineares.html)
+5. [Trigonometria](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-0/5-trigonometria.html) — [exercícios](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-0/trigonometria.html)
 
-6. [Ângulos, triângulos e trigonometria fundamental](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-0/trigonometria.html)
-
-7. [Revisão](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-0/revisao.html)
+6. [Revisão](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-0/revisao.html) — [sistemas de equações](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-0/sistemas-equacoes-lineares.html)
 
 ## [Capítulo I - O Espaço Vetorial R²](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-i.html)
 1. [O conjunto R²](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-i-o-espaco-vetorial-r2/1-conjunto-r2.html)

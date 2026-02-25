@@ -1,0 +1,1109 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cap. 0 — Preparação para a Wasteland: Frações</title>
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/reveal.js/dist/theme/black.css"
+      id="theme"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+
+    <style>
+      .formula-container {
+        width: 90%;
+        margin: 0 auto;
+        background-color: rgba(40, 44, 52, 0.7);
+        border: 1px solid #33ff33;
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+
+      .two-columns {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .column {
+        width: 48%;
+      }
+
+      .formula-item {
+        margin: 15px 0;
+      }
+
+      .formula-item p:not(.formula) {
+        font-size: 1.4rem;
+        margin: 5px 0 15px 0;
+        color: #aaa;
+      }
+    </style>
+    <style>
+      .formula-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+
+      .concept-box {
+        background-color: rgba(40, 44, 52, 0.7);
+        border: 1px solid #33ff33;
+        border-radius: 5px;
+        padding: 15px;
+      }
+
+      .concept-box h4 {
+        color: #ffd700;
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 1.8rem;
+      }
+
+      .concept-box ul {
+        list-style: none;
+        padding-left: 10px;
+        margin-top: 5px;
+      }
+
+      .concept-box ul li {
+        font-size: 1.4rem;
+        margin-bottom: 5px;
+        line-height: 1.2;
+      }
+
+      .concept-box ul li::before {
+        content: ""; /* Removendo o ícone de radiação padrão para estas listas específicas */
+        position: static;
+      }
+
+      .example-box {
+        background-color: rgba(40, 44, 52, 0.7);
+        border: 1px solid #33ff33;
+        border-radius: 5px;
+        padding: 15px;
+        margin-top: 20px;
+      }
+    </style>
+    <style>
+      .canvas-container {
+        display: flex;
+        justify-content: center;
+        margin: 10px 0;
+      }
+
+      .warning-text {
+        font-family: monospace;
+        text-align: center;
+        margin-top: 10px;
+        animation: pulse 2s infinite;
+      }
+
+      .warning-text span {
+        color: #ff3333;
+        font-weight: bold;
+        padding: 5px 10px;
+        border: 1px solid #ff3333;
+        background-color: rgba(40, 44, 52, 0.7);
+      }
+
+      @keyframes pulse {
+        0% {
+          opacity: 0.7;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.7;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- GERENCIAMENTO DE RECURSOS (FRAÇÕES E ÁLGEBRA) -->
+        <section>
+          <!-- Slide principal da seção -->
+          <section>
+            <h2>Gerenciamento de Recursos</h2>
+            <div class="vault-panel-container">
+              <div class="vault-panel">
+                <div class="panel-header">
+                  <div class="radiation-symbol">
+                    <div class="circle"></div>
+                    <div class="ray ray1"></div>
+                    <div class="ray ray2"></div>
+                    <div class="ray ray3"></div>
+                  </div>
+                  <h4>VAULT-TEC RESOURCE MONITORING SYSTEM</h4>
+                  <div class="warning-light"></div>
+                </div>
+
+                <div class="resources-grid">
+                  <!-- Água -->
+                  <div class="resource-monitor">
+                    <div class="resource-label">ÁGUA</div>
+                    <div class="container water-container">
+                      <div class="water-level"></div>
+                      <div class="fraction-lines">
+                        <div class="line line-1">
+                          <span class="fraction">1/4</span>
+                        </div>
+                        <div class="line line-2">
+                          <span class="fraction">2/4</span>
+                        </div>
+                        <div class="line line-3">
+                          <span class="fraction">3/4</span>
+                        </div>
+                      </div>
+                      <div class="water-drops"></div>
+                    </div>
+                    <div class="resource-stats">RAÇÕES RESTANTES: 7 DIAS</div>
+                  </div>
+
+                  <!-- Comida -->
+                  <div class="resource-monitor">
+                    <div class="resource-label">COMIDA</div>
+                    <div class="container food-container">
+                      <div class="food-meter">
+                        <div class="food-segment"></div>
+                        <div class="food-segment"></div>
+                        <div class="food-segment gone"></div>
+                        <div class="food-segment gone"></div>
+                      </div>
+                      <div class="fraction-marker">
+                        <span class="fraction">2/4</span>
+                      </div>
+                    </div>
+                    <div class="resource-stats">
+                      CONSUMO DIÁRIO: 1/8 POR PESSOA
+                    </div>
+                  </div>
+
+                  <!-- Medicamentos -->
+                  <div class="resource-monitor">
+                    <div class="resource-label">MEDICAMENTOS</div>
+                    <div class="container med-container">
+                      <div class="med-display">
+                        <div class="med-pie-container">
+                          <div
+                            class="med-pie-segment"
+                            style="
+                              --segment-rotation: 0deg;
+                              --segment-color: rgba(51, 255, 51, 0.5);
+                            "
+                          ></div>
+                          <div
+                            class="med-pie-segment"
+                            style="
+                              --segment-rotation: 90deg;
+                              --segment-color: rgba(51, 255, 51, 0.5);
+                            "
+                          ></div>
+                          <div
+                            class="med-pie-segment"
+                            style="
+                              --segment-rotation: 180deg;
+                              --segment-color: rgba(51, 255, 51, 0.5);
+                            "
+                          ></div>
+                          <div
+                            class="med-pie-empty-segment"
+                            style="
+                              --segment-rotation: 270deg;
+                              --segment-color: rgba(100, 100, 100, 0.2);
+                            "
+                          ></div>
+                        </div>
+                        <div class="med-count">
+                          <span class="fraction">3/4</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="resource-stats">
+                      ESTOQUE CRÍTICO: DISTRIBUA 1/4 POR SEMANA
+                    </div>
+                  </div>
+
+                  <!-- Munição -->
+                  <div class="resource-monitor">
+                    <div class="resource-label">MUNIÇÃO</div>
+                    <div class="container ammo-container">
+                      <div class="ammo-bars">
+                        <div class="ammo-bar">
+                          <div class="ammo-bar-fill"></div>
+                        </div>
+                        <div class="ammo-bar">
+                          <div class="ammo-bar-fill"></div>
+                        </div>
+                        <div class="ammo-bar">
+                          <div class="ammo-bar-fill"></div>
+                        </div>
+                        <div class="ammo-bar">
+                          <div class="ammo-bar-fill ammo-empty"></div>
+                        </div>
+                      </div>
+                      <div class="ammo-count">
+                        <span class="fraction">3/4</span>
+                      </div>
+                    </div>
+                    <div class="resource-stats">
+                      RESERVA TÁTICA: 1/4 PARA EMERGÊNCIAS
+                    </div>
+                  </div>
+                </div>
+
+                <div class="panel-footer">
+                  <div class="readout">
+                    SOBREVIVENTE: APRENDA FRAÇÕES OU MORRA TENTANDO
+                  </div>
+                  <div class="controls">
+                    <div class="control-knob"></div>
+                    <div class="control-button"></div>
+                    <div class="control-button"></div>
+                    <div class="control-knob"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <style>
+            /* Estilos para o painel do Vault */
+            .vault-panel-container {
+              display: flex;
+              justify-content: center;
+              margin: 10px auto;
+            }
+
+            .vault-panel {
+              width: 700px;
+              background-color: #2c2c2c;
+              border: 4px solid #555;
+              border-radius: 10px;
+              padding: 15px;
+              box-shadow: 0 0 30px rgba(51, 255, 51, 0.3);
+              position: relative;
+            }
+
+            .vault-panel::before {
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: linear-gradient(
+                45deg,
+                rgba(0, 0, 0, 0.4) 25%,
+                transparent 25%,
+                transparent 50%,
+                rgba(0, 0, 0, 0.4) 50%,
+                rgba(0, 0, 0, 0.4) 75%,
+                transparent 75%,
+                transparent
+              );
+              background-size: 5px 5px;
+              z-index: 1;
+              opacity: 0.1;
+              pointer-events: none;
+              border-radius: 6px;
+            }
+
+            .panel-header {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              border-bottom: 2px solid #33ff33;
+              padding-bottom: 10px;
+              margin-bottom: 15px;
+            }
+
+            .panel-header h4 {
+              color: #33ff33;
+              font-family: monospace;
+              text-align: center;
+              font-size: 1.4rem;
+              margin: 0;
+              flex-grow: 1;
+              letter-spacing: 1px;
+            }
+
+            .radiation-symbol {
+              position: relative;
+              width: 30px;
+              height: 30px;
+              margin-right: 10px;
+            }
+
+            .radiation-symbol .circle {
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
+              width: 10px;
+              height: 10px;
+              background-color: #33ff33;
+              border-radius: 50%;
+              animation: resources-pulse 2s infinite;
+            }
+
+            .radiation-symbol .ray {
+              position: absolute;
+              width: 25px;
+              height: 8px;
+              background-color: #33ff33;
+              left: 50%;
+              top: 50%;
+              transform-origin: 0 50%;
+            }
+
+            .ray1 {
+              transform: translateY(-50%) rotate(0deg);
+            }
+
+            .ray2 {
+              transform: translateY(-50%) rotate(120deg);
+            }
+
+            .ray3 {
+              transform: translateY(-50%) rotate(240deg);
+            }
+
+            .warning-light {
+              width: 20px;
+              height: 20px;
+              border-radius: 50%;
+              background-color: #a30000;
+              border: 2px solid #555;
+              box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+              margin-left: 10px;
+              animation: resources-blink 2s infinite;
+            }
+
+            .resources-grid {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 15px;
+              margin-bottom: 15px;
+            }
+
+            .resource-monitor {
+              background-color: #1a1a1a;
+              border: 2px solid #444;
+              border-radius: 5px;
+              padding: 10px;
+              display: flex;
+              flex-direction: column;
+              height: 150px;
+            }
+
+            .resource-label {
+              color: #ffd700;
+              font-family: monospace;
+              font-weight: bold;
+              text-align: center;
+              margin-bottom: 5px;
+              font-size: 1.1rem;
+            }
+
+            .container {
+              background-color: #000;
+              border: 1px solid #33ff33;
+              height: 80px;
+              position: relative;
+              margin: 5px 0;
+              border-radius: 3px;
+            }
+
+            .resource-stats {
+              color: #aaa;
+              font-family: monospace;
+              font-size: 0.9rem;
+              text-align: center;
+              margin-top: 5px;
+            }
+
+            /* Água */
+            .water-container {
+              position: relative;
+              overflow: hidden;
+            }
+
+            .water-level {
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              height: 25%;
+              background: linear-gradient(to bottom, #4169e1, #6495ed);
+              animation: resources-waveEffect 3s infinite alternate;
+            }
+
+            .water-level::after {
+              content: "";
+              position: absolute;
+              top: -5px;
+              left: 0;
+              width: 100%;
+              height: 10px;
+              background: linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0.3),
+                transparent
+              );
+            }
+
+            .fraction-lines .line {
+              position: absolute;
+              left: 0;
+              width: 100%;
+              height: 1px;
+              background-color: rgba(51, 255, 51, 0.7);
+            }
+
+            .fraction-lines .line-1 {
+              bottom: 25%;
+            }
+
+            .fraction-lines .line-2 {
+              bottom: 50%;
+            }
+
+            .fraction-lines .line-3 {
+              bottom: 75%;
+            }
+
+            .fraction-lines .fraction {
+              position: absolute;
+              right: 5px;
+              top: -10px;
+              color: #33ff33;
+              font-size: 0.8rem;
+              font-family: monospace;
+            }
+
+            /* Comida */
+            .food-container {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+
+            .food-meter {
+              display: flex;
+              width: 80%;
+              height: 30px;
+              margin: 0 auto;
+            }
+
+            .food-segment {
+              flex: 1;
+              background-color: #33ff33;
+              margin: 0 2px;
+              position: relative;
+            }
+
+            .food-segment::after {
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0.2),
+                transparent
+              );
+            }
+
+            .food-segment.gone {
+              background-color: #333;
+            }
+
+            .fraction-marker {
+              position: absolute;
+              right: 10px;
+              top: 10px;
+            }
+
+            .fraction-marker .fraction {
+              color: #33ff33;
+              font-size: 1.1rem;
+              font-family: monospace;
+            }
+
+            /* Medicamentos */
+            .med-container {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+
+            .med-display {
+              position: relative;
+              width: 70px;
+              height: 70px;
+            }
+
+            .med-pie-container {
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              transform: rotate(-90deg);
+            }
+
+            .med-pie-segment {
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 50% 100%);
+              background-color: var(--segment-color);
+              transform: rotate(var(--segment-rotation));
+            }
+
+            .med-pie-empty-segment {
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 50% 100%);
+              background-color: var(--segment-color);
+              transform: rotate(var(--segment-rotation));
+            }
+
+            .med-count {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
+
+            .med-count .fraction {
+              color: #33ff33;
+              font-size: 1.1rem;
+              font-family: monospace;
+            }
+
+            /* Munição */
+            .ammo-container {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              position: relative;
+            }
+
+            .ammo-bars {
+              display: flex;
+              flex-direction: column;
+              width: 80%;
+              height: 80%;
+              justify-content: space-between;
+            }
+
+            .ammo-bar {
+              height: 12px;
+              background-color: #222;
+              border: 1px solid #444;
+              position: relative;
+            }
+
+            .ammo-bar-fill {
+              position: absolute;
+              top: 0;
+              left: 0;
+              height: 100%;
+              width: 100%;
+              background: linear-gradient(to right, #33ff33, #7fff7f);
+            }
+
+            .ammo-bar-fill.ammo-empty {
+              background: #333;
+            }
+
+            .ammo-count {
+              position: absolute;
+              right: 10px;
+              top: 10px;
+            }
+
+            .ammo-count .fraction {
+              color: #33ff33;
+              font-size: 1.1rem;
+              font-family: monospace;
+            }
+
+            /* Rodapé do painel */
+            .panel-footer {
+              border-top: 2px solid #33ff33;
+              padding-top: 10px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+            }
+
+            .readout {
+              color: #ffd700;
+              font-family: monospace;
+              background-color: #000;
+              width: 90%;
+              padding: 5px;
+              text-align: center;
+              margin-bottom: 10px;
+              border: 1px solid #444;
+              animation: resources-flicker 5s infinite;
+            }
+
+            .controls {
+              display: flex;
+              justify-content: space-around;
+              width: 50%;
+            }
+
+            .control-knob {
+              width: 25px;
+              height: 25px;
+              border-radius: 50%;
+              background: radial-gradient(#555, #333);
+              border: 2px solid #666;
+            }
+
+            .control-button {
+              width: 20px;
+              height: 20px;
+              background-color: #a30000;
+              border: 2px solid #555;
+              border-radius: 3px;
+            }
+
+            /* Animações */
+            @keyframes resources-pulse {
+              0%,
+              100% {
+                transform: translate(-50%, -50%) scale(1);
+              }
+              50% {
+                transform: translate(-50%, -50%) scale(1.2);
+              }
+            }
+
+            @keyframes resources-blink {
+              0%,
+              49% {
+                background-color: #a30000;
+                box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+              }
+              50%,
+              100% {
+                background-color: #5a0000;
+                box-shadow: none;
+              }
+            }
+
+            @keyframes resources-waveEffect {
+              0% {
+                transform: translateX(-5%);
+              }
+              100% {
+                transform: translateX(5%);
+              }
+            }
+
+            @keyframes resources-flicker {
+              0%,
+              100% {
+                opacity: 1;
+              }
+              92% {
+                opacity: 1;
+              }
+              93% {
+                opacity: 0.6;
+              }
+              94% {
+                opacity: 1;
+              }
+              96% {
+                opacity: 0.4;
+              }
+              98% {
+                opacity: 1;
+              }
+            }
+          </style>
+
+          <!-- Slide sobre frações (corrigido) -->
+          <section>
+            <h3>Frações como Sistema de Racionamento</h3>
+            <p>
+              Sobreviventes eficientes compreendem frações para distribuição de
+              recursos.
+            </p>
+
+            <svg
+              width="400"
+              height="120"
+              viewBox="0 0 400 120"
+              style="margin: 10px auto; display: block"
+            >
+              <!-- Exemplo de soma de frações - CORRIGIDO -->
+              <text x="75" y="50" fill="#33ff33" font-size="24">2/3</text>
+              <text x="130" y="50" fill="#33ff33" font-size="24">+</text>
+              <text x="165" y="50" fill="#33ff33" font-size="24">1/6</text>
+              <text x="220" y="50" fill="#33ff33" font-size="24">=</text>
+              <text x="255" y="50" fill="#33ff33" font-size="24">5/6</text>
+
+              <!-- Primeira fração 2/3 CORRIGIDA -->
+              <rect
+                x="70"
+                y="70"
+                width="60"
+                height="30"
+                fill="none"
+                stroke="#33ff33"
+                stroke-width="2"
+              />
+              <line
+                x1="90"
+                y1="70"
+                x2="90"
+                y2="100"
+                stroke="#33ff33"
+                stroke-width="2"
+              />
+              <line
+                x1="110"
+                y1="70"
+                x2="110"
+                y2="100"
+                stroke="#33ff33"
+                stroke-width="2"
+              />
+              <!-- Apenas 2 de 3 retângulos preenchidos -->
+              <rect
+                x="70"
+                y="70"
+                width="20"
+                height="30"
+                fill="rgba(51, 255, 51, 0.3)"
+              />
+              <rect
+                x="90"
+                y="70"
+                width="20"
+                height="30"
+                fill="rgba(51, 255, 51, 0.3)"
+              />
+
+              <!-- Segunda fração 1/6 -->
+              <rect
+                x="160"
+                y="70"
+                width="60"
+                height="30"
+                fill="none"
+                stroke="#33ff33"
+                stroke-width="2"
+              />
+              <line
+                x1="170"
+                y1="70"
+                x2="170"
+                y2="100"
+                stroke="#33ff33"
+                stroke-width="2"
+              />
+              <line
+                x1="180"
+                y1="70"
+                x2="180"
+                y2="100"
+                stroke="#33ff33"
+                stroke-width="2"
+              />
+              <line
+                x1="190"
+                y1="70"
+                x2="190"
+                y2="100"
+                stroke="#33ff33"
+                stroke-width="2"
+              />
+              <line
+                x1="200"
+                y1="70"
+                x2="200"
+                y2="100"
+                stroke="#33ff33"
+                stroke-width="2"
+              />
+              <line
+                x1="210"
+                y1="70"
+                x2="210"
+                y2="100"
+                stroke="#33ff33"
+                stroke-width="2"
+              />
+              <!-- Apenas 1 de 6 retângulos preenchido -->
+              <rect
+                x="160"
+                y="70"
+                width="10"
+                height="30"
+                fill="rgba(51, 255, 51, 0.3)"
+              />
+
+              <!-- Terceira fração 5/6 -->
+              <rect
+                x="250"
+                y="70"
+                width="60"
+                height="30"
+                fill="none"
+                stroke="#33ff33"
+                stroke-width="2"
+              />
+              <line
+                x1="260"
+                y1="70"
+                x2="260"
+                y2="100"
+                stroke="#33ff33"
+                stroke-width="2"
+              />
+              <line
+                x1="270"
+                y1="70"
+                x2="270"
+                y2="100"
+                stroke="#33ff33"
+                stroke-width="2"
+              />
+              <line
+                x1="280"
+                y1="70"
+                x2="280"
+                y2="100"
+                stroke="#33ff33"
+                stroke-width="2"
+              />
+              <line
+                x1="290"
+                y1="70"
+                x2="290"
+                y2="100"
+                stroke="#33ff33"
+                stroke-width="2"
+              />
+              <line
+                x1="300"
+                y1="70"
+                x2="300"
+                y2="100"
+                stroke="#33ff33"
+                stroke-width="2"
+              />
+              <!-- 5 de 6 retângulos preenchidos -->
+              <rect
+                x="250"
+                y="70"
+                width="50"
+                height="30"
+                fill="rgba(51, 255, 51, 0.3)"
+              />
+            </svg>
+
+            <ul>
+              <li>
+                Adição de frações: \( \frac{a}{c} + \frac{b}{c} = \frac{a+b}{c}
+                \)
+              </li>
+              <li>
+                MMC para denominadores diferentes: \( \frac{a}{b} + \frac{c}{d}
+                = \frac{ad + bc}{bd} \)
+              </li>
+              <li>
+                Racione recursos escassos usando proporções (ex: 2L de água para
+                5 pessoas = 0,4L por pessoa)
+              </li>
+            </ul>
+            <p class="formula">
+              Racionamento insuficiente = perda de população
+            </p>
+          </section>
+
+          <!-- Slide sobre equações lineares -->
+          <section>
+            <h3>Equações Lineares: Decifrando Terminais</h3>
+            <p>
+              Equações são como códigos de acesso para calcular necessidades de
+              sobrevivência.
+            </p>
+
+            <svg
+              width="400"
+              height="100"
+              viewBox="0 0 400 100"
+              style="margin: 20px auto; display: block"
+            >
+              <!-- Equação linear -->
+              <rect
+                x="50"
+                y="20"
+                width="300"
+                height="60"
+                fill="rgba(40, 44, 52, 0.7)"
+                stroke="#33ff33"
+                stroke-width="2"
+                rx="10"
+              />
+              <text x="110" y="60" fill="#33ff33" font-size="24">
+                2x + 3 = 15
+              </text>
+              <text x="260" y="60" fill="#33ff33" font-size="24">x = 6</text>
+            </svg>
+
+            <p>Aplicações críticas para sobrevivência:</p>
+            <ul>
+              <li>
+                Calcular duração de suprimentos:
+                <span class="formula">2x + 5 = 33</span> onde x = dias
+              </li>
+              <li>
+                Equilibrar recursos entre grupos:
+                <span class="formula">3x = 2y</span> onde x, y = alocações
+              </li>
+              <li>
+                Determinar radiação segura:
+                <span class="formula">50 - 5t = 15</span> onde t = tempo
+              </li>
+            </ul>
+          </section>
+
+          <!-- Slide sobre sistemas de equações (corrigido) -->
+          <!-- Slide 1: Introdução ao Cenário de Troca -->
+          <section>
+            <h3>Sistemas de Equações: Trocas entre Assentamentos</h3>
+            <p>
+              Estabeleça trocas justas entre comunidades garantindo que ambas as
+              partes fiquem satisfeitas.
+            </p>
+
+            <div
+              style="
+                width: 80%;
+                margin: 0 auto;
+                background-color: rgba(40, 44, 52, 0.7);
+                border: 1px solid #33ff33;
+                padding: 15px;
+                border-radius: 5px;
+              "
+            >
+              <h4 style="margin-top: 0; color: #ffd700">Cenário de Troca</h4>
+              <p>
+                Megaton e Rivet City querem estabelecer uma troca justa de
+                recursos.
+              </p>
+              <p>
+                Megaton precisa de
+                <span style="color: #33ff33">comida (y)</span> e possui excesso
+                de <span style="color: #33ff33">água (x)</span>.
+              </p>
+              <p>
+                Rivet City precisa de
+                <span style="color: #33ff33">água (x)</span> e possui excesso de
+                <span style="color: #33ff33">comida (y)</span>.
+              </p>
+            </div>
+
+            <p style="text-align: center; margin-top: 20px">
+              Na wasteland, alianças comerciais justas são essenciais para a
+              sobrevivência a longo prazo.
+            </p>
+          </section>
+
+          <!-- Slide 2: Sistema de Equações -->
+          <section>
+            <h3>O Sistema de Equações</h3>
+
+            <p>Negociações estabelecem duas condições:</p>
+
+            <div
+              class="formula"
+              style="text-align: center; margin: 20px 0; font-size: 1.8rem"
+            >
+              2x + y = 20
+            </div>
+            <p style="text-align: center">(valor total de água)</p>
+
+            <div
+              class="formula"
+              style="text-align: center; margin: 20px 0; font-size: 1.8rem"
+            >
+              x + 3y = 25
+            </div>
+            <p style="text-align: center">(valor total de comida)</p>
+
+            <p>
+              O objetivo: Encontrar valores de x e y que satisfaçam ambas as
+              equações simultaneamente.
+            </p>
+          </section>
+
+          <!-- Slide 9: Significado na Wasteland -->
+          <section>
+            <h3>Significado na Wasteland</h3>
+
+            <div
+              style="
+                width: 80%;
+                margin: 0 auto;
+                background-color: rgba(40, 44, 52, 0.7);
+                border: 1px solid #33ff33;
+                padding: 15px;
+                border-radius: 5px;
+              "
+            >
+              <h4 style="margin-top: 0; color: #ffd700">Lições da Troca</h4>
+              <ul>
+                <li>
+                  Sistemas de equações permitem encontrar soluções para
+                  múltiplas condições
+                </li>
+                <li>Megaton fornece 7 unidades de água</li>
+                <li>Rivet City fornece 6 unidades de comida</li>
+                <li>Ambos os assentamentos ficam satisfeitos com a troca</li>
+              </ul>
+            </div>
+
+            <p style="text-align: center; margin-top: 20px; font-style: italic">
+              "Na wasteland, a matemática não é apenas teoria - é a diferença
+              entre prosperar e perecer."
+            </p>
+          </section>
+        </section>
+
+      </div>
+    </div>
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["\\(", "\\)"]],
+          displayMath: [["\\[", "\\]"]],
+        },
+      };
+      Reveal.initialize({
+        hash: true,
+        slideNumber: true,
+      });
+    </script>
+  </body>
+</html>

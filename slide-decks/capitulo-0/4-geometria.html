@@ -1,0 +1,1631 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cap. 0 — Preparação para a Wasteland: Geometria</title>
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/reveal.js/dist/theme/black.css"
+      id="theme"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+
+    <style>
+      .formula-container {
+        width: 90%;
+        margin: 0 auto;
+        background-color: rgba(40, 44, 52, 0.7);
+        border: 1px solid #33ff33;
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+
+      .two-columns {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .column {
+        width: 48%;
+      }
+
+      .formula-item {
+        margin: 15px 0;
+      }
+
+      .formula-item p:not(.formula) {
+        font-size: 1.4rem;
+        margin: 5px 0 15px 0;
+        color: #aaa;
+      }
+    </style>
+    <style>
+      .formula-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+
+      .concept-box {
+        background-color: rgba(40, 44, 52, 0.7);
+        border: 1px solid #33ff33;
+        border-radius: 5px;
+        padding: 15px;
+      }
+
+      .concept-box h4 {
+        color: #ffd700;
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 1.8rem;
+      }
+
+      .concept-box ul {
+        list-style: none;
+        padding-left: 10px;
+        margin-top: 5px;
+      }
+
+      .concept-box ul li {
+        font-size: 1.4rem;
+        margin-bottom: 5px;
+        line-height: 1.2;
+      }
+
+      .concept-box ul li::before {
+        content: ""; /* Removendo o ícone de radiação padrão para estas listas específicas */
+        position: static;
+      }
+
+      .example-box {
+        background-color: rgba(40, 44, 52, 0.7);
+        border: 1px solid #33ff33;
+        border-radius: 5px;
+        padding: 15px;
+        margin-top: 20px;
+      }
+    </style>
+    <style>
+      .canvas-container {
+        display: flex;
+        justify-content: center;
+        margin: 10px 0;
+      }
+
+      .warning-text {
+        font-family: monospace;
+        text-align: center;
+        margin-top: 10px;
+        animation: pulse 2s infinite;
+      }
+
+      .warning-text span {
+        color: #ff3333;
+        font-weight: bold;
+        padding: 5px 10px;
+        border: 1px solid #ff3333;
+        background-color: rgba(40, 44, 52, 0.7);
+      }
+
+      @keyframes pulse {
+        0% {
+          opacity: 0.7;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.7;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- PLANEJAMENTO DE ESTRUTURAS (GEOMETRIA PLANA) -->
+        <section>
+          <section>
+            <h2>Planejamento de Estruturas</h2>
+            <h3>Sistema S.A.F.E. - Structural Analysis For Endurance</h3>
+            <p>
+              As estruturas na wasteland precisam resistir a condições extremas
+              e otimizar recursos.
+            </p>
+            <svg
+              width="600"
+              height="300"
+              viewBox="0 0 600 320"
+              style="
+                margin: 20px auto;
+                display: block;
+                background-color: rgba(0, 0, 0, 0.2);
+                border-radius: 5px;
+              "
+            >
+              <!-- Fundo com grid -->
+              <defs>
+                <pattern
+                  id="smallGrid"
+                  width="10"
+                  height="10"
+                  patternUnits="userSpaceOnUse"
+                >
+                  <path
+                    d="M 10 0 L 0 0 0 10"
+                    fill="none"
+                    stroke="#335533"
+                    stroke-width="0.5"
+                    opacity="0.5"
+                  />
+                </pattern>
+                <pattern
+                  id="grid"
+                  width="100"
+                  height="100"
+                  patternUnits="userSpaceOnUse"
+                >
+                  <rect width="100" height="100" fill="url(#smallGrid)" />
+                  <path
+                    d="M 100 0 L 0 0 0 100"
+                    fill="none"
+                    stroke="#335533"
+                    stroke-width="1"
+                    opacity="0.8"
+                  />
+                </pattern>
+
+                <!-- Glow effect -->
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="2.5" result="coloredBlur" />
+                  <feMerge>
+                    <feMergeNode in="coloredBlur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+
+                <!-- Textura de Metal -->
+                <pattern
+                  id="metal"
+                  width="20"
+                  height="20"
+                  patternUnits="userSpaceOnUse"
+                >
+                  <rect width="20" height="20" fill="#333" />
+                  <rect width="10" height="10" fill="#555" />
+                  <rect width="10" height="10" x="10" y="10" fill="#555" />
+                </pattern>
+              </defs>
+
+              <!-- Background grid -->
+              <rect width="600" height="320" fill="url(#grid)" opacity="0.6" />
+
+              <!-- Título do diagrama -->
+              <text
+                x="300"
+                y="30"
+                fill="#FFD700"
+                font-size="16"
+                text-anchor="middle"
+                font-weight="bold"
+                filter="url(#glow)"
+              >
+                ANÁLISE COMPARATIVA DE ESTRUTURAS
+              </text>
+
+              <!-- Seção Estável - Lado Esquerdo -->
+              <g transform="translate(150, 160)">
+                <!-- Base de concreto -->
+                <rect
+                  x="-100"
+                  y="40"
+                  width="200"
+                  height="20"
+                  fill="#555"
+                  stroke="#33ff33"
+                  stroke-width="1"
+                />
+
+                <!-- Estrutura triangular - mais detalhada -->
+                <polygon
+                  points="-80,40 0,-70 80,40"
+                  fill="none"
+                  stroke="#33ff33"
+                  stroke-width="3"
+                  filter="url(#glow)"
+                />
+
+                <!-- Reforços internos -->
+                <line
+                  x1="-80"
+                  y1="40"
+                  x2="0"
+                  y2="0"
+                  stroke="#33ff33"
+                  stroke-width="2"
+                />
+                <line
+                  x1="80"
+                  y1="40"
+                  x2="0"
+                  y2="0"
+                  stroke="#33ff33"
+                  stroke-width="2"
+                />
+                <line
+                  x1="0"
+                  y1="-70"
+                  x2="0"
+                  y2="0"
+                  stroke="#33ff33"
+                  stroke-width="2"
+                />
+
+                <!-- Pontos de força -->
+                <circle cx="-80" cy="40" r="5" fill="#FFD700" />
+                <circle cx="80" cy="40" r="5" fill="#FFD700" />
+                <circle cx="0" cy="-70" r="5" fill="#FFD700" />
+                <circle cx="0" cy="0" r="5" fill="#FFD700" />
+
+                <!-- Símbolos de radiação pequenos -->
+                <text x="-40" y="10" fill="#33ff33" font-size="14">☢️</text>
+                <text x="30" y="10" fill="#33ff33" font-size="14">☢️</text>
+
+                <!-- Vetores de força -->
+                <line
+                  x1="-60"
+                  y1="-15"
+                  x2="-40"
+                  y2="-15"
+                  stroke="#FFD700"
+                  stroke-width="2"
+                  marker-end="url(#arrowhead)"
+                />
+                <line
+                  x1="60"
+                  y1="-15"
+                  x2="40"
+                  y2="-15"
+                  stroke="#FFD700"
+                  stroke-width="2"
+                  marker-end="url(#arrowhead)"
+                />
+                <line
+                  x1="0"
+                  y1="-50"
+                  x2="0"
+                  y2="-30"
+                  stroke="#FFD700"
+                  stroke-width="2"
+                  marker-end="url(#arrowhead)"
+                />
+
+                <!-- Texto explicativo -->
+                <text
+                  x="0"
+                  y="75"
+                  fill="#FFD700"
+                  font-size="14"
+                  text-anchor="middle"
+                  font-weight="bold"
+                >
+                  ESTRUTURA ESTÁVEL
+                </text>
+                <text
+                  x="0"
+                  y="95"
+                  fill="#bbb"
+                  font-size="12"
+                  text-anchor="middle"
+                >
+                  Distribuição triangular de forças
+                </text>
+                <text
+                  x="0"
+                  y="110"
+                  fill="#bbb"
+                  font-size="12"
+                  text-anchor="middle"
+                >
+                  Resistência a terremotos: 87%
+                </text>
+              </g>
+
+              <!-- Seção Vulnerável - Lado Direito -->
+              <g transform="translate(450, 160)">
+                <!-- Base de concreto -->
+                <rect
+                  x="-100"
+                  y="40"
+                  width="200"
+                  height="20"
+                  fill="#555"
+                  stroke="#ff5555"
+                  stroke-width="1"
+                />
+
+                <!-- Estrutura quadrada vulnerável -->
+                <rect
+                  x="-80"
+                  y="-70"
+                  width="160"
+                  height="110"
+                  fill="none"
+                  stroke="#ff5555"
+                  stroke-width="3"
+                />
+
+                <!-- Linhas de tensão diagonal -->
+                <line
+                  x1="-80"
+                  y1="-70"
+                  x2="80"
+                  y2="40"
+                  stroke="#ff5555"
+                  stroke-width="2"
+                  stroke-dasharray="5,5"
+                />
+                <line
+                  x1="80"
+                  y1="-70"
+                  x2="-80"
+                  y2="40"
+                  stroke="#ff5555"
+                  stroke-width="2"
+                  stroke-dasharray="5,5"
+                />
+
+                <!-- Pontos de fraqueza -->
+                <circle cx="-80" cy="-70" r="5" fill="#ff5555" />
+                <circle cx="80" cy="-70" r="5" fill="#ff5555" />
+                <circle cx="-80" cy="40" r="5" fill="#ff5555" />
+                <circle cx="80" cy="40" r="5" fill="#ff5555" />
+
+                <!-- Vetor de força desbalanceada -->
+                <line
+                  x1="0"
+                  y1="-100"
+                  x2="0"
+                  y2="-80"
+                  stroke="#ff5555"
+                  stroke-width="3"
+                  marker-end="url(#arrowhead)"
+                />
+                <line
+                  x1="50"
+                  y1="-100"
+                  x2="70"
+                  y2="-80"
+                  stroke="#ff5555"
+                  stroke-width="3"
+                  marker-end="url(#arrowhead)"
+                />
+
+                <!-- Indicadores de falha -->
+                <text
+                  x="-40"
+                  y="-20"
+                  fill="#ff5555"
+                  font-size="18"
+                  transform="rotate(15)"
+                >
+                  ⚠️
+                </text>
+                <text
+                  x="40"
+                  y="-10"
+                  fill="#ff5555"
+                  font-size="18"
+                  transform="rotate(-15)"
+                >
+                  ⚠️
+                </text>
+
+                <!-- Texto explicativo -->
+                <text
+                  x="0"
+                  y="75"
+                  fill="#ff5555"
+                  font-size="14"
+                  text-anchor="middle"
+                  font-weight="bold"
+                >
+                  ESTRUTURA VULNERÁVEL
+                </text>
+                <text
+                  x="0"
+                  y="95"
+                  fill="#bbb"
+                  font-size="12"
+                  text-anchor="middle"
+                >
+                  Distribuição de forças instável
+                </text>
+                <text
+                  x="0"
+                  y="110"
+                  fill="#bbb"
+                  font-size="12"
+                  text-anchor="middle"
+                >
+                  Resistência a terremotos: 32%
+                </text>
+              </g>
+
+              <!-- Definição de setas -->
+              <defs>
+                <marker
+                  id="arrowhead"
+                  markerWidth="10"
+                  markerHeight="7"
+                  refX="5"
+                  refY="3.5"
+                  orient="auto"
+                >
+                  <polygon points="0 0, 10 3.5, 0 7" fill="#FFD700" />
+                </marker>
+              </defs>
+            </svg>
+
+            <!-- Legenda adicional abaixo do SVG -->
+            <div
+              style="
+                width: 80%;
+                margin: 0 auto;
+                display: flex;
+                justify-content: space-around;
+                text-align: center;
+              "
+            >
+              <div>
+                <span style="color: #33ff33; font-weight: bold"
+                  >Triangulação</span
+                >
+                <p style="font-size: 0.9rem; margin-top: 5px">
+                  Distribui forças uniformemente
+                </p>
+              </div>
+              <div>
+                <span style="color: #ffd700; font-weight: bold"
+                  >Pontos de Ancoragem</span
+                >
+                <p style="font-size: 0.9rem; margin-top: 5px">
+                  Essenciais para estabilidade
+                </p>
+              </div>
+              <div>
+                <span style="color: #ff5555; font-weight: bold"
+                  >Áreas de Tensão</span
+                >
+                <p style="font-size: 0.9rem; margin-top: 5px">
+                  Vulneráveis a colapso
+                </p>
+              </div>
+            </div>
+          </section>
+          <!-- Slide principal da seção -->
+          <!-- Slide sobre ângulos e retas -->
+          <section>
+            <h3>Ângulos e Retas: Fundamentos de Construção</h3>
+            <p>
+              Diferentes tipos de ângulos têm aplicações estratégicas na
+              wasteland:
+            </p>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300">
+              <!-- Fundo estilo terminal Pip-Boy -->
+              <rect
+                width="600"
+                height="300"
+                fill="#0A0A0A"
+                opacity="0.7"
+                rx="5"
+                ry="5"
+              />
+
+              <!-- Grade de fundo estilo Pip-Boy -->
+              <g opacity="0.15">
+                <path
+                  d="M0,30 L600,30 M0,60 L600,60 M0,90 L600,90 M0,120 L600,120 M0,150 L600,150 M0,180 L600,180 M0,210 L600,210 M0,240 L600,240 M0,270 L600,270"
+                  stroke="#33FF33"
+                  stroke-width="1"
+                />
+                <path
+                  d="M30,0 L30,300 M60,0 L60,300 M90,0 L90,300 M120,0 L120,300 M150,0 L150,300 M180,0 L180,300 M210,0 L210,300 M240,0 L240,300 M270,0 L270,300 M300,0 L300,300 M330,0 L330,300 M360,0 L360,300 M390,0 L390,300 M420,0 L420,300 M450,0 L450,300 M480,0 L480,300 M510,0 L510,300 M540,0 L540,300 M570,0 L570,300"
+                  stroke="#33FF33"
+                  stroke-width="1"
+                />
+              </g>
+
+              <!-- Seção Ângulo Agudo -->
+              <g transform="translate(100,80)">
+                <!-- Ponto central com brilho -->
+                <circle cx="0" cy="0" r="4" fill="#ADFF2F" />
+                <circle
+                  cx="0"
+                  cy="0"
+                  r="6"
+                  fill="none"
+                  stroke="#ADFF2F"
+                  stroke-width="1"
+                  opacity="0.6"
+                >
+                  <animate
+                    attributeName="opacity"
+                    values="0.3;0.8;0.3"
+                    dur="3s"
+                    repeatCount="indefinite"
+                  />
+                  <animate
+                    attributeName="r"
+                    values="6;8;6"
+                    dur="3s"
+                    repeatCount="indefinite"
+                  />
+                </circle>
+
+                <!-- Linhas do ângulo -->
+                <line
+                  x1="0"
+                  y1="0"
+                  x2="80"
+                  y2="0"
+                  stroke="#ADFF2F"
+                  stroke-width="2.5"
+                />
+                <line
+                  x1="0"
+                  y1="0"
+                  x2="40"
+                  y2="-50"
+                  stroke="#ADFF2F"
+                  stroke-width="2.5"
+                />
+
+                <!-- Arco do ângulo com animação -->
+                <path
+                  d="M15,0 A15,15 0 0,1 7.5,-13"
+                  stroke="#FFD700"
+                  stroke-width="1.5"
+                  fill="none"
+                />
+                <path
+                  d="M14,0 A14,14 0 0,1 7,-12.1"
+                  stroke="#FFD700"
+                  stroke-width="0.5"
+                  fill="none"
+                  opacity="0.6"
+                >
+                  <animate
+                    attributeName="opacity"
+                    values="0.3;0.8;0.3"
+                    dur="2s"
+                    repeatCount="indefinite"
+                  />
+                </path>
+
+                <!-- Valor do ângulo -->
+                <text
+                  x="20"
+                  y="-10"
+                  fill="#FFD700"
+                  font-size="14"
+                  font-weight="bold"
+                >
+                  30°
+                </text>
+
+                <!-- Ícone radiação pequeno -->
+                <text x="-10" y="-15" fill="#FFD700" font-size="10">☢️</text>
+
+                <!-- Texto descritivo -->
+                <text
+                  x="0"
+                  y="70"
+                  fill="#ADFF2F"
+                  font-size="14"
+                  text-anchor="middle"
+                  font-weight="bold"
+                >
+                  ÂNGULO AGUDO
+                </text>
+                <text
+                  x="0"
+                  y="90"
+                  fill="#FFD700"
+                  font-size="12"
+                  text-anchor="middle"
+                >
+                  Defesa afiada: maximiza
+                </text>
+                <text
+                  x="0"
+                  y="105"
+                  fill="#FFD700"
+                  font-size="12"
+                  text-anchor="middle"
+                >
+                  resistência a invasores
+                </text>
+              </g>
+
+              <!-- Seção Ângulo Reto -->
+              <g transform="translate(300,80)">
+                <!-- Ponto central com brilho -->
+                <circle cx="0" cy="0" r="4" fill="#ADFF2F" />
+                <circle
+                  cx="0"
+                  cy="0"
+                  r="6"
+                  fill="none"
+                  stroke="#ADFF2F"
+                  stroke-width="1"
+                  opacity="0.6"
+                >
+                  <animate
+                    attributeName="opacity"
+                    values="0.3;0.8;0.3"
+                    dur="3s"
+                    repeatCount="indefinite"
+                  />
+                  <animate
+                    attributeName="r"
+                    values="6;8;6"
+                    dur="3s"
+                    repeatCount="indefinite"
+                  />
+                </circle>
+
+                <!-- Linhas do ângulo -->
+                <line
+                  x1="0"
+                  y1="0"
+                  x2="80"
+                  y2="0"
+                  stroke="#ADFF2F"
+                  stroke-width="2.5"
+                />
+                <line
+                  x1="0"
+                  y1="0"
+                  x2="0"
+                  y2="-60"
+                  stroke="#ADFF2F"
+                  stroke-width="2.5"
+                />
+
+                <!-- Símbolo de ângulo reto -->
+                <path
+                  d="M0,0 L15,0 L15,-15 L0,-15"
+                  stroke="#FFD700"
+                  stroke-width="1.5"
+                  fill="none"
+                />
+                <path
+                  d="M0,0 L14,0 L14,-14 L0,-14"
+                  stroke="#FFD700"
+                  stroke-width="0.5"
+                  fill="none"
+                  opacity="0.6"
+                >
+                  <animate
+                    attributeName="opacity"
+                    values="0.3;0.8;0.3"
+                    dur="2s"
+                    repeatCount="indefinite"
+                  />
+                </path>
+
+                <!-- Valor do ângulo -->
+                <text
+                  x="20"
+                  y="-20"
+                  fill="#FFD700"
+                  font-size="14"
+                  font-weight="bold"
+                >
+                  90°
+                </text>
+
+                <!-- Ícone radiação pequeno -->
+                <text x="-10" y="-20" fill="#FFD700" font-size="10">☢️</text>
+
+                <!-- Texto descritivo -->
+                <text
+                  x="0"
+                  y="70"
+                  fill="#ADFF2F"
+                  font-size="14"
+                  text-anchor="middle"
+                  font-weight="bold"
+                >
+                  ÂNGULO RETO
+                </text>
+                <text
+                  x="0"
+                  y="90"
+                  fill="#FFD700"
+                  font-size="12"
+                  text-anchor="middle"
+                >
+                  Estruturas estáveis:
+                </text>
+                <text
+                  x="0"
+                  y="105"
+                  fill="#FFD700"
+                  font-size="12"
+                  text-anchor="middle"
+                >
+                  abrigos duradouros
+                </text>
+              </g>
+
+              <!-- Seção Ângulo Obtuso - Redesenhada completamente -->
+              <g transform="translate(500,80)">
+                <!-- Ponto central com brilho -->
+                <circle cx="0" cy="0" r="4" fill="#ADFF2F" />
+                <circle
+                  cx="0"
+                  cy="0"
+                  r="6"
+                  fill="none"
+                  stroke="#ADFF2F"
+                  stroke-width="1"
+                  opacity="0.6"
+                >
+                  <animate
+                    attributeName="opacity"
+                    values="0.3;0.8;0.3"
+                    dur="3s"
+                    repeatCount="indefinite"
+                  />
+                  <animate
+                    attributeName="r"
+                    values="6;8;6"
+                    dur="3s"
+                    repeatCount="indefinite"
+                  />
+                </circle>
+
+                <!-- Linhas do ângulo - ângulo obtuso de 120° -->
+                <line
+                  x1="0"
+                  y1="0"
+                  x2="60"
+                  y2="0"
+                  stroke="#ADFF2F"
+                  stroke-width="2.5"
+                />
+                <line
+                  x1="0"
+                  y1="0"
+                  x2="-30"
+                  y2="-52"
+                  stroke="#ADFF2F"
+                  stroke-width="2.5"
+                />
+
+                <!-- Arco do ângulo correto para 120° -->
+                <path
+                  d="M15,0 A15,15 0 0,0 -7.5,-13"
+                  stroke="#FFD700"
+                  stroke-width="1.5"
+                  fill="none"
+                />
+                <path
+                  d="M14,0 A14,14 0 0,0 -7,-12.1"
+                  stroke="#FFD700"
+                  stroke-width="0.5"
+                  fill="none"
+                  opacity="0.6"
+                >
+                  <animate
+                    attributeName="opacity"
+                    values="0.3;0.8;0.3"
+                    dur="2s"
+                    repeatCount="indefinite"
+                  />
+                </path>
+
+                <!-- Valor do ângulo -->
+                <text
+                  x="-12"
+                  y="-20"
+                  fill="#FFD700"
+                  font-size="14"
+                  font-weight="bold"
+                >
+                  120°
+                </text>
+
+                <!-- Ícone radiação pequeno -->
+                <text x="-25" y="-25" fill="#FFD700" font-size="10">☢️</text>
+
+                <!-- Texto descritivo -->
+                <text
+                  x="0"
+                  y="70"
+                  fill="#ADFF2F"
+                  font-size="14"
+                  text-anchor="middle"
+                  font-weight="bold"
+                >
+                  ÂNGULO OBTUSO
+                </text>
+                <text
+                  x="0"
+                  y="90"
+                  fill="#FFD700"
+                  font-size="12"
+                  text-anchor="middle"
+                >
+                  Campo de visão amplo:
+                </text>
+                <text
+                  x="0"
+                  y="105"
+                  fill="#FFD700"
+                  font-size="12"
+                  text-anchor="middle"
+                >
+                  detecção de ameaças
+                </text>
+              </g>
+
+              <!-- Título da visualização no estilo Pip-Boy -->
+              <g transform="translate(300,240)">
+                <rect
+                  x="-200"
+                  y="10"
+                  width="400"
+                  height="30"
+                  fill="#0A0A0A"
+                  stroke="#ADFF2F"
+                  stroke-width="1"
+                  rx="5"
+                  ry="5"
+                />
+                <text
+                  x="0"
+                  y="30"
+                  fill="#ADFF2F"
+                  font-size="16"
+                  text-anchor="middle"
+                  font-weight="bold"
+                >
+                  VAULT-TEC ÂNGULOS DE SOBREVIVÊNCIA
+                </text>
+
+                <!-- Pequenos detalhes decorativos tipo interface -->
+                <circle cx="-210" cy="25" r="3" fill="#FFD700" />
+                <circle cx="210" cy="25" r="3" fill="#FFD700" />
+                <text x="-225" y="30" fill="#FFD700" font-size="10">V</text>
+                <text x="222" y="30" fill="#FFD700" font-size="10">T</text>
+              </g>
+
+              <!-- Efeitos de CRT/Scanline -->
+              <rect
+                width="600"
+                height="300"
+                fill="url(#scanline)"
+                opacity="0.05"
+              />
+              <rect
+                width="600"
+                height="300"
+                fill="none"
+                stroke="#33FF33"
+                stroke-width="2"
+                rx="8"
+                ry="8"
+              />
+
+              <!-- Definições de padrões e filtros -->
+              <defs>
+                <!-- Padrão de scanline para efeito CRT -->
+                <pattern
+                  id="scanline"
+                  patternUnits="userSpaceOnUse"
+                  width="4"
+                  height="4"
+                >
+                  <rect width="4" height="2" fill="#FFFFFF" />
+                  <rect y="2" width="4" height="2" fill="#000000" />
+                </pattern>
+              </defs>
+            </svg>
+            <p class="formula">Ângulo apropriado = Sobrevivência otimizada</p>
+          </section>
+
+          <!-- Slide sobre triângulos -->
+          <section>
+            <h3>Triângulos e as Estruturas da Wasteland</h3>
+            <div
+              style="
+                display: flex;
+                justify-content: space-around;
+                width: 90%;
+                margin: 0 auto;
+              "
+            >
+              <div
+                style="
+                  width: 30%;
+                  background-color: rgba(40, 44, 52, 0.7);
+                  border: 1px solid #33ff33;
+                  padding: 10px;
+                  border-radius: 5px;
+                "
+              >
+                <h4 style="margin-top: 0; color: #33ff33">
+                  Triângulo Retângulo
+                </h4>
+                <ul>
+                  <li>Um ângulo exatamente 90°</li>
+                  <li>Teorema de Pitágoras aplicável: c² = a² + b²</li>
+                  <li>Ideal para estruturas com reforço perpendicular</li>
+                  <li>Encontrado em: suportes de torre, esquinas de abrigos</li>
+                </ul>
+              </div>
+
+              <div
+                style="
+                  width: 30%;
+                  background-color: rgba(40, 44, 52, 0.7);
+                  border: 1px solid #ffd700;
+                  padding: 10px;
+                  border-radius: 5px;
+                "
+              >
+                <h4 style="margin-top: 0; color: #ffd700">
+                  Triângulo Isósceles
+                </h4>
+                <ul>
+                  <li>Dois lados com mesmo comprimento</li>
+                  <li>Dois ângulos iguais (base dos lados iguais)</li>
+                  <li>Simetria útil para distribuição de peso</li>
+                  <li>Encontrado em: tendas, coberturas A-frame, telhados</li>
+                </ul>
+              </div>
+
+              <div
+                style="
+                  width: 30%;
+                  background-color: rgba(40, 44, 52, 0.7);
+                  border: 1px solid #ff6b6b;
+                  padding: 10px;
+                  border-radius: 5px;
+                "
+              >
+                <h4 style="margin-top: 0; margin-bottom: 0; color: #ff6b6b">
+                  Triângulo Escaleno
+                </h4>
+                <ul>
+                  <li>Todos os lados com comprimentos diferentes</li>
+                  <li>Todos os ângulos diferentes</li>
+                  <li>Adaptável a terrenos irregulares</li>
+                  <li>
+                    Encontrado em: estruturas improvisadas, adaptações de campo
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- SEÇÃO DE ÁREAS E PERÍMETROS (DIVIDIDA EM SLIDES POR FIGURA) -->
+
+          <!-- Slide sobre retângulos -->
+          <section>
+            <h3>Retângulos: Espaços Habitáveis Eficientes</h3>
+            <p>
+              Formas retangulares são ideais para estruturas habitáveis e
+              modularidade no design.
+            </p>
+
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 20px 0;
+              "
+            >
+              <div style="width: 45%">
+                <svg width="200" height="200" viewBox="0 0 200 200">
+                  <rect
+                    x="20"
+                    y="50"
+                    width="160"
+                    height="100"
+                    fill="rgba(51, 255, 51, 0.2)"
+                    stroke="#33ff33"
+                    stroke-width="3"
+                  />
+                  <text x="90" y="105" fill="#FFD700" font-size="20">
+                    b × h
+                  </text>
+                  <!-- Medidas -->
+                  <line
+                    x1="20"
+                    y1="170"
+                    x2="180"
+                    y2="170"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="20"
+                    y1="165"
+                    x2="20"
+                    y2="175"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="180"
+                    y1="165"
+                    x2="180"
+                    y2="175"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <text x="90" y="190" fill="#FFD700" font-size="14">
+                    base (b)
+                  </text>
+                  <!-- Altura -->
+                  <line
+                    x1="200"
+                    y1="50"
+                    x2="200"
+                    y2="150"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="195"
+                    y1="50"
+                    x2="205"
+                    y2="50"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="195"
+                    y1="150"
+                    x2="205"
+                    y2="150"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <text
+                    x="215"
+                    y="105"
+                    fill="#FFD700"
+                    font-size="14"
+                    transform="rotate(90, 215, 105)"
+                  >
+                    altura (h)
+                  </text>
+                </svg>
+              </div>
+
+              <div
+                style="
+                  width: 45%;
+                  background-color: rgba(40, 44, 52, 0.7);
+                  border: 1px solid #33ff33;
+                  padding: 15px;
+                  border-radius: 5px;
+                "
+              >
+                <p class="formula" style="margin: 10px 0">Área = b × h</p>
+                <p class="formula" style="margin: 10px 0">
+                  Perímetro = 2b + 2h
+                </p>
+                <p class="formula" style="margin: 10px 0">
+                  Diagonal = \(\sqrt{b^2 + h^2}\)
+                </p>
+
+                <ul style="text-align: left; padding-left: 20px">
+                  <li>Moradias e barracas (cálculo de materiais)</li>
+                  <li>Plantações (maximização de área)</li>
+                  <li>Perímetros defensivos (cálculo de cercas)</li>
+                </ul>
+              </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 10px">
+              O retângulo é a forma mais eficiente para construções habitáveis,
+              permitindo modularidade e expansão planejada.
+            </p>
+          </section>
+
+          <!-- Slide sobre triângulos (área e perímetro) -->
+          <section>
+            <h3>Triângulos: Áreas e Eficiência Estrutural</h3>
+            <p>
+              Cálculos de área para projetar coberturas, tendas e barreiras
+              triangulares.
+            </p>
+
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 20px 0;
+              "
+            >
+              <div style="width: 45%">
+                <svg width="200" height="200" viewBox="0 0 200 200">
+                  <polygon
+                    points="20,150 180,150 100,50"
+                    fill="rgba(51, 255, 51, 0.2)"
+                    stroke="#33ff33"
+                    stroke-width="3"
+                  />
+                  <text x="90" y="120" fill="#FFD700" font-size="18">
+                    b × h/2
+                  </text>
+                  <!-- Base -->
+                  <line
+                    x1="20"
+                    y1="170"
+                    x2="180"
+                    y2="170"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="20"
+                    y1="165"
+                    x2="20"
+                    y2="175"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="180"
+                    y1="165"
+                    x2="180"
+                    y2="175"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <text x="90" y="190" fill="#FFD700" font-size="14">
+                    base (b)
+                  </text>
+                  <!-- Altura -->
+                  <line
+                    x1="100"
+                    y1="150"
+                    x2="100"
+                    y2="50"
+                    stroke="#FFD700"
+                    stroke-width="1"
+                    stroke-dasharray="5,5"
+                  />
+                  <line
+                    x1="95"
+                    y1="50"
+                    x2="105"
+                    y2="50"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <text x="105" y="100" fill="#FFD700" font-size="14">
+                    altura (h)
+                  </text>
+                </svg>
+              </div>
+
+              <div
+                style="
+                  width: 45%;
+                  background-color: rgba(40, 44, 52, 0.7);
+                  border: 1px solid #33ff33;
+                  padding: 25px;
+                  border-radius: 5px;
+                "
+              >
+                <p class="formula" style="margin: 10px 0">
+                  Área = \(\frac{b \times h}{2}\)
+                </p>
+                <p class="formula" style="margin: 10px 0">
+                  Perímetro = a + b + c
+                </p>
+                <p class="formula" style="margin: 10px 0">
+                  Semiperímetro s = \(\frac{a+b+c}{2}\)
+                </p>
+                <p class="formula" style="margin: 10px 0">
+                  Área (Fórmula de Heron) = \(\sqrt{s(s-a)(s-b)(s-c)}\)
+                </p>
+
+                <ul style="text-align: left; padding-left: 20px">
+                  <li>Tendas e coberturas (cálculo de lona necessária)</li>
+                  <li>Estruturas de suporte (triangulação)</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide sobre círculos -->
+          <section>
+            <h3>Círculos: Zonas de Proteção Otimizadas</h3>
+            <p>
+              A forma circular oferece a máxima área para um perímetro dado -
+              ideal para zonas de segurança.
+            </p>
+
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 20px 0;
+              "
+            >
+              <div style="width: 45%">
+                <svg width="200" height="200" viewBox="0 0 200 200">
+                  <circle
+                    cx="100"
+                    cy="100"
+                    r="80"
+                    fill="rgba(51, 255, 51, 0.2)"
+                    stroke="#33ff33"
+                    stroke-width="3"
+                  />
+                  <text x="80" y="105" fill="#FFD700" font-size="20">πr²</text>
+                  <!-- Raio -->
+                  <line
+                    x1="100"
+                    y1="100"
+                    x2="180"
+                    y2="100"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <text x="130" y="90" fill="#FFD700" font-size="14">
+                    raio (r)
+                  </text>
+                  <!-- Diâmetro -->
+                  <line
+                    x1="20"
+                    y1="140"
+                    x2="180"
+                    y2="140"
+                    stroke="#FFD700"
+                    stroke-width="1"
+                    stroke-dasharray="5,5"
+                  />
+                  <line
+                    x1="20"
+                    y1="135"
+                    x2="20"
+                    y2="145"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="180"
+                    y1="135"
+                    x2="180"
+                    y2="145"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <text x="90" y="160" fill="#FFD700" font-size="14">
+                    diâmetro (2r)
+                  </text>
+                </svg>
+              </div>
+
+              <div
+                style="
+                  width: 45%;
+                  background-color: rgba(40, 44, 52, 0.7);
+                  border: 1px solid #33ff33;
+                  padding: 15px;
+                  border-radius: 5px;
+                "
+              >
+                <p class="formula" style="margin: 10px 0">Área = πr²</p>
+                <p class="formula" style="margin: 10px 0">
+                  Circunferência = 2πr
+                </p>
+                <p class="formula" style="margin: 10px 0">Diâmetro = 2r</p>
+                <ul style="text-align: left; padding-left: 20px">
+                  <li>Zonas de radiação (mapeamento de áreas)</li>
+                  <li>Perímetros defensivos (eficiência máxima)</li>
+                  <li>Alcance de torres de comunicação</li>
+                  <li>Tanques de água (capacidade máxima)</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide sobre polígonos regulares -->
+          <section>
+            <h3>Polígonos Regulares: Assentamentos Planejados</h3>
+            <p>
+              Formas poligonais combinam as vantagens práticas do retângulo com
+              a eficiência do círculo.
+            </p>
+
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 20px 0;
+              "
+            >
+              <div style="width: 45%">
+                <svg width="200" height="200" viewBox="0 0 200 200">
+                  <polygon
+                    points="100,20 165,50 180,120 130,180 70,180 20,120 35,50"
+                    fill="rgba(51, 255, 51, 0.2)"
+                    stroke="#33ff33"
+                    stroke-width="3"
+                  />
+                  <text x="75" y="110" fill="#FFD700" font-size="16">
+                    Polígono
+                  </text>
+                  <!-- Centro e raio -->
+                  <circle cx="100" cy="100" r="3" fill="#FFD700" />
+                  <line
+                    x1="100"
+                    y1="100"
+                    x2="180"
+                    y2="120"
+                    stroke="#FFD700"
+                    stroke-width="1"
+                    stroke-dasharray="5,5"
+                  />
+                  <text x="130" y="90" fill="#FFD700" font-size="14">
+                    raio (r)
+                  </text>
+                  <!-- Lado -->
+                  <line
+                    x1="130"
+                    y1="180"
+                    x2="70"
+                    y2="180"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <text x="90" y="170" fill="#FFD700" font-size="14">
+                    lado (l)
+                  </text>
+                </svg>
+              </div>
+
+              <div
+                style="
+                  width: 45%;
+                  background-color: rgba(40, 44, 52, 0.7);
+                  border: 1px solid #33ff33;
+                  padding: 15px;
+                  border-radius: 5px;
+                "
+              >
+                <h4 style="margin-top: 0; color: #ffd700">
+                  Fórmulas para n lados
+                </h4>
+                <p class="formula" style="margin: 8px 0">Perímetro = n × l</p>
+                <p class="formula" style="margin: 8px 0">
+                  Área = \(\frac{1}{4}nl^2 \cot(\frac{\pi}{n})\)
+                </p>
+                <p class="formula" style="margin: 8px 0">
+                  Ângulo interno = \(\frac{(n-2) \times 180°}{n}\)
+                </p>
+                <p class="formula" style="margin: 8px 0">
+                  Lado l = \(2r \sin(\frac{\pi}{n})\)
+                </p>
+
+                <ul style="text-align: left; padding-left: 20px">
+                  <li>Planejamento de assentamentos</li>
+                  <li>Fortificações de múltiplos lados</li>
+                  <li>Sistemas de irrigação eficientes</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide sobre semelhança de triângulos -->
+          <section>
+            <h3>Semelhança de Triângulos: Reconhecimento à Distância</h3>
+            <p>
+              A semelhança é uma arma poderosa para calcular distâncias
+              inacessíveis na wasteland.
+            </p>
+
+            <div
+              style="
+                display: flex;
+                justify-content: space-around;
+                width: 90%;
+                margin: 15px auto;
+              "
+            >
+              <div
+                style="
+                  width: 45%;
+                  background-color: rgba(40, 44, 52, 0.7);
+                  border: 1px solid #33ff33;
+                  padding: 10px;
+                  border-radius: 5px;
+                "
+              >
+                <h4 style="margin-top: 0; color: #ffd700">
+                  Aplicação na Wasteland
+                </h4>
+                <ul>
+                  <li>
+                    Calcular a altura de um prédio perigoso sem aproximação
+                  </li>
+                  <li>
+                    Estimar distâncias até bases inimigas ou pontos de recursos
+                  </li>
+                  <li>
+                    Determinar a largura de áreas radioativas sem entrar nelas
+                  </li>
+                  <li>
+                    Mapear terrenos inacessíveis a partir de pontos seguros
+                  </li>
+                </ul>
+              </div>
+
+              <div
+                style="
+                  width: 45%;
+                  background-color: rgba(40, 44, 52, 0.7);
+                  border: 1px solid #33ff33;
+                  padding: 10px;
+                  border-radius: 5px;
+                "
+              >
+                <h4 style="margin-top: 0; color: #ffd700">
+                  Critérios de Semelhança
+                </h4>
+                <ul>
+                  <li>
+                    <span style="color: #33ff33">AAA</span>: Três ângulos iguais
+                    (α = α, β = β, γ = γ)
+                  </li>
+                  <li>
+                    <span style="color: #33ff33">LAL</span>: Dois lados
+                    proporcionais e ângulo entre eles igual
+                  </li>
+                  <li>
+                    <span style="color: #33ff33">LLL</span>: Três lados
+                    proporcionais (AB/AD = BC/DE = AC/AE)
+                  </li>
+                </ul>
+                <p class="formula" style="text-align: center; margin-top: 5px">
+                  Razão de semelhança = razão entre lados correspondentes
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide sobre aplicações de semelhança -->
+          <section>
+            <h3>Aplicações na Wasteland: Reconhecimento Tático</h3>
+
+            <svg
+              width="400"
+              height="180"
+              viewBox="0 0 400 180"
+              style="margin: 10px auto; display: block"
+            >
+              <!-- Cenário de aplicação prática com torre -->
+              <rect
+                x="50"
+                y="30"
+                width="10"
+                height="120"
+                fill="#777"
+                stroke="#33ff33"
+                stroke-width="1"
+              />
+              <rect
+                x="30"
+                y="30"
+                width="50"
+                height="20"
+                fill="#777"
+                stroke="#33ff33"
+                stroke-width="1"
+              />
+              <line
+                x1="60"
+                y1="30"
+                x2="300"
+                y2="150"
+                stroke="#FFD700"
+                stroke-width="1"
+                stroke-dasharray="5,5"
+              />
+              <line
+                x1="60"
+                y1="150"
+                x2="300"
+                y2="150"
+                stroke="#33ff33"
+                stroke-width="2"
+              />
+              <line
+                x1="300"
+                y1="150"
+                x2="300"
+                y2="120"
+                stroke="#33ff33"
+                stroke-width="2"
+              />
+              <line
+                x1="300"
+                y1="120"
+                x2="60"
+                y2="30"
+                stroke="#33ff33"
+                stroke-width="2"
+              />
+
+              <text x="170" y="165" fill="#FFD700" font-size="12">
+                Distância medida (240m)
+              </text>
+              <text x="305" y="135" fill="#FFD700" font-size="12">
+                Altura do observador (1.7m)
+              </text>
+              <text x="20" y="20" fill="#FFD700" font-size="12">
+                Torre (h = ?)
+              </text>
+
+              <text x="150" y="100" fill="#ADFF2F" font-size="14">
+                h/1.7 = 240/(300-60)
+              </text>
+              <text x="150" y="120" fill="#ADFF2F" font-size="14">
+                h = 1.7 × 240/240 = 1.7m
+              </text>
+            </svg>
+
+            <p>Aplicações cruciais para sobrevivência na wasteland:</p>
+            <ul>
+              <li>
+                Calcular altura de torres e estruturas perigosas a uma distância
+                segura
+              </li>
+              <li>
+                Estimar distância de alvos hostis (Super Mutantes, Deathclaws)
+              </li>
+              <li>
+                Determinar a largura de rios ou áreas radioativas sem precisar
+                cruzá-los
+              </li>
+              <li>Mapear zonas inaccessíveis observando de pontos elevados</li>
+            </ul>
+          </section>
+        </section>
+
+      </div>
+    </div>
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["\\(", "\\)"]],
+          displayMath: [["\\[", "\\]"]],
+        },
+      };
+      Reveal.initialize({
+        hash: true,
+        slideNumber: true,
+      });
+    </script>
+  </body>
+</html>

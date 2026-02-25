@@ -28,6 +28,13 @@ Use o `exercicios/template.html` como base estrutural.
 - `solution-steps` — passos da solução
 - Soluções dentro de `<details>` com título "ACESSO NÍVEL: SUPERVISOR"
 
+## Notação (resumo — ver `ESTILO.md` para referência completa)
+- Pontos: letras **maiúsculas** com coordenadas — $A(2, -3)$, $P(x_0, y_0)$
+- Vetores: `\vec{v}` (nunca negrito); índices fora — `\vec{n}_1`, não `\vec{n_1}`
+- Vetores canônicos: $\vec{e}_1, \vec{e}_2, \vec{e}_3$ ou $\vec{i}, \vec{j}, \vec{k}$ — nunca reutilizar essas letras como variáveis
+- Separador decimal: vírgula — `$0{,}6$`
+- Focos de cônicas: sempre LaTeX `$F_1$`, nunca Unicode "F₁"
+
 ## Restrições matemáticas
 - **NUNCA** usar cálculo diferencial ou integral
 - Apenas álgebra, geometria e trigonometria básica
