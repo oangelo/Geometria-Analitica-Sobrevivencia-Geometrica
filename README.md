@@ -10,42 +10,42 @@ São Paulo: Atual, 1982.
 
 </details>
 
-# [Notas 2025](notas/2025.md) | [Provas](PROVAS.md) | [Guia para Agentes](AGENTES.md) | [Guia de Estilo](ESTILO.md)
+# [Provas](PROVAS.md)
 
 # Índice de Conteúdo
 
-## Capítulo 0 - Preparação para a Wasteland
+## [Capítulo 0 - Preparação para a Wasteland](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-0.html)
 
-1. [Introdução ao cenário pós-apocalíptico](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-0/1-introducao.html)
+1. [Propriedades algébricas fundamentais](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-0/algebra.html)
 
-2. [Propriedades algébricas fundamentais](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-0/2-algebra.html) — [exercícios](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-0/algebra.html)
+2. [Operações com frações e proporções](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-0/fracoes.html)
 
-3. [Operações com frações e proporções](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-0/3-fracoes.html) — [exercícios](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-0/fracoes.html)
+3. [Equações lineares e sistemas](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-0/sistemas-equacoes-lineares.html)
 
-4. [Geometria plana](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-0/4-geometria.html)
+4. [Ângulos, triângulos e trigonometria fundamental](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-0/trigonometria.html)
 
-5. [Trigonometria](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-0/5-trigonometria.html) — [exercícios](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-0/trigonometria.html)
+5. [Revisão](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-0/revisao.html)
 
-6. [Revisão](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-0/revisao.html) — [sistemas de equações](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-0/sistemas-equacoes-lineares.html)
+## [Capítulo I - O Espaço Vetorial R²](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-i.html)
 
-## Capítulo I - O Espaço Vetorial R²
-1. [O conjunto R²](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-i/1-conjunto-r2.html) — [exercícios](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-i-o-espaco-vetorial-r2/1-conjunto-r2.html)
-2. [Igualdade e operações com pares ordenados](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-i/2-operacoes-pares-ordenados.html) — [exercícios](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-i-o-espaco-vetorial-r2/2-igualdade-e-operacoes-com-pares-ordenados.html)
-3. [Vetores no plano](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-i/3-vetores.html) — [exercícios](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-i-o-espaco-vetorial-r2/3-vetores-no-plano.html)
-   - [Vetores posição e deslocamento](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-i/5-vetores-posicao-deslocamento.html) *(slides complementares)*
-4. [Aplicações: ponto médio e baricentro](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-i/4-aplicacoes.html) — [exercícios](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-i-o-espaco-vetorial-r2/4-aplicacoes-ponto-medio-e-baricentro.html)
+1. [O conjunto R²](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-i-o-espaco-vetorial-r2/1-conjunto-r2.html)
+2. [Igualdade e operações com pares ordenados](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-i-o-espaco-vetorial-r2/2-igualdade-e-operacoes-com-pares-ordenados.html)
+3. [Vetores no plano](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-i-o-espaco-vetorial-r2/3-vetores-no-plano.html)
+4. [Aplicações: ponto médio e baricentro](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-i-o-espaco-vetorial-r2/4-aplicacoes-ponto-medio-e-baricentro.html)
 5. [Revisão](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-i-o-espaco-vetorial-r2/index.html)
 
-## Capítulo II - Produto Interno no R²
-1. [Produto escalar](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-ii/1-produto-escalar.html) — [exercícios](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-ii-produto-interno-no-r2/1-produto-escalar-de-dois-vetores.html)
-2. [Projeção vetorial](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-ii/2-projecao-vetorial.html)
-3. [Módulo de um vetor](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-ii/3-modulo.html) — [exercícios](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-ii-produto-interno-no-r2/2-modulo-de-um-vetor.html)
-4. [Distância entre dois pontos](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-ii-produto-interno-no-r2/3-distancia-entre-dois-pontos.html) *(exercícios)*
-5. [Paralelismo, ortogonalidade e área](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-ii/4-paralelismo-ortogonalidade-area.html) — [exercícios paralel.](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-ii-produto-interno-no-r2/4-paralelismo-e-ortogonalidade.html) / [área](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-ii-produto-interno-no-r2/6-area-de-triangulo-e-alinhamento-de-tres-pontos.html)
-6. [Ângulo de dois vetores](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-ii-produto-interno-no-r2/5-angulo-de-dois-vetores.html) *(exercícios)*
+## [Capítulo II - Produto Interno no R²](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-ii.html)
+
+1. [Produto escalar de dois vetores](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-ii-produto-interno-no-r2/1-produto-escalar-de-dois-vetores.html)
+2. [Módulo de um vetor](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-ii-produto-interno-no-r2/2-modulo-de-um-vetor.html)
+3. [Distância entre dois pontos](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-ii-produto-interno-no-r2/3-distancia-entre-dois-pontos.html)
+4. [Paralelismo e ortogonalidade](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-ii-produto-interno-no-r2/4-paralelismo-e-ortogonalidade.html)
+5. [Ângulo de dois vetores](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-ii-produto-interno-no-r2/5-angulo-de-dois-vetores.html)
+6. [Área de um triângulo e alinhamento de três pontos](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-ii-produto-interno-no-r2/6-area-de-triangulo-e-alinhamento-de-tres-pontos.html)
 7. [Revisão](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-ii-produto-interno-no-r2/index.html)
 
 ## [Capítulo III - Estudo da Reta no R²](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-iii.html)
+
 1. [Equação da reta](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-iii-estudo-da-reta-no-r2/1-equacao-da-reta.html)
 2. [Posições relativas e interseções de retas](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-iii-estudo-da-reta-no-r2/2-posicoes-relativas-e-intersecoes-de-retas.html)
 3. [Paralelismo e perpendicularidade](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-iii-estudo-da-reta-no-r2/3-paralelismo-e-perpendicularidade.html)
@@ -54,20 +54,23 @@ São Paulo: Atual, 1982.
 6. [Revisão](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-iii-estudo-da-reta-no-r2/index.html)
 
 ## [Capítulo IV - A Circunferência no R²](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-iv.html)
+
 1. [Equação da circunferência](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-iv-a-circunferencia-no-r2/1-equacao-da-circunferencia.html)
 2. [A circunferência definida por três pontos](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-iv-a-circunferencia-no-r2/2-circunferencia-definida-por-tres-pontos.html)
 3. [Posições relativas e interseções](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-iv-a-circunferencia-no-r2/3-posicoes-relativas-e-intersecoes.html)
-5. [Coordenadas Polares e equação paramétrica](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-iv-a-circunferencia-no-r2/5-coordenadas-polares-e-equacoes-parametricas.html)
-6. [Revisão](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-iv-a-circunferencia-no-r2/index.html)
+4. [Coordenadas Polares e equação paramétrica](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-iv-a-circunferencia-no-r2/5-coordenadas-polares-e-equacoes-parametricas.html)
+5. [Revisão](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-iv-a-circunferencia-no-r2/index.html)
 
 ## [Capítulo V - Lugares Geométricos: As Cônicas](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-v.html)
+
 1. [Lugares geométricos](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-v-lugares-geometricos-as-conicas/1-lugares-geometricos.html)
 2. [A parábola](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-v-lugares-geometricos-as-conicas/2-parabola.html)
 3. [A elipse](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-v-lugares-geometricos-as-conicas/3-elipse.html)
 4. [A hipérbole](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-v-lugares-geometricos-as-conicas/4-hiperbole.html)
 5. [Revisão](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-v-lugares-geometricos-as-conicas/index.html)
 
-## [Capítulo VI - O R³ e a Geometria Analítica no Espaço](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-vi.html) - [Parte 2](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-vi-2.html)
+## [Capítulo VI - O R³ e a Geometria Analítica no Espaço](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-vi.html) — [Parte 2](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-vi-2.html)
+
 1. [O espaço vetorial R³](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-vi-o-r3-e-a-geometria-analitica-no-espaco/1-espaco-vetorial-r3.html)
 2. [Produto interno no R³](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-vi-o-r3-e-a-geometria-analitica-no-espaco/2-produto-interno-no-r3.html)
 3. [Produto vetorial e produto misto](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-vi-o-r3-e-a-geometria-analitica-no-espaco/3-produto-vetorial-e-produto-misto.html)
@@ -75,6 +78,7 @@ São Paulo: Atual, 1982.
 5. [Equação do plano](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-vi-o-r3-e-a-geometria-analitica-no-espaco/5-equacao-do-plano.html)
 6. [Equações da reta](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-vi-o-r3-e-a-geometria-analitica-no-espaco/6-equacoes-da-reta.html)
 7. [Sistemas de equações lineares a três incógnitas](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-vi-o-r3-e-a-geometria-analitica-no-espaco/7-sistemas-de-equacoes-lineares-a-tres-incognitas.html)
+8. [Equação da superfície esférica](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-vi-o-r3-e-a-geometria-analitica-no-espaco/8-equacao-da-superficie-esferica.html)
 9. [Revisão](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-vi-o-r3-e-a-geometria-analitica-no-espaco/index.html)
 
 <details>
