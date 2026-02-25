@@ -2,12 +2,12 @@
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
-    <title>Geometria Analítica: Mapeamento Espacial — Capítulo III</title>
+    <title>Cap. III — Equação Reduzida</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" />
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../styles.css" />
     <style>
       /* ==================== 
          ESTILOS BASE PARA ELEMENTOS REVEAL (Mantidos do CSS anterior)
@@ -918,105 +918,522 @@
   </head>
   <body>
     <div class="reveal">
-      <div class="slides" id="slides"></div>
+      <div class="slides">
+        <!-- Tópico 5: Equação Reduzida e Inclinação (Horizontal 7) -->
+        <section>
+          <!-- 5.1 Conceito Principal -->
+          <section class="mission-briefing">
+            <h2>Tópico 5: Equação Reduzida \(y=mx+b\)</h2>
+            <h3 class="mission-subtitle">Relatório Rápido de Rota</h3>
+            <div class="definition-box">
+              <p>
+                <strong>Definição Formal:</strong> A forma \(y=mx+b\) expressa
+                \(y\) como função linear de \(x\) (exceto para retas verticais).
+              </p>
+              <p><strong>Interpretação Espacial:</strong></p>
+              <ul>
+                <li>
+                  \(m\): Coeficiente angular (inclinação, \(m = \tan(\theta)\)).
+                </li>
+                <li>\(b\): Coeficiente linear (intercepto Y, onde \(x=0\)).</li>
+              </ul>
+            </div>
+            <p>
+              É a forma mais intuitiva para visualização rápida da orientação de
+              uma rota.
+            </p>
+          </section>
+
+          <!-- 5.2 Visualização (Foco nos coeficientes) -->
+          <section class="simulator">
+            <h3>Visualização: O Significado de \(m\) e \(b\)</h3>
+            <div class="canvas-container">
+              <canvas
+                id="reduzida-canvas"
+                width="800"
+                height="400"
+                aria-label="Simulador da equação reduzida"
+                role="img"
+              ></canvas>
+              <div class="simulator-controls">
+                <div class="control-panel">
+                  <label for="reduzida-m">Inclinação (m):</label>
+                  <input
+                    type="range"
+                    id="reduzida-m"
+                    min="-5"
+                    max="5"
+                    value="1"
+                    step="0.1"
+                  />
+                  <span id="reduzida-m-value">1.0</span>
+                </div>
+                <div class="control-panel">
+                  <label for="reduzida-b">Intercepto Y (b):</label>
+                  <input
+                    type="range"
+                    id="reduzida-b"
+                    min="-8"
+                    max="8"
+                    value="1"
+                    step="0.2"
+                  />
+                  <span id="reduzida-b-value">1.0</span>
+                </div>
+              </div>
+              <div
+                class="intersecao-info"
+                id="reduzida-info"
+                style="font-size: 1.1rem"
+              >
+                Equação: y = 1.0x + 1.0
+              </div>
+              <div class="hint-message">
+                <p>
+                  Ajuste \(m\) para mudar a inclinação e \(b\) para mover a reta
+                  verticalmente.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5.3 Teorema/Propriedade (Relação m e ângulo) -->
+          <section class="field-report level-basic">
+            <h3>Teoria: Inclinação e Ângulo</h3>
+            <p>
+              A relação fundamental entre o coeficiente angular \(m\) e o ângulo
+              \(\theta\) que a reta faz com o eixo X (positivo, anti-horário) é:
+            </p>
+            <div class="definition-box">
+              <p class="formula">\( m = \tan(\theta) \)</p>
+            </div>
+            <div class="info-panel" style="margin-top: 1em">
+              <div class="info-screen crt-effect">
+                <h4>Casos Notáveis:</h4>
+                <ul>
+                  <li>\(\theta = 0^\circ \implies m = 0\) (Horizontal)</li>
+                  <li>\(\theta = 45^\circ \implies m = 1\)</li>
+                  <li>
+                    \(\theta = 90^\circ \implies m\) Indefinido (Vertical)
+                  </li>
+                  <li>\(\theta = 135^\circ \implies m = -1\)</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5.4/5/6 Problema/Solução (Simplificado: Achar m e b) -->
+          <section class="survival-training">
+            <h3>Treinamento: Extraindo Dados da Rota</h3>
+            <div class="training-problem">
+              <h4>Tarefa:</h4>
+              <p>Rota definida por \(A(-2, 1)\) e \(B(4, 4)\).</p>
+              <ol>
+                <li>Determine \(m\).</li>
+                <li>Encontre \(b\).</li>
+                <li>Escreva a equação \(y=mx+b\).</li>
+              </ol>
+            </div>
+            <div class="case-solution" style="margin-top: 1em">
+              <div class="case-solution-title">Solução Rápida</div>
+              <div class="case-step">
+                <p>
+                  1. \(m = \frac{4 - 1}{4 - (-2)} = \frac{3}{6} = \boxed{0.5}\)
+                </p>
+              </div>
+              <div class="case-step">
+                <p>
+                  2. Usar A: \(1 = 0.5(-2) + b \implies 1 = -1 + b \implies
+                  \boxed{b=2}\)
+                </p>
+              </div>
+              <div class="case-step">
+                <p>3. Equação: \( \boxed{y = 0.5x + 2} \)</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5.7 Conclusão -->
+          <section class="debriefing">
+            <h3>Conclusão: Equação Reduzida</h3>
+            <div class="summary-box">
+              <p>A forma \(y=mx+b\) oferece diagnóstico rápido:</p>
+              <ul>
+                <li>\(m\) revela a inclinação.</li>
+                <li>\(b\) mostra o ponto de partida no eixo Y.</li>
+                <li>Excelente para visualização e tendências.</li>
+              </ul>
+              <p>Limitação: não representa retas verticais.</p>
+            </div>
+            <div class="instructor-note">
+              <p>
+                Use \(y=mx+b\) para briefings rápidos, mas use a Forma Geral
+                para robustez.
+              </p>
+            </div>
+          </section>
+        </section>
+
+        <!-- Slides Finais de Aplicação (Horizontal 8) -->
+        <section>
+          <!-- A.1 Aplicação Histórica -->
+          <section class="field-report level-intermediate">
+            <h2>Aplicação Histórica: Navegação e Cartografia</h2>
+            <h3 class="mission-subtitle">Mapeando Mundos e Estrelas</h3>
+            <div class="info-panel">
+              <div class="info-screen crt-effect">
+                <p>
+                  A Geometria Analítica revolucionou a cartografia e a
+                  navegação:
+                </p>
+                <ul>
+                  <li>
+                    <strong>Projeções Cartográficas:</strong> Descrever curvas
+                    da Terra como retas em mapas.
+                  </li>
+                  <li>
+                    <strong>Navegação:</strong> Métodos como triangulação
+                    baseados em geometria.
+                  </li>
+                  <li>
+                    <strong>Astronomia:</strong> Leis de Kepler e Newton usam
+                    equações de cônicas (elipses, etc.).
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="survival-tip">
+              <p>
+                As mesmas ferramentas que mapearam a Terra e os céus mapeiam a
+                wasteland.
+              </p>
+            </div>
+          </section>
+
+          <!-- A.2 Aplicação Prática Moderna -->
+          <section class="field-report level-advanced">
+            <h2>Aplicação Moderna: GPS e Gráficos Computacionais</h2>
+            <h3 class="mission-subtitle">Do Satélite à Tela do Dispositivo</h3>
+            <div class="two-column">
+              <div class="column">
+                <div class="column-title">GPS e Localização</div>
+                <p>GPS usa G.A. extensivamente:</p>
+                <ul>
+                  <li>
+                    <strong>Trilateração:</strong> Posição pela interseção de
+                    esferas (distâncias a satélites).
+                  </li>
+                  <li>
+                    <strong>Correções:</strong> Equações modelam trajetórias e
+                    efeitos.
+                  </li>
+                </ul>
+              </div>
+              <div class="column">
+                <div class="column-title">Gráficos Computacionais</div>
+                <p>Renderizar mapas depende da G.A.:</p>
+                <ul>
+                  <li>
+                    <strong>Modelagem 3D:</strong> Vértices, arestas (retas),
+                    faces (planos).
+                  </li>
+                  <li>
+                    <strong>Transformações:</strong> Rotação, translação,
+                    escala.
+                  </li>
+                  <li>
+                    <strong>Visibilidade:</strong> Interseções determinam o que
+                    é visto.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="instructor-note">
+              <p>
+                Seja navegando por satélite ou visualizando um mapa digital, a
+                G.A. está operando nos bastidores.
+              </p>
+            </div>
+          </section>
+
+          <!-- A.3 Debriefing Final (Movido para cá) -->
+          <section class="debriefing">
+            <h2>Debriefing Final: Dominando as Rotas</h2>
+            <div class="summary-box">
+              <p>
+                Missão Concluída! Você agora está equipado para analisar e
+                utilizar retas:
+              </p>
+              <ul>
+                <li>Manipular e converter entre as equações da reta.</li>
+                <li>Determinar posições relativas e pontos de interseção.</li>
+                <li>Aplicar conceitos de paralelismo e perpendicularidade.</li>
+                <li>Calcular distâncias e definir regiões com inequações.</li>
+                <li>
+                  Interpretar a inclinação e o intercepto da forma reduzida.
+                </li>
+              </ul>
+            </div>
+            <div class="next-mission">
+              <p>
+                Próxima missão: Geometria Analítica no Espaço 3D - Planos e
+                Estruturas!
+              </p>
+            </div>
+            <div class="instructor-note">
+              <p>
+                "A matemática é sua melhor bússola e escudo. Mantenha-os
+                afiados."
+              </p>
+            </div>
+          </section>
+        </section>
+
+      </div>
     </div>
     <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
     <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
     <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
-    <script src="https://unpkg.com/reveal.js/plugin/math/math.js"></script>
-    <script src="https://unpkg.com/reveal.js/plugin/zoom/zoom.js"></script>
     <script>
-      window.MathJax = {
-        tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] },
-        svg: { fontCache: 'global' },
-      };
+      window.MathJax = { tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] }, svg: { fontCache: 'global' } };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
     <script>
-      const SECTIONS = ["capitulo-iii/1-equacao-da-reta.html", "capitulo-iii/2-posicoes-relativas.html", "capitulo-iii/3-paralelismo-perpendicularidade.html", "capitulo-iii/4-ponto-e-reta.html", "capitulo-iii/5-equacao-reduzida.html"];
+      // IIFE para visualização da equação reduzida
+      (function () {
+        let canvas, ctx;
+        let width,
+          height,
+          centerX,
+          centerY,
+          gridSize = 30;
+        let m = 1,
+          b = 1;
+        const axisColor = "#ADFF2F",
+          gridColor = "rgba(173, 255, 47, 0.2)",
+          lineColor = "#FFD700",
+          textColor = "#E0E0E0",
+          interceptColor = "#00FFFF";
+        const canvasId = "reduzida-canvas";
 
-      async function loadAndInit() {
-        const container = document.getElementById('slides');
-        const pendingScripts = [];
-
-        for (const url of SECTIONS) {
-          const res  = await fetch(url);
-          const text = await res.text();
-          const doc  = new DOMParser().parseFromString(text, 'text/html');
-
-          doc.querySelectorAll('head style').forEach(s =>
-            document.head.appendChild(document.adoptNode(s))
+        function mathToCanvas(x, y) {
+          if (!centerX) return {};
+          return { x: centerX + x * gridSize, y: centerY - y * gridSize };
+        }
+        function drawGrid() {
+          if (!ctx) return;
+          ctx.clearRect(0, 0, width, height);
+          const grad = ctx.createRadialGradient(
+            centerX,
+            centerY,
+            50,
+            centerX,
+            centerY,
+            Math.max(width, height) / 1.5,
           );
-
-          const slides = doc.querySelector('.slides');
-          if (slides) {
-            [...slides.children].forEach(child =>
-              container.appendChild(document.adoptNode(child))
-            );
+          grad.addColorStop(0, "rgba(0,0,0,0)");
+          grad.addColorStop(1, "rgba(0,0,0,0.5)");
+          ctx.fillStyle = grad;
+          ctx.fillRect(0, 0, width, height);
+          ctx.strokeStyle = gridColor;
+          ctx.lineWidth = 1;
+          for (let x = centerX % gridSize; x < width; x += gridSize) {
+            ctx.beginPath();
+            ctx.moveTo(x, 0);
+            ctx.lineTo(x, height);
+            ctx.stroke();
           }
-
-          // Collect inline scripts (skip Reveal.initialize and MathJax config)
-          doc.querySelectorAll('body script:not([src])').forEach(s => {
-            const content = s.textContent.trim();
-            if (content &&
-                !content.includes('Reveal.initialize') &&
-                !content.includes('window.MathJax =')) {
-              pendingScripts.push(content);
+          for (let y = centerY % gridSize; y < height; y += gridSize) {
+            ctx.beginPath();
+            ctx.moveTo(0, y);
+            ctx.lineTo(width, y);
+            ctx.stroke();
+          }
+          ctx.strokeStyle = axisColor;
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.moveTo(0, centerY);
+          ctx.lineTo(width, centerY);
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.moveTo(centerX, 0);
+          ctx.lineTo(centerX, height);
+          ctx.stroke();
+          ctx.fillStyle = axisColor;
+          ctx.font = '12px "Courier New", monospace';
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          for (
+            let x = -Math.floor(centerX / gridSize);
+            x <= Math.floor((width - centerX) / gridSize);
+            x += 2
+          ) {
+            if (x === 0) continue;
+            const cX = centerX + x * gridSize;
+            ctx.beginPath();
+            ctx.moveTo(cX, centerY - 5);
+            ctx.lineTo(cX, centerY + 5);
+            ctx.stroke();
+            ctx.fillText(x.toString(), cX, centerY + 15);
+          }
+          for (
+            let y = -Math.floor(centerY / gridSize);
+            y <= Math.floor((height - centerY) / gridSize);
+            y += 2
+          ) {
+            if (y === 0) continue;
+            const cY = centerY - y * gridSize;
+            ctx.beginPath();
+            ctx.moveTo(centerX - 5, cY);
+            ctx.lineTo(centerX + 5, cY);
+            ctx.stroke();
+            ctx.fillText(y.toString(), centerX - 15, cY);
+          }
+          ctx.fillText("0", centerX - 15, centerY + 15);
+          ctx.fillStyle = "rgba(0,0,0,0.1)";
+          for (let y = 0; y < height; y += 4) ctx.fillRect(0, y, width, 2);
+        }
+        function drawLineAndInfo() {
+          if (!ctx) return;
+          const minX_m = -width / (2 * gridSize);
+          const maxX_m = width / (2 * gridSize);
+          const y1 = m * minX_m + b;
+          const y2 = m * maxX_m + b;
+          const p1 = mathToCanvas(minX_m, y1);
+          const p2 = mathToCanvas(maxX_m, y2);
+          ctx.beginPath();
+          ctx.moveTo(p1.x, p1.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.strokeStyle = lineColor;
+          ctx.lineWidth = 2;
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.moveTo(p1.x, p1.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.strokeStyle = `${lineColor}33`;
+          ctx.lineWidth = 6;
+          ctx.stroke();
+          const interceptY = mathToCanvas(0, b);
+          ctx.beginPath();
+          ctx.arc(interceptY.x, interceptY.y, 6, 0, 2 * Math.PI);
+          ctx.fillStyle = `${interceptColor}55`;
+          ctx.fill();
+          ctx.beginPath();
+          ctx.arc(interceptY.x, interceptY.y, 4, 0, 2 * Math.PI);
+          ctx.fillStyle = interceptColor;
+          ctx.fill();
+          ctx.fillStyle = interceptColor;
+          ctx.font = '12px "Courier New", monospace';
+          ctx.textAlign = "left";
+          ctx.fillText(`b=${b.toFixed(1)}`, interceptY.x + 8, interceptY.y - 8);
+          let angle = (Math.atan(m) * 180) / Math.PI;
+          ctx.fillStyle = textColor;
+          ctx.font = '14px "Courier New", monospace';
+          ctx.textAlign = "center"; // Position text near the middle, avoiding the intercept point if possible
+          const textX = centerX + (m > 0 ? -gridSize * 1.5 : gridSize * 1.5); // Adjusted positioning
+          const textY =
+            centerY - (m * (m > 0 ? -1.5 : 1.5) + b) * gridSize - 15; // Adjusted positioning
+          ctx.save();
+          ctx.translate(textX, textY);
+          ctx.rotate(Math.atan(m));
+          ctx.fillText(`m=${m.toFixed(1)} (θ=${angle.toFixed(0)}°)`, 0, 0);
+          ctx.restore();
+        }
+        function draw() {
+          if (!ctx) return;
+          drawGrid();
+          drawLineAndInfo();
+        }
+        function updateUI() {
+          const mIn = document.getElementById("reduzida-m"),
+            bIn = document.getElementById("reduzida-b");
+          const mV = document.getElementById("reduzida-m-value"),
+            bV = document.getElementById("reduzida-b-value");
+          const info = document.getElementById("reduzida-info");
+          if (mIn && bIn && mV && bV && info) {
+            mIn.value = m;
+            bIn.value = b;
+            mV.textContent = m.toFixed(1);
+            bV.textContent = b.toFixed(1);
+            info.textContent =
+              `Equação: y = ${m.toFixed(1)}x ${b >= 0 ? "+" : "-"} ${Math.abs(b).toFixed(1)}`.replace(
+                "+ -",
+                "- ",
+              );
+          }
+        }
+        function handleControlChange() {
+          const mIn = document.getElementById("reduzida-m"),
+            bIn = document.getElementById("reduzida-b");
+          if (mIn && bIn) {
+            m = parseFloat(mIn.value);
+            b = parseFloat(bIn.value);
+            draw();
+            updateUI();
+          }
+        }
+        function init(forceRedraw = false) {
+          canvas = document.getElementById(canvasId);
+          if (
+            !canvas ||
+            (canvas.getAttribute("data-initialized") === "true" && !forceRedraw)
+          )
+            return;
+          ctx = canvas.getContext("2d");
+          width = canvas.width;
+          height = canvas.height;
+          centerX = Math.floor(width / 2);
+          centerY = Math.floor(height / 2);
+          if (canvas.getAttribute("data-listeners-set") !== "true") {
+            const mIn = document.getElementById("reduzida-m"),
+              bIn = document.getElementById("reduzida-b");
+            if (mIn && !mIn.hasAttribute("data-listener-set")) {
+              mIn.addEventListener("input", handleControlChange);
+              mIn.setAttribute("data-listener-set", "true");
+            }
+            if (bIn && !bIn.hasAttribute("data-listener-set")) {
+              bIn.addEventListener("input", handleControlChange);
+              bIn.setAttribute("data-listener-set", "true");
+            }
+            canvas.setAttribute("data-listeners-set", "true");
+          }
+          draw();
+          updateUI();
+          canvas.setAttribute("data-initialized", "true");
+        }
+        if (
+          document.readyState === "complete" ||
+          document.readyState === "interactive"
+        ) {
+          setTimeout(init, 50);
+        } else {
+          document.addEventListener("DOMContentLoaded", init);
+        }
+        if (typeof Reveal !== "undefined") {
+          Reveal.addEventListener("slidechanged", (event) => {
+            const currentCanvas = event.currentSlide.querySelector(
+              `#${canvasId}`,
+            );
+            if (currentCanvas) {
+              init(true);
             }
           });
+          Reveal.on("ready", (event) => {
+            const currentCanvas = document.getElementById(canvasId);
+            if (
+              currentCanvas &&
+              Reveal.getCurrentSlide().contains(currentCanvas)
+            )
+              init();
+          });
+        } else {
+          init();
         }
-
-        // Re-execute scripts with DOMContentLoaded shim
-        for (const content of pendingScripts) {
-          const s = document.createElement('script');
-          s.textContent = `(function() {
-  const _orig = document.addEventListener.bind(document);
-  document.addEventListener = function(type, fn, opts) {
-    if (type === 'DOMContentLoaded') { fn(); return; }
-    return _orig(type, fn, opts);
-  };
-  ${content}
-  document.addEventListener = _orig;
-})();`;
-          document.body.appendChild(s);
-        }
-
-
-
-        Reveal.initialize({
-          hash: true,
-          slideNumber: 'c/t',
-          transition: 'slide',
-          backgroundTransition: 'fade',
-          math: {
-            mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js',
-            config: 'TeX-AMS_HTML-full',
-          },
-          plugins: [RevealNotes, RevealHighlight, RevealMath, RevealZoom],
-        });
-
-
-        // Reinit canvas visualizations on slide navigation
-        const reinitVisualizations = (slide) => {
-          if (slide.querySelector('[id^="tres-formas-canvas"]'))
-            window.tresFormasVisualization?.init();
-          if (slide.querySelector('[id^="distancia-ponto-reta-canvas"]'))
-            window.distanciaPontoRetaVisualization?.init();
-          if (slide.querySelector('[id^="intersecao-retas-canvas"]'))
-            window.intersecaoRetasVisualization?.init();
-          if (slide.querySelector('[id^="reduzida-canvas"]'))
-            window.reduzidaVisualization?.init();
-        };
-        Reveal.addEventListener('slidechanged', (event) => {
-          reinitVisualizations(event.currentSlide);
-          if (window.MathJax?.typesetPromise) MathJax.typesetPromise();
-        });
-        Reveal.on('ready', (event) => reinitVisualizations(event.currentSlide));
-
-        if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
-      }
-
-      loadAndInit();
+        window.reduzidaVisualization = { init: () => init(true) }; // Expose for re-init
+      })();
+    </script>
+    <script>
+      Reveal.initialize({ hash: true, slideNumber: true, plugins: [RevealNotes, RevealHighlight] });
     </script>
   </body>
 </html>

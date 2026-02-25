@@ -2,12 +2,12 @@
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
-    <title>Geometria Analítica: Sobrevivência Geométrica — Cônicas</title>
+    <title>Cap. V — Lugares Geométricos: Hipérbole</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" />
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../styles.css" />
     <style>
       /* Estilos específicos para visualizações interativas (mantidos do original) */
       .interactive-canvas {
@@ -129,16 +129,267 @@
   </head>
   <body>
     <div class="reveal">
-      <div class="slides" id="slides"></div>
+      <div class="slides">
+        <!-- ESTRUTURA: RELATÓRIO DE CAMPO - HIPÉRBOLE -->
+        <section>
+          <section>
+            <h3>Relatório de Campo: Hipérbole</h3>
+            <p>
+              A hipérbole é a curva de escape e aproximação — seja para calcular
+              a rota de fuga de radiação ou interceptar sinais de outros
+              sobreviventes.
+            </p>
+            <div class="formula">
+              <p>
+                Definição: Lugar geométrico dos pontos \(P\) do plano cuja diferença (em módulo) das
+                distâncias a dois pontos fixos (focos \(F_1, F_2\)) é constante e igual a \(2a\).
+                \(|d(P,F_1) - d(P,F_2)| = 2a\)
+              </p>
+              <p>
+                \( \frac{(x-h)^2}{a^2} - \frac{(y-k)^2}{b^2} = 1 \) ou \( \frac{(y-k)^2}{a^2} - \frac{(x-h)^2}{b^2} = 1 \) (centro (h,k))
+              </p>
+            </div>
+            <p>
+              <small
+                >* Nota de campo: Sistemas de navegação antigos como LORAN usavam princípios hiperbólicos para determinar a posição. Na wasteland, isso pode ajudar a triangular a origem de um sinal misterioso.</small
+              >
+            </p>
+          </section>
+
+          <section>
+            <h3 class="slide-title-for-svg">Anatomia de uma Hipérbole (Texto)</h3>
+            <ul>
+              <li>Centro (O): Ponto médio dos focos e dos vértices.</li>
+              <li>Eixo Real (ou Transverso): Segmento de comprimento \(2a\), contém os focos e os vértices (\(V_1, V_2\)).</li>
+              <li>Eixo Imaginário (ou Conjugado): Segmento de comprimento \(2b\), perpendicular ao eixo real no centro.</li>
+              <li>Semi-eixo real (\(a\)): Distância do centro a um vértice.</li>
+              <li>Semi-eixo imaginário (\(b\)): Usado para construir o retângulo auxiliar e as assíntotas.</li>
+              <li>Distância Focal (\(2c\)): Distância entre os focos (\(F_1, F_2\)).</li>
+              <li>Assíntotas: Duas retas que os ramos da hipérbole se aproximam indefinidamente. Passam pelo centro.</li>
+              <li>Excentricidade (\(e = c/a\), com \(e > 1\)): Mede a "abertura" da hipérbole.</li>
+            </ul>
+          </section>
+          
+          <section>
+            <h3 class="slide-title-for-svg">Anatomia de uma Hipérbole (Visual)</h3>
+            <img src="capitulo-v_svgs/hiperbole_anatomia.svg" alt="Anatomia de uma Hipérbole" class="svg-visualization" />
+          </section>
+
+          <section>
+            <h3 class="slide-title-for-svg">Relação Fundamental da Hipérbole: a, b, c (Texto)</h3>
+            <p>Na hipérbole, a relação é diferente. O segmento de comprimento \(c\) (distância do centro ao foco) é a hipotenusa de um triângulo retângulo. Os catetos são \(a\) (semi-eixo real) e \(b\) (semi-eixo imaginário).</p>
+            <p>Este triângulo é formado pelo centro (O), um vértice (ex: \(V_1(a,0)\)), e o ponto \(Q(a,b)\) que é um canto do "retângulo auxiliar" usado para desenhar as assíntotas. A distância \(OQ\) é igual a \(c\).</p>
+            <div class="formula">
+              \( c^2 = a^2 + b^2 \)
+            </div>
+            <p><small>*Esta relação, junto com as assíntotas, define a forma da hipérbole.</small></p>
+          </section>
+
+          <section>
+            <h3 class="slide-title-for-svg">Relação Fundamental da Hipérbole (Visual)</h3>
+            <img src="capitulo-v_svgs/hiperbole_relacao_abc.svg" alt="Relação a,b,c na Hipérbole" class="svg-visualization" />
+          </section>
+        </section>
+
+        <!-- ESTRUTURA: SIMULADOR VAULT-TEC - HIPÉRBOLE -->
+        <section>
+          <h3 class="slide-title-for-svg">Simulador Vault-Tec: Hipérbole Interativa</h3>
+          <div class="interactive-canvas" id="hyperbola-canvas">
+            <div class="interaction-hint" style="top: 30%; left: 50%">
+              Ajuste os parâmetros para ver as assíntotas
+            </div>
+            <div class="pipboy-info">x²/a² - y²/b² = 1</div>
+          </div>
+          <div class="control-panel">
+            <div class="slider-container">
+              <div class="slider-label">Semi-eixo a</div>
+              <input type="range" min="20" max="150" step="5" value="80" id="a-hyper-slider" />
+              <div class="value-display" id="a-hyper-value">80</div>
+            </div>
+            <div class="slider-container">
+              <div class="slider-label">Semi-eixo b</div>
+              <input type="range" min="20" max="150" step="5" value="60" id="b-hyper-slider" />
+              <div class="value-display" id="b-hyper-value">60</div>
+            </div>
+            <div class="slider-container">
+              <div class="slider-label">Orientação</div>
+              <input type="range" min="0" max="1" step="1" value="0" id="orientation-slider" />
+              <div class="value-display" id="orientation-value">x/y</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ESTRUTURA: TREINAMENTO DE SOBREVIVÊNCIA - HIPÉRBOLE (EXISTENTE) -->
+        <section>
+          <section>
+            <h3>Treinamento de Sobrevivência: Localização por Sinal</h3>
+            <p>
+              Problema: Você capturou dois sinais de rádio de estações
+              conhecidas na wasteland, localizadas a 50km uma da outra (focos). A
+              diferença nos tempos de recepção indica que você está 30km mais
+              próximo da segunda estação que da primeira.
+            </p>
+            <ul>
+              <li>Modelando sua posição usando uma hipérbole, qual é o valor de \(a\)?</li>
+              <li>Qual o valor de \(c\)?</li>
+              <li>Qual o valor de \(b\)?</li>
+              <li>Assumindo o centro na origem e focos no eixo x, qual a equação da sua possível localização?</li>
+            </ul>
+            <p>
+              <small
+                >* Aviso Vault-Tec: Esta técnica é usada por saqueadores para localizar comboios. Use com cautela.</small
+              >
+            </p>
+          </section>
+
+          <section>
+            <h3>Manual de Sobrevivência: Solução (Localização por Sinal)</h3>
+            <p>Para uma hipérbole baseada em diferença de distâncias:</p>
+            <ul>
+              <li>
+                A diferença constante entre as distâncias é \(2a = 30 \text{km} \Rightarrow a = 15 \text{km}\).
+              </li>
+              <li>A distância entre os focos é \(2c = 50 \text{km} \Rightarrow c = 25 \text{km}\).</li>
+              <li>
+                Usando a relação fundamental \( c^2 = a^2 + b^2 \):
+                \( 25^2 = 15^2 + b^2 \Rightarrow 625 = 225 + b^2 \Rightarrow b^2 = 400 \).
+              </li>
+              <li>Portanto, \(b = 20 \text{km}\).</li>
+              <li>
+                Equação (focos no eixo x): \( \frac{x^2}{a^2} - \frac{y^2}{b^2} = 1 \Rightarrow \frac{x^2}{15^2} - \frac{y^2}{20^2} = 1 \Rightarrow \frac{x^2}{225} - \frac{y^2}{400} = 1 \).
+              </li>
+            </ul>
+            <p class="formula">
+              Lógica da Wasteland: "A diferença constante te coloca em um ramo da hipérbole. As assíntotas são seus caminhos de fuga ou aproximação rápida."
+            </p>
+          </section>
+        </section>
+
+        <!-- ESTRUTURA: TREINAMENTO DE SOBREVIVÊNCIA - HIPÉRBOLE (NOVOS EXERCÍCIOS) -->
+        <section>
+          <section>
+            <h3>Treinamento Avançado: Hipérbole</h3>
+            <p>Missão: Analisar ondas de choque e sistemas de navegação.</p>
+            <ol>
+              <li>
+                <strong>Onda de Choque:</strong> Uma explosão distante gera uma onda de choque. Você está em um posto de escuta. A diferença de tempo de chegada do som da explosão em dois sensores \(S_1(-5,0)\) e \(S_2(5,0)\) (km) implica que a fonte da explosão está em uma hipérbole onde a diferença das distâncias aos sensores é de 6 km. Determine a equação da hipérbole. Esboce.
+              </li>
+              <li>
+                <strong>Sistema de Navegação:</strong> A equação \( \frac{y^2}{16} - \frac{x^2}{9} = 1 \) descreve uma possível rota de navegação. Encontre o centro, vértices, focos, excentricidade e as equações das assíntotas. Esboce a rota.
+              </li>
+              <li>
+                <strong>Torre de Resfriamento:</strong> O perfil de uma torre de resfriamento abandonada é hiperbólico. Se o diâmetro mínimo (entre os vértices) é de 40m e a distância entre os pontos onde as assíntotas cruzariam a base (imaginária) da torre é de 60m (use isso para estimar 'b' de forma simplificada), e o centro está na origem com eixo transverso vertical. Qual a equação?
+              </li>
+            </ol>
+            <p><small>*Dominar as hipérboles pode ser crucial para entender fenômenos distantes e navegar por terrenos traiçoeiros.</small></p>
+          </section>
+
+          <section>
+            <h3>Manual de Sobrevivência: Solução (Diretrizes - Hipérbole Avançado)</h3>
+            <p>Para decifrar os mistérios hiperbólicos:</p>
+            <ul>
+              <li>
+                <strong>Onda de Choque (Focos e \(2a\) dados):</strong>
+                <ul>
+                  <li>Focos \(S_1, S_2\) dão \(2c = 10 \Rightarrow c=5\).</li>
+                  <li>Diferença das distâncias \(2a = 6 \Rightarrow a=3\).</li>
+                  <li>Use \(c^2 = a^2 + b^2\) para encontrar \(b^2\).</li>
+                  <li>Como os focos estão no eixo x, a equação é \( \frac{x^2}{a^2} - \frac{y^2}{b^2} = 1 \).</li>
+                  <li>Esboço: Marque centro, focos, vértices, retângulo auxiliar e assíntotas.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Sistema de Navegação (Equação dada):</strong>
+                <ul>
+                  <li>Compare \( \frac{y^2}{16} - \frac{x^2}{9} = 1 \) com \( \frac{y^2}{a^2} - \frac{x^2}{b^2} = 1 \). Note que o termo positivo indica o eixo transverso (neste caso, y).</li>
+                  <li>Identifique \(a^2=16 \Rightarrow a=4\) e \(b^2=9 \Rightarrow b=3\).</li>
+                  <li>Centro: (0,0). Vértices: \((0, \pm a)\).</li>
+                  <li>Use \(c^2 = a^2 + b^2\) para encontrar \(c\). Focos: \((0, \pm c)\).</li>
+                  <li>Excentricidade: \(e = c/a\).</li>
+                  <li>Assíntotas: \(y = \pm \frac{a}{b}x\).</li>
+                  <li>Esboço: Como no item anterior.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Torre de Resfriamento (Interpretação geométrica):</strong>
+                <ul>
+                  <li>Diâmetro mínimo \(2a = 40 \Rightarrow a=20\) (eixo transverso vertical).</li>
+                  <li>"Distância entre pontos onde assíntotas cruzam base" pode ser interpretado como \(2b=60 \Rightarrow b=30\) (largura do retângulo auxiliar na altura dos vértices do eixo imaginário).</li>
+                  <li>Equação: \( \frac{y^2}{a^2} - \frac{x^2}{b^2} = 1 \).</li>
+                </ul>
+              </li>
+            </ul>
+            <p><small>*Saber quando fugir, e para onde, é uma arte hiperbólica.</small></p>
+          </section>
+        </section>
+
+        <!-- ESTRUTURA: DEBRIEFING - SEÇÃO FINAL -->
+        <section>
+          <section>
+            <h3>Debriefing: O Poder das Cônicas</h3>
+            <p>
+              As cônicas não são apenas curiosidades matemáticas, mas
+              ferramentas de sobrevivência:
+            </p>
+            <ul>
+              <li>
+                Parábolas: Aperfeiçoam seus sistemas de comunicação e defesa
+              </li>
+              <li>
+                Elipses: Otimizam suas rotas e estruturas para economizar
+                recursos
+              </li>
+              <li>
+                Hipérboles: Permitem navegação precisa mesmo com informação
+                limitada
+              </li>
+            </ul>
+            <p>
+              Mnemônico Final:
+              <span class="formula"
+                >"Parábolas Projetam, Elipses Economizam, Hipérboles
+                Localizam"</span
+              >
+            </p>
+            <p>
+              <small
+                >* Mensagem do Overseer: "A geometria analítica pode parecer
+                abstrata, mas na wasteland, ela é tão vital quanto água
+                purificada."</small
+              >
+            </p>
+          </section>
+
+          <section>
+            <h3>Conexão com o Próximo Capítulo</h3>
+            <p>
+              Agora que você domina as cônicas individuais, preparese para o
+              Capítulo VI: Sistemas de Coordenadas Avançados, onde aprenderá a
+              navegar em múltiplos sistemas de referência, incluindo coordenadas polares, e como transformar equações entre eles.
+            </p>
+            <p>
+              Pense nisso como aprender a calibrar seu Pip-Boy para funcionar em
+              áreas de alta radiação ou campos de distorção temporal, onde as leis convencionais da física
+              parecem distorcidas...
+            </p>
+            <p>
+              <small
+                >* Aviso de segurança: O conhecimento contido neste manual é
+                propriedade da Vault-Tec Corporation. Qualquer utilização
+                indevida será severamente... bem, na verdade, não importa mais,
+                não é?</small
+              >
+            </p>
+          </section>
+        </section>
+
+      </div>
     </div>
     <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
     <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
     <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
     <script>
-      window.MathJax = {
-        tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] },
-        svg: { fontCache: 'global' },
-      };
+      window.MathJax = { tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] }, svg: { fontCache: 'global' } };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
     <script>
@@ -574,73 +825,7 @@
 
     </script>
     <script>
-      const SECTIONS = ["capitulo-v/1-parabola.html", "capitulo-v/2-elipse.html", "capitulo-v/3-hiperbole.html"];
-
-      async function loadAndInit() {
-        const container = document.getElementById('slides');
-        const pendingScripts = [];
-
-        for (const url of SECTIONS) {
-          const res  = await fetch(url);
-          const text = await res.text();
-          const doc  = new DOMParser().parseFromString(text, 'text/html');
-
-          doc.querySelectorAll('head style').forEach(s =>
-            document.head.appendChild(document.adoptNode(s))
-          );
-
-          const slides = doc.querySelector('.slides');
-          if (slides) {
-            [...slides.children].forEach(child =>
-              container.appendChild(document.adoptNode(child))
-            );
-          }
-
-          // Collect inline scripts (skip Reveal.initialize and MathJax config)
-          doc.querySelectorAll('body script:not([src])').forEach(s => {
-            const content = s.textContent.trim();
-            if (content &&
-                !content.includes('Reveal.initialize') &&
-                !content.includes('window.MathJax =')) {
-              pendingScripts.push(content);
-            }
-          });
-        }
-
-        // Re-execute scripts with DOMContentLoaded shim
-        for (const content of pendingScripts) {
-          const s = document.createElement('script');
-          s.textContent = `(function() {
-  const _orig = document.addEventListener.bind(document);
-  document.addEventListener = function(type, fn, opts) {
-    if (type === 'DOMContentLoaded') { fn(); return; }
-    return _orig(type, fn, opts);
-  };
-  ${content}
-  document.addEventListener = _orig;
-})();`;
-          document.body.appendChild(s);
-        }
-
-
-        // Canvas simulators: call setup functions directly since DOM is now ready
-        if (typeof setupParabolaSimulator === 'function') setupParabolaSimulator();
-        if (typeof setupEllipseSimulator  === 'function') setupEllipseSimulator();
-        if (typeof setupHyperbolaSimulator === 'function') setupHyperbolaSimulator();
-
-
-        Reveal.initialize({
-          hash: true,
-          slideNumber: true,
-          plugins: [RevealNotes, RevealHighlight],
-        });
-
-
-
-        if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
-      }
-
-      loadAndInit();
+      Reveal.initialize({ hash: true, slideNumber: true, plugins: [RevealNotes, RevealHighlight] });
     </script>
   </body>
 </html>

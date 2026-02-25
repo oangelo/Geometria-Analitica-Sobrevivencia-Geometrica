@@ -2,12 +2,12 @@
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
-    <title>Geometria Analítica: Sobrevivência Geométrica — Cônicas</title>
+    <title>Cap. V — Lugares Geométricos: Parábola</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" />
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../styles.css" />
     <style>
       /* Estilos específicos para visualizações interativas (mantidos do original) */
       .interactive-canvas {
@@ -129,16 +129,268 @@
   </head>
   <body>
     <div class="reveal">
-      <div class="slides" id="slides"></div>
+      <div class="slides">
+        <!-- Slide de abertura do capítulo -->
+        <section>
+          <h2>Capítulo V — Lugares Geométricos: As Cônicas ⚛️</h2>
+          <p>
+            Manual de Sobrevivência Vault-Tec: Trajetórias que Determinam Vida
+            ou Morte na Wasteland
+          </p>
+          <p>
+            <small
+              >Classificação: Apenas para Supervisores de Vault e Exploradores
+              Certificados</small
+            >
+          </p>
+        </section>
+
+        <!-- ESTRUTURA: BRIEFING DE MISSÃO -->
+        <section>
+          <section>
+            <h3>Briefing de Missão: Cônicas</h3>
+            <p>
+              As cônicas são ferramentas de sobrevivência indispensáveis para
+              qualquer explorador da wasteland que deseja evitar radiação e
+              encontrar recursos.
+            </p>
+            <div class="formula">
+              <p>
+                Uma cônica é o lugar geométrico dos pontos P do plano que
+                satisfazem uma relação específica de distância em relação a um
+                ponto fixo (foco) e/ou uma reta fixa (diretriz).
+              </p>
+            </div>
+            <p>
+              <em
+                >"Em um mundo de caos, as cônicas são a ordem matemática que
+                permite prever trajetórias, criar estruturas e estabelecer
+                comunicações."</em
+              >
+              - Overseer, Vault 314
+            </p>
+          </section>
+
+          <section>
+            <h3>Por que Cônicas na Wasteland?</h3>
+            <ul>
+              <li>
+                Parábolas: cálculo preciso de trajetórias de projéteis e design
+                de antenas para comunicação
+              </li>
+              <li>
+                Elipses: planejamento de rotas eficientes entre assentamentos e
+                design de estruturas resistentes
+              </li>
+              <li>
+                Hipérboles: sistemas de navegação por triangulação e
+                monitoramento de ameaças distantes
+              </li>
+            </ul>
+            <p>
+              Mnemônico da Wasteland:
+              <span class="formula"
+                >"PEH: Projéteis, Estruturas, Horizonte"</span
+              >
+              - as três aplicações vitais das cônicas para sobreviventes.
+            </p>
+          </section>
+        </section>
+
+        <!-- ESTRUTURA: RELATÓRIO DE CAMPO - PARÁBOLA -->
+        <section>
+          <section>
+            <h3>Relatório de Campo: Parábola</h3>
+            <p>
+              A parábola é a primeira linha de defesa na wasteland.
+              Compreendê-la significa dominar trajetórias e reflexões.
+            </p>
+            <div class="formula">
+              <p>
+                Definição: Lugar geométrico dos pontos que equidistam de um
+                ponto fixo (foco) e uma reta fixa (diretriz).
+              </p>
+              <p>
+                \( y = ax^2 + bx + c \) — Forma padrão (eixo vertical)
+              </p>
+              <p>
+                \( (y-k)^2 = 4p(x-h) \) ou \( (x-h)^2 = 4p(y-k) \) — Forma canônica (vértice (h,k))
+              </p>
+            </div>
+            <p>
+              <small
+                >* Nota de campo: Um antigo sistema armamentista chamado
+                V.A.T.S. utilizava cálculos parabólicos para determinar
+                trajetórias de tiros com precisão de 95% em condições
+                ideais.</small
+              >
+            </p>
+          </section>
+
+          <section>
+            <h3 class="slide-title-for-svg">Anatomia de uma Parábola</h3>
+            <ul>
+              <li>
+                Vértice (V): ponto de "virada" da curva — seu abrigo ou
+                posto de observação ideal.
+              </li>
+              <li>
+                Foco (F): ponto interno para onde os raios paralelos ao eixo convergem.
+              </li>
+              <li>
+                Diretriz (d): reta externa, referência para a equidistância.
+              </li>
+              <li>
+                Eixo de simetria: linha que passa pelo Vértice e Foco, dividindo a parábola.
+              </li>
+              <li>Parâmetro (p): distância do vértice ao foco (e do vértice à diretriz).</li>
+            </ul>
+            <p>
+              Propriedade Reflexiva:
+              <span class="formula"
+                >"Tudo que vem paralelo ao eixo, reflete para o foco."</span
+              >
+              — Princípio vital para antenas de comunicação improvisadas e armadilhas solares.
+            </p>
+             <p class="fragment" data-fragment-index="1"><small>*Visualização interativa no próximo slide.</small></p>
+          </section>
+        </section>
+
+        <!-- ESTRUTURA: SIMULADOR VAULT-TEC - PARÁBOLA -->
+        <section>
+          <h3 class="slide-title-for-svg">Simulador Vault-Tec: Parábola Interativa</h3>
+          <div class="interactive-canvas" id="parabola-canvas">
+            <div class="interaction-hint" style="top: 50%; left: 50%">
+              Arraste os controles para ajustar a parábola
+            </div>
+            <div class="pipboy-info">y = ax² + bx + c</div>
+          </div>
+          <div class="control-panel">
+            <div class="slider-container">
+              <div class="slider-label">Coeficiente a</div>
+              <input type="range" min="-2" max="2" step="0.1" value="1" id="a-slider" />
+              <div class="value-display" id="a-value">1.0</div>
+            </div>
+            <div class="slider-container">
+              <div class="slider-label">Coeficiente b</div>
+              <input type="range" min="-5" max="5" step="0.5" value="0" id="b-slider" />
+              <div class="value-display" id="b-value">0.0</div>
+            </div>
+            <div class="slider-container">
+              <div class="slider-label">Coeficiente c</div>
+              <input type="range" min="-5" max="5" step="0.5" value="0" id="c-slider" />
+              <div class="value-display" id="c-value">0.0</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ESTRUTURA: TREINAMENTO DE SOBREVIVÊNCIA - PARÁBOLA (EXISTENTE) -->
+        <section>
+          <section>
+            <h3>Treinamento de Sobrevivência: Antena Parabólica</h3>
+            <p>
+              Problema: Você precisa construir uma antena parabólica para
+              interceptar sinais de rádio na wasteland. Com recursos limitados,
+              você precisa otimizar o design.
+            </p>
+            <ul>
+              <li>A equação da sua parábola é \( y = 0.5x^2 \)</li>
+              <li>Onde está o foco dessa parábola?</li>
+              <li>
+                Se você posicionar o receptor no foco, qual a distância dele até
+                o vértice?
+              </li>
+            </ul>
+            <p>
+              <small
+                >* Tempo estimado de resolução: 5 minutos. Raiders se
+                aproximando em 7 minutos.</small
+              >
+            </p>
+          </section>
+
+          <section>
+            <h3>Manual de Sobrevivência: Solução (Antena)</h3>
+            <p>Para uma parábola da forma \( (x-h)^2 = 4p(y-k) \) ou \( y = ax^2+bx+c \):</p>
+            <p>Se \( y = Ax^2 \), comparando com \( x^2 = 4py \), temos \( y = \frac{1}{4p}x^2 \). Então \( A = \frac{1}{4p} \Rightarrow p = \frac{1}{4A} \).</p>
+            <ul>
+              <li>Vértice: \(V(0,0)\) para \( y=Ax^2 \).</li>
+              <li>Foco: \(F(0, p)\).</li>
+              <li>
+                Para \( y = 0.5x^2 \): \( A = 0.5 \). Então \( p = \frac{1}{4 \cdot 0.5} = \frac{1}{2} = 0.5 \).
+              </li>
+              <li>Foco está em \( (0, 0.5) \).</li>
+              <li>A distância do vértice ao foco é \( |p| = 0.5 \) unidades.</li>
+            </ul>
+            <p class="formula">
+              Relação Inversa: "Quanto menor o coeficiente 'A' (em \(y=Ax^2\)), mais aberta a
+              parábola e mais distante o foco (maior \(p\))."
+            </p>
+          </section>
+        </section>
+        
+        <!-- ESTRUTURA: TREINAMENTO DE SOBREVIVÊNCIA - PARÁBOLA (NOVOS EXERCÍCIOS) -->
+        <section>
+          <section>
+            <h3>Treinamento Avançado: Parábola</h3>
+            <p>Missão: Decifrar trajetórias e estruturas inimigas.</p>
+            <ol>
+              <li>
+                <strong>Análise de Projétil:</strong> Um morteiro inimigo dispara projéteis cuja trajetória (ignorando resistência do ar e com origem no morteiro) é descrita por \(y = -0.05x^2 + 2x\). Determine o vértice (altura máxima) e o alcance horizontal (onde \(y=0\), \(x \neq 0\)). Esboce a trajetória.
+              </li>
+              <li>
+                <strong>Construção de Barreira:</strong> Você precisa construir uma barreira parabólica com vértice na origem \(V(0,0)\) e foco em \(F(0, 2)\) para refletir ondas de choque. Qual a equação da parábola?
+              </li>
+              <li>
+                <strong>Identificação de Sinal:</strong> Uma antena parabólica tem equação \( (x-3)^2 = 12(y-1) \). Localize seu vértice, foco e a equação da diretriz. Esboce a antena.
+              </li>
+            </ol>
+            <p><small>*Informação é poder. Calcule rápido, ou seja pego de surpresa.</small></p>
+          </section>
+
+          <section>
+            <h3>Manual de Sobrevivência: Solução (Diretrizes - Parábola Avançado)</h3>
+            <p>Para decifrar os códigos parabólicos:</p>
+            <ul>
+              <li>
+                <strong>Análise de Projétil (\(y = ax^2+bx+c\)):</strong>
+                <ul>
+                  <li>Vértice: \(x_V = -b/(2a)\), \(y_V = a(x_V)^2 + b(x_V) + c\).</li>
+                  <li>Alcance: Encontre as raízes da equação (onde \(y=0\)). Uma será a origem, a outra o alcance.</li>
+                  <li>Esboço: Marque o vértice e as raízes. Lembre-se que se \(a<0\), a concavidade é para baixo.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Construção de Barreira (Vértice e Foco dados):</strong>
+                <ul>
+                  <li>Identifique a orientação (vertical ou horizontal) pelo alinhamento de V e F.</li>
+                  <li>Determine o valor de \(p\) (distância V-F).</li>
+                  <li>Use a forma canônica: \( (x-h)^2 = 4p(y-k) \) ou \( (y-k)^2 = 4p(x-h) \).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Identificação de Sinal (Equação canônica dada):</strong>
+                <ul>
+                  <li>Compare com \( (x-h)^2 = 4p(y-k) \) ou \( (y-k)^2 = 4p(x-h) \).</li>
+                  <li>Identifique \(h, k, p\).</li>
+                  <li>Vértice: \(V(h,k)\).</li>
+                  <li>Foco: Se eixo vertical, \(F(h, k+p)\). Se eixo horizontal, \(F(h+p, k)\).</li>
+                  <li>Diretriz: Se eixo vertical, \(y = k-p\). Se eixo horizontal, \(x = h-p\).</li>
+                  <li>Esboço: Marque V, F, diretriz e desenhe a curva.</li>
+                </ul>
+              </li>
+            </ul>
+            <p><small>*A precisão salva vidas. E munição.</small></p>
+          </section>
+        </section>
+
+      </div>
     </div>
     <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
     <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
     <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
     <script>
-      window.MathJax = {
-        tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] },
-        svg: { fontCache: 'global' },
-      };
+      window.MathJax = { tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] }, svg: { fontCache: 'global' } };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
     <script>
@@ -574,73 +826,7 @@
 
     </script>
     <script>
-      const SECTIONS = ["capitulo-v/1-parabola.html", "capitulo-v/2-elipse.html", "capitulo-v/3-hiperbole.html"];
-
-      async function loadAndInit() {
-        const container = document.getElementById('slides');
-        const pendingScripts = [];
-
-        for (const url of SECTIONS) {
-          const res  = await fetch(url);
-          const text = await res.text();
-          const doc  = new DOMParser().parseFromString(text, 'text/html');
-
-          doc.querySelectorAll('head style').forEach(s =>
-            document.head.appendChild(document.adoptNode(s))
-          );
-
-          const slides = doc.querySelector('.slides');
-          if (slides) {
-            [...slides.children].forEach(child =>
-              container.appendChild(document.adoptNode(child))
-            );
-          }
-
-          // Collect inline scripts (skip Reveal.initialize and MathJax config)
-          doc.querySelectorAll('body script:not([src])').forEach(s => {
-            const content = s.textContent.trim();
-            if (content &&
-                !content.includes('Reveal.initialize') &&
-                !content.includes('window.MathJax =')) {
-              pendingScripts.push(content);
-            }
-          });
-        }
-
-        // Re-execute scripts with DOMContentLoaded shim
-        for (const content of pendingScripts) {
-          const s = document.createElement('script');
-          s.textContent = `(function() {
-  const _orig = document.addEventListener.bind(document);
-  document.addEventListener = function(type, fn, opts) {
-    if (type === 'DOMContentLoaded') { fn(); return; }
-    return _orig(type, fn, opts);
-  };
-  ${content}
-  document.addEventListener = _orig;
-})();`;
-          document.body.appendChild(s);
-        }
-
-
-        // Canvas simulators: call setup functions directly since DOM is now ready
-        if (typeof setupParabolaSimulator === 'function') setupParabolaSimulator();
-        if (typeof setupEllipseSimulator  === 'function') setupEllipseSimulator();
-        if (typeof setupHyperbolaSimulator === 'function') setupHyperbolaSimulator();
-
-
-        Reveal.initialize({
-          hash: true,
-          slideNumber: true,
-          plugins: [RevealNotes, RevealHighlight],
-        });
-
-
-
-        if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
-      }
-
-      loadAndInit();
+      Reveal.initialize({ hash: true, slideNumber: true, plugins: [RevealNotes, RevealHighlight] });
     </script>
   </body>
 </html>

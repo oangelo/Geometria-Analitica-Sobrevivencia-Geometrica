@@ -2,12 +2,12 @@
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
-    <title>Geometria Analítica: Mapeamento Espacial — Capítulo III</title>
+    <title>Cap. III — Paralelismo e Perpendicularidade</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" />
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../styles.css" />
     <style>
       /* ==================== 
          ESTILOS BASE PARA ELEMENTOS REVEAL (Mantidos do CSS anterior)
@@ -918,105 +918,233 @@
   </head>
   <body>
     <div class="reveal">
-      <div class="slides" id="slides"></div>
+      <div class="slides">
+        <!-- Tópico 3: Paralelismo e Perpendicularidade (Horizontal 5) -->
+        <section>
+          <!-- 3.1 Conceito Principal -->
+          <section class="mission-briefing">
+            <h2>Tópico 3: Paralelismo e Perpendicularidade</h2>
+            <h3 class="mission-subtitle">Alinhamentos e Ângulos Retos</h3>
+            <div class="definition-box">
+              <p>
+                <strong>Paralelismo:</strong> Duas retas são paralelas se
+                possuem a mesma direção (mesmo coeficiente angular \(m\), ou
+                vetores diretores paralelos).
+              </p>
+              <p>
+                <strong>Perpendicularidade:</strong> Duas retas são
+                perpendiculares se formam um ângulo de 90° no seu ponto de
+                interseção.
+              </p>
+              <p>
+                <strong>Interpretação Espacial:</strong> Define rotas que nunca
+                se encontram (ou são a mesma) versus rotas que se cruzam em
+                ângulo reto – crucial para construção, defesa e navegação
+                ortogonal.
+              </p>
+            </div>
+          </section>
+
+          <!-- 3.2 Visualização (Cards Ajustados) -->
+          <section>
+            <h3>Visualizando as Condições</h3>
+            <div class="positions-panel">
+              <div class="position-card parallel">
+                <div class="position-title">Paralelas</div>
+                <svg viewBox="0 0 200 100">
+                  <line
+                    x1="20"
+                    y1="30"
+                    x2="180"
+                    y2="30"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="20"
+                    y1="70"
+                    x2="180"
+                    y2="70"
+                    stroke="#FF6347"
+                    stroke-width="2"
+                  />
+                </svg>
+                <div class="position-desc">
+                  Mesma inclinação. Condição:
+                  <span class="formula">\(m_1 = m_2\)</span>
+                </div>
+              </div>
+              <div class="position-card perpendicular">
+                <div class="position-title">Perpendiculares</div>
+                <svg viewBox="0 0 200 100">
+                  <line
+                    x1="20"
+                    y1="50"
+                    x2="180"
+                    y2="50"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="100"
+                    y1="10"
+                    x2="100"
+                    y2="90"
+                    stroke="#FF6347"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M100 60 L 110 60 L 110 50"
+                    stroke="#00FFFF"
+                    stroke-width="1"
+                    fill="none"
+                  />
+                </svg>
+                <div class="position-desc">
+                  Inclinações opostas e inversas. Condição:
+                  <span class="formula">\(m_1 \cdot m_2 = -1\)</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 3.3 Teorema Relacionado -->
+          <section class="field-report level-intermediate">
+            <h3>Teoria: Condições Algébricas</h3>
+            <div class="info-panel">
+              <div class="info-screen crt-effect">
+                <h4>
+                  Condições para \(L_1: A_1x+B_1y+C_1=0\) e \(L_2:
+                  A_2x+B_2y+C_2=0\):
+                </h4>
+                <p><strong>Paralelismo ( \(L_1 // L_2\) ):</strong></p>
+                <p class="formula">
+                  \( \frac{A_1}{A_2} = \frac{B_1}{B_2} \) (se \(A_2, B_2 \neq
+                  0\))
+                </p>
+                <p>
+                  Vetorialmente: \( \vec{n_1} = k \vec{n_2} \) ou \( \vec{v_1} =
+                  k \vec{v_2} \).
+                </p>
+
+                <p>
+                  <strong>Perpendicularidade ( \(L_1 \perp L_2\) ):</strong>
+                </p>
+                <p class="formula">\( A_1A_2 + B_1B_2 = 0 \)</p>
+                <p>
+                  Vetorialmente: \( \vec{n_1} \cdot \vec{n_2} = 0 \) ou \(
+                  \vec{v_1} \cdot \vec{v_2} = 0 \).
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- 3.4 Problema -->
+          <section class="survival-training">
+            <h3>Problema: Construção de Perímetro</h3>
+            <div class="training-problem">
+              <h4>Tarefa:</h4>
+              <p>
+                Um muro de defesa segue a rota \( r: 2x - y - 5 = 0 \). Construa
+                um portão perpendicular a este muro, passando por \( P(1, 1) \).
+              </p>
+              <p>Qual a equação da reta \( s \) do portão?</p>
+            </div>
+            <div class="problem-context">
+              <p>Alinhamento preciso é crucial.</p>
+            </div>
+          </section>
+
+          <!-- 3.5 Solução: Sub-problema 1 (Achar inclinação/vetor) -->
+          <section>
+            <h3>Solução: Passo 1 - Direção Perpendicular</h3>
+            <div class="case-solution">
+              <div class="case-solution-title">
+                Determinando a Direção de \(s\)
+              </div>
+              <div class="case-step">
+                <p><strong>Método 1: Coeficientes Angulares</strong></p>
+                <p>Reta \(r: y = 2x - 5 \implies m_r = 2 \).</p>
+                <p>Reta \(s \perp r \implies m_s \cdot m_r = -1\).</p>
+                <p class="formula">
+                  \( m_s \cdot 2 = -1 \implies m_s = -\frac{1}{2} \)
+                </p>
+              </div>
+              <div class="case-step" style="margin-top: 1em">
+                <p><strong>Método 2: Vetores</strong></p>
+                <p>Vetor normal de \(r\): \( \vec{n_r} = (2, -1) \).</p>
+                <p>
+                  \(s \perp r \implies \vec{n_r}\) é
+                  <strong>vetor diretor</strong> de \(s\).
+                </p>
+                <p class="formula">\( \vec{v_s} = (2, -1) \)</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- 3.6 Solução: Sub-problema 2 (Equação da reta s) -->
+          <section>
+            <h3>Solução: Passo 2 - Equação da Reta \(s\)</h3>
+            <div class="case-solution">
+              <div class="case-solution-title">
+                Encontrando a Equação de \(s\) passando por \(P(1,1)\)
+              </div>
+              <div class="case-step">
+                <p>
+                  <strong
+                    >Usando \(m_s = -1/2\) (Eq. Reduzida \(y - y_0 = m(x -
+                    x_0)\))</strong
+                  >
+                </p>
+                <p class="formula">\( y - 1 = -\frac{1}{2}(x - 1) \)</p>
+                <p>\( 2(y - 1) = -1(x - 1) \implies 2y - 2 = -x + 1 \)</p>
+                <p>Forma Geral: \( \boxed{x + 2y - 3 = 0} \)</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- 3.7 Conclusão -->
+          <section class="debriefing">
+            <h3>Conclusão: Paralelismo e Perpendicularidade</h3>
+            <div class="summary-box">
+              <p>
+                As condições de paralelismo e perpendicularidade são ferramentas
+                geométricas e algébricas poderosas:
+              </p>
+              <ul>
+                <li>
+                  Permitem verificar alinhamentos e ângulos retos rapidamente.
+                </li>
+                <li>
+                  São essenciais para construir retas com relações específicas a
+                  outras.
+                </li>
+                <li>
+                  Baseiam-se nos coeficientes angulares ou no produto escalar de
+                  vetores.
+                </li>
+              </ul>
+            </div>
+            <div class="instructor-note">
+              <p>
+                Alinhar estruturas corretamente economiza recursos e aumenta a
+                segurança.
+              </p>
+            </div>
+          </section>
+        </section>
+
+      </div>
     </div>
     <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
     <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
     <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
-    <script src="https://unpkg.com/reveal.js/plugin/math/math.js"></script>
-    <script src="https://unpkg.com/reveal.js/plugin/zoom/zoom.js"></script>
     <script>
-      window.MathJax = {
-        tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] },
-        svg: { fontCache: 'global' },
-      };
+      window.MathJax = { tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] }, svg: { fontCache: 'global' } };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
     <script>
-      const SECTIONS = ["capitulo-iii/1-equacao-da-reta.html", "capitulo-iii/2-posicoes-relativas.html", "capitulo-iii/3-paralelismo-perpendicularidade.html", "capitulo-iii/4-ponto-e-reta.html", "capitulo-iii/5-equacao-reduzida.html"];
-
-      async function loadAndInit() {
-        const container = document.getElementById('slides');
-        const pendingScripts = [];
-
-        for (const url of SECTIONS) {
-          const res  = await fetch(url);
-          const text = await res.text();
-          const doc  = new DOMParser().parseFromString(text, 'text/html');
-
-          doc.querySelectorAll('head style').forEach(s =>
-            document.head.appendChild(document.adoptNode(s))
-          );
-
-          const slides = doc.querySelector('.slides');
-          if (slides) {
-            [...slides.children].forEach(child =>
-              container.appendChild(document.adoptNode(child))
-            );
-          }
-
-          // Collect inline scripts (skip Reveal.initialize and MathJax config)
-          doc.querySelectorAll('body script:not([src])').forEach(s => {
-            const content = s.textContent.trim();
-            if (content &&
-                !content.includes('Reveal.initialize') &&
-                !content.includes('window.MathJax =')) {
-              pendingScripts.push(content);
-            }
-          });
-        }
-
-        // Re-execute scripts with DOMContentLoaded shim
-        for (const content of pendingScripts) {
-          const s = document.createElement('script');
-          s.textContent = `(function() {
-  const _orig = document.addEventListener.bind(document);
-  document.addEventListener = function(type, fn, opts) {
-    if (type === 'DOMContentLoaded') { fn(); return; }
-    return _orig(type, fn, opts);
-  };
-  ${content}
-  document.addEventListener = _orig;
-})();`;
-          document.body.appendChild(s);
-        }
-
-
-
-        Reveal.initialize({
-          hash: true,
-          slideNumber: 'c/t',
-          transition: 'slide',
-          backgroundTransition: 'fade',
-          math: {
-            mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js',
-            config: 'TeX-AMS_HTML-full',
-          },
-          plugins: [RevealNotes, RevealHighlight, RevealMath, RevealZoom],
-        });
-
-
-        // Reinit canvas visualizations on slide navigation
-        const reinitVisualizations = (slide) => {
-          if (slide.querySelector('[id^="tres-formas-canvas"]'))
-            window.tresFormasVisualization?.init();
-          if (slide.querySelector('[id^="distancia-ponto-reta-canvas"]'))
-            window.distanciaPontoRetaVisualization?.init();
-          if (slide.querySelector('[id^="intersecao-retas-canvas"]'))
-            window.intersecaoRetasVisualization?.init();
-          if (slide.querySelector('[id^="reduzida-canvas"]'))
-            window.reduzidaVisualization?.init();
-        };
-        Reveal.addEventListener('slidechanged', (event) => {
-          reinitVisualizations(event.currentSlide);
-          if (window.MathJax?.typesetPromise) MathJax.typesetPromise();
-        });
-        Reveal.on('ready', (event) => reinitVisualizations(event.currentSlide));
-
-        if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
-      }
-
-      loadAndInit();
+      Reveal.initialize({ hash: true, slideNumber: true, plugins: [RevealNotes, RevealHighlight] });
     </script>
   </body>
 </html>

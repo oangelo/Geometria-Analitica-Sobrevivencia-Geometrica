@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cap. IV — Circunferência por 3 Pontos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+            <!-- ============================ -->
+            <!-- TÓPICO 3: CIRC. POR 3 PONTOS (HORIZONTAL →) -->
+            <!-- ============================ -->
+             <section>
+                  <!-- Slide 3.1: Conceito Principal -->
+                  <section class="mission-briefing">
+                      <h2>Tópico 3: Circunferência por Três Pontos</h2>
+                      <h3 class="mission-subtitle">Traçando a partir de Marcos</h3>
+                      <div class="definition-box">
+                          <p>Se tivermos três pontos \(A, B, C\) que <strong>não</strong> formam uma linha reta (não colineares), existe exatamente <strong>uma</strong> circunferência que passa por todos eles.</p>
+                          <p>O centro desta circunferência única é o <strong>Circuncentro</strong> do triângulo ABC (ponto equidistante de A, B e C).</p>
+                      </div>
+                      <p class="mnemonic">"Três pontos no mapa, não em linha reta? Um círculo os abraça, missão completa!"</p>
+                  </section>
+
+                  <!-- Slide 3.2: Visualizações - Conceito Geométrico -->
+                   <section class="field-report">
+                      <h3>Visualização: O Encontro das Mediatrizes</h3>
+                       <div class="info-panel">
+                           <div class="info-screen">
+                               <p>O centro C deve estar à mesma distância de A e B. Logo, C pertence à <strong>mediatriz</strong> do segmento AB.</p>
+                                <p class="formula">[Mediatriz: reta perpendicular a AB passando pelo ponto médio de AB]</p>
+                               <p>O centro C também deve estar à mesma distância de B e C. Logo, C pertence à mediatriz de BC.</p>
+                               <p>O ponto onde essas duas mediatrizes se cruzam é o único ponto equidistante de A, B e C: o Circuncentro!</p>
+                               <p class="formula">[Diagrama: Triângulo ABC, mediatrizes de AB e BC se cruzando em C, circunferência passando por A,B,C]</p>
+                           </div>
+                       </div>
+                  </section>
+
+                   <!-- Slide 3.3: Teorema Relacionado - Método das Mediatrizes (Passos 1-3) -->
+                   <section class="field-report">
+                      <h3>Teorema: Método das Mediatrizes (Parte 1)</h3>
+                       <div class="info-panel">
+                        <div class="info-screen">
+                           <h4>Como Encontrar C e R:</h4>
+                           <ol>
+                               <li><strong>Verificar Colinearidade:</strong> Calcule as inclinações mAB e mBC. Se mAB = mBC, pare (pontos colineares).</li>
+                               <li><strong>Mediatriz 1 (ex: de AB):</strong>
+                                  <ul>
+                                      <li>Ache o Ponto Médio \(M_{AB}\).</li>
+                                      <li>Ache a Inclinação Perpendicular \(m_{\perp AB} = -1/m_{AB}\).</li>
+                                      <li>Obtenha a Equação da reta mediatriz (usando \(M_{AB}\) e \(m_{\perp AB}\)).</li>
+                                  </ul>
+                              </li>
+                           </ol>
+                           <p><em>Primeiro passo: garantir que existe um círculo e encontrar a equação da primeira mediatriz.</em></p>
+                        </div>
+                      </div>
+                  </section>
+
+                   <!-- Slide 3.4: Teorema Relacionado - Método das Mediatrizes (Passos 4-6) -->
+                   <section class="field-report">
+                      <h3>Teorema: Método das Mediatrizes (Parte 2)</h3>
+                       <div class="info-panel">
+                        <div class="info-screen">
+                           <h4>Como Encontrar C e R (cont.):</h4>
+                           <ol start="3">
+                               <li><strong>Mediatriz 2 (ex: de BC):</strong>
+                                   <ul>
+                                       <li>Ache o Ponto Médio \(M_{BC}\).</li>
+                                       <li>Ache a Inclinação Perpendicular \(m_{\perp BC} = -1/m_{BC}\).</li>
+                                       <li>Obtenha a Equação da reta mediatriz de BC.</li>
+                                   </ul>
+                              </li>
+                               <li><strong>Encontrar Centro C (Interseção):</strong> Resolva o sistema linear formado pelas equações das duas mediatrizes encontradas. A solução \((x, y)\) é o centro \(C(a, b)\).</li>
+                               <li><strong>Calcular Raio R:</strong> Calcule a distância do centro \(C\) a *qualquer* um dos pontos originais (A, B ou C). Ex: \(R = d(C, A)\).</li>
+                           </ol>
+                            <p><em>Com as duas mediatrizes, achamos o centro; com o centro e um ponto, achamos o raio.</em></p>
+                        </div>
+                      </div>
+                  </section>
+
+                  <!-- Slide 3.5: Problema -->
+                  <section class="survival-training">
+                      <h3>Problema: Perímetro do Posto Avançado</h3>
+                      <div class="training-problem">
+                          <h4>Cenário:</h4>
+                          <p>Sensores posicionados em \(P(1,1)\), \(Q(5,3)\), e \(R(2,6)\).</p>
+                           <h4>Missão:</h4>
+                          <p>Determinar a equação da circunferência que passa por P, Q e R.</p>
+                      </div>
+                      <div class="problem-context">
+                          <p>Definir a redoma ideal com base nos marcos.</p>
+                      </div>
+                   </section>
+
+                  <!-- Slide 3.6: Solução - Passo 1: Colinearidade -->
+                   <section class="field-report">
+                      <h3>Solução: Passo 1 - Verificar Colinearidade</h3>
+                      <div class="info-panel">
+                        <div class="info-screen">
+                          <p>Inclinação PQ: \( m_{PQ} = \frac{y_Q - y_P}{x_Q - x_P} = \frac{3-1}{5-1} = \frac{2}{4} = \frac{1}{2} \)</p>
+                          <p>Inclinação QR: \( m_{QR} = \frac{y_R - y_Q}{x_R - x_Q} = \frac{6-3}{2-5} = \frac{3}{-3} = -1 \)</p>
+                          <p>Como \(m_{PQ} \ne m_{QR}\), os pontos <strong>não são colineares</strong>. Uma circunferência pode ser definida.</p>
+                        </div>
+                      </div>
+                  </section>
+
+                   <!-- Slide 3.7: Solução - Passo 2: Mediatriz de PQ -->
+                   <section class="field-report">
+                      <h3>Solução: Passo 2 - Mediatriz de PQ</h3>
+                      <div class="info-panel">
+                        <div class="info-screen">
+                           <p>Ponto Médio \(M_{PQ} = (\frac{1+5}{2}, \frac{1+3}{2}) = (3, 2)\)</p>
+                           <p>Inclinação de PQ: \(m_{PQ} = 1/2\)</p>
+                           <p>Inclinação Perpendicular: \(m_{\perp PQ} = -1 / (1/2) = -2\)</p>
+                           <p>Equação (ponto-inclinação): \( y - y_{M} = m_{\perp}(x - x_{M}) \)</p>
+                           <p>\( y - 2 = -2(x - 3) \implies y - 2 = -2x + 6 \)</p>
+                           <p class="formula">Eq. Mediatriz PQ: \( 2x + y - 8 = 0 \)    (Eq. 1)</p>
+                        </div>
+                      </div>
+                  </section>
+
+                  <!-- Slide 3.8: Solução - Passo 3: Mediatriz de QR -->
+                  <section class="field-report">
+                      <h3>Solução: Passo 3 - Mediatriz de QR</h3>
+                      <div class="info-panel">
+                        <div class="info-screen">
+                           <p>Ponto Médio \(M_{QR} = (\frac{5+2}{2}, \frac{3+6}{2}) = (3.5, 4.5)\)</p>
+                           <p>Inclinação de QR: \(m_{QR} = -1\)</p>
+                           <p>Inclinação Perpendicular: \(m_{\perp QR} = -1 / (-1) = 1\)</p>
+                           <p>Equação (ponto-inclinação): \( y - y_{M} = m_{\perp}(x - x_{M}) \)</p>
+                           <p>\( y - 4.5 = 1(x - 3.5) \implies y - 4.5 = x - 3.5 \)</p>
+                           <p class="formula">Eq. Mediatriz QR: \( x - y + 1 = 0 \)    (Eq. 2)</p>
+                        </div>
+                      </div>
+                  </section>
+
+                  <!-- Slide 3.9: Solução - Passo 4: Encontrar Centro C -->
+                  <section class="field-report">
+                      <h3>Solução: Passo 4 - Encontrar Centro (Interseção)</h3>
+                      <div class="info-panel">
+                        <div class="info-screen">
+                           <p>Resolver o sistema formado pelas equações das mediatrizes:</p>
+                           <p>\( \begin{cases} 2x + y = 8 & \text{(Eq. 1)} \\ x - y = -1 & \text{(Eq. 2)} \end{cases} \)</p>
+                           <p>Método da Adição (somar as duas equações):</p>
+                           <p>\((2x + y) + (x - y) = 8 + (-1)\)</p>
+                           <p>\(3x = 7 \implies x = 7/3\)</p>
+                           <p>Substituir x na Eq. 2:</p>
+                           <p>\( (7/3) - y = -1 \implies y = 7/3 + 1 = 7/3 + 3/3 = 10/3 \)</p>
+                           <p>O centro (Circuncentro) é:</p>
+                           <p class="formula">\( C = (7/3, 10/3) \)</p>
+                        </div>
+                      </div>
+                  </section>
+
+                  <!-- Slide 3.10: Solução - Passo 5: Calcular Raio R -->
+                   <section class="field-report">
+                      <h3>Solução: Passo 5 - Calcular Raio \(R\)</h3>
+                      <div class="info-panel">
+                        <div class="info-screen">
+                           <p>O raio é a distância do centro \(C(7/3, 10/3)\) a qualquer um dos pontos (P, Q ou R). Vamos usar P(1,1).</p>
+                           <p>Calculamos o raio ao quadrado \(R^2 = d(C, P)^2\):</p>
+                           <p>\( R^2 = (x_P - x_C)^2 + (y_P - y_C)^2 \)</p>
+                           <p>\( R^2 = (1 - 7/3)^2 + (1 - 10/3)^2 \)</p>
+                           <p>\( R^2 = (3/3 - 7/3)^2 + (3/3 - 10/3)^2 \)</p>
+                           <p>\( R^2 = (-4/3)^2 + (-7/3)^2 = \frac{16}{9} + \frac{49}{9} = \frac{65}{9} \)</p>
+                           <p>O raio ao quadrado é \(R^2 = 65/9\). O raio é \(R = \sqrt{65}/3\).</p>
+                        </div>
+                      </div>
+                  </section>
+
+                  <!-- Slide 3.11: Solução - Passo 6: Equação Final -->
+                  <section class="field-report">
+                      <h3>Solução: Passo 6 - Equação da Circunferência</h3>
+                      <div class="info-panel">
+                        <div class="info-screen">
+                           <p>Temos o Centro \(C(7/3, 10/3)\) e o Raio ao Quadrado \(R^2 = 65/9\).</p>
+                           <p>Substituímos na equação reduzida \((x-a)^2 + (y-b)^2 = R^2\):</p>
+                           <p class="formula">\( (x - 7/3)^2 + (y - 10/3)^2 = 65/9 \)</p>
+                           <p>Esta é a equação da circunferência que passa pelos três sensores.</p>
+                        </div>
+                      </div>
+                  </section>
+
+                  <!-- Slide 3.12: Conclusão -->
+                   <section class="debriefing">
+                      <h3>Conclusão: Círculo a Partir de Pontos</h3>
+                      <div class="summary-box">
+                        <h4>Lições Aprendidas:</h4>
+                        <ul>
+                            <li>O método das mediatrizes permite encontrar o centro único equidistante de 3 pontos não colineares.</li>
+                            <li>A resolução de um sistema linear é chave para achar o centro.</li>
+                            <li>O raio é simplesmente a distância do centro a um dos pontos.</li>
+                        </ul>
+                        <p>Uma técnica poderosa para definir perímetros a partir de marcos.</p>
+                      </div>
+                  </section>
+            </section>
+
+      </div>
+    </div>
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/math/math.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/zoom/zoom.js"></script>
+    <script>
+      window.MathJax = { tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script>
+      Reveal.initialize({ hash: true, slideNumber: 'c/t', transition: 'convex', plugins: [RevealNotes, RevealHighlight] });
+    </script>
+  </body>
+</html>

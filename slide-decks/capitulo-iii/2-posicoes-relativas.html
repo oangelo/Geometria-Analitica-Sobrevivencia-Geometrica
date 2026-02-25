@@ -1,0 +1,1901 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cap. III — Posições Relativas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      /* ==================== 
+         ESTILOS BASE PARA ELEMENTOS REVEAL (Mantidos do CSS anterior)
+         ==================== */
+      .reveal h1 {
+        font-size: 2.8rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        color: #ffd700;
+        margin-bottom: 0.3em;
+        letter-spacing: 0px;
+      }
+      .reveal h2 {
+        font-size: 2.4rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        color: #ffd700;
+        margin-bottom: 0.3em;
+        letter-spacing: 0px;
+      }
+      .reveal h3 {
+        font-size: 2rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        color: #ffd700;
+        margin-bottom: 0.2em;
+        letter-spacing: 0px;
+      }
+      .reveal h4 {
+        font-size: 1.6rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        color: #ffd700;
+        margin-bottom: 0.15em;
+        letter-spacing: 0px;
+      }
+      .reveal section p {
+        font-size: 1.4rem;
+        line-height: 1.3;
+        margin-bottom: 0.4em;
+        color: #e0e0e0;
+        letter-spacing: 0px;
+      }
+      .reveal section blockquote {
+        font-size: 1.4rem;
+        line-height: 1.3;
+        font-style: italic;
+        border-left: 3px solid #ffd700;
+        padding-left: 0.8em;
+        margin: 0.8em 0;
+        background-color: rgba(50, 50, 50, 0.3);
+      }
+      .reveal .formula {
+        color: #adff2f;
+        font-weight: bold;
+        font-size: 1.2rem;
+        text-align: center;
+        margin: 0.6em 0;
+        font-family: "Courier New", monospace;
+      }
+      .reveal section ul {
+        list-style: none;
+        padding-left: 1.8rem;
+        margin: 0.2em 0;
+      }
+      .reveal section ul li {
+        font-size: 1.4rem;
+        line-height: 1.3;
+        position: relative;
+        margin-bottom: 0.4em;
+        color: #e0e0e0;
+      }
+      .reveal section ul li::before {
+        content: "☢️";
+        position: absolute;
+        left: -2.3rem;
+        font-size: 1.4rem;
+        line-height: 1.3;
+      }
+      .reveal section ol {
+        list-style: none;
+        counter-reset: radCounter;
+        padding-left: 1.8rem;
+        margin: 0.2em 0;
+      }
+      .reveal section ol li {
+        counter-increment: radCounter;
+        font-size: 1.4rem;
+        line-height: 1.3;
+        position: relative;
+        margin-bottom: 0.4em;
+        color: #e0e0e0;
+      }
+      .reveal section ol li::before {
+        content: "☢️" counter(radCounter) ". ";
+        position: absolute;
+        left: -3.2rem;
+        font-size: 1.4rem;
+        line-height: 1.3;
+      }
+      /* ==================== ESTILOS TEMÁTICOS ADAPTADOS (Mantidos do CSS anterior) ==================== */
+      .title-screen {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 85vh;
+        background: radial-gradient(
+          circle,
+          rgba(0, 0, 0, 0) 0%,
+          rgba(0, 100, 0, 0.1) 100%
+        );
+        position: relative;
+      }
+      .title-screen .subtitle {
+        color: #adff2f;
+        font-size: 2rem;
+        margin-top: -0.3em;
+      }
+      .emblem-number {
+        font-size: 2.6rem;
+        font-weight: bold;
+        color: #ffd700;
+        margin: 0.8em auto;
+      }
+      .subtitle-warning {
+        color: #ff6347;
+        border-top: 1px solid #ff6347;
+        border-bottom: 1px solid #ff6347;
+        padding: 0.4em 0.8em;
+        margin-top: 1.5em;
+        font-weight: bold;
+        font-size: 1.2rem;
+        letter-spacing: 0px;
+      }
+      .mission-briefing {
+        padding: 15px;
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+      .mission-subtitle {
+        color: #adff2f !important;
+        font-size: 1.8rem !important;
+        margin-top: -0.3em !important;
+      }
+      .mnemonic {
+        font-style: italic;
+        background-color: rgba(173, 255, 47, 0.1);
+        padding: 0.4em;
+        border-left: 3px solid #adff2f;
+        margin: 0.8em 0;
+        font-size: 1.3rem !important;
+      }
+      .definition-box {
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 0.8em;
+        margin-top: 1.2em;
+        border-radius: 3px;
+      }
+      .field-report {
+        position: relative;
+      }
+      .info-panel {
+        background-color: #1a1a1a;
+        padding: 15px;
+        margin: 15px auto;
+        width: 85%;
+        max-width: 650px;
+        box-shadow: inset 0 0 15px #adff2f;
+      }
+      .info-screen {
+        background-color: #000;
+        color: #adff2f;
+        padding: 12px;
+        border-radius: 3px;
+        font-family: "Courier New", monospace;
+        position: relative;
+      }
+      .info-screen h4 {
+        color: #adff2f !important;
+        font-size: 1.6rem !important;
+        margin-bottom: 0.4em !important;
+        font-family: "Courier New", monospace !important;
+      }
+      .info-screen ul li {
+        color: #adff2f !important;
+        font-size: 1.2rem !important;
+        line-height: 1.2;
+        margin-bottom: 0.3em;
+      }
+      .info-screen ul li::before {
+        font-size: 1.2rem !important;
+        line-height: 1.2;
+        left: -2rem;
+      }
+      .info-screen p {
+        font-size: 1.2rem !important;
+        line-height: 1.2;
+        font-family: "Courier New", monospace !important;
+        color: #adff2f !important;
+      }
+      .info-screen::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(
+          0deg,
+          rgba(0, 255, 0, 0.03),
+          rgba(0, 255, 0, 0.03) 1px,
+          transparent 1px,
+          transparent 2px
+        );
+        pointer-events: none;
+      }
+      .survival-tip {
+        background-color: rgba(255, 215, 0, 0.1);
+        border: 1px dashed #ffd700;
+        padding: 0.4em 0.8em;
+        margin-top: 0.8em;
+        border-radius: 3px;
+      }
+      .survival-tip p {
+        font-size: 1.2rem !important;
+        font-weight: bold;
+        color: #ffd700 !important;
+      }
+      .simulator {
+        text-align: center;
+      }
+      .canvas-container {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+        padding: 8px;
+        margin: 15px auto;
+        width: 90%;
+        max-width: 800px;
+        position: relative;
+      }
+      .canvas-container canvas {
+        max-width: 100%;
+        height: 400px;
+        background-color: rgba(0, 0, 0, 0.3);
+      }
+      .simulator-controls {
+        background-color: #2f2f2f;
+        padding: 5px;
+        border-radius: 0 0 3px 3px;
+        margin-top: 5px;
+      }
+      .control-panel {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .control-panel label {
+        color: #adff2f;
+        font-weight: bold;
+        font-family: "Courier New", monospace;
+        font-size: 0.9rem;
+      }
+      .control-panel input[type="range"] {
+        width: 120px;
+        accent-color: #adff2f;
+        margin: 0 5px;
+      }
+      .control-panel input[type="number"] {
+        width: 60px;
+        background-color: #2f2f2f;
+        color: #adff2f;
+        border: 1px solid #adff2f;
+        padding: 3px;
+        border-radius: 3px;
+        font-family: "Courier New", monospace;
+      }
+      .control-panel span {
+        color: #adff2f;
+        font-family: "Courier New", monospace;
+        background-color: #000;
+        padding: 1px 3px;
+        border-radius: 2px;
+        min-width: 20px;
+        text-align: center;
+        display: inline-block;
+        font-size: 0.9rem;
+      }
+      .operation-btn,
+      .preset-button {
+        background-color: #2f2f2f;
+        color: #adff2f;
+        border: 1px solid #adff2f;
+        padding: 3px 8px;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        margin: 0 3px;
+      }
+      .operation-btn:hover,
+      .preset-button:hover {
+        background-color: #3f3f3f;
+        box-shadow: 0 0 5px #adff2f;
+      }
+      .operation-btn.active {
+        background-color: #adff2f;
+        color: #000;
+      }
+      .hint-message {
+        font-style: italic;
+        margin-top: 0.8em;
+        color: #adff2f;
+        font-size: 1.1rem !important;
+      }
+      .hint-message p {
+        color: #adff2f !important;
+        font-size: 0.9rem !important;
+      }
+      .preset-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 15px;
+        flex-wrap: wrap;
+      }
+      .preset-button.perpendicular {
+        color: #00ffff;
+        border: 1px solid #00ffff;
+      }
+      .preset-button.perpendicular:hover {
+        background-color: rgba(0, 255, 255, 0.2);
+      }
+      .preset-button.concurrent {
+        color: #ff6347;
+        border: 1px solid #ff6347;
+      }
+      .preset-button.concurrent:hover {
+        background-color: rgba(255, 99, 71, 0.2);
+      }
+      .preset-button.parallel {
+        color: #ffd700;
+        border: 1px solid #ffd700;
+      }
+      .preset-button.parallel:hover {
+        background-color: rgba(255, 215, 0, 0.2);
+      }
+      .preset-button.coincident {
+        color: #adff2f;
+        border: 1px solid #adff2f;
+      }
+      .preset-button.coincident:hover {
+        background-color: rgba(173, 255, 47, 0.2);
+      }
+      .intersecao-info {
+        text-align: center;
+        font-size: 1.2rem;
+        margin: 15px 0;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 3px;
+        font-family: "Courier New", monospace;
+      }
+      .survival-training {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+        padding: 12px;
+      }
+      .training-problem {
+        background-color: rgba(255, 255, 255, 0.05);
+        padding: 12px;
+        border-radius: 3px;
+        border-left: 3px solid #ffd700;
+        margin-bottom: 0.8em;
+      }
+      .problem-context {
+        background-color: rgba(255, 0, 0, 0.1);
+        padding: 8px;
+        border-radius: 3px;
+        border: 1px dashed #ff6347;
+        font-style: italic;
+        margin-top: 0.8em;
+      }
+      .problem-context p {
+        color: #ff6347 !important;
+        font-size: 1.2rem !important;
+      }
+      .debriefing {
+        text-align: center;
+      }
+      .summary-box {
+        background-color: rgba(0, 0, 0, 0.2);
+        padding: 12px;
+        border-radius: 3px;
+        margin: 0.8em auto;
+        max-width: 85%;
+      }
+      .summary-box ul li {
+        font-size: 1.2rem !important;
+        line-height: 1.2;
+      }
+      .summary-box ul li::before {
+        font-size: 1.2rem !important;
+        line-height: 1.2;
+        left: -2rem;
+      }
+      .next-mission {
+        background-color: rgba(173, 255, 47, 0.1);
+        padding: 8px;
+        border-radius: 3px;
+        margin: 0.8em auto;
+        max-width: 85%;
+      }
+      .next-mission p {
+        color: #adff2f !important;
+        font-weight: bold;
+      }
+      .instructor-note {
+        font-style: italic;
+        margin-top: 1.5em;
+        padding: 8px;
+        background-color: rgba(255, 215, 0, 0.1);
+        border-radius: 3px;
+      }
+      .instructor-note p {
+        color: #ffd700 !important;
+        font-size: 1.2rem !important;
+      }
+      .conversion-panel {
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 15px;
+        border-radius: 5px;
+        margin: 20px 0;
+        border-left: 3px solid #adff2f;
+      }
+      .conversion-title {
+        color: #adff2f;
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+      .conversion-step {
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: rgba(50, 50, 50, 0.3);
+        border-radius: 3px;
+      }
+      .conversion-step p:first-child {
+        font-weight: bold;
+        color: #ffd700;
+        margin-bottom: 0.3em;
+      }
+      .table-container {
+        width: 100%;
+        overflow-x: auto;
+        margin: 20px 0;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: rgba(0, 0, 0, 0.3);
+        font-size: 1.1rem;
+      }
+      th,
+      td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #444;
+      }
+      th {
+        background-color: #2a2a2a;
+        color: #adff2f;
+        font-family: "Courier New", monospace;
+      }
+      table .reveal section ul li,
+      table ul li {
+        font-size: 1.1rem !important;
+        margin-bottom: 0.2em;
+        line-height: 1.2;
+      }
+      table .reveal section ul li::before,
+      table ul li::before {
+        font-size: 1.1rem !important;
+        left: -2rem;
+        line-height: 1.2;
+      }
+      tr:hover {
+        background-color: rgba(173, 255, 47, 0.1);
+      }
+      .positions-panel {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin: 20px 0;
+      }
+      .position-card {
+        flex: 1;
+        min-width: 200px;
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+        padding: 15px;
+        position: relative;
+        overflow: hidden;
+      }
+      /* Ajuste SVG Size */
+      .position-card svg {
+        width: 90%;
+        max-width: 180px;
+        height: 100px;
+        display: block;
+        margin: 5px auto 10px auto;
+        stroke-linecap: round;
+      }
+      .position-card.perpendicular {
+        border-left: 3px solid #00ffff;
+      }
+      .position-card.concurrent {
+        border-left: 3px solid #ff6347;
+      }
+      .position-card.parallel {
+        border-left: 3px solid #ffd700;
+      }
+      .position-card.coincident {
+        border-left: 3px solid #adff2f;
+      }
+      .position-title {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+      .position-card.perpendicular .position-title {
+        color: #00ffff;
+      }
+      .position-card.concurrent .position-title {
+        color: #ff6347;
+      }
+      .position-card.parallel .position-title {
+        color: #ffd700;
+      }
+      .position-card.coincident .position-title {
+        color: #adff2f;
+      }
+      .position-desc {
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+      }
+      /* Ajuste LaTeX - Mover para dentro da descrição */
+      .position-desc .formula {
+        font-size: 1rem; /* Menor */
+        display: inline;
+        margin: 0;
+        padding: 0 0.2em;
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 2px;
+      }
+      .position-condition {
+        font-family: "Courier New", monospace;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 5px;
+        border-radius: 3px;
+        font-size: 1rem;
+        margin-top: 10px;
+      }
+      .visual-diagram {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin: 20px 0;
+        gap: 20px;
+      }
+      .diagram-container {
+        flex: 1;
+        min-width: 300px;
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 15px;
+        border-radius: 5px;
+        text-align: center;
+      }
+      .diagram-container svg {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        max-height: 200px;
+        display: block;
+        margin: 10px auto;
+      }
+      .diagram-container p {
+        font-size: 1.1rem !important;
+        line-height: 1.2;
+      }
+      .diagram-title {
+        color: #ffd700;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+      .case-study {
+        margin: 20px 0;
+        padding: 15px;
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+      }
+      .case-title {
+        color: #ffd700;
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+      }
+      .case-description {
+        margin-bottom: 15px;
+      }
+      .case-solution {
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 10px;
+        border-radius: 3px;
+        margin-top: 10px;
+      }
+      .case-solution-title {
+        color: #adff2f;
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+      }
+      .case-step {
+        margin-bottom: 0.8em;
+        padding-left: 1em;
+        border-left: 2px solid rgba(173, 255, 47, 0.3);
+      }
+      .case-step strong {
+        color: #ffd700;
+      }
+      .two-column {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin: 20px 0;
+      }
+      .column {
+        flex: 1;
+        min-width: 300px;
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 15px;
+        border-radius: 5px;
+      }
+      .column-title {
+        color: #ffd700;
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+        padding-bottom: 5px;
+      }
+      .level-basic {
+        border-left: 4px solid #4682b4;
+      }
+      .level-intermediate {
+        border-left: 4px solid #ffd700;
+      }
+      .level-advanced {
+        border-left: 4px solid #ff6347;
+      }
+      .level-indicator {
+        font-size: 1.1rem;
+        padding: 2px 6px;
+        border-radius: 2px;
+        margin-left: 8px;
+        font-weight: bold;
+        display: inline-block;
+      }
+      .level-basic .level-indicator {
+        background-color: #4682b4;
+        color: white;
+      }
+      .level-intermediate .level-indicator {
+        background-color: #ffd700;
+        color: black;
+      }
+      .level-advanced .level-indicator {
+        background-color: #ff6347;
+        color: white;
+      }
+      .crt-effect {
+        position: relative;
+        overflow: hidden;
+      }
+      .crt-effect::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          rgba(18, 16, 16, 0) 50%,
+          rgba(0, 0, 0, 0.1) 50%
+        );
+        background-size: 100% 4px;
+        pointer-events: none;
+        z-index: 10;
+      }
+      .interactive-element {
+        cursor: pointer;
+        position: relative;
+      }
+      .interactive-element::after {
+        content: "";
+        position: absolute;
+        top: -3px;
+        left: -3px;
+        right: -3px;
+        bottom: -3px;
+        border: 1px solid #adff2f;
+        border-radius: 3px;
+        animation: pulse 2s infinite;
+        pointer-events: none;
+      }
+      @keyframes pulse {
+        0% {
+          opacity: 0.2;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.5;
+          transform: scale(1.03);
+        }
+        100% {
+          opacity: 0.2;
+          transform: scale(1);
+        }
+      }
+      .radiation-glow {
+        text-shadow:
+          0 0 5px #adff2f,
+          0 0 10px #adff2f;
+        transition: text-shadow 0.3s ease;
+      }
+      .radiation-glow:hover {
+        text-shadow:
+          0 0 10px #adff2f,
+          0 0 15px #adff2f,
+          0 0 20px #adff2f;
+      }
+      .tutorial-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+      .tutorial-content {
+        background-color: #1a1a1a;
+        border: 2px solid #adff2f;
+        padding: 20px;
+        max-width: 400px;
+        text-align: center;
+        color: #e0e0e0;
+        box-shadow: 0 0 15px rgba(173, 255, 47, 0.5);
+      }
+      .tutorial-close-btn {
+        background-color: #2f2f2f;
+        color: #adff2f;
+        border: 1px solid #adff2f;
+        padding: 5px 15px;
+        margin-top: 15px;
+        cursor: pointer;
+        font-family: "Courier New", monospace;
+      }
+      .tutorial-close-btn:hover {
+        background-color: #3f3f3f;
+        box-shadow: 0 0 5px #adff2f;
+      }
+      .highlight-spd {
+        background-color: rgba(0, 255, 255, 0.1);
+        border-left: 2px solid #00ffff;
+        padding: 0.1em 0.3em;
+      }
+      .highlight-si {
+        background-color: rgba(255, 215, 0, 0.1);
+        border-left: 2px solid #ffd700;
+        padding: 0.1em 0.3em;
+      }
+      .highlight-spi {
+        background-color: rgba(173, 255, 47, 0.1);
+        border-left: 2px solid #adff2f;
+        padding: 0.1em 0.3em;
+      }
+      /* Media Queries (Mantidos do CSS anterior) */
+      @media screen and (max-width: 1024px) {
+        .reveal h1 {
+          font-size: 2.4rem;
+        }
+        .reveal h2 {
+          font-size: 2.1rem;
+        }
+        .reveal h3 {
+          font-size: 1.8rem;
+        }
+        .reveal section p {
+          font-size: 1.3rem;
+        }
+        .reveal .formula {
+          font-size: 1.1rem;
+        }
+        .reveal section ul li,
+        .reveal section ol li {
+          font-size: 1.3rem;
+        }
+        .info-panel {
+          width: 95%;
+        }
+        .info-screen ul li {
+          font-size: 1.1rem !important;
+        }
+        .control-panel label,
+        .control-panel span,
+        .operation-btn {
+          font-size: 0.8rem;
+        }
+        .control-panel input[type="range"] {
+          width: 100px;
+        }
+        table {
+          font-size: 1rem;
+        }
+        table .reveal section ul li,
+        table ul li {
+          font-size: 1rem !important;
+        }
+      }
+      @media screen and (max-width: 768px) {
+        .reveal h1 {
+          font-size: 2.2rem;
+        }
+        .reveal h2 {
+          font-size: 1.9rem;
+        }
+        .reveal h3 {
+          font-size: 1.6rem;
+        }
+        .reveal section p {
+          font-size: 1.2rem;
+        }
+        .reveal .formula {
+          font-size: 1rem;
+        }
+        .reveal section ul li,
+        .reveal section ol li {
+          font-size: 1.2rem;
+        }
+        .info-screen ul li {
+          font-size: 1rem !important;
+        }
+        .control-panel {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 5px;
+        }
+        .emblem-number {
+          width: 100px;
+          height: 100px;
+          font-size: 2.2rem;
+        }
+        .control-panel label,
+        .control-panel span,
+        .operation-btn,
+        .preset-button {
+          font-size: 0.8rem;
+        }
+        .control-panel input[type="range"] {
+          width: 150px;
+        }
+        .control-panel input[type="number"] {
+          width: 50px;
+        }
+        table {
+          font-size: 0.9rem;
+        }
+        table th,
+        table td {
+          padding: 6px;
+        }
+        table .reveal section ul li,
+        table ul li {
+          font-size: 0.9rem !important;
+        }
+        table .reveal section ul li::before,
+        table ul li::before {
+          left: -1.8rem;
+        }
+        .visual-diagram,
+        .two-column {
+          flex-direction: column;
+        }
+        .diagram-container,
+        .column {
+          min-width: 80%;
+          margin-bottom: 15px;
+        }
+        .positions-panel {
+          flex-direction: column;
+        }
+        .position-card {
+          min-width: 80%;
+        }
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Tópico 2: Posições Relativas e Interseções (Horizontal 4) -->
+        <section>
+          <!-- 2.1 Conceito Principal -->
+          <section class="mission-briefing">
+            <h2>Tópico 2: Posições Relativas e Interseções</h2>
+            <h3 class="mission-subtitle">
+              Convergência, Afastamento e Sobreposição
+            </h3>
+            <div class="definition-box">
+              <p>
+                <strong>Conceito:</strong> Duas retas no plano podem ser
+                concorrentes (cruzam-se em um ponto), paralelas (nunca se cruzam
+                ou são a mesma) ou coincidentes (são a mesma reta).
+              </p>
+              <p>
+                <strong>Interpretação Espacial:</strong> Define se duas rotas se
+                encontram, se mantêm uma distância constante ou se são, na
+                verdade, o mesmo caminho mapeado de formas diferentes.
+              </p>
+            </div>
+            <p>
+              Analisar a relação entre duas retas é fundamental para prever
+              encontros, colisões ou redundâncias.
+            </p>
+          </section>
+
+          <!-- 2.2 Visualizações (Cards) -->
+          <section>
+            <h3>Visualização: Tipos de Relação</h3>
+            <div class="positions-panel">
+              <div class="position-card concurrent">
+                <div class="position-title">Concorrentes</div>
+                <svg viewBox="0 0 200 100">
+                  <line
+                    x1="20"
+                    y1="80"
+                    x2="180"
+                    y2="20"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="20"
+                    y1="20"
+                    x2="180"
+                    y2="80"
+                    stroke="#FF6347"
+                    stroke-width="2"
+                  />
+                  <circle cx="100" cy="50" r="4" fill="#FF6347" />
+                </svg>
+              </div>
+              <div class="position-card parallel">
+                <div class="position-title">Paralelas</div>
+                <svg viewBox="0 0 200 100">
+                  <line
+                    x1="20"
+                    y1="30"
+                    x2="180"
+                    y2="30"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="20"
+                    y1="70"
+                    x2="180"
+                    y2="70"
+                    stroke="#FF6347"
+                    stroke-width="2"
+                  />
+                </svg>
+              </div>
+              <div class="position-card coincident">
+                <div class="position-title">Coincidentes</div>
+                <svg viewBox="0 0 200 100">
+                  <line
+                    x1="20"
+                    y1="50"
+                    x2="180"
+                    y2="50"
+                    stroke="#FFD700"
+                    stroke-width="4"
+                  />
+                  <line
+                    x1="20"
+                    y1="50"
+                    x2="180"
+                    y2="50"
+                    stroke="#FF6347"
+                    stroke-width="2"
+                    stroke-dasharray="5, 5"
+                  />
+                </svg>
+              </div>
+              <div class="position-card perpendicular">
+                <div class="position-title">Perpendiculares</div>
+                <svg viewBox="0 0 200 100">
+                  <line
+                    x1="20"
+                    y1="50"
+                    x2="180"
+                    y2="50"
+                    stroke="#FFD700"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="100"
+                    y1="10"
+                    x2="100"
+                    y2="90"
+                    stroke="#FF6347"
+                    stroke-width="2"
+                  />
+                  <circle cx="100" cy="50" r="4" fill="#00FFFF" />
+                  <path
+                    d="M100 60 L 110 60 L 110 50"
+                    stroke="#00FFFF"
+                    stroke-width="1"
+                    fill="none"
+                  />
+                </svg>
+              </div>
+            </div>
+          </section>
+
+          <!-- NOVO Slide: Simulador de Interseção -->
+          <section class="simulator">
+            <h3>Simulador: Interseção de Retas</h3>
+            <div class="canvas-container">
+              <canvas
+                id="intersecao-retas-canvas"
+                width="800"
+                height="400"
+                aria-label="Simulador interativo de interseção de retas"
+                role="img"
+              ></canvas>
+              <div class="simulator-controls">
+                <div class="preset-buttons">
+                  <button
+                    id="intersecao-preset-perpendicular"
+                    class="preset-button perpendicular"
+                  >
+                    Perp.</button
+                  ><button
+                    id="intersecao-preset-concorrente"
+                    class="preset-button concurrent"
+                  >
+                    Conc.</button
+                  ><button
+                    id="intersecao-preset-paralela"
+                    class="preset-button parallel"
+                  >
+                    Paral.</button
+                  ><button
+                    id="intersecao-preset-coincidente"
+                    class="preset-button coincident"
+                  >
+                    Coin.
+                  </button>
+                </div>
+                <div class="intersecao-info" id="intersecao-info">
+                  Status: CONCORRENTES(67.4°) em (0.0,0.0)
+                </div>
+                <!-- Controles podem ser adicionados aqui se necessário, usando os IDs corretos -->
+                <div class="control-panel" style="display: none">
+                  <!-- Mantendo oculto por padrão -->
+                  <label>R1 A:</label
+                  ><input
+                    type="range"
+                    id="intersecao-r1a-x"
+                    min="-10"
+                    max="10"
+                    value="-5"
+                    step="0.5"
+                  /><span id="intersecao-r1a-x-value">-5.0</span
+                  ><input
+                    type="range"
+                    id="intersecao-r1a-y"
+                    min="-10"
+                    max="10"
+                    value="2"
+                    step="0.5"
+                  /><span id="intersecao-r1a-y-value">2.0</span>
+                  <label>R1 B:</label
+                  ><input
+                    type="range"
+                    id="intersecao-r1b-x"
+                    min="-10"
+                    max="10"
+                    value="5"
+                    step="0.5"
+                  /><span id="intersecao-r1b-x-value">5.0</span
+                  ><input
+                    type="range"
+                    id="intersecao-r1b-y"
+                    min="-10"
+                    max="10"
+                    value="-2"
+                    step="0.5"
+                  /><span id="intersecao-r1b-y-value">-2.0</span>
+                </div>
+              </div>
+              <div class="hint-message">
+                <p>
+                  Clique nos presets para ver as posições. Arraste os pontos (se
+                  visíveis) para explorar.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- 2.3 Teorema Relacionado (Sistemas Lineares) -->
+          <section class="field-report level-intermediate">
+            <h3>Teoria: Sistemas Lineares e Geometria</h3>
+            <p>
+              A relação entre duas retas \(L_1\) e \(L_2\) é diretamente
+              determinada pela solução do sistema formado por suas equações.
+            </p>
+            <div class="info-panel">
+              <div class="info-screen crt-effect">
+                <h4>
+                  Sistema 2x2: \( \begin{cases} A_1x + B_1y = -C_1 \\ A_2x +
+                  B_2y = -C_2 \end{cases} \)
+                </h4>
+                <p>Determinante: \( D = A_1B_2 - A_2B_1 \)</p>
+                <ul>
+                  <li>
+                    <span class="highlight-spd">\( D \neq 0 \):</span> SPD ⇔
+                    Retas Concorrentes (Solução única = ponto de interseção).
+                  </li>
+                  <li>
+                    <span class="highlight-si">\( D = 0 \):</span> Se Sistema
+                    Impossível (SI) ⇔ Retas Paralelas Distintas (Sem solução).
+                  </li>
+                  <li>
+                    <span class="highlight-spi">\( D = 0 \):</span> Se Sistema
+                    Possível Indeterminado (SPI) ⇔ Retas Coincidentes (Infinitas
+                    soluções).
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <p>
+              A análise do determinante e da compatibilidade do sistema revela a
+              geometria!
+            </p>
+          </section>
+
+          <!-- 2.7 Conclusão -->
+          <section class="debriefing">
+            <h3>Conclusão: Posições e Interseções</h3>
+            <div class="summary-box">
+              <p>Analisar a posição relativa de retas é essencial para:</p>
+              <ul>
+                <li>Prever pontos de encontro ou cruzamentos perigosos.</li>
+                <li>Identificar rotas paralelas para escolta ou evasão.</li>
+                <li>Detectar informações redundantes (retas coincidentes).</li>
+              </ul>
+              <p>
+                A ferramenta fundamental é a resolução de sistemas lineares,
+                cuja natureza (SPD, SI, SPI) espelha a geometria.
+              </p>
+            </div>
+            <div class="instructor-note">
+              <p>
+                Antes de seguir uma rota, sempre verifique como ela se relaciona
+                com outras rotas conhecidas no seu mapa tático.
+              </p>
+            </div>
+          </section>
+        </section>
+
+      </div>
+    </div>
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+    <script>
+      window.MathJax = { tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script>
+      // IIFE para visualização de interseção de retas
+      (function () {
+        let canvases = {};
+        let reta1Ponto1 = { x: -5, y: 2 },
+          reta1Ponto2 = { x: 5, y: -2 };
+        let reta2Ponto1 = { x: -3, y: -4 },
+          reta2Ponto2 = { x: 3, y: 4 };
+        let isDragging = null;
+        let activeCanvasId = null;
+        const axisColor = "#ADFF2F",
+          gridColor = "rgba(173,255,47,0.2)",
+          reta1Color = "#FFD700",
+          reta2Color = "#FF6347",
+          intersectionColor = "#00FFFF",
+          textColor = "#E0E0E0",
+          pointColorR1 = "#FFD700",
+          pointColorR2 = "#FF6347";
+        const baseId = "intersecao-retas-canvas";
+
+        function mathToCanvas(ctxInfo, x, y) {
+          return {
+            x: ctxInfo.centerX + x * ctxInfo.gridSize,
+            y: ctxInfo.centerY - y * ctxInfo.gridSize,
+          };
+        }
+        function canvasToMath(ctxInfo, x, y) {
+          return {
+            x: (x - ctxInfo.centerX) / ctxInfo.gridSize,
+            y: (ctxInfo.centerY - y) / ctxInfo.gridSize,
+          };
+        }
+        function calcularCoeficientesReta(p1, p2) {
+          const A = p2.y - p1.y,
+            B = p1.x - p2.x,
+            C = p2.x * p1.y - p1.x * p2.y;
+          if (Math.abs(A) < 1e-9 && Math.abs(B) < 1e-9)
+            return { A: 0, B: 0, C: 0, valid: false };
+          return { A, B, C, valid: true };
+        }
+        function calcularIntersecao() {
+          const r1 = calcularCoeficientesReta(reta1Ponto1, reta1Ponto2);
+          const r2 = calcularCoeficientesReta(reta2Ponto1, reta2Ponto2);
+          if (!r1.valid || !r2.valid) return null;
+          const det = r1.A * r2.B - r2.A * r1.B;
+          if (Math.abs(det) < 1e-9) return null;
+          const x = (r1.B * r2.C - r2.B * r1.C) / det;
+          const y = (r2.A * r1.C - r1.A * r2.C) / det;
+          if (!isFinite(x) || !isFinite(y)) return null;
+          return { x, y };
+        }
+        function determinarPosicaoRelativa() {
+          const r1 = calcularCoeficientesReta(reta1Ponto1, reta1Ponto2);
+          const r2 = calcularCoeficientesReta(reta2Ponto1, reta2Ponto2);
+          if (!r1.valid || !r2.valid) return "inválida";
+          const det = r1.A * r2.B - r2.A * r1.B;
+          if (Math.abs(det) < 1e-9) {
+            if (
+              Math.abs(r2.A * reta1Ponto1.x + r2.B * reta1Ponto1.y + r2.C) <
+              1e-6
+            )
+              return "coincidentes";
+            else return "paralelas";
+          } else {
+            const pEN = r1.A * r2.A + r1.B * r2.B;
+            if (Math.abs(pEN) < 1e-9) return "perpendiculares";
+            else return "concorrentes";
+          }
+        }
+        function calcularAngulo() {
+          const pos = determinarPosicaoRelativa();
+          if (pos === "paralelas" || pos === "coincidentes") return 0;
+          if (pos === "perpendiculares") return 90;
+          if (pos === "inválida") return NaN;
+          const r1 = calcularCoeficientesReta(reta1Ponto1, reta1Ponto2);
+          const r2 = calcularCoeficientesReta(reta2Ponto1, reta2Ponto2);
+          if (!r1.valid || !r2.valid) return NaN;
+          const dot = r1.A * r2.A + r1.B * r2.B;
+          const m1 = Math.sqrt(r1.A * r1.A + r1.B * r1.B);
+          const m2 = Math.sqrt(r2.A * r2.A + r2.B * r2.B);
+          if (m1 < 1e-9 || m2 < 1e-9) return NaN;
+          const cosT = Math.max(-1, Math.min(1, dot / (m1 * m2)));
+          const ang = (Math.acos(cosT) * 180) / Math.PI;
+          return Math.min(ang, 180 - ang);
+        }
+        function drawGrid(ctxInfo) {
+          const { ctx, width, height, centerX, centerY, gridSize } = ctxInfo;
+          ctx.clearRect(0, 0, width, height);
+          const g = ctx.createRadialGradient(
+            centerX,
+            centerY,
+            50,
+            centerX,
+            centerY,
+            Math.max(width, height) / 1.5,
+          );
+          g.addColorStop(0, "rgba(0,0,0,0)");
+          g.addColorStop(1, "rgba(0,0,0,0.5)");
+          ctx.fillStyle = g;
+          ctx.fillRect(0, 0, width, height);
+          ctx.strokeStyle = gridColor;
+          ctx.lineWidth = 1;
+          for (let x = centerX % gridSize; x < width; x += gridSize) {
+            ctx.beginPath();
+            ctx.moveTo(x, 0);
+            ctx.lineTo(x, height);
+            ctx.stroke();
+          }
+          for (let y = centerY % gridSize; y < height; y += gridSize) {
+            ctx.beginPath();
+            ctx.moveTo(0, y);
+            ctx.lineTo(width, y);
+            ctx.stroke();
+          }
+          ctx.strokeStyle = axisColor;
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.moveTo(0, centerY);
+          ctx.lineTo(width, centerY);
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.moveTo(centerX, 0);
+          ctx.lineTo(centerX, height);
+          ctx.stroke();
+          ctx.fillStyle = axisColor;
+          ctx.font = '12px "Courier New", monospace';
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          for (
+            let x = -Math.floor(centerX / gridSize);
+            x <= Math.floor((width - centerX) / gridSize);
+            x += 2
+          ) {
+            if (x === 0) continue;
+            const cX = centerX + x * gridSize;
+            ctx.beginPath();
+            ctx.moveTo(cX, centerY - 5);
+            ctx.lineTo(cX, centerY + 5);
+            ctx.stroke();
+            ctx.fillText(x.toString(), cX, centerY + 15);
+          }
+          for (
+            let y = -Math.floor(centerY / gridSize);
+            y <= Math.floor((height - centerY) / gridSize);
+            y += 2
+          ) {
+            if (y === 0) continue;
+            const cY = centerY - y * gridSize;
+            ctx.beginPath();
+            ctx.moveTo(centerX - 5, cY);
+            ctx.lineTo(centerX + 5, cY);
+            ctx.stroke();
+            ctx.fillText(y.toString(), centerX - 15, cY);
+          }
+          ctx.fillText("0", centerX - 15, centerY + 15);
+          ctx.fillStyle = "rgba(0,0,0,0.1)";
+          for (let y = 0; y < height; y += 4) ctx.fillRect(0, y, width, 2);
+        }
+        function drawSingleLine(ctxInfo, p1, p2, color, esp = 2, dash = false) {
+          const { ctx, width, height, gridSize } = ctxInfo;
+          const r = calcularCoeficientesReta(p1, p2);
+          if (!r.valid) return;
+          let x1c, y1c, x2c, y2c;
+          const minXm = -width / (2 * gridSize),
+            maxXm = width / (2 * gridSize);
+          const minYm = -height / (2 * gridSize),
+            maxYm = height / (2 * gridSize);
+          const pts = [];
+          if (Math.abs(r.B) > 1e-9) {
+            let yMnX = (-r.C - r.A * minXm) / r.B;
+            if (yMnX >= minYm && yMnX <= maxYm)
+              pts.push(mathToCanvas(ctxInfo, minXm, yMnX));
+            let yMxX = (-r.C - r.A * maxXm) / r.B;
+            if (yMxX >= minYm && yMxX <= maxYm)
+              pts.push(mathToCanvas(ctxInfo, maxXm, yMxX));
+          }
+          if (Math.abs(r.A) > 1e-9) {
+            let xMnY = (-r.C - r.B * minYm) / r.A;
+            if (xMnY >= minXm && xMnY <= maxXm)
+              pts.push(mathToCanvas(ctxInfo, xMnY, minYm));
+            let xMxY = (-r.C - r.B * maxYm) / r.A;
+            if (xMxY >= minXm && xMxY <= maxXm)
+              pts.push(mathToCanvas(ctxInfo, xMxY, maxYm));
+          }
+          if (pts.length < 2) {
+            if (Math.abs(r.B) < 1e-9 && Math.abs(r.A) > 1e-9) {
+              let xv = -r.C / r.A;
+              if (xv >= minXm && xv <= maxXm) {
+                pts.push(mathToCanvas(ctxInfo, xv, minYm));
+                pts.push(mathToCanvas(ctxInfo, xv, maxYm));
+              }
+            } else if (Math.abs(r.A) < 1e-9 && Math.abs(r.B) > 1e-9) {
+              let yh = -r.C / r.B;
+              if (yh >= minYm && yh <= maxYm) {
+                pts.push(mathToCanvas(ctxInfo, minXm, yh));
+                pts.push(mathToCanvas(ctxInfo, maxXm, yh));
+              }
+            }
+          }
+          const uPts = pts.filter(
+            (p, i, s) =>
+              i ===
+              s.findIndex(
+                (t) => Math.abs(t.x - p.x) < 0.1 && Math.abs(t.y - p.y) < 0.1,
+              ),
+          );
+          if (uPts.length >= 2) {
+            uPts.sort((p1, p2) => (p1.x !== p2.x ? p1.x - p2.x : p1.y - p2.y));
+            x1c = uPts[0].x;
+            y1c = uPts[0].y;
+            x2c = uPts[uPts.length - 1].x;
+            y2c = uPts[uPts.length - 1].y;
+          } else return;
+          ctx.beginPath();
+          if (dash) ctx.setLineDash([5, 3]);
+          ctx.moveTo(x1c, y1c);
+          ctx.lineTo(x2c, y2c);
+          ctx.strokeStyle = color;
+          ctx.lineWidth = esp;
+          ctx.stroke();
+          ctx.setLineDash([]);
+          if (!dash) {
+            ctx.beginPath();
+            ctx.moveTo(x1c, y1c);
+            ctx.lineTo(x2c, y2c);
+            ctx.strokeStyle = `${color}33`;
+            ctx.lineWidth = esp + 4;
+            ctx.stroke();
+          }
+        }
+        function drawInteractivePoint(ctxInfo, p, color, r = 4, lbl = "") {
+          const { ctx } = ctxInfo;
+          const cP = mathToCanvas(ctxInfo, p.x, p.y);
+          ctx.beginPath();
+          ctx.arc(cP.x, cP.y, r + 4, 0, 2 * Math.PI);
+          ctx.fillStyle = `${color}33`;
+          ctx.fill();
+          ctx.beginPath();
+          ctx.arc(cP.x, cP.y, r, 0, 2 * Math.PI);
+          ctx.fillStyle = color;
+          ctx.fill();
+          ctx.strokeStyle = "#FFF";
+          ctx.lineWidth = 1;
+          ctx.stroke();
+          if (lbl) {
+            ctx.fillStyle = "#FFF";
+            ctx.font = '12px "Courier New", monospace';
+            ctx.textAlign = "left";
+            ctx.textBaseline = "bottom";
+            ctx.fillText(lbl, cP.x + r + 2, cP.y - r - 2);
+          }
+        }
+        function drawScene(ctxInfo) {
+          if (!ctxInfo) return;
+          const { ctx } = ctxInfo;
+          const pos = determinarPosicaoRelativa();
+          drawSingleLine(ctxInfo, reta1Ponto1, reta1Ponto2, reta1Color);
+          if (pos === "coincidentes")
+            drawSingleLine(
+              ctxInfo,
+              reta2Ponto1,
+              reta2Ponto2,
+              reta2Color,
+              2,
+              true,
+            );
+          else if (pos !== "inválida")
+            drawSingleLine(ctxInfo, reta2Ponto1, reta2Ponto2, reta2Color);
+          drawInteractivePoint(ctxInfo, reta1Ponto1, pointColorR1, 4, "R₁A");
+          drawInteractivePoint(ctxInfo, reta1Ponto2, pointColorR1, 4, "R₁B");
+          drawInteractivePoint(ctxInfo, reta2Ponto1, pointColorR2, 4, "R₂A");
+          drawInteractivePoint(ctxInfo, reta2Ponto2, pointColorR2, 4, "R₂B");
+          const inter = calcularIntersecao();
+          if (
+            inter &&
+            pos !== "paralelas" &&
+            pos !== "coincidentes" &&
+            pos !== "inválida"
+          ) {
+            const cI = mathToCanvas(ctxInfo, inter.x, inter.y);
+            ctx.beginPath();
+            ctx.arc(cI.x, cI.y, 8, 0, 2 * Math.PI);
+            ctx.fillStyle = `${intersectionColor}33`;
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(cI.x, cI.y, 5, 0, 2 * Math.PI);
+            ctx.fillStyle = intersectionColor;
+            ctx.fill();
+            ctx.strokeStyle = "#000";
+            ctx.lineWidth = 1;
+            ctx.stroke();
+            ctx.fillStyle = intersectionColor;
+            ctx.font = '14px "Courier New", monospace';
+            ctx.textAlign = "center";
+            ctx.textBaseline = "top";
+            ctx.fillText(
+              `(${inter.x.toFixed(2)}, ${inter.y.toFixed(2)})`,
+              cI.x,
+              cI.y + 10,
+            );
+          }
+        }
+        function draw(canvasId) {
+          if (!canvases[canvasId]) return;
+          drawGrid(canvases[canvasId]);
+          drawScene(canvases[canvasId]);
+        }
+        function updateUI(instanceSuffix = "") {
+          const ids = [
+            "r1a-x",
+            "r1a-y",
+            "r1b-x",
+            "r1b-y",
+            "r2a-x",
+            "r2a-y",
+            "r2b-x",
+            "r2b-y",
+          ];
+          const pts = [
+            reta1Ponto1,
+            reta1Ponto1,
+            reta1Ponto2,
+            reta1Ponto2,
+            reta2Ponto1,
+            reta2Ponto1,
+            reta2Ponto2,
+            reta2Ponto2,
+          ];
+          const crds = ["x", "y", "x", "y", "x", "y", "x", "y"];
+          ids.forEach((id, i) => {
+            const inp = document.getElementById(
+                `intersecao-${id}${instanceSuffix}`,
+              ),
+              valS = document.getElementById(
+                `intersecao-${id}-value${instanceSuffix}`,
+              );
+            if (inp && valS) {
+              inp.value = pts[i][crds[i]];
+              valS.textContent = pts[i][crds[i]].toFixed(1);
+            }
+          });
+          const infoUI = document.getElementById(
+            `intersecao-info${instanceSuffix}`,
+          );
+          if (infoUI) {
+            const pos = determinarPosicaoRelativa();
+            const inter = calcularIntersecao();
+            const ang = calcularAngulo();
+            let msg = "";
+            let mCol = textColor;
+            switch (pos) {
+              case "coincidentes":
+                msg = "RETAS COINCIDENTES";
+                mCol = "#ADFF2F";
+                break;
+              case "paralelas":
+                msg = "RETAS PARALELAS";
+                mCol = "#FFD700";
+                break;
+              case "perpendiculares":
+                msg = `PERPENDICULARES(90.0°)`;
+                if (inter)
+                  msg += ` em (${inter.x.toFixed(1)},${inter.y.toFixed(1)})`;
+                mCol = "#00FFFF";
+                break;
+              case "inválida":
+                msg = "RETA INVÁLIDA";
+                mCol = "#888888";
+                break;
+              default:
+                msg = `CONCORRENTES(${ang.toFixed(1)}°)`;
+                if (inter)
+                  msg += ` em (${inter.x.toFixed(1)},${inter.y.toFixed(1)})`;
+                mCol = "#FF6347";
+            }
+            infoUI.textContent = msg;
+            infoUI.style.color = mCol;
+          }
+        }
+        function handleMouseDown(e) {
+          activeCanvasId = e.target.id;
+          if (!canvases[activeCanvasId]) return;
+          const rect = e.target.getBoundingClientRect();
+          const mX = e.clientX - rect.left,
+            mY = e.clientY - rect.top;
+          const ptsCtrl = [
+            { p: reta1Ponto1, id: "r1p1" },
+            { p: reta1Ponto2, id: "r1p2" },
+            { p: reta2Ponto1, id: "r2p1" },
+            { p: reta2Ponto2, id: "r2p2" },
+          ];
+          let minDist = 15,
+            dPt = null;
+          for (const { p, id } of ptsCtrl) {
+            const cP = mathToCanvas(canvases[activeCanvasId], p.x, p.y);
+            const dx = cP.x - mX,
+              dy = cP.y - mY,
+              dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < minDist) {
+              minDist = dist;
+              dPt = id;
+            }
+          }
+          isDragging = dPt;
+        }
+        function handleMouseMove(e) {
+          if (!isDragging || !activeCanvasId || !canvases[activeCanvasId])
+            return;
+          const rect = canvases[activeCanvasId].canvas.getBoundingClientRect();
+          const mX = e.clientX - rect.left,
+            mY = e.clientY - rect.top;
+          const mC = canvasToMath(canvases[activeCanvasId], mX, mY);
+          const nX = Math.max(-10, Math.min(10, Math.round(mC.x * 2) / 2)),
+            nY = Math.max(-10, Math.min(10, Math.round(mC.y * 2) / 2));
+          let ok = true;
+          if (
+            isDragging === "r1p1" &&
+            Math.abs(nX - reta1Ponto2.x) < 1e-6 &&
+            Math.abs(nY - reta1Ponto2.y) < 1e-6
+          )
+            ok = false;
+          if (
+            isDragging === "r1p2" &&
+            Math.abs(nX - reta1Ponto1.x) < 1e-6 &&
+            Math.abs(nY - reta1Ponto1.y) < 1e-6
+          )
+            ok = false;
+          if (
+            isDragging === "r2p1" &&
+            Math.abs(nX - reta2Ponto2.x) < 1e-6 &&
+            Math.abs(nY - reta2Ponto2.y) < 1e-6
+          )
+            ok = false;
+          if (
+            isDragging === "r2p2" &&
+            Math.abs(nX - reta2Ponto1.x) < 1e-6 &&
+            Math.abs(nY - reta2Ponto1.y) < 1e-6
+          )
+            ok = false;
+          if (ok) {
+            switch (isDragging) {
+              case "r1p1":
+                reta1Ponto1 = { x: nX, y: nY };
+                break;
+              case "r1p2":
+                reta1Ponto2 = { x: nX, y: nY };
+                break;
+              case "r2p1":
+                reta2Ponto1 = { x: nX, y: nY };
+                break;
+              case "r2p2":
+                reta2Ponto2 = { x: nX, y: nY };
+                break;
+            }
+            updateUI();
+            updateUI("-2");
+            draw(baseId);
+            draw(baseId + "-2");
+          }
+        }
+        function handleMouseUp() {
+          isDragging = null;
+          activeCanvasId = null;
+        }
+        function handleTouchStart(e) {
+          if (e.touches.length === 1) {
+            e.preventDefault();
+            const t = e.touches[0];
+            e.target.dispatchEvent(
+              new MouseEvent("mousedown", {
+                clientX: t.clientX,
+                clientY: t.clientY,
+                bubbles: true,
+              }),
+            );
+          }
+        }
+        function handleTouchMove(e) {
+          if (e.touches.length === 1) {
+            e.preventDefault();
+            const t = e.touches[0];
+            document.dispatchEvent(
+              new MouseEvent("mousemove", {
+                clientX: t.clientX,
+                clientY: t.clientY,
+              }),
+            );
+          }
+        }
+        function handleTouchEnd(e) {
+          document.dispatchEvent(new MouseEvent("mouseup", {}));
+        }
+        function handleControlChange(event) {
+          const instanceSuffix = event.target.id.includes("-2") ? "-2" : "";
+          const otherSuffix = instanceSuffix === "-2" ? "" : "-2";
+          const ids = [
+            "r1a-x",
+            "r1a-y",
+            "r1b-x",
+            "r1b-y",
+            "r2a-x",
+            "r2a-y",
+            "r2b-x",
+            "r2b-y",
+          ];
+          const tPts = {
+            r1p1: { ...reta1Ponto1 },
+            r1p2: { ...reta1Ponto2 },
+            r2p1: { ...reta2Ponto1 },
+            r2p2: { ...reta2Ponto2 },
+          };
+          const pMap = {
+            r1a: tPts.r1p1,
+            r1b: tPts.r1p2,
+            r2a: tPts.r2p1,
+            r2b: tPts.r2p2,
+          };
+          const cMap = { x: "x", y: "y" };
+          let ch = false;
+          ids.forEach((id) => {
+            const inputId = `intersecao-${id}${instanceSuffix}`;
+            const inp = document.getElementById(inputId);
+            if (inp) {
+              const nV = parseFloat(inp.value);
+              const pK = id.substring(0, 3);
+              const cK = id.substring(4, 5);
+              if (pMap[pK][cMap[cK]] !== nV) {
+                pMap[pK][cMap[cK]] = nV;
+                ch = true;
+              }
+            }
+          });
+          let r1v =
+            Math.abs(tPts.r1p1.x - tPts.r1p2.x) > 1e-6 ||
+            Math.abs(tPts.r1p1.y - tPts.r1p2.y) > 1e-6;
+          let r2v =
+            Math.abs(tPts.r2p1.x - tPts.r2p2.x) > 1e-6 ||
+            Math.abs(tPts.r2p1.y - tPts.r2p2.y) > 1e-6;
+          if (r1v && r2v) {
+            reta1Ponto1 = tPts.r1p1;
+            reta1Ponto2 = tPts.r1p2;
+            reta2Ponto1 = tPts.r2p1;
+            reta2Ponto2 = tPts.r2p2;
+          } else {
+            ch = false;
+            updateUI(instanceSuffix);
+            return;
+          }
+          if (ch) {
+            draw(baseId);
+            draw(baseId + "-2");
+            updateUI(instanceSuffix);
+            updateUI(otherSuffix);
+          }
+        }
+        function setPreset(preset) {
+          switch (preset) {
+            case "perpendicular":
+              reta1Ponto1 = { x: -5, y: 0 };
+              reta1Ponto2 = { x: 5, y: 0 };
+              reta2Ponto1 = { x: 0, y: -5 };
+              reta2Ponto2 = { x: 0, y: 5 };
+              break;
+            case "paralela":
+              reta1Ponto1 = { x: -5, y: 2 };
+              reta1Ponto2 = { x: 5, y: 2 };
+              reta2Ponto1 = { x: -5, y: -2 };
+              reta2Ponto2 = { x: 5, y: -2 };
+              break;
+            case "coincidente":
+              reta1Ponto1 = { x: -6, y: 3 };
+              reta1Ponto2 = { x: 6, y: -3 };
+              reta2Ponto1 = { x: -2, y: 1 };
+              reta2Ponto2 = { x: 2, y: -1 };
+              break;
+            case "concorrente":
+            default:
+              reta1Ponto1 = { x: -5, y: 2 };
+              reta1Ponto2 = { x: 5, y: -2 };
+              reta2Ponto1 = { x: -3, y: -4 };
+              reta2Ponto2 = { x: 3, y: 4 };
+              break;
+          }
+          if (canvases[baseId]?.ctx) draw(baseId);
+          if (canvases[baseId + "-2"]?.ctx) draw(baseId + "-2");
+          updateUI();
+          updateUI("-2");
+        }
+        function init(forceRedraw = false) {
+          const idsToInit = [baseId, baseId + "-2"];
+          let primaryInitialized = false;
+          idsToInit.forEach((canvasId) => {
+            const canvas = document.getElementById(canvasId);
+            if (!canvas) return;
+            if (!canvases[canvasId] || forceRedraw) {
+              if (
+                canvas.getAttribute("data-initialized") !== "true" ||
+                forceRedraw
+              ) {
+                const ctx = canvas.getContext("2d");
+                const width = canvas.width;
+                const height = canvas.height;
+                const centerX = Math.floor(width / 2);
+                const centerY = Math.floor(height / 2);
+                const gridSize = 30;
+                canvases[canvasId] = {
+                  canvas,
+                  ctx,
+                  width,
+                  height,
+                  centerX,
+                  centerY,
+                  gridSize,
+                };
+                if (canvas.getAttribute("data-listeners-set") !== "true") {
+                  canvas.addEventListener("mousedown", handleMouseDown);
+                  canvas.addEventListener("touchstart", handleTouchStart, {
+                    passive: false,
+                  });
+                  const sliders = document.querySelectorAll(
+                    `#${canvasId} ~ .simulator-controls input[type="range"]`,
+                  );
+                  sliders.forEach((s) => {
+                    if (!s.hasAttribute("data-listener-set")) {
+                      s.addEventListener("input", handleControlChange);
+                      s.setAttribute("data-listener-set", "true");
+                    }
+                  });
+                  const pBtns = {
+                    perpendicular: "perpendicular",
+                    concorrente: "concorrente",
+                    paralela: "paralela",
+                    coincidente: "coincidente",
+                  };
+                  for (const [pre, name] of Object.entries(pBtns)) {
+                    const btn = document.getElementById(
+                      `intersecao-preset-${pre}${canvasId.replace(baseId, "")}`,
+                    );
+                    if (btn && !btn.hasAttribute("data-listener-set")) {
+                      btn.addEventListener("click", () => setPreset(name));
+                      btn.setAttribute("data-listener-set", "true");
+                    }
+                  }
+                  canvas.setAttribute("data-listeners-set", "true");
+                }
+                canvas.setAttribute("data-initialized", "true");
+                if (canvasId === baseId) primaryInitialized = true;
+              }
+            }
+          });
+          // Add global listeners once
+          if (!document.body.hasAttribute("data-global-intersecao-listeners")) {
+            document.addEventListener("mousemove", handleMouseMove);
+            document.addEventListener("mouseup", handleMouseUp);
+            document.addEventListener("touchmove", handleTouchMove, {
+              passive: false,
+            });
+            document.addEventListener("touchend", handleTouchEnd);
+            document.body.setAttribute(
+              "data-global-intersecao-listeners",
+              "true",
+            );
+          }
+          if (primaryInitialized || forceRedraw) {
+            setPreset("concorrente");
+          } // Set default on first init or force redraw
+        }
+        if (
+          document.readyState === "complete" ||
+          document.readyState === "interactive"
+        ) {
+          setTimeout(init, 50);
+        } else {
+          document.addEventListener("DOMContentLoaded", init);
+        }
+        if (typeof Reveal !== "undefined") {
+          Reveal.addEventListener("slidechanged", (event) => {
+            const currentCanvas = event.currentSlide.querySelector(
+              `canvas[id^="${baseId}"]`,
+            );
+            if (currentCanvas) {
+              init(true);
+            }
+          });
+          Reveal.on("ready", (event) => {
+            init();
+          });
+        } else {
+          init();
+        }
+        window.intersecaoRetasVisualization = { init: () => init(true) }; // Expose for re-init
+      })();
+    </script>
+    <script>
+      Reveal.initialize({ hash: true, slideNumber: true, plugins: [RevealNotes, RevealHighlight] });
+    </script>
+  </body>
+</html>

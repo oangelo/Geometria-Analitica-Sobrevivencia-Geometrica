@@ -2,12 +2,12 @@
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
-    <title>Geometria Analítica: Sobrevivência Geométrica — Cônicas</title>
+    <title>Cap. V — Lugares Geométricos: Elipse</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" />
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../styles.css" />
     <style>
       /* Estilos específicos para visualizações interativas (mantidos do original) */
       .interactive-canvas {
@@ -129,16 +129,208 @@
   </head>
   <body>
     <div class="reveal">
-      <div class="slides" id="slides"></div>
+      <div class="slides">
+        <!-- ESTRUTURA: RELATÓRIO DE CAMPO - ELIPSE -->
+        <section>
+          <section>
+            <h3>Relatório de Campo: Elipse</h3>
+            <p>
+              A elipse é a forma definitiva da conservação na wasteland — seja
+              conservação de espaço, energia ou tempo de viagem.
+            </p>
+            <div class="formula">
+              <p>
+                Definição: Lugar geométrico dos pontos \(P\) do plano cuja soma das distâncias
+                a dois pontos fixos (focos \(F_1, F_2\)) é constante e igual a \(2a\).
+                \(d(P,F_1) + d(P,F_2) = 2a\)
+              </p>
+              <p>
+                \( \frac{(x-h)^2}{a^2} + \frac{(y-k)^2}{b^2} = 1 \) ou \( \frac{(x-h)^2}{b^2} + \frac{(y-k)^2}{a^2} = 1 \) (centro (h,k))
+              </p>
+            </div>
+            <p>
+              <small
+                >* Nota de campo: As antigas civilizações construíam "abóbadas"
+                elípticas que resistiam ao tempo e às intempéries. Esta
+                propriedade estrutural é vital para construções na wasteland com
+                materiais escassos.</small
+              >
+            </p>
+          </section>
+
+          <section>
+            <h3 class="slide-title-for-svg">Anatomia de uma Elipse (Texto)</h3>
+            <ul>
+              <li>Centro (O): Ponto médio dos focos e dos vértices.</li>
+              <li>Eixo Maior: Segmento de comprimento \(2a\), contém os focos e os vértices principais (\(V_1, V_2\)).</li>
+              <li>Eixo Menor: Segmento de comprimento \(2b\), perpendicular ao eixo maior no centro. Contém os co-vértices (\(B_1, B_2\)).</li>
+              <li>Semi-eixo maior (\(a\)): Metade do eixo maior.</li>
+              <li>Semi-eixo menor (\(b\)): Metade do eixo menor.</li>
+              <li>Distância Focal (\(2c\)): Distância entre os focos (\(F_1, F_2\)).</li>
+              <li>Excentricidade (\(e = c/a\), com \(0 \le e < 1\)): Mede o "achatamento" da elipse. \(e=0\) é um círculo.</li>
+            </ul>
+          </section>
+          
+          <section>
+            <h3 class="slide-title-for-svg">Anatomia de uma Elipse (Visual)</h3>
+            <img src="capitulo-v_svgs/elipse_anatomia.svg" alt="Anatomia de uma Elipse" class="svg-visualization" />
+          </section>
+
+          <section>
+            <h3 class="slide-title-for-svg">Relação Fundamental da Elipse: a, b, c (Texto)</h3>
+            <p>Considere um ponto \(P\) no extremo do eixo menor (um co-vértice, ex: \(B_1\)). A soma das distâncias de \(P\) aos focos é \(2a\). Por simetria, \(d(P,F_1) = d(P,F_2) = a\).</p>
+            <p>Forma-se um triângulo retângulo com vértices no centro (O), um foco (ex: \(F_1\)) e o co-vértice \(B_1\).</p>
+            <ul>
+                <li>Catetos: \(c\) (distância OF₁) e \(b\) (distância OB₁).</li>
+                <li>Hipotenusa: \(a\) (distância F₁B₁).</li>
+            </ul>
+            <div class="formula">
+              \( a^2 = b^2 + c^2 \)
+            </div>
+            <p><small>*Esta relação é crucial para determinar todos os elementos da elipse a partir de alguns conhecidos.</small></p>
+          </section>
+
+          <section>
+            <h3 class="slide-title-for-svg">Relação Fundamental da Elipse (Visual)</h3>
+            <img src="capitulo-v_svgs/elipse_relacao_abc.svg" alt="Relação a,b,c na Elipse" class="svg-visualization" />
+          </section>
+        </section>
+
+        <!-- ESTRUTURA: SIMULADOR VAULT-TEC - ELIPSE -->
+        <section>
+          <h3 class="slide-title-for-svg">Simulador Vault-Tec: Elipse Interativa</h3>
+          <div class="interactive-canvas" id="ellipse-canvas">
+            <div class="interaction-hint" style="top: 50%; left: 30%">
+              Arraste os focos ou ajuste os controles
+            </div>
+            <div class="pipboy-info">Excentricidade: 0.5</div>
+          </div>
+          <div class="control-panel">
+            <div class="slider-container">
+              <div class="slider-label">Semi-eixo a</div>
+              <input type="range" min="50" max="250" step="10" value="200" id="a-ellipse-slider" />
+              <div class="value-display" id="a-ellipse-value">200</div>
+            </div>
+            <div class="slider-container">
+              <div class="slider-label">Semi-eixo b</div>
+              <input type="range" min="50" max="250" step="10" value="100" id="b-ellipse-slider" />
+              <div class="value-display" id="b-ellipse-value">100</div>
+            </div>
+            <div class="slider-container">
+              <div class="slider-label">Rotação</div>
+              <input type="range" min="0" max="180" step="5" value="0" id="rotation-slider" />
+              <div class="value-display" id="rotation-value">0°</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ESTRUTURA: TREINAMENTO DE SOBREVIVÊNCIA - ELIPSE (EXISTENTE) -->
+        <section>
+          <section>
+            <h3>Treinamento de Sobrevivência: Rota de Patrulha</h3>
+            <p>
+              Problema: Você precisa planejar uma rota de patrulha em torno de
+              dois assentamentos (os focos) que deve ter exatamente 10km de
+              percurso total (considerando a propriedade da elipse).
+            </p>
+            <ul>
+              <li>Os assentamentos (focos) estão a 6km de distância um do outro.</li>
+              <li>Qual deve ser o valor do semi-eixo maior (a)?</li>
+              <li>Qual será o valor do semi-eixo menor (b)?</li>
+            </ul>
+            <p>
+              <small
+                >* Recomendação Vault-Tec: Elipses otimizam
+                recursos e aumentam a eficiência em 42.7% comparado a rotas
+                circulares (estatística Vault-Tec, pode não ser precisa).</small
+              >
+            </p>
+          </section>
+
+          <section>
+            <h3>Manual de Sobrevivência: Solução (Rota de Patrulha)</h3>
+            <p>Para uma rota elíptica onde a soma das distâncias aos focos é constante e igual a 10km:</p>
+            <ul>
+              <li>A propriedade da elipse diz que \(d(P,F_1) + d(P,F_2) = 2a\).
+                Então \(2a = 10 \text{km} \Rightarrow a = 5 \text{km}\) (semi-eixo maior).</li>
+              <li>A distância entre os focos é \(2c = 6 \text{km} \Rightarrow c = 3 \text{km}\).</li>
+              <li>
+                Usando a relação fundamental \( a^2 = b^2 + c^2 \):
+                \( 5^2 = b^2 + 3^2 \Rightarrow 25 = b^2 + 9 \Rightarrow b^2 = 16 \).
+              </li>
+              <li>Portanto, \(b = 4 \text{km}\) (semi-eixo menor).</li>
+            </ul>
+            <p class="formula">
+              Fórmula da Wasteland: "Se a distância focal (2c) e o percurso
+              constante (2a) são conhecidos, b é sua margem de manobra."
+            </p>
+          </section>
+        </section>
+
+        <!-- ESTRUTURA: TREINAMENTO DE SOBREVIVÊNCIA - ELIPSE (NOVOS EXERCÍCIOS) -->
+        <section>
+          <section>
+            <h3>Treinamento Avançado: Elipse</h3>
+            <p>Missão: Mapear zonas seguras e órbitas de satélites.</p>
+            <ol>
+              <li>
+                <strong>Zona Segura:</strong> Uma área segura é delimitada por uma elipse com centro na origem, foco em \(F_1(3,0)\) e vértice em \(V_1(5,0)\). Determine a equação da elipse e sua excentricidade. Esboce a zona.
+              </li>
+              <li>
+                <strong>Órbita de Satélite:</strong> A equação da órbita de um satélite (considerada elíptica) é \( \frac{x^2}{100} + \frac{y^2}{36} = 1 \) (unidades em milhares de km, Terra na origem, que é um dos focos). Encontre os semi-eixos, a distância focal e a excentricidade.
+                <br><small>(Nota: Para órbitas reais, o corpo orbitado está em um dos focos, não necessariamente no centro da elipse. Este é um modelo simplificado onde o centro da elipse é a origem, e precisamos calcular a posição dos focos.)</small>
+              </li>
+              <li>
+                <strong>Construção de Câmara Secreta:</strong> Uma câmara elíptica tem eixo maior de 20m e eixo menor de 12m, centrada na origem e com eixo maior ao longo do eixo x. Qual a equação? Onde estão os focos (para posicionar microfones secretos com propriedade reflexiva)? Esboce.
+              </li>
+            </ol>
+            <p><small>*O conhecimento das elipses pode ser a diferença entre uma base segura e uma armadilha.</small></p>
+          </section>
+
+          <section>
+            <h3>Manual de Sobrevivência: Solução (Diretrizes - Elipse Avançado)</h3>
+            <p>Para dominar as elipses:</p>
+            <ul>
+              <li>
+                <strong>Zona Segura (Foco e Vértice dados):</strong>
+                <ul>
+                  <li>Do centro à origem, Foco \(F_1(c,0) \Rightarrow c=3\). Vértice \(V_1(a,0) \Rightarrow a=5\).</li>
+                  <li>Use \(a^2 = b^2 + c^2\) para encontrar \(b^2\).</li>
+                  <li>Monte a equação: \( \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1 \).</li>
+                  <li>Excentricidade: \(e = c/a\).</li>
+                  <li>Esboço: Marque centro, focos, vértices e co-vértices.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Órbita de Satélite (Equação dada):</strong>
+                <ul>
+                  <li>Compare \( \frac{x^2}{100} + \frac{y^2}{36} = 1 \) com \( \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1 \). Identifique \(a^2\) e \(b^2\). Note que \(a^2\) é sempre o maior denominador.</li>
+                  <li>Calcule \(a\) e \(b\).</li>
+                  <li>Use \(a^2 = b^2 + c^2\) para encontrar \(c\). Distância focal é \(2c\).</li>
+                  <li>Excentricidade: \(e = c/a\).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Câmara Secreta (Eixos dados):</strong>
+                <ul>
+                  <li>Eixo maior \(2a = 20 \Rightarrow a = 10\). Eixo menor \(2b = 12 \Rightarrow b = 6\).</li>
+                  <li>Equação (eixo maior em x): \( \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1 \).</li>
+                  <li>Use \(a^2 = b^2 + c^2\) para encontrar \(c\). Focos estarão em \((\pm c, 0)\).</li>
+                  <li>Esboço: Similar ao primeiro item.</li>
+                </ul>
+              </li>
+            </ul>
+            <p><small>*Compreender as elipses é vital para comunicações de longa distância e segurança orbital.</small></p>
+          </section>
+        </section>
+
+      </div>
     </div>
     <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
     <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
     <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
     <script>
-      window.MathJax = {
-        tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] },
-        svg: { fontCache: 'global' },
-      };
+      window.MathJax = { tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] }, svg: { fontCache: 'global' } };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
     <script>
@@ -574,73 +766,7 @@
 
     </script>
     <script>
-      const SECTIONS = ["capitulo-v/1-parabola.html", "capitulo-v/2-elipse.html", "capitulo-v/3-hiperbole.html"];
-
-      async function loadAndInit() {
-        const container = document.getElementById('slides');
-        const pendingScripts = [];
-
-        for (const url of SECTIONS) {
-          const res  = await fetch(url);
-          const text = await res.text();
-          const doc  = new DOMParser().parseFromString(text, 'text/html');
-
-          doc.querySelectorAll('head style').forEach(s =>
-            document.head.appendChild(document.adoptNode(s))
-          );
-
-          const slides = doc.querySelector('.slides');
-          if (slides) {
-            [...slides.children].forEach(child =>
-              container.appendChild(document.adoptNode(child))
-            );
-          }
-
-          // Collect inline scripts (skip Reveal.initialize and MathJax config)
-          doc.querySelectorAll('body script:not([src])').forEach(s => {
-            const content = s.textContent.trim();
-            if (content &&
-                !content.includes('Reveal.initialize') &&
-                !content.includes('window.MathJax =')) {
-              pendingScripts.push(content);
-            }
-          });
-        }
-
-        // Re-execute scripts with DOMContentLoaded shim
-        for (const content of pendingScripts) {
-          const s = document.createElement('script');
-          s.textContent = `(function() {
-  const _orig = document.addEventListener.bind(document);
-  document.addEventListener = function(type, fn, opts) {
-    if (type === 'DOMContentLoaded') { fn(); return; }
-    return _orig(type, fn, opts);
-  };
-  ${content}
-  document.addEventListener = _orig;
-})();`;
-          document.body.appendChild(s);
-        }
-
-
-        // Canvas simulators: call setup functions directly since DOM is now ready
-        if (typeof setupParabolaSimulator === 'function') setupParabolaSimulator();
-        if (typeof setupEllipseSimulator  === 'function') setupEllipseSimulator();
-        if (typeof setupHyperbolaSimulator === 'function') setupHyperbolaSimulator();
-
-
-        Reveal.initialize({
-          hash: true,
-          slideNumber: true,
-          plugins: [RevealNotes, RevealHighlight],
-        });
-
-
-
-        if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
-      }
-
-      loadAndInit();
+      Reveal.initialize({ hash: true, slideNumber: true, plugins: [RevealNotes, RevealHighlight] });
     </script>
   </body>
 </html>

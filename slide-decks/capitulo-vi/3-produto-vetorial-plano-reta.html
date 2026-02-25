@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cap. VI — Produto Vetorial, Plano e Reta</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- TÓPICO 3: Produto Vetorial e Produto Misto -->
+        <section>
+          <section class="mission-briefing">
+            <h2>Produto Vetorial: Exclusivo do \(R^3\)</h2>
+            <h3 class="mission-subtitle">Gerando Direções e Forças Perpendiculares</h3>
+            <p>Agora que dominamos os determinantes 3x3, definimos o produto vetorial \( \vec{u} \times \vec{v} \). Ele gera um NOVO vetor \( \vec{w} \) PERPENDICULAR a \( \vec{u} \) e a \( \vec{v} \).</p>
+            <p>Seu módulo \( ||\vec{u} \times \vec{v}|| = ||\vec{u}|| \cdot ||\vec{v}|| \sin \theta \) é a ÁREA do paralelogramo de \( \vec{u} \) e \( \vec{v} \).</p>
+            <div class="definition-box">
+                <p class="formula">\( \vec{u} \times \vec{v} = \det \begin{pmatrix} \vec{i} & \vec{j} & \vec{k} \\ u_x & u_y & u_z \\ v_x & v_y & v_z \end{pmatrix} \)</p>
+                <p class="formula" style="font-size: 1.2rem;">\( = (u_y v_z - u_z v_y)\vec{i} - (u_x v_z - u_z v_x)\vec{j} + (u_x v_y - u_y v_x)\vec{k} \)</p>
+            </div>
+          </section>
+
+          <section class="simulator">
+            <h3>Simulador: Produto Vetorial em Ação</h3>
+            <div class="canvas-container">
+              <canvas id="produto-vetorial-canvas" width="800" height="400"></canvas>
+              <div class="simulator-controls">
+                <p>Vetor \( \vec{u} \):</p>
+                <div class="control-panel">
+                  <label for="pv-ux">\(u_x\):</label> <input type="range" id="pv-ux" min="-3" max="3" value="2" step="0.1"> <span id="pv-ux-value">2</span>
+                  <label for="pv-uy">\(u_y\):</label> <input type="range" id="pv-uy" min="-3" max="3" value="0" step="0.1"> <span id="pv-uy-value">0</span>
+                  <label for="pv-uz">\(u_z\):</label> <input type="range" id="pv-uz" min="-3" max="3" value="0" step="0.1"> <span id="pv-uz-value">0</span>
+                </div>
+                <p>Vetor \( \vec{v} \):</p>
+                <div class="control-panel">
+                  <label for="pv-vx">\(v_x\):</label> <input type="range" id="pv-vx" min="-3" max="3" value="0" step="0.1"> <span id="pv-vx-value">0</span>
+                  <label for="pv-vy">\(v_y\):</label> <input type="range" id="pv-vy" min="-3" max="3" value="2" step="0.1"> <span id="pv-vy-value">2</span>
+                  <label for="pv-vz">\(v_z\):</label> <input type="range" id="pv-vz" min="-3" max="3" value="0" step="0.1"> <span id="pv-vz-value">0</span>
+                </div>
+                <p>\( \vec{u} \times \vec{v} \): <span id="pv-result-vector" class="formula">(0,0,4)</span> | Área: <span id="pv-area-value" class="formula">4</span></p>
+              </div>
+            </div>
+            <div class="hint-message">
+              <p>Mude os vetores e veja como a normal e a área do paralelogramo se alteram.</p>
+            </div>
+          </section>
+
+          <section class="mission-briefing">
+            <h2>Produto Misto: Volumes na Prática</h2>
+            <h3 class="mission-subtitle">Capacidade de Carga e Escavações</h3>
+            <p>O <strong>produto misto</strong> é \( [\vec{u}, \vec{v}, \vec{w}] = (\vec{u} \times \vec{v}) \cdot \vec{w} \).</p>
+            <p>Seu valor absoluto, \( |(\vec{u} \times \vec{v}) \cdot \vec{w}| \), é o VOLUME do paralelepípedo formado por \( \vec{u}, \vec{v}, \vec{w} \).</p>
+            <div class="definition-box">
+              <p>Calculado como o determinante:</p>
+              <p class="formula">\( (\vec{u} \times \vec{v}) \cdot \vec{w} = \det \begin{pmatrix} u_x & u_y & u_z \\ v_x & v_y & v_z \\ w_x & w_y & w_z \end{pmatrix} \)</p>
+            </div>
+            <p class="mnemonic">"Determinante dos vetores expostos, o misto dá o volume, sem grandes desgostos."</p>
+          </section>
+
+          <section class="simulator">
+            <h3>Simulador: Volume com Produto Misto</h3>
+            <div class="canvas-container">
+              <canvas id="produto-misto-canvas" width="800" height="400"></canvas>
+              <div class="simulator-controls">
+                 <p>\( \vec{u} \): (<span id="pm-ux-val">1</span>,<span id="pm-uy-val">0</span>,<span id="pm-uz-val">0</span>), 
+                    \( \vec{v} \): (<span id="pm-vx-val">0</span>,<span id="pm-vy-val">1</span>,<span id="pm-vz-val">0</span>), 
+                    \( \vec{w} \): (<span id="pm-wx-val">0</span>,<span id="pm-wy-val">0</span>,<span id="pm-wz-value-span">1</span>)</p>
+                <div class="control-panel">
+                  <label for="pm-wz-slider">Comp. \(w_z\):</label> <input type="range" id="pm-wz-slider" min="-2" max="2" value="1" step="0.1">
+                  <button id="pm-reset-btn" class="operation-btn">Resetar Vetores</button>
+                </div>
+                <p>Volume: <span id="pm-volume-value" class="formula">1</span></p>
+              </div>
+            </div>
+            <div class="hint-message">
+              <p>Manipule \(w_z\) e veja o paralelepípedo mudar. O valor exibido é seu volume.</p>
+            </div>
+          </section>
+
+          <section class="survival-training level-intermediate">
+            <h3>Treinamento: Mineração de Recursos</h3>
+            <div class="training-problem">
+              <h4>Problema #VI.3.1:</h4>
+              <p>\( \vec{a}=(4, 1, 0) \), \( \vec{b}=(1, 3, 0) \), \( \vec{c}=(0, 0, 5) \).</p>
+              <ol>
+                <li>Qual a área da base?</li>
+                <li>Qual o volume a ser extraído?</li>
+              </ol>
+            </div>
+            <div class="problem-context">
+              <p>Recursos são chave. Calcular errado significa esforço desperdiçado.</p>
+            </div>
+          </section>
+           <section class="field-report">
+                <h3>Plano de Extração (Problema #VI.3.1)</h3>
+                <div class="info-panel">
+                    <div class="info-screen">
+                        <h4>Diretrizes para Solução:</h4>
+                        <ul>
+                            <li><strong>Área Base:</strong> \( \text{Área} = ||\vec{a} \times \vec{b}|| \).</li>
+                            <li><strong>Volume:</strong> \( \text{Volume} = |(\vec{a} \times \vec{b}) \cdot \vec{c}| = |\det(\vec{a}, \vec{b}, \vec{c})| \).</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+          <section class="debriefing">
+            <h3>Debriefing: Arsenal Tridimensional</h3>
+            <div class="summary-box">
+              <p>Com determinantes, produto vetorial e misto, seu arsenal 3D está robusto. Áreas, volumes e vetores normais ao seu alcance.</p>
+            </div>
+            <div class="next-mission">
+              <p>Próxima diretiva: Equação do Plano.</p>
+            </div>
+            <div class="instructor-note">
+              <p>"Com estas ferramentas, vocês moldam o mundo."</p>
+            </div>
+          </section>
+        </section>
+
+        <!-- TÓPICO 4: Equação do Plano -->
+        <section>
+          <section class="mission-briefing">
+            <h2>Equação do Plano</h2>
+            <h3 class="mission-subtitle">As 'Superfícies Retas' do Mundo 3D</h3>
+            <p><strong>\(R^2\):</strong> \(ax+by+c=0\) era uma RETA.</p>
+            <p><strong>\(R^3\):</strong> \(ax+by+cz+d=0\) define um PLANO! O vetor \( \vec{n}=(a,b,c) \) é o VETOR NORMAL ao plano.</p>
+            <div class="definition-box">
+              <p>Geral: <span class="formula">\( ax+by+cz+d=0 \)</span></p>
+              <p>Vetorial: <span class="formula">\( \vec{n} \cdot (\vec{X} - \vec{P_0}) = 0 \)</span></p>
+            </div>
+          </section>
+
+          <section class="simulator">
+            <h3>Simulador: Manipulando Planos</h3>
+            <div class="canvas-container">
+              <canvas id="equacao-plano-canvas" width="800" height="400"></canvas>
+              <div class="simulator-controls">
+                <p>\( \vec{n}=(a,b,c) \), Termo \(d\):</p>
+                <div class="control-panel">
+                  <label>a:</label> <input type="range" id="plano-a" min="-2" max="2" value="1" step="0.1"> <span id="plano-a-value">1</span>
+                  <label>b:</label> <input type="range" id="plano-b" min="-2" max="2" value="1" step="0.1"> <span id="plano-b-value">1</span>
+                  <label>c:</label> <input type="range" id="plano-c" min="-2" max="2" value="1" step="0.1"> <span id="plano-c-value">1</span>
+                  <label>d:</label> <input type="range" id="plano-d" min="-5" max="5" value="-2" step="0.1"> <span id="plano-d-value">-2</span>
+                </div>
+                 <p>Eq: <span id="plano-eq-display" class="formula">1x+1y+1z-2=0</span></p>
+              </div>
+            </div>
+            <div class="hint-message">
+              <p>Altere \(a,b,c\) para ver a orientação mudar. Ajuste 'd' para deslocar.</p>
+            </div>
+          </section>
+
+          <section class="field-report">
+            <h3>Relatório: Distâncias e Segurança</h3>
+            <div class="info-panel">
+              <div class="info-screen">
+                <h4>Distância de Ponto a Plano:</h4>
+                <p>\( D = \frac{|ax_0+by_0+cz_0+d|}{\sqrt{a^2+b^2+c^2}} \)</p>
+              </div>
+            </div>
+            <div class="survival-tip">
+              <p>Saber a distância do seu abrigo (\(P_0\)) a uma superfície hostil (plano) é vital.</p>
+            </div>
+          </section>
+
+          <section class="survival-training">
+            <h3>Treinamento: Fundações</h3>
+            <div class="training-problem">
+              <h4>Problema #VI.4.1:</h4>
+              <p>Falha geológica: plano \( 2x - y + 3z - 12 = 0 \). Posto em \( P_C(1, 1, 1) \).</p>
+              <ol>
+                <li>Distância do posto à falha?</li>
+                <li>Seguro construir (dist. mín. 3 unidades)?</li>
+              </ol>
+            </div>
+            <div class="problem-context">
+              <p>Construir sobre terreno instável é arriscado.</p>
+            </div>
+          </section>
+          <section class="field-report">
+                <h3>Análise Geotécnica (Problema #VI.4.1)</h3>
+                <div class="info-panel">
+                    <div class="info-screen">
+                        <h4>Diretrizes:</h4>
+                        <ul>
+                            <li><strong>Fórmula:</strong> \( D = \frac{|ax_0+by_0+cz_0+d|}{\sqrt{a^2+b^2+c^2}} \).</li>
+                            <li><strong>Parâmetros:</strong> Identifique \(a,b,c,d\) do plano e \(x_0,y_0,z_0\) do ponto.</li>
+                            <li><strong>Cálculo e Decisão:</strong> Encontre \(D\), compare com 3.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+          <section class="debriefing">
+            <h3>Debriefing: Superfícies Essenciais</h3>
+            <div class="summary-box">
+              <p>Planos são blocos de construção em \(R^3\). Sua equação é adaptação da reta em \(R^2\), mas com novo significado.</p>
+            </div>
+            <div class="next-mission">
+              <p>Alerta: E a RETA em \(R^3\)? Como descrever um caminho linear?</p>
+            </div>
+            <div class="instructor-note">
+              <p>"Um bom plano separa um abrigo seguro de uma armadilha."</p>
+            </div>
+          </section>
+        </section>
+
+        <!-- TÓPICO 5: Equações da Reta no Espaço -->
+        <section>
+          <section class="mission-briefing">
+            <h2>Equações da Reta no Espaço</h2>
+            <h3 class="mission-subtitle">Trajetórias Definidas: Diferente do Plano!</h3>
+            <p><strong>\(R^3\):</strong> Uma equação linear \(ax+by+cz+d=0\) define um PLANO. Para uma RETA, precisamos de outra abordagem.</p>
+            <p><strong>Solução Paramétrica/Vetorial:</strong> \( \vec{X} = \vec{P_0} + t\vec{v} \).</p>
+            <p>Reta também é INTERSEÇÃO de DOIS planos não paralelos.</p>
+            <p class="mnemonic">"No R³, uma equação só não faz verão (pra reta). Paramétrica é a salvação!"</p>
+          </section>
+
+          <section class="simulator">
+            <h3>Simulador: Desenhando Retas no Espaço</h3>
+            <div class="canvas-container">
+              <canvas id="equacao-reta-espaco-canvas" width="800" height="400"></canvas>
+              <div class="simulator-controls">
+                <p>\( P_0=(x_0,y_0,z_0) \), \( \vec{v}=(a,b,c) \)</p>
+                <div class="control-panel">
+                  <label>\(x_0\):</label> <input type="range" id="reta-x0" min="-5" max="5" value="0" step="0.5"> <span id="reta-x0-val">0</span>
+                  <label>\(y_0\):</label> <input type="range" id="reta-y0" min="-5" max="5" value="0" step="0.5"> <span id="reta-y0-val">0</span>
+                  <label>\(z_0\):</label> <input type="range" id="reta-z0" min="-5" max="5" value="0" step="0.5"> <span id="reta-z0-val">0</span>
+                </div>
+                <div class="control-panel">
+                  <label>\(v_a\):</label> <input type="range" id="reta-va" min="-2" max="2" value="1" step="0.1"> <span id="reta-va-val">1</span>
+                  <label>\(v_b\):</label> <input type="range" id="reta-vb" min="-2" max="2" value="1" step="0.1"> <span id="reta-vb-val">1</span>
+                  <label>\(v_c\):</label> <input type="range" id="reta-vc" min="-2" max="2" value="1" step="0.1"> <span id="reta-vc-val">1</span>
+                </div>
+              </div>
+            </div>
+            <div class="hint-message">
+              <p>Ajuste \(P_0\) e \(\vec{v}\) para ver a reta se orientar no espaço 3D.</p>
+            </div>
+          </section>
+
+          <section class="field-report level-intermediate">
+            <h3>Relatório: Encontros em 3D</h3>
+            <div class="info-panel">
+              <div class="info-screen">
+                <h4>Posições Relativas (Retas em \(R^3\)):</h4>
+                <ul>
+                  <li><strong>Novidade \(R^3\):</strong> Retas <strong>REVERSAS</strong>! Não se interceptam e não são paralelas.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="survival-tip">
+              <p>Não assuma que trajetórias que se cruzam em mapas 2D o farão no 3D. A altitude (Z) é tudo!</p>
+            </div>
+          </section>
+
+          <section class="survival-training level-advanced">
+            <h3>Treinamento: Navegação de Precisão</h3>
+            <div class="training-problem">
+              <h4>Problema #VI.5.1: Rota de Tirolesa</h4>
+              <p>Tirolesa: A(0,10,5) a B(20,0,2). Torre: reta vertical por \(P_T(10,6,0)\), \(\vec{d}=(0,0,1)\).</p>
+              <ol>
+                <li>Equação vetorial da tirolesa.</li>
+                <li>Risco de colisão com a torre?</li>
+              </ol>
+            </div>
+            <div class="problem-context">
+              <p>Segurança primeiro. Colisão não é uma boa entrega.</p>
+            </div>
+          </section>
+          <section class="field-report">
+                <h3>Análise de Trajetória (Problema #VI.5.1)</h3>
+                <div class="info-panel">
+                    <div class="info-screen">
+                        <h4>Diretrizes:</h4>
+                        <ul>
+                            <li><strong>Eq. Tirolesa:</strong> \( \vec{v_1} = B - A \). Use A como \(P_1\). \( \vec{X} = P_1 + t\vec{v_1} \).</li>
+                            <li><strong>Eq. Torre:</strong> \(P_2 = P_T\), \( \vec{v_2} = \vec{d} \). \( \vec{Y} = P_2 + s\vec{v_2} \).</li>
+                            <li><strong>Interseção:</strong> Igualar paramétricas (\(x_1=x_2, \dots\)). Resolver para \(t,s\).
+                                <ul>
+                                    <li>Solução única: Concorrentes (colisão).</li>
+                                    <li>Sem solução: Verificar paralelismo de \( \vec{v_1}, \vec{v_2} \). Se não paralelos, são reversas.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+          <section class="debriefing">
+            <h3>Debriefing: Dominando as Linhas do Espaço</h3>
+            <div class="summary-box">
+              <p>A reta em \(R^3\): paramétrica reina, reversas adicionam complexidade estratégica.</p>
+            </div>
+            <div class="next-mission">
+              <p><strong>FIM DA TRANSMISSÃO - PARTE 1.</strong></p>
+              <p>Próxima (Parte 2): Sistemas Lineares \(R^3\), Esfera Protetora, Revisão.</p>
+            </div>
+            <div class="instructor-note radiation-glow">
+              <p>"Vocês têm as ferramentas para redesenhar suas linhas de defesa. Mantenham os cálculos afiados!"</p>
+            </div>
+          </section>
+        </section>
+
+      </div>
+    </div>
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/math/math.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/zoom/zoom.js"></script>
+    <script>
+      window.MathJax = { tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script>
+      // IIFE para visualização de produto-vetorial-canvas
+      (function() {
+        const canvas = document.getElementById('produto-vetorial-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const uxSlider = document.getElementById('pv-ux'); const uySlider = document.getElementById('pv-uy'); const uzSlider = document.getElementById('pv-uz');
+        const vxSlider = document.getElementById('pv-vx'); const vySlider = document.getElementById('pv-vy'); const vzSlider = document.getElementById('pv-vz');
+        const uxValue = document.getElementById('pv-ux-value'); const uyValue = document.getElementById('pv-uy-value'); const uzValue = document.getElementById('pv-uz-value');
+        const vxValue = document.getElementById('pv-vx-value'); const vyValue = document.getElementById('pv-vy-value'); const vzValue = document.getElementById('pv-vz-value');
+        const resultVectorSpan = document.getElementById('pv-result-vector'); const areaValueSpan = document.getElementById('pv-area-value');
+        
+        const centerX = canvas.width / 2; const centerY = canvas.height / 2; const scale = 40;
+
+        function project3D(x,y,z) { 
+            const L = 0.4; const alpha = Math.PI / 6;
+            const screenX = centerX + (x - z * L * Math.cos(alpha)) * scale;
+            const screenY = centerY - (y + z * L * Math.sin(alpha)) * scale;
+            return { x: screenX, y: screenY };
+        }
+        function drawAxes() { 
+            ctx.strokeStyle = '#555'; ctx.lineWidth = 1; ctx.font = "12px 'Courier New', monospace"; ctx.fillStyle = '#ADFF2F';
+            const O = project3D(0,0,0);
+            let Px = project3D(3,0,0); ctx.beginPath(); ctx.moveTo(O.x, O.y); ctx.lineTo(Px.x, Px.y); ctx.stroke(); ctx.fillText("X", Px.x + 5, Px.y);
+            let Py = project3D(0,3,0); ctx.beginPath(); ctx.moveTo(O.x, O.y); ctx.lineTo(Py.x, Py.y); ctx.stroke(); ctx.fillText("Y", Py.x, Py.y - 5);
+            let Pz = project3D(0,0,3); ctx.beginPath(); ctx.moveTo(O.x, O.y); ctx.lineTo(Pz.x, Pz.y); ctx.stroke(); ctx.fillText("Z", Pz.x + 5, Pz.y + 5);
+        }
+        function drawVector(vec, color, lineWidth = 2) { 
+            const origin = project3D(0,0,0); const endPoint = project3D(vec.x, vec.y, vec.z);
+            ctx.beginPath(); ctx.moveTo(origin.x, origin.y); ctx.lineTo(endPoint.x, endPoint.y);
+            ctx.strokeStyle = color; ctx.lineWidth = lineWidth; ctx.stroke();
+            const headlen = 10; const angle = Math.atan2(endPoint.y - origin.y, endPoint.x - origin.x);
+            ctx.beginPath(); ctx.moveTo(endPoint.x, endPoint.y);
+            ctx.lineTo(endPoint.x - headlen * Math.cos(angle - Math.PI / 6), endPoint.y - headlen * Math.sin(angle - Math.PI / 6));
+            ctx.lineTo(endPoint.x - headlen * Math.cos(angle + Math.PI / 6), endPoint.y - headlen * Math.sin(angle + Math.PI / 6));
+            ctx.closePath(); ctx.fillStyle = color; ctx.fill();
+        }
+        function drawParallelogram(u, v, color) { 
+            const O = project3D(0,0,0); const Pu = project3D(u.x, u.y, u.z);
+            const Pv = project3D(v.x, v.y, v.z); const Puv = project3D(u.x + v.x, u.y + v.y, u.z + v.z);
+            ctx.beginPath(); ctx.moveTo(O.x, O.y); ctx.lineTo(Pu.x, Pu.y); ctx.lineTo(Puv.x, Puv.y);
+            ctx.lineTo(Pv.x, Pv.y); ctx.closePath(); ctx.fillStyle = color; ctx.fill();
+            ctx.strokeStyle = 'rgba(255,255,255,0.2)'; ctx.stroke();
+        }
+
+        function draw() { 
+            ctx.fillStyle = '#000'; ctx.fillRect(0, 0, canvas.width, canvas.height); drawAxes();
+            const u = { x: parseFloat(uxSlider.value), y: parseFloat(uySlider.value), z: parseFloat(uzSlider.value) };
+            const v = { x: parseFloat(vxSlider.value), y: parseFloat(vySlider.value), z: parseFloat(vzSlider.value) };
+            uxValue.textContent = u.x.toFixed(1); uyValue.textContent = u.y.toFixed(1); uzValue.textContent = u.z.toFixed(1);
+            vxValue.textContent = v.x.toFixed(1); vyValue.textContent = v.y.toFixed(1); vzValue.textContent = v.z.toFixed(1);
+            const w = { x: u.y * v.z - u.z * v.y, y: u.z * v.x - u.x * v.z, z: u.x * v.y - u.y * v.x };
+            const area = Math.sqrt(w.x**2 + w.y**2 + w.z**2);
+            drawParallelogram(u, v, 'rgba(70, 130, 180, 0.2)');
+            drawVector(u, '#FFD700'); drawVector(v, '#4682B4'); drawVector(w, '#ADFF2F', 3);
+            resultVectorSpan.innerHTML = `\\( (${w.x.toFixed(1)}, ${w.y.toFixed(1)}, ${w.z.toFixed(1)}) \\)`;
+            areaValueSpan.innerHTML = `\\( ${area.toFixed(2)} \\)`;
+            if (window.MathJax && window.MathJax.typeset) { window.MathJax.typeset([resultVectorSpan, areaValueSpan]); }
+        }
+        function setupControls() { 
+            [uxSlider, uySlider, uzSlider, vxSlider, vySlider, vzSlider].forEach(s => s.addEventListener('input', draw));
+        }
+        document.addEventListener('DOMContentLoaded', () => { 
+            const allElementsExist = [canvas, uxSlider, uySlider, uzSlider, vxSlider, vySlider, vzSlider, uxValue, uyValue, uzValue, vxValue, vyValue, vzValue, resultVectorSpan, areaValueSpan].every(el => !!el);
+            if(allElementsExist){ setupControls(); draw(); } else { console.error("Produto Vetorial: Elementos não encontrados.");}
+         });
+      })();
+      
+      // IIFE para visualização de produto-misto-canvas
+      (function() {
+        const canvas = document.getElementById('produto-misto-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const wzSlider = document.getElementById('pm-wz-slider'); 
+        const wzValueSpan = document.getElementById('pm-wz-value-span'); 
+        const uxValSpan = document.getElementById('pm-ux-val'); const uyValSpan = document.getElementById('pm-uy-val'); const uzValSpan = document.getElementById('pm-uz-val');
+        const vxValSpan = document.getElementById('pm-vx-val'); const vyValSpan = document.getElementById('pm-vy-val'); const vzValSpan = document.getElementById('pm-vz-val');
+        const wxValSpan = document.getElementById('pm-wx-val'); const wyValSpan = document.getElementById('pm-wy-val');
+        const volumeValueSpan = document.getElementById('pm-volume-value');
+        const resetBtn = document.getElementById('pm-reset-btn');
+
+        const centerX = canvas.width / 2; const centerY = canvas.height / 2; const scale = 25;
+
+        let u_vec = { x: 2, y: 0.5, z: 0.2 }; 
+        let v_vec = { x: 0.5, y: 2, z: 0.3 };
+        let w_vec = { x: 0.2, y: 0.3, z: 1 }; 
+
+        function project3D(x,y,z) { 
+            const L = 0.4; const alpha = Math.PI / 6;
+            const screenX = centerX + (x - z * L * Math.cos(alpha)) * scale;
+            const screenY = centerY - (y + z * L * Math.sin(alpha)) * scale;
+            return { x: screenX, y: screenY };
+        }
+        function drawAxes() { 
+            ctx.strokeStyle = '#555'; ctx.lineWidth = 1; ctx.font = "12px 'Courier New', monospace"; ctx.fillStyle = '#ADFF2F';
+            const O = project3D(0,0,0);
+            let Px = project3D(5,0,0); ctx.beginPath(); ctx.moveTo(O.x, O.y); ctx.lineTo(Px.x, Px.y); ctx.stroke(); ctx.fillText("X", Px.x + 5, Px.y);
+            let Py = project3D(0,5,0); ctx.beginPath(); ctx.moveTo(O.x, O.y); ctx.lineTo(Py.x, Py.y); ctx.stroke(); ctx.fillText("Y", Py.x, Py.y - 5);
+            let Pz = project3D(0,0,5); ctx.beginPath(); ctx.moveTo(O.x, O.y); ctx.lineTo(Pz.x, Pz.y); ctx.stroke(); ctx.fillText("Z", Pz.x + 5, Pz.y + 5);
+        }
+        function drawVector(vec, color, lineWidth = 2) { 
+            const origin = project3D(0,0,0); const endPoint = project3D(vec.x, vec.y, vec.z);
+            ctx.beginPath(); ctx.moveTo(origin.x, origin.y); ctx.lineTo(endPoint.x, endPoint.y);
+            ctx.strokeStyle = color; ctx.lineWidth = lineWidth; ctx.stroke();
+            const headlen = 10; const angle = Math.atan2(endPoint.y - origin.y, endPoint.x - origin.x);
+            ctx.beginPath(); ctx.moveTo(endPoint.x, endPoint.y);
+            ctx.lineTo(endPoint.x - headlen * Math.cos(angle - Math.PI / 6), endPoint.y - headlen * Math.sin(angle - Math.PI / 6));
+            ctx.lineTo(endPoint.x - headlen * Math.cos(angle + Math.PI / 6), endPoint.y - headlen * Math.sin(angle + Math.PI / 6));
+            ctx.closePath(); ctx.fillStyle = color; ctx.fill();
+        }
+        function drawSolidFace(p1,p2,p3,p4,fillColor) {
+            ctx.beginPath();
+            ctx.moveTo(p1.x,p1.y); ctx.lineTo(p2.x,p2.y);
+            ctx.lineTo(p3.x,p3.y); ctx.lineTo(p4.x,p4.y);
+            ctx.closePath();
+            ctx.fillStyle = fillColor; ctx.fill();
+            ctx.strokeStyle = 'rgba(200,200,200,0.4)'; ctx.stroke();
+        }
+        function drawParallelepiped(u,v,w,fillColor) {
+            const O = {x:0,y:0,z:0};
+            const P0 = project3D(O.x,O.y,O.z);
+            const P_u = project3D(u.x,u.y,u.z);
+            const P_v = project3D(v.x,v.y,v.z);
+            const P_w = project3D(w.x,w.y,w.z);
+            const P_uv = project3D(u.x+v.x, u.y+v.y, u.z+v.z);
+            const P_uw = project3D(u.x+w.x, u.y+w.y, u.z+w.z);
+            const P_vw = project3D(v.x+w.x, v.y+w.y, v.z+w.z);
+            const P_uvw = project3D(u.x+v.x+w.x, u.y+v.y+w.y, u.z+v.z+w.z);
+
+            // Simple z-sorting for faces (approximate)
+            const faces = [
+                { points: [P0, P_v, P_vw, P_w], z: (O.z+v.z+v.z+w.z+w.z)/4 }, // Back-left
+                { points: [P0, P_u, P_uw, P_w], z: (O.z+u.z+u.z+w.z+w.z)/4 }, // Back-right
+                { points: [P0, P_u, P_uv, P_v], z: (O.z+u.z+u.z+v.z+v.z)/4 }, // Bottom
+                { points: [P_uw, P_uvw, P_vw, P_w].sort((a,b) => a.y - b.y), z: (u.z+w.z+u.z+v.z+w.z+v.z+w.z+w.z)/4 }, // Top
+                { points: [P_u, P_uv, P_uvw, P_uw].sort((a,b) => a.y - b.y), z: (u.z+u.z+v.z+u.z+v.z+w.z+u.z+w.z)/4 }, // Front-right
+                { points: [P_v, P_uv, P_uvw, P_vw].sort((a,b) => a.y - b.y), z: (v.z+u.z+v.z+u.z+v.z+w.z+v.z+w.z)/4 }  // Front-left
+            ];
+            faces.sort((a, b) => a.z - b.z); // Sort faces by average z
+            faces.forEach(face => drawSolidFace(face.points[0], face.points[1], face.points[2], face.points[3], fillColor));
+        }
+        function draw() { 
+            ctx.fillStyle = '#000'; ctx.fillRect(0, 0, canvas.width, canvas.height); drawAxes();
+            w_vec.z = parseFloat(wzSlider.value); 
+            wzValueSpan.textContent = w_vec.z.toFixed(1);
+
+            uxValSpan.textContent = u_vec.x.toFixed(1); uyValSpan.textContent = u_vec.y.toFixed(1); uzValSpan.textContent = u_vec.z.toFixed(1);
+            vxValSpan.textContent = v_vec.x.toFixed(1); vyValSpan.textContent = v_vec.y.toFixed(1); vzValSpan.textContent = v_vec.z.toFixed(1);
+            wxValSpan.textContent = w_vec.x.toFixed(1); wyValSpan.textContent = w_vec.y.toFixed(1);
+
+            const mixedProduct = (u_vec.y * v_vec.z - u_vec.z * v_vec.y) * w_vec.x + 
+                                 (u_vec.z * v_vec.x - u_vec.x * v_vec.z) * w_vec.y + 
+                                 (u_vec.x * v_vec.y - u_vec.y * v_vec.x) * w_vec.z;
+            const volume = Math.abs(mixedProduct);
+
+            drawParallelepiped(u_vec, v_vec, w_vec, 'rgba(173, 255, 47, 0.15)');
+            drawVector(u_vec, '#FFD700'); drawVector(v_vec, '#4682B4'); drawVector(w_vec, '#FF6347');
+            volumeValueSpan.innerHTML = `\\( ${volume.toFixed(2)} \\)`;
+            if (window.MathJax && window.MathJax.typeset) { window.MathJax.typeset([volumeValueSpan]); }
+        }
+        function resetVectorsPM() { u_vec = { x: 2, y: 0.5, z: 0.2 }; v_vec = { x: 0.5, y: 2, z: 0.3 }; wzSlider.value = 1; draw(); }
+        function setupControls() { if (wzSlider) wzSlider.addEventListener('input', draw); if (resetBtn) resetBtn.addEventListener('click', resetVectorsPM); }
+        document.addEventListener('DOMContentLoaded', () => { 
+            const allElementsExist = [canvas, wzSlider, wzValueSpan, uxValSpan, uyValSpan, uzValSpan, vxValSpan, vyValSpan, vzValSpan, wxValSpan, wyValSpan, volumeValueSpan, resetBtn].every(el => !!el);
+            if(allElementsExist){ setupControls(); resetVectorsPM();  } else { console.error("Produto Misto: Elementos não encontrados.");}
+         });
+      })();
+
+      // IIFE para visualização de equacao-plano-canvas
+      (function() {
+        const canvas = document.getElementById('equacao-plano-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const aSlider = document.getElementById('plano-a'); const bSlider = document.getElementById('plano-b'); const cSlider = document.getElementById('plano-c'); const dSlider = document.getElementById('plano-d');
+        const aValue = document.getElementById('plano-a-value'); const bValue = document.getElementById('plano-b-value'); const cValue = document.getElementById('plano-c-value'); const dValue = document.getElementById('plano-d-value');
+        const eqDisplay = document.getElementById('plano-eq-display');
+        
+        const centerX = canvas.width / 2; const centerY = canvas.height / 2; const scale = 30; 
+
+        function project3D(x,y,z) { 
+            const L = 0.4; const alpha = Math.PI / 6;
+            const screenX = centerX + (x - z * L * Math.cos(alpha)) * scale;
+            const screenY = centerY - (y + z * L * Math.sin(alpha)) * scale;
+            return { x: screenX, y: screenY };
+        }
+        function drawAxes() { 
+            ctx.strokeStyle = '#555'; ctx.lineWidth = 1; ctx.font = "12px 'Courier New', monospace"; ctx.fillStyle = '#ADFF2F';
+            const O = project3D(0,0,0);
+            let Px = project3D(5,0,0); ctx.beginPath(); ctx.moveTo(O.x, O.y); ctx.lineTo(Px.x, Px.y); ctx.stroke(); ctx.fillText("X", Px.x + 5, Px.y);
+            let Py = project3D(0,5,0); ctx.beginPath(); ctx.moveTo(O.x, O.y); ctx.lineTo(Py.x, Py.y); ctx.stroke(); ctx.fillText("Y", Py.x, Py.y - 5);
+            let Pz = project3D(0,0,5); ctx.beginPath(); ctx.moveTo(O.x, O.y); ctx.lineTo(Pz.x, Pz.y); ctx.stroke(); ctx.fillText("Z", Pz.x + 5, Pz.y + 5);
+        }
+        function drawVectorFromPoint(startVec, dirVec, color, lineWidth = 2) { 
+            const startPoint = project3D(startVec.x, startVec.y, startVec.z);
+            const endPoint = project3D(startVec.x + dirVec.x, startVec.y + dirVec.y, startVec.z + dirVec.z);
+            ctx.beginPath(); ctx.moveTo(startPoint.x, startPoint.y); ctx.lineTo(endPoint.x, endPoint.y);
+            ctx.strokeStyle = color; ctx.lineWidth = lineWidth; ctx.stroke();
+            const headlen = 10; const angle = Math.atan2(endPoint.y - startPoint.y, endPoint.x - startPoint.x);
+            ctx.beginPath(); ctx.moveTo(endPoint.x, endPoint.y);
+            ctx.lineTo(endPoint.x - headlen * Math.cos(angle - Math.PI / 6), endPoint.y - headlen * Math.sin(angle - Math.PI / 6));
+            ctx.lineTo(endPoint.x - headlen * Math.cos(angle + Math.PI / 6), endPoint.y - headlen * Math.sin(angle + Math.PI / 6));
+            ctx.closePath(); ctx.fillStyle = color; ctx.fill();
+        }
+        function drawPlanePatch(normal, d_const, planeDrawSize, fillColor) {
+            const { a, b, c } = normal;
+            if (Math.abs(a) < 0.01 && Math.abs(b) < 0.01 && Math.abs(c) < 0.01) return; 
+
+            let P0; 
+            if (Math.abs(c) > 0.01) P0 = { x: 0, y: 0, z: -d_const / c };
+            else if (Math.abs(b) > 0.01) P0 = { x: 0, y: -d_const / b, z: 0 };
+            else P0 = { x: -d_const / a, y: 0, z: 0 };
+
+            let d1, d2; 
+            if (Math.abs(c) > 0.01) { d1 = { x: 1, y: 0, z: -a / c }; d2 = { x: 0, y: 1, z: -b / c };}
+            else if (Math.abs(b) > 0.01) { d1 = { x: 1, y: -a/b, z: 0}; d2 = { x: 0, y: -c/b, z: 1};}
+            else { d1 = { x: -b/a, y: 1, z: 0}; d2 = { x: -c/a, y: 0, z: 1};}
+            
+            const magD1 = Math.sqrt(d1.x**2 + d1.y**2 + d1.z**2); if(magD1 > 0.01) { d1.x /= magD1; d1.y /= magD1; d1.z /= magD1;}
+            // For d2 to be orthogonal to d1 AND n, use d2 = n x d1
+            const n_vec = {x:a, y:b, z:c};
+            d2 = { x: n_vec.y*d1.z - n_vec.z*d1.y, y: n_vec.z*d1.x - n_vec.x*d1.z, z: n_vec.x*d1.y - n_vec.y*d1.x};
+            const magD2 = Math.sqrt(d2.x**2 + d2.y**2 + d2.z**2); if(magD2 > 0.01) { d2.x /= magD2; d2.y /= magD2; d2.z /= magD2;}
+
+
+            const ps = planeDrawSize;
+            const p_1 = project3D(P0.x + ps*d1.x + ps*d2.x, P0.y + ps*d1.y + ps*d2.y, P0.z + ps*d1.z + ps*d2.z);
+            const p_2 = project3D(P0.x - ps*d1.x + ps*d2.x, P0.y - ps*d1.y + ps*d2.y, P0.z - ps*d1.z + ps*d2.z);
+            const p_3 = project3D(P0.x - ps*d1.x - ps*d2.x, P0.y - ps*d1.y - ps*d2.y, P0.z - ps*d1.z - ps*d2.z);
+            const p_4 = project3D(P0.x + ps*d1.x - ps*d2.x, P0.y + ps*d1.y - ps*d2.y, P0.z + ps*d1.z - ps*d2.z);
+
+            ctx.beginPath();
+            ctx.moveTo(p_1.x, p_1.y); ctx.lineTo(p_2.x, p_2.y);
+            ctx.lineTo(p_3.x, p_3.y); ctx.lineTo(p_4.x, p_4.y);
+            ctx.closePath();
+            ctx.fillStyle = fillColor; ctx.fill();
+            ctx.strokeStyle = 'rgba(255,255,255,0.3)'; ctx.stroke();
+            drawVectorFromPoint(P0, {x:normal.a*1.5, y:normal.b*1.5, z:normal.c*1.5}, '#FF6347', 2); 
+        }
+        function draw() { 
+            ctx.fillStyle = '#000'; ctx.fillRect(0, 0, canvas.width, canvas.height); drawAxes();
+            const normal = { a: parseFloat(aSlider.value), b: parseFloat(bSlider.value), c: parseFloat(cSlider.value) };
+            const d_const = parseFloat(dSlider.value);
+            aValue.textContent = normal.a.toFixed(1); bValue.textContent = normal.b.toFixed(1); cValue.textContent = normal.c.toFixed(1); dValue.textContent = d_const.toFixed(1);
+            eqDisplay.innerHTML = `\\( ${normal.a.toFixed(1)}x ${normal.b < 0 ? '-' : '+'} ${Math.abs(normal.b).toFixed(1)}y ${normal.c < 0 ? '-' : '+'} ${Math.abs(normal.c).toFixed(1)}z ${d_const < 0 ? '-' : '+'} ${Math.abs(d_const).toFixed(1)} = 0 \\)`;
+            if (window.MathJax && window.MathJax.typeset) { window.MathJax.typeset([eqDisplay]); }
+            drawPlanePatch(normal, d_const, 4, 'rgba(173, 255, 47, 0.2)'); // planeDrawSize=4
+        }
+        function setupControls() { 
+            [aSlider, bSlider, cSlider, dSlider].forEach(s => s.addEventListener('input', draw));
+        }
+        document.addEventListener('DOMContentLoaded', () => { 
+            const allElementsExist = [canvas, aSlider, bSlider, cSlider, dSlider, aValue, bValue, cValue, dValue, eqDisplay].every(el => !!el);
+            if(allElementsExist){ setupControls(); draw(); } else { console.error("Equação Plano: Elementos não encontrados.");}
+         });
+      })();
+
+      // IIFE para visualização de equacao-reta-espaco-canvas
+      (function() {
+        const canvas = document.getElementById('equacao-reta-espaco-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const x0Slider = document.getElementById('reta-x0'); const y0Slider = document.getElementById('reta-y0'); const z0Slider = document.getElementById('reta-z0');
+        const vaSlider = document.getElementById('reta-va'); const vbSlider = document.getElementById('reta-vb'); const vcSlider = document.getElementById('reta-vc');
+        const x0Val = document.getElementById('reta-x0-val'); const y0Val = document.getElementById('reta-y0-val'); const z0Val = document.getElementById('reta-z0-val');
+        const vaVal = document.getElementById('reta-va-val'); const vbVal = document.getElementById('reta-vb-val'); const vcVal = document.getElementById('reta-vc-val');
+        
+        const centerX = canvas.width / 2; const centerY = canvas.height / 2; const scale = 30;
+
+        function project3D(x,y,z) { 
+            const L = 0.4; const alpha = Math.PI / 6;
+            const screenX = centerX + (x - z * L * Math.cos(alpha)) * scale;
+            const screenY = centerY - (y + z * L * Math.sin(alpha)) * scale;
+            return { x: screenX, y: screenY };
+        }
+        function drawAxes() { 
+            ctx.strokeStyle = '#555'; ctx.lineWidth = 1; ctx.font = "12px 'Courier New', monospace"; ctx.fillStyle = '#ADFF2F';
+            const O = project3D(0,0,0);
+            let Px = project3D(5,0,0); ctx.beginPath(); ctx.moveTo(O.x, O.y); ctx.lineTo(Px.x, Px.y); ctx.stroke(); ctx.fillText("X", Px.x + 5, Px.y);
+            let Py = project3D(0,5,0); ctx.beginPath(); ctx.moveTo(O.x, O.y); ctx.lineTo(Py.x, Py.y); ctx.stroke(); ctx.fillText("Y", Py.x, Py.y - 5);
+            let Pz = project3D(0,0,5); ctx.beginPath(); ctx.moveTo(O.x, O.y); ctx.lineTo(Pz.x, Pz.y); ctx.stroke(); ctx.fillText("Z", Pz.x + 5, Pz.y + 5);
+        }
+        function drawLineSegment3D(pStart, pEnd, color, lineWidth = 2) { 
+            const start = project3D(pStart.x, pStart.y, pStart.z); const end = project3D(pEnd.x, pEnd.y, pEnd.z);
+            ctx.beginPath(); ctx.moveTo(start.x, start.y); ctx.lineTo(end.x, end.y);
+            ctx.strokeStyle = color; ctx.lineWidth = lineWidth; ctx.stroke();
+        }
+        
+        function draw() { 
+            ctx.fillStyle = '#000'; ctx.fillRect(0, 0, canvas.width, canvas.height); drawAxes();
+            const P0 = { x: parseFloat(x0Slider.value), y: parseFloat(y0Slider.value), z: parseFloat(z0Slider.value) };
+            const v_dir = { x: parseFloat(vaSlider.value), y: parseFloat(vbSlider.value), z: parseFloat(vcSlider.value) };
+            x0Val.textContent = P0.x.toFixed(1); y0Val.textContent = P0.y.toFixed(1); z0Val.textContent = P0.z.toFixed(1);
+            vaVal.textContent = v_dir.x.toFixed(1); vbVal.textContent = v_dir.y.toFixed(1); vcVal.textContent = v_dir.z.toFixed(1);
+            const tMin = -15; const tMax = 15;
+            const lineStart = { x: P0.x + tMin * v_dir.x, y: P0.y + tMin * v_dir.y, z: P0.z + tMin * v_dir.z };
+            const lineEnd = { x: P0.x + tMax * v_dir.x, y: P0.y + tMax * v_dir.y, z: P0.z + tMax * v_dir.z };
+            drawLineSegment3D(lineStart, lineEnd, '#ADFF2F', 2);
+            const projP0 = project3D(P0.x, P0.y, P0.z);
+            ctx.beginPath(); ctx.arc(projP0.x, projP0.y, 5, 0, 2 * Math.PI); ctx.fillStyle = '#FFD700'; ctx.fill();
+            const v_end = {x: P0.x + v_dir.x*2, y: P0.y + v_dir.y*2, z: P0.z + v_dir.z*2}; // Desenhar o vetor diretor um pouco mais longo
+            drawLineSegment3D(P0, v_end, 'rgba(255,100,70,0.7)', 1); 
+        }
+        function setupControls() { 
+            [x0Slider, y0Slider, z0Slider, vaSlider, vbSlider, vcSlider].forEach(s => s.addEventListener('input', draw));
+        }
+        document.addEventListener('DOMContentLoaded', () => { 
+            const allElementsExist = [canvas, x0Slider, y0Slider, z0Slider, vaSlider, vbSlider, vcSlider, x0Val, y0Val, z0Val, vaVal, vbVal, vcVal].every(el => !!el);
+            if(allElementsExist){ setupControls(); draw(); } else { console.error("Equação Reta: Elementos não encontrados.");}
+         });
+      })();
+
+    </script>
+    <script>
+      Reveal.initialize({ hash: true, slideNumber: 'c/t', transition: 'convex', plugins: [RevealNotes, RevealHighlight] });
+    </script>
+  </body>
+</html>
