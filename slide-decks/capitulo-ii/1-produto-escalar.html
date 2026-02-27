@@ -24,62 +24,6 @@
 
     <!-- Custom styles (if needed) -->
     <link rel="stylesheet" href="../styles.css" />
-    <style>
-      /* Adicione estes estilos ao seu styles.css existente */
-
-      /* Estilo para o display de informações de posição vetorial */
-      #position-info {
-        background: rgba(0, 0, 0, 0.7);
-        color: #adff2f;
-        padding: 5px 10px;
-        font-family: monospace;
-        text-align: center;
-        border-radius: 4px;
-        font-size: 1.2rem;
-        font-weight: bold;
-      }
-
-      /* Estilos para o container de canvas */
-      .canvas-container {
-        position: relative;
-        width: 450px;
-        height: 450px;
-        margin: 0 auto;
-        border-radius: 4px;
-        overflow: hidden;
-      }
-
-      /* Estilos para layouts flexíveis nas caixas de explicação */
-      .flex-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin: 20px 0;
-      }
-
-      .flex-item {
-        flex: 1;
-        padding: 15px;
-        background-color: rgba(0, 0, 0, 0.4);
-        border-radius: 5px;
-        margin: 0 10px;
-      }
-
-      /* Estilos para exemplos e cenários de missão */
-      .mission-box {
-        background-color: rgba(0, 0, 0, 0.6);
-        padding: 15px;
-        border: 1px solid #0f0;
-        border-radius: 5px;
-        margin: 20px 0;
-      }
-
-      .mission-title {
-        color: #ffd700;
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
-    </style>
   </head>
 
   <body>
@@ -136,16 +80,64 @@
               </li>
               <li>
                 <strong>Auto produto:</strong> \(\vec{v} \cdot \vec{v} =
-                \|\vec{v}\|^2\), a “potência” ou “força” do vetor medido ao
+                |\vec{v}|^2\), a “potência” ou “força” do vetor medido ao
                 quadrado.
               </li>
             </ul>
             <p>
               Em termos de ângulo, \(\vec{u} \cdot \vec{v} =
-              \|\vec{u}\|\|\vec{v}\|\cos(\theta)\). Um valor positivo indica
+              |\vec{u}||\vec{v}|\cos(\theta)\). Um valor positivo indica
               vetores “cooperando”, enquanto um negativo sugere competição
               intensa.
             </p>
+          </section>
+
+          <section>
+            <h2>Ângulo entre Vetores: A Bússola do Produto Escalar</h2>
+            <p>
+              O produto escalar revela o ângulo \(\theta\) entre dois vetores. A partir de
+              \(\vec{u} \cdot \vec{v} = |\vec{u}||\vec{v}|\cos(\theta)\), isolamos:
+            </p>
+            <p class="formula">
+              \[ \cos(\theta) = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}||\vec{v}|}, \qquad
+              \theta = \arccos\!\left(\frac{\vec{u} \cdot \vec{v}}{|\vec{u}||\vec{v}|}\right) \]
+            </p>
+            <div class="flex-container">
+              <div class="flex-item">
+                <strong>\(\theta = 0°\)</strong><br/>
+                vetores paralelos, mesmo sentido<br/>
+                \(\vec{u} \cdot \vec{v} = |\vec{u}||\vec{v}| > 0\)
+              </div>
+              <div class="flex-item">
+                <strong>\(\theta = 90°\)</strong><br/>
+                vetores ortogonais<br/>
+                \(\vec{u} \cdot \vec{v} = 0\)
+              </div>
+              <div class="flex-item">
+                <strong>\(\theta = 180°\)</strong><br/>
+                vetores anti-paralelos<br/>
+                \(\vec{u} \cdot \vec{v} = -|\vec{u}||\vec{v}| < 0\)
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h3>Exemplo: Calculando o Ângulo</h3>
+            <p>
+              Sejam \(\vec{u} = (1, 1)\) e \(\vec{v} = (1, 0)\). Qual o ângulo entre eles?
+            </p>
+            <ol>
+              <li>Produto escalar: \(\vec{u} \cdot \vec{v} = 1 \cdot 1 + 1 \cdot 0 = 1\)</li>
+              <li>Módulos: \(|\vec{u}| = \sqrt{2}\), \(|\vec{v}| = 1\)</li>
+              <li>\(\cos(\theta) = \dfrac{1}{\sqrt{2} \cdot 1} = \dfrac{\sqrt{2}}{2}\)</li>
+              <li>\(\theta = \arccos\!\left(\dfrac{\sqrt{2}}{2}\right) = 45°\)</li>
+            </ol>
+            <div class="survival-tip">
+              <span class="emoji-icon">🧭</span>
+              <strong>Regra do Sobrevivente:</strong> sinal do produto escalar basta para saber se o ângulo
+              é agudo (\(> 0\)), reto (\(= 0\)) ou obtuso (\(< 0\)). O \(\arccos\) só é necessário
+              quando o valor exato do ângulo importa.
+            </div>
           </section>
 
           <section>
@@ -181,42 +173,29 @@
           </section>
 
           <section>
-            <h2>Exemplos e Reflexões</h2>
-            <p>
-              Vamos analisar alguns cenários clássicos (como investigar ruínas
-              diferentes em busca de suprimentos):
-            </p>
+            <h2>Exercícios: Produto Escalar e Ângulo</h2>
             <ol>
               <li>
-                <strong>Vetores no eixo x e no eixo y:</strong><br />
-                <em>Pergunta:</em> Se \(\vec{u} = (a,0)\) e \(\vec{v} = (0,b)\),
-                qual o valor de \(\vec{u} \cdot \vec{v}\)?<br />
-                <em>Reflexão:</em> O que esse resultado diz sobre o
-                “alinhamento” desses vetores?
+                <strong>Cálculo direto:</strong>
+                Sejam \(\vec{u} = (3, 4)\) e \(\vec{v} = (1, -2)\).
+                Calcule \(\vec{u} \cdot \vec{v}\), \(|\vec{u}|\), \(|\vec{v}|\)
+                e o ângulo \(\theta\) entre eles.
               </li>
               <li>
-                <strong>Vetores na mesma reta (colineares):</strong><br />
-                <em>Pergunta:</em> Se \(\vec{u} = (2,0)\) e \(\vec{v} = (3,0)\),
-                qual o valor de \(\vec{u} \cdot \vec{v}\)?<br />
-                <em>Reflexão:</em> Como interpretar esse número em termos de
-                cooperação ou competição?
+                <strong>Ortogonalidade:</strong>
+                O vetor \(\vec{w} = (-4, 3)\) é ortogonal a \(\vec{u} = (3, 4)\)?
+                Justifique usando o produto escalar.
               </li>
               <li>
-                <strong>Produto escalar de um vetor consigo mesmo:</strong
-                ><br />
-                <em>Pergunta:</em> Se \(\vec{w} = (4,0)\), qual o valor de
-                \(\vec{w} \cdot \vec{w}\)?<br />
-                <em>Reflexão:</em> Consegue ver uma relação entre esse valor e o
-                comprimento do vetor?
+                <strong>Encontrando coordenadas:</strong>
+                Determine o valor de \(k\) tal que \(\vec{a} = (2, k)\) seja
+                ortogonal a \(\vec{b} = (3, -4)\).
+              </li>
+              <li>
+                <strong>Auto produto e módulo:</strong>
+                Se \(\vec{v} \cdot \vec{v} = 25\), qual é \(|\vec{v}|\)?
               </li>
             </ol>
-            <p>
-              Use esses exemplos para notar padrões: vetores perpendiculares
-              <em>(nada a acrescentar)</em>, vetores alinhados
-              <em>(reforçando o mesmo rumo)</em> e a conexão entre o produto
-              escalar e o comprimento do vetor
-              <em>(sua “força” intrínseca)</em>.
-            </p>
           </section>
           <section>
             <h2>O Produto Escalar e a Física Pós-Apocalíptica</h2>
@@ -228,7 +207,7 @@
             </p>
             <p>
               <strong>Trabalho (Work) em Física:</strong><br />
-              \( W = \vec{F} \cdot \vec{d} = \|\vec{F}\|\|\vec{d}\|\cos(\theta)
+              \( W = \vec{F} \cdot \vec{d} = |\vec{F}||\vec{d}|\cos(\theta)
               \)<br />
               Se a força estiver “alinhada” ao deslocamento, o trabalho é
               positivo (contribui para o progresso). Se estiver na direção

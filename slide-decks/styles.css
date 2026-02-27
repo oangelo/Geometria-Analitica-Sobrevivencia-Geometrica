@@ -591,3 +591,38 @@
     width: 80px;
   }
 }
+
+/* ==================== 
+   CAPÍTULO II — CLASSES COMPARTILHADAS
+   ==================== */
+
+/* Layout flexível para comparações lado a lado */
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 20px 0;
+}
+
+.flex-item {
+  flex: 1;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+/* Caixas de missão/cenário */
+.mission-box {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 15px;
+  border: 1px solid #4caf50;
+  border-radius: 5px;
+  margin: 20px 0;
+}
+
+.mission-title {
+  color: #ffd700;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
