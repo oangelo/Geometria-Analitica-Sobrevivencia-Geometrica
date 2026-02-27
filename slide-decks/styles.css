@@ -519,10 +519,12 @@
 
 .visualization-container {
   text-align: center;
-  margin: 2px auto 0;
+  margin: 0.2em auto 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: min(95vw, 1280px);
+  height: min(72vh, 900px);
 }
 
 .visualization-container canvas,
@@ -534,20 +536,20 @@
 }
 
 .visualization-container svg {
-  max-width: 95%;
-  max-height: 68vh;
-  width: auto;
-  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   display: block;
   margin: 0 auto;
 }
 
 .visualization-container img {
-  max-width: 95%;
-  max-height: 68vh;
-  width: auto;
-  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   display: block;
   margin: 0 auto;
@@ -555,18 +557,19 @@
 
 /* Slides com SVGs/imagens: ocupar melhor a viewport */
 .reveal .slides section.visual-slide {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-items: center;
+  gap: 0.2em;
 }
 
 .reveal .slides section.visual-slide h2,
 .reveal .slides section.visual-slide h3 {
-  margin-bottom: 0.1em;
+  margin-bottom: 0.05em;
 }
 
 .reveal .slides section.visual-slide .visualization-container {
-  min-height: 58vh;
+  min-height: min(62vh, 900px);
 }
 
 /* Ajustes para o simulador */
