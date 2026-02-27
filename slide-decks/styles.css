@@ -555,8 +555,11 @@
   margin: 0 auto;
 }
 
-/* Slides com SVGs/imagens: ocupar melhor a viewport */
-.reveal .slides section.visual-slide {
+/* Slides com SVGs/imagens: ocupar melhor a viewport
+   - funciona com classe visual-slide (quando adicionada via JS)
+   - e também automaticamente quando a section contém visualization-container */
+.reveal .slides section.visual-slide,
+.reveal .slides section:has(.visualization-container) {
   display: grid;
   grid-template-rows: auto 1fr;
   align-items: center;
@@ -564,11 +567,14 @@
 }
 
 .reveal .slides section.visual-slide h2,
-.reveal .slides section.visual-slide h3 {
+.reveal .slides section.visual-slide h3,
+.reveal .slides section:has(.visualization-container) h2,
+.reveal .slides section:has(.visualization-container) h3 {
   margin-bottom: 0.05em;
 }
 
-.reveal .slides section.visual-slide .visualization-container {
+.reveal .slides section.visual-slide .visualization-container,
+.reveal .slides section:has(.visualization-container) .visualization-container {
   min-height: min(62vh, 900px);
 }
 
