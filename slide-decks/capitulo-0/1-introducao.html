@@ -99,7 +99,10 @@
 
       #wastelandCanvas {
         display: block;
-        margin: 0 auto;
+        margin: 0;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
       }
 
       .warning-text {
@@ -134,7 +137,7 @@
     <div class="reveal">
       <div class="slides">
         <!-- SLIDE PRINCIPAL DO CAPÍTULO 0 -->
-        <section>
+        <section class="title-canvas-slide">
           <h1>Capítulo 0: Preparação para a Wasteland</h1>
           <h3>Manual de Sobrevivência Matemática Vault-Tec</h3>
           <div class="canvas-container">
@@ -145,11 +148,11 @@
           </div>
         </section>
 
-        <!-- INDUÇÃO AO VAULT -->
+        <!-- INTRODUÇÃO AO VAULT -->
         <section>
           <!-- Slide principal da seção -->
           <section>
-            <h2>Indução ao Vault: Bem-vindo Sobrevivente</h2>
+            <h2>Introdução ao Vault: Bem-vindo Sobrevivente</h2>
             <p>
               Antes de explorar a wasteland, você precisa entender como funciona
               este mundo pós-apocalíptico.
@@ -184,21 +187,7 @@
                         COMUNICADO OFICIAL DO OVERSEER
                       </div>
 
-                      <div class="message-body">
-                        <p>MORADOR #1337:</p>
-                        <p>
-                          GEOMETRIA ANALÍTICA É ESSENCIAL PARA SUA
-                          SOBREVIVÊNCIA.
-                        </p>
-                        <p>
-                          DOMINAR COORDENADAS E VETORES AUMENTARÁ SUA TAXA DE
-                          SOBREVIVÊNCIA EM 73%.
-                        </p>
-                        <p>
-                          IGNORAR ESTAS LIÇÕES RESULTARÁ EM CONSEQUÊNCIAS
-                          FATAIS.
-                        </p>
-                      </div>
+                      <div class="message-body" id="terminalFeed"></div>
 
                       <div class="message-footer">
                         <p class="blinking">
@@ -376,10 +365,22 @@
             .message-body {
               font-size: 0.9rem;
               line-height: 1.35;
+              min-height: 132px;
+              max-height: 132px;
+              overflow: hidden;
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-start;
             }
 
             .message-body p {
               margin: 4px 0;
+              opacity: 0.95;
+              animation: terminalLineIn 240ms ease-out;
+            }
+
+            .message-body p.line-exit {
+              animation: terminalLineOut 260ms ease-in forwards;
             }
 
             .message-footer {
@@ -434,6 +435,28 @@
               }
               100% {
                 background-position: 0 100%;
+              }
+            }
+
+            @keyframes terminalLineIn {
+              from {
+                opacity: 0;
+                transform: translateY(8px);
+              }
+              to {
+                opacity: 0.95;
+                transform: translateY(0);
+              }
+            }
+
+            @keyframes terminalLineOut {
+              from {
+                opacity: 0.95;
+                transform: translateY(0);
+              }
+              to {
+                opacity: 0;
+                transform: translateY(-10px);
               }
             }
           </style>
@@ -563,6 +586,40 @@
     </script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        const terminalFeed = document.getElementById("terminalFeed");
+        if (terminalFeed) {
+          const terminalLines = [
+            "MORADOR #1337:",
+            "INICIALIZANDO TREINAMENTO DE SOBREVIVÊNCIA...",
+            "GEOMETRIA ANALÍTICA É ESSENCIAL PARA SUA SOBREVIVÊNCIA.",
+            "DOMINAR COORDENADAS E VETORES AUMENTA SUA TAXA DE SUCESSO.",
+            "IGNORAR ESTAS LIÇÕES RESULTARÁ EM CONSEQUÊNCIAS FATAIS.",
+            "CARREGANDO MÓDULO S.P.E.C.I.A.L. MATEMÁTICO...",
+            ">> PROSSIGA PARA INICIAÇÃO MATEMÁTICA",
+          ];
+          let lineIndex = 0;
+
+          const pushTerminalLine = () => {
+            const line = document.createElement("p");
+            line.textContent = terminalLines[lineIndex % terminalLines.length];
+            terminalFeed.appendChild(line);
+            lineIndex += 1;
+
+            if (terminalFeed.children.length > 5) {
+              const oldest = terminalFeed.firstElementChild;
+              if (oldest) {
+                oldest.classList.add("line-exit");
+                setTimeout(() => oldest.remove(), 260);
+              }
+            }
+          };
+
+          for (let i = 0; i < 4; i += 1) {
+            pushTerminalLine();
+          }
+          setInterval(pushTerminalLine, 1700);
+        }
+
         const canvas = document.getElementById("wastelandCanvas");
         const ctx = canvas.getContext("2d");
 
