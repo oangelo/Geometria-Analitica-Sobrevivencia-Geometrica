@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   viewbox="0 0 500 400"
+   viewBox="0 0 500 400"
    version="1.1"
    id="svg44"
-   sodipodi:docname="extracted_7.svg"
+   sodipodi:docname="extracted_8.svg"
    inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -20,15 +20,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="1.8832611"
-     inkscape:cx="221.68992"
-     inkscape:cy="201.51215"
+     inkscape:zoom="1.3316667"
+     inkscape:cx="115.26909"
+     inkscape:cy="141.55194"
      inkscape:window-width="2560"
      inkscape:window-height="1008"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg44" />
+     inkscape:current-layer="g38" />
+  <!-- Fundo estilizado -->
   <rect
      fill="#1d3557"
      height="400"
@@ -37,23 +38,12 @@
      id="rect1"
      x="0"
      y="0" />
-  <line
-     stroke="#8ac926"
-     stroke-dasharray="5, 3"
-     stroke-width="1.5"
-     x1="315.86359"
-     x2="190.86359"
-     y1="266.23904"
-     y2="141.23907"
-     id="line25" />
-  <!-- Fundo estilizado -->
   <!-- Grade de fundo esmaecida -->
   <g
      opacity="0.2"
      stroke="#a8dadc"
      stroke-width="0.5"
-     id="g16"
-     transform="translate(-4.0234375e-6,1.1152344e-5)">
+     id="g16">
     <!-- Linhas verticais da grade -->
     <line
        x1="50"
@@ -157,8 +147,7 @@
   <g
      stroke="#f0f0f0"
      stroke-width="2"
-     id="g18"
-     transform="translate(-4.0234375e-6,1.1152344e-5)">
+     id="g18">
     <!-- Eixo X -->
     <line
        x1="50"
@@ -175,10 +164,10 @@
        id="line18" />
   </g>
   <!-- Pontos dos vértices do triângulo -->
-  <!-- Abrigo A: (1,2) -->
+  <!-- Estrutura A: (0,3) -->
   <circle
-     cx="300"
-     cy="100.00002"
+     cx="250"
+     cy="50"
      fill="#e63946"
      r="8"
      id="circle18" />
@@ -187,19 +176,19 @@
      font-family="Arial"
      font-size="12px"
      font-weight="bold"
-     x="315"
-     y="95.000015"
-     id="text18">A(1,2)</text>
+     x="265"
+     y="45"
+     id="text18">A(0,3)</text>
   <text
      fill="#a8dadc"
      font-family="Arial"
      font-size="10px"
-     x="273.58249"
-     y="78.140381"
-     id="text19">Abrigo Alpha</text>
-  <!-- Abrigo B: (3,0) -->
+     x="265"
+     y="60"
+     id="text19">Estrutura Alpha</text>
+  <!-- Estrutura B: (4,0) -->
   <circle
-     cx="400"
+     cx="450"
      cy="200"
      fill="#4cc9f0"
      r="8"
@@ -209,20 +198,20 @@
      font-family="Arial"
      font-size="12px"
      font-weight="bold"
-     x="415"
-     y="195"
-     id="text20">B(3,0)</text>
+     x="435"
+     y="190"
+     id="text20">B(4,0)</text>
   <text
      fill="#a8dadc"
      font-family="Arial"
      font-size="10px"
-     x="411.81403"
-     y="212.12399"
-     id="text21">Abrigo Beta</text>
-  <!-- Abrigo C: (-1,-1) -->
+     x="435"
+     y="205"
+     id="text21">Estrutura Beta</text>
+  <!-- Estrutura C: (-2,-1) -->
   <circle
      cx="150"
-     cy="250.00002"
+     cy="250"
      fill="#8ac926"
      r="8"
      id="circle21" />
@@ -231,39 +220,38 @@
      font-family="Arial"
      font-size="12px"
      font-weight="bold"
-     x="165"
-     y="245.00002"
-     id="text22">C(-1,-1)</text>
+     x="135"
+     y="240"
+     id="text22">C(-2,-1)</text>
   <text
      fill="#a8dadc"
      font-family="Arial"
      font-size="10px"
-     x="64.642166"
-     y="244.6012"
-     id="text23">Abrigo Gamma</text>
+     x="135"
+     y="255"
+     id="text23">Estrutura Gamma</text>
   <!-- Triângulo definido pelos três pontos -->
   <g
      fill="#457b9d"
      opacity="0.3"
      stroke="#f0f0f0"
      stroke-width="1"
-     id="g23"
-     transform="translate(-4.0234375e-6,1.1152344e-5)">
+     id="g23">
     <polygon
-       points="300,100 400,200 150,250 "
+       points="150,250 250,50 450,200 "
        id="polygon23" />
   </g>
-  <!-- Mediatrizes - perpendiculares aos lados, passando pelo ponto médio -->
-  <!-- Lado AB -->
+  <!-- Alturas - perpendiculares dos vértices aos lados opostos -->
+  <!-- Altura de A -->
   <path
      id="line23"
      style="stroke:#e63946;stroke-width:1.5;stroke-dasharray:5, 3"
-     d="m 350,150.00001 -84.18597,86.30994"
+     d="m 250,50 31.46058,185.00751"
      sodipodi:nodetypes="cc" />
-  <!-- Ponto médio de AB -->
+  <!-- Pé da altura de A -->
   <circle
-     cx="350"
-     cy="150.00002"
+     cx="280.70963"
+     cy="229.75095"
      fill="#e63946"
      r="4"
      id="circle23" />
@@ -271,32 +259,39 @@
      fill="#e63946"
      font-family="Arial"
      font-size="10px"
-     x="353.617"
-     y="139.24907"
-     id="text24">M₁</text>
-  <!-- Lado BC -->
-  <line
-     stroke="#4cc9f0"
-     stroke-dasharray="5, 3"
-     stroke-width="1.5"
-     x1="285.80237"
-     x2="268.62442"
-     y1="269.4234"
-     y2="181.99963"
-     id="line24" />
-  <!-- Ponto médio de BC -->
+     x="281.69836"
+     y="174.9324"
+     id="text24">H₁</text>
+  <!-- Altura de B -->
+  <path
+     id="line24"
+     style="stroke:#4cc9f0;stroke-width:1.5;stroke-dasharray:5, 3"
+     d="M 450,200 227.72466,93.20025"
+     sodipodi:nodetypes="cc" />
+  <!-- Pé da altura de B -->
+  <circle
+     cx="228.4756"
+     cy="92.449318"
+     fill="#4cc9f0"
+     r="4"
+     id="circle24" />
   <text
      fill="#4cc9f0"
      font-family="Arial"
      font-size="10px"
-     x="279.60904"
-     y="214.43216"
-     id="text25">M₂</text>
-  <!-- Lado CA -->
-  <!-- Ponto médio de CA -->
+     x="294.3204"
+     y="117.23029"
+     id="text25">H₂</text>
+  <!-- Altura de C -->
+  <path
+     id="line25"
+     style="stroke:#8ac926;stroke-width:1.5;stroke-dasharray:5, 3"
+     d="M 150,250 286.17021,73.660826"
+     sodipodi:nodetypes="cc" />
+  <!-- Pé da altura de C -->
   <circle
-     cx="225"
-     cy="175"
+     cx="285.41928"
+     cy="75.162704"
      fill="#8ac926"
      r="4"
      id="circle25" />
@@ -304,140 +299,119 @@
      fill="#8ac926"
      font-family="Arial"
      font-size="10px"
-     x="215"
-     y="165.00002"
-     id="text26">M₃</text>
-  <!-- Circuncentro -->
-  <circle
-     cx="276.75845"
-     cy="225.29413"
-     fill="#ffd166"
-     r="4.36796"
-     id="circle26"
-     style="stroke-width:0.436796" />
+     x="212.81602"
+     y="151.00751"
+     id="text26">H₃</text>
+  <!-- Ortocentro -->
   <text
      fill="#ffd166"
      font-family="Arial"
      font-size="14px"
      font-weight="bold"
-     x="259.20123"
-     y="222.77124"
-     id="text27">O</text>
+     x="274.96246"
+     y="106.68336"
+     id="text27">H</text>
   <text
      fill="#a8dadc"
      font-family="Arial"
      font-size="10px"
-     x="285.99298"
-     y="234.28986"
-     id="text28">Circuncentro</text>
-  <!-- Circunferência circunscrita -->
-  <circle
-     cx="275.25656"
-     cy="224.54318"
-     fill="none"
-     opacity="0.7"
-     r="127.88703"
-     stroke="#ffd166"
-     stroke-width="2.26348"
-     id="circle28" />
-  <!-- Raios do circuncentro aos vértices -->
-  <!-- Painel com explicação do circuncentro -->
+     x="296.50003"
+     y="-24.624954"
+     id="text28"
+     transform="rotate(30.393764)">Ortocentro</text>
+  <!-- Destacando a perpendicularidade das alturas -->
+  <!-- Ângulos retos no pé da altura de A -->
+  <!-- Ângulos retos no pé da altura de B -->
+  <!-- Ângulos retos no pé da altura de C -->
+  <!-- Painel com explicação do ortocentro -->
   <g
-     id="g34"
-     transform="translate(311.95095,279.2051)">
+     transform="translate(-202.82854,64.505632)"
+     id="g34">
     <rect
        fill="#457b9d"
-       height="101.52065"
+       height="100.76971"
        opacity="0.7"
-       rx="5.1766915"
-       width="176.00751"
-       x="0"
-       y="0"
+       rx="5.0662594"
+       width="172.25282"
+       x="477.59698"
+       y="190.73842"
        id="rect30"
-       style="stroke-width:1.11201" />
+       style="stroke-width:1.09601" />
     <text
        fill="#ffd166"
        font-family="Arial"
        font-size="14px"
        font-weight="bold"
-       x="10"
-       y="20"
-       id="text30">Circuncentro (O)</text>
+       x="487.59698"
+       y="210.73842"
+       id="text30">Ortocentro (H)</text>
     <text
        fill="#f0f0f0"
        font-family="Arial"
        font-size="10px"
-       x="10"
-       y="40"
-       id="text31">• Centro da circunferência que</text>
+       x="487.59698"
+       y="230.73842"
+       id="text31">• Ponto de interseção das três</text>
     <text
        fill="#f0f0f0"
        font-family="Arial"
        font-size="10px"
-       x="10"
-       y="55"
-       id="text32">passa pelos três vértices</text>
+       x="487.59698"
+       y="245.73842"
+       id="text32">alturas do triângulo</text>
     <text
        fill="#f0f0f0"
        font-family="Arial"
        font-size="10px"
-       x="10"
-       y="70"
-       id="text33">• Interseção das mediatrizes</text>
+       x="487.59698"
+       y="260.73843"
+       id="text33">• Cada altura é perpendicular ao</text>
     <text
        fill="#f0f0f0"
        font-family="Arial"
        font-size="10px"
-       x="10"
-       y="85"
-       id="text34">• Equidistante dos três vértices</text>
+       x="487.59698"
+       y="275.73843"
+       id="text34">lado oposto ao vértice</text>
   </g>
   <!-- Painel de aplicação prática -->
   <g
-     transform="translate(12.653106,301.96147)"
+     transform="translate(41.226533,269.01126)"
      id="g38">
     <rect
        fill="#e63946"
-       height="88.02253"
+       height="67.747185"
        opacity="0.7"
-       rx="6.7006555"
-       width="227.82228"
-       x="0"
-       y="0"
+       rx="6.0822353"
+       width="206.79599"
+       x="-11.26408"
+       y="19.524405"
        id="rect34"
-       style="stroke-width:1.29814" />
+       style="stroke-width:1.08504" />
     <text
        fill="#f0f0f0"
        font-family="Arial"
        font-size="12px"
        font-weight="bold"
-       x="10"
-       y="20"
+       x="2.4906132"
+       y="40.275345"
        id="text35">APLICAÇÕES:</text>
     <text
        fill="#f0f0f0"
        font-family="Arial"
        font-size="10px"
-       x="10"
-       y="40"
-       id="text36">• Torre de transmissão com alcance uniforme</text>
-    <text
-       fill="#f0f0f0"
-       font-family="Arial"
-       font-size="10px"
-       x="10"
+       x="-1.7622027"
        y="55"
-       id="text37">• Zona de proteção equidistante</text>
+       id="text37">• Estruturas com suportes perpendiculares</text>
     <text
        fill="#f0f0f0"
        font-family="Arial"
        font-size="10px"
-       x="10"
+       x="0.23779726"
        y="70"
-       id="text38">• Posicionamento de recursos compartilhados</text>
+       id="text38">• Análise de forças ortogonais</text>
   </g>
-  <!-- Ilustração prática do circuncentro -->
-  <!-- Linhas destacando a equidistância -->
+  <!-- Ilustração prática do ortocentro -->
   <!-- Título da visualização -->
   <text
      fill="#f0f0f0"
@@ -447,5 +421,11 @@
      text-anchor="middle"
      x="250"
      y="25"
-     id="text44">Circuncentro: O Centro de Alcance Uniforme</text>
+     id="text44">Ortocentro: O Centro de Convergência Perpendicular</text>
+  <circle
+     cx="259.21152"
+     cy="107.4343"
+     fill="#ffd166"
+     r="10"
+     id="circle26" />
 </svg>

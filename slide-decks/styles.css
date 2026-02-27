@@ -534,19 +534,21 @@
 }
 
 .visualization-container svg {
-  max-width: 90%;
-  max-height: 460px;
+  max-width: 95%;
+  max-height: 52vh;
   width: auto;
   height: auto;
+  object-fit: contain;
   display: block;
   margin: 0 auto;
 }
 
 .visualization-container img {
-  max-width: 90%;
-  max-height: 460px;
+  max-width: 95%;
+  max-height: 52vh;
   width: auto;
   height: auto;
+  object-fit: contain;
   display: block;
   margin: 0 auto;
 }
