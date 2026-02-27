@@ -519,7 +519,7 @@
 
 .visualization-container {
   text-align: center;
-  margin: 8px auto;
+  margin: 2px auto 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -535,7 +535,7 @@
 
 .visualization-container svg {
   max-width: 95%;
-  max-height: 52vh;
+  max-height: 68vh;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -545,12 +545,28 @@
 
 .visualization-container img {
   max-width: 95%;
-  max-height: 52vh;
+  max-height: 68vh;
   width: auto;
   height: auto;
   object-fit: contain;
   display: block;
   margin: 0 auto;
+}
+
+/* Slides com SVGs/imagens: ocupar melhor a viewport */
+.reveal .slides section.visual-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.reveal .slides section.visual-slide h2,
+.reveal .slides section.visual-slide h3 {
+  margin-bottom: 0.1em;
+}
+
+.reveal .slides section.visual-slide .visualization-container {
+  min-height: 58vh;
 }
 
 /* Ajustes para o simulador */
