@@ -3,9 +3,20 @@
 <head>
 <meta charset="utf-8"/>
 <title>Capítulo I - O Espaço Vetorial R²</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 <link href="https://unpkg.com/reveal.js/dist/reveal.css" rel="stylesheet"/>
 <link href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" rel="stylesheet"/>
 <link href="styles.css" rel="stylesheet"/>
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
 <div class="reveal">
@@ -13,15 +24,9 @@
 </div>
 
 <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+<script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
 <script>
-window.MathJax = {
-  tex: {
-    inlineMath: [['\\(', '\\)']],
-    displayMath: [['\\[', '\\]']]
-  }
-};
-
 const SECTIONS = [
   'capitulo-i/1-conjunto-r2.html',
   'capitulo-i/2-operacoes-pares-ordenados.html',
@@ -43,20 +48,172 @@ async function loadAndInit() {
       document.head.appendChild(document.adoptNode(style));
     });
 
-    // Inject slide sections
+    // Inject slide sections (skip <script> tags that might break reveal)
     const slides = doc.querySelector('.slides');
     if (slides) {
-      [...slides.children].forEach(child =>
-        container.appendChild(document.adoptNode(child))
-      );
+      [...slides.children].forEach(child => {
+        if (child.tagName !== 'SCRIPT') {
+          container.appendChild(document.adoptNode(child));
+        }
+      });
     }
   }
 
-  Reveal.initialize({ hash: true, slideNumber: true });
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    plugins: [RevealNotes, RevealHighlight],
+  });
 
-  if (window.MathJax && MathJax.typesetPromise) {
-    MathJax.typesetPromise();
+  // Aguarda MathJax estar totalmente pronto antes de renderizar
+  if (window.MathJax) {
+    MathJax.startup.promise.then(() => MathJax.typesetPromise());
   }
+
+  // Inicia a animação do slide de título após o Reveal estar pronto
+  Reveal.on('ready', () => initR2Canvas());
+}
+
+function initR2Canvas() {
+  const canvas = document.getElementById("r2Canvas");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  const W = canvas.width, H = canvas.height;
+  const ox = W / 2, oy = H / 2;
+  const scale = 50;
+  let time = 0;
+
+  const vectors = [
+    { x: 3,  y: 2,  color: "#ffd700",  label: "u = (3,2)"  },
+    { x: -2, y: 3,  color: "#ff6b6b",  label: "v = (-2,3)" },
+    { x: 1,  y: -2, color: "#4ecdc4",  label: "w = (1,-2)" },
+  ];
+  let vecProgress = 0;
+  let currentVec = 0;
+
+  let px = ox - 2 * scale, py = oy - 1 * scale;
+  const path = [
+    { x: ox + 1 * scale, y: oy - 1 * scale },
+    { x: ox + 2 * scale, y: oy + 1 * scale },
+    { x: ox - 1 * scale, y: oy + 2 * scale },
+    { x: ox - 2 * scale, y: oy - 1 * scale },
+  ];
+  let pathIdx = 0;
+
+  function drawGrid() {
+    ctx.fillStyle = "#0c0c0c";
+    ctx.fillRect(0, 0, W, H);
+
+    ctx.strokeStyle = "rgba(76, 175, 80, 0.15)";
+    ctx.lineWidth = 1;
+    for (let x = ox % scale; x < W; x += scale) {
+      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+    }
+    for (let y = oy % scale; y < H; y += scale) {
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+    }
+
+    ctx.strokeStyle = "rgba(76, 175, 80, 0.5)";
+    ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(0, oy); ctx.lineTo(W, oy); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(ox, 0); ctx.lineTo(ox, H); ctx.stroke();
+
+    ctx.fillStyle = "#ffd700";
+    ctx.font = "11px monospace";
+    ctx.textAlign = "center";
+    for (let i = -6; i <= 6; i++) {
+      if (i === 0) continue;
+      const x = ox + i * scale;
+      const y = oy + i * scale;
+      if (x > 10 && x < W - 10) ctx.fillText(i, x, oy + 15);
+      if (y > 10 && y < H - 10) ctx.fillText(-i, ox + 16, y + 4);
+    }
+
+    ctx.font = "14px monospace";
+    ctx.fillText("x", W - 15, oy - 8);
+    ctx.textAlign = "left";
+    ctx.fillText("y", ox + 10, 15);
+
+    ctx.fillStyle = "rgba(76, 175, 80, 0.5)";
+    ctx.beginPath(); ctx.moveTo(W-5,oy); ctx.lineTo(W-15,oy-5); ctx.lineTo(W-15,oy+5); ctx.closePath(); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(ox,5); ctx.lineTo(ox-5,15); ctx.lineTo(ox+5,15); ctx.closePath(); ctx.fill();
+
+    ctx.strokeStyle = "#4caf50";
+    ctx.lineWidth = 3;
+    ctx.strokeRect(5, 5, W - 10, H - 10);
+
+    ctx.fillStyle = `rgba(76,175,80,${0.03 + Math.sin(time * 0.08) * 0.02})`;
+    ctx.fillRect(0, 0, W, H);
+  }
+
+  function drawArrow(x1, y1, x2, y2, color) {
+    const dx = x2 - x1, dy = y2 - y1;
+    const len = Math.sqrt(dx*dx + dy*dy);
+    if (len < 1) return;
+    const ux = dx/len, uy = dy/len, h = 12;
+    ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = 2.5;
+    ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x2, y2);
+    ctx.lineTo(x2 - h*(ux - 0.4*uy), y2 - h*(uy + 0.4*ux));
+    ctx.lineTo(x2 - h*(ux + 0.4*uy), y2 - h*(uy - 0.4*ux));
+    ctx.closePath(); ctx.fill();
+  }
+
+  function drawVectors() {
+    for (let i = 0; i < currentVec && i < vectors.length; i++) {
+      const v = vectors[i];
+      const ex = ox + v.x * scale, ey = oy - v.y * scale;
+      drawArrow(ox, oy, ex, ey, v.color);
+      ctx.fillStyle = v.color; ctx.font = "12px monospace";
+      ctx.fillText(v.label, ex + 8, ey - 8);
+      ctx.beginPath(); ctx.arc(ex, ey, 4, 0, Math.PI * 2); ctx.fill();
+    }
+    if (currentVec < vectors.length) {
+      const v = vectors[currentVec];
+      drawArrow(ox, oy, ox + v.x*scale*vecProgress, oy - v.y*scale*vecProgress, v.color);
+      vecProgress += 0.015;
+      if (vecProgress >= 1) { vecProgress = 0; currentVec++; }
+    }
+  }
+
+  function drawPlayer() {
+    const target = path[pathIdx];
+    const dx = target.x - px, dy = target.y - py;
+    const dist = Math.sqrt(dx*dx + dy*dy);
+    if (dist < 3) pathIdx = (pathIdx + 1) % path.length;
+    else { px += dx * 0.02; py += dy * 0.02; }
+
+    const gx = Math.round((px - ox) / scale);
+    const gy = Math.round((oy - py) / scale);
+    ctx.fillStyle = "#adff2f";
+    ctx.beginPath(); ctx.arc(px, py, 6, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = "#000"; ctx.lineWidth = 1.5; ctx.stroke();
+    ctx.fillStyle = "#adff2f"; ctx.font = "bold 11px monospace";
+    ctx.fillText("(" + gx + "," + gy + ")", px + 10, py - 8);
+  }
+
+  function drawInfo() {
+    ctx.fillStyle = "rgba(0,0,0,0.6)";
+    ctx.fillRect(8, 8, 225, 55);
+    ctx.strokeStyle = "#4caf50"; ctx.lineWidth = 1;
+    ctx.strokeRect(8, 8, 225, 55);
+    ctx.fillStyle = "#adff2f"; ctx.font = "12px monospace";
+    ctx.fillText("PIP-BOY 3000 — R\u00B2", 16, 26);
+    ctx.fillStyle = "#e6e6e6"; ctx.font = "11px monospace";
+    ctx.fillText("Espa\u00E7o vetorial bidimensional", 16, 42);
+    ctx.fillText("Vetores: " + Math.min(currentVec + 1, vectors.length) + "/" + vectors.length, 16, 56);
+  }
+
+  (function animate() {
+    ctx.clearRect(0, 0, W, H);
+    time++;
+    drawGrid();
+    drawVectors();
+    drawPlayer();
+    drawInfo();
+    requestAnimationFrame(animate);
+  })();
 }
 
 loadAndInit();

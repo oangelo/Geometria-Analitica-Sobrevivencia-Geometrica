@@ -626,3 +626,28 @@
   font-weight: bold;
   margin-bottom: 10px;
 }
+
+/* ==================== 
+   SLIDE DE TÍTULO — CLASSES COMPARTILHADAS
+   ==================== */
+
+.warning-text {
+  font-family: monospace;
+  text-align: center;
+  margin-top: 10px;
+  animation: pulse 2s infinite;
+}
+
+.warning-text span {
+  color: #ff3333;
+  font-weight: bold;
+  padding: 5px 10px;
+  border: 1px solid #ff3333;
+  background-color: rgba(40, 44, 52, 0.7);
+}
+
+@keyframes pulse {
+  0%   { opacity: 0.7; }
+  50%  { opacity: 1;   }
+  100% { opacity: 0.7; }
+}
