@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+    </script>
+    <title>REFÚGIO-TEC | MÓDULO DE VETORES</title>
+    <style>
+        /* Estilo inspirado no tema pós-apocalíptico */
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100px; }
+        }
+
+        body {
+            background-color: #0c0c0c;
+            color: #e6e6e6;
+            font-family: "Courier New", monospace;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #4caf50;
+            max-width: 800px;
+            margin: auto;
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 2px;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+
+        h1, h2, h3 {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .exercise {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border: 1px dashed #4caf50;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        details {
+            background-color: #1c1c1c;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            margin-top: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #4caf50;
+        }
+
+        summary:hover {
+            text-shadow: 0 0 3px #4caf50;
+        }
+
+        code {
+            background-color: #333;
+            padding: 3px 5px;
+            color: #ffeb3b;
+        }
+
+        .hint {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #4caf50;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .hint:before {
+            content: "DICA DE SOBREVIVÊNCIA: ";
+            color: #4caf50;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .solution-steps {
+            margin-left: 20px;
+            counter-reset: step-counter;
+        }
+
+        .solution-steps li {
+            list-style-type: none;
+            counter-increment: step-counter;
+            margin-bottom: 10px;
+        }
+
+        .solution-steps li::before {
+            content: "> PASSO_" counter(step-counter) ": ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .formula {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #000;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .terminal-frame {
+            padding: 10px;
+            background-color: #000;
+            margin-bottom: 20px;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .terminal-header {
+            margin: 0;
+            padding: 3px 10px;
+            background-color: #4caf50;
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .terminal-content {
+            padding: 5px;
+            white-space: pre-wrap;
+            font-size: 1em;
+            line-height: 1.2;
+        }
+
+        .cursor:after {
+            content: "█";
+            animation: blink 1s step-end infinite;
+        }
+
+        .terminal-line {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .terminal-border {
+            border: 1px solid #4caf50;
+            padding: 5px;
+            background-color: #000;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .mission-counter {
+            counter-reset: mission;
+        }
+        
+        .mission-counter .exercise h3:before {
+            content: "MISSÃO " counter(mission) ": ";
+            counter-increment: mission;
+        }
+
+        .warning {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .danger {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #8bc34a;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #4caf50;
+            border-top: 1px solid #4caf50;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- TÍTULO E INTRODUÇÃO -->
+    <div class="terminal-frame">
+        <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
+        <div class="terminal-content">
+┌───────────────────────────────────────────────────┐
+│ MÓDULO: MÓDULO DE VETORES                         │
+└───────────────────────────────────────────────────┘
+
+> INICIANDO TRANSMISSÃO...
+> CARREGANDO MÓDULO DE TREINAMENTO...
+> ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
+        </div>
+    </div>
+
+    <div class="terminal-border">
+        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: MÓDULO DE VETORES</h2>
+    
+    <p>Sobreviventes, a capacidade de medir a intensidade de forças, distâncias e direções pode significar a diferença entre vida e morte na Zona Devastada. O módulo (ou magnitude) de um vetor é uma ferramenta essencial para quantificar essas grandezas.</p>
+    
+    <p>O módulo de um vetor $\vec{v} = (v_x, v_y)$ representa seu "tamanho" ou "comprimento" - quanto maior o módulo, maior a intensidade da grandeza representada. Seja para calcular a força necessária para empurrar um veículo enferrujado ou a quantidade de RemoveRad necessária para neutralizar a radiação de uma área, esta medida é crucial.</p>
+    
+    <p>Para vetores no plano $\mathbb{R}^2$, o módulo é calculado através da distância euclidiana do ponto até a origem, aplicando o teorema de Pitágoras.</p>
+    
+    <div class="formula">
+    $$|\vec{v}| = \|\vec{v}\| = \sqrt{v_x^2 + v_y^2}$$
+    </div>
+    
+    <p>As propriedades fundamentais do módulo de vetores incluem:</p>
+    <ul>
+        <li>O módulo é sempre não-negativo: $|\vec{v}| \geq 0$</li>
+        <li>O módulo é zero se, e somente se, o vetor for nulo: $|\vec{v}| = 0 \Leftrightarrow \vec{v} = \vec{0}$</li>
+        <li>O módulo de um vetor multiplicado por um escalar é igual ao valor absoluto do escalar multiplicado pelo módulo do vetor: $|k\vec{v}| = |k||\vec{v}|$</li>
+    </ul>
+
+    <!-- MISSÕES (EXERCÍCIOS) -->
+    <div class="mission-counter">
+        <!-- MISSÃO 1 (BÁSICA) -->
+        <div class="exercise">
+            <h3>COORDENADAS DE EVACUAÇÃO</h3>
+            <p>Um sobrevivente precisa evacuar para um novo abrigo seguindo o vetor de deslocamento $\vec{d} = (3, 4)$ a partir de sua posição atual. Calcule o módulo deste vetor para determinar a distância total que ele precisará percorrer.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Aplique a fórmula do módulo $|\vec{v}| = \sqrt{v_x^2 + v_y^2}$ substituindo os valores das componentes do vetor.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificamos o vetor $\vec{d} = (3, 4)$ com componentes $d_x = 3$ e $d_y = 4$</li>
+                    <li>Aplicamos a fórmula do módulo: $|\vec{d}| = \sqrt{d_x^2 + d_y^2}$</li>
+                    <li>Substituímos os valores: $|\vec{d}| = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$|\vec{d}| = \sqrt{3^2 + 4^2} = 5$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O cálculo do módulo de um vetor permite aos sobreviventes estimar com precisão as distâncias a serem percorridas durante deslocamentos, fundamental para planejar o consumo de recursos como água, alimentos e RemoveRad.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 2 (BÁSICA) -->
+        <div class="exercise">
+            <h3>INTENSIDADE DA RADIAÇÃO</h3>
+            <p>Dois detectores de radiação em um laboratório abandonado registram valores representados pelos vetores $\vec{r}_1 = (2, 5)$ e $\vec{r}_2 = (4, 3)$, onde cada componente indica o nível de um tipo específico de radiação. Determine qual detector registra uma intensidade total de radiação maior.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Compare os módulos dos dois vetores para determinar qual representa a maior intensidade total.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calculamos o módulo do primeiro vetor: $|\vec{r}_1| = \sqrt{2^2 + 5^2} = \sqrt{4 + 25} = \sqrt{29}$</li>
+                    <li>Calculamos o módulo do segundo vetor: $|\vec{r}_2| = \sqrt{4^2 + 3^2} = \sqrt{16 + 9} = \sqrt{25} = 5$</li>
+                    <li>Comparamos: $|\vec{r}_1| = \sqrt{29} \approx 5,39$ e $|\vec{r}_2| = 5$</li>
+                    <li>Como $|\vec{r}_1| > |\vec{r}_2|$, o primeiro detector registra maior intensidade</li>
+                </ol>
+                
+                <div class="formula">
+                    $$|\vec{r}_1| = \sqrt{29} \approx 5,39 > |\vec{r}_2| = 5$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Comparar a magnitude de vetores é crucial para avaliar riscos na Zona Devastada. Um sobrevivente que consegue determinar qual área tem maior intensidade de radiação pode evitar exposição desnecessária e preservar seus suprimentos de RemoveRad.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 3 (BÁSICA) -->
+        <div class="exercise">
+            <h3>ESCALA DE SUPRIMENTOS</h3>
+            <p>Uma caravana transporta suprimentos na direção $\vec{s} = (2, 3)$. Por razões de segurança, a liderança decide triplicar a distância percorrida, mantendo a mesma direção. Calcule o módulo do novo vetor de deslocamento.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Use a propriedade $|k\vec{v}| = |k||\vec{v}|$ para calcular o módulo do vetor escalado sem precisar calcular o novo vetor explicitamente.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificamos o vetor original $\vec{s} = (2, 3)$ e o fator de escala $k = 3$</li>
+                    <li>Calculamos o módulo do vetor original: $|\vec{s}| = \sqrt{2^2 + 3^2} = \sqrt{4 + 9} = \sqrt{13}$</li>
+                    <li>Aplicamos a propriedade $|k\vec{v}| = |k||\vec{v}|$: $|3\vec{s}| = |3||\vec{s}| = 3 \cdot \sqrt{13}$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$|3\vec{s}| = 3 \cdot \sqrt{13} \approx 3 \cdot 3,61 \approx 10,83$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Escalar vetores permite aos sobreviventes estender rotas de suprimentos e mapear áreas maiores sem calcular novamente todas as coordenadas. Esta eficiência computacional economiza tempo e recursos em situações onde cada segundo conta.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 4 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>PERÍMETRO DEFENSIVO</h3>
+            <p>Uma comunidade precisa estabelecer um perímetro defensivo entre dois postos de observação localizados nos pontos A(1, 3) e B(5, 8). Determine o comprimento do vetor $\overrightarrow{AB}$ que representa o deslocamento do posto A para o posto B.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Primeiro encontre o vetor $\overrightarrow{AB}$ subtraindo as coordenadas, depois calcule seu módulo.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calculamos o vetor $\overrightarrow{AB}$ subtraindo as coordenadas: $\overrightarrow{AB} = B - A = (5, 8) - (1, 3) = (4, 5)$</li>
+                    <li>Calculamos o módulo deste vetor: $|\overrightarrow{AB}| = \sqrt{4^2 + 5^2} = \sqrt{16 + 25} = \sqrt{41}$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$|\overrightarrow{AB}| = \sqrt{41} \approx 6,40$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Calcular o comprimento exato de um perímetro defensivo permite otimizar recursos escassos como cercas eletrificadas e sensores de movimento. Na Zona Devastada, cada metro de material economizado pode ser redirecionado para outras necessidades críticas.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 5 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>AJUSTE DE POTÊNCIA</h3>
+            <p>Um gerador de escudo contra radiação opera na intensidade descrita pelo vetor $\vec{g} = (2, -3)$. Os engenheiros precisam ajustar a potência multiplicando este vetor por um escalar $k$ de modo que o novo vetor tenha módulo exatamente igual a 10. Determine o valor de $k$ (considere apenas o valor positivo).</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Use a relação entre os módulos do vetor original e do vetor escalado para encontrar o fator de escala necessário.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calculamos o módulo do vetor original: $|\vec{g}| = \sqrt{2^2 + (-3)^2} = \sqrt{4 + 9} = \sqrt{13}$</li>
+                    <li>Usamos a propriedade $|k\vec{v}| = |k||\vec{v}|$, onde queremos $|k\vec{g}| = 10$</li>
+                    <li>Substituindo: $|k||\vec{g}| = 10 \implies |k| \cdot \sqrt{13} = 10$</li>
+                    <li>Resolvendo para $k$ (positivo): $k = \frac{10}{\sqrt{13}} = \frac{10}{\sqrt{13}} \cdot \frac{\sqrt{13}}{\sqrt{13}} = \frac{10\sqrt{13}}{13}$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$k = \frac{10}{\sqrt{13}} \approx 2,77$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Ajustar a magnitude de um vetor mantendo sua direção é vital para calibrar equipamentos de proteção. Um escudo contra radiação sub-potente não fornece proteção adequada, enquanto um super-potente desperdiça energia - um recurso precioso na Zona Devastada.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 6 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>TRIANGULAÇÃO DE SINAL</h3>
+            <p>Um técnico de comunicações detecta sinais de rádio vindos de duas direções diferentes, representadas pelos vetores $\vec{r}_1 = (5, 2)$ e $\vec{r}_2 = (1, 4)$. Sabendo que o módulo do vetor soma $\vec{r}_1 + \vec{r}_2$ é menor que a soma dos módulos individuais, determine o valor máximo possível para o módulo da soma.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Esta é uma aplicação da desigualdade triangular, que afirma que $|\vec{a} + \vec{b}| \leq |\vec{a}| + |\vec{b}|$, com igualdade apenas quando os vetores têm a mesma direção.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calculamos os módulos individuais: $|\vec{r}_1| = \sqrt{5^2 + 2^2} = \sqrt{25 + 4} = \sqrt{29}$ e $|\vec{r}_2| = \sqrt{1^2 + 4^2} = \sqrt{1 + 16} = \sqrt{17}$</li>
+                    <li>Pela desigualdade triangular, sabemos que $|\vec{r}_1 + \vec{r}_2| \leq |\vec{r}_1| + |\vec{r}_2|$</li>
+                    <li>O valor máximo ocorre quando $|\vec{r}_1 + \vec{r}_2| = |\vec{r}_1| + |\vec{r}_2| = \sqrt{29} + \sqrt{17}$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$|\vec{r}_1 + \vec{r}_2|_{max} = |\vec{r}_1| + |\vec{r}_2| = \sqrt{29} + \sqrt{17} \approx 5,39 + 4,12 \approx 9,51$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A desigualdade triangular nos lembra que o caminho direto é sempre o mais curto. Em um mundo onde conservar energia é vital, entender que a magnitude de uma soma vetorial raramente atinge a soma das magnitudes ajuda a planejar rotas eficientes para expedições de busca por recursos.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 7 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>NORMALIZAÇÃO DE COORDENADAS</h3>
+            <p>Uma equipe de reconhecimento utiliza vetores unitários para indicar direções de movimento. Dado o vetor $\vec{d} = (3, -4)$ que aponta para um depósito de suprimentos, determine o vetor unitário $\hat{d}$ na mesma direção.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Um vetor unitário mantém a direção do vetor original, mas tem módulo igual a 1.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calculamos o módulo do vetor original: $|\vec{d}| = \sqrt{3^2 + (-4)^2} = \sqrt{9 + 16} = \sqrt{25} = 5$</li>
+                    <li>O vetor unitário $\hat{d}$ é obtido dividindo cada componente do vetor original pelo seu módulo: $\hat{d} = \frac{\vec{d}}{|\vec{d}|} = \frac{(3, -4)}{5} = (\frac{3}{5}, \frac{-4}{5})$</li>
+                    <li>Verificamos que $|\hat{d}| = \sqrt{(\frac{3}{5})^2 + (\frac{-4}{5})^2} = \sqrt{\frac{9}{25} + \frac{16}{25}} = \sqrt{\frac{25}{25}} = 1$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\hat{d} = \frac{\vec{d}}{|\vec{d}|} = (\frac{3}{5}, \frac{-4}{5})$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A normalização de vetores permite comunicar direções precisas sem ambiguidade quanto à distância. Nas expedições à Zona Devastada, esta técnica padroniza mapas e instruções de navegação, reduzindo erros fatais e aumentando as chances de sobrevivência do grupo.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 8 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>CALIBRAÇÃO DE SENSORES</h3>
+            <p>Um conjunto de sensores de movimento forma um sistema de alerta precoce ao redor de um abrigo. Os vetores $\vec{v}_1 = (a, 2)$ e $\vec{v}_2 = (3, b)$ representam dois sensores que precisam ser calibrados para ter o mesmo alcance. Se o módulo de $\vec{v}_1$ deve ser igual a 5, determine o valor de $a$ e o valor que $b$ deve ter para que $|\vec{v}_2| = |\vec{v}_1|$.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Trabalhe com a equação do módulo ao quadrado para simplificar os cálculos com radicais.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para $\vec{v}_1 = (a, 2)$, queremos $|\vec{v}_1| = 5$. Então: $\sqrt{a^2 + 2^2} = 5$</li>
+                    <li>Elevando ambos os lados ao quadrado: $a^2 + 4 = 25 \implies a^2 = 21$</li>
+                    <li>Logo, $a = \pm \sqrt{21}$. Como $a$ pode ser positivo ou negativo, temos duas possibilidades.</li>
+                    <li>Para $\vec{v}_2 = (3, b)$, queremos $|\vec{v}_2| = 5$. Então: $\sqrt{3^2 + b^2} = 5$</li>
+                    <li>Elevando ambos os lados ao quadrado: $9 + b^2 = 25 \implies b^2 = 16 \implies b = \pm 4$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$a = \pm \sqrt{21} \approx \pm 4,58 \text{ e } b = \pm 4$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Sensores com alcance uniforme criam um perímetro defensivo sem pontos fracos. Compreender como ajustar componentes de um vetor para obter um módulo específico permite aos sobreviventes criar sistemas de alerta antecipado que maximizam a segurança com recursos limitados.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 9 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>FORÇA RESULTANTE</h3>
+            <p>Três sobreviventes estão puxando um contêiner pesado usando cordas. As forças aplicadas são representadas pelos vetores $\vec{F}_1 = (5, 0)$, $\vec{F}_2 = (0, 8)$ e $\vec{F}_3 = (-3, -4)$. Calcule o módulo da força resultante e determine se ela ultrapassa o limite de segurança de 10 unidades.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>A força resultante é a soma dos três vetores.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calculamos a força resultante: $\vec{F}_R = \vec{F}_1 + \vec{F}_2 + \vec{F}_3 = (5, 0) + (0, 8) + (-3, -4) = (2, 4)$</li>
+                    <li>Calculamos o módulo da força resultante: $|\vec{F}_R| = \sqrt{2^2 + 4^2} = \sqrt{4 + 16} = \sqrt{20} = 2\sqrt{5}$</li>
+                    <li>Comparamos com o limite: $|\vec{F}_R| = 2\sqrt{5} \approx 4,47 < 10$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$|\vec{F}_R| = \sqrt{2^2 + 4^2} = 2\sqrt{5} \approx 4,47$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O cálculo da força resultante demonstra como vetores em diferentes direções podem se cancelar parcialmente. Na Zona Devastada, entender este princípio permite que equipes coordenem seus esforços de forma eficiente, evitando lesões e garantindo que estruturas improvisadas não colapsem sob tensão excessiva.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 10 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>ROTA DE FUGA OTIMIZADA</h3>
+            <p>Durante uma tempestade radioativa, um grupo de exploradores precisa retornar ao abrigo seguindo uma rota que minimiza a exposição. Se a posição atual do grupo é representada pelo ponto P(2, 7) e o abrigo está na origem O(0, 0), determine o módulo do vetor $\vec{v}$ que, quando adicionado ao vetor $\overrightarrow{OP}$, resulta em um vetor de módulo igual à metade do módulo de $\overrightarrow{OP}$.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificamos $\overrightarrow{OP} = (2, 7)$ e calculamos seu módulo: $|\overrightarrow{OP}| = \sqrt{2^2 + 7^2} = \sqrt{4 + 49} = \sqrt{53}$</li>
+                    <li>Seja $\vec{w} = \overrightarrow{OP} + \vec{v}$ o vetor resultante. Queremos $|\vec{w}| = \frac{|\overrightarrow{OP}|}{2} = \frac{\sqrt{53}}{2}$</li>
+                    <li>Como o problema não especifica a direção de $\vec{v}$, podemos considerar que $\vec{v}$ tem sentido oposto a $\overrightarrow{OP}$, ou seja, $\vec{v} = -k \cdot \overrightarrow{OP}$ para algum $k > 0$</li>
+                    <li>Assim, $\vec{w} = \overrightarrow{OP} + \vec{v} = \overrightarrow{OP} - k \cdot \overrightarrow{OP} = (1-k) \cdot \overrightarrow{OP}$</li>
+                    <li>Queremos $|\vec{w}| = |(1-k) \cdot \overrightarrow{OP}| = |1-k| \cdot |\overrightarrow{OP}| = \frac{|\overrightarrow{OP}|}{2}$</li>
+                    <li>Portanto, $|1-k| = \frac{1}{2} \implies 1-k = \frac{1}{2} \implies k = \frac{1}{2}$ (assumindo $k < 1$)</li>
+                    <li>Assim, $\vec{v} = -\frac{1}{2} \cdot \overrightarrow{OP} = -\frac{1}{2} \cdot (2, 7) = (-1, -3.5)$</li>
+                    <li>Calculamos o módulo de $\vec{v}$: $|\vec{v}| = \sqrt{(-1)^2 + (-3.5)^2} = \sqrt{1 + 12.25} = \sqrt{13.25} = \frac{\sqrt{53}}{2}$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$|\vec{v}| = \frac{\sqrt{53}}{2} \approx 3,64$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em situações de emergência, nem sempre o caminho direto é o mais seguro. Entender como ajustar vetores para otimizar rotas permite aos sobreviventes navegar por áreas perigosas minimizando a exposição a ameaças, sejam elas radiação, mutantes ou tempestades tóxicas.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 11 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>BALANCEAMENTO DE FORÇAS</h3>
+            <p>Um sistema de cabos sustenta uma plataforma elevada em um centro de pesquisa abandonado. Três cabos exercem forças representadas pelos vetores $\vec{F}_1 = (3, 4)$, $\vec{F}_2 = (x, 0)$ e $\vec{F}_3 = (0, y)$. Para garantir o equilíbrio, a força resultante deve ser nula. Sabendo que os módulos das forças $\vec{F}_2$ e $\vec{F}_3$ são iguais, determine os valores de $x$ e $y$ e o módulo dessas forças.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para que a força resultante seja nula, temos $\vec{F}_1 + \vec{F}_2 + \vec{F}_3 = \vec{0}$</li>
+                    <li>Substituindo: $(3, 4) + (x, 0) + (0, y) = (0, 0)$</li>
+                    <li>Igualando as componentes: $3 + x + 0 = 0$ e $4 + 0 + y = 0$</li>
+                    <li>Resolvendo o sistema: $x = -3$ e $y = -4$</li>
+                    <li>Portanto, $\vec{F}_2 = (-3, 0)$ e $\vec{F}_3 = (0, -4)$</li>
+                    <li>Calculando os módulos: $|\vec{F}_2| = \sqrt{(-3)^2 + 0^2} = 3$ e $|\vec{F}_3| = \sqrt{0^2 + (-4)^2} = 4$</li>
+                    <li>Como os módulos devem ser iguais, mas encontramos valores diferentes, precisamos reanalisar. A condição de módulos iguais implica que $|x| = |y|$, porém com $x = -3$ e $y = -4$, isto não é satisfeito.</li>
+                    <li>Precisamos reconsiderar: se $|\vec{F}_2| = |\vec{F}_3|$, então $|x| = |y|$. Combinando com $x + 3 = 0$ e $y + 4 = 0$, temos que $|x| = |-3| = 3$ e $|y| = |-4| = 4$. Como essas magnitudes são diferentes, não existe solução que satisfaça todas as condições simultaneamente.</li>
+                    <li>A solução seria possível se modificássemos alguma das condições, como permitir que $\vec{F}_2$ e $\vec{F}_3$ tenham componentes não nulas em ambas as direções.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Não existe solução que satisfaça todas as condições simultaneamente.}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Nem todos os problemas têm solução nas condições dadas - um lembrete importante na Zona Devastada. Ao descobrir que um sistema não tem solução, um sobrevivente inteligente não persiste no impossível, mas reavalia as premissas e busca alternativas viáveis. Adaptabilidade é tão importante quanto conhecimento técnico.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 12 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>TRIANGULAÇÃO DE COORDENADAS</h3>
+            <p>Três abrigos formam um triângulo na Zona Devastada. Partindo do Abrigo A na origem, os vetores $\vec{AB} = (6, 8)$ e $\vec{AC} = (10, 0)$ apontam para os outros dois abrigos. Um sobrevivente precisa determinar o módulo do vetor $\vec{BC}$ para calcular a distância entre os Abrigos B e C, bem como o valor de $|\vec{AB}|^2 + |\vec{BC}|^2 - |\vec{AC}|^2$. O que ele descobrirá?</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Primeiro, calculamos os módulos dos vetores conhecidos: $|\vec{AB}| = \sqrt{6^2 + 8^2} = \sqrt{36 + 64} = \sqrt{100} = 10$ e $|\vec{AC}| = \sqrt{10^2 + 0^2} = 10$</li>
+                    <li>Para encontrar o vetor $\vec{BC}$, usamos a relação vetorial: $\vec{BC} = \vec{AC} - \vec{AB} = (10, 0) - (6, 8) = (4, -8)$</li>
+                    <li>Calculamos o módulo de $\vec{BC}$: $|\vec{BC}| = \sqrt{4^2 + (-8)^2} = \sqrt{16 + 64} = \sqrt{80} = 4\sqrt{5}$</li>
+                    <li>Agora calculamos a expressão $|\vec{AB}|^2 + |\vec{BC}|^2 - |\vec{AC}|^2$:</li>
+                    <li>$|\vec{AB}|^2 + |\vec{BC}|^2 - |\vec{AC}|^2 = 10^2 + (4\sqrt{5})^2 - 10^2 = 0 + 80 = 80$</li>
+                    <li>Alternativamente, podemos usar o produto escalar: $\vec{AB} \cdot \vec{BC} = (6, 8) \cdot (4, -8) = 6 \cdot 4 + 8 \cdot (-8) = 24 - 64 = -40$</li>
+                    <li>Logo, $|\vec{AB}|^2 + |\vec{BC}|^2 - |\vec{AC}|^2 = 2(\vec{AB} \cdot \vec{BC}) = 2 \cdot (-40) = -80$</li>
+                    <li>Precisamos revisar nossos cálculos, pois há uma discrepância. Recalculando:</li>
+                    <li>$|\vec{AB}|^2 + |\vec{BC}|^2 - |\vec{AC}|^2 = 100 + 80 - 100 = 80$</li>
+                    <li>$2(\vec{AB} \cdot \vec{BC}) = 2(6 \cdot 4 + 8 \cdot (-8)) = 2(24 - 64) = 2(-40) = -80$</li>
+                    <li>A discrepância está no sinal. A relação correta é $|\vec{AB}|^2 + |\vec{BC}|^2 - |\vec{AC}|^2 = -2(\vec{AB} \cdot \vec{BC})$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$|\vec{BC}| = 4\sqrt{5} \approx 8,94$$
+                    $$|\vec{AB}|^2 + |\vec{BC}|^2 - |\vec{AC}|^2 = 80$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Este problema revela a lei dos cossenos da trigonometria em termos vetoriais. Na Zona Devastada, esta relação permite calcular distâncias inacessíveis, fundamentais para mapear áreas perigosas, avaliar perigos à distância e planejar rotas seguras sem precisar percorrer fisicamente todos os trajetos - economizando tempo, recursos e, principalmente, vidas.</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- RODAPÉ DO DOCUMENTO -->
+    <div class="footer">
+        REFÚGIO-TEC | MÓDULO DE VETORES: Sobrevivência Matemática - Meça duas vezes, sobreviva um dia a mais.
+    </div>
+</body>
+</html>

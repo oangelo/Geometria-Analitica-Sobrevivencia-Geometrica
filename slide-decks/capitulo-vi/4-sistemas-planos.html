@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cap. VI — Sistemas e Interpretação de Planos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- SLIDE DE TÍTULO DO CAPÍTULO (PARTE 2) -->
+        <section>
+          <div class="title-screen">
+            <h1>Vetores no Espaço</h1>
+            <h2 class="subtitle">Coordenação e Zonas de Segurança - Parte 2</h2>
+            <div class="emblem-number">VI-B</div>
+            <p class="subtitle-warning">Decifrando sinais complexos e delimitando o futuro.</p>
+          </div>
+        </section>
+
+        <!-- TÓPICO 1 (Parte 2): Sistemas de Equações Lineares e Interpretação Geométrica de Planos -->
+        <section>
+          <!-- 1.1 Introdução: Sistemas como Interseção de Planos -->
+          <section class="mission-briefing">
+            <h2>Sistemas Lineares: O Encontro de Planos</h2>
+            <h3 class="mission-subtitle">Decifrando Coordenadas e Pontos de Convergência</h3>
+            <p>Cada equação linear \(ax+by+cz=d\) representa um PLANO no espaço \(R^3\).</p>
+            <p>Resolver um sistema de três equações é encontrar o(s) ponto(s) \(P(x,y,z)\) comuns a todos os três planos – sua interseção.</p>
+            <p class="formula">
+            \(
+            \begin{cases}
+            \pi_1: a_{11}x + a_{12}y + a_{13}z = b_1 \\
+            \pi_2: a_{21}x + a_{22}y + a_{23}z = b_2 \\
+            \pi_3: a_{31}x + a_{32}y + a_{33}z = b_3
+            \end{cases}
+            \)
+            </p>
+            <p>Vetores Normais associados: \( \vec{n_1}, \vec{n_2}, \vec{n_3} \).</p>
+            <p class="mnemonic">"Três planos no espaço, um enigma a decifrar. Sua interseção, o destino irá mostrar."</p>
+          </section>
+
+          <!-- 1.2 Interseção de Dois Planos - Análise Geométrica -->
+          <section class="field-report">
+            <h3>Análise: Interseção de Dois Planos (\(\pi_1, \pi_2\))</h3>
+            <div class="info-panel">
+                <div class="info-screen">
+                    <h4>Observando os Vetores Normais (\(\vec{n_1}, \vec{n_2}\)):</h4>
+                    <ul>
+                        <li><strong>\(\vec{n_1} // \vec{n_2}\) (Paralelos):</strong>
+                            <ul>
+                                <li>Se COINCIDENTES: Interseção é o próprio plano. (SPI)</li>
+                                <li style="margin-top:0.5em;">Se PARALELOS DISTINTOS: Nenhuma interseção. (SI)</li>
+                            </ul>
+                        </li>
+                        <li style="margin-top:0.5em;"><strong>\(\vec{n_1} \not\parallel \vec{n_2}\) (Não Paralelos):</strong> Interseção é uma RETA. (SPI)
+                            <ul><li>Seu vetor diretor \( \vec{v} = \vec{n_1} \times \vec{n_2} \).</li></ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+          </section>
+          <!-- Slide de Imagens para Interseção de Dois Planos -->
+          <section class="visualization-container">
+            <h4 style="margin-bottom: 0.5em;">Interseção de Dois Planos: Casos Visuais</h4>
+            <div style="display: flex; justify-content: space-around; align-items: flex-start;">
+                <figure style="text-align: center;">
+                    <img src="capitulo_vi_imagens_sistemas_py/2planos_paralelos_distintos_py.svg" alt="2 Planos Paralelos Distintos" class="plain" style="width:230px; height: auto; border: 1px solid #444;">
+                    <figcaption style="font-size: 0.7em; color: #ccc;">Paralelos Distintos (SI)</figcaption>
+                </figure>
+                <figure style="text-align: center;">
+                    <img src="capitulo_vi_imagens_sistemas_py/2planos_intersecao_reta_py.svg" alt="2 Planos Intersectando em Reta" class="plain" style="width:230px; height: auto; border: 1px solid #444;">
+                    <figcaption style="font-size: 0.7em; color: #ccc;">Interseção: Reta (SPI)</figcaption>
+                </figure>
+                 <figure style="text-align: center;">
+                    <img src="capitulo_vi_imagens_sistemas_py/2planos_coincidentes_py.svg" alt="2 Planos Coincidentes" class="plain" style="width:230px; height: auto; border: 1px solid #444;">
+                    <figcaption style="font-size: 0.7em; color: #ccc;">Coincidentes (SPI)</figcaption>
+                </figure>
+            </div>
+          </section>
+
+          <!-- 1.3 A Matriz Aumentada -->
+          <section class="mission-briefing">
+            <h2>Ferramenta: A Matriz Aumentada</h2>
+            <h3 class="mission-subtitle">Organizando os Dados do Sistema</h3>
+            <p>Para resolver o sistema de forma organizada, usamos a Matriz Aumentada \([A|B]\), que combina os coeficientes das incógnitas e os termos independentes:</p>
+            <p class="formula">\( \left[ \begin{array}{ccc|c} a_{11} & a_{12} & a_{13} & b_1 \\ a_{21} & a_{22} & a_{23} & b_2 \\ a_{31} & a_{32} & a_{33} & b_3 \end{array} \right] \)</p>
+            <p>Esta representação compacta é nosso "painel de controle" para manipular as equações do sistema.</p>
+          </section>
+          
+          <!-- NOVO SLIDE: Operações Elementares e Suas Origens -->
+          <section class="mission-briefing">
+            <h2>Operações Elementares Sobre Linhas</h2>
+            <h3 class="mission-subtitle">Manipulando Equações Sem Alterar a Solução</h3>
+            <p>Para simplificar a matriz aumentada (e o sistema original), usamos três tipos de operações elementares em suas linhas. Cada uma corresponde a uma manipulação válida das equações originais que não altera o conjunto solução do sistema:</p>
+            <div class="definition-box" style="font-size: 0.95em;">
+                <ol>
+                    <li style="margin-bottom: 0.5em;">
+                        <strong>Troca de duas linhas (\(L_i \leftrightarrow L_j\)):</strong><br>
+                        <em>Origem:</em> Simplesmente reordenar as equações do sistema não muda sua solução.
+                        <p>\( \begin{cases} Eq_1 \\ Eq_2 \end{cases} \Leftrightarrow \begin{cases} Eq_2 \\ Eq_1 \end{cases} \)</p>
+                    </li>
+                    <li style="margin-bottom: 0.5em;">
+                        <strong>Multiplicação de uma linha por um escalar não nulo (\(L_i \leftarrow kL_i, k \neq 0\)):</strong><br>
+                        <em>Origem:</em> Multiplicar ambos os lados de uma equação por uma constante \(k \neq 0\) não altera suas raízes.
+                        <p>\( Eq_1 \Leftrightarrow k \cdot Eq_1 \)</p>
+                    </li>
+                    <li>
+                        <strong>Substituição de uma linha pela sua soma com um múltiplo de outra linha (\(L_i \leftarrow L_i + kL_j\)):</strong><br>
+                        <em>Origem:</em> Se temos \(Eq_i\) e \(Eq_j\), então o sistema formado por \((Eq_i + k \cdot Eq_j)\) e \(Eq_j\) é equivalente ao original. Esta é a operação chave para criar zeros (eliminação).
+                    </li>
+                </ol>
+            </div>
+            <p class="mnemonic">"Trocar, multiplicar, somar com múltiplo de outra. São as chaves para o sistema desvendar, sem que a solução se perca ou fuja!"</p>
+          </section>
+
+          <!-- 1.4 Escalonamento até Forma Triangular Superior -->
+          <section class="field-report">
+            <h3>Estratégia: Escalonamento (Método de Gauss)</h3>
+            <div class="info-panel">
+                <div class="info-screen">
+                    <h4>O Processo de Simplificação:</h4>
+                    <p>Aplicamos operações elementares para zerar elementos abaixo da diagonal principal da matriz dos coeficientes.</p>
+                    <p>Forma Alvo (Triangular Superior para SPD):</p>
+                    <p class="formula">\( \left[ \begin{array}{ccc|c} \blacksquare & * & * & * \\ 0 & \blacksquare & * & * \\ 0 & 0 & \blacksquare & *' \end{array} \right] \)</p>
+                    <p>\(\blacksquare\) = pivô (\(\neq 0\)). A partir daqui, usamos retrosubstituição para encontrar \(z, y, x\).</p>
+                </div>
+            </div>
+            <div class="survival-tip">
+                <p>O escalonamento é como remover camadas de entulho para revelar a estrutura central de um problema.</p>
+            </div>
+          </section>
+
+          <!-- 1.5.A O Encontro de Três Planos (1/3) - Introdução e Produto Misto -->
+          <section class="mission-briefing">
+            <h2>O Encontro de Três Planos (1/3)</h2>
+            <h3 class="mission-subtitle">Vetores Normais e Produto Misto</h3>
+            <p>A relação entre os vetores normais \( \vec{n_1}, \vec{n_2}, \vec{n_3} \) dos planos é crucial.</p>
+            <p>O Produto Misto: <span class="formula">\( [\vec{n_1}, \vec{n_2}, \vec{n_3}] = \det(\vec{n_1}, \vec{n_2}, \vec{n_3}) \)</span></p>
+            <p>Este valor indica a coplanaridade dos normais e, por consequência, a natureza da interseção dos planos.</p>
+          </section>
+
+          <!-- 1.5.B O Encontro de Três Planos (2/3) - Caso 1: Produto Misto != 0 (SPD) -->
+          <section class="mission-briefing">
+            <h2>O Encontro de Três Planos (2/3)</h2>
+            <h3 class="mission-subtitle">Caso 1: Interseção em Ponto Único (SPD)</h3>
+            <div class="definition-box">
+                <h4>Produto Misto \( \det(\vec{n_1}, \vec{n_2}, \vec{n_3}) \neq 0 \):</h4>
+                <ul>
+                    <li>Normais LI (não coplanares).</li>
+                    <li>Geometria: Os três planos <strong>se interceptam em um ÚNICO PONTO</strong>.</li>
+                    <li>Sistema Linear: Possível e Determinado (SPD).</li>
+                </ul>
+            </div>
+          </section>
+          <!-- Slide Imagem: 3 Planos Intersectando em Ponto -->
+          <section class="visualization-container">
+             <h4 style="margin-bottom: 0.5em;">Visualização: Interseção em Ponto Único</h4>
+             <img src="capitulo_vi_imagens_sistemas_py/3planos_intersecao_ponto_py.svg" alt="3 Planos Intersectando em Ponto" class="plain" style="width:450px; height: auto; border: 1px solid #444;">
+          </section>
+
+
+          <!-- 1.5.C O Encontro de Três Planos (3/3) - Caso 2: Produto Misto = 0 - Intro e Subcaso 'Reta' -->
+          <section class="mission-briefing">
+            <h2>O Encontro de Três Planos (3/3)</h2>
+            <h3 class="mission-subtitle">Caso 2: Normais Coplanares (\(\det = 0 \))</h3>
+            <div class="definition-box">
+                <h4>Produto Misto Nulo: Vetores Normais Coplanares (LD)</h4>
+                <p>Abre várias possibilidades (SPI ou SI). O escalonamento distinguirá.</p>
+                <h5>Subcaso 2.a: Interseção em uma RETA (SPI)</h5>
+                <ul>
+                    <li>Os três planos se cruzam ao longo de uma reta comum.</li>
+                </ul>
+            </div>
+          </section>
+          <!-- Slide Imagem: 3 Planos Intersectando em Reta -->
+          <section class="visualization-container">
+            <h4 style="margin-bottom: 0.5em;">Visualização: Interseção em Reta Comum</h4>
+            <img src="capitulo_vi_imagens_sistemas_py/3planos_intersecao_reta_livro_py.svg" alt="3 Planos Intersectando em Reta" class="plain" style="width:450px; height: auto; border: 1px solid #444;">
+          </section>
+
+          <!-- 1.5.D Normais Coplanares: Outras Configurações (SPI/SI) -->
+          <section class="mission-briefing">
+            <h2>Normais Coplanares: Outras Configurações</h2>
+            <h3 class="mission-subtitle">SPI (Plano) ou SI (Sem Interseção Comum)</h3>
+            <div class="definition-box" style="font-size:0.9em;">
+                <h5>Subcaso 2.b: Interseção é um PLANO (SPI)</h5>
+                <ul><li>Os três planos são COINCIDENTES.</li></ul>
+                <h5>Subcaso 2.c: NENHUMA INTERSEÇÃO COMUM (SI)</h5>
+                <ul>
+                    <li>Dois ou três planos paralelos e distintos.</li>
+                    <li>"Prisma Triangular Oco".</li>
+                </ul>
+            </div>
+          </section>
+          <!-- Slide Imagens: Outras Configurações com Normais Coplanares -->
+          <section class="visualization-container">
+            <h4 style="margin-bottom: 0.5em;">Visualizações: Normais Coplanares (SPI/SI)</h4>
+            <div style="display: flex; justify-content: space-around; align-items: flex-start; flex-wrap: wrap;">
+                <figure style="text-align: center; margin: 5px;">
+                    <img src="capitulo_vi_imagens_sistemas_py/3planos_coincidentes_py.svg" alt="3 Planos Coincidentes" class="plain" style="width:230px; height: auto; border: 1px solid #444;">
+                    <figcaption style="font-size: 0.7em; color: #ccc;">Coincidentes (SPI)</figcaption>
+                </figure>
+                <figure style="text-align: center; margin: 5px;">
+                    <img src="capitulo_vi_imagens_sistemas_py/3planos_paralelos_distintos_py.svg" alt="3 Planos Paralelos Distintos" class="plain" style="width:230px; height: auto; border: 1px solid #444;">
+                    <figcaption style="font-size: 0.7em; color: #ccc;">3 Paralelos (SI)</figcaption>
+                </figure>
+                <figure style="text-align: center; margin: 5px;">
+                    <img src="capitulo_vi_imagens_sistemas_py/3planos_2paralelos_1secante_py.svg" alt="2 Paralelos, 1 Secante" class="plain" style="width:230px; height: auto; border: 1px solid #444;">
+                    <figcaption style="font-size: 0.7em; color: #ccc;">2 Paralelos, 1 Secante (SI)</figcaption>
+                </figure>
+                <figure style="text-align: center; margin: 5px;">
+                    <img src="capitulo_vi_imagens_sistemas_py/3planos_prisma_oco_py.svg" alt="Prisma Triangular Oco" class="plain" style="width:230px; height: auto; border: 1px solid #444;">
+                    <figcaption style="font-size: 0.7em; color: #ccc;">Prisma Oco (SI)</figcaption>
+                </figure>
+            </div>
+          </section>
+
+          <!-- 1.6.A Interpretando o Painel Escalonado (1/3) - Introdução -->
+          <section class="field-report">
+            <h3>Interpretando o Painel Escalonado (1/3)</h3>
+            <h3 class="mission-subtitle">Decifrando a Geometria pela Matriz</h3>
+            <p>A forma triangular superior da matriz aumentada \([A'|B']\) é a chave para entender a geometria da interseção.</p>
+            <div class="info-panel" style="margin-top:1em;">
+                <div class="info-screen crt-effect">
+                    <p>Analisando a matriz escalonada...</p>
+                    <p class="formula" style="text-align: left;">\( \left[ \begin{array}{ccc|c} \blacksquare & * & * & * \\ 0 & \blacksquare & * & * \\ 0 & 0 & \blacksquare & *' \end{array} \right] \implies \text{SPD (Ponto)}? \)</p>
+                </div>
+            </div>
+          </section>
+
+          <!-- 1.6.B Interpretando o Painel Escalonado (2/3) - SPD -->
+          <section class="field-report">
+            <h3>Interpretando o Painel Escalonado (2/3)</h3>
+            <h3 class="mission-subtitle">SPD - Interseção em Ponto Único</h3>
+            <div class="info-panel">
+              <div class="info-screen">
+                <h4>Forma: \( \left[ \begin{smallmatrix} \blacksquare & * & * & | & * \\ 0 & \blacksquare & * & | & * \\ 0 & 0 & \blacksquare & | & *' \end{smallmatrix} \right] \)</h4>
+                <ul>
+                  <li><strong>Análise:</strong> Três pivôs (\(\blacksquare \neq 0\)).</li>
+                  <li><strong>Normais:</strong> Geralmente, \( \det(\vec{n_1}, \vec{n_2}, \vec{n_3}) \neq 0 \).</li>
+                  <li><strong>Geometria:</strong> Interseção em <strong>ponto único</strong>.</li>
+                  <li><strong>Solução:</strong> SPD. Retrosubstituição encontra \( (x,y,z) \).</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- 1.6.C Interpretando o Painel Escalonado (3/3) - SPI/SI -->
+          <section class="field-report">
+            <h3>Interpretando o Painel Escalonado (3/3)</h3>
+            <h3 class="mission-subtitle">SPI (Reta/Plano) e SI (Sem Interseção)</h3>
+            <div class="info-panel" style="font-size: 0.9em;">
+              <div class="info-screen">
+                <h4>Forma com Linha de Zeros: \( [0 \ 0 \ 0 \ | \ 0] \)</h4>
+                 <p style="text-align:center;">(Ex: \( \left[ \begin{smallmatrix} \blacksquare & * & * & | & * \\ 0 & \blacksquare & * & | & * \\ 0 & 0 & 0 & | & 0 \end{smallmatrix} \right] \) )</p>
+                <ul>
+                  <li><strong>Análise:</strong> Menos de três pivôs. Variável(is) livre(s).</li>
+                  <li><strong>Geometria:</strong> Interseção em <strong>reta</strong> ou <strong>plano</strong> (coincidentes).</li>
+                  <li><strong>Solução:</strong> SPI.</li>
+                </ul>
+                <hr style="border-color: #555; margin: 0.3em 0;">
+                <h4>Forma Inconsistente: \( [0 \ 0 \ 0 \ | \ k] \) com \(k \neq 0\)</h4>
+                <ul>
+                  <li><strong>Análise:</strong> Equação impossível \(0 = k\).</li>
+                  <li><strong>Geometria:</strong> Planos sem ponto de interseção comum.</li>
+                  <li><strong>Solução:</strong> SI.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- 1.7 Exemplo Prático - SPD - Interseção em Ponto -->
+          <section class="survival-training">
+            <h3>Exercício: Ponto de Encontro Secreto</h3>
+            <div class="training-problem">
+              <h4>Problema #VI.B.1:</h4>
+              <p>Encontre o ponto de encontro \(P(x,y,z)\) escalonando:</p>
+                <p class="formula">\( \begin{cases} x + y + z = 6 \\ 2x - y + z = 3 \\ x + 2y - 3z = -4 \end{cases} \)</p>
+            </div>
+            <div class="problem-context">
+              <p>Errar o ponto compromete a operação.</p>
+            </div>
+          </section>
+          <!-- 1.8 Dicas de Solução - Exemplo SPD -->
+          <section class="field-report">
+            <h3>Análise: Localizando Ponto de Encontro</h3>
+            <div class="info-panel">
+              <div class="info-screen">
+                <h4>Diretrizes (Prob. #VI.B.1):</h4>
+                <ul>
+                  <li><strong>1. Matriz Aumentada.</strong></li>
+                  <li><strong>2. Escalonar</strong> para forma triangular superior.</li>
+                  <li><strong>3. Retrosubstituição</strong> para \(x, y, z\).</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- 1.9 Exemplo Prático - SPI - Interseção em Reta -->
+          <section class="survival-training">
+            <h3>Exercício: Rota de Fuga Compartilhada</h3>
+            <div class="training-problem">
+              <h4>Problema #VI.B.2:</h4>
+              <p>Determine a equação da reta de fuga (interseção):</p>
+                <p class="formula">\( \begin{cases} x - 2y + z = 4 \\ 2x + y - 3z = 3 \\ 4x - 3y - z = 11 \end{cases} \)</p>
+            </div>
+            <div class="problem-context">
+              <p>Conhecer a rota exata é crucial.</p>
+            </div>
+          </section>
+          <!-- 1.10 Dicas de Solução - Exemplo SPI -->
+          <section class="field-report">
+            <h3>Análise: Mapeando Rota de Fuga</h3>
+            <div class="info-panel">
+              <div class="info-screen">
+                <h4>Diretrizes (Prob. #VI.B.2):</h4>
+                <ul>
+                  <li><strong>1. Escalonar.</strong> Espere uma linha \( [0 \ 0 \ 0 \ | \ 0] \).</li>
+                  <li><strong>2. Variável Livre:</strong> Identifique-a. Expresse as outras em função dela para equações paramétricas da reta.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- 1.11 Exemplo Prático - SI - Planos sem Interseção Comum -->
+          <section class="survival-training">
+            <h3>Exercício: Alarme Falso ou Inconsistência?</h3>
+            <div class="training-problem">
+              <h4>Problema #VI.B.3:</h4>
+              <p>Analise o sistema dos sensores:</p>
+                <p class="formula">\( \begin{cases} x + y - z = 1 \\ 2x + 2y - 2z = 5 \\ x - y + z = 0 \end{cases} \)</p>
+            </div>
+            <div class="problem-context">
+              <p>Informação contraditória leva a decisões desastrosas.</p>
+            </div>
+          </section>
+          <!-- 1.12 Dicas de Solução - Exemplo SI -->
+          <section class="field-report">
+            <h3>Análise: Detectando Inconsistências</h3>
+            <div class="info-panel">
+              <div class="info-screen">
+                <h4>Diretrizes (Prob. #VI.B.3):</h4>
+                <ul>
+                  <li><strong>1. Escalonar.</strong> Espere uma linha \( [0 \ 0 \ 0 \ | \ k] \) com \(k \neq 0\).</li>
+                  <li><strong>2. Normais:</strong> \(\pi_1\) e \(\pi_2\) são paralelos? Distintos?</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- 1.13 Conclusão do Tópico -->
+          <section class="debriefing">
+            <h3>Debriefing: Decifrando Encontros Planares</h3>
+            <div class="summary-box">
+              <p>Sistemas lineares 3x3 = interseção de três planos. Escalonamento e análise dos normais revelam a geometria: ponto, reta, plano, ou nenhuma interseção comum.</p>
+            </div>
+            <div class="next-mission">
+              <p>Próxima transmissão: Delimitando Zonas de Segurança com precisão esférica – A Equação da Superfície Esférica.</p>
+            </div>
+            <div class="instructor-note">
+              <p>"Entender como as superfícies se encontram é a diferença entre emboscar e ser emboscado. A geometria não mente."</p>
+            </div>
+          </section>
+        </section>
+
+      </div>
+    </div>
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/math/math.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/zoom/zoom.js"></script>
+    <script>
+      window.MathJax = { tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script>
+      Reveal.initialize({ hash: true, slideNumber: 'c/t', transition: 'convex', plugins: [RevealNotes, RevealHighlight] });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+                <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+                  <polygon
+                    points="100,20 165,50 180,120 130,180 70,180 20,120 35,50"
+                    fill="rgba(173, 255, 47, 0.2)"
+                    stroke="#ADFF2F"
+                    stroke-width="3"
+                  />
+                  <text x="75" y="110" fill="#FFD700" font-size="16" font-family="monospace">
+                    Polígono
+                  </text>
+                  <!-- Centro e raio -->
+                  <circle cx="100" cy="100" r="3" fill="#FFD700" />
+                  <line
+                    x1="100"
+                    y1="100"
+                    x2="180"
+                    y2="120"
+                    stroke="#FFD700"
+                    stroke-width="1"
+                    stroke-dasharray="5,5"
+                  />
+                  <text x="130" y="90" fill="#FFD700" font-size="14" font-family="monospace">
+                    raio (r)
+                  </text>
+                  <!-- Lado -->
+                  <line
+                    x1="130"
+                    y1="180"
+                    x2="70"
+                    y2="180"
+                    stroke="#FFD700"
+                    stroke-width="3"
+                  />
+                  <text x="90" y="170" fill="#FFD700" font-size="14" font-family="monospace">
+                    lado (l)
+                  </text>
+                </svg>

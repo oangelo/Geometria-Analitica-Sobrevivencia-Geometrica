@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cap. II — Paralelismo, Ortogonalidade e Área</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <!-- Reveal.js Styles -->
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/reveal.js/dist/theme/black.css"
+      id="theme"
+    />
+
+    <!-- For syntax highlighting -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css"
+    />
+
+    <!-- Custom styles (if needed) -->
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section>
+            <h1>Paralelismo e Ortogonalidade</h1>
+            <h2>Navegando por Vetores em Terras Devastadas</h2>
+          </section>
+
+          <section>
+            <h2>Fundamentos Conceituais</h2>
+            <p>
+              Imagine vetores como
+              <strong>esquadrões de sobreviventes</strong> em um território
+              hostil, cada um seguindo sua própria rota para encontrar recursos
+              essenciais.
+            </p>
+
+            <div class="fragment">
+              <h3>Vetores Paralelos</h3>
+              <p>
+                Dois vetores \(\vec{u}\) e \(\vec{v}\) são
+                <span class="highlight">paralelos</span> quando um pode ser
+                transformado no outro através de uma
+                <em>multiplicação escalar</em>:
+              </p>
+              <p>\[\vec{u} = k \cdot \vec{v}\]</p>
+              <p>
+                💡 <em>Analogia de Sobrevivência</em>: Como trilhas seguras que
+                seguem na mesma direção, seja em um deserto radioativo ou entre
+                ruínas urbanas, independentemente da distância percorrida.
+              </p>
+            </div>
+          </section>
+
+          <section>
+            <h3>Exemplo Prático de Paralelismo</h3>
+            <p>Considere dois vetores em um mapa de zonas de perigo:</p>
+            <ul>
+              <li>\(\vec{u} = (2, 4)\)</li>
+              <li>\(\vec{v} = (1, 2)\)</li>
+            </ul>
+            <p>
+              Observe que \(\vec{u} = 2 \cdot \vec{v}\), portanto, são
+              <strong>paralelos</strong> — como patrulhas que seguem rotas
+              idênticas, mas em horários diferentes.
+            </p>
+            <div class="fragment">
+              <p>
+                🔍 <em>Teste de Paralelismo</em>: Divida as coordenadas de um
+                vetor pelas do outro. Se o resultado for constante, parabéns!
+                Você encontrou duas rotas alinhadas.
+              </p>
+            </div>
+          </section>
+
+          <section>
+            <h2>Ortogonalidade: Independência em Campo de Batalha</h2>
+            <p>
+              Vetores ortogonais são como
+              <strong>esquadrões táticos</strong> que operam de forma
+              independente, cobrindo ângulos estratégicos sem interferir um no
+              outro.
+            </p>
+
+            <div class="fragment">
+              <h3>Definição Matemática</h3>
+              <p>
+                Dois vetores \(\vec{u}\) e \(\vec{v}\) são
+                <span class="highlight">ortogonais</span> quando seu produto
+                interno é zero:
+              </p>
+              <p>\[\vec{u} \cdot \vec{v} = 0\]</p>
+              <p>
+                💡 <em>Interpretação no Campo</em>: Eles formam um ângulo de 90
+                graus, garantindo que suas rotas são perpendiculares — perfeito para
+                evitar emboscadas.
+              </p>
+            </div>
+          </section>
+
+          <section>
+            <h3>Exemplo de Ortogonalidade</h3>
+            <p>Em uma base de operações:</p>
+            <ul>
+              <li>
+                \(\vec{u} = (1, 0)\) - patrulha ao longo da fronteira
+                leste-oeste
+              </li>
+              <li>
+                \(\vec{v} = (0, 1)\) - patrulha ao longo da fronteira norte-sul
+              </li>
+            </ul>
+            <p>Calculando o produto interno:</p>
+            <p>\[\vec{u} \cdot \vec{v} = (1 \cdot 0) + (0 \cdot 1) = 0\]</p>
+            <div class="fragment">
+              <p>
+                🎯 <em>Consequência Tática</em>: Esses esquadrões não interferem
+                um no outro, maximizando a vigilância sem sobreposição de
+                esforços.
+              </p>
+            </div>
+          </section>
+
+          <section>
+            <h2>Missões de Sobrevivência</h2>
+            <h3>Missão 1: Análise de Rota</h3>
+            <p>Dados os vetores de movimentação:</p>
+            <ul>
+              <li>\(\vec{a} = (3, 4)\)</li>
+              <li>\(\vec{b} = (4, -3)\)</li>
+              <li>\(\vec{c} = (6, 8)\)</li>
+            </ul>
+            <p>Determine:</p>
+            <ol>
+              <li>Quais rotas seguem paralelas?</li>
+              <li>
+                Existe alguma configuração ortogonal, ideal para patrulhamento
+                estratégico?
+              </li>
+            </ol>
+          </section>
+
+          <section>
+            <h3>Missão 2: Sistemas de Navegação</h3>
+            <p>Em um posto avançado, considere dois sensores:</p>
+            <ul>
+              <li>Sensor de movimento horizontal: \(\vec{m} = (1, 0)\)</li>
+              <li>Sensor de movimento vertical: \(\vec{v} = (0, 1)\)</li>
+            </ul>
+            <p>
+              Por que a ortogonalidade entre esses sensores é crucial para
+              detectar ameaças com precisão?
+            </p>
+            <div class="fragment">
+              <p>
+                🌐 <em>Reflexão de Campo</em>: Sensores ortogonais garantem que
+                nenhum movimento escape à vigilância, cobrindo ângulos mortos de
+                forma eficiente.
+              </p>
+            </div>
+          </section>
+
+          <section>
+            <h2>Reflexão Final</h2>
+            <blockquote>
+              <p>
+                Em um mundo onde a sobrevivência depende da estratégia, a
+                ortogonalidade não é apenas um conceito matemático, mas um
+                princípio de eficiência e independência.
+              </p>
+            </blockquote>
+            <p>
+              Assim como esquadrões que operam de forma independente podem
+              proteger uma base com eficácia, indivíduos com habilidades
+              complementares criam comunidades resilientes em tempos de crise.
+            </p>
+          </section>
+        </section>
+
+        <!-- Seção sobre Área de Triângulos Vetoriais -->
+        <section>
+          <section>
+            <h1>Área de Triângulos Vetoriais</h1>
+            <h2>Decodificando Espaços, Revelando Estratégias</h2>
+          </section>
+
+          <section>
+            <h2>Territórios Delimitados por Vetores</h2>
+            <p>
+              Imagine dois vetores, \(\vec{u}\) e \(\vec{v}\), como
+              <strong>fronteiras invisíveis</strong> traçando os limites de um
+              território em disputa.
+            </p>
+
+            <div class="fragment formula">
+              <h3>Fórmula Fundamental</h3>
+              <p>
+                \[\text{Área} = \frac{1}{2} |\vec{u}| |\vec{v}| \sin(\theta)\]
+              </p>
+              <p>
+                🔍 <em>Intuição Estratégica</em>: A área emerge da combinação da
+                força (magnitude) e do ângulo (desalinhamento) entre os vetores.
+              </p>
+            </div>
+
+            <div class="fragment">
+              <p>📐 <strong>Elementos Essenciais</strong>:</p>
+              <ul>
+                <li>
+                  \(|\vec{u}|\) e \(|\vec{v}|\): Intensidade dos "movimentos"
+                </li>
+                <li>
+                  \(\sin(\theta)\): O grau de divergência entre as direções
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <h2>Relacionando Fórmulas Conhecidas</h2>
+            <p>Lembre-se da fórmula clássica da área de um triângulo:</p>
+            <p>
+              \[ \text{Área} = \frac{\text{base} \times \text{altura}}{2} \]
+            </p>
+            <p>
+              Se considerarmos \(|\vec{u}|\) como a base, então \(|\vec{v}|
+              \sin(\theta)|\) é a altura — afinal, o módulo de um vetor vezes o
+              seno do ângulo entre eles nos dá a altura do triângulo.
+            </p>
+
+            <div class="fragment">
+              <p>📏 <strong>Conexão com Vetores:</strong></p>
+              <ul>
+                <li>\( \text{base} = |\vec{u}| \)</li>
+                <li>\( \text{altura} = |\vec{v}| \sin(\theta) \)</li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <h2>Determinantes e Áreas</h2>
+            <p>
+              A área do <strong>paralelogramo</strong> definido por dois vetores
+              \(\vec{u}\) e \(\vec{v}\) pode ser calculada usando o determinante
+              da matriz formada por esses vetores:
+            </p>
+            <p>
+              \[ \text{Área do Paralelogramo} = | \det \begin{bmatrix} u_x & v_x
+              \\ u_y & v_y \end{bmatrix} | \]
+            </p>
+            <p>
+              Para encontrar a área do triângulo formado por esses vetores,
+              basta dividir o resultado por 2:
+            </p>
+            <p>
+              \[ \text{Área do Triângulo} = \frac{1}{2} | \det \begin{bmatrix}
+              u_x & v_x \\ u_y & v_y \end{bmatrix} | \]
+            </p>
+
+            <div class="fragment">
+              <blockquote>
+                "O determinante não é só um número — é a medida do "espaço"
+                criado por dois vetores."
+              </blockquote>
+            </div>
+          </section>
+
+          <section>
+            <h2>Missão de Reconhecimento</h2>
+            <p>Vetores em campo:</p>
+            <ul>
+              <li>\(\vec{u} = (3, 4)\) com módulo \(|\vec{u}| = 5\)</li>
+              <li>\(\vec{v} = (1, 2)\) com módulo \(|\vec{v}| = \sqrt{5}\)</li>
+            </ul>
+
+            <div class="fragment">
+              <h3>Plano de Ação</h3>
+              <ol>
+                <li>Calcular o determinante da matriz formada pelos vetores</li>
+                <li>
+                  Aplicar a fórmula \( \text{Área} = \frac{1}{2} |\det| \)
+                </li>
+                <li>
+                  Comparar o resultado com a fórmula \( \frac{1}{2} |\vec{u}|
+                  |\vec{v}| \sin(\theta) \)
+                </li>
+              </ol>
+            </div>
+          </section>
+
+          <section>
+            <h2>Decodificação Matemática</h2>
+            <p>Etapas do cálculo:</p>
+            <ul>
+              <li>Produto escalar para encontrar \(\cos(\theta)\)</li>
+              <li>\(\sin(\theta) = \sqrt{1 - \cos^2(\theta)}\)</li>
+              <li>
+                \(\text{Área} = \frac{1}{2} |\vec{u}| |\vec{v}| \sin(\theta)\)
+                <strong>ou</strong> \(\frac{1}{2} |\det|\)
+              </li>
+            </ul>
+
+            <div class="fragment">
+              <p>
+                🎯 <strong>Resultado:</strong> O mesmo "território", apenas
+                medido de formas diferentes.
+              </p>
+            </div>
+          </section>
+
+          <section>
+            <h2>Desafio de Campo</h2>
+            <p>Vetores em jogo:</p>
+            <ul>
+              <li>\(\vec{a} = (2, 2)\)</li>
+              <li>\(\vec{b} = (3, -3)\)</li>
+            </ul>
+            <p>Tarefas:</p>
+            <ol>
+              <li>Calcular a área do triângulo usando o determinante</li>
+              <li>
+                Confirmar o resultado com a fórmula da área \( \frac{1}{2}
+                |\vec{a}| |\vec{b}| \sin(\theta) \)
+              </li>
+              <li>
+                Interpretar o significado geométrico do resultado (o que esse
+                "território" representa?)
+              </li>
+            </ol>
+          </section>
+
+          <section>
+            <h2>Reflexões Táticas</h2>
+            <p>O que a área de um triângulo vetorial pode simbolizar?</p>
+            <ul>
+              <li>Zonas de influência entre forças</li>
+              <li>Potencial de cobertura territorial</li>
+              <li>Pontos críticos de interseção estratégica</li>
+            </ul>
+
+            <div class="fragment">
+              <blockquote>
+                "Na geometria, cada área é um espaço de possibilidades — e cada
+                fórmula, uma nova perspectiva."
+              </blockquote>
+            </div>
+          </section>
+
+          <section>
+            <h2>Conclusão Estratégica</h2>
+            <p>
+              A área de um triângulo vetorial não é apenas um número. É a
+              <strong>síntese de forças, direções e possibilidades</strong>.
+              Seja através do determinante ou da fórmula clássica, o importante
+              é compreender que tudo se conecta, como diferentes peças do mesmo
+              quebra-cabeça.
+            </p>
+          </section>
+        </section>
+
+        <!-- Slide Horizontal 6: Fechamento -->
+        <section>
+          <h2>Fechamento</h2>
+          <p>
+            No fim do dia, nem todo confronto precisa explodir um bunker; às
+            vezes, descobrir o alinhamento (produto escalar) entre facções pode
+            ser o início de uma negociação viável.
+          </p>
+          <p>
+            <em>Reflexão:</em> Em um mundo devastado, cooperação e respeito aos
+            limites alheios (ortogonais) podem evitar
+            <strong>jogos de soma zero</strong>. A soma das forças pode ser mais
+            valiosa que um embate destrutivo.
+          </p>
+        </section>
+
+      </div>
+      <!-- .slides -->
+    </div>
+    <!-- .reveal -->
+
+    <!-- Reveal.js -->
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+
+    <!-- MathJax -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["\\(", "\\)"]],
+          displayMath: [["\\[", "\\]"]],
+        },
+        svg: { fontCache: "global" },
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+    <script>
+      Reveal.initialize({
+        hash: true,
+        slideNumber: true,
+        plugins: [RevealNotes, RevealHighlight],
+      });
+    </script>
+  </body>
+</html>

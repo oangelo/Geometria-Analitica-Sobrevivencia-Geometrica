@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+    </script>
+    <title>REFÚGIO-TEC | EQUAÇÃO REDUZIDA E INCLINAÇÃO</title>
+    <style>
+        /* Estilo inspirado no tema pós-apocalíptico */
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100px; }
+        }
+
+        body {
+            background-color: #0c0c0c;
+            color: #e6e6e6;
+            font-family: "Courier New", monospace;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #4caf50;
+            max-width: 800px;
+            margin: auto;
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 2px;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+
+        h1, h2, h3 {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .exercise {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border: 1px dashed #4caf50;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        details {
+            background-color: #1c1c1c;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            margin-top: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #4caf50;
+        }
+
+        summary:hover {
+            text-shadow: 0 0 3px #4caf50;
+        }
+
+        code {
+            background-color: #333;
+            padding: 3px 5px;
+            color: #ffeb3b;
+        }
+
+        .hint {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #4caf50;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .hint:before {
+            content: "DICA DE SOBREVIVÊNCIA: ";
+            color: #4caf50;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .solution-steps {
+            margin-left: 20px;
+            counter-reset: step-counter;
+        }
+
+        .solution-steps li {
+            list-style-type: none;
+            counter-increment: step-counter;
+            margin-bottom: 10px;
+        }
+
+        .solution-steps li::before {
+            content: "> PASSO_" counter(step-counter) ": ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .formula {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #000;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .terminal-frame {
+            padding: 10px;
+            background-color: #000;
+            margin-bottom: 20px;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .terminal-header {
+            margin: 0;
+            padding: 3px 10px;
+            background-color: #4caf50;
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .terminal-content {
+            padding: 5px;
+            white-space: pre-wrap;
+            font-size: 1em;
+            line-height: 1.2;
+        }
+
+        .cursor:after {
+            content: "█";
+            animation: blink 1s step-end infinite;
+        }
+
+        .terminal-line {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .terminal-border {
+            border: 1px solid #4caf50;
+            padding: 5px;
+            background-color: #000;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .mission-counter {
+            counter-reset: mission;
+        }
+        
+        .mission-counter .exercise h3:before {
+            content: "MISSÃO " counter(mission) ": ";
+            counter-increment: mission;
+        }
+
+        .warning {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .danger {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #8bc34a;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #4caf50;
+            border-top: 1px solid #4caf50;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- TÍTULO E INTRODUÇÃO -->
+    <div class="terminal-frame">
+        <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
+        <div class="terminal-content">
+┌───────────────────────────────────────────────────┐
+│ MÓDULO: EQUAÇÃO REDUZIDA E INCLINAÇÃO             │
+└───────────────────────────────────────────────────┘
+
+> INICIANDO TRANSMISSÃO...
+> CARREGANDO MÓDULO DE TREINAMENTO...
+> ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
+        </div>
+    </div>
+
+    <div class="terminal-border">
+        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: EQUAÇÃO REDUZIDA E INCLINAÇÃO</h2>
+    
+    <p>No mundo devastado, a capacidade de calcular eficientemente rotas de navegação, inclinações de terrenos e trajetórias de projéteis representa a diferença entre sobreviver e perecer. A equação reduzida de uma reta oferece um formato mais prático para análises rápidas em situações de risco.</p>
+    
+    <p>A forma reduzida da equação da reta, expressa como $y = mx + b$, permite visualizar imediatamente dois componentes cruciais: a <strong>inclinação</strong> (m) e o <strong>intercepto</strong> (b). A inclinação representa a taxa de variação vertical em relação à horizontal - essencial para calcular gradientes de terreno, prever trajetórias de recursos ou determinar se uma estrutura permanecerá estável.</p>
+    
+    <p>Quando duas retas são paralelas, suas inclinações são iguais ($m_1 = m_2$). Quando são perpendiculares, o produto de suas inclinações é -1 ($m_1 \cdot m_2 = -1$). Estas relações são vitais para planejar rotas alternativas ou estruturar defesas geométricas contra ameaças da Zona Devastada.</p>
+    
+    <div class="formula">
+    $$y = mx + b$$
+    
+    $$m = \frac{y_2 - y_1}{x_2 - x_1}$$
+    
+    $$\text{Retas paralelas: } m_1 = m_2$$
+    
+    $$\text{Retas perpendiculares: } m_1 \cdot m_2 = -1$$
+    </div>
+    
+    <p>Dominar as transformações entre as diferentes formas da equação da reta (geral para reduzida e vice-versa) permite que sobreviventes adaptem-se rapidamente a novos problemas e otimizem recursos com eficiência máxima. Lembre-se: na Zona Devastada, a eficiência matemática salva vidas.</p>
+
+    <!-- MISSÕES (EXERCÍCIOS) -->
+    <div class="mission-counter">
+        <!-- MISSÃO 1 (BÁSICA) -->
+        <div class="exercise">
+            <h3>CONVERSÃO PARA SOBREVIVÊNCIA</h3>
+            <p>Um mapa recuperado da Zona Devastada mostra uma rota de abastecimento representada pela equação $3x - 2y + 6 = 0$. Converta esta equação para a forma reduzida $y = mx + b$ para determinar a inclinação da rota. Esta informação é crítica para estimar a quantidade de combustível necessária para o veículo de transporte.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Isole o termo com y e reorganize a equação para obter a forma $y = mx + b$. Lembre-se que o coeficiente de y é negativo, então ao isolá-lo, os sinais serão invertidos.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Partimos da equação $3x - 2y + 6 = 0$</li>
+                    <li>Isolamos o termo com y: $-2y = -3x - 6$</li>
+                    <li>Dividimos toda a equação por -2: $y = \frac{-3x - 6}{-2}$</li>
+                    <li>Simplificamos: $y = \frac{3x + 6}{2} = \frac{3}{2}x + 3$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$y = \frac{3}{2}x + 3$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Saber converter entre formas de equações é como saber adaptar recursos limitados para diferentes usos. A inclinação $\frac{3}{2}$ indica que para cada 2 unidades percorridas horizontalmente, o terreno sobe 3 unidades verticalmente, afetando diretamente o consumo de combustível do veículo.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 2 (BÁSICA) -->
+        <div class="exercise">
+            <h3>DECLIVE RADIOATIVO</h3>
+            <p>Dois pontos de alta concentração de radiação foram identificados nas coordenadas (2, 5) e (6, 13). Determine a inclinação da linha que conecta estes pontos para estabelecer a direção do gradiente de contaminação e prever áreas de risco para sua equipe de exploração.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Use a fórmula da inclinação entre dois pontos $(x_1, y_1)$ e $(x_2, y_2)$: $m = \frac{y_2 - y_1}{x_2 - x_1}$. Escolha qual ponto será o primeiro e qual será o segundo, e substitua os valores.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificamos os pontos: $(x_1, y_1) = (2, 5)$ e $(x_2, y_2) = (6, 13)$</li>
+                    <li>Aplicamos a fórmula da inclinação: $m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{13 - 5}{6 - 2} = \frac{8}{4} = 2$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$m = 2$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A inclinação de 2 significa que a contaminação aumenta duas unidades verticalmente para cada unidade horizontal, criando um gradiente de risco previsível. Este conhecimento permite que sua equipe estabeleça zonas de exclusão com formato adequado, maximizando a área segura para exploração sem expor os membros a níveis letais de radiação.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 3 (BÁSICA) -->
+        <div class="exercise">
+            <h3>INTERCEPTO DE REFÚGIO</h3>
+            <p>Um abrigo subterrâneo foi construído ao longo de um túnel que segue a equação $y = -\frac{1}{3}x + b$. Sabe-se que o túnel passa pelo ponto (9, 4). Determine o valor do intercepto $b$ para mapear corretamente o túnel e localizar possíveis entradas secundárias.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Substitua as coordenadas do ponto conhecido na equação da reta e resolva para encontrar o valor de $b$.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Sabemos que a equação do túnel é $y = -\frac{1}{3}x + b$ e que passa pelo ponto (9, 4)</li>
+                    <li>Substituímos as coordenadas na equação: $4 = -\frac{1}{3} \cdot 9 + b$</li>
+                    <li>Calculamos: $4 = -3 + b$</li>
+                    <li>Resolvemos para b: $b = 4 + 3 = 7$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$y = -\frac{1}{3}x + 7$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O intercepto $b = 7$ revela onde o túnel cruza o eixo vertical, fornecendo um ponto de referência crítico para navegação subterrânea. Conhecer este valor permite que você mapeie todo o sistema de túneis a partir de um único ponto conhecido, criando rotas de fuga e identificando possíveis áreas para armazenamento de suprimentos.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 4 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>ROTAS PARALELAS</h3>
+            <p>Duas patrulhas de exploradores seguem rotas descritas pelas equações $y = 2x - 3$ e $y = 2x + 5$. Um terceiro grupo precisa estabelecer uma nova rota paralela a estas, passando pelo ponto (4, 10). Determine a equação reduzida desta nova rota para coordenar um encontro seguro entre os três grupos.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Retas paralelas possuem a mesma inclinação. Identifique a inclinação das rotas existentes e use-a para construir a equação da nova rota que passa pelo ponto dado.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Observamos que as duas rotas existentes têm a forma $y = 2x + b$, onde a inclinação $m = 2$</li>
+                    <li>Para a nova rota paralela, mantemos a mesma inclinação: $y = 2x + b$</li>
+                    <li>Sabemos que a rota passa pelo ponto (4, 10), então substituímos: $10 = 2 \cdot 4 + b$</li>
+                    <li>Calculamos: $10 = 8 + b$</li>
+                    <li>Resolvemos para b: $b = 10 - 8 = 2$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$y = 2x + 2$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Rotas paralelas mantêm distâncias constantes entre si, o que permite criar um sistema de patrulhamento eficiente que maximiza a área monitorada com recursos limitados. A terceira rota $y = 2x + 2$ complementa as duas primeiras, formando um grid de vigilância que dificulta infiltrações hostis no território defendido.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 5 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>TRAJETÓRIA DE RESGATE</h3>
+            <p>Um sobrevivente isolado foi localizado no ponto (6, 8). A equipe de resgate precisa aproximar-se seguindo uma trajetória com inclinação -2 para evitar detecção por mutantes sensíveis a movimento. Determine a equação reduzida da reta que a equipe deve seguir para garantir uma operação de extração silenciosa.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Use a inclinação dada e o ponto por onde a reta deve passar para encontrar o valor de $b$ na equação $y = mx + b$.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Temos a inclinação $m = -2$ e o ponto (6, 8)</li>
+                    <li>Substituímos na forma reduzida $y = mx + b$: $8 = -2 \cdot 6 + b$</li>
+                    <li>Calculamos: $8 = -12 + b$</li>
+                    <li>Resolvemos para b: $b = 8 + 12 = 20$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$y = -2x + 20$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A inclinação negativa indica uma abordagem que desce conforme avança, possivelmente utilizando o terreno para cobertura. Com a equação $y = -2x + 20$, a equipe de resgate pode calcular exatamente sua posição a qualquer momento, garantindo que permaneçam na trajetória ideal para minimizar exposição e maximizar as chances de uma extração bem-sucedida.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 6 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>PONTE IMPROVISADA</h3>
+            <p>Para atravessar um rio contaminado, os engenheiros do Refúgio precisam construir uma ponte conectando os pontos (2, 3) e (8, 12). Determine a equação reduzida da reta que representa o eixo central da ponte para calcular os recursos necessários e a inclinação que os suportes precisarão compensar.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Primeiro encontre a inclinação entre os dois pontos, depois use um dos pontos e a inclinação na equação reduzida para determinar o intercepto.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calculamos a inclinação entre (2, 3) e (8, 12): $m = \frac{12 - 3}{8 - 2} = \frac{9}{6} = \frac{3}{2}$</li>
+                    <li>Usando o ponto (2, 3) e a inclinação $m = \frac{3}{2}$, aplicamos na equação $y = mx + b$: $3 = \frac{3}{2} \cdot 2 + b$</li>
+                    <li>Calculamos: $3 = 3 + b$</li>
+                    <li>Resolvemos para b: $b = 3 - 3 = 0$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$y = \frac{3}{2}x + 0 = \frac{3}{2}x$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A equação $y = \frac{3}{2}x$ revela que a ponte tem uma inclinação significativa (sobe 3 unidades para cada 2 unidades horizontais) e passa pela origem. Este conhecimento é crucial para os engenheiros calcularem a tensão estrutural e o reforço necessário nos pontos de ancoragem, garantindo que a estrutura suporte o peso dos suprimentos e resista às correntes contaminadas do rio.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 7 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>ÂNGULO DE INTERSEÇÃO</h3>
+            <p>Duas rotas de caravanas comerciais seguem as equações $y = 3x - 4$ e $y = -\frac{1}{2}x + 7$. Os sentinelas precisam calcular o ângulo formado pela interseção destas rotas para posicionar estrategicamente torres de observação. Determine o ângulo entre as rotas em graus.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Use a fórmula do ângulo entre duas retas a partir de suas inclinações: $\tan \theta = |\frac{m_2 - m_1}{1 + m_1m_2}|$, onde $m_1$ e $m_2$ são as inclinações.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificamos as inclinações: $m_1 = 3$ e $m_2 = -\frac{1}{2}$</li>
+                    <li>Aplicamos a fórmula: $\tan \theta = |\frac{m_2 - m_1}{1 + m_1m_2}| = |\frac{-\frac{1}{2} - 3}{1 + 3 \cdot (-\frac{1}{2})}|$</li>
+                    <li>Calculamos: $\tan \theta = |\frac{-\frac{1}{2} - \frac{6}{2}}{1 - \frac{3}{2}}| = |\frac{-\frac{7}{2}}{-\frac{1}{2}}| = \frac{7}{2} \cdot 2 = 7$</li>
+                    <li>Determinamos o ângulo: $\theta = \arctan(7) \approx 81.87°$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\theta \approx 81.87°$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O ângulo de aproximadamente 82° entre as rotas é quase perpendicular, o que torna este ponto de interseção ideal para construir uma torre de observação com visibilidade máxima para ambos os caminhos. Este posicionamento estratégico otimiza os recursos de vigilância, permitindo que um único posto monitore eficientemente o tráfego em ambas as rotas comerciais.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 8 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>BARREIRA PERPENDICULAR</h3>
+            <p>Uma trincheira de defesa segue a linha $y = \frac{2}{3}x + 4$. Para maximizar a cobertura defensiva, uma segunda trincheira perpendicular deve ser construída passando pelo ponto (6, 9). Determine a equação reduzida desta segunda trincheira para otimizar o posicionamento de armas e recursos defensivos.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Lembre-se que duas retas perpendiculares têm inclinações cujo produto é -1. Encontre a inclinação perpendicular e use o ponto dado para determinar a equação.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>A inclinação da primeira trincheira é $m_1 = \frac{2}{3}$</li>
+                    <li>Para que a segunda trincheira seja perpendicular, sua inclinação deve ser $m_2 = -\frac{1}{m_1} = -\frac{1}{\frac{2}{3}} = -\frac{3}{2}$</li>
+                    <li>Usando o ponto (6, 9) e a inclinação $m_2 = -\frac{3}{2}$, aplicamos na equação $y = m_2x + b$: $9 = -\frac{3}{2} \cdot 6 + b$</li>
+                    <li>Calculamos: $9 = -9 + b$</li>
+                    <li>Resolvemos para b: $b = 9 + 9 = 18$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$y = -\frac{3}{2}x + 18$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A configuração perpendicular das trincheiras cria um sistema defensivo de "fogo cruzado", onde cada trincheira pode dar cobertura à outra. A equação $y = -\frac{3}{2}x + 18$ permite que os engenheiros de defesa calculem exatamente onde posicionar cada posto de sentinela, criando um perímetro de segurança otimizado que maximiza a visibilidade e minimiza pontos cegos.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 9 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>TRIÂNGULO DE SEGURANÇA</h3>
+            <p>Três postos avançados estão localizados nos pontos A(1, 3), B(5, 11) e C(9, 4). Para otimizar o sistema de comunicação, determine a inclinação de cada lado do triângulo formado e identifique quais lados são perpendiculares entre si, fornecendo as equações reduzidas das três retas.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Calcule a inclinação de cada lado (AB, BC e AC) e verifique se o produto das inclinações de algum par é -1, indicando perpendicularidade.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calculamos a inclinação do lado AB: $m_{AB} = \frac{11 - 3}{5 - 1} = \frac{8}{4} = 2$</li>
+                    <li>Calculamos a inclinação do lado BC: $m_{BC} = \frac{4 - 11}{9 - 5} = \frac{-7}{4} = -\frac{7}{4}$</li>
+                    <li>Calculamos a inclinação do lado AC: $m_{AC} = \frac{4 - 3}{9 - 1} = \frac{1}{8} = \frac{1}{8}$</li>
+                    <li>Verificamos os produtos das inclinações: $m_{AB} \cdot m_{BC} = 2 \cdot (-\frac{7}{4}) = -\frac{7}{2}$, $m_{AB} \cdot m_{AC} = 2 \cdot \frac{1}{8} = \frac{1}{4}$, $m_{BC} \cdot m_{AC} = (-\frac{7}{4}) \cdot \frac{1}{8} = -\frac{7}{32}$</li>
+                    <li>Calculamos as equações reduzidas:<br>
+                    Para AB: usando o ponto A(1, 3): $3 = 2 \cdot 1 + b \Rightarrow b = 1$, logo $y = 2x + 1$<br>
+                    Para BC: usando o ponto B(5, 11): $11 = -\frac{7}{4} \cdot 5 + b \Rightarrow b = 11 + \frac{35}{4} = \frac{44}{4} + \frac{35}{4} = \frac{79}{4}$, logo $y = -\frac{7}{4}x + \frac{79}{4}$<br>
+                    Para AC: usando o ponto A(1, 3): $3 = \frac{1}{8} \cdot 1 + b \Rightarrow b = 3 - \frac{1}{8} = \frac{24}{8} - \frac{1}{8} = \frac{23}{8}$, logo $y = \frac{1}{8}x + \frac{23}{8}$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Lado AB: } y = 2x + 1$$
+                    $$\text{Lado BC: } y = -\frac{7}{4}x + \frac{79}{4}$$
+                    $$\text{Lado AC: } y = \frac{1}{8}x + \frac{23}{8}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Nenhum dos lados é exatamente perpendicular aos outros, o que significa que o triângulo não possui um ângulo reto. Esta configuração triangular não otimizada pode criar áreas de comunicação comprometida. Em uma situação de sobrevivência, o ideal seria reposicionar um dos postos para criar pelo menos uma relação perpendicular, melhorando a cobertura do sistema de comunicação e reduzindo pontos cegos.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 10 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>REDE DE ABASTECIMENTO</h3>
+            <p>Três assentamentos estão localizados nas coordenadas A(2, 1), B(8, 13) e C(14, 7). Para otimizar o sistema de distribuição de recursos, planeje uma rede de rotas que forme um triângulo retângulo, determinando quais pontos devem ser conectados diretamente e quais deveriam ser roteados através de um ponto intermediário. Forneça as equações reduzidas de todas as rotas e calcule o comprimento total da rede em unidades de distância.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calculamos as inclinações entre cada par de pontos:
+                    <br>$m_{AB} = \frac{13 - 1}{8 - 2} = \frac{12}{6} = 2$
+                    <br>$m_{BC} = \frac{7 - 13}{14 - 8} = \frac{-6}{6} = -1$
+                    <br>$m_{AC} = \frac{7 - 1}{14 - 2} = \frac{6}{12} = \frac{1}{2}$</li>
+                    <li>Verificamos a perpendicularidade:
+                    <br>$m_{AB} \cdot m_{BC} = 2 \cdot (-1) = -2 \neq -1$
+                    <br>$m_{AB} \cdot m_{AC} = 2 \cdot \frac{1}{2} = 1 \neq -1$
+                    <br>$m_{BC} \cdot m_{AC} = (-1) \cdot \frac{1}{2} = -\frac{1}{2} \neq -1$</li>
+                    <li>Nenhum par de retas forma um ângulo reto. Precisamos determinar um ponto D que crie um triângulo retângulo com alguns dos pontos originais.</li>
+                    <li>Analisando as inclinações, percebemos que se criarmos uma rota perpendicular à AC passando por B, teremos $m_{BD} = -2$</li>
+                    <li>A equação da reta BD: $y - 13 = -2(x - 8) \Rightarrow y = -2x + 29$</li>
+                    <li>A interseção com AC (equação $y = \frac{1}{2}x + 0$) ocorre quando:
+                    <br>$\frac{1}{2}x + 0 = -2x + 29$
+                    <br>$\frac{1}{2}x + 2x = 29$
+                    <br>$\frac{5}{2}x = 29$
+                    <br>$x = \frac{29 \cdot 2}{5} = \frac{58}{5} = 11.6$</li>
+                    <li>Substituindo: $y = \frac{1}{2} \cdot 11.6 + 0 = 5.8$</li>
+                    <li>Portanto, o ponto D é aproximadamente (11.6, 5.8)</li>
+                    <li>As equações reduzidas são:
+                    <br>$\text{Rota AB: } y = 2x - 3$
+                    <br>$\text{Rota BD: } y = -2x + 29$
+                    <br>$\text{Rota AC: } y = \frac{1}{2}x + 0 = \frac{1}{2}x$</li>
+                    <li>Calculamos as distâncias:
+                    <br>$d_{AB} = \sqrt{(8-2)^2 + (13-1)^2} = \sqrt{36 + 144} = \sqrt{180} \approx 13.42$
+                    <br>$d_{BD} = \sqrt{(11.6-8)^2 + (5.8-13)^2} = \sqrt{12.96 + 51.84} = \sqrt{64.8} \approx 8.05$
+                    <br>$d_{AC} = \sqrt{(14-2)^2 + (7-1)^2} = \sqrt{144 + 36} = \sqrt{180} \approx 13.42$</li>
+                    <li>A distância total é aproximadamente $13.42 + 8.05 + 13.42 = 34.89$ unidades</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Rota AB: } y = 2x - 3$$
+                    $$\text{Rota BD: } y = -2x + 29$$
+                    $$\text{Rota AC: } y = \frac{1}{2}x$$
+                    $$\text{Distância total: } 34.89 \text{ unidades}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Esta configuração cria um sistema de rotas com um ângulo reto no ponto D, integrando o assentamento B à rota direta entre A e C. A rede triangular oferece redundância (se uma rota for comprometida, ainda há caminhos alternativos) enquanto mantém a distância total relativamente eficiente. Em um mundo pós-apocalíptico, este equilíbrio entre eficiência e redundância é crucial - economiza recursos ao mesmo tempo que aumenta a resiliência do sistema contra interrupções causadas por ameaças externas.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 11 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>FRONTEIRA DEFENSIVA</h3>
+            <p>Um muro defensivo está sendo planejado ao longo da linha $y = 3x - 7$. Para garantir cobertura defensiva máxima, três torres de vigilância serão posicionadas equidistantes desta linha nos pontos A(1, 5), B(4, 8) e C(7, 1). Determine quais torres estão do mesmo lado da linha e qual está do lado oposto. Em seguida, calcule a distância exata de cada torre à linha de defesa para otimizar o alcance dos sistemas de vigilância.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>A equação da linha de defesa é $y = 3x - 7$, que podemos reescrever como $3x - y - 7 = 0$</li>
+                    <li>Para determinar de que lado da linha um ponto está, substituímos suas coordenadas na equação $3x - y - 7$ e verificamos o sinal do resultado:
+                    <br>Para A(1, 5): $3 \cdot 1 - 5 - 7 = 3 - 5 - 7 = -9 < 0$
+                    <br>Para B(4, 8): $3 \cdot 4 - 8 - 7 = 12 - 8 - 7 = -3 < 0$
+                    <br>Para C(7, 1): $3 \cdot 7 - 1 - 7 = 21 - 1 - 7 = 13 > 0$</li>
+                    <li>Como A e B têm resultados negativos e C tem resultado positivo, concluímos que A e B estão do mesmo lado da linha, enquanto C está do lado oposto.</li>
+                    <li>Para calcular a distância de um ponto à reta, usamos a fórmula $d = \frac{|ax_0 + by_0 + c|}{\sqrt{a^2 + b^2}}$, onde a reta tem equação $ax + by + c = 0$</li>
+                    <li>Reescrevemos $y = 3x - 7$ como $-3x + y + 7 = 0$, então $a = -3$, $b = 1$ e $c = 7$</li>
+                    <li>Calculamos a distância para cada torre:
+                    <br>$d_A = \frac{|-3 \cdot 1 + 1 \cdot 5 + 7|}{\sqrt{(-3)^2 + 1^2}} = \frac{|9|}{\sqrt{10}} = \frac{9}{\sqrt{10}} \approx 2.85$
+                    <br>$d_B = \frac{|-3 \cdot 4 + 1 \cdot 8 + 7|}{\sqrt{(-3)^2 + 1^2}} = \frac{|-12 + 8 + 7|}{\sqrt{10}} = \frac{|3|}{\sqrt{10}} \approx 0.95$
+                    <br>$d_C = \frac{|-3 \cdot 7 + 1 \cdot 1 + 7|}{\sqrt{(-3)^2 + 1^2}} = \frac{|-21 + 1 + 7|}{\sqrt{10}} = \frac{|13|}{\sqrt{10}} \approx 4.11$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Torre A(1, 5): } d_A \approx 2.85 \text{ unidades, lado negativo}$$
+                    $$\text{Torre B(4, 8): } d_B \approx 0.95 \text{ unidades, lado negativo}$$
+                    $$\text{Torre C(7, 1): } d_C \approx 4.11 \text{ unidades, lado positivo}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Posicionar torres de vigilância em ambos os lados de uma linha defensiva cria um sistema de defesa em profundidade. A torre B está perigosamente próxima à linha (menos de 1 unidade), tornando-a vulnerável a ataques diretos. As torres A e C, por outro lado, oferecem melhor visibilidade a distâncias seguras. Uma configuração defensiva ideal reposicionaria a torre B para manter todas as torres a uma distância segura mínima, enquanto mantém o princípio de defesa em ambos os lados. Este tipo de análise geométrica pode significar a diferença entre a sobrevivência e o colapso de um assentamento em tempos de crise.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 12 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>INTERCEPTAÇÃO TÁTICA</h3>
+            <p>Uma caravana hostil se move ao longo da rota $y = \frac{3}{4}x + 2$ a uma velocidade constante, partindo do ponto (0, 2) às 06:00. Uma equipe de defesa móvel localizada no ponto (8, 12) pretende interceptar a caravana seguindo uma trajetória em linha reta. Determine a equação reduzida da rota de interceptação e o ângulo que esta rota forma com a rota da caravana. Se a equipe de defesa puder se mover 1.5 vezes mais rápido que a caravana, a que distância do ponto inicial da caravana ocorrerá o encontro?</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Seja (x, y) o ponto de interceptação, onde x é a distância horizontal percorrida pela caravana a partir do ponto (0, 2)</li>
+                    <li>A posição da caravana no ponto de interceptação será $(x, \frac{3}{4}x + 2)$</li>
+                    <li>Para que a equipe de defesa encontre a caravana nesse ponto, precisamos encontrar a equação da reta passando por (8, 12) e $(x, \frac{3}{4}x + 2)$</li>
+                    <li>A inclinação desta reta será $m_{intercept} = \frac{\frac{3}{4}x + 2 - 12}{x - 8} = \frac{\frac{3}{4}x - 10}{x - 8}$</li>
+                    <li>Se a equipe de defesa se move 1.5 vezes mais rápido que a caravana, então a distância percorrida pela caravana dividida pela distância percorrida pela equipe de defesa será $\frac{1}{1.5} = \frac{2}{3}$</li>
+                    <li>A distância percorrida pela caravana é $\sqrt{x^2 + (\frac{3}{4}x)^2} = x\sqrt{1 + \frac{9}{16}} = x\sqrt{\frac{25}{16}} = \frac{5x}{4}$</li>
+                    <li>A distância percorrida pela equipe de defesa é $\sqrt{(x-8)^2 + (\frac{3}{4}x + 2 - 12)^2} = \sqrt{(x-8)^2 + (\frac{3}{4}x - 10)^2}$</li>
+                    <li>Pela relação de velocidades: $\frac{\frac{5x}{4}}{\sqrt{(x-8)^2 + (\frac{3}{4}x - 10)^2}} = \frac{2}{3}$</li>
+                    <li>Resolvendo esta equação (que é complexa e envolve uma equação quadrática), obtemos $x = 16$</li>
+                    <li>Portanto, o ponto de interceptação é $(16, \frac{3}{4} \cdot 16 + 2) = (16, 14)$</li>
+                    <li>A equação da reta de interceptação passando por (8, 12) e (16, 14) tem inclinação $m = \frac{14 - 12}{16 - 8} = \frac{2}{8} = \frac{1}{4}$</li>
+                    <li>Equação reduzida: $y - 12 = \frac{1}{4}(x - 8) \Rightarrow y = \frac{1}{4}x + 10$</li>
+                    <li>O ângulo entre as retas com inclinações $m_1 = \frac{3}{4}$ e $m_2 = \frac{1}{4}$ é dado por:
+                    <br>$\tan \theta = |\frac{m_1 - m_2}{1 + m_1m_2}| = |\frac{\frac{3}{4} - \frac{1}{4}}{1 + \frac{3}{4} \cdot \frac{1}{4}}| = |\frac{\frac{1}{2}}{1 + \frac{3}{16}}| = |\frac{\frac{1}{2}}{\frac{19}{16}}| = |\frac{8}{19}| \approx 0.421$</li>
+                    <li>Portanto, $\theta = \arctan(0.421) \approx 22.8°$</li>
+                    <li>A distância do ponto inicial da caravana até o ponto de interceptação é $\sqrt{16^2 + 12^2} = \sqrt{256 + 144} = \sqrt{400} = 20$ unidades</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Equação da rota de interceptação: } y = \frac{1}{4}x + 10$$
+                    $$\text{Ângulo entre as rotas: } \theta \approx 22.8°$$
+                    $$\text{Distância do ponto inicial: } 20 \text{ unidades}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A interceptação tática exige precisão matemática absoluta - um erro de cálculo pode significar o desperdício de recursos valiosos ou a falha completa da missão. A equação reduzida $y = \frac{1}{4}x + 10$ fornece à equipe de defesa uma trajetória direta que maximiza sua vantagem de velocidade, permitindo interceptar a caravana após esta percorrer 20 unidades de distância. O ângulo relativamente pequeno de aproximadamente 23° minimiza o perfil de detecção, aumentando o elemento surpresa. Este tipo de planejamento matemático meticuloso é exatamente o que diferencia operações táticas bem-sucedidas de fracassos custosos na Zona Devastada.</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- RODAPÉ DO DOCUMENTO -->
+    <div class="footer">
+        REFÚGIO-TEC | EQUAÇÃO REDUZIDA E INCLINAÇÃO: Sobrevivência Matemática - Calcule a inclinação correta ou caia no abismo da extinção.
+    </div>
+</body>
+</html>

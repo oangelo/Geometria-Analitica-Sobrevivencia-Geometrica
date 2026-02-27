@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+    </script>
+    <title>REFÚGIO-TEC | DISTÂNCIA ENTRE PONTOS</title>
+    <style>
+        /* Estilo inspirado no tema pós-apocalíptico */
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100px; }
+        }
+
+        body {
+            background-color: #0c0c0c;
+            color: #e6e6e6;
+            font-family: "Courier New", monospace;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #4caf50;
+            max-width: 800px;
+            margin: auto;
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 2px;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+
+        h1, h2, h3 {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .exercise {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border: 1px dashed #4caf50;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        details {
+            background-color: #1c1c1c;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            margin-top: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #4caf50;
+        }
+
+        summary:hover {
+            text-shadow: 0 0 3px #4caf50;
+        }
+
+        code {
+            background-color: #333;
+            padding: 3px 5px;
+            color: #ffeb3b;
+        }
+
+        .hint {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #4caf50;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .hint:before {
+            content: "DICA DE SOBREVIVÊNCIA: ";
+            color: #4caf50;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .solution-steps {
+            margin-left: 20px;
+            counter-reset: step-counter;
+        }
+
+        .solution-steps li {
+            list-style-type: none;
+            counter-increment: step-counter;
+            margin-bottom: 10px;
+        }
+
+        .solution-steps li::before {
+            content: "> PASSO_" counter(step-counter) ": ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .formula {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #000;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .terminal-frame {
+            padding: 10px;
+            background-color: #000;
+            margin-bottom: 20px;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .terminal-header {
+            margin: 0;
+            padding: 3px 10px;
+            background-color: #4caf50;
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .terminal-content {
+            padding: 5px;
+            white-space: pre-wrap;
+            font-size: 1em;
+            line-height: 1.2;
+        }
+
+        .cursor:after {
+            content: "█";
+            animation: blink 1s step-end infinite;
+        }
+
+        .terminal-line {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .terminal-border {
+            border: 1px solid #4caf50;
+            padding: 5px;
+            background-color: #000;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .mission-counter {
+            counter-reset: mission;
+        }
+        
+        .mission-counter .exercise h3:before {
+            content: "MISSÃO " counter(mission) ": ";
+            counter-increment: mission;
+        }
+
+        .warning {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .danger {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #8bc34a;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #4caf50;
+            border-top: 1px solid #4caf50;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- TÍTULO E INTRODUÇÃO -->
+    <div class="terminal-frame">
+        <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
+        <div class="terminal-content">
+┌───────────────────────────────────────────────────┐
+│ MÓDULO: DISTÂNCIA ENTRE PONTOS                    │
+└───────────────────────────────────────────────────┘
+
+> INICIANDO TRANSMISSÃO...
+> CARREGANDO MÓDULO DE TREINAMENTO...
+> ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
+        </div>
+    </div>
+
+    <div class="terminal-border">
+        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: DISTÂNCIA ENTRE PONTOS</h2>
+    
+    <p>Na Zona Devastada, um erro de cálculo na distância entre dois pontos pode significar a diferença entre vida e morte. Seja para determinar a rota mais segura entre abrigos, calcular o alcance dos mutantes ou estimar a quantidade de combustível necessária para uma expedição, o cálculo preciso de distâncias é uma habilidade vital para qualquer sobrevivente.</p>
+    
+    <p>A distância entre dois pontos no plano é calculada usando a diferença vetorial entre suas coordenadas. Sejam $A(x_1, y_1)$ e $B(x_2, y_2)$ dois pontos no plano. O vetor $\overrightarrow{AB} = (x_2 - x_1, y_2 - y_1)$ representa o deslocamento do ponto A até o ponto B. A distância entre A e B é o módulo (ou norma) deste vetor.</p>
+    
+    <p>Este módulo matemático aborda métodos para calcular distâncias usando operações vetoriais, permitindo que você navegue com precisão pela Zona Devastada enquanto minimiza a exposição a ameaças. Lembre-se: em um mundo onde cada recurso conta, o caminho mais curto é frequentemente a diferença entre a sobrevivência e o fracasso.</p>
+    
+    <div class="formula">
+    $$d(A,B) = |\overrightarrow{AB}| = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$
+    </div>
+    
+    <p>Este método utiliza o teorema de Pitágoras e pode ser generalizado para calcular distâncias em diferentes contextos: distância de um ponto a uma reta, entre retas paralelas ou entre um ponto e um plano. Dominar estas técnicas permitirá que você otimize rotas de exploração, mapeie zonas seguras e planeje defesas eficientes para o seu abrigo.</p>
+
+    <!-- MISSÕES (EXERCÍCIOS) -->
+    <div class="mission-counter">
+        <!-- MISSÃO 1 (BÁSICA) -->
+        <div class="exercise">
+            <h3>ROTAS DE ABASTECIMENTO</h3>
+            <p>O mapa da Zona Devastada utiliza um sistema de coordenadas em quilômetros. O abrigo principal está localizado no ponto A(3, 4) e um depósito de suprimentos foi descoberto no ponto B(7, 1). Calcule a distância exata entre esses dois pontos para determinar a quantidade de combustível necessária para a expedição de abastecimento.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Use a fórmula da distância entre dois pontos: $d(A,B) = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$. Substitua as coordenadas e calcule o resultado.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identifique as coordenadas dos pontos: A(3, 4) e B(7, 1)</li>
+                    <li>Aplique a fórmula da distância: $d(A,B) = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$</li>
+                    <li>Substitua os valores: $d(A,B) = \sqrt{(7 - 3)^2 + (1 - 4)^2}$</li>
+                    <li>Calcule: $d(A,B) = \sqrt{16 + 9} = \sqrt{25} = 5$ quilômetros</li>
+                </ol>
+                
+                <div class="formula">
+                    $$d(A,B) = \sqrt{(7 - 3)^2 + (1 - 4)^2} = \sqrt{16 + 9} = 5 \text{ quilômetros}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Conhecer a distância exata entre dois pontos permite calcular com precisão o combustível necessário para viagens, evitando o desperdício de recursos valiosos ou, pior ainda, ficar sem combustível em território hostil.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 2 (BÁSICA) -->
+        <div class="exercise">
+            <h3>PERÍMETRO DE SEGURANÇA</h3>
+            <p>Para estabelecer um perímetro de segurança triangular em torno de um novo assentamento, três torres de vigilância foram posicionadas nos pontos A(0, 0), B(6, 0) e C(3, 4). Calcule o comprimento total do perímetro para determinar a quantidade de cerca eletrificada necessária para proteger o assentamento.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Calcule a distância entre cada par de pontos (AB, BC e CA) e some os resultados para obter o perímetro do triângulo.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcule a distância entre A(0, 0) e B(6, 0): $d(A,B) = \sqrt{(6 - 0)^2 + (0 - 0)^2} = \sqrt{36} = 6$</li>
+                    <li>Calcule a distância entre B(6, 0) e C(3, 4): $d(B,C) = \sqrt{(3 - 6)^2 + (4 - 0)^2} = \sqrt{9 + 16} = \sqrt{25} = 5$</li>
+                    <li>Calcule a distância entre C(3, 4) e A(0, 0): $d(C,A) = \sqrt{(0 - 3)^2 + (0 - 4)^2} = \sqrt{9 + 16} = \sqrt{25} = 5$</li>
+                    <li>Some as três distâncias: $\text{Perímetro} = 6 + 5 + 5 = 16$ unidades</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Perímetro} = d(A,B) + d(B,C) + d(C,A) = 6 + 5 + 5 = 16 \text{ unidades}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O cálculo preciso de perímetros é essencial para otimizar o uso de recursos de defesa. Uma cerca muito curta deixaria brechas na segurança, enquanto uma cerca muito longa desperdiçaria material valioso que poderia ser usado em outras partes do assentamento.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 3 (BÁSICA) -->
+        <div class="exercise">
+            <h3>ALCANCE DO RÁDIO</h3>
+            <p>A torre de comunicação principal está localizada no ponto O(0, 0). Um explorador encontra-se no ponto E(8, 15) e precisa saber se está dentro do alcance máximo do rádio, que é de 20 km. Determine se o explorador conseguirá estabelecer comunicação com a base.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Compare a distância entre o explorador e a torre de comunicação com o alcance máximo do rádio. Se a distância for menor ou igual ao alcance, a comunicação será possível.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcule a distância entre O(0, 0) e E(8, 15): $d(O,E) = \sqrt{(8 - 0)^2 + (15 - 0)^2}$</li>
+                    <li>Simplifique: $d(O,E) = \sqrt{64 + 225} = \sqrt{289} = 17$ km</li>
+                    <li>Compare com o alcance do rádio: $17 \text{ km} < 20 \text{ km}$</li>
+                    <li>Como a distância é menor que o alcance máximo, o explorador conseguirá estabelecer comunicação</li>
+                </ol>
+                
+                <div class="formula">
+                    $$d(O,E) = \sqrt{(8 - 0)^2 + (15 - 0)^2} = \sqrt{64 + 225} = 17 \text{ km} < 20 \text{ km}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Conhecer os limites de seus equipamentos de comunicação é vital para planejamento de expedições. Ficar fora de alcance pode significar não conseguir pedir ajuda em situações críticas. Sempre planeje rotas que mantenham pelo menos contato intermitente com a base.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 4 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>ZONAS DE RADIAÇÃO</h3>
+            <p>Uma área circular com radiação intensa foi identificada, centrada no ponto C(5, 7) com um raio de 4 km. Uma rota de expedição passa pelo ponto P(2, 4). Determine se esta rota é segura ou se será necessário um desvio para evitar a exposição à radiação.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Calcule a distância entre o ponto P e o centro C da zona de radiação. Compare essa distância com o raio da área contaminada.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcule a distância entre P(2, 4) e C(5, 7): $d(P,C) = \sqrt{(5 - 2)^2 + (7 - 4)^2}$</li>
+                    <li>Simplifique: $d(P,C) = \sqrt{9 + 9} = \sqrt{18} = 3\sqrt{2} \approx 4,24$ km</li>
+                    <li>Compare com o raio da zona de radiação: $4,24 \text{ km} > 4 \text{ km}$</li>
+                    <li>Como a distância é maior que o raio, o ponto P está fora da zona de radiação, portanto a rota é segura</li>
+                </ol>
+                
+                <div class="formula">
+                    $$d(P,C) = \sqrt{(5 - 2)^2 + (7 - 4)^2} = \sqrt{18} \approx 4,24 \text{ km} > 4 \text{ km}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Mapear e evitar zonas de radiação é crítico para a sobrevivência a longo prazo. A exposição à radiação causa danos cumulativos ao organismo, e mesmo pequenas incursões em zonas contaminadas podem ter consequências letais ao longo do tempo. Sempre mantenha uma margem de segurança ao planejar rotas próximas a áreas contaminadas.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 5 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>TRIANGULAÇÃO DE SINAL</h3>
+            <p>Três estações de escuta detectaram um sinal de socorro vindo de algum lugar na Zona Devastada. As estações estão localizadas nos pontos A(0, 0), B(10, 0) e C(5, 8). Se a distância do sinal até cada estação é de 5 km, 6 km e 4 km, respectivamente, determine a posição aproximada da origem do sinal para coordenar o resgate.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Para cada estação, considere a equação de uma circunferência centrada na estação com raio igual à distância detectada. A interseção dessas três circunferências dará a posição do sinal.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para o ponto A(0, 0), a circunferência tem equação: $x^2 + y^2 = 25$</li>
+                    <li>Para o ponto B(10, 0), a circunferência tem equação: $(x - 10)^2 + y^2 = 36$</li>
+                    <li>Para o ponto C(5, 8), a circunferência tem equação: $(x - 5)^2 + (y - 8)^2 = 16$</li>
+                    <li>Resolvendo o sistema de equações: Combinando as equações das duas primeiras circunferências, encontramos: 
+                       $x^2 + y^2 = 25$ e $(x - 10)^2 + y^2 = 36$
+                       $x^2 - 20x + 100 + y^2 = 36$
+                       $x^2 + y^2 - 20x + 100 = 36$
+                       $x^2 + y^2 = 25$ e $x^2 + y^2 - 20x + 64 = 0$
+                       $25 - 20x + 64 = 0$
+                       $-20x = -89$
+                       $x = 4,45$
+                       Substituindo na primeira equação: $4,45^2 + y^2 = 25$
+                       $y^2 = 25 - 19,80 = 5,2$
+                       $y = \pm 2,28$
+                       </li>
+                    <li>Verificando os pontos $(4.45, 2.28)$ e $(4.45, -2.28)$ na equação da terceira circunferência, confirmamos que $(4.45, 2.28)$ é o ponto que satisfaz todas as condições</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\begin{cases}
+                    x^2 + y^2 = 25 \\
+                    (x - 10)^2 + y^2 = 36 \\
+                    (x - 5)^2 + (y - 8)^2 = 16
+                    \end{cases}$$
+                    
+                    $$\text{Solução: } (4.45, 2.28)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A triangulação é uma técnica essencial para localizar sobreviventes perdidos ou fontes de interferência. Em um mundo sem GPS, dominar técnicas de posicionamento baseadas em distâncias pode salvar vidas quando cada minuto conta durante uma operação de resgate.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 6 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>PONTO DE ENCONTRO ESTRATÉGICO</h3>
+            <p>Três grupos de exploradores estão localizados nos pontos A(1, 2), B(7, 8) e C(9, 4). Eles precisam determinar um ponto de encontro P que minimize a soma das distâncias que cada grupo precisará percorrer. Encontre as coordenadas desse ponto de encontro ótimo.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Este é um problema clássico conhecido como "problema do ponto de Fermat". Uma aproximação razoável, embora nem sempre ótima, é o baricentro do triângulo formado pelos três pontos.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Como uma aproximação para este problema complexo, calcularemos o baricentro do triângulo ABC.</li>
+                    <li>O baricentro é calculado como a média das coordenadas: $P = (\frac{x_A + x_B + x_C}{3}, \frac{y_A + y_B + y_C}{3})$</li>
+                    <li>Substituindo os valores: $P = (\frac{1 + 7 + 9}{3}, \frac{2 + 8 + 4}{3}) = (\frac{17}{3}, \frac{14}{3}) \approx (5.67, 4.67)$</li>
+                    <li>Para verificar a solução, calculamos a soma das distâncias:
+                       $d(A,P) = \sqrt{(5.67 - 1)^2 + (4.67 - 2)^2} \approx 5.42$
+                       $d(B,P) = \sqrt{(5.67 - 7)^2 + (4.67 - 8)^2} \approx 3.73$
+                       $d(C,P) = \sqrt{(5.67 - 9)^2 + (4.67 - 4)^2} \approx 3.35$
+                       $\text{Soma total} = 5.42 + 3.73 + 3.35 = 12.5$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$P = (\frac{x_A + x_B + x_C}{3}, \frac{y_A + y_B + y_C}{3}) = (5.67, 4.67)$$
+                    $$\text{Soma das distâncias} \approx 12.5 \text{ unidades}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Minimizar a distância total percorrida por múltiplos grupos não só economiza energia e recursos, mas também reduz o tempo de exposição a perigos externos. Em operações de grupo, a eficiência logística frequentemente determina o sucesso ou fracasso da missão.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 7 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>DETECÇÃO DE PERÍMETRO</h3>
+            <p>Um sistema de segurança baseado em sensores de movimento foi instalado ao redor do abrigo. Os sensores estão posicionados nos pontos A(0, 0), B(8, 0), C(8, 6) e D(0, 6), formando um retângulo. Se um mutante é detectado no ponto M(3, 4), o sistema precisa identificar qual sensor está mais próximo para acionar o alarme correspondente. Determine qual sensor deve ser acionado.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Calcule a distância entre o ponto M e cada um dos quatro sensores, então identifique o sensor com a menor distância.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcule a distância entre M(3, 4) e A(0, 0): $d(M,A) = \sqrt{(3 - 0)^2 + (4 - 0)^2} = \sqrt{9 + 16} = \sqrt{25} = 5$</li>
+                    <li>Calcule a distância entre M(3, 4) e B(8, 0): $d(M,B) = \sqrt{(3 - 8)^2 + (4 - 0)^2} = \sqrt{25 + 16} = \sqrt{41} \approx 6.40$</li>
+                    <li>Calcule a distância entre M(3, 4) e C(8, 6): $d(M,C) = \sqrt{(3 - 8)^2 + (4 - 6)^2} = \sqrt{25 + 4} = \sqrt{29} \approx 5.39$</li>
+                    <li>Calcule a distância entre M(3, 4) e D(0, 6): $d(M,D) = \sqrt{(3 - 0)^2 + (4 - 6)^2} = \sqrt{9 + 4} = \sqrt{13} \approx 3.61$</li>
+                    <li>Compare as distâncias: 5, 6.40, 5.39 e 3.61. A menor é 3.61, correspondente ao sensor D.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$d(M,D) = \sqrt{(3 - 0)^2 + (4 - 6)^2} = \sqrt{13} \approx 3.61 \text{ unidades}$$
+                    $$\text{Sensor mais próximo: D(0, 6)}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em sistemas de segurança distribuídos, identificar qual sensor está mais próximo de uma ameaça permite respostas mais rápidas e direcionadas. Isso economiza recursos e aumenta a eficácia da defesa, permitindo que você priorize ameaças e direcione recursos defensivos apenas para onde são realmente necessários.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 8 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>ÁREA DE CULTIVO SEGURA</h3>
+            <p>Após análises do solo, três pontos foram identificados como adequados para agricultura: A(1, 1), B(5, 3) e C(3, 7). Para proteger a área de cultivo, é necessário construir uma cerca que englobe esses três pontos, formando um triângulo. Determine a área deste triângulo para estimar a quantidade de alimentos que pode ser produzida.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Você pode calcular a área do triângulo usando a fórmula da área baseada nas coordenadas dos vértices.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para calcular a área do triângulo, usaremos a fórmula da área baseada em coordenadas:
+                    $\text{Área} = \frac{1}{2}|x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2)|$</li>
+                    <li>Substituindo os valores:
+                    $\text{Área} = \frac{1}{2}|1(3 - 7) + 5(7 - 1) + 3(1 - 3)|$</li>
+                    <li>Calculando: $\text{Área} = \frac{1}{2}|1(-4) + 5(6) + 3(-2)|$</li>
+                    <li>Simplificando: $\text{Área} = \frac{1}{2}|-4 + 30 - 6| = \frac{1}{2}|20| = 10$ unidades quadradas</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Área} = \frac{1}{2}|x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2)|$$
+                    $$\text{Área} = \frac{1}{2}|1(3 - 7) + 5(7 - 1) + 3(1 - 3)| = 10 \text{ unidades quadradas}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Calcular a área de terrenos cultiváveis permite estimar a produção de alimentos e planejar o sustento da comunidade. Em um cenário pós-apocalíptico, onde cada recurso alimentar é crucial, essa previsão pode ser a diferença entre abundância e escassez durante os períodos de entressafra.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 9 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>DISTÂNCIA ENTRE VEÍCULOS EM MOVIMENTO</h3>
+            <p>Dois veículos de exploração partiram simultaneamente de bases diferentes. O veículo A partiu do ponto (2, 3) com velocidade constante de 5 km/h na direção do vetor (1, 2). O veículo B partiu do ponto (8, 10) com velocidade constante de 4 km/h na direção do vetor (-2, -1). Determine a distância mínima entre os veículos durante sua jornada e o tempo que levará para atingirem essa distância mínima.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Parametrize as posições dos veículos em função do tempo e encontre o tempo que minimiza a função de distância entre eles.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Determinamos as coordenadas dos veículos em função do tempo:
+                    $A(t) = (2, 3) + t \cdot 5 \cdot \frac{(1, 2)}{\sqrt{1^2 + 2^2}} = (2, 3) + t \cdot 5 \cdot \frac{(1, 2)}{\sqrt{5}} = (2, 3) + t \cdot \frac{5}{\sqrt{5}} \cdot (1, 2)$
+                    $A(t) = (2, 3) + t \cdot (5/\sqrt{5}, 10/\sqrt{5}) \approx (2, 3) + t \cdot (2.24, 4.47)$</li>
+                    <li>De forma similar:
+                    $B(t) = (8, 10) + t \cdot 4 \cdot \frac{(-2, -1)}{\sqrt{(-2)^2 + (-1)^2}} = (8, 10) + t \cdot 4 \cdot \frac{(-2, -1)}{\sqrt{5}} = (8, 10) + t \cdot \frac{4}{\sqrt{5}} \cdot (-2, -1)$
+                    $B(t) = (8, 10) + t \cdot (-4\sqrt{5}/5, -2\sqrt{5}/5) \approx (8, 10) + t \cdot (-3.58, -1.79)$</li>
+                    <li>A posição de A em função do tempo: $A(t) = (2 + 2.24t, 3 + 4.47t)$</li>
+                    <li>A posição de B em função do tempo: $B(t) = (8 - 3.58t, 10 - 1.79t)$</li>
+                    <li>O quadrado da distância entre A e B em função do tempo:
+                    $d^2(t) = [(8 - 3.58t) - (2 + 2.24t)]^2 + [(10 - 1.79t) - (3 + 4.47t)]^2$
+                    $d^2(t) = [6 - 5.82t]^2 + [7 - 6.26t]^2$</li>
+                    <li>Para encontrar o mínimo, derivamos e igualamos a zero:
+                    $\frac{d(d^2(t))}{dt} = 2[6 - 5.82t](-5.82) + 2[7 - 6.26t](-6.26) = 0$
+                    $-11.64[6 - 5.82t] - 12.52[7 - 6.26t] = 0$
+                    $-69.84 + 67.84t - 87.64 + 78.55t = 0$
+                    $146.39t = 157.48$
+                    $t \approx 1.08$ horas</li>
+                    <li>As posições nesse momento:
+                    $A(1.08) \approx (2 + 2.24 \cdot 1.08, 3 + 4.47 \cdot 1.08) \approx (4.42, 7.83)$
+                    $B(1.08) \approx (8 - 3.58 \cdot 1.08, 10 - 1.79 \cdot 1.08) \approx (4.13, 8.07)$</li>
+                    <li>A distância mínima:
+                    $d_{min} = \sqrt{(4.42 - 4.13)^2 + (7.83 - 8.07)^2} = \sqrt{0.29^2 + (-0.24)^2} = \sqrt{0.084 + 0.058} = \sqrt{0.142} \approx 0.38$ km</li>
+                </ol>
+                
+                <div class="formula">
+                    $$d_{min} \approx 0.38 \text{ km, ocorrendo após } t \approx 1.08 \text{ horas}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Calcular distâncias mínimas entre objetos em movimento é essencial para planejar intercepções ou evitar colisões. Essa habilidade permite coordenar encontros entre equipes de exploradores ou prever quando e onde grupos hostis podem interceptar suas rotas de viagem.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 10 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>REDE DE COMUNICAÇÃO OTIMIZADA</h3>
+            <p>Cinco assentamentos estão localizados nos pontos A(1, 2), B(5, 1), C(8, 5), D(4, 7) e E(2, 6). Para estabelecer uma rede de comunicação eficiente, é necessário conectar todos os assentamentos usando a menor quantidade possível de cabo de fibra óptica recuperado. Determine quais conexões devem ser feitas e o comprimento total de cabo necessário.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Este é um problema de Árvore Geradora Mínima. Primeiro, calculamos todas as distâncias possíveis entre os assentamentos:
+                    $d(A,B) = \sqrt{(5-1)^2 + (1-2)^2} = \sqrt{16 + 1} = \sqrt{17} \approx 4.12$
+                    $d(A,C) = \sqrt{(8-1)^2 + (5-2)^2} = \sqrt{49 + 9} = \sqrt{58} \approx 7.62$
+                    $d(A,D) = \sqrt{(4-1)^2 + (7-2)^2} = \sqrt{9 + 25} = \sqrt{34} \approx 5.83$
+                    $d(A,E) = \sqrt{(2-1)^2 + (6-2)^2} = \sqrt{1 + 16} = \sqrt{17} \approx 4.12$
+                    $d(B,C) = \sqrt{(8-5)^2 + (5-1)^2} = \sqrt{9 + 16} = \sqrt{25} = 5$
+                    $d(B,D) = \sqrt{(4-5)^2 + (7-1)^2} = \sqrt{1 + 36} = \sqrt{37} \approx 6.08$
+                    $d(B,E) = \sqrt{(2-5)^2 + (6-1)^2} = \sqrt{9 + 25} = \sqrt{34} \approx 5.83$
+                    $d(C,D) = \sqrt{(4-8)^2 + (7-5)^2} = \sqrt{16 + 4} = \sqrt{20} \approx 4.47$
+                    $d(C,E) = \sqrt{(2-8)^2 + (6-5)^2} = \sqrt{36 + 1} = \sqrt{37} \approx 6.08$
+                    $d(D,E) = \sqrt{(2-4)^2 + (6-7)^2} = \sqrt{4 + 1} = \sqrt{5} \approx 2.24$</li>
+                    <li>Usando o algoritmo de Kruskal, começamos com a menor aresta: D-E (2.24)</li>
+                    <li>Próxima menor aresta: A-E (4.12) ou A-B (4.12), escolhemos A-E</li>
+                    <li>Próxima menor aresta: A-B (4.12)</li>
+                    <li>Próxima menor aresta: C-D (4.47)</li>
+                    <li>As conexões são: D-E, A-E, A-B, C-D</li>
+                    <li>O comprimento total do cabo: $2.24 + 4.12 + 4.12 + 4.47 = 14.95$ unidades</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Conexões ótimas: D-E, A-E, A-B, C-D}$$
+                    $$\text{Comprimento total: } 14.95 \text{ unidades}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A otimização de recursos escassos como cabos de comunicação é fundamental para a sustentabilidade de uma rede de assentamentos. Uma rede bem planejada não apenas economiza materiais valiosos, mas também facilita a coordenação entre comunidades dispersas, aumentando significativamente as chances de sobrevivência e reconstrução a longo prazo.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 11 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>ENCAPSULAMENTO DE ZONA CONTAMINADA</h3>
+            <p>Uma área contaminada na Zona Devastada precisa ser isolada. Exploradores identificaram sete pontos no perímetro da contaminação: (1, 1), (2, 4), (5, 6), (8, 6), (9, 3), (7, 1), e (4, 0). Para economizar o valioso material de barreira anti-radiação, é necessário determinar o polígono convexo mínimo que engloba todos esses pontos. Calcule as coordenadas dos vértices desse polígono e o comprimento total da barreira necessária.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para encontrar o fecho convexo (convex hull), usaremos o algoritmo do Embrulho de Presente (Gift Wrapping):
+                    Primeiro, encontramos o ponto mais à esquerda: (1, 1)</li>
+                    <li>Partindo desse ponto, encontramos o ponto que forma o menor ângulo polar em relação ao eixo horizontal: (4, 0)</li>
+                    <li>Continuando o processo, os pontos seguintes do fecho convexo são: (7, 1), (9, 3), (8, 6), (5, 6), (2, 4) e voltamos para (1, 1)</li>
+                    <li>Assim, os vértices do polígono convexo são: (1, 1), (4, 0), (7, 1), (9, 3), (8, 6), (5, 6), (2, 4)</li>
+                    <li>Calculando o perímetro:
+                    $d((1,1),(4,0)) = \sqrt{9 + 1} = \sqrt{10} \approx 3.16$
+                    $d((4,0),(7,1)) = \sqrt{9 + 1} = \sqrt{10} \approx 3.16$
+                    $d((7,1),(9,3)) = \sqrt{4 + 4} = \sqrt{8} \approx 2.83$
+                    $d((9,3),(8,6)) = \sqrt{1 + 9} = \sqrt{10} \approx 3.16$
+                    $d((8,6),(5,6)) = 3$
+                    $d((5,6),(2,4)) = \sqrt{9 + 4} = \sqrt{13} \approx 3.61$
+                    $d((2,4),(1,1)) = \sqrt{1 + 9} = \sqrt{10} \approx 3.16$</li>
+                    <li>O comprimento total da barreira: $3.16 + 3.16 + 2.83 + 3.16 + 3 + 3.61 + 3.16 = 22.08$ unidades</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Vértices do polígono convexo: } (1, 1), (4, 0), (7, 1), (9, 3), (8, 6), (5, 6), (2, 4)$$
+                    $$\text{Comprimento total da barreira: } 22.08 \text{ unidades}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Determinar o menor perímetro que encapsula uma zona perigosa é essencial para minimizar o uso de materiais de contenção raros e difíceis de fabricar. Em um mundo onde cada recurso é valioso, a otimização geométrica pode significar a diferença entre conter múltiplas áreas de risco ou deixar algumas sem isolamento adequado, comprometendo a segurança de toda a região.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 12 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>RECONSTRUÇÃO DE MAPA DANIFICADO</h3>
+            <p>Um mapa antigo e parcialmente degradado da região foi encontrado durante uma expedição. Nele, são visíveis as coordenadas de cinco abrigos: A(2, 3), B(5, 8), C(9, 4), D(7, 1) e E(4, 6). Também há informações fragmentadas indicando que os abrigos A, B e C formam um triângulo com um circuncentro (ponto equidistante dos três vértices) que coincide com outro abrigo. Identifique qual abrigo está nesta posição especial e calcule a distância exata dele até cada um dos vértices do triângulo.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para encontrar o circuncentro do triângulo ABC, precisamos encontrar o ponto equidistante dos três vértices. Este é o centro da circunferência que passa pelos três pontos.</li>
+                    <li>Calculamos as coordenadas do circuncentro usando as equações:
+                    Sejam os pontos $A(x_A, y_A)$, $B(x_B, y_B)$ e $C(x_C, y_C)$.
+                    $D = 2(x_A(y_B - y_C) + x_B(y_C - y_A) + x_C(y_A - y_B))$
+                    $U_x = ((x_A^2 + y_A^2)(y_B - y_C) + (x_B^2 + y_B^2)(y_C - y_A) + (x_C^2 + y_C^2)(y_A - y_B)) / D$
+                    $U_y = ((x_A^2 + y_A^2)(x_C - x_B) + (x_B^2 + y_B^2)(x_A - x_C) + (x_C^2 + y_C^2)(x_B - x_A)) / D$</li>
+                    <li>Substituindo os valores:
+                    $D = 2(2(8 - 4) + 5(4 - 3) + 9(3 - 8)) = 2(8 + 5 - 45) = 2(-32) = -64$
+                    $U_x = ((2^2 + 3^2)(8 - 4) + (5^2 + 8^2)(4 - 3) + (9^2 + 4^2)(3 - 8)) / (-64)$
+                    $U_x = ((4 + 9)(4) + (25 + 64)(1) + (81 + 16)(-5)) / (-64)$
+                    $U_x = (52 + 89 - 485) / (-64) = -344 / (-64) = 5.375$
+                    
+                    $U_y = ((4 + 9)(9 - 5) + (25 + 64)(2 - 9) + (81 + 16)(5 - 2)) / (-64)$
+                    $U_y = ((13)(4) + (89)(-7) + (97)(3)) / (-64)$
+                    $U_y = (52 - 623 + 291) / (-64) = -280 / (-64) = 4.375$
+                    
+                    O circuncentro está em $(5.375, 4.375)$</li>
+                    <li>Verificamos qual dos abrigos D ou E está mais próximo deste ponto:
+                    $d(\text{circuncentro}, D) = \sqrt{(5.375 - 7)^2 + (4.375 - 1)^2} = \sqrt{2.625^2 + 3.375^2} = \sqrt{6.89 + 11.39} = \sqrt{18.28} \approx 4.28$
+                    
+                    $d(\text{circuncentro}, E) = \sqrt{(5.375 - 4)^2 + (4.375 - 6)^2} = \sqrt{1.375^2 + (-1.625)^2} = \sqrt{1.89 + 2.64} = \sqrt{4.53} \approx 2.13$
+                    
+                    O abrigo E está mais próximo do circuncentro.</li>
+                    <li>Agora calculamos a distância do circuncentro exato aos três vértices do triângulo:
+                    $d(\text{circuncentro}, A) = \sqrt{(5.375 - 2)^2 + (4.375 - 3)^2} = \sqrt{3.375^2 + 1.375^2} = \sqrt{11.39 + 1.89} = \sqrt{13.28} \approx 3.64$
+                    
+                    $d(\text{circuncentro}, B) = \sqrt{(5.375 - 5)^2 + (4.375 - 8)^2} = \sqrt{0.375^2 + (-3.625)^2} = \sqrt{0.14 + 13.14} = \sqrt{13.28} \approx 3.64$
+                    
+                    $d(\text{circuncentro}, C) = \sqrt{(5.375 - 9)^2 + (4.375 - 4)^2} = \sqrt{(-3.625)^2 + 0.375^2} = \sqrt{13.14 + 0.14} = \sqrt{13.28} \approx 3.64$
+                    
+                    Confirmamos que o ponto é equidistante dos três vértices, como seria esperado do circuncentro.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Circuncentro do triângulo ABC: } (5.375, 4.375)$$
+                    $$\text{O abrigo mais próximo deste ponto é E}(4, 6)$$
+                    $$\text{Distância do circuncentro aos vértices A, B e C: } 3.64 \text{ unidades}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A capacidade de reconstruir informações a partir de dados fragmentados é inestimável em um mundo onde o conhecimento do passado foi em grande parte perdido. Neste caso, identificar propriedades geométricas especiais permitiu a recuperação de informações cruciais do mapa. Em expedições futuras, este conhecimento pode revelar padrões intencionais no posicionamento de abrigos e recursos, possivelmente indicando locais de interesse que não estão explicitamente marcados.</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- RODAPÉ DO DOCUMENTO -->
+    <div class="footer">
+        REFÚGIO-TEC | DISTÂNCIA ENTRE PONTOS: Sobrevivência Matemática - A matemática é a bússola que guia quando todos os outros mapas falharam.
+    </div>
+</body>
+</html>

@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+    </script>
+    <title>REFÚGIO-TEC | A Elipse</title>
+    <style>
+        /* Estilo inspirado no tema pós-apocalíptico */
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100px; }
+        }
+
+        body {
+            background-color: #0c0c0c;
+            color: #e6e6e6;
+            font-family: "Courier New", monospace;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #4caf50;
+            max-width: 800px;
+            margin: auto;
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 2px;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+
+        h1, h2, h3 {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .exercise {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border: 1px dashed #4caf50;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        details {
+            background-color: #1c1c1c;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            margin-top: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #4caf50;
+        }
+
+        summary:hover {
+            text-shadow: 0 0 3px #4caf50;
+        }
+
+        code {
+            background-color: #333;
+            padding: 3px 5px;
+            color: #ffeb3b;
+        }
+
+        .hint {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #4caf50;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .hint:before {
+            content: "DICA DE SOBREVIVÊNCIA: ";
+            color: #4caf50;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .solution-steps {
+            margin-left: 20px;
+            counter-reset: step-counter;
+        }
+
+        .solution-steps li {
+            list-style-type: none;
+            counter-increment: step-counter;
+            margin-bottom: 10px;
+        }
+
+        .solution-steps li::before {
+            content: "> PASSO_" counter(step-counter) ": ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .formula {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #000;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .terminal-frame {
+            padding: 10px;
+            background-color: #000;
+            margin-bottom: 20px;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .terminal-header {
+            margin: 0;
+            padding: 3px 10px;
+            background-color: #4caf50;
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .terminal-content {
+            padding: 5px;
+            white-space: pre-wrap;
+            font-size: 1em;
+            line-height: 1.2;
+        }
+
+        .cursor:after {
+            content: "█";
+            animation: blink 1s step-end infinite;
+        }
+
+        .terminal-line {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .terminal-border {
+            border: 1px solid #4caf50;
+            padding: 5px;
+            background-color: #000;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .mission-counter {
+            counter-reset: mission;
+        }
+        
+        .mission-counter .exercise h3:before {
+            content: "MISSÃO " counter(mission) ": ";
+            counter-increment: mission;
+        }
+
+        .warning {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .danger {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #8bc34a;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #4caf50;
+            border-top: 1px solid #4caf50;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- TÍTULO E INTRODUÇÃO -->
+    <div class="terminal-frame">
+        <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
+        <div class="terminal-content">
+┌───────────────────────────────────────────────────┐
+│ MÓDULO: A ELIPSE                                  │
+└───────────────────────────────────────────────────┘
+
+> INICIANDO TRANSMISSÃO...
+> CARREGANDO MÓDULO DE TREINAMENTO...
+> ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
+        </div>
+    </div>
+
+    <div class="terminal-border">
+        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: A ELIPSE</h2>
+    
+    <p>Sobrevivente, bem-vindo ao módulo de elipses - as curvas que podem salvar sua vida na Zona Devastada. Quando você precisa calcular órbitas de satélites de comunicação, trajetórias de projéteis ou até mesmo o campo de alcance ideal de torres de transmissão, a elipse é sua aliada matemática mais confiável.</p>
+    
+    <p>A elipse é um lugar geométrico definido pela propriedade fundamental: a soma das distâncias de qualquer ponto da elipse a dois pontos fixos (chamados focos) é sempre constante. Esta propriedade elegante tem aplicações práticas desde o planejamento de rotas de patrulhamento até o design de refletores parabólicos para comunicação.</p>
+    
+    <div class="formula">
+    $$\text{Equação Canônica da Elipse: } \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$$
+    $$\text{Relação Fundamental: } c^2 = a^2 - b^2$$
+    $$\text{Excentricidade: } e = \frac{c}{a} \text{ onde } 0 < e < 1$$
+    </div>
+    
+    <p>Elementos essenciais para sua sobrevivência matemática: <strong>Centro</strong> (ponto de equilíbrio), <strong>Focos</strong> F₁ e F₂ (pontos críticos), <strong>Semi-eixo maior</strong> 'a' (raio máximo), <strong>Semi-eixo menor</strong> 'b' (raio mínimo), <strong>Distância focal</strong> 'c' (separação dos focos). Lembre-se: quanto menor a excentricidade, mais próxima de um círculo perfeito será sua elipse - útil para campos de proteção uniformes.</p>
+
+    <!-- MISSÕES (EXERCÍCIOS) -->
+    <div class="mission-counter">
+        <!-- MISSÃO 1 (BÁSICA) -->
+        <div class="exercise">
+            <h3>Identificação dos Elementos de Sobrevivência</h3>
+            <p>Sua base móvel está posicionada em uma órbita elíptica de segurança. A equação da trajetória é $\frac{x^2}{25} + \frac{y^2}{9} = 1$. Identifique o semi-eixo maior, semi-eixo menor e determine as coordenadas dos focos desta rota de patrulhamento.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Compare a equação dada com a forma canônica. O maior denominador corresponde ao quadrado do semi-eixo maior.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificar que $a^2 = 25$, logo $a = 5$ (semi-eixo maior)</li>
+                    <li>Identificar que $b^2 = 9$, logo $b = 3$ (semi-eixo menor)</li>
+                    <li>Calcular a distância focal: $c^2 = a^2 - b^2 = 25 - 9 = 16$, logo $c = 4$</li>
+                    <li>Determinar as coordenadas dos focos: F₁(-4, 0) e F₂(4, 0)</li>
+                </ol>
+                
+                <div class="formula">
+                    $$a = 5, \quad b = 3, \quad c = 4$$
+                    $$F_1(-4, 0) \text{ e } F_2(4, 0)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Conhecer os focos de sua rota permite estabelecer pontos estratégicos de comunicação, garantindo que qualquer posição na elipse mantenha a mesma soma de distâncias aos pontos de controle.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 2 -->
+        <div class="exercise">
+            <h3>Verificação de Posição Segura</h3>
+            <p>Um mutante foi detectado na posição P(3, 2). Sua zona de proteção elíptica tem equação $\frac{x^2}{16} + \frac{y^2}{12} = 1$. Determine se o mutante está dentro, sobre ou fora do perímetro de segurança.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Substitua as coordenadas do ponto na equação da elipse. Se o resultado for menor que 1, o ponto está dentro; se igual a 1, está sobre a elipse; se maior que 1, está fora.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Substituir P(3, 2) na equação: $\frac{3^2}{16} + \frac{2^2}{12}$</li>
+                    <li>Calcular: $\frac{9}{16} + \frac{4}{12} = \frac{9}{16} + \frac{1}{3}$</li>
+                    <li>Encontrar denominador comum: $\frac{9}{16} + \frac{16}{48} = \frac{27}{48} + \frac{16}{48} = \frac{43}{48}$</li>
+                    <li>Como $\frac{43}{48} < 1$, o mutante está dentro da zona de proteção</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\frac{9}{16} + \frac{4}{12} = \frac{43}{48} < 1$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Esta verificação rápida permite avaliar ameaças instantaneamente. Um resultado menor que 1 significa que o alvo está dentro do alcance de suas defesas automáticas.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 3 -->
+        <div class="exercise">
+            <h3>Construção do Perímetro Elíptico</h3>
+            <p>Você precisa estabelecer uma zona de segurança elíptica com centro na origem, focos em F₁(-3, 0) e F₂(3, 0), e semi-eixo maior igual a 5. Determine a equação desta zona de proteção.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Use o fato de que a distância entre os focos é 2c, e aplique a relação fundamental c² = a² - b² para encontrar b.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificar que a distância focal é c = 3 (distância do centro ao foco)</li>
+                    <li>O semi-eixo maior é a = 5 (dado)</li>
+                    <li>Calcular o semi-eixo menor: $b^2 = a^2 - c^2 = 25 - 9 = 16$, logo $b = 4$</li>
+                    <li>Escrever a equação canônica com os valores encontrados</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\frac{x^2}{25} + \frac{y^2}{16} = 1$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Esta configuração cria um perímetro de segurança otimizado, onde os focos podem ser posições de torres de vigilância, garantindo cobertura máxima com recursos mínimos.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 4 -->
+        <div class="exercise">
+            <h3>Análise de Campo de Radiação</h3>
+            <p>Um campo de radiação tem formato elíptico com focos em F₁(0, -4) e F₂(0, 4), e qualquer ponto na borda do campo mantém a soma das distâncias aos focos igual a 10. Encontre a equação deste campo perigoso.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>A soma constante das distâncias aos focos é igual a 2a. Os focos estão no eixo y, então a elipse tem eixo maior vertical.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>A soma constante é 2a = 10, logo a = 5</li>
+                    <li>A distância focal é c = 4 (distância do centro ao foco)</li>
+                    <li>Calcular: $b^2 = a^2 - c^2 = 25 - 16 = 9$, logo $b = 3$</li>
+                    <li>Como os focos estão no eixo y, a equação é $\frac{x^2}{b^2} + \frac{y^2}{a^2} = 1$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\frac{x^2}{9} + \frac{y^2}{25} = 1$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Mapear campos de radiação permite calcular rotas seguras. A propriedade da soma constante garante que você sempre saiba sua distância total aos pontos de maior intensidade radioativa.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 5 -->
+        <div class="exercise">
+            <h3>Otimização de Rota de Abastecimento</h3>
+            <p>Duas bases de suprimentos estão localizadas em A(-6, 0) e B(6, 0). Você precisa estabelecer postos de abastecimento ao longo de uma rota elíptica onde a soma das distâncias a ambas as bases seja sempre 20 unidades. Determine a excentricidade desta rota e classifique o formato da elipse.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>As bases A e B são os focos da elipse. Use a soma constante para encontrar 'a', depois calcule a excentricidade.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificar que 2a = 20, logo a = 10</li>
+                    <li>A distância focal é c = 6 (distância do centro ao foco)</li>
+                    <li>Calcular: $b^2 = a^2 - c^2 = 100 - 36 = 64$, logo $b = 8$</li>
+                    <li>Calcular a excentricidade: $e = \frac{c}{a} = \frac{6}{10} = 0,6$</li>
+                    <li>Como 0 < e < 1 e e = 0,6, a elipse é moderadamente achatada</li>
+                </ol>
+                
+                <div class="formula">
+                    $$e = 0,6 \quad \text{(elipse moderadamente achatada)}$$
+                    $$\frac{x^2}{100} + \frac{y^2}{64} = 1$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Uma excentricidade de 0,6 indica uma rota eficiente que balanceia acessibilidade às duas bases. Rotas com baixa excentricidade são mais previsíveis, enquanto alta excentricidade pode oferecer vantagens táticas.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 6 -->
+        <div class="exercise">
+            <h3>Conversão de Coordenadas de Emergência</h3>
+            <p>Durante uma tempestade radioativa, você recebeu as coordenadas de uma zona segura através da equação geral $4x^2 + 9y^2 = 36$. Converta para a forma canônica e identifique os elementos essenciais desta zona de proteção.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Divida toda a equação por 36 para obter a forma canônica. Depois compare com o padrão para identificar a² e b².</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Dividir a equação por 36: $\frac{4x^2}{36} + \frac{9y^2}{36} = 1$</li>
+                    <li>Simplificar: $\frac{x^2}{9} + \frac{y^2}{4} = 1$</li>
+                    <li>Identificar: $a^2 = 9$ (maior denominador), logo $a = 3$</li>
+                    <li>Identificar: $b^2 = 4$, logo $b = 2$</li>
+                    <li>Calcular: $c^2 = a^2 - b^2 = 9 - 4 = 5$, logo $c = \sqrt{5}$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\frac{x^2}{9} + \frac{y^2}{4} = 1$$
+                    $$a = 3, \quad b = 2, \quad c = \sqrt{5}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A conversão rápida de equações é vital em emergências. Esta zona tem formato elíptico horizontal com focos em $(\pm\sqrt{5}, 0)$, oferecendo proteção máxima na direção horizontal.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 7 -->
+        <div class="exercise">
+            <h3>Interceptação de Sinal Hostil</h3>
+            <p>Dois transmissores inimigos estão localizados nos pontos F₁(-5, 0) e F₂(5, 0). Seus equipamentos de triangulação detectaram que a diferença das distâncias de um ponto emissor aos dois transmissores é sempre 6. Sabendo que este padrão forma uma hipérbole, mas você precisa estabelecer uma elipse de monitoramento que tenha os mesmos focos e passe pelo ponto P(6, 0), determine a equação desta elipse de vigilância.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Os focos da elipse são F₁(-5, 0) e F₂(5, 0), logo c = 5</li>
+                    <li>A elipse deve passar por P(6, 0), que está no eixo maior</li>
+                    <li>Como P(6, 0) está no eixo x e c = 5, temos que a = 6 (distância do centro ao vértice)</li>
+                    <li>Calcular: $b^2 = a^2 - c^2 = 36 - 25 = 11$</li>
+                    <li>A equação é: $\frac{x^2}{36} + \frac{y^2}{11} = 1$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\frac{x^2}{36} + \frac{y^2}{11} = 1$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Estabelecer elipses de monitoramento com os mesmos focos que hipérboles inimigas permite interceptar comunicações mantendo distância segura dos pontos de transmissão hostis.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 8 -->
+        <div class="exercise">
+            <h3>Análise de Trajetória Balística</h3>
+            <p>Um projétil foi disparado seguindo uma trajetória elíptica com equação $\frac{(x-2)^2}{16} + \frac{(y+1)^2}{9} = 1$. Determine o centro da trajetória, os focos e analise se o ponto de impacto I(6, 2) está dentro da zona de alcance.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificar o centro: C(2, -1) (valores que tornam zero os termos entre parênteses)</li>
+                    <li>Identificar: $a^2 = 16$, logo $a = 4$; $b^2 = 9$, logo $b = 3$</li>
+                    <li>Calcular: $c^2 = a^2 - b^2 = 16 - 9 = 7$, logo $c = \sqrt{7}$</li>
+                    <li>Os focos estão em: $(2 \pm \sqrt{7}, -1)$</li>
+                    <li>Verificar I(6, 2): $\frac{(6-2)^2}{16} + \frac{(2+1)^2}{9} = \frac{16}{16} + \frac{9}{9} = 1 + 1 = 2 > 1$</li>
+                    <li>Como o resultado é maior que 1, o ponto está fora da zona de alcance</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Centro: } C(2, -1)$$
+                    $$\text{Focos: } F_1(2-\sqrt{7}, -1) \text{ e } F_2(2+\sqrt{7}, -1)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Analisar trajetórias deslocadas é crucial para prever impactos. O ponto I(6, 2) está fora do alcance, indicando que o projétil não atingirá essa posição com a configuração atual.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 9 -->
+        <div class="exercise">
+            <h3>Sistema de Comunicação por Reflexão</h3>
+            <p>Você está projetando um refletor elíptico para comunicações. O refletor tem 8 metros de largura (eixo maior) e 6 metros de altura (eixo menor), com centro na origem. Um transmissor deve ser colocado em um dos focos. Determine a equação do refletor e as coordenadas ideais para o transmissor, sabendo que a propriedade reflexiva da elipse fará com que todos os sinais emitidos de um foco sejam refletidos para o outro foco.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>A largura é o eixo maior: 2a = 8, logo a = 4</li>
+                    <li>A altura é o eixo menor: 2b = 6, logo b = 3</li>
+                    <li>Calcular a distância focal: $c^2 = a^2 - b^2 = 16 - 9 = 7$, logo $c = \sqrt{7}$</li>
+                    <li>A equação do refletor é: $\frac{x^2}{16} + \frac{y^2}{9} = 1$</li>
+                    <li>As coordenadas ideais para o transmissor são: $(\pm\sqrt{7}, 0)$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\frac{x^2}{16} + \frac{y^2}{9} = 1$$
+                    $$\text{Posições do transmissor: } (\pm\sqrt{7}, 0)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A propriedade reflexiva da elipse garante que sinais emitidos de um foco sempre convergem para o outro foco após reflexão, criando um sistema de comunicação altamente eficiente e focado.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 10 -->
+        <div class="exercise">
+            <h3>Triangulação Avançada de Recursos</h3>
+            <p>Três depósitos de recursos foram encontrados nos pontos A(0, 4), B(-3, 0) e C(3, 0). Você precisa estabelecer uma rota de coleta elíptica que passe pelos três pontos. Sabendo que dois destes pontos devem ser os focos da elipse, determine qual configuração é possível e encontre a equação da rota ótima.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Analisar as possibilidades: B(-3, 0) e C(3, 0) são simétricos em relação à origem</li>
+                    <li>Configuração possível: focos em B(-3, 0) e C(3, 0), passando por A(0, 4)</li>
+                    <li>Distância focal: c = 3</li>
+                    <li>Para encontrar 'a': soma das distâncias de A aos focos = $d(A,B) + d(A,C)$</li>
+                    <li>$d(A,B) = \sqrt{(-3-0)^2 + (0-4)^2} = \sqrt{9+16} = 5$</li>
+                    <li>$d(A,C) = \sqrt{(3-0)^2 + (0-4)^2} = \sqrt{9+16} = 5$</li>
+                    <li>Soma = 10 = 2a, logo a = 5</li>
+                    <li>Calcular: $b^2 = a^2 - c^2 = 25 - 9 = 16$, logo $b = 4$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\frac{x^2}{25} + \frac{y^2}{16} = 1$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Esta configuração otimiza a coleta de recursos, garantindo que a rota passe pelos três depósitos com eficiência máxima. A simetria dos focos simplifica o planejamento logístico.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 11 -->
+        <div class="exercise">
+            <h3>Sistema de Defesa Multicamadas</h3>
+            <p>Você está projetando um sistema de defesa com múltiplas elipses concêntricas. A elipse externa tem equação $\frac{x^2}{100} + \frac{y^2}{64} = 1$. A elipse interna deve ter os mesmos focos, mas metade da área da externa. Considerando que a área de uma elipse é $A = \pi ab$, determine a equação da elipse interna e calcule a diferença entre as excentricidades das duas elipses.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para a elipse externa: $a_1 = 10$, $b_1 = 8$, $c_1^2 = 100 - 64 = 36$, logo $c_1 = 6$</li>
+                    <li>Área externa: $A_1 = \pi \cdot 10 \cdot 8 = 80\pi$</li>
+                    <li>Área interna: $A_2 = \frac{A_1}{2} = 40\pi = \pi a_2 b_2$, logo $a_2 b_2 = 40$</li>
+                    <li>Para mesmos focos: $c_2 = c_1 = 6$, então $c_2^2 = a_2^2 - b_2^2 = 36$</li>
+                    <li>Sistema: $a_2 b_2 = 40$ e $a_2^2 - b_2^2 = 36$</li>
+                    <li>De $b_2 = \frac{40}{a_2}$: $a_2^2 - \frac{1600}{a_2^2} = 36$</li>
+                    <li>$a_2^4 - 36a_2^2 - 1600 = 0$. Seja $u = a_2^2$: $u^2 - 36u - 1600 = 0$</li>
+                    <li>$u = \frac{36 \pm \sqrt{1296 + 6400}}{2} = \frac{36 \pm \sqrt{7696}}{2} = \frac{36 \pm 4\sqrt{481}}{2}$</li>
+                    <li>Como $\sqrt{481} \approx 21.9$: $u \approx 50$, logo $a_2 \approx \sqrt{50} = 5\sqrt{2}$</li>
+                    <li>$b_2 = \frac{40}{5\sqrt{2}} = 4\sqrt{2}$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Elipse interna: } \frac{x^2}{50} + \frac{y^2}{32} = 1$$
+                    $$e_1 = \frac{6}{10} = 0.6, \quad e_2 = \frac{6}{5\sqrt{2}} = \frac{3\sqrt{2}}{5} \approx 0.849$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Sistemas de defesa multicamadas com diferentes excentricidades criam zonas de proteção complementares. A elipse interna mais "alongada" oferece cobertura direcionada, enquanto a externa fornece proteção mais uniforme.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 12 -->
+        <div class="exercise">
+            <h3>Operação Resgate Coordenado</h3>
+            <p>Uma missão de resgate complexa envolve duas equipes posicionadas nos focos de uma elipse de coordenação. A elipse tem centro em C(3, -2), passa pelo ponto estratégico P(7, 1) e tem semi-eixo menor igual a 4. Uma terceira equipe deve ser posicionada no ponto Q(a, b) da elipse onde a soma das coordenadas seja máxima. Determine a equação da elipse de coordenação e as coordenadas ótimas para a terceira equipe.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Equação com centro em (3, -2): $\frac{(x-3)^2}{a^2} + \frac{(y+2)^2}{b^2} = 1$</li>
+                    <li>Dado: semi-eixo menor = 4, então o menor entre a e b é 4</li>
+                    <li>P(7, 1) está na elipse: $\frac{(7-3)^2}{a^2} + \frac{(1+2)^2}{b^2} = 1$</li>
+                    <li>$\frac{16}{a^2} + \frac{9}{b^2} = 1$</li>
+                    <li>Se $b = 4$: $\frac{16}{a^2} + \frac{9}{16} = 1$, então $\frac{16}{a^2} = \frac{7}{16}$, logo $a^2 = \frac{256}{7}$</li>
+                    <li>Se $a = 4$: $\frac{16}{16} + \frac{9}{b^2} = 1$, então $\frac{9}{b^2} = 0$ (impossível)</li>
+                    <li>Portanto: $a^2 = \frac{256}{7}$, $b^2 = 16$</li>
+                    <li>Para maximizar $x + y$ na elipse, usar multiplicadores de Lagrange ou parametrização</li>
+                    <li>Parametrizando: $x = 3 + \frac{16}{\sqrt{7}}\cos t$, $y = -2 + 4\sin t$</li>
+                    <li>$x + y = 1 + \frac{16}{\sqrt{7}}\cos t + 4\sin t$</li>
+                    <li>Máximo quando $\frac{d}{dt}(x + y) = 0$: $-\frac{16}{\sqrt{7}}\sin t + 4\cos t = 0$</li>
+                    <li>$\tan t = \frac{\sqrt{7}}{4}$, então $\cos t = \frac{4}{\sqrt{23}}$, $\sin t = \frac{\sqrt{7}}{\sqrt{23}}$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\frac{(x-3)^2}{\frac{256}{7}} + \frac{(y+2)^2}{16} = 1$$
+                    $$Q\left(3 + \frac{64}{7\sqrt{23}}, -2 + \frac{4\sqrt{7}}{\sqrt{23}}\right)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Otimização de posicionamento em operações coordenadas requer cálculo avançado. A terceira equipe será posicionada no ponto da elipse onde a soma das coordenadas é máxima, garantindo vantagem tática e comunicação otimizada com as equipes nos focos.</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- RODAPÉ DO DOCUMENTO -->
+    <div class="footer">
+        REFÚGIO-TEC | A ELIPSE: Sobrevivência Matemática - "Quando a precisão geométrica determina sua sobrevivência"
+    </div>
+</body>
+</html>

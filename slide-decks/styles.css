@@ -1,0 +1,696 @@
+/* ==================== 
+   ESTILOS BASE PARA ELEMENTOS REVEAL
+   ==================== */
+
+/* Cabeçalhos */
+.reveal h1 {
+  font-size: 2.8rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  color: #FFD700; /* Dourado */
+  margin-bottom: 0.3em;
+  letter-spacing: 0px;
+}
+
+.reveal h2 {
+  font-size: 2.4rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  color: #FFD700; /* Dourado */
+  margin-bottom: 0.3em;
+  letter-spacing: 0px;
+}
+
+.reveal h3 {
+  font-size: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  color: #FFD700; /* Dourado */
+  margin-bottom: 0.2em;
+  letter-spacing: 0px;
+}
+
+.reveal h4 {
+  font-size: 1.6rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  color: #FFD700; /* Dourado */
+  margin-bottom: 0.15em;
+  letter-spacing: 0px;
+}
+
+/* Texto */
+.reveal section p {
+  font-size: 1.4rem;
+  line-height: 1.3;
+  margin-bottom: 0.4em;
+  color: #E0E0E0; /* Cinza claro para melhor legibilidade */
+  letter-spacing: 0px;
+}
+
+.reveal section blockquote {
+  font-size: 1.4rem;
+  line-height: 1.3;
+  font-style: italic;
+  border-left: 3px solid #FFD700;
+  padding-left: 0.8em;
+  margin: 0.8em 0;
+  background-color: rgba(50, 50, 50, 0.3);
+}
+
+/* Fórmulas */
+.reveal .formula {
+  color: #ADFF2F; /* Verde-limão */
+  font-weight: bold;
+  font-size: 1.6rem;
+  text-align: center;
+  margin: 0.6em 0;
+  font-family: "Courier New", monospace;
+}
+
+/* Listas */
+.reveal section ul {
+  list-style: none;
+  padding-left: 1.8rem;
+  margin: 0.2em 0;
+}
+
+.reveal section ul li {
+  font-size: 1.4rem;
+  line-height: 1.3;
+  position: relative;
+  margin-bottom: 0.4em;
+  color: #E0E0E0;
+}
+
+.reveal section ul li::before {
+  content: '☢️'; /* Símbolo de radiação */
+  position: absolute;
+  left: -2.3rem;
+  font-size: 1.4rem;
+  line-height: 1.3;
+}
+
+.reveal section ol {
+  list-style: none;
+  counter-reset: radCounter;
+  padding-left: 1.8rem;
+  margin: 0.2em 0;
+}
+
+.reveal section ol li {
+  counter-increment: radCounter;
+  font-size: 1.4rem;
+  line-height: 1.3;
+  position: relative;
+  margin-bottom: 0.4em;
+  color: #E0E0E0;
+}
+
+.reveal section ol li::before {
+  content: '☢️' counter(radCounter) '. ';
+  position: absolute;
+  left: -3.2rem;
+  font-size: 1.4rem;
+  line-height: 1.3;
+}
+
+/* ==================== 
+   ESTILOS TEMÁTICOS ADAPTADOS
+   ==================== */
+
+/* Tela de título */
+.title-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 85vh;
+  background: radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,100,0,0.1) 100%);
+  position: relative;
+}
+
+.title-screen .subtitle {
+  color: #ADFF2F;
+  font-size: 2rem;
+  margin-top: -0.3em;
+}
+
+.emblem-number {
+  font-size: 2.6rem;
+  font-weight: bold;
+  color: #FFD700;
+  margin: 0.8em auto;
+}
+
+.subtitle-warning {
+  color: #FF6347; /* Vermelho/laranja */
+  border-top: 1px solid #FF6347;
+  border-bottom: 1px solid #FF6347;
+  padding: 0.4em 0.8em;
+  margin-top: 1.5em;
+  font-weight: bold;
+  font-size: 1.2rem;
+  letter-spacing: 0px;
+}
+
+/* Estilos para os tipos de slides específicos */
+
+/* 1. Briefing de Missão */
+.mission-briefing {
+  padding: 8px;
+  margin: 8px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.mission-subtitle {
+  color: #ADFF2F !important;
+  font-size: 1.8rem !important;
+  margin-top: -0.3em !important;
+}
+
+.mnemonic {
+  font-style: italic;
+  background-color: rgba(173, 255, 47, 0.1);
+  padding: 0.4em;
+  border-left: 3px solid #ADFF2F;
+  margin: 0.8em 0;
+  font-size: 1.3rem !important;
+}
+
+.definition-box {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 0.8em;
+  margin-top: 1.2em;
+  border-radius: 3px;
+}
+
+/* 2. Relatório de Campo */
+.field-report {
+  position: relative;
+}
+
+.info-panel {
+  background-color: #1A1A1A;
+  padding: 15px;
+  margin: 15px auto;
+  width: 85%;
+  max-width: 650px;
+  box-shadow: inset 0 0 15px #ADFF2F;
+}
+
+.info-screen {
+  background-color: #000;
+  color: #ADFF2F;
+  padding: 12px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  position: relative;
+}
+
+.info-screen h4 {
+  color: #ADFF2F !important;
+  font-size: 1.6rem !important;
+  margin-bottom: 0.4em !important;
+  font-family: 'Courier New', monospace !important;
+}
+
+.info-screen ul li {
+  color: #ADFF2F !important;
+}
+
+.info-screen::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 255, 0, 0.03),
+    rgba(0, 255, 0, 0.03) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+}
+
+.survival-tip {
+  background-color: rgba(255, 215, 0, 0.1);
+  border: 1px dashed #FFD700;
+  padding: 0.4em 0.8em;
+  margin-top: 0.8em;
+  border-radius: 3px;
+}
+
+.survival-tip p {
+  font-size: 1.2rem !important;
+  font-weight: bold;
+  color: #FFD700 !important;
+}
+
+/* 3. Simulador */
+.simulator {
+  text-align: center;
+}
+
+.canvas-container {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  padding: 8px;
+  margin: 15px auto;
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+}
+
+.simulator-controls {
+  background-color: #2F2F2F;
+  padding: 5px;
+  border-radius: 0 0 3px 3px;
+  margin-top: 5px;
+}
+
+.control-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.control-panel label {
+  color: #ADFF2F;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+}
+
+.control-panel input[type="range"] {
+  width: 120px;
+  accent-color: #ADFF2F;
+  margin: 0 5px;
+}
+
+.control-panel span {
+  color: #ADFF2F;
+  font-family: 'Courier New', monospace;
+  background-color: #000;
+  padding: 1px 3px;
+  border-radius: 2px;
+  min-width: 20px;
+  text-align: center;
+  display: inline-block;
+  font-size: 0.9rem;
+}
+
+.operation-btn {
+  background-color: #2F2F2F;
+  color: #ADFF2F;
+  border: 1px solid #ADFF2F;
+  padding: 3px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin: 0 3px;
+}
+
+.operation-btn:hover {
+  background-color: #3F3F3F;
+  box-shadow: 0 0 5px #ADFF2F;
+}
+
+.operation-btn.active {
+  background-color: #ADFF2F;
+  color: #000;
+}
+
+.hint-message {
+  font-style: italic;
+  margin-top: 0.8em;
+  color: #ADFF2F;
+  font-size: 1.1rem !important;
+}
+
+.hint-message p {
+  color: #ADFF2F !important;
+  font-size: 0.9rem !important;
+}
+
+/* 4. Treinamento de Sobrevivência */
+.survival-training {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  padding: 12px;
+}
+
+.training-problem {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 12px;
+  border-radius: 3px;
+  border-left: 3px solid #FFD700;
+  margin-bottom: 0.8em;
+}
+
+.problem-context {
+  background-color: rgba(255, 0, 0, 0.1);
+  padding: 8px;
+  border-radius: 3px;
+  border: 1px dashed #FF6347;
+  font-style: italic;
+  margin-top: 0.8em;
+}
+
+.problem-context p {
+  color: #FF6347 !important;
+  font-size: 1.2rem !important;
+}
+
+/* 5. Debriefing */
+.debriefing {
+  text-align: center;
+}
+
+.summary-box {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 12px;
+  border-radius: 3px;
+  margin: 0.8em auto;
+  max-width: 85%;
+}
+
+.next-mission {
+  background-color: rgba(173, 255, 47, 0.1);
+  padding: 8px;
+  border-radius: 3px;
+  margin: 0.8em auto;
+  max-width: 85%;
+}
+
+.next-mission p {
+  color: #ADFF2F !important;
+  font-weight: bold;
+}
+
+.instructor-note {
+  font-style: italic;
+  margin-top: 1.5em;
+  padding: 8px;
+  background-color: rgba(255, 215, 0, 0.1);
+  border-radius: 3px;
+}
+
+.instructor-note p {
+  color: #FFD700 !important;
+  font-size: 1.2rem !important;
+}
+
+/* ==================== 
+   NÍVEIS DE COMPLEXIDADE
+   ==================== */
+
+.level-basic {
+  border-left: 4px solid #4682B4; /* Azul */
+}
+
+.level-intermediate {
+  border-left: 4px solid #FFD700; /* Dourado */
+}
+
+.level-advanced {
+  border-left: 4px solid #FF6347; /* Vermelho/laranja */
+}
+
+.level-indicator {
+  font-size: 1.1rem;
+  padding: 2px 6px;
+  border-radius: 2px;
+  margin-left: 8px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.level-basic .level-indicator {
+  background-color: #4682B4;
+  color: white;
+}
+
+.level-intermediate .level-indicator {
+  background-color: #FFD700;
+  color: black;
+}
+
+.level-advanced .level-indicator {
+  background-color: #FF6347;
+  color: white;
+}
+
+/* ==================== 
+   EFEITOS VISUAIS ESPECIAIS
+   ==================== */
+
+/* Efeito de Scan Line para interfaces antigas */
+.crt-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.crt-effect::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.1) 50%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Efeito de Pulsação para elementos interativos */
+.interactive-element {
+  cursor: pointer;
+  position: relative;
+}
+
+.interactive-element::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border: 1px solid #ADFF2F;
+  border-radius: 3px;
+  animation: pulse 2s infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.03);
+  }
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+}
+
+/* Efeito de Glow para elementos de destaque */
+.radiation-glow {
+  text-shadow: 0 0 5px #ADFF2F, 0 0 10px #ADFF2F;
+  transition: text-shadow 0.3s ease;
+}
+
+.radiation-glow:hover {
+  text-shadow: 0 0 10px #ADFF2F, 0 0 15px #ADFF2F, 0 0 20px #ADFF2F;
+}
+
+/* ==================== 
+   ELEMENTOS DE VISUALIZAÇÃO
+   ==================== */
+
+.visualization-container {
+  text-align: center;
+  margin: 0.2em auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: min(95vw, 1280px);
+  height: min(72vh, 900px);
+}
+
+.visualization-container canvas,
+.canvas-container canvas {
+  max-width: 100%;
+  max-height: 420px;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.visualization-container svg {
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.visualization-container img {
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Slides com SVGs/imagens: ocupar melhor a viewport
+   - funciona com classe visual-slide (quando adicionada via JS)
+   - e também automaticamente quando a section contém visualization-container */
+.reveal .slides section.visual-slide,
+.reveal .slides section:has(.visualization-container) {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-items: center;
+  gap: 0.2em;
+}
+
+.reveal .slides section.visual-slide h2,
+.reveal .slides section.visual-slide h3,
+.reveal .slides section:has(.visualization-container) h2,
+.reveal .slides section:has(.visualization-container) h3 {
+  margin-bottom: 0.05em;
+}
+
+.reveal .slides section.visual-slide .visualization-container,
+.reveal .slides section:has(.visualization-container) .visualization-container {
+  min-height: min(62vh, 900px);
+}
+
+/* Ajustes para o simulador */
+.simulator h3 {
+  font-size: 1.8rem; /* Levemente reduzido */
+  margin-bottom: 0.2em;
+}
+
+/* ==================== 
+   MEDIA QUERIES PARA RESPONSIVIDADE
+   ==================== */
+
+@media screen and (max-width: 1024px) {
+  .reveal h1 { font-size: 2.4rem; }
+  .reveal h2 { font-size: 2.1rem; }
+  .reveal h3 { font-size: 1.8rem; }
+  .reveal section p { font-size: 1.3rem; }
+  .reveal .formula { font-size: 1.4rem; }
+  .reveal section ul li, .reveal section ol li { font-size: 1.3rem; }
+  .info-panel { width: 95%; }
+  
+  .control-panel label, 
+  .control-panel span, 
+  .operation-btn {
+    font-size: 0.8rem;
+  }
+  
+  .control-panel input[type="range"] {
+    width: 100px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .reveal h1 { font-size: 2.2rem; }
+  .reveal h2 { font-size: 1.9rem; }
+  .reveal h3 { font-size: 1.6rem; }
+  .reveal section p { font-size: 1.2rem; }
+  .reveal .formula { font-size: 1.3rem; }
+  .reveal section ul li, .reveal section ol li { font-size: 1.2rem; }
+  .control-panel { flex-direction: column; align-items: flex-start; }
+  .emblem-number { width: 100px; height: 100px; font-size: 2.2rem; }
+  
+  .control-panel label, 
+  .control-panel span, 
+  .operation-btn {
+    font-size: 0.8rem;
+  }
+  
+  .control-panel input[type="range"] {
+    width: 80px;
+  }
+}
+
+/* ==================== 
+   CAPÍTULO II — CLASSES COMPARTILHADAS
+   ==================== */
+
+/* Layout flexível para comparações lado a lado */
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 20px 0;
+}
+
+.flex-item {
+  flex: 1;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+/* Caixas de missão/cenário */
+.mission-box {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 15px;
+  border: 1px solid #4caf50;
+  border-radius: 5px;
+  margin: 20px 0;
+}
+
+.mission-title {
+  color: #ffd700;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* ==================== 
+   SLIDE DE TÍTULO — CLASSES COMPARTILHADAS
+   ==================== */
+
+.warning-text {
+  font-family: monospace;
+  text-align: center;
+  margin-top: 10px;
+  animation: pulse 2s infinite;
+}
+
+.warning-text span {
+  color: #ff3333;
+  font-weight: bold;
+  padding: 5px 10px;
+  border: 1px solid #ff3333;
+  background-color: rgba(40, 44, 52, 0.7);
+}
+
+/* Painel de status do simulador de vetores posição */
+#position-info {
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+
+@keyframes pulse {
+  0%   { opacity: 0.7; }
+  50%  { opacity: 1;   }
+  100% { opacity: 0.7; }
+}

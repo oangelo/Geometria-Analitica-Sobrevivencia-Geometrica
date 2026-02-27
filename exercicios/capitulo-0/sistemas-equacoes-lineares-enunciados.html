@@ -1,0 +1,436 @@
+<section class="enunciados-exercicios" data-context="exercicios-enunciados">
+    <div class="terminal-border">
+        <h2 class="terminal-line">> MISSÕES E ENUNCIADOS</h2>
+    <div class="mission-counter">
+        <!-- MISSÃO 1 (BÁSICA) -->
+        <div class="exercise">
+            <h3>Racionamento de Recursos Básicos</h3>
+            <p>O abrigo central está com suprimentos limitados. Cada adulto precisa de 2 litros de água purificada e 1 pacote de RemoveRad por dia. Cada criança precisa de 1 litro de água purificada e 2 pacotes de RemoveRad por dia. Se temos 16 litros de água e 19 pacotes de RemoveRad para distribuir hoje, quantos adultos e crianças podemos atender?</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Defina $x$ como o número de adultos e $y$ como o número de crianças, depois crie duas equações baseadas nas informações de recursos disponíveis e consumo.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Definimos as variáveis: $x$ = número de adultos, $y$ = número de crianças</li>
+                    <li>Para a água purificada: $2x + y = 16$ (2 litros por adulto, 1 litro por criança, total de 16 litros)</li>
+                    <li>Para o RemoveRad: $x + 2y = 19$ (1 pacote por adulto, 2 pacotes por criança, total de 19 pacotes)</li>
+                    <li>Utilizando o método da substituição, isolamos $x$ da primeira equação: $x = \frac{16 - y}{2} = 8 - \frac{y}{2}$</li>
+                    <li>Substituímos na segunda equação: $(8 - \frac{y}{2}) + 2y = 19$</li>
+                    <li>Simplificamos: $8 - \frac{y}{2} + 2y = 19$</li>
+                    <li>Continuamos: $8 + \frac{3y}{2} = 19$</li>
+                    <li>Resolvemos para $y$: $\frac{3y}{2} = 11 \Rightarrow y = \frac{22}{3}$</li>
+                    <li>Como não podemos ter um número fracionário de pessoas, verificamos que não existe solução inteira exata</li>
+                    <li>Recalculando com $y = 6$: $2x + 6 = 16 \Rightarrow x = 5$</li>
+                    <li>Verificação: $2(5) + 6 = 16$ ✓ e $5 + 2(6) = 17 \neq 19$ ✗</li>
+                    <li>Recalculando com $y = 7$: $2x + 7 = 16 \Rightarrow x = 4.5$ (impossível)</li>
+                    <li>Conclusão: A solução possível é $x = 5$ adultos e $y = 6$ crianças, com 2 pacotes de RemoveRad sobrando</li>
+                </ol>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em cenários de escassez de recursos, os sistemas de equações lineares nos permitem otimizar a distribuição. No entanto, a vida real muitas vezes não produz soluções perfeitas. Precisamos adaptar nossos modelos matemáticos para a realidade da Zona Devastada, onde cada recurso não utilizado pode significar uma chance a mais de sobrevivência no futuro.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 2 (BÁSICA) -->
+        <div class="exercise">
+            <h3>Troca Justa na Zona Comercial</h3>
+            <p>Na zona comercial, você precisa negociar com um comerciante. Ele oferece a seguinte troca: "Por 2 baterias e 3 filtros de água, te dou 23 munições. Ou, se preferir, por 5 baterias e 1 filtro de água, te dou 19 munições." Você quer descobrir quanto vale cada item individualmente para negociar melhor no futuro.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Defina $x$ como o valor de uma bateria em munições e $y$ como o valor de um filtro de água em munições. Monte duas equações a partir das trocas oferecidas.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Definimos as variáveis: $x$ = valor de uma bateria em munições, $y$ = valor de um filtro de água em munições</li>
+                    <li>Para a primeira troca: $2x + 3y = 23$ (2 baterias e 3 filtros valem 23 munições)</li>
+                    <li>Para a segunda troca: $5x + y = 19$ (5 baterias e 1 filtro valem 19 munições)</li>
+                    <li>Utilizaremos o método da eliminação. Multiplicamos a segunda equação por 3: $15x + 3y = 57$</li>
+                    <li>Subtraímos a primeira equação da equação modificada: $15x + 3y - (2x + 3y) = 57 - 23$</li>
+                    <li>Simplificamos: $13x = 34$</li>
+                    <li>Resolvemos para $x$: $x = \frac{34}{13} \approx 2.62$ munições por bateria</li>
+                    <li>Substituímos na segunda equação original: $5 \cdot \frac{34}{13} + y = 19$</li>
+                    <li>Calculamos: $\frac{170}{13} + y = 19$</li>
+                    <li>Resolvemos para $y$: $y = 19 - \frac{170}{13} = \frac{247 - 170}{13} = \frac{77}{13} \approx 5.92$ munições por filtro</li>
+                    <li>Verificação: $2 \cdot \frac{34}{13} + 3 \cdot \frac{77}{13} = \frac{68}{13} + \frac{231}{13} = \frac{299}{13} = 23$ ✓</li>
+                </ol>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A economia da Zona Devastada opera sem moeda fixa, tornando o cálculo de equivalências crucial para sobrevivência. Sistemas de equações permitem determinar o valor real dos recursos, evitando trocas desfavoráveis. Um sobrevivente que domina este cálculo sempre terá vantagem nas negociações, garantindo mais recursos com menos sacrifício. Conhecimento matemático é poder em um mundo onde a escassez é a norma.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 3 (BÁSICA) -->
+        <div class="exercise">
+            <h3>Mistura de Combustíveis</h3>
+            <p>Seu grupo encontrou dois tanques de combustível parcialmente cheios. O tanque A contém uma mistura com 30% de etanol e 70% de gasolina. O tanque B contém uma mistura com 80% de etanol e 20% de gasolina. Para o gerador do abrigo funcionar adequadamente, você precisa de exatamente 50 litros de uma mistura com 50% de cada combustível. Quantos litros deve extrair de cada tanque?</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Defina $x$ como o volume do tanque A e $y$ como o volume do tanque B a serem utilizados. Crie uma equação para o volume total e outra para a quantidade de etanol na mistura final.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Definimos as variáveis: $x$ = volume do tanque A (em litros), $y$ = volume do tanque B (em litros)</li>
+                    <li>Para o volume total: $x + y = 50$ (precisamos de 50 litros no total)</li>
+                    <li>Para o conteúdo de etanol: $0.30x + 0.80y = 0.50 \cdot 50$ (30% do volume de A + 80% do volume de B = 50% do volume total)</li>
+                    <li>Simplificamos a segunda equação: $0.30x + 0.80y = 25$</li>
+                    <li>Da primeira equação, isolamos $y$: $y = 50 - x$</li>
+                    <li>Substituímos na equação do etanol: $0.30x + 0.80(50 - x) = 25$</li>
+                    <li>Desenvolvemos: $0.30x + 40 - 0.80x = 25$</li>
+                    <li>Simplificamos: $-0.50x = 25 - 40 = -15$</li>
+                    <li>Resolvemos para $x$: $x = 30$ litros (do tanque A)</li>
+                    <li>Calculamos $y$: $y = 50 - 30 = 20$ litros (do tanque B)</li>
+                    <li>Verificação: $0.30 \cdot 30 + 0.80 \cdot 20 = 9 + 16 = 25$ litros de etanol ✓</li>
+                </ol>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Na Zona Devastada, recursos como combustível raramente são encontrados na forma ideal. A capacidade de calcular misturas precisas é vital para equipamentos sensíveis como geradores, veículos e purificadores. Um erro de cálculo pode significar um gerador danificado quando mais se precisa dele, ou um veículo que falha durante uma fuga de mutantes. Sistemas lineares transformam aproximações perigosas em soluções exatas, maximizando a utilidade dos poucos recursos disponíveis.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 4 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>Planejamento de Expedição</h3>
+            <p>Sua equipe planeja uma expedição usando dois veículos: uma motocicleta que consome 4 litros de combustível por 100km e um jipe que consome 12 litros por 100km. Você tem 36 litros de combustível disponíveis e precisa percorrer o equivalente a 500km-veículo (soma das distâncias percorridas por cada veículo). Quanto cada veículo deve percorrer para otimizar a exploração?</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Estabeleça uma equação para o consumo total de combustível e outra para a distância total percorrida. Considere as taxas de consumo diferentes para cada veículo.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Definimos as variáveis: $x$ = distância percorrida pela motocicleta (km), $y$ = distância percorrida pelo jipe (km)</li>
+                    <li>Para a distância total: $x + y = 500$ (requisito da missão)</li>
+                    <li>Para o consumo de combustível: $\frac{4x}{100} + \frac{12y}{100} = 36$ (consumo total igual ao combustível disponível)</li>
+                    <li>Simplificamos a segunda equação: $0.04x + 0.12y = 36$</li>
+                    <li>Multiplicamos por 100: $4x + 12y = 3600$</li>
+                    <li>Da primeira equação, isolamos $y = 500 - x$</li>
+                    <li>Substituímos na equação do combustível: $4x + 12(500 - x) = 3600$</li>
+                    <li>Desenvolvemos: $4x + 6000 - 12x = 3600$</li>
+                    <li>Simplificamos: $-8x = 3600 - 6000 = -2400$</li>
+                    <li>Resolvemos para $x$: $x = 300$ km (motocicleta)</li>
+                    <li>Calculamos $y$: $y = 500 - 300 = 200$ km (jipe)</li>
+                    <li>Verificação do combustível: $\frac{4 \cdot 300}{100} + \frac{12 \cdot 200}{100} = 12 + 24 = 36$ litros ✓</li>
+                </ol>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A otimização de recursos escassos através de sistemas lineares é fundamental para expedições bem-sucedidas. A solução matemática encontrada equilibra a eficiência do veículo leve com a capacidade de carga do veículo pesado. Na prática da Zona Devastada, isso significa maximizar o alcance de exploração enquanto mantém combustível suficiente para o retorno seguro. Lembre-se: expedições mal planejadas não têm segunda chance.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 5 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>Análise de Água Contaminada</h3>
+            <p>Você encontrou duas fontes de água, ambas contaminadas com diferentes níveis de dois tipos de radioisótopos. A fonte A contém 3 unidades de Césio-137 e 2 unidades de Estrôncio-90 por litro. A fonte B contém 1 unidade de Césio-137 e 4 unidades de Estrôncio-90 por litro. Seu purificador pode processar no máximo 25 unidades de radioisótopos por dia. Você precisa obter exatamente 14 unidades de Césio-137 e 16 unidades de Estrôncio-90 para um experimento crucial. Quantos litros deve coletar de cada fonte?</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Monte duas equações considerando a quantidade total de cada radioisótopo e verifique se a solução respeita a limitação do purificador.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Definimos as variáveis: $x$ = litros da fonte A, $y$ = litros da fonte B</li>
+                    <li>Para o Césio-137: $3x + y = 14$ (necessitamos de 14 unidades no total)</li>
+                    <li>Para o Estrôncio-90: $2x + 4y = 16$ (necessitamos de 16 unidades no total)</li>
+                    <li>Da primeira equação, isolamos $y = 14 - 3x$</li>
+                    <li>Substituímos na segunda equação: $2x + 4(14 - 3x) = 16$</li>
+                    <li>Desenvolvemos: $2x + 56 - 12x = 16$</li>
+                    <li>Simplificamos: $-10x = 16 - 56 = -40$</li>
+                    <li>Resolvemos para $x$: $x = 4$ litros (fonte A)</li>
+                    <li>Calculamos $y$: $y = 14 - 3 \cdot 4 = 14 - 12 = 2$ litros (fonte B)</li>
+                    <li>Verificação para Césio-137: $3 \cdot 4 + 1 \cdot 2 = 12 + 2 = 14$ unidades ✓</li>
+                    <li>Verificação para Estrôncio-90: $2 \cdot 4 + 4 \cdot 2 = 8 + 8 = 16$ unidades ✓</li>
+                    <li>Verificamos a restrição do purificador: total de unidades = $14 + 16 = 30 > 25$ (limite excedido)</li>
+                    <li>Conclusão: Embora matematicamente correto, a solução não é viável devido à limitação do purificador. Você precisará realizar o experimento em mais de um dia ou aumentar a capacidade do purificador.</li>
+                </ol>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Este é um exemplo crucial de como sistemas lineares podem identificar impossibilidades físicas mesmo quando as equações possuem solução matemática. Na Zona Devastada, as limitações dos equipamentos frequentemente impõem restrições adicionais que vão além das variáveis principais. A capacidade de reconhecer e adaptar-se a estas limitações é tão importante quanto encontrar a solução algébrica ideal. Um sobrevivente sábio sabe quando alterar o problema, não apenas resolver o que está dado.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 6 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>Planejamento de Dieta de Sobrevivência</h3>
+            <p>No abrigo, restam apenas latas de feijão e pacotes de carne seca. Cada lata de feijão contém 15g de proteína e 30g de carboidratos. Cada pacote de carne seca contém 25g de proteína e 5g de carboidratos. O médico do abrigo determinou que cada sobrevivente precisa consumir diariamente pelo menos 200g de proteína e 180g de carboidratos para manter-se saudável. Quantas unidades de cada alimento devem ser consumidas diariamente para atender às necessidades nutricionais com o mínimo de recursos?</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Este é um problema de desigualdades. Monte duas inequações representando os requisitos mínimos de proteína e carboidratos, depois identifique a solução que minimiza o número total de unidades.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Definimos as variáveis: $x$ = número de latas de feijão, $y$ = número de pacotes de carne seca</li>
+                    <li>Para as proteínas: $15x + 25y \geq 200$ (mínimo de 200g de proteína)</li>
+                    <li>Para os carboidratos: $30x + 5y \geq 180$ (mínimo de 180g de carboidratos)</li>
+                    <li>Precisamos encontrar valores inteiros não-negativos de $x$ e $y$ que satisfaçam ambas as desigualdades</li>
+                    <li>Para minimizar recursos, queremos minimizar $x + y$ (número total de unidades)</li>
+                    <li>Da primeira inequação, isolamos $y$: $y \geq \frac{200 - 15x}{25} = 8 - \frac{3x}{5}$</li>
+                    <li>Da segunda inequação, isolamos $y$: $y \geq \frac{180 - 30x}{5} = 36 - 6x$</li>
+                    <li>Para valores inteiros, precisamos que $y \geq \lceil 8 - \frac{3x}{5} \rceil$ e $y \geq \lceil 36 - 6x \rceil$</li>
+                    <li>Testando $x = 6$: 
+                        <ul>
+                            <li>Da primeira inequação: $y \geq 8 - \frac{3 \cdot 6}{5} = 8 - \frac{18}{5} = 8 - 3.6 = 4.4$, então $y \geq 5$</li>
+                            <li>Da segunda inequação: $y \geq 36 - 6 \cdot 6 = 36 - 36 = 0$, então $y \geq 0$</li>
+                            <li>Portanto, com $x = 6$, precisamos $y \geq 5$</li>
+                        </ul>
+                    </li>
+                    <li>Testando $x = 7$: 
+                        <ul>
+                            <li>Da primeira inequação: $y \geq 8 - \frac{3 \cdot 7}{5} = 8 - \frac{21}{5} = 8 - 4.2 = 3.8$, então $y \geq 4$</li>
+                            <li>Da segunda inequação: $y \geq 36 - 6 \cdot 7 = 36 - 42 = -6$, então $y \geq 0$</li>
+                            <li>Portanto, com $x = 7$, precisamos $y \geq 4$</li>
+                        </ul>
+                    </li>
+                    <li>Comparando as opções:
+                        <ul>
+                            <li>Com $x = 6$ e $y = 5$: total de $6 + 5 = 11$ unidades</li>
+                            <li>Com $x = 7$ e $y = 4$: total de $7 + 4 = 11$ unidades (mesmo total)</li>
+                        </ul>
+                    </li>
+                    <li>Verificamos os nutrientes para $x = 6$ e $y = 5$:
+                        <ul>
+                            <li>Proteínas: $15 \cdot 6 + 25 \cdot 5 = 90 + 125 = 215$ g ✓</li>
+                            <li>Carboidratos: $30 \cdot 6 + 5 \cdot 5 = 180 + 25 = 205$ g ✓</li>
+                        </ul>
+                    </li>
+                    <li>Verificamos os nutrientes para $x = 7$ e $y = 4$:
+                        <ul>
+                            <li>Proteínas: $15 \cdot 7 + 25 \cdot 4 = 105 + 100 = 205$ g ✓</li>
+                            <li>Carboidratos: $30 \cdot 7 + 5 \cdot 4 = 210 + 20 = 230$ g ✓</li>
+                        </ul>
+                    </li>
+                    <li>Ambas as soluções atendem aos requisitos com o mesmo número de unidades, mas $x = 6$ e $y = 5$ fornece mais proteína</li>
+                </ol>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Na Zona Devastada, o planejamento nutricional eficiente é crucial para a sobrevivência a longo prazo. Este problema ilustra como sistemas de inequações lineares permitem otimizar dietas com recursos limitados. Um sobrevivente astuto usa a matemática para equilibrar necessidades nutricionais com conservação de suprimentos, garantindo saúde sem desperdício. Observe como encontramos duas soluções matematicamente equivalentes (11 unidades), mas na prática, a solução com mais proteína poderia ser preferível para quem realiza trabalho físico intenso, enquanto a outra poderia ser adequada para economizar carne seca, que geralmente tem maior durabilidade.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 7 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>Fluxo de Energia no Abrigo</h3>
+            <p>O sistema elétrico do abrigo utiliza dois geradores. Quando apenas o gerador A está funcionando a 100% e o gerador B desligado, produzem-se 24 kW. Quando o gerador A opera a 50% e o gerador B a 100%, produzem-se 30 kW. O sistema de refrigeração necessita exatamente de 18 kW para funcionar. Determine em quais porcentagens os geradores devem operar para fornecer exatamente a energia necessária ao sistema de refrigeração, minimizando o consumo de combustível.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Definimos as variáveis: $x$ = potência do gerador A (em kW a 100%), $y$ = potência do gerador B (em kW a 100%)</li>
+                    <li>Da primeira condição: $x + 0 = 24$, portanto $x = 24$ kW</li>
+                    <li>Da segunda condição: $0.5x + y = 30$</li>
+                    <li>Substituímos o valor de $x$: $0.5 \cdot 24 + y = 30$</li>
+                    <li>Simplificamos: $12 + y = 30$</li>
+                    <li>Resolvemos para $y$: $y = 18$ kW</li>
+                    <li>Agora precisamos encontrar os percentuais $p_A$ e $p_B$ para: $p_A \cdot x + p_B \cdot y = 18$</li>
+                    <li>Substituímos os valores de $x$ e $y$: $p_A \cdot 24 + p_B \cdot 18 = 18$</li>
+                    <li>Simplificamos: $24p_A + 18p_B = 18$</li>
+                    <li>Dividimos por 6: $4p_A + 3p_B = 3$</li>
+                    <li>Isolamos $p_A$ em função de $p_B$: $p_A = \frac{3 - 3p_B}{4}$</li>
+                    <li>Para minimizar o consumo, queremos o menor valor possível para $p_A$ e $p_B$, respeitando que $0 \leq p_A, p_B \leq 1$</li>
+                    <li>Testamos $p_B = 1$: $p_A = \frac{3 - 3}{4} = 0$</li>
+                    <li>Verificamos: $0 \cdot 24 + 1 \cdot 18 = 18$ kW ✓</li>
+                    <li>Conclusão: Para minimizar o consumo, devemos desligar o gerador A ($p_A = 0$) e operar o gerador B a 100% ($p_B = 1$)</li>
+                </ol>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A otimização de sistemas energéticos através de modelagem linear é uma habilidade crítica na gestão de recursos limitados. O princípio de "fazer mais com menos" é crucial para a sobrevivência a longo prazo. Observe como a solução matemática nos conduziu a uma conclusão contra-intuitiva: usar apenas o gerador menor a plena potência, em vez de ambos em potências parciais. Em um mundo de escassez, a matemática frequentemente revela eficiências ocultas que o instinto ignora.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 8 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>Circuito Elétrico de Emergência</h3>
+            <p>O sistema de comunicação de emergência requer uma corrente estável de 2 amperes através de um circuito com duas resistências em paralelo. Sabe-se que a voltagem total aplicada ao circuito é de 12 volts. Se a potência dissipada pela primeira resistência é de 16 watts e pela segunda é de 8 watts, determine os valores das resistências e as correntes que passam por cada uma delas.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Definimos as variáveis: $I_1$ = corrente na primeira resistência, $I_2$ = corrente na segunda resistência, $R_1$ = valor da primeira resistência, $R_2$ = valor da segunda resistência</li>
+                    <li>Para a corrente total: $I_1 + I_2 = 2$ amperes</li>
+                    <li>Sabemos que a voltagem é igual em ambas resistências (paralelo): $V = 12$ volts</li>
+                    <li>Relação entre potência, voltagem e corrente: $P = VI$</li>
+                    <li>Para a primeira resistência: $P_1 = 16 = V \cdot I_1 = 12 \cdot I_1$</li>
+                    <li>Resolvemos para $I_1$: $I_1 = \frac{16}{12} = \frac{4}{3}$ amperes</li>
+                    <li>Para a segunda resistência: $P_2 = 8 = V \cdot I_2 = 12 \cdot I_2$</li>
+                    <li>Resolvemos para $I_2$: $I_2 = \frac{8}{12} = \frac{2}{3}$ amperes</li>
+                    <li>Verificação da corrente total: $I_1 + I_2 = \frac{4}{3} + \frac{2}{3} = 2$ amperes ✓</li>
+                    <li>Pela Lei de Ohm: $R = \frac{V}{I}$</li>
+                    <li>Para a primeira resistência: $R_1 = \frac{12}{\frac{4}{3}} = \frac{12 \cdot 3}{4} = 9$ ohms</li>
+                    <li>Para a segunda resistência: $R_2 = \frac{12}{\frac{2}{3}} = \frac{12 \cdot 3}{2} = 18$ ohms</li>
+                    <li>Verificação da potência na primeira resistência: $P_1 = I_1^2 \cdot R_1 = (\frac{4}{3})^2 \cdot 9 = \frac{16}{9} \cdot 9 = 16$ watts ✓</li>
+                    <li>Verificação da potência na segunda resistência: $P_2 = I_2^2 \cdot R_2 = (\frac{2}{3})^2 \cdot 18 = \frac{4}{9} \cdot 18 = 8$ watts ✓</li>
+                </ol>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Os circuitos elétricos no mundo pós-apocalíptico frequentemente precisam ser improvisados com componentes salvados de equipamentos diversos. Compreender as relações matemáticas entre resistência, corrente, voltagem e potência permite construir sistemas funcionais mesmo sem instrumentos de medição precisos. Observe como utilizamos sistemas de equações para determinar valores que não podiam ser medidos diretamente, demonstrando o poder da matemática como ferramenta de inferência na engenharia de sobrevivência. Um sistema de comunicação confiável pode significar a diferença entre receber socorro ou ficar isolado na Zona Devastada.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 9 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>Diluição de Antibióticos</h3>
+            <p>Na enfermaria do abrigo, você tem duas soluções de antibióticos salvadas de diferentes farmácias saqueadas. A solução A contém 8% de princípio ativo e 12% de estabilizante. A solução B contém 2% de princípio ativo e 3% de estabilizante. Um paciente grave precisa receber uma infusão com exatamente 5% de princípio ativo e 7.5% de estabilizante. Se o paciente precisa de 400ml de solução para seu tratamento, quanto de cada solução você deve misturar?</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Definimos as variáveis: $x$ = volume da solução A (em ml), $y$ = volume da solução B (em ml)</li>
+                    <li>Para o volume total: $x + y = 400$ ml</li>
+                    <li>Para o princípio ativo: $0.08x + 0.02y = 0.05 \cdot 400 = 20$ ml</li>
+                    <li>Para o estabilizante: $0.12x + 0.03y = 0.075 \cdot 400 = 30$ ml</li>
+                    <li>Da primeira equação, isolamos $y = 400 - x$</li>
+                    <li>Substituímos na equação do princípio ativo: $0.08x + 0.02(400 - x) = 20$</li>
+                    <li>Desenvolvemos: $0.08x + 8 - 0.02x = 20$</li>
+                    <li>Simplificamos: $0.06x = 12$</li>
+                    <li>Resolvemos para $x$: $x = \frac{12}{0.06} = 200$ ml</li>
+                    <li>Calculamos $y$: $y = 400 - 200 = 200$ ml</li>
+                    <li>Verificamos o princípio ativo: $0.08 \cdot 200 + 0.02 \cdot 200 = 16 + 4 = 20$ ml ✓</li>
+                    <li>Verificamos o estabilizante: $0.12 \cdot 200 + 0.03 \cdot 200 = 24 + 6 = 30$ ml ✓</li>
+                </ol>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Na medicina pós-apocalíptica, raramente encontramos medicamentos nas concentrações ideais. A capacidade de calcular diluições precisas pode ser a diferença entre salvar uma vida ou perdê-la. O equilíbrio entre princípio ativo e estabilizante é crítico - muito pouco do primeiro e o medicamento é ineficaz; muito pouco do segundo e o princípio ativo se degrada rapidamente. Observe como o sistema linear nos forneceu uma solução elegante: quantidades iguais de ambas as soluções. Em emergências, soluções matemáticas simples são menos propensas a erros de aplicação, um fator crítico quando cada gota conta.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 10 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>Rotas de Evacuação</h3>
+            <p>Duas rotas de evacuação conectam o abrigo central a um bunker seguro. A rota A passa por terreno montanhoso e depois por uma planície contaminada. A rota B passa por uma floresta densa e depois por um rio radioativo. Sabe-se que cada quilômetro em terreno montanhoso consome 50% mais tempo que em planície contaminada. Cada quilômetro em floresta densa consome duas vezes mais tempo que em rio radioativo. A rota A tem 3km de terreno montanhoso e 6km de planície, enquanto a rota B tem 4km de floresta e 2km de rio. Se ambas as rotas levam exatamente o mesmo tempo total para percorrer, determine quanto tempo (em horas) leva para percorrer 1km em cada tipo de terreno, sabendo que uma evacuação completa pela rota A leva 5.25 horas.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Definimos as variáveis:
+                        <ul>
+                            <li>$t_m$ = tempo por km em terreno montanhoso</li>
+                            <li>$t_p$ = tempo por km em planície contaminada</li>
+                            <li>$t_f$ = tempo por km em floresta densa</li>
+                            <li>$t_r$ = tempo por km em rio radioativo</li>
+                        </ul>
+                    </li>
+                    <li>Relações dadas:
+                        <ul>
+                            <li>$t_m = 1.5 \cdot t_p$ (montanha leva 50% mais tempo que planície)</li>
+                            <li>$t_f = 2 \cdot t_r$ (floresta leva 2 vezes mais tempo que rio)</li>
+                        </ul>
+                    </li>
+                    <li>Tempo total para rota A: $T_A = 3t_m + 6t_p = 3 \cdot 1.5t_p + 6t_p = 4.5t_p + 6t_p = 10.5t_p = 5.25$ horas</li>
+                    <li>Resolvendo para $t_p$: $t_p = \frac{5.25}{10.5} = 0.5$ horas por km em planície</li>
+                    <li>Calculamos $t_m = 1.5 \cdot t_p = 1.5 \cdot 0.5 = 0.75$ horas por km em montanha</li>
+                    <li>Tempo total para rota B: $T_B = 4t_f + 2t_r = 4 \cdot 2t_r + 2t_r = 8t_r + 2t_r = 10t_r$</li>
+                    <li>Como as rotas levam o mesmo tempo: $T_A = T_B \Rightarrow 5.25 = 10t_r$</li>
+                    <li>Resolvendo para $t_r$: $t_r = \frac{5.25}{10} = 0.525$ horas por km em rio</li>
+                    <li>Calculamos $t_f = 2 \cdot t_r = 2 \cdot 0.525 = 1.05$ horas por km em floresta</li>
+                    <li>Resposta final:
+                        <ul>
+                            <li>Terreno montanhoso: 0.75 horas/km</li>
+                            <li>Planície contaminada: 0.5 horas/km</li>
+                            <li>Floresta densa: 1.05 horas/km</li>
+                            <li>Rio radioativo: 0.525 horas/km</li>
+                        </ul>
+                    </li>
+                </ol>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O planejamento de rotas de evacuação é uma aplicação crítica de sistemas lineares em cenários de emergência. Observe como o tempo de travessia por diferentes terrenos pode ser calculado precisamente, permitindo decisões informadas sobre qual rota seguir baseadas nas condições específicas de cada grupo. Um grupo com crianças poderia evitar a floresta densa, enquanto um grupo com pouco RemoveRad disponível evitaria o rio radioativo. A matemática aqui não é apenas um exercício teórico, mas uma ferramenta de decisão que pode salvar vidas em situações de crise.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 11 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>Otimização de Cultivos</h3>
+            <p>O jardim hidropônico do abrigo tem capacidade limitada. Você precisa distribuir o espaço entre o cultivo de vegetais (tomates) e ervas medicinais. Cada metro quadrado de tomates requer 4 litros de água e 2 unidades de fertilizante por semana, produzindo alimento suficiente para 3 pessoas. Cada metro quadrado de ervas medicinais requer 3 litros de água e 3 unidades de fertilizante por semana, produzindo medicamentos para 2 pessoas. Você tem disponíveis semanalmente 60 litros de água e 48 unidades de fertilizante. A população atual do abrigo é de 50 pessoas. Como você deve distribuir o cultivo para atender ao máximo de necessidades de alimentação e medicação, considerando que cada pessoa precisa igualmente de ambos?</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Definimos as variáveis: $x$ = área para tomates (m²), $y$ = área para ervas medicinais (m²)</li>
+                    <li>Restrições de recursos:
+                        <ul>
+                            <li>Água: $4x + 3y \leq 60$ litros</li>
+                            <li>Fertilizante: $2x + 3y \leq 48$ unidades</li>
+                        </ul>
+                    </li>
+                    <li>Capacidade de produção:
+                        <ul>
+                            <li>Tomates: $3x$ pessoas alimentadas</li>
+                            <li>Ervas medicinais: $2y$ pessoas medicadas</li>
+                        </ul>
+                    </li>
+                    <li>Para equilibrar as necessidades: $3x = 2y$ (mesmo número de pessoas atendidas)</li>
+                    <li>Isolamos: $x = \frac{2y}{3}$</li>
+                    <li>Substituímos na restrição de água: $4 \cdot \frac{2y}{3} + 3y \leq 60$</li>
+                    <li>Simplificamos: $\frac{8y}{3} + 3y \leq 60$</li>
+                    <li>Continuamos: $\frac{8y + 9y}{3} \leq 60$</li>
+                    <li>Simplificamos: $\frac{17y}{3} \leq 60$</li>
+                    <li>Resolvemos para $y$: $y \leq \frac{60 \cdot 3}{17} \approx 10.59$ m²</li>
+                    <li>Substituímos na restrição de fertilizante: $2 \cdot \frac{2y}{3} + 3y \leq 48$</li>
+                    <li>Simplificamos: $\frac{4y}{3} + 3y \leq 48$</li>
+                    <li>Continuamos: $\frac{4y + 9y}{3} \leq 48$</li>
+                    <li>Simplificamos: $\frac{13y}{3} \leq 48$</li>
+                    <li>Resolvemos para $y$: $y \leq \frac{48 \cdot 3}{13} \approx 11.08$ m²</li>
+                    <li>O valor limitante é $y \leq 10.59$ m², então $y = 10.5$ m² (arredondado para baixo)</li>
+                    <li>Calculamos $x = \frac{2 \cdot 10.5}{3} = 7$ m²</li>
+                    <li>Verificação da água: $4 \cdot 7 + 3 \cdot 10.5 = 28 + 31.5 = 59.5$ litros ✓</li>
+                    <li>Verificação do fertilizante: $2 \cdot 7 + 3 \cdot 10.5 = 14 + 31.5 = 45.5$ unidades ✓</li>
+                    <li>Pessoas alimentadas: $3 \cdot 7 = 21$ pessoas</li>
+                    <li>Pessoas medicadas: $2 \cdot 10.5 = 21$ pessoas</li>
+                    <li>Total da população atendida: 21 pessoas de 50 (42%)</li>
+                </ol>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Este problema demonstra uma aplicação vital da programação linear em cenários de subsistência pós-apocalíptica. Observe como transformamos uma questão de sobrevivência complexa em um sistema de equações que pode ser resolvido metodicamente. A solução nos mostra uma realidade dura: com os recursos disponíveis, apenas 42% da população pode ser completamente atendida. Isso força decisões difíceis: buscar mais recursos, aceitar uma distribuição desigual, ou implementar racionamento. A matemática não apenas nos dá números, mas nos confronta com as realidades de um mundo com recursos finitos, onde as necessidades frequentemente excedem o disponível. Um líder responsável usa estes cálculos para planejar expedições de busca por recursos adicionais antes que a crise se instale.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 12 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>Reconstrução do Sinal de Emergência</h3>
+            <p>Um bunker governamental próximo envia sinais de rádio codificados que seguem um padrão matemático. Seu grupo captou dois sinais sequenciais que revelaram coordenadas parciais. O primeiro sinal tinha coordenadas (8, 13) e o segundo (11, 19). Sabe-se que as coordenadas (x, y) seguem um padrão linear da forma y = ax + b. O próximo sinal, que conterá as coordenadas de um depósito de suprimentos, será transmitido em breve. Porém, sua recepção está danificada e só conseguirá captar o valor de y. Se o próximo valor de x for 15, determine o valor de y correspondente para localizar o depósito. Além disso, se o padrão continuar, qual será a coordenada completa do quarto sinal?</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Precisamos determinar os valores de a e b na equação y = ax + b, utilizando as coordenadas conhecidas</li>
+                    <li>Do primeiro sinal (8, 13): $13 = 8a + b$</li>
+                    <li>Do segundo sinal (11, 19): $19 = 11a + b$</li>
+                    <li>Temos um sistema de duas equações e duas incógnitas</li>
+                    <li>Subtraímos a primeira equação da segunda: $19 - 13 = 11a + b - (8a + b)$</li>
+                    <li>Simplificamos: $6 = 3a$</li>
+                    <li>Resolvemos para $a$: $a = 2$</li>
+                    <li>Substituímos na primeira equação: $13 = 8 \cdot 2 + b = 16 + b$</li>
+                    <li>Resolvemos para $b$: $b = 13 - 16 = -3$</li>
+                    <li>Portanto, a equação que descreve o padrão é: $y = 2x - 3$</li>
+                    <li>Para o terceiro sinal com $x = 15$: $y = 2 \cdot 15 - 3 = 30 - 3 = 27$</li>
+                    <li>Para o quarto sinal, precisamos determinar o valor de $x$</li>
+                    <li>O intervalo entre valores consecutivos de $x$ é: $11 - 8 = 3$ e $15 - 11 = 4$</li>
+                    <li>Parece que o intervalo está aumentando em 1 a cada sinal: 3, 4, ...</li>
+                    <li>Portanto, o próximo intervalo seria 5, e o valor de $x$ para o quarto sinal seria: $15 + 5 = 20$</li>
+                    <li>Com $x = 20$: $y = 2 \cdot 20 - 3 = 40 - 3 = 37$</li>
+                    <li>A coordenada do quarto sinal seria (20, 37)</li>
+                </ol>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A capacidade de detectar, decodificar e prever padrões matemáticos é inestimável em um mundo pós-apocalíptico onde a comunicação é fragmentada e os recursos são escassos. Neste cenário, sistemas lineares permitiram não apenas determinar a localização imediata de suprimentos vitais, mas também prever futuras coordenadas, proporcionando vantagem estratégica. Observe como a matemática transforma dados aparentemente desconexos em informação acionável. Um sobrevivente que domina estes princípios pode não apenas reagir às circunstâncias, mas antecipar-se a elas - a diferença entre apenas sobreviver e efetivamente reconstruir.</p>
+            </details>
+        </div>
+    </div>
+    </div>
+    </section>

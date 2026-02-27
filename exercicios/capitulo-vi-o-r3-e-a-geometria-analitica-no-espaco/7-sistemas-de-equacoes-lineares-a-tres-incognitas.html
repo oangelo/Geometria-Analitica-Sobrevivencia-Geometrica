@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+    </script>
+    <title>REFÚGIO-TEC | Sistemas de Equações Lineares a Três Incógnitas</title>
+    <style>
+        /* Estilo inspirado no tema pós-apocalíptico */
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100px; }
+        }
+
+        body {
+            background-color: #0c0c0c;
+            color: #e6e6e6;
+            font-family: "Courier New", monospace;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #4caf50;
+            max-width: 800px;
+            margin: auto;
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 2px;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+
+        h1, h2, h3 {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .exercise {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border: 1px dashed #4caf50;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        details {
+            background-color: #1c1c1c;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            margin-top: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #4caf50;
+        }
+
+        summary:hover {
+            text-shadow: 0 0 3px #4caf50;
+        }
+
+        code {
+            background-color: #333;
+            padding: 3px 5px;
+            color: #ffeb3b;
+        }
+
+        .hint {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #4caf50;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .hint:before {
+            content: "DICA DE SOBREVIVÊNCIA: ";
+            color: #4caf50;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .solution-steps {
+            margin-left: 20px;
+            counter-reset: step-counter;
+        }
+
+        .solution-steps li {
+            list-style-type: none;
+            counter-increment: step-counter;
+            margin-bottom: 10px;
+        }
+
+        .solution-steps li::before {
+            content: "> PASSO_" counter(step-counter) ": ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .formula {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #000;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .terminal-frame {
+            padding: 10px;
+            background-color: #000;
+            margin-bottom: 20px;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .terminal-header {
+            margin: 0;
+            padding: 3px 10px;
+            background-color: #4caf50;
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .terminal-content {
+            padding: 5px;
+            white-space: pre-wrap;
+            font-size: 1em;
+            line-height: 1.2;
+        }
+
+        .cursor:after {
+            content: "█";
+            animation: blink 1s step-end infinite;
+        }
+
+        .terminal-line {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .terminal-border {
+            border: 1px solid #4caf50;
+            padding: 5px;
+            background-color: #000;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .mission-counter {
+            counter-reset: mission;
+        }
+        
+        .mission-counter .exercise h3:before {
+            content: "MISSÃO " counter(mission) ": ";
+            counter-increment: mission;
+        }
+
+        .warning {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .danger {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #8bc34a;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #4caf50;
+            border-top: 1px solid #4caf50;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- TÍTULO E INTRODUÇÃO -->
+    <div class="terminal-frame">
+        <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
+        <div class="terminal-content">
+┌───────────────────────────────────────────────────┐
+│ MÓDULO: SISTEMAS DE EQUAÇÕES LINEARES A TRÊS      │
+│         INCÓGNITAS                                │
+└───────────────────────────────────────────────────┘
+
+> INICIANDO TRANSMISSÃO...
+> CARREGANDO MÓDULO DE TREINAMENTO...
+> ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
+        </div>
+    </div>
+
+    <div class="terminal-border">
+        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: SISTEMAS LINEARES TRIDIMENSIONAIS</h2>
+    
+    <p>Na Zona Devastada, sobreviventes frequentemente enfrentam situações que envolvem múltiplas variáveis interdependentes: distribuição de recursos entre abrigos, coordenação de rotas de fuga tridimensionais, ou balanceamento de componentes para síntese de RemoveRad. Estes cenários exigem a resolução de sistemas de equações lineares a três incógnitas.</p>
+    
+    <p>Um sistema linear 3×3 representa a interseção geométrica de três planos no espaço R³. Dependendo de suas posições relativas, podem ter: solução única (os três planos se encontram em um ponto), infinitas soluções (os planos se intersectam em uma reta ou são coincidentes), ou nenhuma solução (planos paralelos ou configuração inconsistente).</p>
+    
+    <div class="formula">
+    $$\begin{cases}
+    a_1x + b_1y + c_1z = d_1 \\
+    a_2x + b_2y + c_2z = d_2 \\
+    a_3x + b_3y + c_3z = d_3
+    \end{cases}$$
+    </div>
+    
+    <p>As principais técnicas de resolução incluem: método da substituição (isolar uma variável e substituir nas demais equações), método da eliminação (eliminar variáveis através de operações elementares), e escalonamento de matrizes. Para sistemas homogêneos ($d_1 = d_2 = d_3 = 0$), sempre existe pelo menos a solução trivial $(0,0,0)$.</p>
+
+    <!-- MISSÕES (EXERCÍCIOS) -->
+    <div class="mission-counter">
+        <!-- MISSÃO 1 (BÁSICA) -->
+        <div class="exercise">
+            <h3>Distribuição de Suprimentos Básicos</h3>
+            <p>O SUPERVISOR do Abrigo-101 precisa distribuir suprimentos entre três setores. Se $x$, $y$ e $z$ representam as quantidades para os setores A, B e C, resolva o sistema:</p>
+            
+            <div class="formula">
+            $$\begin{cases}
+            x + y + z = 12 \\
+            2x + y = 14 \\
+            x + z = 8
+            \end{cases}$$
+            </div>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                Use o método da substituição. A terceira equação permite isolar facilmente $z = 8 - x$.
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Da terceira equação: $z = 8 - x$</li>
+                    <li>Substituindo na primeira equação: $x + y + (8 - x) = 12 \Rightarrow y + 8 = 12 \Rightarrow y = 4$</li>
+                    <li>Substituindo $y = 4$ na segunda equação: $2x + 4 = 14 \Rightarrow 2x = 10 \Rightarrow x = 5$</li>
+                    <li>Calculando $z$: $z = 8 - 5 = 3$</li>
+                </ol>
+                
+                <div class="formula">
+                    Solução: $(x, y, z) = (5, 4, 3)$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O setor A recebe 5 unidades, B recebe 4 unidades e C recebe 3 unidades. Esta distribuição equilibrada garante que todos os setores tenham recursos suficientes para manter suas operações defensivas.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 2 -->
+        <div class="exercise">
+            <h3>Síntese de RemoveRad Triplo</h3>
+            <p>Para produzir RemoveRad eficiente, você precisa combinar três componentes químicos. As proporções seguem o sistema:</p>
+            
+            <div class="formula">
+            $$\begin{cases}
+            x + 2y + z = 10 \\
+            2x + y - z = 3 \\
+            x - y + 2z = 8
+            \end{cases}$$
+            </div>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                Tente eliminar uma variável adicionando ou subtraindo equações estrategicamente.
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Somando as equações (1) e (2): $(x + 2y + z) + (2x + y - z) = 10 + 3 \Rightarrow 3x + 3y = 13$</li>
+                    <li>Simplificando: $x + y = \frac{13}{3}$</li>
+                    <li>Somando as equações (2) e (3): $(2x + y - z) + (x - y + 2z) = 3 + 8 \Rightarrow 3x + z = 11$</li>
+                    <li>Da equação (1): $z = 10 - x - 2y$</li>
+                    <li>Substituindo em $3x + z = 11$: $3x + (10 - x - 2y) = 11 \Rightarrow 2x - 2y = 1 \Rightarrow x - y = \frac{1}{2}$</li>
+                    <li>Resolvendo o sistema $\begin{cases} x + y = \frac{13}{3} \\ x - y = \frac{1}{2} \end{cases}$: $2x = \frac{13}{3} + \frac{1}{2} = \frac{29}{6} \Rightarrow x = \frac{29}{12}$</li>
+                    <li>$y = \frac{13}{3} - \frac{29}{12} = \frac{23}{12}$</li>
+                    <li>$z = 10 - \frac{29}{12} - 2 \cdot \frac{23}{12} = \frac{45}{12} = \frac{15}{4}$</li>
+                </ol>
+                
+                <div class="formula">
+                    Solução: $(x, y, z) = \left(\frac{29}{12}, \frac{23}{12}, \frac{15}{4}\right)$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A precisão nestas proporções é crucial - uma dosagem incorreta pode transformar o RemoveRad em um veneno mortal. A matemática salva vidas na Zona Devastada.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 3 -->
+        <div class="exercise">
+            <h3>Coordenadas do Bunker Perdido</h3>
+            <p>Três torres de comunicação detectaram sinais de um bunker perdido. As coordenadas $(x, y, z)$ satisfazem:</p>
+            
+            <div class="formula">
+            $$\begin{cases}
+            3x - y + z = 7 \\
+            x + y + z = 9 \\
+            2x + y - z = 1
+            \end{cases}$$
+            </div>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                Note que somar a segunda e terceira equações elimina $z$ imediatamente.
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Somando as equações (2) e (3): $(x + y + z) + (2x + y - z) = 9 + 1 \Rightarrow 3x + 2y = 10$</li>
+                    <li>Subtraindo a equação (3) da (2): $(x + y + z) - (2x + y - z) = 9 - 1 \Rightarrow -x + 2z = 8 \Rightarrow z = 4 + \frac{x}{2}$</li>
+                    <li>Substituindo na equação (2): $x + y + 4 + \frac{x}{2} = 9 \Rightarrow \frac{3x}{2} + y = 5 \Rightarrow y = 5 - \frac{3x}{2}$</li>
+                    <li>Substituindo na primeira equação: $3x - (5 - \frac{3x}{2}) + (4 + \frac{x}{2}) = 7$</li>
+                    <li>Simplificando: $3x - 5 + \frac{3x}{2} + 4 + \frac{x}{2} = 7 \Rightarrow 3x + 2x - 1 = 7 \Rightarrow 5x = 8 \Rightarrow x = \frac{8}{5}$</li>
+                    <li>$y = 5 - \frac{3 \cdot 8}{2 \cdot 5} = 5 - \frac{12}{5} = \frac{13}{5}$</li>
+                    <li>$z = 4 + \frac{8}{2 \cdot 5} = 4 + \frac{4}{5} = \frac{24}{5}$</li>
+                </ol>
+                
+                <div class="formula">
+                    Solução: $(x, y, z) = \left(\frac{8}{5}, \frac{13}{5}, \frac{24}{5}\right)$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> As coordenadas exatas são vitais para localizar o bunker antes que outros grupos de saqueadores o encontrem. Cada segundo conta na Zona Devastada.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 4 -->
+        <div class="exercise">
+            <h3>Balanceamento de Energia Nuclear</h3>
+            <p>O reator do abrigo requer balanceamento de três núcleos de combustível. O sistema de controle indica:</p>
+            
+            <div class="formula">
+            $$\begin{cases}
+            2x + 3y - z = 4 \\
+            x - y + 2z = 6 \\
+            4x + y + z = 14
+            \end{cases}$$
+            </div>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                Use escalonamento: multiplique a segunda equação por 2 e some com a primeira para eliminar $x$.
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Multiplicando a equação (2) por -2: $-2x + 2y - 4z = -12$</li>
+                    <li>Somando com a equação (1): $(2x + 3y - z) + (-2x + 2y - 4z) = 4 + (-12) \Rightarrow 5y - 5z = -8$</li>
+                    <li>Simplificando: $y - z = -\frac{8}{5}$ ... (4)</li>
+                    <li>Multiplicando a equação (2) por -4: $-4x + 4y - 8z = -24$</li>
+                    <li>Somando com a equação (3): $(4x + y + z) + (-4x + 4y - 8z) = 14 + (-24) \Rightarrow 5y - 7z = -10$ ... (5)</li>
+                    <li>Subtraindo (4) de (5): $(5y - 7z) - (5y - 5z) = -10 - (-8) \Rightarrow -2z = -2 \Rightarrow z = 1$</li>
+                    <li>Da equação (4): $y = z - \frac{8}{5} = 1 - \frac{8}{5} = -\frac{3}{5}$</li>
+                    <li>Da equação (2): $x = 6 + y - 2z = 6 - \frac{3}{5} - 2 = \frac{17}{5}$</li>
+                </ol>
+                
+                <div class="formula">
+                    Solução: $(x, y, z) = \left(\frac{17}{5}, -\frac{3}{5}, 1\right)$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O valor negativo de $y$ indica que o segundo núcleo deve ser removido parcialmente para estabilizar o reator. Um erro aqui causaria uma fusão catastrófica.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 5 -->
+        <div class="exercise">
+            <h3>Rota de Fuga Tridimensional</h3>
+            <p>Três mutantes bloquearam suas rotas de fuga. Para escapar pelo túnel subterrâneo, você deve encontrar o ponto de interseção das passagens:</p>
+            
+            <div class="formula">
+            $$\begin{cases}
+            x + 2y - 3z = -1 \\
+            3x - y + z = 8 \\
+            2x + y - z = 5
+            \end{cases}$$
+            </div>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                Observe que as equações (2) e (3) têm coeficientes de $y$ opostos. Some-as para eliminar $y$.
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Somando as equações (2) e (3): $(3x - y + z) + (2x + y - z) = 8 + 5 \Rightarrow 5x = 13 \Rightarrow x = \frac{13}{5}$</li>
+                    <li>Multiplicando a equação (2) por 2: $6x - 2y + 2z = 16$</li>
+                    <li>Somando com a equação (1): $(x + 2y - 3z) + (6x - 2y + 2z) = -1 + 16 \Rightarrow 7x - z = 15$</li>
+                    <li>Substituindo $x = \frac{13}{5}$: $7 \cdot \frac{13}{5} - z = 15 \Rightarrow \frac{91}{5} - z = 15 \Rightarrow z = \frac{91}{5} - 15 = \frac{16}{5}$</li>
+                    <li>Da equação (3): $2 \cdot \frac{13}{5} + y - \frac{16}{5} = 5 \Rightarrow \frac{26}{5} + y - \frac{16}{5} = 5 \Rightarrow y + 2 = 5 \Rightarrow y = 3$</li>
+                </ol>
+                
+                <div class="formula">
+                    Solução: $(x, y, z) = \left(\frac{13}{5}, 3, \frac{16}{5}\right)$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Este ponto exato no espaço 3D representa sua única chance de escapar. Um erro de cálculo significaria ser capturado pelos mutantes - a precisão matemática é literalmente uma questão de vida ou morte.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 6 -->
+        <div class="exercise">
+            <h3>Sistema de Defesa Automatizado</h3>
+            <p>O sistema de defesa do abrigo possui três torres que devem ser calibradas simultaneamente. Os parâmetros $(x, y, z)$ devem satisfazer:</p>
+            
+            <div class="formula">
+            $$\begin{cases}
+            5x + 2y - z = 12 \\
+            x - 3y + 2z = -4 \\
+            3x + y + z = 10
+            \end{cases}$$
+            </div>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                Este sistema pode ser resolvido eficientemente usando eliminação de Gauss. Comece eliminando $x$ das equações (2) e (3).
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Multiplicando a equação (2) por -5: $-5x + 15y - 10z = 20$</li>
+                    <li>Somando com a equação (1): $(5x + 2y - z) + (-5x + 15y - 10z) = 12 + 20 \Rightarrow 17y - 11z = 32$ ... (4)</li>
+                    <li>Multiplicando a equação (2) por -3: $-3x + 9y - 6z = 12$</li>
+                    <li>Somando com a equação (3): $(3x + y + z) + (-3x + 9y - 6z) = 10 + 12 \Rightarrow 10y - 5z = 22$ ... (5)</li>
+                    <li>Simplificando a equação (5): $2y - z = \frac{22}{5}$ ... (6)</li>
+                    <li>Da equação (6): $z = 2y - \frac{22}{5}$</li>
+                    <li>Substituindo na equação (4): $17y - 11(2y - \frac{22}{5}) = 32 \Rightarrow 17y - 22y + \frac{242}{5} = 32$</li>
+                    <li>$-5y = 32 - \frac{242}{5} = \frac{160 - 242}{5} = -\frac{82}{5} \Rightarrow y = \frac{82}{25}$</li>
+                    <li>$z = 2 \cdot \frac{82}{25} - \frac{22}{5} = \frac{164}{25} - \frac{110}{25} = \frac{54}{25}$</li>
+                    <li>Da equação (2): $x = -4 + 3y - 2z = -4 + 3 \cdot \frac{82}{25} - 2 \cdot \frac{54}{25} = -4 + \frac{246 - 108}{25} = -4 + \frac{138}{25} = \frac{38}{25}$</li>
+                </ol>
+                
+                <div class="formula">
+                    Solução: $(x, y, z) = \left(\frac{38}{25}, \frac{82}{25}, \frac{54}{25}\right)$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A calibração precisa das torres de defesa é essencial para repelir ataques coordenados. Cada parâmetro representa ângulos de tiro e potência - um sistema mal calibrado deixaria o abrigo vulnerável.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 7 -->
+        <div class="exercise">
+            <h3>Análise de Sistema Impossível</h3>
+            <p>O computador central reporta uma anomalia nos dados de três sensores de radiação. Analise este sistema e determine sua natureza:</p>
+            
+            <div class="formula">
+            $$\begin{cases}
+            x + y + z = 6 \\
+            2x + 2y + 2z = 10 \\
+            x - y + z = 4
+            \end{cases}$$
+            </div>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                Compare as duas primeiras equações cuidadosamente. O que acontece quando você multiplica a primeira equação por 2?
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Multiplicando a primeira equação por 2: $2x + 2y + 2z = 12$</li>
+                    <li>Comparando com a segunda equação: $2x + 2y + 2z = 10$</li>
+                    <li>Temos uma contradição: $12 \neq 10$</li>
+                    <li>As duas primeiras equações são inconsistentes</li>
+                    <li>Portanto, o sistema não possui solução</li>
+                </ol>
+                
+                <div class="formula">
+                    Conclusão: Sistema impossível (inconsistente)
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A inconsistência nos dados dos sensores indica falha em pelo menos um equipamento. Na Zona Devastada, sensores defeituosos podem levar grupos inteiros para armadilhas mortais - sempre verificar a consistência matemática dos dados antes de tomar decisões críticas.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 8 -->
+        <div class="exercise">
+            <h3>Sistema com Infinitas Soluções</h3>
+            <p>Três grupos de escavadores relataram descobertas em diferentes coordenadas, mas os dados parecem relacionados. Analise o sistema:</p>
+            
+            <div class="formula">
+            $$\begin{cases}
+            x + 2y - z = 3 \\
+            2x + 4y - 2z = 6 \\
+            -x - 2y + z = -3
+            \end{cases}$$
+            </div>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                Observe as relações entre os coeficientes das equações. A segunda equação é múltipla da primeira?
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Observando a segunda equação: todos os coeficientes são o dobro da primeira equação</li>
+                    <li>Segunda equação: $2(x + 2y - z) = 2 \cdot 3 \Rightarrow 2x + 4y - 2z = 6$ ✓</li>
+                    <li>Terceira equação: todos os coeficientes são opostos da primeira equação</li>
+                    <li>Terceira equação: $-(x + 2y - z) = -3 \Rightarrow -x - 2y + z = -3$ ✓</li>
+                    <li>As três equações são equivalentes à primeira: $x + 2y - z = 3$</li>
+                    <li>Escolhendo parâmetros: $y = t$ e $z = s$</li>
+                    <li>Da primeira equação: $x = 3 - 2t + s$</li>
+                </ol>
+                
+                <div class="formula">
+                    Solução geral: $(x, y, z) = (3 - 2t + s, t, s)$, onde $t, s \in \mathbb{R}$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> As infinitas soluções indicam que os três grupos estão na verdade explorando a mesma região em pontos diferentes. Esta redundância pode ser aproveitada para cobrir mais área ou como backup em caso de ataque a um dos grupos.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 9 -->
+        <div class="exercise">
+            <h3>Interpretação Geométrica dos Planos</h3>
+            <p>Três barreiras de força protetoras formam planos no espaço. Determine onde elas se intersectam e classifique geometricamente o sistema:</p>
+            
+            <div class="formula">
+            $$\begin{cases}
+            2x + y - z = 4 \\
+            x - y + 2z = 1 \\
+            3x + 2y - 4z = 7
+            \end{cases}$$
+            </div>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                Após resolver o sistema, interprete o resultado: uma solução única representa um ponto de interseção, infinitas soluções indicam interseção em uma reta, e nenhuma solução significa planos que não se encontram.
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Somando as duas primeiras equações: $(2x + y - z) + (x - y + 2z) = 4 + 1 \Rightarrow 3x + z = 5$ ... (4)</li>
+                    <li>Multiplicando a segunda equação por 2: $2x - 2y + 4z = 2$</li>
+                    <li>Somando com a primeira: $(2x + y - z) + (2x - 2y + 4z) = 4 + 2 \Rightarrow 4x - y + 3z = 6$ ... (5)</li>
+                    <li>Da equação (4): $z = 5 - 3x$</li>
+                    <li>Substituindo na equação (5): $4x - y + 3(5 - 3x) = 6 \Rightarrow 4x - y + 15 - 9x = 6 \Rightarrow -5x - y = -9 \Rightarrow y = 9 - 5x$</li>
+                    <li>Verificando na terceira equação: $3x + 2(9 - 5x) - 4(5 - 3x) = 3x + 18 - 10x - 20 + 12x = 5x - 2$</li>
+                    <li>Para que seja igual a 7: $5x - 2 = 7 \Rightarrow x = \frac{9}{5}$</li>
+                    <li>$y = 9 - 5 \cdot \frac{9}{5} = 9 - 9 = 0$</li>
+                    <li>$z = 5 - 3 \cdot \frac{9}{5} = 5 - \frac{27}{5} = -\frac{2}{5}$</li>
+                </ol>
+                
+                <div class="formula">
+                    Solução: $(x, y, z) = \left(\frac{9}{5}, 0, -\frac{2}{5}\right)$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Os três planos de força se intersectam em um único ponto crítico. Este ponto representa a única vulnerabilidade no sistema de defesa - deve ser protegido a todo custo, pois sua falha comprometeria todas as três barreiras simultaneamente.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 10 -->
+        <div class="exercise">
+            <h3>Otimização de Recursos Críticos</h3>
+            <p>Durante um cerco prolongado, você deve otimizar o uso de três recursos vitais: energia, água e munição. As relações de consumo são complexas:</p>
+            
+            <div class="formula">
+            $$\begin{cases}
+            3x + 2y - 4z = 10 \\
+            x - 3y + 5z = -8 \\
+            2x + y - 3z = 6
+            \end{cases}$$
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Multiplicando a segunda equação por -3: $-3x + 9y - 15z = 24$</li>
+                    <li>Somando com a primeira: $(3x + 2y - 4z) + (-3x + 9y - 15z) = 10 + 24 \Rightarrow 11y - 19z = 34$ ... (4)</li>
+                    <li>Multiplicando a segunda equação por -2: $-2x + 6y - 10z = 16$</li>
+                    <li>Somando com a terceira: $(2x + y - 3z) + (-2x + 6y - 10z) = 6 + 16 \Rightarrow 7y - 13z = 22$ ... (5)</li>
+                    <li>Multiplicando (5) por 11 e (4) por 7: $77y - 143z = 242$ e $77y - 133z = 238$</li>
+                    <li>Subtraindo: $-10z = 4 \Rightarrow z = -\frac{2}{5}$</li>
+                    <li>Da equação (5): $7y - 13(-\frac{2}{5}) = 22 \Rightarrow 7y + \frac{26}{5} = 22 \Rightarrow 7y = \frac{84}{5} \Rightarrow y = \frac{12}{5}$</li>
+                    <li>Da segunda equação: $x = -8 + 3y - 5z = -8 + 3 \cdot \frac{12}{5} - 5(-\frac{2}{5}) = -8 + \frac{36}{5} + 2 = \frac{6}{5}$</li>
+                </ol>
+                
+                <div class="formula">
+                    Solução: $(x, y, z) = \left(\frac{6}{5}, \frac{12}{5}, -\frac{2}{5}\right)$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O valor negativo de $z$ indica que você deve reduzir o consumo de munição em $\frac{2}{5}$ unidades, compensando com maior eficiência energética e uso de água. Esta estratégia contra-intuitiva pode prolongar significativamente sua capacidade de resistir ao cerco.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 11 -->
+        <div class="exercise">
+            <h3>Triangulação de Fonte de Interferência</h3>
+            <p>Três estações de monitoramento detectaram uma fonte misteriosa de interferência eletromagnética. Use triangulação para localizar suas coordenadas exatas:</p>
+            
+            <div class="formula">
+            $$\begin{cases}
+            4x - 3y + 2z = 18 \\
+            -2x + 5y - z = -12 \\
+            6x - y + 3z = 22
+            \end{cases}$$
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Multiplicando a segunda equação por 2: $-4x + 10y - 2z = -24$</li>
+                    <li>Somando com a primeira: $(4x - 3y + 2z) + (-4x + 10y - 2z) = 18 + (-24) \Rightarrow 7y = -6 \Rightarrow y = -\frac{6}{7}$</li>
+                    <li>Multiplicando a segunda equação por 3: $-6x + 15y - 3z = -36$</li>
+                    <li>Somando com a terceira: $(6x - y + 3z) + (-6x + 15y - 3z) = 22 + (-36) \Rightarrow 14y = -14 \Rightarrow y = -1$</li>
+                    <li>Verificação: temos $y = -\frac{6}{7}$ e $y = -1$, que são diferentes!</li>
+                    <li>Vamos refazer: da primeira soma $7y = -6$, então $y = -\frac{6}{7}$</li>
+                    <li>Substituindo $y = -\frac{6}{7}$ na segunda equação: $-2x + 5(-\frac{6}{7}) - z = -12 \Rightarrow -2x - \frac{30}{7} - z = -12$</li>
+                    <li>$-2x - z = -12 + \frac{30}{7} = \frac{-84 + 30}{7} = -\frac{54}{7} \Rightarrow 2x + z = \frac{54}{7}$ ... (4)</li>
+                    <li>Substituindo na primeira equação: $4x - 3(-\frac{6}{7}) + 2z = 18 \Rightarrow 4x + \frac{18}{7} + 2z = 18 \Rightarrow 4x + 2z = \frac{108}{7}$ ... (5)</li>
+                    <li>Dividindo (5) por 2: $2x + z = \frac{54}{7}$ (confirma equação 4)</li>
+                    <li>Da equação (4): $z = \frac{54}{7} - 2x$</li>
+                    <li>Substituindo na terceira equação: $6x - (-\frac{6}{7}) + 3(\frac{54}{7} - 2x) = 22$</li>
+                    <li>$6x + \frac{6}{7} + \frac{162}{7} - 6x = 22 \Rightarrow \frac{168}{7} = 22 \Rightarrow 24 = 22$ (contradição!)</li>
+                    <li>Recalculando: o sistema é inconsistente</li>
+                </ol>
+                
+                <div class="formula">
+                    Conclusão: Sistema impossível - os dados das estações são inconsistentes
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A inconsistência nos dados sugere que pelo menos uma estação foi comprometida ou danificada. Na Zona Devastada, informações falsas podem ser mais perigosas que nenhuma informação - sempre verifique a integridade dos dados antes de agir.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 12 -->
+        <div class="exercise">
+            <h3>Protocolo de Evacuação Complexa</h3>
+            <p>Uma tempestade radioativa se aproxima e você deve coordenar a evacuação de três setores para um ponto de encontro seguro. As variáveis representam tempos de deslocamento que devem ser sincronizados:</p>
+            
+            <div class="formula">
+            $$\begin{cases}
+            2x + 3y - 5z = 7 \\
+            4x - 2y + 3z = 1 \\
+            6x + y - 2z = 8
+            \end{cases}$$
+            </div>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Multiplicando a primeira equação por -2: $-4x - 6y + 10z = -14$</li>
+                    <li>Somando com a segunda: $(4x - 2y + 3z) + (-4x - 6y + 10z) = 1 + (-14) \Rightarrow -8y + 13z = -13$ ... (4)</li>
+                    <li>Multiplicando a primeira equação por -3: $-6x - 9y + 15z = -21$</li>
+                    <li>Somando com a terceira: $(6x + y - 2z) + (-6x - 9y + 15z) = 8 + (-21) \Rightarrow -8y + 13z = -13$ ... (5)</li>
+                    <li>As equações (4) e (5) são idênticas: $-8y + 13z = -13$</li>
+                    <li>Isto indica que temos infinitas soluções dependentes de um parâmetro</li>
+                    <li>Seja $z = t$ (parâmetro), então: $-8y + 13t = -13 \Rightarrow y = \frac{13t + 13}{8}$</li>
+                    <li>Da primeira equação: $2x + 3 \cdot \frac{13t + 13}{8} - 5t = 7$</li>
+                    <li>$2x + \frac{39t + 39}{8} - 5t = 7 \Rightarrow 2x = 7 - \frac{39t + 39}{8} + 5t$</li>
+                    <li>$2x = \frac{56 - 39t - 39 + 40t}{8} = \frac{17 + t}{8} \Rightarrow x = \frac{17 + t}{16}$</li>
+                    <li>Verificando na segunda equação: $4 \cdot \frac{17 + t}{16} - 2 \cdot \frac{13t + 13}{8} + 3t = \frac{17 + t}{4} - \frac{13t + 13}{4} + 3t = \frac{17 + t - 13t - 13 + 12t}{4} = \frac{4}{4} = 1$ ✓</li>
+                </ol>
+                
+                <div class="formula">
+                    Solução geral: $(x, y, z) = \left(\frac{17 + t}{16}, \frac{13t + 13}{8}, t\right)$, onde $t \in \mathbb{R}$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> As infinitas soluções oferecem flexibilidade crucial no protocolo de evacuação. Você pode ajustar o parâmetro $t$ conforme as condições mudem (feridos, obstáculos, intensidade da radiação), mantendo a coordenação entre os setores. Esta adaptabilidade pode salvar vidas quando planos rígidos falhariam.</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- RODAPÉ DO DOCUMENTO -->
+    <div class="footer">
+        REFÚGIO-TEC | Sistemas de Equações Lineares 3x3: Sobrevivência Matemática - "Na Zona Devastada, cada equação resolvida é uma vida salva"
+    </div>
+</body>
+</html>

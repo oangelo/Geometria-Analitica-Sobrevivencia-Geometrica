@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cap. IV — Equação da Circunferência</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+            <!-- ============================ -->
+            <!-- INTRODUÇÃO (HORIZONTAL START) -->
+            <!-- ============================ -->
+            <section>
+                 <!-- Slide 0.1: Título do Capítulo -->
+                 <section class="title-screen">
+                     <h1>Capítulo II</h1>
+                     <h2 class="subtitle">A Circunferência: Criando Zonas Seguras</h2>
+                     <div class="emblem-number">02</div>
+                     <p class="subtitle-warning">Definição, Equações e Posições Relativas</p>
+                 </section>
+
+                 <!-- Slide 0.2: Contexto Histórico Geral -->
+                 <section class="field-report">
+                     <h3>Contexto: A Forma da Proteção</h3>
+                     <div class="info-panel">
+                         <div class="info-screen crt-effect">
+                             <h4>O Círculo na História e na Ruína</h4>
+                             <p>Desde Stonehenge aos escudos, o círculo sempre representou unidade e defesa. Euclides e Apolônio desvendaram suas propriedades matemáticas.</p>
+                             <p>A geometria analítica deu-lhe poder algébrico, permitindo cálculos precisos de perímetros, áreas de influência e interações.</p>
+                             <p>Na wasteland, é a forma da zona segura, do alcance do sinal, da área de explosão. Dominá-la é essencial para o planejamento estratégico.</p>
+                         </div>
+                     </div>
+                      <div class="survival-tip">
+                         <p>DICA HISTÓRICA: Apolônio de Perga, "O Grande Geômetra", deixou um legado crucial sobre cônicas.</p>
+                     </div>
+                 </section>
+            </section>
+
+            <!-- ============================ -->
+            <!-- TÓPICO 1: EQUAÇÃO DA CIRCUNFERÊNCIA (HORIZONTAL →) -->
+            <!-- ============================ -->
+            <section>
+                  <!-- Slide 1.1: Conceito Principal -->
+                  <section class="mission-briefing">
+                      <h2>Tópico 1: Equação da Circunferência</h2>
+                      <h3 class="mission-subtitle">A Assinatura da Redoma</h3>
+                      <div class="definition-box">
+                          <p>Descrição matemática dos pontos \(P(x, y)\) à distância \(R\) (raio) de um centro \(C(a, b)\).</p>
+                          <h4>Equação Reduzida (A Forma Explícita):</h4>
+                          <p class="formula">\((x - a)^2 + (y - b)^2 = R^2\)</p>
+                          <p><strong>\(C(a, b)\)</strong>: Centro.<br><strong>\(R\)</strong>: Raio (\(R > 0\)).</p>
+                      </div>
+                       <p class="mnemonic">"X menos 'a', Y menos 'b', ao quadrado somados, igual a R ao quadrado, segredos revelados."</p>
+                  </section>
+
+                  <!-- Slide 1.2: Visualizações -->
+                  <section class="simulator">
+                      <h3>Visualização: Forjando a Equação</h3>
+                      <p>Ajuste o centro (a,b) e o raio R. Observe a equação e a forma resultante.</p>
+                      <div class="canvas-container interactive-element">
+                          <canvas id="circunferencia-eq-canvas" width="800" height="400"></canvas>
+                          <div class="simulator-controls">
+                              <div class="control-panel">
+                                  <label for="circ-eq-cx">Centro X (a):</label>
+                                  <input type="range" id="circ-eq-cx" min="-8" max="8" value="0" step="0.5">
+                                  <span id="circ-eq-cx-value">0</span>
+                                  <label for="circ-eq-cy">Centro Y (b):</label>
+                                  <input type="range" id="circ-eq-cy" min="-5" max="5" value="0" step="0.5">
+                                  <span id="circ-eq-cy-value">0</span>
+                                  <label for="circ-eq-r">Raio (R):</label>
+                                  <input type="range" id="circ-eq-r" min="1" max="8" value="3" step="0.5">
+                                  <span id="circ-eq-r-value">3</span>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="hint-message">
+                          <p>Equação Resultante: <span id="circ-eq-equation-display" class="formula radiation-glow">(x - 0)² + (y - 0)² = 3²</span>.</p>
+                      </div>
+                  </section>
+
+                  <!-- Slide 1.3: Teorema Relacionado - Eq. Geral -->
+                   <section class="field-report">
+                      <h3>Teorema: A Equação Geral (Forma Implícita)</h3>
+                      <div class="info-panel">
+                        <div class="info-screen">
+                          <p>Desenvolvendo a equação reduzida \((x-a)^2+(y-b)^2=R^2\), chegamos à forma geral:</p>
+                          <p class="formula">\(x^2 + y^2 + Dx + Ey + F = 0\)</p>
+                          <p>Onde os coeficientes D, E, F estão relacionados com o centro (a,b) e o raio R:</p>
+                          <p>\(D = -2a\),   \(E = -2b\),   \(F = a^2 + b^2 - R^2\).</p>
+                          <p><em>Esta forma pode aparecer em sinais interceptados ou dados corrompidos.</em></p>
+                        </div>
+                      </div>
+                  </section>
+
+                  <!-- Slide 1.4: Teorema Relacionado - Condição de Existência -->
+                   <section class="field-report">
+                      <h3>Teorema: Condição de Existência</h3>
+                      <div class="info-panel">
+                        <div class="info-screen">
+                          <p>Uma equação da forma \(x^2 + y^2 + Dx + Ey + F = 0\) SÓ representa uma circunferência se a seguinte condição for satisfeita:</p>
+                          <p class="formula">\( D^2 + E^2 - 4F > 0 \)</p>
+                          <p>Por quê? Porque o termo à esquerda está relacionado ao quadrado do raio (<(>R^2 = \frac{D^2+E^2-4F}{4}\)). E o raio deve ser real e positivo.</p>
+                          <ul>
+                              <li>Se \(D^2+E^2-4F = 0 \implies\) Representa um único ponto (raio zero).</li>
+                              <li>Se \(D^2+E^2-4F < 0 \implies\) Conjunto vazio (raio imaginário).</li>
+                          </ul>
+                        </div>
+                      </div>
+                  </section>
+
+                  <!-- Slide 1.5: Teorema Relacionado - Conversão Geral -> Reduzida -->
+                   <section class="field-report">
+                      <h3>Teorema: Decodificando a Eq. Geral</h3>
+                      <div class="info-panel">
+                        <div class="info-screen">
+                           <p>Se \( D^2 + E^2 - 4F > 0 \), podemos encontrar o centro e o raio a partir de D, E, F:</p>
+                           <h4>Centro \(C(a,b)\):</h4>
+                           <p class="formula">\(a = -\frac{D}{2}\)      \(b = -\frac{E}{2}\)</p>
+                           <h4>Raio \(R\):</h4>
+                           <p class="formula">\(R = \sqrt{a^2 + b^2 - F} = \frac{\sqrt{D^2+E^2-4F}}{2}\)</p>
+                           <p><em>(Estes resultados vêm da técnica de completar quadrados na equação geral).</em></p>
+                        </div>
+                      </div>
+                  </section>
+
+                  <!-- Slide 1.6: Problema -->
+                  <section class="survival-training">
+                      <h3>Problema: Decodificar Sinal Inimigo</h3>
+                      <div class="training-problem">
+                        <h4>Cenário:</h4>
+                        <p>Interceptamos a descrição de uma zona de perigo:</p>
+                        <p class="formula">\(x^2 + y^2 - 6x + 8y + 9 = 0\)</p>
+                        <h4>Missão:</h4>
+                        <p>Determinar o centro \(C\) e o raio \(R\) desta zona.</p>
+                      </div>
+                      <div class="problem-context">
+                        <p>Precisamos saber o alcance exato do perigo.</p>
+                      </div>
+                  </section>
+
+                  <!-- Slide 1.7: Solução - Passo 1: Coeficientes -->
+                   <section class="field-report">
+                      <h3>Solução: Passo 1 - Identificar D, E, F</h3>
+                      <div class="info-panel">
+                        <div class="info-screen">
+                           <p>Equação: \(x^2 + y^2 - 6x + 8y + 9 = 0\)</p>
+                           <p>Forma Geral: \(x^2 + y^2 + Dx + Ey + F = 0\)</p>
+                           <p>Comparando termo a termo:</p>
+                           <p>\(D = -6\)</p>
+                           <p>\(E = 8\)</p>
+                           <p>\(F = 9\)</p>
+                        </div>
+                      </div>
+                  </section>
+
+                  <!-- Slide 1.8: Solução - Passo 2: Verificar Condição -->
+                   <section class="field-report">
+                      <h3>Solução: Passo 2 - Verificar \(D^2+E^2-4F > 0\)</h3>
+                      <div class="info-panel">
+                        <div class="info-screen">
+                           <p>Usando \(D=-6\), \(E=8\), \(F=9\):</p>
+                           <p>\( D^2 + E^2 - 4F = (-6)^2 + (8)^2 - 4(9) \)</p>
+                           <p>\( = 36 + 64 - 36 \)</p>
+                           <p class="formula">\( = 64 \)</p>
+                           <p>Como \(64 > 0\), a equação representa uma circunferência válida.</p>
+                        </div>
+                      </div>
+                  </section>
+
+                   <!-- Slide 1.9: Solução - Passo 3: Calcular Centro -->
+                   <section class="field-report">
+                      <h3>Solução: Passo 3 - Calcular Centro \(C(a,b)\)</h3>
+                      <div class="info-panel">
+                        <div class="info-screen">
+                           <p>Usando as fórmulas de conversão:</p>
+                           <p>\(a = -D/2 = -(-6)/2 = 6/2 = 3\)</p>
+                           <p>\(b = -E/2 = -(8)/2 = -8/2 = -4\)</p>
+                           <p>Portanto, o centro da zona de perigo é:</p>
+                           <p class="formula">\( C = (3, -4) \)</p>
+                        </div>
+                      </div>
+                  </section>
+
+                   <!-- Slide 1.10: Solução - Passo 4: Calcular Raio -->
+                   <section class="field-report">
+                      <h3>Solução: Passo 4 - Calcular Raio \(R\)</h3>
+                      <div class="info-panel">
+                        <div class="info-screen">
+                           <p>Usando a fórmula de conversão:</p>
+                           <p>\(R = \frac{\sqrt{D^2+E^2-4F}}{2}\)</p>
+                           <p>Já calculamos \(D^2+E^2-4F = 64\).</p>
+                           <p>\(R = \frac{\sqrt{64}}{2} = \frac{8}{2} = 4\)</p>
+                           <p>Portanto, o raio da zona de perigo é:</p>
+                           <p class="formula">\( R = 4 \)</p>
+                        </div>
+                      </div>
+                  </section>
+
+                  <!-- Slide 1.11: Conclusão -->
+                   <section class="debriefing">
+                      <h3>Conclusão: Equações da Redoma</h3>
+                      <div class="summary-box">
+                        <h4>Lições Aprendidas:</h4>
+                        <ul>
+                            <li>Equação Reduzida: Clara e direta para C e R.</li>
+                            <li>Equação Geral: Requer verificação e decodificação.</li>
+                            <li>A condição \(D^2+E^2-4F>0\) é o teste de validade.</li>
+                        </ul>
+                        <p>Ambas as formas são ferramentas essenciais no arsenal do sobrevivente geométrico.</p>
+                      </div>
+                  </section>
+            </section>
+
+      </div>
+    </div>
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/math/math.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/zoom/zoom.js"></script>
+    <script>
+      window.MathJax = { tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script>
+      Reveal.initialize({ hash: true, slideNumber: 'c/t', transition: 'convex', plugins: [RevealNotes, RevealHighlight] });
+    </script>
+  </body>
+</html>

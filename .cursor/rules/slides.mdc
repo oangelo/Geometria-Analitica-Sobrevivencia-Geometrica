@@ -1,0 +1,46 @@
+---
+description: Padrões para criação de slide decks do curso
+globs: slide-decks/**/*.html
+alwaysApply: false
+---
+
+# Slides — Sobrevivência Geométrica
+
+Use o `slide-decks/template.html` como base. O CSS está em `slide-decks/styles.css`.
+
+## Regra de ouro
+**NUNCA** gerar CSS adicional (sem `<style>`, sem `style=""` inline, sem classes novas).
+Usar **exclusivamente** as classes já existentes no `styles.css`.
+
+## Tom e Estilo
+- Humor sutil e sarcástico, metáforas de sobrevivência pós-apocalíptica
+- Sem menções diretas a franquias específicas
+- Incluir mnemônicos temáticos para facilitar memorização
+
+## Estrutura de navegação (Reveal.js)
+- **Horizontal**: entre tópicos principais do capítulo
+- **Vertical**: aprofundamento dentro de cada tópico
+- Sequência por tópico: `mission-briefing` → `field-report` → `simulator` → `survival-training` → `debriefing`
+
+## Classes de tipos de slide
+`mission-briefing`, `field-report`, `simulator`, `survival-training`, `debriefing`
+
+## Classes de elementos
+`formula`, `definition-box`, `survival-tip`, `mnemonic`, `info-panel`, `info-screen`,
+`canvas-container`, `simulator-controls`, `control-panel`, `operation-btn`, `hint-message`,
+`training-problem`, `problem-context`, `level-basic`, `level-intermediate`, `level-advanced`
+
+## JavaScript
+Todo JS deve usar **IIFE** para evitar vazamento de escopo global:
+```javascript
+(function() {
+  function init() {
+    const canvas = document.getElementById('[topico]-canvas');
+    if (!canvas) return;
+    // ...
+  }
+  document.addEventListener('DOMContentLoaded', init);
+})();
+```
+
+Referência completa de classes e exemplos em `slide-decks/prompt.md`.

@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+    </script>
+    <title>REFÚGIO-TEC | Produto Interno no R³</title>
+    <style>
+        /* Estilo inspirado no tema pós-apocalíptico */
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100px; }
+        }
+
+        body {
+            background-color: #0c0c0c;
+            color: #e6e6e6;
+            font-family: "Courier New", monospace;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #4caf50;
+            max-width: 800px;
+            margin: auto;
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 2px;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+
+        h1, h2, h3 {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .exercise {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border: 1px dashed #4caf50;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        details {
+            background-color: #1c1c1c;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            margin-top: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #4caf50;
+        }
+
+        summary:hover {
+            text-shadow: 0 0 3px #4caf50;
+        }
+
+        code {
+            background-color: #333;
+            padding: 3px 5px;
+            color: #ffeb3b;
+        }
+
+        .hint {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #4caf50;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .hint:before {
+            content: "DICA DE SOBREVIVÊNCIA: ";
+            color: #4caf50;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .solution-steps {
+            margin-left: 20px;
+            counter-reset: step-counter;
+        }
+
+        .solution-steps li {
+            list-style-type: none;
+            counter-increment: step-counter;
+            margin-bottom: 10px;
+        }
+
+        .solution-steps li::before {
+            content: "> PASSO_" counter(step-counter) ": ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .formula {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #000;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .terminal-frame {
+            padding: 10px;
+            background-color: #000;
+            margin-bottom: 20px;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .terminal-header {
+            margin: 0;
+            padding: 3px 10px;
+            background-color: #4caf50;
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .terminal-content {
+            padding: 5px;
+            white-space: pre-wrap;
+            font-size: 1em;
+            line-height: 1.2;
+        }
+
+        .cursor:after {
+            content: "█";
+            animation: blink 1s step-end infinite;
+        }
+
+        .terminal-line {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .terminal-border {
+            border: 1px solid #4caf50;
+            padding: 5px;
+            background-color: #000;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .mission-counter {
+            counter-reset: mission;
+        }
+        
+        .mission-counter .exercise h3:before {
+            content: "MISSÃO " counter(mission) ": ";
+            counter-increment: mission;
+        }
+
+        .warning {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .danger {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #8bc34a;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #4caf50;
+            border-top: 1px solid #4caf50;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- TÍTULO E INTRODUÇÃO -->
+    <div class="terminal-frame">
+        <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
+        <div class="terminal-content">
+┌───────────────────────────────────────────────────┐
+│ MÓDULO: PRODUTO INTERNO NO R³                     │
+└───────────────────────────────────────────────────┘
+
+> INICIANDO TRANSMISSÃO...
+> CARREGANDO MÓDULO DE TREINAMENTO...
+> ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
+        </div>
+    </div>
+
+    <div class="terminal-border">
+        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: PRODUTO INTERNO NO R³</h2>
+    
+    <p>No mundo tridimensional da Zona Devastada, a capacidade de calcular distâncias, ângulos e projeções pode significar a diferença entre encontrar um abrigo seguro ou vagar perdido na radiação. O produto interno no espaço R³ é uma ferramenta matemática fundamental para navegação, comunicação e sobrevivência em um ambiente tridimensional hostil.</p>
+    
+    <p>No espaço tridimensional, trabalhamos com vetores da forma $\vec{v} = (x, y, z)$, onde cada componente representa uma direção no espaço: horizontal (x), lateral (y) e vertical (z). Estes vetores são essenciais para determinar posições de abrigos, calcular trajetórias de fuga e estabelecer rotas de comunicação entre bases de sobreviventes.</p>
+    
+    <div class="formula">
+    Produto Interno: $\vec{u} \cdot \vec{v} = u_1 \cdot v_1 + u_2 \cdot v_2 + u_3 \cdot v_3$
+    </div>
+    
+    <p>O módulo de um vetor no R³ nos fornece a distância euclidiana no espaço, crucial para calcular rotas de fuga e alcance de equipamentos. A fórmula do módulo é uma extensão natural do teorema de Pitágoras para três dimensões, permitindo calcular distâncias reais em nossa realidade tridimensional devastada.</p>
+
+    <div class="formula">
+    Módulo: $|\vec{v}| = \sqrt{v_1^2 + v_2^2 + v_3^2}$
+    </div>
+
+    <p>O ângulo entre vetores nos permite determinar direções relativas, fundamental para estabelecer pontos de comunicação e calcular trajetórias de interceptação. A distância entre pontos no espaço é vital para determinar se um local está dentro do alcance de nossos recursos limitados de sobrevivência.</p>
+
+    <div class="formula">
+    Ângulo: $\cos \theta = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}| \cdot |\vec{v}|}$
+    </div>
+
+    <!-- MISSÕES (EXERCÍCIOS) -->
+    <div class="mission-counter">
+        <!-- MISSÃO 1 -->
+        <div class="exercise">
+            <h3>Comunicação Básica Entre Torres</h3>
+            <p>Sua base principal está localizada no ponto A(2, 1, 3) e você precisa estabelecer comunicação com uma torre de observação no ponto B(5, 4, 7). Calcule o vetor posição que representa a direção da base para a torre e determine seu módulo para saber a distância entre elas.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                O vetor posição é obtido subtraindo as coordenadas: $\vec{AB} = B - A$. O módulo representa a distância euclidiana no espaço.
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcular o vetor posição: $\vec{AB} = (5-2, 4-1, 7-3) = (3, 3, 4)$</li>
+                    <li>Aplicar a fórmula do módulo: $|\vec{AB}| = \sqrt{3^2 + 3^2 + 4^2}$</li>
+                    <li>Resolver: $|\vec{AB}| = \sqrt{9 + 9 + 16} = \sqrt{34}$</li>
+                    <li>Calcular o valor aproximado: $|\vec{AB}| \approx 5,83$ unidades</li>
+                </ol>
+                
+                <div class="formula">
+                    $\vec{AB} = (3, 3, 4)$ e $|\vec{AB}| = \sqrt{34} \approx 5,83$ unidades
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Conhecer a distância exata entre pontos estratégicos permite otimizar o uso de combustível e determinar se a comunicação por rádio tem alcance suficiente para conectar as duas posições.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 2 -->
+        <div class="exercise">
+            <h3>Produto Escalar para Navegação</h3>
+            <p>Dois grupos de exploradores seguem as direções representadas pelos vetores $\vec{u} = (1, 2, 3)$ e $\vec{v} = (4, -1, 2)$. Calcule o produto escalar entre estes vetores para determinar informações sobre suas rotas.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                Use a definição fundamental: $\vec{u} \cdot \vec{v} = u_1v_1 + u_2v_2 + u_3v_3$. O resultado pode indicar se as rotas são perpendiculares (produto = 0) ou não.
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Aplicar a fórmula do produto escalar: $\vec{u} \cdot \vec{v} = (1)(4) + (2)(-1) + (3)(2)$</li>
+                    <li>Calcular cada termo: $4 + (-2) + 6$</li>
+                    <li>Somar os resultados: $\vec{u} \cdot \vec{v} = 8$</li>
+                </ol>
+                
+                <div class="formula">
+                    $\vec{u} \cdot \vec{v} = 8$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Um produto escalar positivo indica que os grupos estão se movendo em direções que formam um ângulo agudo, o que pode significar que eles se aproximarão em algum momento de suas jornadas.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 3 -->
+        <div class="exercise">
+            <h3>Verificação de Perpendicularidade</h3>
+            <p>Para estabelecer um perímetro de segurança em formato de cruz, você precisa verificar se os vetores $\vec{a} = (2, -3, 1)$ e $\vec{b} = (1, 2, 4)$ são perpendiculares. Dois vetores são perpendiculares quando seu produto escalar é zero.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                Calcule $\vec{a} \cdot \vec{b}$ e verifique se o resultado é zero. Se for, os vetores são perpendiculares e formam um ângulo de 90°.
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcular o produto escalar: $\vec{a} \cdot \vec{b} = (2)(1) + (-3)(2) + (1)(4)$</li>
+                    <li>Resolver cada termo: $2 + (-6) + 4$</li>
+                    <li>Somar: $\vec{a} \cdot \vec{b} = 0$</li>
+                    <li>Conclusão: Como o produto escalar é zero, os vetores são perpendiculares</li>
+                </ol>
+                
+                <div class="formula">
+                    $\vec{a} \cdot \vec{b} = 0 \Rightarrow \vec{a} \perp \vec{b}$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Estabelecer perímetros com ângulos retos é crucial para maximizar a cobertura de vigilância e criar zonas de defesa eficientes contra invasões de mutantes.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 4 -->
+        <div class="exercise">
+            <h3>Cálculo de Ângulo Entre Direções</h3>
+            <p>Dois grupos de resgate seguem as direções $\vec{u} = (3, 0, 4)$ e $\vec{v} = (0, 5, 0)$. Determine o ângulo entre suas rotas para coordenar um ponto de encontro eficiente.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                Use a fórmula $\cos \theta = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}| \cdot |\vec{v}|}$ e depois aplique a função arcocosseno para encontrar o ângulo.
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcular o produto escalar: $\vec{u} \cdot \vec{v} = (3)(0) + (0)(5) + (4)(0) = 0$</li>
+                    <li>Calcular $|\vec{u}| = \sqrt{3^2 + 0^2 + 4^2} = \sqrt{9 + 16} = 5$</li>
+                    <li>Calcular $|\vec{v}| = \sqrt{0^2 + 5^2 + 0^2} = 5$</li>
+                    <li>Aplicar a fórmula: $\cos \theta = \frac{0}{5 \cdot 5} = 0$</li>
+                    <li>Encontrar o ângulo: $\theta = \arccos(0) = 90°$</li>
+                </ol>
+                
+                <div class="formula">
+                    $\theta = 90°$ ou $\frac{\pi}{2}$ radianos
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Rotas perpendiculares facilitam a triangulação de posições e permitem cobrir maior área de busca com eficiência máxima de recursos humanos limitados.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 5 -->
+        <div class="exercise">
+            <h3>Projeção de Vetor para Planejamento</h3>
+            <p>Uma patrulha segue a direção $\vec{v} = (6, 8, 0)$ e você quer saber qual é a componente desta direção na direção $\vec{u} = (1, 0, 0)$ (direção leste). Calcule a projeção escalar de $\vec{v}$ sobre $\vec{u}$.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                A projeção escalar é dada por $\text{proj}_{\vec{u}} \vec{v} = \frac{\vec{v} \cdot \vec{u}}{|\vec{u}|}$.
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcular o produto escalar: $\vec{v} \cdot \vec{u} = (6)(1) + (8)(0) + (0)(0) = 6$</li>
+                    <li>Calcular o módulo de $\vec{u}$: $|\vec{u}| = \sqrt{1^2 + 0^2 + 0^2} = 1$</li>
+                    <li>Aplicar a fórmula: $\text{proj}_{\vec{u}} \vec{v} = \frac{6}{1} = 6$</li>
+                </ol>
+                
+                <div class="formula">
+                    $\text{proj}_{\vec{u}} \vec{v} = 6$ unidades
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Conhecer a componente leste do movimento permite estimar quando a patrulha cruzará marcos geográficos importantes, como rios ou montanhas, fundamentais para navegação.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 6 -->
+        <div class="exercise">
+            <h3>Distância Entre Pontos de Suprimento</h3>
+            <p>Você tem depósitos de suprimentos localizados em P₁(1, -2, 3) e P₂(-2, 1, 7). Calcule a distância entre eles e determine se está dentro do alcance de 6 unidades do seu veículo todo-terreno.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                A distância entre dois pontos é o módulo do vetor que os conecta. Compare o resultado com 6 unidades.
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcular o vetor distância: $\vec{P_1P_2} = (-2-1, 1-(-2), 7-3) = (-3, 3, 4)$</li>
+                    <li>Calcular o módulo: $|\vec{P_1P_2}| = \sqrt{(-3)^2 + 3^2 + 4^2}$</li>
+                    <li>Resolver: $|\vec{P_1P_2}| = \sqrt{9 + 9 + 16} = \sqrt{34} \approx 5,83$</li>
+                    <li>Comparar com 6: Como 5,83 < 6, os depósitos estão dentro do alcance</li>
+                </ol>
+                
+                <div class="formula">
+                    $d = \sqrt{34} \approx 5,83 < 6$ unidades
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Estar dentro do alcance do veículo significa que você pode transportar suprimentos entre os depósitos em uma única viagem, economizando combustível precioso.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 7 -->
+        <div class="exercise">
+            <h3>Análise de Vetores Unitários</h3>
+            <p>Para estabelecer um sistema de coordenadas preciso na sua base, você precisa encontrar um vetor unitário na direção de $\vec{w} = (2, -1, 2)$. Um vetor unitário tem módulo igual a 1.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                Divida o vetor pelo seu próprio módulo: $\hat{w} = \frac{\vec{w}}{|\vec{w}|}$.
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcular o módulo: $|\vec{w}| = \sqrt{2^2 + (-1)^2 + 2^2} = \sqrt{4 + 1 + 4} = \sqrt{9} = 3$</li>
+                    <li>Dividir cada componente pelo módulo: $\hat{w} = \frac{(2, -1, 2)}{3}$</li>
+                    <li>Simplificar: $\hat{w} = \left(\frac{2}{3}, -\frac{1}{3}, \frac{2}{3}\right)$</li>
+                    <li>Verificar: $|\hat{w}| = \sqrt{\left(\frac{2}{3}\right)^2 + \left(-\frac{1}{3}\right)^2 + \left(\frac{2}{3}\right)^2} = 1$ ✓</li>
+                </ol>
+                
+                <div class="formula">
+                    $\hat{w} = \left(\frac{2}{3}, -\frac{1}{3}, \frac{2}{3}\right)$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Vetores unitários são essenciais para estabelecer direções padrão em sistemas de navegação, permitindo comunicação precisa de coordenadas entre diferentes grupos de sobreviventes.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 8 -->
+        <div class="exercise">
+            <h3>Determinação de Paralelismo</h3>
+            <p>Dois grupos seguem direções $\vec{r} = (4, -2, 6)$ e $\vec{s} = (-6, 3, -9)$. Determine se eles estão seguindo rotas paralelas, o que poderia indicar que estão seguindo a mesma formação geológica ou trilha pré-guerra.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Verificar se um vetor é múltiplo escalar do outro</li>
+                    <li>Observar que $\vec{s} = (-6, 3, -9) = -\frac{3}{2}(4, -2, 6) = -\frac{3}{2}\vec{r}$</li>
+                    <li>Confirmar: $-\frac{3}{2} \times 4 = -6$ ✓, $-\frac{3}{2} \times (-2) = 3$ ✓, $-\frac{3}{2} \times 6 = -9$ ✓</li>
+                    <li>Como $\vec{s} = k\vec{r}$ com $k = -\frac{3}{2}$, os vetores são paralelos</li>
+                </ol>
+                
+                <div class="formula">
+                    $\vec{s} = -\frac{3}{2}\vec{r} \Rightarrow \vec{r} \parallel \vec{s}$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Rotas paralelas mas em sentidos opostos podem indicar que os grupos estão seguindo a mesma trilha segura, mas podem colidir frontalmente se não coordenarem suas posições.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 9 -->
+        <div class="exercise">
+            <h3>Ângulo Entre Vetores Complexos</h3>
+            <p>Dois sinais de radar são detectados nas direções $\vec{a} = (1, 2, -2)$ e $\vec{b} = (3, -1, 1)$. Calcule o ângulo entre eles para determinar se podem ser do mesmo tipo de aeronave ou instalação.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcular o produto escalar: $\vec{a} \cdot \vec{b} = (1)(3) + (2)(-1) + (-2)(1) = 3 - 2 - 2 = -1$</li>
+                    <li>Calcular $|\vec{a}| = \sqrt{1^2 + 2^2 + (-2)^2} = \sqrt{1 + 4 + 4} = 3$</li>
+                    <li>Calcular $|\vec{b}| = \sqrt{3^2 + (-1)^2 + 1^2} = \sqrt{9 + 1 + 1} = \sqrt{11}$</li>
+                    <li>Aplicar a fórmula: $\cos \theta = \frac{-1}{3\sqrt{11}} = \frac{-1}{3\sqrt{11}}$</li>
+                    <li>$\theta = \arccos\left(\frac{-1}{3\sqrt{11}}\right) \approx 107,6°$</li>
+                </ol>
+                
+                <div class="formula">
+                    $\theta \approx 107,6°$ (ângulo obtuso)
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Um ângulo obtuso entre sinais sugere fontes diferentes ou mesmo hostis, pois equipamentos similares tendem a operar em direções correlacionadas.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 10 -->
+        <div class="exercise">
+            <h3>Sistema de Múltiplos Abrigos</h3>
+            <p>Você tem três abrigos nas posições A(2, 1, 4), B(-1, 3, 2) e C(3, -2, 1). Determine qual par de abrigos está mais próximo para estabelecer uma rota de comunicação prioritária.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcular $\vec{AB} = (-1-2, 3-1, 2-4) = (-3, 2, -2)$ e $d_{AB} = \sqrt{9+4+4} = \sqrt{17}$</li>
+                    <li>Calcular $\vec{AC} = (3-2, -2-1, 1-4) = (1, -3, -3)$ e $d_{AC} = \sqrt{1+9+9} = \sqrt{19}$</li>
+                    <li>Calcular $\vec{BC} = (3-(-1), -2-3, 1-2) = (4, -5, -1)$ e $d_{BC} = \sqrt{16+25+1} = \sqrt{42}$</li>
+                    <li>Comparar: $\sqrt{17} \approx 4,12 < \sqrt{19} \approx 4,36 < \sqrt{42} \approx 6,48$</li>
+                    <li>O par mais próximo é A e B</li>
+                </ol>
+                
+                <div class="formula">
+                    $d_{AB} = \sqrt{17} \approx 4,12$ unidades (menor distância)
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Estabelecer comunicação primeiro entre os abrigos mais próximos garante maior confiabilidade do sinal e menor gasto energético dos equipamentos de transmissão.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 11 -->
+        <div class="exercise">
+            <h3>Verificação de Ortogonalidade Múltipla</h3>
+            <p>Para criar um sistema de coordenadas ortogonal perfeito na sua base, você tem os vetores $\vec{i} = (1, 0, 0)$, $\vec{j} = (0, 1, 0)$ e $\vec{k} = (0, 0, 1)$. Verifique que todos os pares são mutuamente ortogonais e que cada vetor é unitário.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Verificar $\vec{i} \cdot \vec{j} = (1)(0) + (0)(1) + (0)(0) = 0$ ✓</li>
+                    <li>Verificar $\vec{i} \cdot \vec{k} = (1)(0) + (0)(0) + (0)(1) = 0$ ✓</li>
+                    <li>Verificar $\vec{j} \cdot \vec{k} = (0)(0) + (1)(0) + (0)(1) = 0$ ✓</li>
+                    <li>Verificar $|\vec{i}| = \sqrt{1^2+0^2+0^2} = 1$ ✓</li>
+                    <li>Verificar $|\vec{j}| = \sqrt{0^2+1^2+0^2} = 1$ ✓</li>
+                    <li>Verificar $|\vec{k}| = \sqrt{0^2+0^2+1^2} = 1$ ✓</li>
+                </ol>
+                
+                <div class="formula">
+                    Base ortonormal canônica: $\{\vec{i}, \vec{j}, \vec{k}\}$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Um sistema de coordenadas ortogonal perfeito é fundamental para navegação precisa e mapeamento detalhado de recursos na Zona Devastada.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 12 -->
+        <div class="exercise">
+            <h3>Otimização de Rota Tridimensional</h3>
+            <p>Você precisa planejar uma rota do ponto base B(1, 2, 3) até o depósito D(4, 6, 7), mas deve passar por um ponto intermediário seguro I(x, y, z) tal que os vetores $\vec{BI}$ e $\vec{ID}$ sejam perpendiculares e $|\vec{BI}| = |\vec{ID}|$. Sabendo que I está no plano z = 5, encontre suas coordenadas.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Como I está em z = 5, temos I(x, y, 5)</li>
+                    <li>$\vec{BI} = (x-1, y-2, 5-3) = (x-1, y-2, 2)$</li>
+                    <li>$\vec{ID} = (4-x, 6-y, 7-5) = (4-x, 6-y, 2)$</li>
+                    <li>Condição de perpendicularidade: $\vec{BI} \cdot \vec{ID} = 0$</li>
+                    <li>$(x-1)(4-x) + (y-2)(6-y) + (2)(2) = 0$</li>
+                    <li>$4x - x^2 - 4 + x + 6y - y^2 - 12 + 2y + 4 = 0$</li>
+                    <li>$-x^2 + 5x - y^2 + 8y - 12 = 0$</li>
+                    <li>Condição de módulos iguais: $|\vec{BI}|^2 = |\vec{ID}|^2$</li>
+                    <li>$(x-1)^2 + (y-2)^2 + 4 = (4-x)^2 + (6-y)^2 + 4$</li>
+                    <li>Simplificando: $x^2 - 2x + 1 + y^2 - 4y + 4 = x^2 - 8x + 16 + y^2 - 12y + 36$</li>
+                    <li>$-2x - 4y + 5 = -8x - 12y + 52$</li>
+                    <li>$6x + 8y = 47$</li>
+                    <li>Resolvendo o sistema com as duas equações, obtemos: I(2.5, 4, 5)</li>
+                </ol>
+                
+                <div class="formula">
+                    I(2.5, 4, 5) - Ponto intermediário ótimo
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Uma rota com segmentos perpendiculares e de igual comprimento minimiza a exposição em qualquer direção específica, oferecendo maior flexibilidade tática em caso de emboscada.</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- RODAPÉ DO DOCUMENTO -->
+    <div class="footer">
+        REFÚGIO-TEC | PRODUTO INTERNO NO R³: Sobrevivência Matemática - "No espaço tridimensional da devastação, cada cálculo pode ser a diferença entre a vida e a morte."
+    </div>
+</body>
+</html>

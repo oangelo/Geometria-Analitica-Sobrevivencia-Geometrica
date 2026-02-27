@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Geometria Analítica: Sobrevivência Geométrica — A Circunferência</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides" id="slides"></div>
+    </div>
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/math/math.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/zoom/zoom.js"></script>
+    <script>
+      window.MathJax = {
+        tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] },
+        svg: { fontCache: 'global' },
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script>
+    <script>
+        // ==========================================
+        // VISUALIZAÇÕES INTERATIVAS - SOBREVIVÊNCIA GEOMÉTRICA
+        // ==========================================
+        (function() { // IIFE Principal
+
+            const SCALE = 25; // Pixels por unidade (consistent cartesian scale)
+
+            function drawGridAndAxes(ctx, canvas, scale) {
+                // ... (Implementation unchanged) ...
+                 if (!ctx || !canvas) return;
+                 const width = canvas.width;
+                 const height = canvas.height;
+                 const originX = width / 2;
+                 const originY = height / 2;
+
+                 ctx.clearRect(0, 0, width, height);
+                 ctx.fillStyle = 'rgba(10, 10, 10, 0.9)';
+                 ctx.fillRect(0, 0, width, height);
+
+                 ctx.strokeStyle = 'rgba(173, 255, 47, 0.08)';
+                 ctx.lineWidth = 0.5;
+                 const step = scale;
+                 for (let x = originX + step; x < width; x += step) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, height); ctx.stroke(); }
+                 for (let x = originX - step; x > 0; x -= step) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, height); ctx.stroke(); }
+                 for (let y = originY + step; y < height; y += step) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(width, y); ctx.stroke(); }
+                 for (let y = originY - step; y > 0; y -= step) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(width, y); ctx.stroke(); }
+
+                 ctx.strokeStyle = '#ADFF2F';
+                 ctx.lineWidth = 1;
+                 ctx.beginPath(); ctx.moveTo(0, originY); ctx.lineTo(width, originY); ctx.stroke(); // Eixo X
+                 ctx.beginPath(); ctx.moveTo(originX, 0); ctx.lineTo(originX, height); ctx.stroke(); // Eixo Y
+
+                 ctx.fillStyle = '#ADFF2F';
+                 ctx.font = '10px Courier New';
+                 for (let i = -15; i <= 15; i++) {
+                     if (i === 0 || Math.abs(i * scale) > originX || Math.abs(i * scale) > originY) continue;
+                      if (i % 2 === 0) {
+                         ctx.fillText(i, originX + i * scale - (i > 0 ? 3 : 6), originY + 12);
+                         ctx.fillText(i, originX + 5, originY - i * scale + 4); // Fixed: Use positive i for Y axis labels, Y mapping handles direction
+                      }
+                 }
+            }
+
+            function drawPolarAxes(ctx, canvas, scale) {
+                // ... (Implementation unchanged) ...
+                 if (!ctx || !canvas) return;
+                 const width = canvas.width;
+                 const height = canvas.height;
+                 const cx = width / 2;
+                 const cy = height / 2;
+
+                 ctx.clearRect(0, 0, width, height);
+                 ctx.fillStyle = 'rgba(10, 10, 10, 0.9)';
+                 ctx.fillRect(0, 0, width, height);
+
+                 ctx.strokeStyle = 'rgba(173, 255, 47, 0.1)';
+                 ctx.lineWidth = 0.5;
+                 for (let r = scale; r < Math.max(width, height)/2; r += scale) {
+                     ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke();
+                 }
+                 for (let angle = 0; angle < Math.PI * 2; angle += Math.PI / 6) { // Every 30 degrees
+                      ctx.beginPath(); ctx.moveTo(cx, cy);
+                      ctx.lineTo(cx + (width/1.8) * Math.cos(angle), cy + (height/1.8) * Math.sin(angle));
+                      ctx.stroke();
+                 }
+
+                 ctx.strokeStyle = '#ADFF2F';
+                 ctx.lineWidth = 1;
+                 ctx.beginPath(); ctx.moveTo(0, cy); ctx.lineTo(width, cy); ctx.stroke(); // Horizontal Axis (Polar Axis)
+                 ctx.beginPath(); ctx.moveTo(cx, 0); ctx.lineTo(cx, height); ctx.stroke(); // Vertical Axis (Theta=90)
+
+                 // Add labels for radii
+                 ctx.fillStyle = '#ADFF2F';
+                 ctx.font = '10px Courier New';
+                 for (let r = scale; r < Math.max(width, height)/1.9; r += scale) { // Adjust label limit
+                     ctx.fillText(r/scale, cx + r + 3, cy - 3);
+                 }
+                 // Add labels for angles (Degrees)
+                 for (let angleDeg = 0; angleDeg < 360; angleDeg += 30) {
+                     if (angleDeg === 0 || angleDeg === 180) continue; // Avoid overlap with axis
+                     const angleRad = angleDeg * Math.PI / 180;
+                     const labelR = Math.min(width, height) / 2.1; // Position labels near edge
+                     const labelX = cx + labelR * Math.cos(angleRad);
+                     const labelY = cy + labelR * Math.sin(angleRad); // Use SIN here for positioning label text
+                     ctx.fillText(angleDeg + '°', labelX, labelY);
+                 }
+            }
+
+             // --- Lógica para: VISUALIZAÇÃO DA EQUAÇÃO DA CIRCUNFERÊNCIA ---
+             function setupCircunferenciaEq() {
+                 // ... (Implementation unchanged) ...
+                const canvasId = 'circunferencia-eq-canvas';
+                const cxSliderId = 'circ-eq-cx', cySliderId = 'circ-eq-cy', rSliderId = 'circ-eq-r';
+                const cxValueId = 'circ-eq-cx-value', cyValueId = 'circ-eq-cy-value', rValueId = 'circ-eq-r-value';
+                const equationDisplayId = 'circ-eq-equation-display';
+
+                let canvas = document.getElementById(canvasId);
+                if (!canvas) return;
+                let ctx = canvas.getContext('2d');
+                let originX = canvas.width / 2;
+                let originY = canvas.height / 2;
+                let centerX = 0, centerY = 0, radius = 3;
+
+                const cxSlider = document.getElementById(cxSliderId);
+                const cySlider = document.getElementById(cySliderId);
+                const rSlider = document.getElementById(rSliderId);
+                const cxValueSpan = document.getElementById(cxValueId);
+                const cyValueSpan = document.getElementById(cyValueId);
+                const rValueSpan = document.getElementById(rValueId);
+                const equationDisplay = document.getElementById(equationDisplayId);
+
+                 if (!cxSlider || !cySlider || !rSlider || !equationDisplay) return;
+
+                function drawCircunferenciaEq() {
+                    if (!ctx) return;
+                    drawGridAndAxes(ctx, canvas, SCALE);
+                    const screenCX = originX + centerX * SCALE;
+                    const screenCY = originY - centerY * SCALE;
+                    const screenR = radius * SCALE;
+                    ctx.strokeStyle = '#FFD700'; ctx.lineWidth = 2;
+                    ctx.beginPath(); ctx.arc(screenCX, screenCY, screenR, 0, Math.PI * 2); ctx.stroke();
+                    ctx.fillStyle = '#FF6347';
+                    ctx.beginPath(); ctx.arc(screenCX, screenCY, 5, 0, Math.PI * 2); ctx.fill();
+                    ctx.strokeStyle = '#000'; ctx.lineWidth = 1; ctx.stroke();
+                    ctx.fillStyle = '#FFF'; ctx.font = 'bold 11px Courier New';
+                    ctx.fillText(`C(${centerX.toFixed(1)}, ${centerY.toFixed(1)})`, screenCX + 8, screenCY - 8);
+                }
+
+                function updateAndDrawEq() {
+                    centerX = cxSlider ? parseFloat(cxSlider.value) : centerX;
+                    centerY = cySlider ? parseFloat(cySlider.value) : centerY;
+                    radius = rSlider ? parseFloat(rSlider.value) : radius;
+                    if(cxValueSpan) cxValueSpan.textContent = centerX.toFixed(1);
+                    if(cyValueSpan) cyValueSpan.textContent = centerY.toFixed(1);
+                    if(rValueSpan) rValueSpan.textContent = radius.toFixed(1);
+                    const xTerm = `(x ${centerX >= 0 ? '-' : '+'} ${Math.abs(centerX).toFixed(1)})²`;
+                    const yTerm = `(y ${centerY >= 0 ? '-' : '+'} ${Math.abs(centerY).toFixed(1)})²`;
+                    const rTerm = `${radius.toFixed(1)}²`;
+                    if (equationDisplay) equationDisplay.innerHTML = `${xTerm} + ${yTerm} = ${rTerm}`;
+                    drawCircunferenciaEq();
+                }
+
+                if (cxSlider) cxSlider.addEventListener('input', updateAndDrawEq);
+                if (cySlider) cySlider.addEventListener('input', updateAndDrawEq);
+                if (rSlider) rSlider.addEventListener('input', updateAndDrawEq);
+                updateAndDrawEq();
+             }
+
+             // --- Lógica para: VISUALIZAÇÃO POSIÇÃO PONTO vs CIRCUNFERÊNCIA ---
+             function setupCircunferenciaPos() {
+                 // ... (Implementation unchanged) ...
+                const canvasId = 'circunferencia-pos-canvas';
+                const cxSliderId = 'circ-pos-cx', cySliderId = 'circ-pos-cy', rSliderId = 'circ-pos-r';
+                const cxValueId = 'circ-pos-cx-value', cyValueId = 'circ-pos-cy-value', rValueId = 'circ-pos-r-value';
+                const addPointBtnId = 'circ-pos-add-point-btn';
+
+                let canvas = document.getElementById(canvasId);
+                 if (!canvas) return;
+                let ctx = canvas.getContext('2d');
+                let originX = canvas.width / 2;
+                let originY = canvas.height / 2;
+                let centerX = 1, centerY = -1, radius = 4;
+                let testPoints = [];
+
+                const cxSlider = document.getElementById(cxSliderId);
+                const cySlider = document.getElementById(cySliderId);
+                const rSlider = document.getElementById(rSliderId);
+                const cxValueSpan = document.getElementById(cxValueId);
+                const cyValueSpan = document.getElementById(cyValueId);
+                const rValueSpan = document.getElementById(rValueId);
+                const addPointBtn = document.getElementById(addPointBtnId);
+
+                 if (!cxSlider || !cySlider || !rSlider || !addPointBtn) return;
+
+                function drawCircunferenciaPos() {
+                    if (!ctx) return;
+                    drawGridAndAxes(ctx, canvas, SCALE);
+                    const screenCX = originX + centerX * SCALE;
+                    const screenCY = originY - centerY * SCALE;
+                    const screenR = radius * SCALE;
+                    ctx.strokeStyle = '#FFD700'; ctx.lineWidth = 2;
+                    ctx.beginPath(); ctx.arc(screenCX, screenCY, screenR, 0, Math.PI * 2); ctx.stroke();
+                    ctx.fillStyle = '#FF6347';
+                    ctx.beginPath(); ctx.arc(screenCX, screenCY, 5, 0, Math.PI * 2); ctx.fill();
+                    ctx.strokeStyle = '#000'; ctx.lineWidth = 1; ctx.stroke();
+                    ctx.fillStyle = '#FFF'; ctx.font = 'bold 11px Courier New';
+                    ctx.fillText(`C(${centerX.toFixed(1)}, ${centerY.toFixed(1)})`, screenCX + 8, screenCY - 8);
+
+                    testPoints.forEach(p => {
+                        const screenPX = originX + p.x * SCALE;
+                        const screenPY = originY - p.y * SCALE;
+                        ctx.fillStyle = p.color;
+                        ctx.beginPath(); ctx.arc(screenPX, screenPY, 5, 0, Math.PI * 2); ctx.fill();
+                        ctx.strokeStyle = 'rgba(0,0,0,0.7)'; ctx.lineWidth = 1; ctx.stroke();
+                        ctx.fillStyle = p.color; ctx.font = '10px Courier New';
+                        ctx.fillText(`(${p.x.toFixed(1)}, ${p.y.toFixed(1)}) [${p.position}]`, screenPX + 8, screenPY + 4);
+                    });
+                }
+
+                 function updateBaseCircle() {
+                    centerX = cxSlider ? parseFloat(cxSlider.value) : centerX;
+                    centerY = cySlider ? parseFloat(cySlider.value) : centerY;
+                    radius = rSlider ? parseFloat(rSlider.value) : radius;
+                    if(cxValueSpan) cxValueSpan.textContent = centerX.toFixed(1);
+                    if(cyValueSpan) cyValueSpan.textContent = centerY.toFixed(1);
+                    if(rValueSpan) rValueSpan.textContent = radius.toFixed(1);
+                    testPoints = [];
+                    drawCircunferenciaPos();
+                 }
+
+                 function addRandomTestPointPos() {
+                     const maxCoord = 12;
+                     const testX = (Math.random() * 2 * maxCoord) - maxCoord;
+                     const testY = (Math.random() * 2 * maxCoord) - maxCoord;
+                     const dx = testX - centerX; const dy = testY - centerY;
+                     const distSq = dx * dx + dy * dy; const radiusSq = radius * radius;
+                     const tolerance = 0.05 * radiusSq;
+                     let position = 'Na Fronteira'; let color = '#FFD700';
+                     if (distSq < radiusSq - tolerance) { position = 'Interno'; color = '#ADFF2F'; }
+                     else if (distSq > radiusSq + tolerance) { position = 'Externo'; color = '#FF6347'; }
+                     testPoints.push({ x: testX, y: testY, color: color, position: position });
+                     if (testPoints.length > 6) testPoints.shift();
+                     drawCircunferenciaPos();
+                 }
+
+                 if (cxSlider) cxSlider.addEventListener('input', updateBaseCircle);
+                 if (cySlider) cySlider.addEventListener('input', updateBaseCircle);
+                 if (rSlider) rSlider.addEventListener('input', updateBaseCircle);
+                 if (addPointBtn) addPointBtn.addEventListener('click', addRandomTestPointPos);
+                 updateBaseCircle();
+             }
+
+            // --- Lógica para: VISUALIZAÇÃO DE PONTO POLAR ---
+            function setupPolarPointVis(){
+                const canvasId = 'polar-point-canvas';
+                const rSliderId = 'polar-point-r';
+                const thetaSliderId = 'polar-point-theta';
+                const rValueId = 'polar-point-r-value';
+                const thetaValueId = 'polar-point-theta-value';
+                const cartesianValueId = 'polar-point-cartesian';
+
+                let canvas = document.getElementById(canvasId);
+                if (!canvas) return;
+                let ctx = canvas.getContext('2d');
+                let originX = canvas.width / 2;
+                let originY = canvas.height / 2;
+                const polarScale = 30;
+
+                let currentR = 5;
+                let currentThetaDeg = 45;
+
+                const rSlider = document.getElementById(rSliderId);
+                const thetaSlider = document.getElementById(thetaSliderId);
+                const rValueSpan = document.getElementById(rValueId);
+                const thetaValueSpan = document.getElementById(thetaValueId);
+                const cartesianValueSpan = document.getElementById(cartesianValueId);
+
+                if (!rSlider || !thetaSlider || !rValueSpan || !thetaValueSpan || !cartesianValueSpan) return;
+
+                function drawPolarPoint() {
+                    if(!ctx) return;
+                    drawPolarAxes(ctx, canvas, polarScale); // Reuse the polar axes drawing
+
+                    const thetaRad = currentThetaDeg * Math.PI / 180; // Convert degrees to radians
+                    const scaledR = currentR * polarScale;
+
+                    // Calculate standard math coordinates (x right, y up)
+                    const mathX = scaledR * Math.cos(thetaRad);
+                    const mathY = scaledR * Math.sin(thetaRad);
+
+                    // Convert standard math coordinates to canvas screen coordinates
+                    const screenX = originX + mathX;
+                    const screenY = originY - mathY; // <-- FIX: Subtract mathY because canvas Y grows downwards
+
+                    // Draw radius line segment
+                    ctx.strokeStyle = 'rgba(255, 215, 0, 0.7)';
+                    ctx.lineWidth = 1.5;
+                    ctx.setLineDash([4, 2]);
+                    ctx.beginPath();
+                    ctx.moveTo(originX, originY);
+                    ctx.lineTo(screenX, screenY);
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+
+                     // Draw angle arc (Corrected to be counter-clockwise)
+                     ctx.strokeStyle = 'rgba(173, 255, 47, 0.5)';
+                     ctx.lineWidth = 1;
+                     ctx.beginPath();
+                     // Use the 'anticlockwise' parameter (last 'true')
+                     ctx.arc(originX, originY, 20, 0, thetaRad, false); // Draw clockwise from 0 to theta? NO. Use anticlockwise flag if needed.
+                     // Let's try drawing from 0 to thetaRad with anticlockwise=true if the above looks wrong
+                     // Revert to previous attempt with anticlockwise = true
+                     ctx.arc(originX, originY, 20, 0, thetaRad, false); // Standard arc goes from startAngle to endAngle. Let's stick with this for now and test.
+                     // After testing, if arc is wrong: ctx.arc(originX, originY, 20, 0, thetaRad, true);
+
+                    ctx.stroke();
+
+
+                    // Draw the point
+                    ctx.fillStyle = '#FF6347';
+                    ctx.beginPath();
+                    ctx.arc(screenX, screenY, 6, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.strokeStyle = '#000'; ctx.lineWidth=1; ctx.stroke();
+
+                    // Display calculated Cartesian coordinates (using standard math y)
+                    const cartX = currentR * Math.cos(thetaRad);
+                    const cartY = currentR * Math.sin(thetaRad);
+                    cartesianValueSpan.textContent = `(x=${cartX.toFixed(2)}, y=${cartY.toFixed(2)})`;
+
+                     // Display polar coordinates near point
+                     ctx.fillStyle = '#FFF'; ctx.font = 'bold 11px Courier New';
+                     ctx.fillText(`P(r=${currentR.toFixed(1)}, θ=${currentThetaDeg}°)`, screenX + 8, screenY + 4);
+                }
+
+                function updatePolarPoint() {
+                    currentR = parseFloat(rSlider.value);
+                    currentThetaDeg = parseInt(thetaSlider.value, 10);
+                    rValueSpan.textContent = currentR.toFixed(1);
+                    thetaValueSpan.textContent = currentThetaDeg;
+                    drawPolarPoint();
+                }
+
+                rSlider.addEventListener('input', updatePolarPoint);
+                thetaSlider.addEventListener('input', updatePolarPoint);
+
+                updatePolarPoint();
+            }
+
+            // --- Lógica para: VISUALIZAÇÃO POLAR FUNCTIONS ---
+            function setupPolarFuncVis() {
+                // ... (Implementation unchanged) ...
+                const canvasId = 'polar-func-canvas';
+                const selectId = 'polar-func-select';
+                const paramAId = 'polar-func-param-a';
+                const valueAId = 'polar-func-param-a-value';
+                const paramKId = 'polar-func-param-k';
+                const valueKId = 'polar-func-param-k-value';
+                const paramsADivId = 'polar-func-params-a';
+                const paramsKDivId = 'polar-func-params-k';
+
+                let canvas = document.getElementById(canvasId);
+                if (!canvas) return;
+                let ctx = canvas.getContext('2d');
+                let originX = canvas.width / 2;
+                let originY = canvas.height / 2;
+
+                const selectEq = document.getElementById(selectId);
+                const sliderA = document.getElementById(paramAId);
+                const spanA = document.getElementById(valueAId);
+                const sliderK = document.getElementById(paramKId);
+                const spanK = document.getElementById(valueKId);
+                const divA = document.getElementById(paramsADivId);
+                const divK = document.getElementById(paramsKDivId);
+
+                if(!selectEq || !sliderA || !spanA || !sliderK || !spanK || !divA || !divK) return;
+
+                let currentEq = 'circle';
+                let paramA = 3;
+                let paramK = 3;
+                const polarScale = 50;
+
+                function plotPolarFunc() {
+                    drawPolarAxes(ctx, canvas, polarScale);
+                    ctx.strokeStyle = '#FFD700';
+                    ctx.lineWidth = 1.5;
+                    ctx.beginPath();
+
+                    const maxTheta = currentEq === 'spiral' ? 8 * Math.PI : 2 * Math.PI;
+                    const steps = 360;
+
+                    for (let i = 0; i <= steps; i++) {
+                        const theta = (i / steps) * maxTheta;
+                        let r = 0;
+
+                        switch (currentEq) {
+                            case 'circle': r = paramA; break;
+                            case 'spiral': r = paramA * theta; break;
+                            case 'cardioid': r = paramA * (1 + Math.cos(theta)); break;
+                            case 'rose': r = paramA * Math.cos(paramK * theta); break;
+                        }
+
+                        // Apply the same Y-flip logic here for consistency
+                        const mathX = r * polarScale * Math.cos(theta);
+                        const mathY = r * polarScale * Math.sin(theta);
+                        const screenX = originX + mathX;
+                        const screenY = originY - mathY; // Apply Y-flip
+
+                        if (i === 0 || isNaN(screenX) || isNaN(screenY) ) {
+                             let firstValid = false;
+                             for (let j=i; j<=steps; j++) {
+                                 const th = (j/steps) * maxTheta;
+                                 let r_ = 0;
+                                  switch (currentEq) { /* calc r_ */ case 'circle': r_ = paramA; break; case 'spiral': r_ = paramA * th; break; case 'cardioid': r_ = paramA * (1 + Math.cos(th)); break; case 'rose': r_ = paramA * Math.cos(paramK * th); break;}
+                                 const mx_ = r_ * polarScale * Math.cos(th);
+                                 const my_ = r_ * polarScale * Math.sin(th);
+                                 const sx_ = originX + mx_;
+                                 const sy_ = originY - my_; // Apply Y-flip
+                                 if (!isNaN(sx_) && !isNaN(sy_)) {
+                                     ctx.moveTo(sx_, sy_);
+                                     i = j;
+                                     firstValid = true;
+                                     break;
+                                 }
+                             }
+                             if (!firstValid) break;
+                        } else {
+                            ctx.lineTo(screenX, screenY);
+                        }
+                    }
+                    ctx.stroke();
+                }
+
+                function updateParamsFunc() {
+                     currentEq = selectEq.value;
+                     paramA = parseFloat(sliderA.value);
+                     paramK = parseInt(sliderK.value, 10);
+                     spanA.textContent = paramA.toFixed(1);
+                     spanK.textContent = paramK;
+                     divK.style.display = (currentEq === 'rose') ? 'flex' : 'none';
+                     divA.style.display = 'flex';
+                     plotPolarFunc();
+                }
+
+                selectEq.addEventListener('change', updateParamsFunc);
+                sliderA.addEventListener('input', updateParamsFunc);
+                sliderK.addEventListener('input', updateParamsFunc);
+                updateParamsFunc();
+            }
+
+
+            // --- Inicialização Geral ---
+            function initializeVisualizations(slideElement) {
+                if (!slideElement) return;
+                if (slideElement.querySelector('#circunferencia-eq-canvas')) {
+                    setupCircunferenciaEq();
+                 }
+                 if (slideElement.querySelector('#circunferencia-pos-canvas')) {
+                     setupCircunferenciaPos();
+                 }
+                 if (slideElement.querySelector('#polar-point-canvas')) {
+                     setupPolarPointVis();
+                 }
+                 if (slideElement.querySelector('#polar-func-canvas')) {
+                     setupPolarFuncVis();
+                 }
+            }
+
+            Reveal.on('ready', event => { initializeVisualizations(event.currentSlide); });
+            Reveal.on('slidechanged', event => { initializeVisualizations(event.currentSlide); });
+
+        })(); // Fim da IIFE Principal
+    </script>
+
+    </script>
+    <script>
+      const SECTIONS = ["capitulo-iv/1-equacao-circunferencia.html", "capitulo-iv/2-posicao-de-ponto.html", "capitulo-iv/3-circunferencia-tres-pontos.html", "capitulo-iv/4-posicoes-relativas.html", "capitulo-iv/5-polar-parametrica.html"];
+
+      async function loadAndInit() {
+        const container = document.getElementById('slides');
+        const pendingScripts = [];
+
+        for (const url of SECTIONS) {
+          const res  = await fetch(url);
+          const text = await res.text();
+          const doc  = new DOMParser().parseFromString(text, 'text/html');
+
+          doc.querySelectorAll('head style').forEach(s =>
+            document.head.appendChild(document.adoptNode(s))
+          );
+
+          const slides = doc.querySelector('.slides');
+          if (slides) {
+            [...slides.children].forEach(child =>
+              container.appendChild(document.adoptNode(child))
+            );
+          }
+
+          // Collect inline scripts (skip Reveal.initialize and MathJax config)
+          doc.querySelectorAll('body script:not([src])').forEach(s => {
+            const content = s.textContent.trim();
+            if (content &&
+                !content.includes('Reveal.initialize') &&
+                !content.includes('window.MathJax =')) {
+              pendingScripts.push(content);
+            }
+          });
+        }
+
+        // Re-execute scripts with DOMContentLoaded shim
+        for (const content of pendingScripts) {
+          const s = document.createElement('script');
+          s.textContent = `(function() {
+  const _orig = document.addEventListener.bind(document);
+  document.addEventListener = function(type, fn, opts) {
+    if (type === 'DOMContentLoaded') { fn(); return; }
+    return _orig(type, fn, opts);
+  };
+  ${content}
+  document.addEventListener = _orig;
+})();`;
+          document.body.appendChild(s);
+        }
+
+
+
+        Reveal.initialize({
+          width: 1366,
+          height: 768,
+          margin: 0.02,
+          minScale: 0.2,
+          maxScale: 2.0,
+          center: true,
+          hash: true,
+          slideNumber: 'c/t',
+          transition: 'convex',
+          backgroundTransition: 'fade',
+          controlsLayout: 'edges',
+          navigationMode: 'default',
+          math: {
+            mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js',
+            config: 'TeX-AMS_HTML-full',
+          },
+          plugins: [RevealNotes, RevealHighlight, RevealMath.MathJax3, RevealZoom],
+        });
+
+
+
+        if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
+      }
+
+      loadAndInit();
+    </script>
+  </body>
+</html>

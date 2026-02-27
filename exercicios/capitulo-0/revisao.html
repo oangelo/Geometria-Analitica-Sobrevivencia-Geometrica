@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+    </script>
+    <title>REFÚGIO-TEC | REVISÃO MATEMÁTICA DE SOBREVIVÊNCIA</title>
+    <style>
+        /* Estilo inspirado no tema pós-apocalíptico do Fallout */
+        body {
+            background-color: #2b2b2b;
+            color: #e6e6e6;
+            font-family: "Courier New", Courier, monospace;
+            margin: 20px;
+            padding: 20px;
+            border: 3px solid #4caf50;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: auto;
+            background-image: url('img/asfalt-light.png'); /* Imagem local */
+        }
+
+        h1, h2, h3 {
+            color: #4caf50;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        .exercise {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border: 2px dashed #4caf50;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        details {
+            background-color: #1c1c1c;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #4caf50;
+        }
+
+        code {
+            background-color: #333;
+            padding: 3px 5px;
+            border-radius: 3px;
+            color: #ffeb3b;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #757575;
+        }
+        
+        .solution-steps {
+            margin-left: 20px;
+            counter-reset: step-counter;
+        }
+        
+        .solution-steps li {
+            margin-bottom: 10px;
+            counter-increment: step-counter;
+        }
+        
+        .solution-steps li::before {
+            content: "ETAPA_" counter(step-counter) "> ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+        
+        .formula {
+            background-color: #1a1a1a;
+            padding: 10px;
+            border-left: 3px solid #4caf50;
+            margin: 10px 0;
+        }
+        
+        .terminal-output {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #000;
+            color: #4caf50;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        
+        .warning {
+            color: #ff9800;
+            font-weight: bold;
+        }
+        
+        .danger {
+            color: #f44336;
+            font-weight: bold;
+        }
+        
+        .success {
+            color: #4caf50;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- TÍTULO DO CAPÍTULO -->
+    <h1>REFÚGIO-TEC | REVISÃO MATEMÁTICA DE SOBREVIVÊNCIA</h1>
+
+    <!-- SUBTÍTULO DO SUB-TÓPICO -->
+        <div id="manual-container"></div>
+
+    <div id="exercicios-container"></div>
+
+    <script>
+    const PARTES_EXERCICIOS = {
+        manual: "revisao-manual.html",
+        enunciados: "revisao-enunciados.html"
+    };
+
+    async function carregarParteExercicios(containerId, arquivo) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        try {
+            const resposta = await fetch(arquivo);
+            if (!resposta.ok) throw new Error(`Falha ao carregar ${arquivo}`);
+            container.innerHTML = await resposta.text();
+        } catch (erro) {
+            container.innerHTML = `<div class="terminal-border"><p class="danger">Erro ao carregar ${arquivo}.</p></div>`;
+            console.error(erro);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+        await carregarParteExercicios('manual-container', PARTES_EXERCICIOS.manual);
+        await carregarParteExercicios('exercicios-container', PARTES_EXERCICIOS.enunciados);
+
+        if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
+            await window.MathJax.typesetPromise();
+        }
+    });
+    </script>
+
+
+    <!-- RODAPÉ DO DOCUMENTO -->
+    <div class="footer">
+        REFÚGIO-TEC | Matemática de Sobrevivência - "Na Zona Devastada, as equações podem ser sua única defesa."
+    </div>
+
+</body>
+</html>

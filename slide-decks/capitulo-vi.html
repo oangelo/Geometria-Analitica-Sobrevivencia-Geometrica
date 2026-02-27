@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Geometria Analítica: Sobrevivência Geométrica — Cap. VI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides" id="slides"></div>
+    </div>
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/math/math.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/zoom/zoom.js"></script>
+    <script>
+      window.MathJax = {
+        tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] },
+        svg: { fontCache: 'global' },
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script>
+      const SECTIONS = ["capitulo-vi/1-espaco-vetorial-r3.html", "capitulo-vi/2-determinantes.html", "capitulo-vi/3-produto-vetorial-plano-reta.html", "capitulo-vi/4-sistemas-planos.html"];
+
+      async function loadAndInit() {
+        const container = document.getElementById('slides');
+        const pendingScripts = [];
+
+        for (const url of SECTIONS) {
+          const res  = await fetch(url);
+          const text = await res.text();
+          const doc  = new DOMParser().parseFromString(text, 'text/html');
+
+          doc.querySelectorAll('head style').forEach(s =>
+            document.head.appendChild(document.adoptNode(s))
+          );
+
+          const slides = doc.querySelector('.slides');
+          if (slides) {
+            [...slides.children].forEach(child =>
+              container.appendChild(document.adoptNode(child))
+            );
+          }
+
+          // Collect inline scripts (skip Reveal.initialize and MathJax config)
+          doc.querySelectorAll('body script:not([src])').forEach(s => {
+            const content = s.textContent.trim();
+            if (content &&
+                !content.includes('Reveal.initialize') &&
+                !content.includes('window.MathJax =')) {
+              pendingScripts.push(content);
+            }
+          });
+        }
+
+        // Re-execute scripts with DOMContentLoaded shim
+        for (const content of pendingScripts) {
+          const s = document.createElement('script');
+          s.textContent = `(function() {
+  const _orig = document.addEventListener.bind(document);
+  document.addEventListener = function(type, fn, opts) {
+    if (type === 'DOMContentLoaded') { fn(); return; }
+    return _orig(type, fn, opts);
+  };
+  ${content}
+  document.addEventListener = _orig;
+})();`;
+          document.body.appendChild(s);
+        }
+
+
+
+        Reveal.initialize({
+          width: 1366,
+          height: 768,
+          margin: 0.02,
+          minScale: 0.2,
+          maxScale: 2.0,
+          hash: true,
+          slideNumber: 'c/t',
+          transition: 'convex',
+          backgroundTransition: 'fade',
+          center: true,
+          math: { mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js', config: 'TeX-AMS_HTML-full' },
+          plugins: [RevealNotes, RevealHighlight, RevealMath.MathJax3, RevealZoom],
+        });
+
+
+
+        if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
+      }
+
+      loadAndInit();
+    </script>
+  </body>
+</html>

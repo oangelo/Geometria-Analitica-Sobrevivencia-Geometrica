@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Capítulo II - Produto Interno no R²</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme"/>
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css"/>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides" id="slides"></div>
+    </div>
+
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["\\(", "\\)"]],
+          displayMath: [["\\[", "\\]"]],
+        },
+        svg: { fontCache: "global" },
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+    <script>
+      const SECTIONS = [
+        'capitulo-ii/1-produto-escalar.html',
+        'capitulo-ii/2-projecao-vetorial.html',
+        'capitulo-ii/3-modulo.html',
+        'capitulo-ii/4-paralelismo-ortogonalidade-area.html',
+      ];
+
+      function rebaseRelativeUrls(root, baseUrl) {
+        root.querySelectorAll('[src], [href]').forEach((el) => {
+          ['src', 'href'].forEach((attr) => {
+            if (!el.hasAttribute(attr)) return;
+            const value = el.getAttribute(attr);
+            if (
+              !value ||
+              value.startsWith('#') ||
+              value.startsWith('data:') ||
+              /^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(value) ||
+              value.startsWith('//')
+            ) {
+              return;
+            }
+            try {
+              el.setAttribute(attr, new URL(value, baseUrl).href);
+            } catch (_) {
+              // Ignore invalid URL edge cases
+            }
+          });
+        });
+      }
+
+      async function loadAndInit() {
+        const container = document.getElementById('slides');
+        const pendingScripts = [];
+
+        for (const url of SECTIONS) {
+          const res  = await fetch(url);
+          const text = await res.text();
+          const doc  = new DOMParser().parseFromString(text, 'text/html');
+          const baseUrl = new URL(url, window.location.href);
+
+          // Inject any <style> blocks from the section file
+          doc.querySelectorAll('head style').forEach(style => {
+            document.head.appendChild(document.adoptNode(style));
+          });
+
+          // Inject slide sections
+          const slides = doc.querySelector('.slides');
+          if (slides) {
+            [...slides.children].forEach((child) => {
+              rebaseRelativeUrls(child, baseUrl);
+              container.appendChild(document.adoptNode(child));
+            });
+          }
+
+          // Collect inline scripts (skip local Reveal/MathJax bootstraps)
+          doc.querySelectorAll('body script:not([src])').forEach((script) => {
+            const content = script.textContent.trim();
+            if (
+              content &&
+              !content.includes('Reveal.initialize') &&
+              !content.includes('window.MathJax =')
+            ) {
+              pendingScripts.push(content);
+            }
+          });
+        }
+
+        Reveal.initialize({
+          width: 1366,
+          height: 768,
+          margin: 0.02,
+          minScale: 0.2,
+          maxScale: 2.0,
+          center: true,
+          hash: true,
+          slideNumber: true,
+          plugins: [RevealNotes, RevealHighlight],
+        });
+
+        const executePendingScripts = () => {
+          // Re-execute collected scripts with DOMContentLoaded shim
+          // after Reveal is ready (required by interactive simulators).
+          for (const content of pendingScripts) {
+            const s = document.createElement('script');
+            s.textContent = `(function() {
+  const _orig = document.addEventListener.bind(document);
+  document.addEventListener = function(type, fn, opts) {
+    if (type === 'DOMContentLoaded') { fn(); return; }
+    return _orig(type, fn, opts);
+  };
+  ${content}
+  document.addEventListener = _orig;
+})();`;
+            document.body.appendChild(s);
+          }
+        };
+
+        Reveal.on('ready', executePendingScripts);
+
+        if (window.MathJax && MathJax.typesetPromise) {
+          MathJax.typesetPromise();
+        }
+      }
+
+      loadAndInit();
+    </script>
+  </body>
+</html>

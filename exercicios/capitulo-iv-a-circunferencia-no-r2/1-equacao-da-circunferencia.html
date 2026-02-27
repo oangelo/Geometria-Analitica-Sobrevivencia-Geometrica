@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+    </script>
+    <title>REFÚGIO-TEC | EQUAÇÃO DA CIRCUNFERÊNCIA</title>
+    <style>
+        /* Estilo inspirado no tema pós-apocalíptico */
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100px; }
+        }
+
+        body {
+            background-color: #0c0c0c;
+            color: #e6e6e6;
+            font-family: "Courier New", monospace;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #4caf50;
+            max-width: 800px;
+            margin: auto;
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 2px;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+
+        h1, h2, h3 {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .exercise {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border: 1px dashed #4caf50;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        details {
+            background-color: #1c1c1c;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            margin-top: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #4caf50;
+        }
+
+        summary:hover {
+            text-shadow: 0 0 3px #4caf50;
+        }
+
+        code {
+            background-color: #333;
+            padding: 3px 5px;
+            color: #ffeb3b;
+        }
+
+        .hint {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #4caf50;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .hint:before {
+            content: "DICA DE SOBREVIVÊNCIA: ";
+            color: #4caf50;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .solution-steps {
+            margin-left: 20px;
+            counter-reset: step-counter;
+        }
+
+        .solution-steps li {
+            list-style-type: none;
+            counter-increment: step-counter;
+            margin-bottom: 10px;
+        }
+
+        .solution-steps li::before {
+            content: "> PASSO_" counter(step-counter) ": ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .formula {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #000;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .terminal-frame {
+            padding: 10px;
+            background-color: #000;
+            margin-bottom: 20px;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .terminal-header {
+            margin: 0;
+            padding: 3px 10px;
+            background-color: #4caf50;
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .terminal-content {
+            padding: 5px;
+            white-space: pre-wrap;
+            font-size: 1em;
+            line-height: 1.2;
+        }
+
+        .cursor:after {
+            content: "█";
+            animation: blink 1s step-end infinite;
+        }
+
+        .terminal-line {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .terminal-border {
+            border: 1px solid #4caf50;
+            padding: 5px;
+            background-color: #000;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .mission-counter {
+            counter-reset: mission;
+        }
+        
+        .mission-counter .exercise h3:before {
+            content: "MISSÃO " counter(mission) ": ";
+            counter-increment: mission;
+        }
+
+        .warning {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .danger {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #8bc34a;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #4caf50;
+            border-top: 1px solid #4caf50;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- TÍTULO E INTRODUÇÃO -->
+    <div class="terminal-frame">
+        <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
+        <div class="terminal-content">
+┌───────────────────────────────────────────────────┐
+│ MÓDULO: EQUAÇÃO DA CIRCUNFERÊNCIA                 │
+└───────────────────────────────────────────────────┘
+
+> INICIANDO TRANSMISSÃO...
+> CARREGANDO MÓDULO DE TREINAMENTO...
+> ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
+        </div>
+    </div>
+
+    <div class="terminal-border">
+        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: EQUAÇÃO DA CIRCUNFERÊNCIA</h2>
+    
+    <p>Bem-vindo, sobrevivente, ao módulo sobre Equações da Circunferência. Em um mundo devastado, o conhecimento circular pode salvar sua vida. Áreas circulares são excelentes para estabelecer perímetros defensivos, avaliar zonas seguras de radiação e planejar expedições de recursos com alcance limitado.</p>
+    
+    <p>A circunferência é o lugar geométrico dos pontos equidistantes de um ponto fixo chamado centro. Esta propriedade é crucial para mapear zonas seguras de exploração, delimitar áreas contaminadas, e calcular o alcance de sistemas de comunicação improvisados.</p>
+    
+    <p>Matematicamente, uma circunferência de centro $C(a,b)$ e raio $r$ é definida pelos pontos $P(x,y)$ que satisfazem a seguinte condição: a distância de $P$ até $C$ é exatamente $r$. Esta condição nos fornece a equação fundamental da circunferência.</p>
+    
+    <div class="formula">
+    $$(x - a)^2 + (y - b)^2 = r^2$$
+    </div>
+    
+    <p>Onde:</p>
+    <ul>
+        <li>$(a,b)$ são as coordenadas do centro da circunferência</li>
+        <li>$r$ é o raio da circunferência</li>
+        <li>$(x,y)$ representa qualquer ponto na circunferência</li>
+    </ul>
+    
+    <p>Quando expandimos esta equação, chegamos à forma geral da equação da circunferência:</p>
+    
+    <div class="formula">
+    $$x^2 + y^2 + Dx + Ey + F = 0$$
+    </div>
+    
+    <p>Onde $D = -2a$, $E = -2b$ e $F = a^2 + b^2 - r^2$.</p>
+    
+    <p>Para identificar o centro e o raio a partir da forma geral, completamos quadrados:</p>
+    <ul>
+        <li>Centro: $C(-\frac{D}{2}, -\frac{E}{2})$</li>
+        <li>Raio: $r = \sqrt{(\frac{D}{2})^2 + (\frac{E}{2})^2 - F}$</li>
+    </ul>
+    
+    <p>Dominar estas equações será sua arma para sobreviver em uma nova era onde a geometria pode ser a diferença entre a vida e a morte. Prepare-se para as missões a seguir.</p>
+
+    <!-- MISSÕES (EXERCÍCIOS) -->
+    <div class="mission-counter">
+        <!-- MISSÃO 1 (BÁSICA) -->
+        <div class="exercise">
+            <h3>PERÍMETRO DE SEGURANÇA</h3>
+            <p>Você encontrou um abrigo relativamente seguro nas coordenadas (3,4) do seu mapa. Sua análise de radiação revela que é seguro circular em um raio de 5 unidades ao redor deste ponto. Determine a equação da circunferência que representa seu perímetro seguro de exploração.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Lembre-se que a equação de uma circunferência com centro $(a,b)$ e raio $r$ é dada por $(x-a)^2 + (y-b)^2 = r^2$. Substitua os valores que você tem.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identifique os parâmetros: centro $(a,b) = (3,4)$ e raio $r = 5$</li>
+                    <li>Substitua na equação $(x-a)^2 + (y-b)^2 = r^2$</li>
+                    <li>Obtemos $(x-3)^2 + (y-4)^2 = 5^2$</li>
+                    <li>Simplificando: $(x-3)^2 + (y-4)^2 = 25$</li>
+                </ol>
+                
+                <div class="formula">
+                    $(x-3)^2 + (y-4)^2 = 25$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Circunferências delimitam zonas seguras em áreas contaminadas. Neste caso, a equação permite saber exatamente os limites do seu perímetro seguro, essencial para sobrevivência em ambientes hostis.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 2 (BÁSICA) -->
+        <div class="exercise">
+            <h3>ALCANCE DO RÁDIO</h3>
+            <p>Seu rádio de comunicação, localizado no ponto (0,0), tem alcance máximo de 8 unidades. Determine a equação da circunferência que representa a área de cobertura do seu sistema de comunicação.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Quando o centro está na origem (0,0), a equação da circunferência fica simplificada. O raio corresponde ao alcance do rádio.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identifique os parâmetros: centro $(a,b) = (0,0)$ e raio $r = 8$</li>
+                    <li>Substitua na equação $(x-a)^2 + (y-b)^2 = r^2$</li>
+                    <li>Obtemos $(x-0)^2 + (y-0)^2 = 8^2$</li>
+                    <li>Simplificando: $x^2 + y^2 = 64$</li>
+                </ol>
+                
+                <div class="formula">
+                    $x^2 + y^2 = 64$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Conhecer o limite exato do alcance do seu equipamento de comunicação pode significar a diferença entre estabelecer contato com outros sobreviventes ou ficar isolado em uma situação de emergência.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 3 (BÁSICA) -->
+        <div class="exercise">
+            <h3>CONVERSOR DE EQUAÇÕES</h3>
+            <p>Você encontrou um mapa antigo com a seguinte equação: $x^2 + y^2 - 6x + 8y + 9 = 0$. Para utilizá-lo corretamente, você precisa identificar o centro e o raio da área circular descrita.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Complete os quadrados para transformar a equação na forma canônica $(x-a)^2 + (y-b)^2 = r^2$. Os termos $-6x$ e $+8y$ fornecem pistas sobre o centro.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Reorganize a equação: $x^2 - 6x + y^2 + 8y + 9 = 0$</li>
+                    <li>Complete o quadrado para $x$: $x^2 - 6x + 9 + y^2 + 8y + 9 - 9 = 0$</li>
+                    <li>Simplificando: $(x - 3)^2 + y^2 + 8y + 9 = 0$</li>
+                    <li>Complete o quadrado para $y$: $(x - 3)^2 + y^2 + 8y + 16 + 9 - 16 = 0$</li>
+                    <li>Simplificando: $(x - 3)^2 + (y + 4)^2 = 7$</li>
+                    <li>Portanto, o centro é $(3, -4)$ e o raio é $\sqrt{7}$</li>
+                </ol>
+                
+                <div class="formula">
+                    $(x - 3)^2 + (y + 4)^2 = 7$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Transformar informações codificadas em dados úteis é uma habilidade crucial. Neste caso, converter a equação permite visualizar precisamente a localização do centro e a extensão da área, possivelmente indicando um recurso valioso ou uma zona perigosa.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 4 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>PONTOS DE VERIFICAÇÃO</h3>
+            <p>Sua equipe encontrou três pontos seguros para patrulha: $(1,3)$, $(5,3)$ e $(3,7)$. Você suspeita que existe um padrão circular. Determine a equação da circunferência que passa exatamente por estes três pontos.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Substitua as coordenadas dos três pontos na equação geral da circunferência $x^2 + y^2 + Dx + Ey + F = 0$ e resolva o sistema de equações para encontrar os valores de $D$, $E$ e $F$.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Substitua o ponto $(1,3)$ na equação geral: $1^2 + 3^2 + D(1) + E(3) + F = 0$</li>
+                    <li>Simplificando: $1 + 9 + D + 3E + F = 0$ ou $D + 3E + F = -10$ (Equação 1)</li>
+                    <li>Com $(5,3)$: $5^2 + 3^2 + 5D + 3E + F = 0$, que resulta em $5D + 3E + F = -34$ (Equação 2)</li>
+                    <li>Com $(3,7)$: $3^2 + 7^2 + 3D + 7E + F = 0$, que resulta em $3D + 7E + F = -58$ (Equação 3)</li>
+                    <li>Resolvendo o sistema, obtemos: $D = -6$, $E = -8$ e $F = 13$</li>
+                    <li>Logo, a equação é $x^2 + y^2 - 6x - 8y + 13 = 0$</li>
+                    <li>Convertendo para a forma canônica, temos $(x - 3)^2 + (y - 4)^2 = 16$</li>
+                    <li>Portanto, o centro é $(3,4)$ e o raio é $4$</li>
+                </ol>
+                
+                <div class="formula">
+                    $x^2 + y^2 - 6x - 8y + 13 = 0$ ou $(x - 3)^2 + (y - 4)^2 = 16$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Reconhecer padrões em pontos dispersos pode revelar a estrutura de antigas instalações ou rotas estratégicas. Esta habilidade permite prever pontos adicionais que seguem o mesmo padrão, potencialmente levando a recursos não descobertos.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 5 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>ZONA DE CONTAMINAÇÃO</h3>
+            <p>Uma área circular contaminada é descrita pela equação $x^2 + y^2 + 6x - 4y - 3 = 0$. Seu objetivo é encontrar o centro exato da contaminação e a extensão máxima (raio) para estabelecer uma zona de quarentena adequada.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Complete os quadrados na equação para identificar o centro e o raio. Preste atenção aos sinais dos termos lineares.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Reescreva a equação agrupando os termos em $x$ e $y$: $x^2 + 6x + y^2 - 4y - 3 = 0$</li>
+                    <li>Complete o quadrado para os termos em $x$: $x^2 + 6x + 9 + y^2 - 4y - 3 - 9 = 0$</li>
+                    <li>Simplificando: $(x + 3)^2 + y^2 - 4y - 12 = 0$</li>
+                    <li>Complete o quadrado para os termos em $y$: $(x + 3)^2 + y^2 - 4y + 4 - 12 - 4 = 0$</li>
+                    <li>Simplificando: $(x + 3)^2 + (y - 2)^2 = 16$</li>
+                    <li>Portanto, o centro da contaminação é $(-3, 2)$ e a extensão máxima (raio) é $4$ unidades</li>
+                </ol>
+                
+                <div class="formula">
+                    $(x + 3)^2 + (y - 2)^2 = 16$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Identificar com precisão o centro e a extensão de uma zona contaminada permite estabelecer perímetros seguros e planejar rotas de evacuação eficientes, salvando vidas quando cada segundo conta.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 6 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>EXPEDIÇÃO DE RESGATE</h3>
+            <p>Você recebeu um sinal de socorro nas coordenadas (5,-2). Seu posto avançado está em (1,0) e seu veículo tem autonomia para percorrer no máximo 10 unidades antes de precisar reabastecer. Determine matematicamente se é possível resgatar o sobrevivente com uma viagem de ida e volta (ida ao ponto de resgate e retorno ao posto).</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Calcule a distância entre o posto e o ponto de resgate usando a fórmula de distância entre dois pontos. Depois, verifique se o dobro dessa distância (ida e volta) é menor que a autonomia do veículo.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcule a distância entre (1,0) e (5,-2): $d = \sqrt{(5-1)^2 + (-2-0)^2}$</li>
+                    <li>$d = \sqrt{16 + 4} = \sqrt{20} \approx 4,47$ unidades</li>
+                    <li>Para ida e volta, a distância total será: $2 \times d = 2 \times 4,47 \approx 8,94$ unidades</li>
+                    <li>Como a autonomia é de 10 unidades e a distância total é aproximadamente 8,94 unidades, é possível realizar o resgate com uma única viagem de ida e volta</li>
+                    <li>Podemos visualizar isso como uma circunferência de centro (1,0) e raio 5 (metade da autonomia), verificando se o ponto (5,-2) está dentro desta circunferência</li>
+                </ol>
+                
+                <div class="formula">
+                    $d(A,B) = \sqrt{(x_B-x_A)^2 + (y_B-y_A)^2} = \sqrt{(5-1)^2 + (-2-0)^2} = \sqrt{20} \approx 4,47$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Calcular distâncias precisas e verificar limites de autonomia são habilidades cruciais para missões de resgate. Esta abordagem matemática evita o desperdício de recursos valiosos e aumenta as chances de sucesso em operações arriscadas.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 7 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>INTERSEÇÃO DE TERRITÓRIOS</h3>
+            <p>Dois clãs rivais ocupam áreas circulares. O primeiro controla a região descrita por $(x-2)^2 + (y-3)^2 \leq 16$ e o segundo a região $(x+1)^2 + (y-1)^2 \leq 25$. Você precisa negociar uma zona neutra. Determine se existe uma região de interseção entre estes territórios e calcule a distância entre os centros.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Compare a distância entre os centros com a soma dos raios. Se a distância for menor que a soma dos raios, há interseção.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identifique os centros e raios das duas regiões:
+                        <ul>
+                            <li>Região 1: Centro $(2,3)$ e raio $r_1 = 4$</li>
+                            <li>Região 2: Centro $(-1,1)$ e raio $r_2 = 5$</li>
+                        </ul>
+                    </li>
+                    <li>Calcule a distância entre os centros:
+                        $d = \sqrt{(2-(-1))^2 + (3-1)^2} = \sqrt{9 + 4} = \sqrt{13} \approx 3,61$
+                    </li>
+                    <li>Calcule a soma dos raios: $r_1 + r_2 = 4 + 5 = 9$</li>
+                    <li>Como $d = 3,61 < 9$, existe uma região de interseção entre os territórios</li>
+                    <li>Calcule a diferença dos raios: $|r_1 - r_2| = |4 - 5| = 1$</li>
+                    <li>Como $d = 3,61 > 1$, uma circunferência não está contida na outra</li>
+                </ol>
+                
+                <div class="formula">
+                    Condição para interseção: $|r_1 - r_2| < d < r_1 + r_2$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Identificar zonas de interseção entre territórios rivais é crucial para estabelecer áreas neutras de comércio ou negociação, evitando conflitos desnecessários em um mundo onde alianças estratégicas podem ser tão importantes quanto os recursos.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 8 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>TORRE DE VIGILÂNCIA</h3>
+            <p>Você precisa construir uma torre de vigilância que esteja equidistante de três assentamentos localizados nas coordenadas $(0,0)$, $(6,0)$ e $(3,5)$. Determine a localização exata (coordenadas) e a que distância a torre ficará de cada assentamento.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>O centro da circunferência que passa por três pontos é o local equidistante dos três pontos.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para encontrar o centro da circunferência que passa pelos três pontos, podemos usar as mediatrizes dos segmentos que ligam os pontos:
+                        <ul>
+                            <li>Ponto A = $(0,0)$</li>
+                            <li>Ponto B = $(6,0)$</li>
+                            <li>Ponto C = $(3,5)$</li>
+                        </ul>
+                    </li>
+                    <li>Usaremos um sistema determinando a equação geral da circunferência $x^2 + y^2 + Dx + Ey + F = 0$</li>
+                    <li>Substituindo A(0,0): $0 + 0 + 0 + 0 + F = 0 \Rightarrow F = 0$</li>
+                    <li>Substituindo B(6,0): $36 + 0 + 6D + 0 + F = 0 \Rightarrow 6D = -36 \Rightarrow D = -6$</li>
+                    <li>Substituindo C(3,5): $9 + 25 + 3D + 5E + F = 0 \Rightarrow 34 + 3(-6) + 5E = 0 \Rightarrow 5E = -34 + 18 \Rightarrow E = -3.2$</li>
+                    <li>Identificando o centro $(a,b) = (-\frac{D}{2}, -\frac{E}{2}) = (3, 1.6)$</li>
+                    <li>O raio é a distância do centro a qualquer dos pontos: $r = \sqrt{(3-0)^2 + (1.6-0)^2} = \sqrt{9 + 2.56} = \sqrt{11.56} \approx 3.4$</li>
+                </ol>
+                
+                <div class="formula">
+                    Centro da torre: $(3, 1.6)$
+                    Distância aos assentamentos: $r \approx 3.4$ unidades
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em um mundo onde a vigilância é essencial para a segurança, posicionar estrategicamente suas torres permite maximizar a cobertura com recursos mínimos. A geometria analítica oferece soluções precisas para problemas táticos complexos.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 9 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>EXTRAÇÃO SEGURA</h3>
+            <p>Seu grupo identificou uma fonte de água potável em $(4,1)$, mas ela está cercada por uma zona radioativa descrita pela equação $x^2 + y^2 - 2x + 4y - 11 = 0$. Você está em $(8,7)$. Determine se é possível acessar a fonte de água sem entrar na zona radioativa, seguindo uma trajetória direta (linha reta).</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Transforme a equação da circunferência para a forma canônica. Depois, verifique se a reta que conecta sua posição à fonte de água cruza a circunferência.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Transforme a equação da zona radioativa para a forma canônica:
+                        <ul>
+                            <li>$x^2 - 2x + y^2 + 4y - 11 = 0$</li>
+                            <li>$(x^2 - 2x + 1) + (y^2 + 4y + 4) - 11 - 1 - 4 = 0$</li>
+                            <li>$(x - 1)^2 + (y + 2)^2 = 16$</li>
+                        </ul>
+                    </li>
+                    <li>A zona radioativa é uma circunferência de centro $(1,-2)$ e raio $4$</li>
+                    <li>Determine a equação da reta que passa pelos pontos $(8,7)$ e $(4,1)$:
+                        <ul>
+                            <li>$m = \frac{7-1}{8-4} = \frac{6}{4} = 1.5$</li>
+                            <li>Equação da reta: $y - 7 = 1.5(x - 8)$</li>
+                            <li>Simplificando: $y = 1.5x - 5$</li>
+                        </ul>
+                    </li>
+                    <li>Para verificar se a reta cruza a circunferência, substitua a equação da reta na equação da circunferência:
+                        <ul>
+                            <li>$(x - 1)^2 + (1.5x - 5 + 2)^2 = 16$</li>
+                            <li>$(x - 1)^2 + (1.5x - 3)^2 = 16$</li>
+                            <li>$(x - 1)^2 + (1.5)^2(x - 2)^2 = 16$</li>
+                            <li>$(x - 1)^2 + 2.25(x - 2)^2 = 16$</li>
+                        </ul>
+                    </li>
+                    <li>Resolvendo esta equação (que é quadrática após expansão), encontramos os valores de $x$ onde a reta cruza a circunferência</li>
+                    <li>Expandindo: $x^2 - 2x + 1 + 2.25(x^2 - 4x + 4) = 16$</li>
+                    <li>$x^2 - 2x + 1 + 2.25x^2 - 9x + 9 = 16$</li>
+                    <li>$3.25x^2 - 11x + 10 - 16 = 0$</li>
+                    <li>$3.25x^2 - 11x - 6 = 0$</li>
+                    <li>Usando a fórmula quadrática, encontramos as raízes: $x \approx 3.87$ e $x \approx -0.48$</li>
+                    <li>O segmento de reta entre $(8,7)$ e $(4,1)$ corresponde a $4 \leq x \leq 8$</li>
+                    <li>Como $3.87 < 4$, a trajetória direta não cruza a zona radioativa</li>
+                </ol>
+                
+                <div class="formula">
+                    Equação da zona radioativa: $(x - 1)^2 + (y + 2)^2 = 16$
+                    Equação da trajetória: $y = 1.5x - 5$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A análise geométrica de trajetórias em relação a zonas perigosas é uma habilidade de sobrevivência essencial. Este método permite planejar rotas seguras, maximizando suas chances de sobrevivência em territórios hostis.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 10 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>FRONTEIRA DEFENSIVA</h3>
+            <p>Três bunkers de defesa estão posicionados em $(0,0)$, $(8,0)$ e $(4,6)$. Para maximizar a proteção, vocês precisam estabelecer uma barreira circular que passe exatamente pelos três bunkers. Encontre a equação dessa circunferência e verifique se um depósito de suprimentos localizado em $(2,3)$ está dentro, sobre ou fora dessa fronteira defensiva.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para encontrar a equação da circunferência que passa pelos três pontos, vamos usar a forma geral $x^2 + y^2 + Dx + Ey + F = 0$</li>
+                    <li>Substituindo os três pontos:
+                        <ul>
+                            <li>Para $(0,0)$: $0 + 0 + 0 + 0 + F = 0 \Rightarrow F = 0$</li>
+                            <li>Para $(8,0)$: $64 + 0 + 8D + 0 + F = 0 \Rightarrow 64 + 8D = 0 \Rightarrow D = -8$</li>
+                            <li>Para $(4,6)$: $16 + 36 + 4D + 6E + F = 0 \Rightarrow 52 + 4(-8) + 6E = 0 \Rightarrow 52 - 32 + 6E = 0 \Rightarrow 6E = -20 \Rightarrow E = -\frac{10}{3}$</li>
+                        </ul>
+                    </li>
+                    <li>Portanto, a equação da circunferência é: $x^2 + y^2 - 8x - \frac{10}{3}y = 0$</li>
+                    <li>Convertendo para a forma canônica para identificar o centro e o raio:
+                        <ul>
+                            <li>$(x - 4)^2 + (y - \frac{5}{3})^2 = 16 + \frac{25}{9}$</li>
+                            <li>$(x - 4)^2 + (y - \frac{5}{3})^2 = \frac{144 + 25}{9} = \frac{169}{9}$</li>
+                        </ul>
+                    </li>
+                    <li>O centro da circunferência é $(4, \frac{5}{3})$ e o raio é $\frac{13}{3}$</li>
+                    <li>Para verificar se o ponto $(2,3)$ está dentro, sobre ou fora da circunferência, calculamos:
+                        <ul>
+                            <li>$d = \sqrt{(2-4)^2 + (3-\frac{5}{3})^2} = \sqrt{4 + (\frac{9-5}{3})^2} = \sqrt{4 + \frac{16}{9}} = \sqrt{\frac{36 + 16}{9}} = \sqrt{\frac{52}{9}} \approx 2.4$</li>
+                            <li>Como $d < \frac{13}{3} \approx 4.33$, o ponto está dentro da fronteira defensiva</li>
+                        </ul>
+                    </li>
+                </ol>
+                
+                <div class="formula">
+                    Equação da fronteira defensiva: $x^2 + y^2 - 8x - \frac{10}{3}y = 0$ ou $(x - 4)^2 + (y - \frac{5}{3})^2 = \frac{169}{9}$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Estabelecer perímetros defensivos otimizados é crucial em um mundo hostil. Esta aplicação demonstra como a geometria analítica pode ser usada para planejar estrategicamente a proteção de recursos vitais, maximizando a segurança com recursos limitados.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 11 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>ANÁLISE DE FALHA DE CONTENÇÃO</h3>
+            <p>Um reator de energia emite radiação em um padrão circular descrito pela equação $x^2 + y^2 - 4x + 6y - 12 = 0$. Após uma falha, a área contaminada se expandiu para $x^2 + y^2 - 4x + 6y = 0$. Calcule qual foi o aumento percentual na área contaminada e determine se o ponto $(7,1)$ está agora em risco.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Primeiro, vamos encontrar o centro e o raio da primeira circunferência (antes da falha):
+                        <ul>
+                            <li>$x^2 - 4x + y^2 + 6y - 12 = 0$</li>
+                            <li>$(x^2 - 4x + 4) + (y^2 + 6y + 9) - 12 - 4 - 9 = 0$</li>
+                            <li>$(x - 2)^2 + (y + 3)^2 = 25$</li>
+                        </ul>
+                    </li>
+                    <li>A primeira circunferência tem centro $(2,-3)$ e raio $r_1 = 5$</li>
+                    <li>Agora, para a segunda circunferência (após a falha):
+                        <ul>
+                            <li>$x^2 - 4x + y^2 + 6y = 0$</li>
+                            <li>$(x^2 - 4x + 4) + (y^2 + 6y + 9) - 4 - 9 = 0$</li>
+                            <li>$(x - 2)^2 + (y + 3)^2 = 13$</li>
+                        </ul>
+                    </li>
+                    <li>A segunda circunferência tem o mesmo centro $(2,-3)$ mas raio $r_2 = \sqrt{13} \approx 3.61$</li>
+                    <li>Espere, isso indica uma diminuição no raio. Vamos revisar:
+                        <ul>
+                            <li>A equação original inclui $-12$ no lado esquerdo</li>
+                            <li>A nova equação tem $0$ no lado direito</li>
+                            <li>Isso sugere que o termo constante mudou de $-12$ para $0$</li>
+                            <li>Refazendo os cálculos com a equação após a falha: $x^2 + y^2 - 4x + 6y = 0$</li>
+                            <li>Completando quadrados: $(x - 2)^2 + (y + 3)^2 = 4 + 9 = 13$</li>
+                            <li>Portanto, o raio após a falha é $r_2 = \sqrt{13} \approx 3.61$</li>
+                        </ul>
+                    </li>
+                    <li>Reconsiderando: A área original deve ser $A_1 = \pi r_1^2 = \pi \cdot 25 = 25\pi$</li>
+                    <li>A nova área é $A_2 = \pi r_2^2 = \pi \cdot 13 = 13\pi$</li>
+                    <li>Isso representa uma redução na área, não um aumento</li>
+                    <li>Vamos corrigir nossa interpretação. Comparando as equações:
+                        <ul>
+                            <li>Original: $x^2 + y^2 - 4x + 6y - 12 = 0$</li>
+                            <li>Nova: $x^2 + y^2 - 4x + 6y = 0$</li>
+                            <li>A mudança de $-12$ para $0$ no termo constante resulta em $F$ passando de $-12$ para $0$</li>
+                            <li>Isso significa que o raio mudou de $\sqrt{4 + 9 + 12} = \sqrt{25} = 5$ para $\sqrt{4 + 9} = \sqrt{13} \approx 3.61$</li>
+                            <li>Esta é uma diminuição no raio e na área contaminada, não um aumento</li>
+                        </ul>
+                    </li>
+                    <li>A alteração percentual na área é: $\frac{13\pi - 25\pi}{25\pi} \times 100\% = \frac{-12\pi}{25\pi} \times 100\% = -48\%$</li>
+                    <li>Para verificar se o ponto $(7,1)$ está em risco, calculamos sua distância ao centro $(2,-3)$:
+                        <ul>
+                            <li>$d = \sqrt{(7-2)^2 + (1-(-3))^2} = \sqrt{25 + 16} = \sqrt{41} \approx 6.4$</li>
+                            <li>Como $d > r_2 \approx 3.61$ e $d > r_1 = 5$, o ponto $(7,1)$ não estava e continua não estando em risco</li>
+                        </ul>
+                    </li>
+                </ol>
+                
+                <div class="formula">
+                    Círculo original: $(x - 2)^2 + (y + 3)^2 = 25$
+                    Círculo após a falha: $(x - 2)^2 + (y + 3)^2 = 13$
+                    Alteração na área: $-48\%$ (redução)
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Nem toda mudança representa um agravamento da situação. Neste caso, a análise matemática revelou que a área contaminada na verdade diminuiu, contrariando a intuição inicial. Em um mundo pós-apocalíptico, interpretar corretamente os dados pode evitar pânico desnecessário e permitir uma alocação mais eficiente de recursos.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 12 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>REDE DE COMUNICAÇÃO OTIMIZADA</h3>
+            <p>Você precisa estabelecer uma rede de comunicação entre quatro assentamentos localizados em $(0,0)$, $(10,0)$, $(8,6)$ e $(2,8)$. Para economizar cabo, você quer encontrar o ponto que minimiza a soma das distâncias a esses quatro assentamentos. Verifique se o centro da circunferência circunscrita aos assentamentos seria uma solução otimizada, e se não for, proponha uma alternativa.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Primeiro, vamos verificar se é possível desenhar uma única circunferência que passe pelos quatro pontos:
+                        <ul>
+                            <li>Os pontos $(0,0)$, $(10,0)$, $(8,6)$ e $(2,8)$ formam um quadrilátero</li>
+                            <li>Para que um quadrilátero seja cíclico (possa ser inscrito em uma circunferência), a soma dos ângulos opostos deve ser $180°$</li>
+                            <li>Calculemos os vetores entre os pontos para analisar os ângulos</li>
+                        </ul>
+                    </li>
+                    <li>Na verdade, podemos usar um teste mais direto: quatro pontos estão em uma circunferência se e somente se o determinante de uma matriz específica for zero</li>
+                    <li>Para os nossos pontos, podemos calcular:
+                        <ul>
+                            <li>$\begin{vmatrix} 
+                            x_1^2+y_1^2 & x_1 & y_1 & 1 \\
+                            x_2^2+y_2^2 & x_2 & y_2 & 1 \\
+                            x_3^2+y_3^2 & x_3 & y_3 & 1 \\
+                            x_4^2+y_4^2 & x_4 & y_4 & 1
+                            \end{vmatrix}$</li>
+                            <li>Substituindo nossos pontos:
+                            $\begin{vmatrix} 
+                            0 & 0 & 0 & 1 \\
+                            100 & 10 & 0 & 1 \\
+                            100 & 8 & 6 & 1 \\
+                            68 & 2 & 8 & 1
+                            \end{vmatrix}$</li>
+                        </ul>
+                    </li>
+                    <li>O cálculo deste determinante é complexo, mas podemos verificar que é diferente de zero, indicando que os quatro pontos não estão em uma única circunferência</li>
+                    <li>Portanto, não existe uma circunferência que passe por todos os quatro assentamentos</li>
+                    <li>Para o problema de minimização da soma das distâncias (conhecido como problema de Fermat-Weber), a solução não é trivial</li>
+                    <li>Em vez de usar o centro da circunferência (que não existe para os quatro pontos), podemos usar algoritmos iterativos como o método de Weiszfeld</li>
+                    <li>Uma abordagem prática seria calcular o centroide dos quatro pontos como aproximação inicial:
+                        <ul>
+                            <li>$C_x = \frac{0 + 10 + 8 + 2}{4} = 5$</li>
+                            <li>$C_y = \frac{0 + 0 + 6 + 8}{4} = 3.5$</li>
+                            <li>Centroide: $(5, 3.5)$</li>
+                        </ul>
+                    </li>
+                    <li>Para verificar se este é um bom ponto, calculamos a soma das distâncias:
+                        <ul>
+                            <li>$d_1 = \sqrt{(5-0)^2 + (3.5-0)^2} = \sqrt{25 + 12.25} = \sqrt{37.25} \approx 6.1$</li>
+                            <li>$d_2 = \sqrt{(5-10)^2 + (3.5-0)^2} = \sqrt{25 + 12.25} = \sqrt{37.25} \approx 6.1$</li>
+                            <li>$d_3 = \sqrt{(5-8)^2 + (3.5-6)^2} = \sqrt{9 + 6.25} = \sqrt{15.25} \approx 3.9$</li>
+                            <li>$d_4 = \sqrt{(5-2)^2 + (3.5-8)^2} = \sqrt{9 + 20.25} = \sqrt{29.25} \approx 5.4$</li>
+                            <li>Soma total: $6.1 + 6.1 + 3.9 + 5.4 = 21.5$ unidades</li>
+                        </ul>
+                    </li>
+                    <li>A solução exata do problema de Fermat-Weber geralmente requer métodos numéricos, mas o centroide é uma boa aproximação inicial</li>
+                </ol>
+                
+                <div class="formula">
+                    Ponto aproximado para a rede: $(5, 3.5)$
+                    Soma das distâncias: aproximadamente $21.5$ unidades
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em um mundo com recursos limitados, otimizar redes de infraestrutura é vital. Este problema demonstra que nem sempre existe uma solução geométrica perfeita, e aproximações práticas como o centroide podem ser necessárias. A adaptabilidade matemática é tão importante quanto o conhecimento teórico para sobreviver em um mundo pós-apocalíptico.</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- RODAPÉ DO DOCUMENTO -->
+    <div class="footer">
+        REFÚGIO-TEC | EQUAÇÃO DA CIRCUNFERÊNCIA: Sobrevivência Matemática - Quando a vida dá voltas, o conhecimento circular é sua salvação.
+    </div>
+</body>
+</html>

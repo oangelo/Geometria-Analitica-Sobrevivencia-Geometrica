@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+    </script>
+    <title>REFÚGIO-TEC | ÁREA E ALINHAMENTO</title>
+    <style>
+        /* Estilo inspirado no tema pós-apocalíptico */
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100px; }
+        }
+
+        body {
+            background-color: #0c0c0c;
+            color: #e6e6e6;
+            font-family: "Courier New", monospace;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #4caf50;
+            max-width: 800px;
+            margin: auto;
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 2px;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+
+        h1, h2, h3 {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .exercise {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border: 1px dashed #4caf50;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        details {
+            background-color: #1c1c1c;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            margin-top: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #4caf50;
+        }
+
+        summary:hover {
+            text-shadow: 0 0 3px #4caf50;
+        }
+
+        code {
+            background-color: #333;
+            padding: 3px 5px;
+            color: #ffeb3b;
+        }
+
+        .hint {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #4caf50;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .hint:before {
+            content: "DICA DE SOBREVIVÊNCIA: ";
+            color: #4caf50;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .solution-steps {
+            margin-left: 20px;
+            counter-reset: step-counter;
+        }
+
+        .solution-steps li {
+            list-style-type: none;
+            counter-increment: step-counter;
+            margin-bottom: 10px;
+        }
+
+        .solution-steps li::before {
+            content: "> PASSO_" counter(step-counter) ": ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .formula {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #000;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .terminal-frame {
+            padding: 10px;
+            background-color: #000;
+            margin-bottom: 20px;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .terminal-header {
+            margin: 0;
+            padding: 3px 10px;
+            background-color: #4caf50;
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .terminal-content {
+            padding: 5px;
+            white-space: pre-wrap;
+            font-size: 1em;
+            line-height: 1.2;
+        }
+
+        .cursor:after {
+            content: "█";
+            animation: blink 1s step-end infinite;
+        }
+
+        .terminal-line {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .terminal-border {
+            border: 1px solid #4caf50;
+            padding: 5px;
+            background-color: #000;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .mission-counter {
+            counter-reset: mission;
+        }
+        
+        .mission-counter .exercise h3:before {
+            content: "MISSÃO " counter(mission) ": ";
+            counter-increment: mission;
+        }
+
+        .warning {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .danger {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #8bc34a;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #4caf50;
+            border-top: 1px solid #4caf50;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- TÍTULO E INTRODUÇÃO -->
+    <div class="terminal-frame">
+        <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
+        <div class="terminal-content">
+┌───────────────────────────────────────────────────┐
+│ MÓDULO: ÁREA E ALINHAMENTO                        │
+└───────────────────────────────────────────────────┘
+
+> INICIANDO TRANSMISSÃO...
+> CARREGANDO MÓDULO DE TREINAMENTO...
+> ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
+        </div>
+    </div>
+
+    <div class="terminal-border">
+        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: ÁREA E ALINHAMENTO</h2>
+    
+    <p>Na reconstrução pós-colapso, a capacidade de calcular áreas precisamente pode significar a diferença entre um abrigo seguro e uma armadilha mortal. O cálculo de áreas usando vetores permite mapear zonas de recursos, delimitar perímetros defensivos e otimizar o uso de terrenos escassos sem a necessidade de instrumentos de medição sofisticados. Similarmente, determinar o alinhamento de pontos é crucial para verificar se estruturas estão em risco de colapso ou se três locais distintos podem ser conectados por uma única rota de patrulha.</p>
+    
+    <p>Os vetores, já estabelecidos como ferramentas essenciais de sobrevivência, agora serão utilizados para calcular áreas e verificar alinhamentos. Antes das equações de reta (tecnologia ainda não recuperada), estes métodos representam nossa melhor defesa contra estruturas instáveis e uso ineficiente de recursos.</p>
+    
+    <p>Para três pontos no plano, podemos verificar seu alinhamento (colinearidade) ou calcular a área do triângulo formado por eles. Dois vetores com origem em um mesmo ponto determinam um paralelogramo, cuja área pode ser calculada através de operações vetoriais.</p>
+    
+    <div class="formula">
+    $$\text{Área do paralelogramo} = |\vec{u} \times \vec{v}| = |u_1v_2 - u_2v_1|$$
+    </div>
+    
+    <div class="formula">
+    $$\text{Área do triângulo} = \frac{1}{2}|\vec{u} \times \vec{v}| = \frac{1}{2}|u_1v_2 - u_2v_1|$$
+    </div>
+    
+    <div class="formula">
+    $$\text{Teste de colinearidade:}$$
+    $$\text{Pontos } A, B, C \text{ são colineares se e somente se } \overrightarrow{AB} \times \overrightarrow{AC} = 0$$
+    </div>
+    
+    <p>Dados três pontos $A(x_A, y_A)$, $B(x_B, y_B)$ e $C(x_C, y_C)$, podemos verificar sua colinearidade através do cálculo do determinante:</p>
+    
+    <div class="formula">
+    $$\begin{vmatrix} 
+    x_A & y_A & 1 \\
+    x_B & y_B & 1 \\
+    x_C & y_C & 1
+    \end{vmatrix} = 0 \text{ se os pontos são colineares}$$
+    </div>
+    
+    <p>Ou através da comparação da razão das coordenadas dos vetores formados por esses pontos.</p>
+
+    <!-- MISSÕES (EXERCÍCIOS) -->
+    <div class="mission-counter">
+        <!-- MISSÃO 1 (BÁSICA) -->
+        <div class="exercise">
+            <h3>MAPEAMENTO DE ZONA SEGURA</h3>
+            <p>Seu grupo precisa demarcar uma zona segura para armazenamento de suprimentos. Dados os pontos A(0, 0), B(4, 0) e C(0, 3), calcule a área do triângulo formado para determinar se o espaço é suficiente para os recursos disponíveis.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Escolha um dos vértices como origem e construa dois vetores. A área do triângulo é metade do valor absoluto do determinante formado pelas coordenadas desses vetores.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificamos os três pontos: A(0, 0), B(4, 0) e C(0, 3)</li>
+                    <li>Escolhemos A como origem e calculamos os vetores $\overrightarrow{AB} = (4, 0)$ e $\overrightarrow{AC} = (0, 3)$</li>
+                    <li>Aplicamos a fórmula da área do triângulo: $\text{Área} = \frac{1}{2}|u_1v_2 - u_2v_1|$</li>
+                    <li>Substituindo: $\text{Área} = \frac{1}{2}|(4 \cdot 3) - (0 \cdot 0)| = \frac{1}{2} \cdot 12 = 6$ unidades quadradas</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Área} = \frac{1}{2}|\overrightarrow{AB} \times \overrightarrow{AC}| = \frac{1}{2}|(4 \cdot 3) - (0 \cdot 0)| = 6$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O conhecimento preciso da área disponível permite uma distribuição eficiente dos recursos. Um triângulo com área de 6 unidades quadradas pode acomodar aproximadamente 12 contêineres padrão de suprimentos, assumindo 0,5 unidades quadradas por contêiner.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 2 (BÁSICA) -->
+        <div class="exercise">
+            <h3>CHECAGEM DE ROTA DIRETA</h3>
+            <p>Três abrigos estão localizados nos pontos A(1, 1), B(3, 2) e C(7, 4). Determine se é possível estabelecer uma única rota de patrulha em linha reta que passe por todos eles, economizando recursos de vigilância.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Para verificar se três pontos são colineares, calcule os vetores entre dois pares de pontos e verifique se um é múltiplo escalar do outro.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificamos os três pontos: A(1, 1), B(3, 2) e C(7, 4)</li>
+                    <li>Calculamos os vetores $\overrightarrow{AB} = (2, 1)$ e $\overrightarrow{BC} = (4, 2)$</li>
+                    <li>Verificamos se $\overrightarrow{BC} = k \cdot \overrightarrow{AB}$ para algum escalar k</li>
+                    <li>Comparamos as razões das coordenadas: $\frac{4}{2} = \frac{2}{1} = 2$</li>
+                    <li>Como as razões são iguais, os vetores são paralelos, portanto os pontos são colineares</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\frac{x_C - x_B}{x_B - x_A} = \frac{y_C - y_B}{y_B - y_A} \iff \frac{7-3}{3-1} = \frac{4-2}{2-1} \iff \frac{4}{2} = \frac{2}{1} = 2$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A colinearidade desses pontos permite economizar recursos críticos ao estabelecer uma única rota de patrulha linear. Na Zona Devastada, cada metro de cerca ou sensor economizado pode ser redirecionado para outras necessidades de sobrevivência.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 3 (BÁSICA) -->
+        <div class="exercise">
+            <h3>DIMENSIONAMENTO DE PLANTAÇÃO</h3>
+            <p>Para garantir a segurança alimentar do abrigo, você precisa calcular a área do triângulo formado pelos pontos A(2, 1), B(6, 1) e C(4, 5), que representa uma zona fértil livre de radiação.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Utilize a fórmula da área do triângulo com determinantes. Escolha um vértice como referência e calcule a área usando os vetores desse vértice para os outros dois.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificamos os três pontos: A(2, 1), B(6, 1) e C(4, 5)</li>
+                    <li>Escolhemos A como origem e calculamos os vetores $\overrightarrow{AB} = (4, 0)$ e $\overrightarrow{AC} = (2, 4)$</li>
+                    <li>Aplicamos a fórmula da área: $\text{Área} = \frac{1}{2}|u_1v_2 - u_2v_1|$</li>
+                    <li>Substituindo: $\text{Área} = \frac{1}{2}|(4 \cdot 4) - (0 \cdot 2)| = \frac{1}{2} \cdot 16 = 8$ unidades quadradas</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Área} = \frac{1}{2}|\overrightarrow{AB} \times \overrightarrow{AC}| = \frac{1}{2}|(4 \cdot 4) - (0 \cdot 2)| = 8$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Um triângulo com 8 unidades quadradas de solo fértil pode produzir aproximadamente 24kg de alimentos por temporada. Este cálculo permite planejar adequadamente o racionamento e evitar a escassez de alimentos durante os períodos de hibernação obrigatória.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 4 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>ALINHAMENTO DE TORRES DE VIGIA</h3>
+            <p>Para otimizar a defesa da colônia, três torres de vigia foram posicionadas nos pontos A(3, 1), B(6, 5) e C(9, 9). Verifique se elas estão alinhadas para determinar se há algum ângulo morto na cobertura defensiva.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Pontos alinhados criam zonas vulneráveis na defesa. Use o teste de colinearidade com determinantes ou compare as direções dos vetores para verificar o alinhamento.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Temos os pontos A(3, 1), B(6, 5) e C(9, 9)</li>
+                    <li>Calculamos $\overrightarrow{AB} = (3, 4)$ e $\overrightarrow{BC} = (3, 4)$</li>
+                    <li>Verificamos se $\overrightarrow{AB} = k \cdot \overrightarrow{BC}$ para algum escalar k</li>
+                    <li>Como $\overrightarrow{AB} = \overrightarrow{BC}$, temos que k = 1</li>
+                    <li>Portanto, os pontos são colineares</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\overrightarrow{AB} = (3, 4) \text{ e } \overrightarrow{BC} = (3, 4)$$
+                    $$\frac{x_C - x_B}{x_B - x_A} = \frac{9-6}{6-3} = \frac{3}{3} = 1$$
+                    $$\frac{y_C - y_B}{y_B - y_A} = \frac{9-5}{5-1} = \frac{4}{4} = 1$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Torres de vigia alinhadas criam vulnerabilidades defensivas, pois um único ângulo de ataque pode ficar parcialmente oculto. O posicionamento não-linear das torres garante uma cobertura de 360 graus, essencial para detectar incursões de mutantes ou grupos hostis.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 5 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>CONTENÇÃO DE ZONA CONTAMINADA</h3>
+            <p>Uma área contaminada por radiação foi identificada nos limites do assentamento. A zona é delimitada pelos pontos A(-2, 3), B(2, 7), C(5, 1) e D(1, -3), formando um quadrilátero. Calcule a área total para determinar quantos metros de barreira de contenção serão necessários.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Divida o quadrilátero em dois triângulos e calcule a área total como a soma das áreas individuais.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Dividimos o quadrilátero ABCD em dois triângulos: ABC e ACD</li>
+                    <li>Para o triângulo ABC, temos A(-2, 3), B(2, 7) e C(5, 1)</li>
+                    <li>Calculamos $\overrightarrow{AB} = (4, 4)$ e $\overrightarrow{AC} = (7, -2)$</li>
+                    <li>Área de ABC = $\frac{1}{2}|(4 \cdot (-2)) - (4 \cdot 7)| = \frac{1}{2}|(-8) - 28| = \frac{1}{2} \cdot 36 = 18$</li>
+                    <li>Para o triângulo ACD, temos A(-2, 3), C(5, 1) e D(1, -3)</li>
+                    <li>Calculamos $\overrightarrow{AC} = (7, -2)$ e $\overrightarrow{AD} = (3, -6)$</li>
+                    <li>Área de ACD = $\frac{1}{2}|(7 \cdot (-6)) - ((-2) \cdot 3)| = \frac{1}{2}|(-42) - (-6)| = \frac{1}{2} \cdot 36 = 18$</li>
+                    <li>Área total = 18 + 18 = 36 unidades quadradas</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Área total} = \text{Área de ABC} + \text{Área de ACD} = 18 + 18 = 36$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A contenção adequada de zonas contaminadas é vital para a sobrevivência a longo prazo. Uma área de 36 unidades quadradas requer aproximadamente 24 unidades de barreira de contenção, além de 6 sensores de radiação estrategicamente posicionados. Cada unidade de recurso investida em contenção previne a perda de 3 unidades em tratamentos com RemoveRad.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 6 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>VERIFICAÇÃO DE ESTRUTURA</h3>
+            <p>Uma estrutura de suporte em formato triangular tem vértices nos pontos A(0, 0), B(6, 0) e C(3, h). Se a área da estrutura deve ser exatamente 12 unidades quadradas para suportar adequadamente o peso do telhado, determine o valor de h para garantir a estabilidade do abrigo.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Expresse a área do triângulo em função de h, usando a fórmula da área com vetores, e então resolva a equação resultante.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Os vértices do triângulo são A(0, 0), B(6, 0) e C(3, h)</li>
+                    <li>Calculamos os vetores $\overrightarrow{AB} = (6, 0)$ e $\overrightarrow{AC} = (3, h)$</li>
+                    <li>Aplicamos a fórmula da área: $\text{Área} = \frac{1}{2}|u_1v_2 - u_2v_1| = \frac{1}{2}|(6 \cdot h) - (0 \cdot 3)| = \frac{1}{2} \cdot 6h = 3h$</li>
+                    <li>Como a área deve ser 12 unidades quadradas, temos $3h = 12$</li>
+                    <li>Resolvendo para h: $h = \frac{12}{3} = 4$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Área} = \frac{1}{2}|\overrightarrow{AB} \times \overrightarrow{AC}| = \frac{1}{2}|(6 \cdot h) - (0 \cdot 3)| = 3h = 12 \Rightarrow h = 4$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A altura correta de 4 unidades garante que a estrutura seja estável, distribuindo adequadamente as forças. Um cálculo preciso evita o desperdício de materiais escassos e previne colapsos estruturais durante tempestades radioativas, quando a evacuação não é uma opção viável.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 7 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>EXPANSÃO TERRITORIAL</h3>
+            <p>O Refúgio-Tec está considerando expandir sua área para incluir três novos setores nos pontos A(1, 1), B(4, 5) e C(7, 3). Além disso, um quarto setor em D(x, y) está sob consideração. Se a nova área total (quadrilátero ABCD) deve ser exatamente o dobro da área do triângulo ABC, e D deve estar na linha horizontal que passa por A, determine as coordenadas de D.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>O ponto D está na mesma linha horizontal que A, então sua coordenada y é igual à de A.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Se D está na mesma linha horizontal que A(1, 1), então D(x, 1)</li>
+                    <li>Primeiro calculamos a área do triângulo ABC com A(1, 1), B(4, 5) e C(7, 3)</li>
+                    <li>Calculamos $\overrightarrow{AB} = (3, 4)$ e $\overrightarrow{AC} = (6, 2)$</li>
+                    <li>Área de ABC = $\frac{1}{2}|(3 \cdot 2) - (4 \cdot 6)| = \frac{1}{2}|6 - 24| = \frac{1}{2} \cdot 18 = 9$</li>
+                    <li>A área do quadrilátero ABCD deve ser 18 (dobro da área de ABC)</li>
+                    <li>Dividimos o quadrilátero em dois triângulos: ABC e ACD</li>
+                    <li>Área de ACD = 18 - 9 = 9</li>
+                    <li>Para o triângulo ACD, temos A(1, 1), C(7, 3) e D(x, 1)</li>
+                    <li>Calculamos $\overrightarrow{AC} = (6, 2)$ e $\overrightarrow{AD} = (x-1, 0)$</li>
+                    <li>Área de ACD = $\frac{1}{2}|(6 \cdot 0) - (2 \cdot (x-1))| = \frac{1}{2}|0 - 2(x-1)| = \frac{1}{2} \cdot 2|x-1| = |x-1|$</li>
+                    <li>Como a área deve ser 9, temos $|x-1| = 9$</li>
+                    <li>Isto dá duas possibilidades: x = 10 ou x = -8</li>
+                    <li>Para determinar qual valor usar, observamos que se x = -8, o ponto D(-8, 1) tornaria o quadrilátero não convexo ou auto-intersectante</li>
+                    <li>Portanto, x = 10 e D(10, 1)</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Área de ABC} = \frac{1}{2}|\overrightarrow{AB} \times \overrightarrow{AC}| = \frac{1}{2}|(3 \cdot 2) - (4 \cdot 6)| = 9$$
+                    $$\text{Área de ACD} = |x-1| = 9 \Rightarrow x = 10 \text{ ou } x = -8$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A expansão territorial em D(10, 1) maximiza a área utilizável sem estender desnecessariamente o perímetro defensivo. A análise geométrica prévia evita recursos perdidos em explorações ineficientes e permite a alocação otimizada de sistemas de segurança nas novas fronteiras do assentamento.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 8 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>DETECÇÃO DE ANOMALIAS</h3>
+            <p>Após uma tempestade radioativa, o sistema de mapeamento identificou quatro pontos anômalos nos locais A(0, 0), B(3, 2), C(8, 3) e D(5, 1). Para determinar a natureza da anomalia, é necessário verificar se estes quatro pontos formam um paralelogramo, o que indicaria uma distribuição não-natural e possivelmente uma armadilha.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Um quadrilátero é um paralelogramo se e somente se seus lados opostos são paralelos.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Verificamos se os lados opostos são paralelos, calculando os vetores que representam os lados do quadrilátero</li>
+                    <li>$\overrightarrow{AB} = (3, 2)$ e $\overrightarrow{DC} = (3, 2)$</li>
+                    <li>$\overrightarrow{BC} = (5, 1)$ e $\overrightarrow{AD} = (5, 1)$</li>
+                    <li>Observamos que $\overrightarrow{AB} = \overrightarrow{DC}$ e $\overrightarrow{BC} = \overrightarrow{AD}$</li>
+                    <li>Portanto, os lados opostos são paralelos e de mesmo comprimento, confirmando que o quadrilátero ABCD é um paralelogramo</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\overrightarrow{AB} = (3, 2) \text{ e } \overrightarrow{DC} = (3, 2)$$
+                    $$\overrightarrow{BC} = (5, 1) \text{ e } \overrightarrow{AD} = (5, 1)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Padrões geométricos perfeitos raramente ocorrem naturalmente na Zona Devastada. Um paralelogramo exato formado por pontos de anomalia sugere uma origem artificial, possivelmente um sistema de defesa ou uma armadilha. Esta informação é vital para as equipes de exploração, que devem abordar a área com protocolos especiais de cautela.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 9 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>MAXIMIZAÇÃO DE ÁREA PROTEGIDA</h3>
+            <p>O perímetro de defesa do Refúgio-Tec pode ser ampliado para formar um triângulo com um vértice fixo em A(0, 0) e os outros dois vértices ao longo das linhas y = 0 e x = 0, respectivamente. Se o comprimento total da barreira disponível for de 20 unidades, determine as coordenadas dos outros dois vértices B e C para maximizar a área protegida.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Se B está no eixo x e C no eixo y, então B(b, 0) e C(0, c). Use o teorema de que a área máxima ocorre quando o triângulo é isósceles.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Definimos os pontos B(b, 0) e C(0, c), onde b > 0 e c > 0</li>
+                    <li>O perímetro do triângulo é: |AB| + |BC| + |CA| = b + √(b² + c²) + c = 20</li>
+                    <li>A área do triângulo é: $\frac{1}{2} \cdot b \cdot c$</li>
+                    <li>Para maximizar a área sob a restrição do perímetro, podemos usar cálculo variacional ou a desigualdade isoperimétrica</li>
+                    <li>Para um perímetro fixo, a área é máxima quando o triângulo é equilateral (impossível aqui) ou isósceles</li>
+                    <li>Como A é fixo na origem e os outros pontos estão nos eixos, o triângulo isósceles ocorre quando b = c</li>
+                    <li>Substituindo na equação do perímetro: b + √(b² + b²) + b = 20 ⟹ 2b + √2b = 20</li>
+                    <li>Isolando b: √2b = 20 - 2b</li>
+                    <li>Elevando ao quadrado: 2b² = (20 - 2b)² = 400 - 80b + 4b²</li>
+                    <li>Resolvendo: -2b² = 400 - 80b ⟹ 2b² + 80b - 400 = 0</li>
+                    <li>b² + 40b - 200 = 0</li>
+                    <li>Usando a fórmula quadrática: b = (-40 ± √(1600 + 800))/2 = (-40 ± √2400)/2</li>
+                    <li>b = (-40 + 49)/2 ≈ 4.5 (descartamos a raiz negativa)</li>
+                    <li>Como b = c, temos os pontos B(5, 0) e C(0, 5) (arredondando para melhor praticidade)</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Perímetro} = b + \sqrt{b^2 + c^2} + c = 20$$
+                    $$\text{Área} = \frac{1}{2}bc$$
+                    $$b = c \approx 5 \text{ para maximizar a área}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A otimização geométrica da área de proteção permite abrigar o máximo de sobreviventes com o mínimo de recursos defensivos. Um triângulo isósceles com vértices em (0,0), (5,0) e (0,5) proporciona a melhor relação entre área protegida e comprimento de barreira necessária, uma consideração crítica quando cada componente de defesa requer materiais escassos e manutenção constante.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 10 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>PERÍMETRO DE EXCLUSÃO TÓXICA</h3>
+            <p>Uma região contaminada foi mapeada com quatro pontos de medição: A(0, 0), B(6, 0), C(9, 8) e D(3, 8). As equipes de contenção precisam saber com urgência: (a) A área total da região contaminada; (b) Se existe algum ponto onde quatro equipes de descontaminação, partindo simultaneamente de cada vértice e movendo-se à mesma velocidade, possam se encontrar para combinar seus recursos; (c) Se o perímetro pode ser patrulhado por dois agentes que percorram distâncias iguais.</p>
+            
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Analisamos os pontos A(0, 0), B(6, 0), C(9, 8) e D(3, 8)</li>
+                    <li>Para determinar se o quadrilátero ABCD é um paralelogramo, verificamos os vetores dos lados opostos:</li>
+                    <li>$\overrightarrow{AB} = (6, 0)$ e $\overrightarrow{DC} = (6, 0)$</li>
+                    <li>$\overrightarrow{BC} = (3, 8)$ e $\overrightarrow{AD} = (3, 8)$</li>
+                    <li>Como os vetores dos lados opostos são iguais, ABCD é um paralelogramo</li>
+                    <li>(a) A área do paralelogramo é o produto da base pela altura ou o produto vetorial de dois lados adjacentes:</li>
+                    <li>Área = $|\overrightarrow{AB} \times \overrightarrow{AD}| = |(6 \cdot 8) - (0 \cdot 3)| = 48$ unidades quadradas</li>
+                    <li>(b) Para um paralelogramo, o ponto onde equipes partindo simultaneamente dos vértices se encontrariam é o centroide (ponto médio das diagonais):</li>
+                    <li>Calculamos as diagonais: $\overrightarrow{AC} = (9, 8)$ e $\overrightarrow{BD} = (-3, 8)$</li>
+                    <li>O ponto de encontro é: $(\frac{0+9}{2}, \frac{0+8}{2}) = (4.5, 4)$</li>
+                    <li>(c) O perímetro é a soma dos comprimentos dos lados:</li>
+                    <li>|AB| = 6, |BC| = $\sqrt{3^2 + 8^2} = \sqrt{73} \approx 8.54$</li>
+                    <li>|CD| = 6, |DA| = $\sqrt{3^2 + 8^2} = \sqrt{73} \approx 8.54$</li>
+                    <li>Perímetro total = 2(6 + 8.54) = 29.08</li>
+                    <li>Como os lados opostos têm o mesmo comprimento, dois agentes podem patrulhar metade do perímetro cada um (14.54 unidades) dividindo a tarefa pelo lado AB para um e o lado CD para outro.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Área} = |\overrightarrow{AB} \times \overrightarrow{AD}| = |(6 \cdot 8) - (0 \cdot 3)| = 48$$
+                    $$\text{Ponto de encontro} = (\frac{0+9}{2}, \frac{0+8}{2}) = (4.5, 4)$$
+                    $$\text{Perímetro} = 2(|AB| + |BC|) = 2(6 + \sqrt{73}) \approx 29.08$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A análise completa deste perímetro tóxico permitiu otimizar três aspectos críticos da missão de contenção: o dimensionamento preciso dos recursos de remediação baseado na área, a localização estratégica de um ponto central de coordenação que minimiza o tempo de resposta de todas as equipes, e o planejamento eficiente das rotas de patrulha. Na Zona Devastada, esta eficiência matemática frequentemente traduz-se diretamente em vidas salvas.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 11 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>OTIMIZAÇÃO DE ROTA SEGURA</h3>
+            <p>Três pontos de acampamento foram estabelecidos em A(2, 1), B(6, 5) e C(3, 7). Um explorador precisa partir de A, passar pelos três pontos exatamente uma vez e retornar ao ponto inicial A, estabelecendo uma rota de patrulha. Se a zona entre os pontos é perigosa, e o explorador deve minimizar a distância percorrida fora dos acampamentos, determine qual sequência de visita minimiza a distância total percorrida.</p>
+            
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Precisamos comparar duas rotas possíveis: A→B→C→A ou A→C→B→A</li>
+                    <li>Calculamos as distâncias entre todos os pares de pontos:</li>
+                    <li>|AB| = $\sqrt{(6-2)^2 + (5-1)^2} = \sqrt{16 + 16} = \sqrt{32} \approx 5.66$</li>
+                    <li>|BC| = $\sqrt{(3-6)^2 + (7-5)^2} = \sqrt{9 + 4} = \sqrt{13} \approx 3.61$</li>
+                    <li>|CA| = $\sqrt{(2-3)^2 + (1-7)^2} = \sqrt{1 + 36} = \sqrt{37} \approx 6.08$</li>
+                    <li>|AC| = |CA| ≈ 6.08</li>
+                    <li>|CB| = |BC| ≈ 3.61</li>
+                    <li>|BA| = |AB| ≈ 5.66</li>
+                    <li>Distância da rota A→B→C→A = |AB| + |BC| + |CA| ≈ 5.66 + 3.61 + 6.08 = 15.35</li>
+                    <li>Distância da rota A→C→B→A = |AC| + |CB| + |BA| ≈ 6.08 + 3.61 + 5.66 = 15.35</li>
+                    <li>Ambas as rotas têm a mesma distância total. Isto faz sentido pois estamos falando de um triângulo, e qualquer caminho que visite todos os vértices uma vez e retorne ao início percorre todos os lados.</li>
+                    <li>No entanto, se considerarmos outros fatores como segurança ou visibilidade ao longo da rota, podemos escolher uma sequência sobre a outra.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$d(A,B) = \sqrt{(x_B-x_A)^2 + (y_B-y_A)^2} = \sqrt{(6-2)^2 + (5-1)^2} = \sqrt{32} \approx 5.66$$
+                    $$d(B,C) = \sqrt{(x_C-x_B)^2 + (y_C-y_B)^2} = \sqrt{(3-6)^2 + (7-5)^2} = \sqrt{13} \approx 3.61$$
+                    $$d(C,A) = \sqrt{(x_A-x_C)^2 + (y_A-y_C)^2} = \sqrt{(2-3)^2 + (1-7)^2} = \sqrt{37} \approx 6.08$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Embora matematicamente ambas as rotas tenham a mesma distância total, o conhecimento adicional do terreno pode influenciar a decisão. Se existirem diferenças na exposição à radiação, presença de mutantes ou dificuldade do terreno ao longo dos diferentes segmentos, o explorador deve priorizar o caminho que minimiza esses riscos adicionais. A matemática fornece a base, mas a sobrevivência na Zona Devastada requer a integração destes dados com a experiência de campo.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 12 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>CALIBRAÇÃO DO ESCUDO DEFENSOR</h3>
+            <p>Um novo dispositivo de proteção está sendo desenvolvido para o Refúgio-Tec. O escudo funciona projetando um campo triangular entre três pontos de ancoragem. Um engenheiro posicionou as âncoras em A(0, 0), B(8, 0) e C(4, h) e observou que a eficiência máxima é alcançada quando a área do triângulo é 24 unidades quadradas. Além disso, descobriu-se que o escudo gera interferência quando instalado sobre três pontos colineares. Determine: (a) O valor de h que fornece a área desejada; (b) Se os pontos A(0, 0), D(4, 0) e C(4, h) podem servir como pontos alternativos de ancoragem sem causar interferência.</p>
+            
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>(a) Calculamos a área do triângulo ABC com A(0, 0), B(8, 0) e C(4, h)</li>
+                    <li>Escolhemos A como referência e calculamos os vetores $\overrightarrow{AB} = (8, 0)$ e $\overrightarrow{AC} = (4, h)$</li>
+                    <li>Área = $\frac{1}{2}|\overrightarrow{AB} \times \overrightarrow{AC}| = \frac{1}{2}|(8 \cdot h) - (0 \cdot 4)| = 4h$</li>
+                    <li>Como a área deve ser 24, temos: $4h = 24 \Rightarrow h = 6$</li>
+                    <li>(b) Para verificar se os pontos A(0, 0), D(4, 0) e C(4, h) são colineares:</li>
+                    <li>Calculamos os vetores $\overrightarrow{AD} = (4, 0)$ e $\overrightarrow{DC} = (0, h) = (0, 6)$</li>
+                    <li>Verificamos se existe um escalar k tal que $\overrightarrow{AD} = k \cdot \overrightarrow{DC}$</li>
+                    <li>Como $\overrightarrow{AD} = (4, 0)$ e $\overrightarrow{DC} = (0, 6)$, não existe tal k</li>
+                    <li>Alternativamente, calculamos a área do triângulo ADC:</li>
+                    <li>Área = $\frac{1}{2}|\overrightarrow{AD} \times \overrightarrow{AC}| = \frac{1}{2}|(4 \cdot 6) - (0 \cdot 4)| = 12$</li>
+                    <li>Como a área não é zero, os pontos não são colineares</li>
+                    <li>Portanto, A, D e C podem servir como pontos alternativos de ancoragem sem causar interferência</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{(a) Área de ABC} = \frac{1}{2}|\overrightarrow{AB} \times \overrightarrow{AC}| = 4h = 24 \Rightarrow h = 6$$
+                    $$\text{(b) Área de ADC} = \frac{1}{2}|\overrightarrow{AD} \times \overrightarrow{AC}| = \frac{1}{2}|(4 \cdot 6) - (0 \cdot 4)| = 12 \neq 0$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A geometria precisa dos campos de proteção é fundamental para a sobrevivência em ambientes hostis. Um escudo com área de 24 unidades quadradas oferece proteção ideal contra raios gama e partículas alfa, enquanto pontos não-colineares garantem a estabilidade do campo. Este cálculo não apenas otimiza o consumo energético do dispositivo, prolongando sua vida útil, mas também assegura uma distribuição uniforme da proteção, eliminando pontos fracos que poderiam ser fatais durante tempestades radioativas intensas.</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- RODAPÉ DO DOCUMENTO -->
+    <div class="footer">
+        REFÚGIO-TEC | ÁREA E ALINHAMENTO: Sobrevivência Matemática - Calcular áreas e verificar alinhamentos hoje significa viver para explorar amanhã.
+    </div>
+</body>
+</html>

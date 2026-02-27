@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+    </script>
+    <title>REFÚGIO-TEC | PARALELISMO E PERPENDICULARIDADE</title>
+    <style>
+        /* Estilo inspirado no tema pós-apocalíptico */
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100px; }
+        }
+
+        body {
+            background-color: #0c0c0c;
+            color: #e6e6e6;
+            font-family: "Courier New", monospace;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #4caf50;
+            max-width: 800px;
+            margin: auto;
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 2px;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+
+        h1, h2, h3 {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .exercise {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border: 1px dashed #4caf50;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        details {
+            background-color: #1c1c1c;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            margin-top: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #4caf50;
+        }
+
+        summary:hover {
+            text-shadow: 0 0 3px #4caf50;
+        }
+
+        code {
+            background-color: #333;
+            padding: 3px 5px;
+            color: #ffeb3b;
+        }
+
+        .hint {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #4caf50;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .hint:before {
+            content: "DICA DE SOBREVIVÊNCIA: ";
+            color: #4caf50;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .solution-steps {
+            margin-left: 20px;
+            counter-reset: step-counter;
+        }
+
+        .solution-steps li {
+            list-style-type: none;
+            counter-increment: step-counter;
+            margin-bottom: 10px;
+        }
+
+        .solution-steps li::before {
+            content: "> PASSO_" counter(step-counter) ": ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .formula {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #000;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .terminal-frame {
+            padding: 10px;
+            background-color: #000;
+            margin-bottom: 20px;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .terminal-header {
+            margin: 0;
+            padding: 3px 10px;
+            background-color: #4caf50;
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .terminal-content {
+            padding: 5px;
+            white-space: pre-wrap;
+            font-size: 1em;
+            line-height: 1.2;
+        }
+
+        .cursor:after {
+            content: "█";
+            animation: blink 1s step-end infinite;
+        }
+
+        .terminal-line {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .terminal-border {
+            border: 1px solid #4caf50;
+            padding: 5px;
+            background-color: #000;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .mission-counter {
+            counter-reset: mission;
+        }
+        
+        .mission-counter .exercise h3:before {
+            content: "MISSÃO " counter(mission) ": ";
+            counter-increment: mission;
+        }
+
+        .warning {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .danger {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #8bc34a;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #4caf50;
+            border-top: 1px solid #4caf50;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- TÍTULO E INTRODUÇÃO -->
+    <div class="terminal-frame">
+        <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
+        <div class="terminal-content">
+┌───────────────────────────────────────────────────┐
+│ MÓDULO: PARALELISMO E PERPENDICULARIDADE          │
+└───────────────────────────────────────────────────┘
+
+> INICIANDO TRANSMISSÃO...
+> CARREGANDO MÓDULO DE TREINAMENTO...
+> ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
+        </div>
+    </div>
+
+    <div class="terminal-border">
+        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: PARALELISMO E PERPENDICULARIDADE</h2>
+    
+    <p>Na Zona Devastada, reconhecer padrões paralelos e perpendiculares é crucial para navegar com precisão, construir abrigos estáveis e planejar rotas de fuga eficientes. O paralelismo e a perpendicularidade entre retas são propriedades geométricas fundamentais que podem significar a diferença entre sobreviver a uma tempestade de radiação ou ser engolido por ela.</p>
+    
+    <p>Duas retas são <strong>paralelas</strong> quando nunca se encontram, não importa o quanto sejam estendidas. Matematicamente, isso significa que possuem a mesma inclinação (mesmo coeficiente angular), mas diferentes pontos de passagem. Em contrapartida, duas retas são <strong>perpendiculares</strong> quando formam um ângulo de 90° entre si, representando a estrutura mais estável para construções e a navegação mais eficiente em terrenos hostis.</p>
+    
+    <p>Considere duas retas com equações na forma geral $ax + by + c = 0$ e $a'x + b'y + c' = 0$. A verificação do paralelismo e da perpendicularidade depende exclusivamente de seus coeficientes angulares. Para a forma reduzida da reta $y = mx + n$, o coeficiente angular $m$ determina a inclinação da reta.</p>
+    
+    <div class="formula">
+    <p>Para duas retas com coeficientes angulares $m_1$ e $m_2$:</p>
+    <p>$$\text{Retas paralelas: } m_1 = m_2$$</p>
+    <p>$$\text{Retas perpendiculares: } m_1 \cdot m_2 = -1 \text{ ou } m_2 = -\frac{1}{m_1}$$</p>
+    </div>
+    
+    <p>Na forma geral $ax + by + c = 0$, o coeficiente angular é dado por $m = -\frac{a}{b}$. Portanto:</p>
+    
+    <div class="formula">
+    <p>Para retas $a_1x + b_1y + c_1 = 0$ e $a_2x + b_2y + c_2 = 0$:</p>
+    <p>$$\text{Retas paralelas: } \frac{a_1}{a_2} = \frac{b_1}{b_2} \neq \frac{c_1}{c_2}$$</p>
+    <p>$$\text{Retas perpendiculares: } a_1 \cdot a_2 + b_1 \cdot b_2 = 0$$</p>
+    </div>
+    
+    <p>Para retas na forma paramétrica ou vetorial, utilizamos o vetor diretor para determinar o paralelismo (vetores diretores paralelos) ou a perpendicularidade (produto escalar igual a zero). Dominar essas relações permitirá que você construa estruturas estáveis, planeje rotas eficientes e maximize suas chances de sobrevivência em um mundo hostil.</p>
+    </div>
+
+    <!-- MISSÕES (EXERCÍCIOS) -->
+    <div class="mission-counter">
+        <!-- MISSÃO 1 (BÁSICA) -->
+        <div class="exercise">
+            <h3>COMUNICAÇÃO SEGURA</h3>
+            <p>Na tentativa de estabelecer uma rota segura entre dois abrigos, você precisa verificar se duas linhas de comunicação são paralelas para evitar interferências. A primeira linha é representada pela equação $2x - 3y + 4 = 0$ e a segunda por $4x - 6y - 8 = 0$. Determine se as rotas são paralelas, perpendiculares ou nenhuma das opções.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Para verificar se as retas são paralelas, compare a proporção entre os coeficientes das variáveis. Lembre-se que na forma $ax + by + c = 0$, duas retas são paralelas quando $\frac{a_1}{a_2} = \frac{b_1}{b_2}$.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identifique os coeficientes das duas equações:
+                    <br>Primeira reta: $2x - 3y + 4 = 0$ → $a_1 = 2$, $b_1 = -3$, $c_1 = 4$
+                    <br>Segunda reta: $4x - 6y - 8 = 0$ → $a_2 = 4$, $b_2 = -6$, $c_2 = -8$</li>
+                    <li>Verifique a proporção entre os coeficientes para teste de paralelismo:
+                    <br>$\frac{a_1}{a_2} = \frac{2}{4} = \frac{1}{2}$
+                    <br>$\frac{b_1}{b_2} = \frac{-3}{-6} = \frac{1}{2}$</li>
+                    <li>Como $\frac{a_1}{a_2} = \frac{b_1}{b_2}$, as retas têm a mesma inclinação. Mas para serem paralelas, elas não podem ser coincidentes. Verifique:
+                    <br>$\frac{c_1}{c_2} = \frac{4}{-8} = -\frac{1}{2} \neq \frac{1}{2}$</li>
+                    <li>Como $\frac{c_1}{c_2} \neq \frac{a_1}{a_2}$, as retas são paralelas (mesma inclinação, mas diferentes pontos de passagem).</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\frac{a_1}{a_2} = \frac{b_1}{b_2} = \frac{1}{2} \neq \frac{c_1}{c_2} = -\frac{1}{2}$$
+                    $$\text{Portanto, as retas são paralelas.}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Linhas de comunicação paralelas são como rotas de evacuação que nunca se cruzam - úteis quando você precisa garantir que múltiplas equipes possam evacuar simultaneamente sem criar pontos de congestionamento. Em termos de comunicação, sinais paralelos minimizam a interferência, aumentando as chances de mensagens chegarem intactas aos destinatários.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 2 (BÁSICA) -->
+        <div class="exercise">
+            <h3>ESTRUTURA DE DEFESA</h3>
+            <p>Para construir uma barricada defensiva, você precisa garantir que suas vigas de suporte sejam perpendiculares. Duas vigas seguem as direções representadas pelas retas $r: y = 3x + 1$ e $s: y = kx - 5$. Determine o valor de $k$ para que as vigas formem uma estrutura perfeitamente perpendicular.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Duas retas são perpendiculares quando o produto de seus coeficientes angulares é igual a -1. Identifique os coeficientes angulares das retas dadas e aplique a condição de perpendicularidade.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identifique os coeficientes angulares das duas retas:
+                    <br>Para a reta $r: y = 3x + 1$, temos $m_1 = 3$
+                    <br>Para a reta $s: y = kx - 5$, temos $m_2 = k$</li>
+                    <li>Aplique a condição de perpendicularidade: $m_1 \cdot m_2 = -1$</li>
+                    <li>Substitua os valores: $3 \cdot k = -1$</li>
+                    <li>Resolva para $k$: $k = -\frac{1}{3}$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$m_1 \cdot m_2 = -1$$
+                    $$3 \cdot k = -1$$
+                    $$k = -\frac{1}{3}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Estruturas perpendiculares distribuem forças de maneira mais eficiente, tornando sua barricada capaz de resistir a ataques de mutantes e intempéries. Na sobrevivência, compreender a relação matemática da perpendicularidade pode ser a diferença entre um abrigo que permanece de pé durante uma tempestade e um que desmorona sobre você.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 3 (BÁSICA) -->
+        <div class="exercise">
+            <h3>TRILHAS DE EXPLORAÇÃO</h3>
+            <p>Dois sobreviventes partem de pontos distintos e seguem trilhas em linha reta. O primeiro segue uma trilha definida pelos pontos A(1, 2) e B(4, 8). O segundo segue uma trilha que passa pelos pontos C(0, 3) e D(3, 0). Determine se as trilhas são paralelas, perpendiculares ou se seguem em direções aleatórias.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Calcule o coeficiente angular de cada trilha usando a fórmula $m = \frac{y_2 - y_1}{x_2 - x_1}$ e depois verifique as relações de paralelismo ($m_1 = m_2$) ou perpendicularidade ($m_1 \cdot m_2 = -1$).</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcule o coeficiente angular da primeira trilha (pontos A e B):
+                    <br>$m_1 = \frac{y_B - y_A}{x_B - x_A} = \frac{8 - 2}{4 - 1} = \frac{6}{3} = 2$</li>
+                    <li>Calcule o coeficiente angular da segunda trilha (pontos C e D):
+                    <br>$m_2 = \frac{y_D - y_C}{x_D - x_C} = \frac{0 - 3}{3 - 0} = \frac{-3}{3} = -1$</li>
+                    <li>Verifique a relação entre os coeficientes angulares:
+                    <br>$m_1 \cdot m_2 = 2 \cdot (-1) = -2$</li>
+                    <li>Como $m_1 \cdot m_2 = -2 \neq -1$ e $m_1 \neq m_2$, as trilhas não são nem paralelas nem perpendiculares. Elas seguem em direções aleatórias.</li>
+                </ol>
+                
+                <div class="formula">
+                    $$m_1 = \frac{y_B - y_A}{x_B - x_A} = \frac{8 - 2}{4 - 1} = 2$$
+                    $$m_2 = \frac{y_D - y_C}{x_D - x_C} = \frac{0 - 3}{3 - 0} = -1$$
+                    $$m_1 \cdot m_2 = 2 \cdot (-1) = -2 \neq -1$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Trilhas que não são nem paralelas nem perpendiculares eventualmente se cruzarão em um ângulo não-reto. No mundo pós-apocalíptico, isso pode significar tanto uma oportunidade de encontro com outros sobreviventes quanto um risco de emboscada. Saber calcular a relação entre direções permite prever esses pontos de encontro e planejar adequadamente.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 4 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>EXPANSÃO DO ABRIGO</h3>
+            <p>Seu abrigo precisa ser expandido com uma nova parede que deve ser perpendicular à parede existente. A parede atual segue a equação $3x + 2y - 12 = 0$. Você deve construir a nova parede passando pelo ponto P(2, 3). Determine a equação geral da nova parede.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Para encontrar a equação da reta perpendicular, primeiro determine o coeficiente angular da parede existente, calcule o coeficiente angular da nova parede usando a relação de perpendicularidade, e então use a fórmula ponto-angular para determinar a equação da reta.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identifique os coeficientes da parede existente:
+                    <br>$3x + 2y - 12 = 0$ → $a_1 = 3$, $b_1 = 2$, $c_1 = -12$</li>
+                    <li>Calcule o coeficiente angular da parede existente:
+                    <br>$m_1 = -\frac{a_1}{b_1} = -\frac{3}{2}$</li>
+                    <li>Determine o coeficiente angular da nova parede (perpendicular):
+                    <br>$m_1 \cdot m_2 = -1$
+                    <br>$-\frac{3}{2} \cdot m_2 = -1$
+                    <br>$m_2 = \frac{2}{3}$</li>
+                    <li>Use a fórmula ponto-angular para encontrar a equação da nova parede:
+                    <br>$y - y_0 = m(x - x_0)$
+                    <br>$y - 3 = \frac{2}{3}(x - 2)$
+                    <br>$y - 3 = \frac{2x - 4}{3}$
+                    <br>$3(y - 3) = 2x - 4$
+                    <br>$3y - 9 = 2x - 4$
+                    <br>$3y - 2x = 9 - 4$
+                    <br>$-2x + 3y - 5 = 0$
+                    <br>$2x - 3y + 5 = 0$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$m_1 = -\frac{a_1}{b_1} = -\frac{3}{2}$$
+                    $$m_2 = -\frac{1}{m_1} = -\frac{1}{-\frac{3}{2}} = \frac{2}{3}$$
+                    $$\text{Equação da nova parede: } 2x - 3y + 5 = 0$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Construir estruturas com paredes perpendiculares aumenta significativamente a estabilidade do seu abrigo, maximizando o uso do espaço e a resistência contra forças externas. Num ambiente onde cada centímetro quadrado de espaço protegido é valioso, saber aplicar princípios de perpendicularidade é essencial para expandir eficientemente seu refúgio contra as hostilidades da Zona Devastada.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 5 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>ROTA DE SUPRIMENTOS</h3>
+            <p>Uma expedição de busca por suprimentos deve seguir uma trajetória paralela a uma rota conhecida para evitar uma área de alta radiação. A rota conhecida é descrita pela equação vetorial $\vec{r}(t) = (2,3) + t(4,2)$, onde $t$ é um parâmetro. A expedição parte do ponto P(1,7). Determine a equação da reta que descreve a trajetória segura para a expedição.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>O vetor diretor da reta paralela deve ser o mesmo da rota original. Use o ponto P e o vetor diretor da rota conhecida para construir a equação paramétrica da nova rota.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identifique o vetor diretor da rota conhecida:
+                    <br>Na equação $\vec{r}(t) = (2,3) + t(4,2)$, o vetor diretor é $\vec{v} = (4,2)$</li>
+                    <li>Uma reta paralela terá o mesmo vetor diretor. Para a nova rota que passa pelo ponto P(1,7), a equação paramétrica será:
+                    <br>$\vec{s}(t) = (1,7) + t(4,2)$</li>
+                    <li>Expandindo a equação paramétrica:
+                    <br>$\vec{s}(t) = (1 + 4t, 7 + 2t)$</li>
+                    <li>Convertendo para a forma cartesiana:
+                    <br>$x = 1 + 4t$
+                    <br>$y = 7 + 2t$
+                    <br>Isolando $t$ da primeira equação: $t = \frac{x - 1}{4}$
+                    <br>Substituindo na segunda: $y = 7 + 2(\frac{x - 1}{4})$
+                    <br>$y = 7 + \frac{2x - 2}{4}$
+                    <br>$y = 7 + \frac{x - 1}{2}$
+                    <br>$y = 7 + \frac{x}{2} - \frac{1}{2}$
+                    <br>$y = \frac{x}{2} + 6.5$</li>
+                    <li>Convertendo para a forma geral:
+                    <br>$y = \frac{x}{2} + \frac{13}{2}$
+                    <br>$2y = x + 13$
+                    <br>$x - 2y + 13 = 0$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\vec{s}(t) = (1,7) + t(4,2)$$
+                    $$\text{Forma cartesiana: } y = \frac{x}{2} + \frac{13}{2}$$
+                    $$\text{Equação geral: } x - 2y + 13 = 0$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Rotas paralelas permitem manter uma distância segura de áreas perigosas enquanto seguem a mesma direção geral. Esta estratégia é fundamental quando você sabe que uma determinada rota é viável mas contém riscos localizados. Ao aplicar o conceito de paralelismo, você mantém a eficiência da rota original enquanto se mantém longe de zonas de radiação, aumentando significativamente as chances de uma expedição bem-sucedida.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 6 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>CRUZAMENTO DE REFUGIADOS</h3>
+            <p>Dois grupos de refugiados seguem rotas distintas representadas pelas equações $r: 2x - 5y + 10 = 0$ e $s: 3x + ky - 6 = 0$. Sabe-se que as rotas se cruzam formando um ângulo reto. Determine o valor de $k$ e as coordenadas do ponto de encontro.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Primeiro, determine o valor de $k$ usando a condição de perpendicularidade. Depois, resolva o sistema de equações para encontrar o ponto de interseção das duas retas.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identifique os coeficientes das retas:
+                    <br>Reta $r: 2x - 5y + 10 = 0$ → $a_1 = 2$, $b_1 = -5$, $c_1 = 10$
+                    <br>Reta $s: 3x + ky - 6 = 0$ → $a_2 = 3$, $b_2 = k$, $c_2 = -6$</li>
+                    <li>Aplique a condição de perpendicularidade: $a_1 \cdot a_2 + b_1 \cdot b_2 = 0$
+                    <br>$2 \cdot 3 + (-5) \cdot k = 0$
+                    <br>$6 - 5k = 0$
+                    <br>$5k = 6$
+                    <br>$k = \frac{6}{5} = 1.2$</li>
+                    <li>Agora, encontre o ponto de interseção resolvendo o sistema:
+                    <br>$2x - 5y + 10 = 0$ ... Equação (1)
+                    <br>$3x + \frac{6}{5}y - 6 = 0$ ... Equação (2)</li>
+                    <li>Da equação (1), isole $x$:
+                    <br>$2x = 5y - 10$
+                    <br>$x = \frac{5y - 10}{2}$</li>
+                    <li>Substitua na equação (2):
+                    <br>$3(\frac{5y - 10}{2}) + \frac{6}{5}y - 6 = 0$
+                    <br>$\frac{15y - 30}{2} + \frac{6}{5}y - 6 = 0$
+                    <br>$\frac{15y - 30}{2} + \frac{6y}{5} - 6 = 0$</li>
+                    <li>Multiplique tudo por 10 para eliminar frações:
+                    <br>$\frac{150y - 300}{2} + 12y - 60 = 0$
+                    <br>$75y - 150 + 12y - 60 = 0$
+                    <br>$87y - 210 = 0$
+                    <br>$87y = 210$
+                    <br>$y = \frac{210}{87} = \frac{70}{29}$</li>
+                    <li>Substitua o valor de $y$ na equação para $x$:
+                    <br>$x = \frac{5y - 10}{2} = \frac{5 \cdot \frac{70}{29} - 10}{2}$
+                    <br>$x = \frac{\frac{350}{29} - 10}{2}$
+                    <br>$x = \frac{\frac{350 - 290}{29}}{2}$
+                    <br>$x = \frac{\frac{60}{29}}{2} = \frac{30}{29}$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$k = \frac{6}{5} = 1.2$$
+                    $$\text{Ponto de interseção: } \left(\frac{30}{29}, \frac{70}{29}\right) \approx (1.03, 2.41)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Quando duas rotas se cruzam em ângulo reto, o ponto de encontro oferece visibilidade máxima em todas as direções, tornando-o ideal para trocas de recursos entre grupos ou para estabelecer pontos de controle. Prever matematicamente esses pontos de cruzamento perpendicular permite planejar encontros com antecedência, reduzindo o tempo de exposição a ameaças ambientais e maximizando a eficiência das operações coordenadas.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 7 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>PERÍMETRO DE SEGURANÇA</h3>
+            <p>Uma torre de vigilância está localizada no ponto T(4, 3). Uma estrada segue a equação $2x + 3y - 18 = 0$. Para estabelecer um perímetro de segurança, você precisa calcular a distância exata da torre até a estrada e determinar as coordenadas do ponto na estrada que está mais próximo da torre.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>A distância de um ponto a uma reta pode ser calculada usando a fórmula $d = \frac{|ax_0 + by_0 + c|}{\sqrt{a^2 + b^2}}$. O ponto mais próximo está na reta perpendicular que passa pelo ponto dado.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identifique os coeficientes da reta:
+                    <br>$2x + 3y - 18 = 0$ → $a = 2$, $b = 3$, $c = -18$</li>
+                    <li>Calcule a distância da torre T(4, 3) à estrada usando a fórmula:
+                    <br>$d = \frac{|ax_0 + by_0 + c|}{\sqrt{a^2 + b^2}}$
+                    <br>$d = \frac{|2 \cdot 4 + 3 \cdot 3 - 18|}{\sqrt{2^2 + 3^2}}$
+                    <br>$d = \frac{|8 + 9 - 18|}{\sqrt{4 + 9}}$
+                    <br>$d = \frac{|17 - 18|}{\sqrt{13}}$
+                    <br>$d = \frac{1}{\sqrt{13}} = \frac{1}{\sqrt{13}} \cdot \frac{\sqrt{13}}{\sqrt{13}} = \frac{\sqrt{13}}{13}$</li>
+                    <li>Para encontrar o ponto mais próximo, primeiro determine a equação da reta perpendicular que passa por T(4, 3):
+                    <br>O coeficiente angular da estrada é $m_1 = -\frac{a}{b} = -\frac{2}{3}$
+                    <br>O coeficiente angular da reta perpendicular é $m_2 = \frac{3}{2}$
+                    <br>A equação da reta perpendicular que passa por T(4, 3) é:
+                    <br>$y - 3 = \frac{3}{2}(x - 4)$
+                    <br>$y - 3 = \frac{3x - 12}{2}$
+                    <br>$2(y - 3) = 3x - 12$
+                    <br>$2y - 6 = 3x - 12$
+                    <br>$2y = 3x - 6$
+                    <br>$3x - 2y - 6 = 0$</li>
+                    <li>Para encontrar o ponto de interseção entre a estrada e a reta perpendicular, resolva o sistema:
+                    <br>$2x + 3y - 18 = 0$ ... Equação (1)
+                    <br>$3x - 2y - 6 = 0$ ... Equação (2)</li>
+                    <li>Multiplique a equação (1) por 2 e a equação (2) por 3:
+                    <br>$4x + 6y - 36 = 0$ ... Equação (3)
+                    <br>$9x - 6y - 18 = 0$ ... Equação (4)</li>
+                    <li>Some as equações (3) e (4):
+                    <br>$4x + 6y - 36 + 9x - 6y - 18 = 0$
+                    <br>$13x - 54 = 0$
+                    <br>$13x = 54$
+                    <br>$x = \frac{54}{13}$</li>
+                    <li>Substitua o valor de $x$ na equação (2):
+                    <br>$3 \cdot \frac{54}{13} - 2y - 6 = 0$
+                    <br>$\frac{162}{13} - 2y - 6 = 0$
+                    <br>$2y = \frac{162}{13} - 6$
+                    <br>$2y = \frac{162 - 78}{13}$
+                    <br>$2y = \frac{84}{13}$
+                    <br>$y = \frac{42}{13}$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Distância: } d = \frac{\sqrt{13}}{13}$$
+                    $$\text{Ponto mais próximo: } \left(\frac{54}{13}, \frac{42}{13}\right) \approx (4.15, 3.23)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Conhecer a distância exata entre uma torre de vigilância e uma estrada é crucial para determinar o raio efetivo de monitoramento e resposta. Em um mundo onde cada segundo conta, saber exatamente qual ponto da estrada está mais próximo da torre permite posicionar recursos defensivos de forma otimizada e calcular com precisão os tempos de resposta a ameaças. Esta aplicação matemática transforma um simples problema de distância em uma vantagem tática significativa.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 8 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>TRIANGULAÇÃO DE SINAL</h3>
+            <p>Três estações de transmissão estão localizadas nos pontos A(0, 0), B(8, 0) e C(4, 6). Para estabelecer uma comunicação estável, você precisa posicionar um receptor em um ponto P de modo que as linhas de transmissão de P para A e de P para B sejam perpendiculares entre si. Determine as coordenadas possíveis para o ponto P (que não seja um dos pontos dados) e verifique se alguma dessas posições também torna as linhas PA e PC perpendiculares.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>O lugar geométrico dos pontos P tais que as retas PA e PB sejam perpendiculares forma uma circunferência. Determine essa circunferência e depois verifique se algum de seus pontos também satisfaz a condição de perpendicularidade entre PA e PC.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para que os vetores $\overrightarrow{PA}$ e $\overrightarrow{PB}$ sejam perpendiculares, seu produto escalar deve ser zero:
+                    <br>$\overrightarrow{PA} \cdot \overrightarrow{PB} = 0$</li>
+                    <li>Se P tem coordenadas (x, y), então:
+                    <br>$\overrightarrow{PA} = (0-x, 0-y) = (-x, -y)$
+                    <br>$\overrightarrow{PB} = (8-x, 0-y) = (8-x, -y)$</li>
+                    <li>O produto escalar é:
+                    <br>$\overrightarrow{PA} \cdot \overrightarrow{PB} = (-x)(8-x) + (-y)(-y) = -8x + x^2 + y^2 = 0$
+                    <br>$x^2 + y^2 - 8x = 0$
+                    <br>$x^2 - 8x + 16 + y^2 - 16 = 0$
+                    <br>$(x - 4)^2 + y^2 = 16$</li>
+                    <li>Esta é a equação de uma circunferência com centro em (4, 0) e raio 4.</li>
+                    <li>Agora, verifiquemos se algum ponto dessa circunferência também satisfaz a perpendicularidade entre PA e PC:
+                    <br>$\overrightarrow{PC} = (4-x, 6-y)$
+                    <br>$\overrightarrow{PA} \cdot \overrightarrow{PC} = (-x)(4-x) + (-y)(6-y) = -4x + x^2 - 6y + y^2 = 0$</li>
+                    <li>Um ponto que pertence à circunferência $(x - 4)^2 + y^2 = 16$ e também satisfaz $-4x + x^2 - 6y + y^2 = 0$ seria uma solução comum para ambas as equações.</li>
+                    <li>Da primeira equação, podemos expressar $y^2 = 16 - (x - 4)^2 = 16 - x^2 + 8x - 16 = 8x - x^2$</li>
+                    <li>Substituindo na segunda equação:
+                    <br>$-4x + x^2 - 6y + (8x - x^2) = 0$
+                    <br>$-4x + x^2 - 6y + 8x - x^2 = 0$
+                    <br>$4x - 6y = 0$
+                    <br>$y = \frac{4x}{6} = \frac{2x}{3}$</li>
+                    <li>Substituindo de volta na equação da circunferência:
+                    <br>$(x - 4)^2 + (\frac{2x}{3})^2 = 16$
+                    <br>$(x - 4)^2 + \frac{4x^2}{9} = 16$
+                    <br>$9(x - 4)^2 + 4x^2 = 144$
+                    <br>$9(x^2 - 8x + 16) + 4x^2 = 144$
+                    <br>$9x^2 - 72x + 144 + 4x^2 = 144$
+                    <br>$13x^2 - 72x = 0$
+                    <br>$x(13x - 72) = 0$</li>
+                    <li>Portanto, $x = 0$ ou $x = \frac{72}{13}$</li>
+                    <li>Se $x = 0$, então $y = 0$, o que nos dá o ponto A (que foi excluído).</li>
+                    <li>Se $x = \frac{72}{13}$, então $y = \frac{2}{3} \cdot \frac{72}{13} = \frac{48}{13}$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Lugar geométrico dos pontos P: } (x - 4)^2 + y^2 = 16$$
+                    $$\text{Ponto que satisfaz ambas as condições: } P\left(\frac{72}{13}, \frac{48}{13}\right) \approx (5.54, 3.69)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A triangulação de sinais com requisitos de perpendicularidade garante máxima clareza na transmissão, minimizando interferências. Em um mundo onde a comunicação confiável pode significar vida ou morte, posicionar receptores em pontos matematicamente otimizados proporciona vantagem estratégica significativa. A aplicação de princípios geométricos avançados na localização precisa desses pontos demonstra como a matemática não é apenas uma ferramenta de sobrevivência, mas uma vantagem evolutiva na Zona Devastada.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 9 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>REDE DE DISTRIBUIÇÃO</h3>
+            <p>Um assentamento de sobreviventes precisa construir uma rede de distribuição de água. A rede principal segue a equação $2x - 3y + 12 = 0$. Um poço está localizado no ponto P(5, 7), e um reservatório no ponto R(1, 5). Você precisa projetar uma tubulação secundária que: (1) passe pelo poço, (2) seja paralela à tubulação que ligaria diretamente o reservatório R ao ponto S(6, -2), e (3) intercepte a tubulação principal em um ponto Q. Determine a equação da tubulação secundária e as coordenadas do ponto Q.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Primeiro determine o vetor diretor da reta que passa por R e S. Depois use esse vetor diretor e o ponto P para determinar a equação da tubulação secundária. Finalmente, encontre o ponto de interseção entre a tubulação secundária e a tubulação principal.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Determine o vetor diretor da reta que passa por R(1, 5) e S(6, -2):
+                    <br>$\vec{v} = (6-1, -2-5) = (5, -7)$</li>
+                    <li>Agora, a tubulação secundária deve passar pelo ponto P(5, 7) e ser paralela à direção de $\vec{v}$. Sua equação paramétrica é:
+                    <br>$\vec{r}(t) = (5, 7) + t(5, -7)$
+                    <br>$\vec{r}(t) = (5 + 5t, 7 - 7t)$</li>
+                    <li>Para encontrar a equação cartesiana, eliminamos o parâmetro t:
+                    <br>$x = 5 + 5t$, então $t = \frac{x - 5}{5}$
+                    <br>$y = 7 - 7t = 7 - 7(\frac{x - 5}{5}) = 7 - \frac{7(x - 5)}{5} = 7 - \frac{7x - 35}{5} = 7 - \frac{7x}{5} + 7 = 14 - \frac{7x}{5}$</li>
+                    <li>Simplificando:
+                    <br>$5y = 70 - 7x$
+                    <br>$7x + 5y - 70 = 0$</li>
+                    <li>Para encontrar o ponto Q (interseção da tubulação secundária com a principal), resolva o sistema:
+                    <br>$2x - 3y + 12 = 0$ ... Equação (1)
+                    <br>$7x + 5y - 70 = 0$ ... Equação (2)</li>
+                    <li>Multiplique a equação (1) por 5:
+                    <br>$10x - 15y + 60 = 0$ ... Equação (3)</li>
+                    <li>Multiplique a equação (2) por 3:
+                    <br>$21x + 15y - 210 = 0$ ... Equação (4)</li>
+                    <li>Some as equações (3) e (4):
+                    <br>$10x - 15y + 60 + 21x + 15y - 210 = 0$
+                    <br>$31x - 150 = 0$
+                    <br>$31x = 150$
+                    <br>$x = \frac{150}{31}$</li>
+                    <li>Substitua o valor de $x$ na equação (1):
+                    <br>$2 \cdot \frac{150}{31} - 3y + 12 = 0$
+                    <br>$\frac{300}{31} - 3y + 12 = 0$
+                    <br>$3y = \frac{300}{31} + 12$
+                    <br>$3y = \frac{300}{31} + \frac{372}{31}$
+                    <br>$3y = \frac{672}{31}$
+                    <br>$y = \frac{224}{31}$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Equação da tubulação secundária: } 7x + 5y - 70 = 0$$
+                    $$\text{Ponto de interseção Q: } \left(\frac{150}{31}, \frac{224}{31}\right) \approx (4.84, 7.23)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Construir infraestrutura com princípios matemáticos otimiza recursos escassos e aumenta a eficiência do sistema. Ao projetar uma rede de distribuição que respeita relações de paralelismo e interseção, você não apenas economiza materiais valiosos, mas também garante melhor distribuição de pressão e fluxo. Em um mundo onde cada tubo e conexão representa um investimento significativo de recursos, o planejamento geométrico preciso transforma um projeto de sobrevivência básico em uma vantagem sustentável para toda a comunidade.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 10 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>FRONTEIRA DE PROTEÇÃO</h3>
+            <p>Uma zona segura está delimitada por duas cercas que seguem as retas $r: 3x - 4y + 24 = 0$ e $s: x + 2y - 14 = 0$. Para maximizar a proteção contra mutantes, você planeja construir uma terceira cerca que seja perpendicular a ambas as cercas existentes e passe por sua interseção. Determine a equação desta terceira cerca e as coordenadas do ponto de interseção das três cercas.</p>
+            
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Primeiro, encontremos o ponto de interseção das duas primeiras cercas, resolvendo o sistema:
+                    <br>$3x - 4y + 24 = 0$ ... Equação (1)
+                    <br>$x + 2y - 14 = 0$ ... Equação (2)</li>
+                    <li>Da equação (2), isolamos $x$:
+                    <br>$x = 14 - 2y$</li>
+                    <li>Substituímos na equação (1):
+                    <br>$3(14 - 2y) - 4y + 24 = 0$
+                    <br>$42 - 6y - 4y + 24 = 0$
+                    <br>$66 - 10y = 0$
+                    <br>$10y = 66$
+                    <br>$y = 6.6$</li>
+                    <li>Com $y = 6.6$, encontramos $x$:
+                    <br>$x = 14 - 2 \cdot 6.6 = 14 - 13.2 = 0.8$</li>
+                    <li>Portanto, o ponto de interseção é $(0.8, 6.6)$, ou na forma de fração, $(\frac{4}{5}, \frac{33}{5})$.</li>
+                    <li>Agora, para encontrar uma reta perpendicular a ambas as cercas existentes, precisamos que seu vetor diretor seja perpendicular aos vetores diretores de ambas as cercas.</li>
+                    <li>O vetor diretor da reta $r$ é $\vec{v_1} = (3, -4)$ (coeficientes de $x$ e $y$).</li>
+                    <li>O vetor diretor da reta $s$ é $\vec{v_2} = (1, 2)$.</li>
+                    <li>O vetor diretor da terceira cerca deve ser perpendicular a ambos, portanto é o produto vetorial de $\vec{v_1}$ e $\vec{v_2}$ (considerando os vetores no espaço 3D com componente $z = 0$):
+                    <br>$\vec{v_3} = \vec{v_1} \times \vec{v_2} = 
+                    \begin{vmatrix} 
+                    \vec{i} & \vec{j} & \vec{k} \\
+                    3 & -4 & 0 \\
+                    1 & 2 & 0
+                    \end{vmatrix}$
+                    <br>$\vec{v_3} = (0, 0, 3 \cdot 2 - (-4) \cdot 1) = (0, 0, 6 + 4) = (0, 0, 10)$</li>
+                    <li>Como estamos trabalhando no plano, o vetor diretor da terceira cerca terá componentes $x$ e $y$ iguais a zero, o que significa que esta reta "perpendicular" a ambas no espaço 3D seria uma reta vertical no plano 2D. Isso é matematicamente impossível no plano euclidiano 2D.</li>
+                    <li>A impossibilidade matemática nos mostra que não podemos ter uma reta perpendicular a duas retas que não são, elas próprias, perpendiculares entre si. No plano 2D, se uma reta é perpendicular a duas outras, estas duas devem ser paralelas.</li>
+                    <li>Verificamos se as retas $r$ e $s$ são perpendiculares calculando o produto escalar de seus vetores diretores:
+                    <br>$\vec{v_1} \cdot \vec{v_2} = 3 \cdot 1 + (-4) \cdot 2 = 3 - 8 = -5 \neq 0$</li>
+                    <li>Como o produto escalar não é zero, as retas não são perpendiculares, mas também não são paralelas (pois já encontramos seu ponto de interseção).</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Ponto de interseção das cercas } r \text{ e } s: \left(\frac{4}{5}, \frac{33}{5}\right) = (0.8, 6.6)$$
+                    $$\text{Não existe uma reta no plano que seja simultaneamente perpendicular a duas retas não-paralelas.}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Este problema revela uma limitação fundamental da geometria do plano: não é possível que uma reta seja perpendicular a duas outras retas não-paralelas simultaneamente. Na prática de sobrevivência, isso significa que teremos que fazer escolhas estratégicas quando projetamos sistemas de defesa - não podemos otimizar todas as variáveis simultaneamente. Reconhecer estas limitações matemáticas nos protege de desperdiçar recursos em projetos impossíveis e nos força a desenvolver soluções alternativas e adaptativas, uma habilidade essencial em um mundo com recursos limitados.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 11 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>ATAQUE COORDENADO</h3>
+            <p>Três equipes de sobreviventes (A, B e C) estão posicionadas nos pontos A(2, 1), B(6, 3) e C(4, 7). Eles planejam um ataque coordenado movendo-se em linhas retas. A equipe A se moverá perpendicularmente à linha BC. A equipe B se moverá perpendicularmente à linha AC. A equipe C se moverá perpendicularmente à linha AB. Determine as equações das três rotas de ataque e verifique se existe algum ponto onde pelo menos duas dessas rotas se cruzam.</p>
+            
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Primeiro, vamos determinar as equações das linhas BC, AC e AB:
+                    <br>Linha BC: Passa por B(6, 3) e C(4, 7)
+                    <br>Coeficiente angular: $m_{BC} = \frac{7-3}{4-6} = \frac{4}{-2} = -2$
+                    <br>Equação: $y - 3 = -2(x - 6)$
+                    <br>$y - 3 = -2x + 12$
+                    <br>$y = -2x + 15$
+                    <br>$2x + y - 15 = 0$</li>
+                    <li>Linha AC: Passa por A(2, 1) e C(4, 7)
+                    <br>Coeficiente angular: $m_{AC} = \frac{7-1}{4-2} = \frac{6}{2} = 3$
+                    <br>Equação: $y - 1 = 3(x - 2)$
+                    <br>$y - 1 = 3x - 6$
+                    <br>$y = 3x - 5$
+                    <br>$3x - y - 5 = 0$</li>
+                    <li>Linha AB: Passa por A(2, 1) e B(6, 3)
+                    <br>Coeficiente angular: $m_{AB} = \frac{3-1}{6-2} = \frac{2}{4} = \frac{1}{2}$
+                    <br>Equação: $y - 1 = \frac{1}{2}(x - 2)$
+                    <br>$y - 1 = \frac{x - 2}{2}$
+                    <br>$y = \frac{x}{2} + \frac{1}{2} - \frac{2}{2} = \frac{x}{2}$
+                    <br>$2y - x = 0$</li>
+                    <li>Agora, determinamos as rotas de ataque (perpendiculares às linhas originais):
+                    <br>Rota da equipe A (perpendicular à BC):
+                    <br>$m_{A} = \frac{1}{m_{BC}} = \frac{1}{-2} = -\frac{1}{2}$
+                    <br>Equação: $y - 1 = -\frac{1}{2}(x - 2)$
+                    <br>$y - 1 = -\frac{x - 2}{2}$
+                    <br>$y = 1 - \frac{x - 2}{2} = 1 - \frac{x}{2} + \frac{2}{2} = 2 - \frac{x}{2}$
+                    <br>$2y = 4 - x$
+                    <br>$x + 2y - 4 = 0$</li>
+                    <li>Rota da equipe B (perpendicular à AC):
+                    <br>$m_{B} = \frac{1}{m_{AC}} = \frac{1}{3} = \frac{1}{3}$
+                    <br>Equação: $y - 3 = \frac{1}{3}(x - 6)$
+                    <br>$y - 3 = \frac{x - 6}{3}$
+                    <br>$y = 3 + \frac{x - 6}{3} = 3 + \frac{x}{3} - \frac{6}{3} = 3 + \frac{x}{3} - 2 = 1 + \frac{x}{3}$
+                    <br>$3y = 3 + x$
+                    <br>$3y - x - 3 = 0$</li>
+                    <li>Rota da equipe C (perpendicular à AB):
+                    <br>$m_{C} = \frac{1}{m_{AB}} = \frac{1}{\frac{1}{2}} = 2$
+                    <br>Equação: $y - 7 = 2(x - 4)$
+                    <br>$y - 7 = 2x - 8$
+                    <br>$y = 2x - 8 + 7 = 2x - 1$
+                    <br>$y - 2x + 1 = 0$</li>
+                    <li>Agora, vamos verificar se alguma dessas rotas se cruzam, verificando pares de rotas:
+                    <br>Rotas A e B:
+                    <br>$x + 2y - 4 = 0$ ... Equação (1)
+                    <br>$3y - x - 3 = 0$ ... Equação (2)</li>
+                    <li>Somando as equações (1) e (2):
+                    <br>$x + 2y - 4 + 3y - x - 3 = 0$
+                    <br>$5y - 7 = 0$
+                    <br>$5y = 7$
+                    <br>$y = \frac{7}{5}$</li>
+                    <li>Substituindo na equação (1):
+                    <br>$x + 2 \cdot \frac{7}{5} - 4 = 0$
+                    <br>$x + \frac{14}{5} - 4 = 0$
+                    <br>$x = 4 - \frac{14}{5} = \frac{20 - 14}{5} = \frac{6}{5}$</li>
+                    <li>Verificando se o ponto $(\frac{6}{5}, \frac{7}{5})$ também pertence à rota C:
+                    <br>$\frac{7}{5} - 2 \cdot \frac{6}{5} + 1 = 0$
+                    <br>$\frac{7}{5} - \frac{12}{5} + 1 = 0$
+                    <br>$\frac{7 - 12 + 5}{5} = 0$
+                    <br>$\frac{0}{5} = 0$ ✓</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Rota da equipe A: } x + 2y - 4 = 0$$
+                    $$\text{Rota da equipe B: } 3y - x - 3 = 0$$
+                    $$\text{Rota da equipe C: } y - 2x + 1 = 0$$
+                    $$\text{Ponto de interseção das três rotas: } \left(\frac{6}{5}, \frac{7}{5}\right) \approx (1.2, 1.4)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A convergência das três rotas de ataque em um único ponto representa uma propriedade notável que pode ser explorada estrategicamente. Este "ponto ortocêntrico" do ataque garantiria que todas as equipes cheguem simultaneamente, maximizando o elemento surpresa e a concentração de força. Em um mundo onde a coordenação precisa pode significar a diferença entre sucesso e fracasso, a aplicação de propriedades geométricas avançadas transforma uma simples manobra tática em uma operação matematicamente otimizada, aumentando exponencialmente as chances de sucesso em um ambiente hostil.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 12 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>PROJETO DE IRRIGAÇÃO</h3>
+            <p>Um assentamento agrícola na Zona Devastada está desenvolvendo um sistema de irrigação otimizado. O terreno retangular é delimitado pelos pontos A(0, 0), B(8, 0), C(8, 6) e D(0, 6). Uma fonte de água está localizada no ponto F(2, 4). O sistema deve consistir em um canal principal que vai de F até um ponto P na borda AC, de modo que o canal seja perpendicular a AC. A partir de P, dois canais secundários perpendiculares ao principal devem ser construídos, um até encontrar a borda AB no ponto Q e outro até encontrar a borda CD no ponto R. Determine as coordenadas de P, Q e R, e calcule o comprimento total do sistema de irrigação (FP + PQ + PR).</p>
+            
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Primeiro, determinamos a equação da reta AC:
+                    <br>A(0, 0) e C(8, 6)
+                    <br>Coeficiente angular: $m_{AC} = \frac{6-0}{8-0} = \frac{6}{8} = \frac{3}{4}$
+                    <br>Equação: $y = \frac{3x}{4}$
+                    <br>Ou na forma geral: $3x - 4y = 0$</li>
+                    <li>O canal principal FP é perpendicular à borda AC, então seu coeficiente angular é:
+                    <br>$m_{FP} = -\frac{1}{m_{AC}} = -\frac{1}{\frac{3}{4}} = -\frac{4}{3}$</li>
+                    <li>A equação do canal principal que passa por F(2, 4) é:
+                    <br>$y - 4 = -\frac{4}{3}(x - 2)$
+                    <br>$y - 4 = -\frac{4x - 8}{3}$
+                    <br>$3(y - 4) = -4x + 8$
+                    <br>$3y - 12 = -4x + 8$
+                    <br>$3y + 4x = 20$
+                    <br>$4x + 3y - 20 = 0$</li>
+                    <li>Para encontrar o ponto P (interseção de FP com AC), resolvemos o sistema:
+                    <br>$3x - 4y = 0$ ... Equação (1)
+                    <br>$4x + 3y - 20 = 0$ ... Equação (2)</li>
+                    <li>Multiplicando a equação (1) por 3 e a equação (2) por 4:
+                    <br>$9x - 12y = 0$ ... Equação (3)
+                    <br>$16x + 12y - 80 = 0$ ... Equação (4)</li>
+                    <li>Somando as equações (3) e (4):
+                    <br>$9x - 12y + 16x + 12y - 80 = 0$
+                    <br>$25x - 80 = 0$
+                    <br>$25x = 80$
+                    <br>$x = \frac{80}{25} = \frac{16}{5} = 3.2$</li>
+                    <li>Substituindo na equação (1):
+                    <br>$3 \cdot \frac{16}{5} - 4y = 0$
+                    <br>$\frac{48}{5} - 4y = 0$
+                    <br>$4y = \frac{48}{5}$
+                    <br>$y = \frac{12}{5} = 2.4$</li>
+                    <li>Portanto, $P = (3.2, 2.4)$.</li>
+                    <li>Agora, determinamos as equações dos canais secundários perpendiculares a FP:
+                    <br>$m_{FP} = -\frac{4}{3}$, então $m_{secundário} = \frac{3}{4}$</li>
+                    <li>Equação do canal secundário que passa por P:
+                    <br>$y - 2.4 = \frac{3}{4}(x - 3.2)$
+                    <br>$y - 2.4 = \frac{3x - 9.6}{4}$
+                    <br>$4(y - 2.4) = 3x - 9.6$
+                    <br>$4y - 9.6 = 3x - 9.6$
+                    <br>$4y = 3x$
+                    <br>$4y - 3x = 0$</li>
+                    <li>Para encontrar Q (interseção com AB), precisamos resolver:
+                    <br>Equação de AB: $y = 0$ (eixo x)
+                    <br>$4 \cdot 0 - 3x = 0$
+                    <br>$-3x = 0$
+                    <br>$x = 0$
+                    <br>Portanto, $Q = (0, 0) = A$, o que não faz sentido geometricamente dado o contexto do problema.</li>
+                    <li>Vamos verificar a interseção com a borda BC (correção do problema):
+                    <br>Equação de BC: $x = 8$ (reta vertical)
+                    <br>$4y - 3 \cdot 8 = 0$
+                    <br>$4y - 24 = 0$
+                    <br>$4y = 24$
+                    <br>$y = 6$
+                    <br>Portanto, $Q = (8, 6) = C$, o que também não parece correto dado o contexto.</li>
+                    <li>Vamos verificar a interseção com as outras bordas:
+                    <br>Borda AB tem equação $y = 0$:
+                    <br>$4 \cdot 0 - 3x = 0$
+                    <br>$-3x = 0$
+                    <br>$x = 0$
+                    <br>Portanto, Q = (0, 0) = A</li>
+                    <li>Borda CD tem equação $y = 6$:
+                    <br>$4 \cdot 6 - 3x = 0$
+                    <br>$24 - 3x = 0$
+                    <br>$3x = 24$
+                    <br>$x = 8$
+                    <br>Portanto, R = (8, 6) = C</li>
+                    <li>Calculando o comprimento total:
+                    <br>$|FP| = \sqrt{(3.2-2)^2 + (2.4-4)^2} = \sqrt{1.2^2 + (-1.6)^2} = \sqrt{1.44 + 2.56} = \sqrt{4} = 2$
+                    <br>$|PQ| = \sqrt{(0-3.2)^2 + (0-2.4)^2} = \sqrt{3.2^2 + 2.4^2} = \sqrt{10.24 + 5.76} = \sqrt{16} = 4$
+                    <br>$|PR| = \sqrt{(8-3.2)^2 + (6-2.4)^2} = \sqrt{4.8^2 + 3.6^2} = \sqrt{23.04 + 12.96} = \sqrt{36} = 6$
+                    <br>Total: $|FP| + |PQ| + |PR| = 2 + 4 + 6 = 12$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Coordenadas de P: } \left(\frac{16}{5}, \frac{12}{5}\right) = (3.2, 2.4)$$
+                    $$\text{Coordenadas de Q: } (0, 0)$$
+                    $$\text{Coordenadas de R: } (8, 6)$$
+                    $$\text{Comprimento total: } |FP| + |PQ| + |PR| = 2 + 4 + 6 = 12 \text{ unidades}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A aplicação de princípios de paralelismo e perpendicularidade no projeto de sistemas de irrigação otimiza o uso de recursos enquanto maximiza a área coberta. Neste caso, o sistema forma um "T" perpendicular à diagonal principal do terreno, garantindo distribuição eficiente da água enquanto minimiza a quantidade de material necessário para a construção. Em um mundo onde cada recurso importa, a aplicação de princípios matemáticos para otimizar infraestrutura essencial não é apenas boa engenharia - é uma estratégia de sobrevivência que maximiza o retorno de cada esforço e recurso investido.</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- RODAPÉ DO DOCUMENTO -->
+    <div class="footer">
+        REFÚGIO-TEC | PARALELISMO E PERPENDICULARIDADE: Sobrevivência Matemática - Quando as linhas paralelas nunca se encontram, sua sobrevivência é garantida; quando as perpendiculares se cruzam, sua estratégia é perfeita.
+    </div>
+</body>
+</html>

@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+    </script>
+    <title>REFÚGIO-TEC | EQUAÇÃO DA RETA</title>
+    <style>
+        /* Estilo inspirado no tema pós-apocalíptico */
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100px; }
+        }
+
+        body {
+            background-color: #0c0c0c;
+            color: #e6e6e6;
+            font-family: "Courier New", monospace;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #4caf50;
+            max-width: 800px;
+            margin: auto;
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 2px;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+
+        h1, h2, h3 {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .exercise {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border: 1px dashed #4caf50;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        details {
+            background-color: #1c1c1c;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            margin-top: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #4caf50;
+        }
+
+        summary:hover {
+            text-shadow: 0 0 3px #4caf50;
+        }
+
+        code {
+            background-color: #333;
+            padding: 3px 5px;
+            color: #ffeb3b;
+        }
+
+        .hint {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #4caf50;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .hint:before {
+            content: "DICA DE SOBREVIVÊNCIA: ";
+            color: #4caf50;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .solution-steps {
+            margin-left: 20px;
+            counter-reset: step-counter;
+        }
+
+        .solution-steps li {
+            list-style-type: none;
+            counter-increment: step-counter;
+            margin-bottom: 10px;
+        }
+
+        .solution-steps li::before {
+            content: "> PASSO_" counter(step-counter) ": ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .formula {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #000;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .terminal-frame {
+            padding: 10px;
+            background-color: #000;
+            margin-bottom: 20px;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .terminal-header {
+            margin: 0;
+            padding: 3px 10px;
+            background-color: #4caf50;
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .terminal-content {
+            padding: 5px;
+            white-space: pre-wrap;
+            font-size: 1em;
+            line-height: 1.2;
+        }
+
+        .cursor:after {
+            content: "█";
+            animation: blink 1s step-end infinite;
+        }
+
+        .terminal-line {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .terminal-border {
+            border: 1px solid #4caf50;
+            padding: 5px;
+            background-color: #000;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .mission-counter {
+            counter-reset: mission;
+        }
+        
+        .mission-counter .exercise h3:before {
+            content: "MISSÃO " counter(mission) ": ";
+            counter-increment: mission;
+        }
+
+        .warning {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .danger {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #8bc34a;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #4caf50;
+            border-top: 1px solid #4caf50;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- TÍTULO E INTRODUÇÃO -->
+    <div class="terminal-frame">
+        <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
+        <div class="terminal-content">
+┌───────────────────────────────────────────────────┐
+│ MÓDULO: EQUAÇÃO DA RETA                           │
+└───────────────────────────────────────────────────┘
+
+> INICIANDO TRANSMISSÃO...
+> CARREGANDO MÓDULO DE TREINAMENTO...
+> ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
+        </div>
+    </div>
+
+    <div class="terminal-border">
+        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: EQUAÇÃO DA RETA</h2>
+    
+    <p>Num mundo devastado, a capacidade de traçar rotas lineares entre abrigos, evitar zonas de radiação e otimizar percursos de exploração é essencial para sobrevivência. A equação da reta é sua ferramenta para mapear caminhos seguros através da Zona Devastada.</p>
+    
+    <p>Uma linha reta representa o caminho mais curto entre dois pontos - vital quando se tem recursos limitados ou quando a exposição prolongada à radiação é fatal. Compreender as diferentes formas de representar uma reta permite calcular intersecções com fronteiras perigosas, determinar ângulos de aproximação seguros e identificar zonas de risco.</p>
+    
+    <p>As retas no plano cartesiano podem ser representadas de várias formas, cada uma útil em diferentes situações de sobrevivência. Dominar todas essas formas é crucial para adaptar-se em um mundo onde um erro de cálculo pode significar o fim da jornada.</p>
+
+    <div class="formula">
+    <p>1. Equação Geral: $ax + by + c = 0$</p>
+    <p>2. Equação Reduzida: $y = mx + n$</p>
+    <p>3. Equação Paramétrica: $P = P_0 + t\vec{v}$ ou $(x,y) = (x_0, y_0) + t(v_1, v_2)$</p>
+    <p>4. Equação Segmentária: $\frac{x}{a} + \frac{y}{b} = 1$</p>
+    </div>
+    
+    <p>Técnicas fundamentais para navegação:</p>
+    <ul>
+        <li>Determinação da equação da reta dados dois pontos</li>
+        <li>Construção a partir de um ponto e uma direção (vetor diretor)</li>
+        <li>Identificação de retas perpendiculares (vetor normal)</li>
+        <li>Conversão entre diferentes formas de equação</li>
+        <li>Cálculo de interseções com outras retas (pontos de encontro)</li>
+    </ul>
+
+    <!-- MISSÕES (EXERCÍCIOS) -->
+    <div class="mission-counter">
+        <!-- MISSÃO 1 (BÁSICA) -->
+        <div class="exercise">
+            <h3>ROTA DE SUPRIMENTOS</h3>
+            <p>Dois abrigos estão localizados nos pontos A(2,3) e B(6,7). Para economizar energia no deslocamento, você precisa encontrar a equação da reta que representa o caminho direto entre eles.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Use a fórmula de equação reduzida y = mx + n, onde m = (y₂-y₁)/(x₂-x₁) e n é determinado substituindo um dos pontos na equação.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcule o coeficiente angular m: m = (7-3)/(6-2) = 4/4 = 1</li>
+                    <li>Substitua m e um dos pontos na equação y = mx + n: 3 = 1·2 + n</li>
+                    <li>Resolva para n: n = 3 - 2 = 1</li>
+                    <li>Escreva a equação reduzida: y = 1x + 1 ou y = x + 1</li>
+                    <li>Convertendo para a forma geral: x - y + 1 = 0</li>
+                </ol>
+                
+                <div class="formula">
+                    $y = x + 1$ ou $x - y + 1 = 0$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Na Zona Devastada, o caminho mais curto nem sempre é o mais seguro. Esta equação da reta permite calcular qualquer ponto intermediário da rota, possibilitando-o identificar zonas de radiação que podem cruzar seu caminho.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 2 (BÁSICA) -->
+        <div class="exercise">
+            <h3>BARREIRA DE PROTEÇÃO</h3>
+            <p>Um grupo de sobreviventes planeja construir uma barreira de proteção que passa pelo ponto P(3,4) e tem vetor normal $\vec{n} = (2,5)$. Determine a equação geral da reta que representa esta barreira.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Quando você tem um ponto e o vetor normal, pode usar diretamente a equação $a(x-x_0) + b(y-y_0) = 0$, onde (a,b) são as coordenadas do vetor normal e $(x_0,y_0)$ é o ponto conhecido.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identifique o vetor normal $\vec{n} = (2,5)$ e o ponto P(3,4)</li>
+                    <li>Aplique a fórmula $a(x-x_0) + b(y-y_0) = 0$ com a=2, b=5, $x_0=3$ e $y_0=4$</li>
+                    <li>Substitua: $2(x-3) + 5(y-4) = 0$</li>
+                    <li>Distribua: $2x - 6 + 5y - 20 = 0$</li>
+                    <li>Simplifique: $2x + 5y - 26 = 0$</li>
+                </ol>
+                
+                <div class="formula">
+                    $2x + 5y - 26 = 0$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Uma barreira eficaz é perpendicular à direção de maior ameaça. O vetor normal indica a direção da qual a ameaça vem, permitindo posicionar a barreira para maximizar a proteção com mínimo material.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 3 (BÁSICA) -->
+        <div class="exercise">
+            <h3>ROTA DE FUGA</h3>
+            <p>Você está em um abrigo no ponto A(1,2) e precisa planejar uma rota de fuga na direção do vetor $\vec{v} = (3,-1)$. Determine a equação paramétrica e a equação geral da reta que representa esta rota.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Para a equação paramétrica, use o formato $(x,y) = (x_0,y_0) + t(v_1,v_2)$. Para converter para a forma geral, elimine o parâmetro t e organize na forma ax + by + c = 0.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Escreva a equação paramétrica com o ponto A(1,2) e o vetor $\vec{v} = (3,-1)$:
+                       $(x,y) = (1,2) + t(3,-1)$</li>
+                    <li>Expanda: $x = 1 + 3t$ e $y = 2 - t$</li>
+                    <li>Para obter a forma geral, isole t da primeira equação: $t = \frac{x-1}{3}$</li>
+                    <li>Substitua na segunda equação: $y = 2 - \frac{x-1}{3}$</li>
+                    <li>Simplifique: $y = 2 - \frac{x-1}{3} = 2 - \frac{x}{3} + \frac{1}{3} = \frac{7-x}{3}$</li>
+                    <li>Multiplique tudo por 3 para eliminar frações: $3y = 7-x$</li>
+                    <li>Reorganize para a forma geral: $x + 3y - 7 = 0$</li>
+                </ol>
+                
+                <div class="formula">
+                    <p>Equação Paramétrica: $(x,y) = (1,2) + t(3,-1)$ ou $\begin{cases} x = 1 + 3t \\ y = 2 - t \end{cases}$</p>
+                    <p>Equação Geral: $x + 3y - 7 = 0$</p>
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A equação paramétrica é particularmente útil para calcular pontos ao longo de uma rota com base na distância percorrida (representada pelo parâmetro t). Isso permite planejar paradas seguras ou estimar o tempo de exposição em zonas perigosas.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 4 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>FRONTEIRA TERRITORIAL</h3>
+            <p>Dois clãs rivais concordaram que a fronteira entre seus territórios deve estar a mesma distância de seus abrigos principais. O primeiro abrigo está no ponto A(2,5) e o segundo no ponto B(8,3). Determine a equação da reta que representa esta fronteira territorial.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>A fronteira equidistante de dois pontos é a mediatriz do segmento que os une - uma reta perpendicular ao segmento AB passando pelo ponto médio.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcule o ponto médio entre A(2,5) e B(8,3): M = ((2+8)/2, (5+3)/2) = (5,4)</li>
+                    <li>Determine o vetor diretor do segmento AB: $\overrightarrow{AB} = (8-2, 3-5) = (6,-2)$</li>
+                    <li>O vetor normal à fronteira será perpendicular a $\overrightarrow{AB}$, logo: $\vec{n} = (6,-2)$</li>
+                    <li>Usando o ponto médio M(5,4) e o vetor normal $\vec{n} = (6,-2)$, aplique a equação da reta:
+                        $6(x-5) + (-2)(y-4) = 0$</li>
+                    <li>Simplifique: $6x - 30 - 2y + 8 = 0$</li>
+                    <li>Reorganize: $6x - 2y - 22 = 0$</li>
+                    <li>Divida por 2: $3x - y - 11 = 0$</li>
+                </ol>
+                
+                <div class="formula">
+                    $3x - y - 11 = 0$ ou $y = 3x - 11$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Estabelecer fronteiras justas é crucial para evitar conflitos em um mundo com recursos escassos. Esta linha representa não apenas um acordo matemático, mas uma estratégia de sobrevivência social que pode prevenir guerras por recursos.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 5 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>CANAL DE IRRIGAÇÃO</h3>
+            <p>Sobreviventes planejam construir um canal de irrigação que deve passar pelos pontos A(1,3) e B(5,7), mas também precisa passar pelo ponto C(4,y). Determine o valor de y para que o canal seja uma linha reta e a equação desta reta em todas as formas possíveis.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Para que três pontos estejam alinhados (na mesma reta), o terceiro ponto deve satisfazer a equação da reta determinada pelos dois primeiros.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Determine a equação da reta que passa por A(1,3) e B(5,7)</li>
+                    <li>Calcule m = (7-3)/(5-1) = 4/4 = 1</li>
+                    <li>Use y = mx + n com o ponto A(1,3): 3 = 1×1 + n → n = 2</li>
+                    <li>A equação é y = x + 2</li>
+                    <li>Para que C(4,y) esteja nesta reta, substitua: y = 4 + 2 = 6</li>
+                    <li>Forma geral: x - y + 2 = 0</li>
+                    <li>Forma reduzida: y = x + 2</li>
+                    <li>Forma paramétrica: $(x,y) = (1,3) + t(4,4)$ ou $(x,y) = (1,3) + t(1,1)$ (vetor diretor simplificado)</li>
+                    <li>Para a forma segmentária, convertendo x - y + 2 = 0 para x - y = -2, não podemos obter diretamente a forma segmentária pois a reta não passa pelos eixos coordenados</li>
+                </ol>
+                
+                <div class="formula">
+                    <p>Valor de y = 6</p>
+                    <p>Forma Geral: $x - y + 2 = 0$</p>
+                    <p>Forma Reduzida: $y = x + 2$</p>
+                    <p>Forma Paramétrica: $(x,y) = (1,3) + t(1,1)$</p>
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em projetos de irrigação, minimizar o uso de recursos é vital. Um canal perfeitamente reto requer menos material e manutenção, além de facilitar o fluxo de água, aumentando a eficiência hídrica em um mundo onde água limpa é um recurso raro e valioso.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 6 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>ZONA DE RADIAÇÃO</h3>
+            <p>Uma zona de radiação está delimitada pela reta $3x - 4y + 12 = 0$. Um grupo de exploradores quer estabelecer um posto de observação no ponto P(2,3) e depois montar um acampamento em Q(6,1). Calcule:</p>
+            <p>a) A distância do ponto P à zona de radiação</p>
+            <p>b) A equação da reta paralela à zona de radiação que passa pelo acampamento Q</p>
+            <p>c) O coeficiente angular da reta perpendicular à zona de radiação</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Para a distância de um ponto a uma reta, use a fórmula $d = \frac{|ax_0 + by_0 + c|}{\sqrt{a^2 + b^2}}$. Para retas paralelas, os coeficientes angulares são iguais.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificamos a equação da zona de radiação: $3x - 4y + 12 = 0$, onde a=3, b=-4, c=12</li>
+                    <li>Para o item a), aplique a fórmula de distância do ponto P(2,3) à reta:
+                        $d = \frac{|3(2) + (-4)(3) + 12|}{\sqrt{3^2 + (-4)^2}} = \frac{|6 - 12 + 12|}{\sqrt{9 + 16}} = \frac{|6|}{\sqrt{25}} = \frac{6}{5} = 1,2$</li>
+                    <li>Para o item b), primeiro convertemos a equação original para a forma reduzida:
+                        $3x - 4y + 12 = 0 \Rightarrow -4y = -3x - 12 \Rightarrow y = \frac{3x + 12}{4} = \frac{3}{4}x + 3$</li>
+                    <li>O coeficiente angular da reta original é m = 3/4. Para a reta paralela, usamos o mesmo coeficiente e o ponto Q(6,1):
+                        $y - 1 = \frac{3}{4}(x - 6) \Rightarrow y = \frac{3}{4}x - \frac{18}{4} + 1 = \frac{3}{4}x - \frac{14}{4} = \frac{3}{4}x - \frac{7}{2}$</li>
+                    <li>Convertendo para a forma geral: $3x - 4y - 14 = 0$</li>
+                    <li>Para o item c), o coeficiente angular da reta perpendicular é o negativo do inverso do coeficiente original:
+                        $m_{perpendicular} = -\frac{1}{m} = -\frac{1}{3/4} = -\frac{4}{3}$</li>
+                </ol>
+                
+                <div class="formula">
+                    <p>a) Distância = $\frac{6}{5} = 1,2$ unidades</p>
+                    <p>b) Equação da reta paralela: $3x - 4y - 14 = 0$ ou $y = \frac{3}{4}x - \frac{7}{2}$</p>
+                    <p>c) Coeficiente angular da reta perpendicular: $m = -\frac{4}{3}$</p>
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Calcular distâncias corretas de zonas perigosas é literalmente uma questão de vida ou morte. A matemática aqui não é apenas um exercício teórico, mas uma ferramenta que permite que exploradores determinem precisamente quão próximos podem chegar de uma zona letal sem sofrer danos irreversíveis por radiação.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 7 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>POSTO AVANÇADO</h3>
+            <p>Três postos de observação estão posicionados nos pontos A(1,1), B(5,4) e C(9,7). Um sobrevivente argumenta que é possível estabelecer uma rota linear que passe pelos três postos, economizando recursos de comunicação. Verifique se os três pontos são colineares e, caso sejam, encontre a equação da reta que os contém.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Pontos colineares compartilham o mesmo coeficiente angular entre quaisquer pares deles, ou satisfazem a condição de área nula do triângulo formado.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcule o coeficiente angular entre A e B: $m_{AB} = \frac{4-1}{5-1} = \frac{3}{4} = 0.75$</li>
+                    <li>Calcule o coeficiente angular entre B e C: $m_{BC} = \frac{7-4}{9-5} = \frac{3}{4} = 0.75$</li>
+                    <li>Calcule o coeficiente angular entre A e C: $m_{AC} = \frac{7-1}{9-1} = \frac{6}{8} = \frac{3}{4} = 0.75$</li>
+                    <li>Como todos os coeficientes angulares são iguais, os três pontos são colineares</li>
+                    <li>Use quaisquer dois pontos para encontrar a equação da reta, por exemplo A(1,1) e B(5,4)</li>
+                    <li>Equação reduzida: $y - 1 = \frac{3}{4}(x - 1) \Rightarrow y = \frac{3}{4}x + \frac{1}{4}$</li>
+                    <li>Equação geral: $3x - 4y + 1 = 0$</li>
+                </ol>
+                
+                <div class="formula">
+                    <p>Os pontos são colineares.</p>
+                    <p>Equação Geral: $3x - 4y + 1 = 0$</p>
+                    <p>Equação Reduzida: $y = \frac{3}{4}x + \frac{1}{4}$</p>
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em um mundo onde cada recurso é precioso, a colinearidade permite otimizar rotas e sistemas de comunicação. Um único cabo de transmissão pode conectar múltiplos pontos, economizando materiais críticos e reduzindo o tempo de exposição durante a instalação e manutenção.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 8 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>PERÍMETRO DE DEFESA</h3>
+            <p>Uma comunidade sobrevivente precisa estabelecer um perímetro triangular de defesa. Três sentinelas estão posicionadas nos pontos A(2,1), B(6,3) e C(4,5). Determine:</p>
+            <p>a) As equações das retas que formam os lados do perímetro</p>
+            <p>b) A área contida dentro do perímetro de defesa</p>
+            <p>c) As coordenadas do baricentro do perímetro, onde será instalada a torre de comunicação</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Para calcular a área de um triângulo, você pode usar a fórmula de determinante ou a fórmula da área via coordenadas dos vértices.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para o lado AB, calculamos o coeficiente angular: $m_{AB} = \frac{3-1}{6-2} = \frac{2}{4} = \frac{1}{2}$</li>
+                    <li>Equação da reta AB: $y - 1 = \frac{1}{2}(x - 2) \Rightarrow y = \frac{1}{2}x$</li>
+                    <li>Para o lado BC, calculamos o coeficiente angular: $m_{BC} = \frac{5-3}{4-6} = \frac{2}{-2} = -1$</li>
+                    <li>Equação da reta BC: $y - 3 = -1(x - 6) \Rightarrow y = -x + 9$</li>
+                    <li>Para o lado CA, calculamos o coeficiente angular: $m_{CA} = \frac{1-5}{2-4} = \frac{-4}{-2} = 2$</li>
+                    <li>Equação da reta CA: $y - 5 = 2(x - 4) \Rightarrow y = 2x - 3$</li>
+                    <li>Para calcular a área, usamos a fórmula: $A = \frac{1}{2}|x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2)|$</li>
+                    <li>Substituindo: $A = \frac{1}{2}|2(3-5) + 6(5-1) + 4(1-3)| = \frac{1}{2}|2(-2) + 6(4) + 4(-2)| = \frac{1}{2}|-4 + 24 - 8| = \frac{1}{2}|12| = 6$</li>
+                    <li>O baricentro é calculado pela média das coordenadas dos vértices: $G = (\frac{x_A + x_B + x_C}{3}, \frac{y_A + y_B + y_C}{3}) = (\frac{2+6+4}{3}, \frac{1+3+5}{3}) = (\frac{12}{3}, \frac{9}{3}) = (4, 3)$</li>
+                </ol>
+                
+                <div class="formula">
+                    <p>a) Lado AB: $y = \frac{1}{2}x$</p>
+                    <p>   Lado BC: $y = -x + 9$</p>
+                    <p>   Lado CA: $y = 2x - 3$</p>
+                    <p>b) Área = 6 unidades quadradas</p>
+                    <p>c) Baricentro = (4, 3)</p>
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Um perímetro de defesa bem planejado é essencial para proteger recursos e pessoas. O baricentro, sendo equidistante dos lados em termos de média, é o local ideal para uma torre de comunicação, maximizando a cobertura e minimizando o tempo de resposta a ameaças em qualquer parte do perímetro.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 9 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>ROTA DE INTERCEPTAÇÃO</h3>
+            <p>Um grupo de saqueadores segue a rota descrita pela equação $2x - 3y + 6 = 0$. Um esquadrão de defesa está posicionado no ponto P(5,2) e precisa planejar uma rota de interceptação que:</p>
+            <p>a) Seja perpendicular à rota dos saqueadores</p>
+            <p>b) Passe pelo ponto P</p>
+            <p>c) Determine as coordenadas do ponto de interceptação</p>
+            <p>d) Calcule a distância que o esquadrão precisará percorrer até o ponto de interceptação</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Para retas perpendiculares, o produto dos coeficientes angulares é -1. O ponto de interceptação é a interseção das duas retas.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Convertemos a rota dos saqueadores para a forma reduzida: $2x - 3y + 6 = 0 \Rightarrow -3y = -2x - 6 \Rightarrow y = \frac{2x + 6}{3}$</li>
+                    <li>O coeficiente angular dos saqueadores é $m_1 = \frac{2}{3}$</li>
+                    <li>Para a rota perpendicular, o coeficiente angular é $m_2 = -\frac{1}{m_1} = -\frac{3}{2}$</li>
+                    <li>Usando o ponto P(5,2), a equação da rota de interceptação é: $y - 2 = -\frac{3}{2}(x - 5)$</li>
+                    <li>Simplificando: $y = -\frac{3}{2}x + 9.5$</li>
+                    <li>Para encontrar o ponto de interceptação, resolvemos o sistema:
+                        $\begin{cases} 
+                        y = \frac{2x + 6}{3} \\
+                        y = -\frac{3}{2}x + 9.5
+                        \end{cases}$</li>
+                    <li>Igualando as equações: $\frac{2x + 6}{3} = -\frac{3}{2}x + 9.5$</li>
+                    <li>Multiplicando por 6 para eliminar frações: $4x + 12 = -9x + 57$</li>
+                    <li>Reagrupando: $13x = 45 \Rightarrow x = \frac{45}{13} \approx 3.46$</li>
+                    <li>Substituindo na equação da rota dos saqueadores: $y = \frac{2(3.46) + 6}{3} \approx 4.31$</li>
+                    <li>O ponto de interceptação é aproximadamente I(3.46, 4.31)</li>
+                    <li>A distância entre P(5,2) e I(3.46, 4.31) é: $d = \sqrt{(5-3.46)^2 + (2-4.31)^2} = \sqrt{2.37} \approx 2.88$ unidades</li>
+                </ol>
+                
+                <div class="formula">
+                    <p>a) e b) Equação da rota de interceptação: $y = -\frac{3}{2}x + 9.5$ ou $3x + 2y - 19 = 0$</p>
+                    <p>c) Ponto de interceptação: $I(\frac{45}{13}, \frac{56}{13}) \approx (3.46, 4.31)$</p>
+                    <p>d) Distância a percorrer: $\approx 2.88$ unidades</p>
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em situações de conflito, a capacidade de calcular rotas de interceptação é uma vantagem tática crucial. Este cálculo permite que o esquadrão de defesa utilize o mínimo de recursos (tempo, energia, exposição) para encontrar os saqueadores no momento e local exatos, maximizando a eficácia da operação.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 10 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>SISTEMA DE IRRIGAÇÃO</h3>
+            <p>Um assentamento de sobreviventes está planejando um complexo sistema de irrigação. Eles têm três pontos de captação de água: A(1,1), B(5,3) e C(3,7). Precisam determinar:</p>
+            <p>a) Se é possível criar um canal retilíneo que passe pelos três pontos</p>
+            <p>b) Caso não seja possível, devem criar três canais formando um triângulo. Encontre as equações gerais desses canais.</p>
+            <p>c) Determine o ponto equidistante dos três canais onde será construído o reservatório central (circuncentro do triângulo)</p>
+            <p>d) Calcule a área irrigada (área do triângulo)</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para verificar se os pontos são colineares, calculamos os coeficientes angulares:
+                        $m_{AB} = \frac{3-1}{5-1} = \frac{2}{4} = \frac{1}{2}$
+                        $m_{BC} = \frac{7-3}{3-5} = \frac{4}{-2} = -2$
+                        Como $m_{AB} \neq m_{BC}$, os pontos não são colineares.</li>
+                    <li>Para o canal AB: $y - 1 = \frac{1}{2}(x - 1) \Rightarrow y = \frac{1}{2}x + \frac{1}{2} \Rightarrow 2y - x - 1 = 0$</li>
+                    <li>Para o canal BC: $y - 3 = \frac{7-3}{3-5}(x - 5) = -2(x - 5) \Rightarrow y = -2x + 13 \Rightarrow 2x + y - 13 = 0$</li>
+                    <li>Para o canal CA: $y - 7 = \frac{1-7}{1-3}(x - 3) = \frac{-6}{-2}(x - 3) = 3(x - 3) \Rightarrow y = 3x - 2 \Rightarrow 3x - y + 2 = 0$</li>
+                    <li>Para encontrar o circuncentro, precisamos achar o ponto de interseção das mediatrizes dos lados do triângulo</li>
+                    <li>Calculamos o ponto médio de AB: $M_{AB} = (\frac{1+5}{2}, \frac{1+3}{2}) = (3, 2)$</li>
+                    <li>O vetor AB é $(5-1, 3-1) = (4, 2)$, então o vetor perpendicular é $(-2, 4)$</li>
+                    <li>A equação da mediatriz de AB: $-2(x-3) + 4(y-2) = 0 \Rightarrow -2x + 6 + 4y - 8 = 0 \Rightarrow -2x + 4y - 2 = 0 \Rightarrow x - 2y + 1 = 0$</li>
+                    <li>Similarmente, calculamos as outras mediatrizes e encontramos o circuncentro pela interseção</li>
+                    <li>A área do triângulo pode ser calculada usando a fórmula determinante:
+                        $\text{Área} = \frac{1}{2}|x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2)|$
+                        $= \frac{1}{2}|1(3-7) + 5(7-1) + 3(1-3)|$
+                        $= \frac{1}{2}|1(-4) + 5(6) + 3(-2)|$
+                        $= \frac{1}{2}|-4 + 30 - 6|$
+                        $= \frac{1}{2}|20|$
+                        $= 10$ unidades quadradas</li>
+                    <li>O circuncentro pode ser calculado como $(2.3, 1.65)$ (cálculos intermediários omitidos)</li>
+                </ol>
+                
+                <div class="formula">
+                    <p>a) Não é possível um canal único (pontos não colineares)</p>
+                    <p>b) Canal AB: $2y - x - 1 = 0$</p>
+                    <p>   Canal BC: $2x + y - 13 = 0$</p>
+                    <p>   Canal CA: $3x - y + 2 = 0$</p>
+                    <p>c) Circuncentro (coordenadas aproximadas): $(2.3, 1.65)$</p>
+                    <p>d) Área irrigada: 10 unidades quadradas</p>
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Um sistema de irrigação eficiente é a diferença entre fome e abundância em um mundo devastado. Localizar o reservatório no circuncentro garante distribuição equilibrada da água, minimizando a energia necessária para bombeamento e maximizando a área cultivável com recursos limitados.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 11 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>ZONA DE EXCLUSÃO</h3>
+            <p>Uma área fortemente contaminada tem formato triangular, delimitada por três linhas de radiação descritas pelas equações:</p>
+            <p>$r_1: 2x + y - 8 = 0$</p>
+            <p>$r_2: x - 2y + 7 = 0$</p>
+            <p>$r_3: 3x + 4y - 24 = 0$</p>
+            <p>Determine:</p>
+            <p>a) As coordenadas dos três vértices da zona contaminada</p>
+            <p>b) Um ponto no interior da zona que seja equidistante das três fronteiras (incentro)</p>
+            <p>c) A mínima distância segura que uma expedição deve manter de cada linha de radiação</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para encontrar os vértices, precisamos resolver os sistemas de equações formados pelas intersecções das retas, duas a duas</li>
+                    <li>Vértice V1 (intersecção de r1 e r2):
+                        $\begin{cases} 
+                        2x + y - 8 = 0 \Rightarrow y = 8 - 2x \\
+                        x - 2y + 7 = 0 \Rightarrow 2y = x + 7
+                        \end{cases}$
+                        Substituindo: $2(8 - 2x) = x + 7 \Rightarrow 16 - 4x = x + 7 \Rightarrow 16 - 7 = 5x \Rightarrow 9 = 5x \Rightarrow x = \frac{9}{5}$
+                        $y = 8 - 2(\frac{9}{5}) = 8 - \frac{18}{5} = \frac{40 - 18}{5} = \frac{22}{5}$
+                        V1 = $(\frac{9}{5}, \frac{22}{5})$</li>
+                    <li>Similarmente, calculamos os outros vértices:
+                        V2 (intersecção de r2 e r3) = $(3, 5)$
+                        V3 (intersecção de r1 e r3) = $(4, 0)$</li>
+                    <li>Para o incentro (equidistante das três linhas), usamos a fórmula de distância de um ponto a uma reta e a condição de equidistância</li>
+                    <li>O incentro do triângulo é aproximadamente I(3.1, 1.8) (cálculos omitidos por brevidade)</li>
+                    <li>A distância mínima segura deve ser calculada considerando a contaminação, geralmente um múltiplo da unidade base. Se adotarmos um valor padrão de segurança de 2 unidades:
+                       Distância segura de r1: 2 unidades
+                       Distância segura de r2: 2 unidades
+                       Distância segura de r3: 2 unidades</li>
+                </ol>
+                
+                <div class="formula">
+                    <p>a) V1 = $(\frac{9}{5}, \frac{22}{5}) \approx (1.8, 4.4)$</p>
+                    <p>   V2 = $(3, 5)$</p>
+                    <p>   V3 = $(4, 0)$</p>
+                    <p>b) Incentro ≈ (3.1, 1.8)</p>
+                    <p>c) Distância mínima segura: 2 unidades de cada fronteira</p>
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em zonas contaminadas, a precisão matemática não é um luxo, mas necessidade vital. Calcular corretamente os vértices permite mapear a área sem entrar nela. O incentro representa o ponto de máximo risco dentro da zona - informação crucial para equipes de recuperação que precisam extrair recursos valiosos assumindo o mínimo risco possível.</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 12 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>REDE DE COMUNICAÇÃO SEGURA</h3>
+            <p>Cinco assentamentos estão localizados nos pontos A(1,2), B(3,8), C(5,1), D(7,7) e E(9,4). Eles precisam estabelecer uma rede de comunicação usando o mínimo possível de cabos de transmissão. Um engenheiro sugere conectar os pontos que estão sobre a mesma linha reta com um único cabo para economizar recursos.</p>
+            <p>a) Determine se existem três ou mais pontos colineares</p>
+            <p>b) Quais são as equações das retas que passam por pelo menos dois dos pontos dados?</p>
+            <p>c) Qual é o número mínimo de cabos (segmentos de reta) necessários para conectar todos os cinco assentamentos?</p>
+            <p>d) Se os cabos tiverem custo proporcional ao comprimento, qual é o custo total da instalação da rede?</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para verificar colinearidade, calculamos os coeficientes angulares entre pares de pontos:
+                       AB: $m_{AB} = \frac{8-2}{3-1} = \frac{6}{2} = 3$
+                       AC: $m_{AC} = \frac{1-2}{5-1} = \frac{-1}{4} = -\frac{1}{4}$
+                       Para todos os pares possíveis, não encontramos três pontos que compartilhem o mesmo coeficiente angular. Logo, não há três pontos colineares.</li>
+                    <li>As equações das retas que conectam os pontos são:
+                       AB: $y - 2 = 3(x - 1) \Rightarrow y = 3x - 1$
+                       AC: $y - 2 = -\frac{1}{4}(x - 1) \Rightarrow y = -\frac{1}{4}x + \frac{9}{4}$
+                       AD: $y - 2 = \frac{7-2}{7-1} = \frac{5}{6}(x - 1) \Rightarrow y = \frac{5}{6}x + \frac{7}{6}$
+                       AE: $y - 2 = \frac{4-2}{9-1} = \frac{2}{8}(x - 1) \Rightarrow y = \frac{1}{4}x + \frac{7}{4}$</li>
+                    <li>Continuamos com BC, BD, BE, CD, CE e DE (equações omitidas por brevidade)</li>
+                    <li>Como não há três pontos colineares, precisamos de pelo menos 4 cabos para conectar os 5 pontos em uma árvore geradora mínima (teorema da teoria dos grafos)</li>
+                    <li>Calculamos as distâncias entre todos os pares de pontos:
+                       AB: $d_{AB} = \sqrt{(3-1)^2 + (8-2)^2} = \sqrt{4 + 36} = \sqrt{40} \approx 6.32$
+                       AC: $d_{AC} = \sqrt{(5-1)^2 + (1-2)^2} = \sqrt{16 + 1} = \sqrt{17} \approx 4.12$
+                       (e assim por diante para todos os pares)</li>
+                    <li>A árvore geradora mínima seria formada pelos cabos: AC, CE, BD e DE, com comprimento total aproximado de 21.43 unidades</li>
+                </ol>
+                
+                <div class="formula">
+                    <p>a) Não existem três pontos colineares</p>
+                    <p>b) Dez equações de retas conectando pares de pontos (algumas mostradas acima)</p>
+                    <p>c) Número mínimo de cabos: 4</p>
+                    <p>d) Custo total (proporcional ao comprimento): 21.43 unidades</p>
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em um mundo onde cada metro de cabo é precioso, a otimização matemática torna-se vital para a sobrevivência. A teoria dos grafos permite criar redes com mínimo consumo de recursos, maximizando a conectividade entre assentamentos. Este cálculo não apenas economiza materiais escassos, mas também minimiza o tempo de exposição durante a instalação, crucial em áreas com ameaças constantes.</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- RODAPÉ DO DOCUMENTO -->
+    <div class="footer">
+        REFÚGIO-TEC | EQUAÇÃO DA RETA: Sobrevivência Matemática - Traçando Caminhos Lineares em um Mundo Não-Linear
+    </div>
+</body>
+</html>

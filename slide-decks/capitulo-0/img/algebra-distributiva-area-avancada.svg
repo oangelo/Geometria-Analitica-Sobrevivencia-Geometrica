@@ -1,0 +1,207 @@
+              <svg xmlns="http://www.w3.org/2000/svg" width="600" height="290" viewBox="0 0 600 260">
+                <g transform="translate(100,30)">
+                  <!-- Título -->
+                  <text
+                    x="200"
+                    y="20"
+                    fill="#FFD700"
+                    font-size="18"
+                    text-anchor="middle"
+                   font-family="monospace">
+                    (a + b)(c + d) = ac + ad + bc + bd
+                  </text>
+                  <!-- Grade principal -->
+                  <rect
+                    x="50"
+                    y="50"
+                    width="300"
+                    height="150"
+                    fill="none"
+                    stroke="#ADFF2F"
+                    stroke-width="3"
+                  />
+                  <!-- Divisão vertical -->
+                  <line
+                    x1="200"
+                    y1="50"
+                    x2="200"
+                    y2="200"
+                    stroke="#ADFF2F"
+                    stroke-width="3"
+                  />
+                  <!-- Divisão horizontal -->
+                  <line
+                    x1="50"
+                    y1="125"
+                    x2="350"
+                    y2="125"
+                    stroke="#ADFF2F"
+                    stroke-width="3"
+                  />
+                  <!-- Quadrantes com termos -->
+                  <g>
+                    <!-- ac -->
+                    <rect
+                      x="50"
+                      y="50"
+                      width="150"
+                      height="75"
+                      fill="rgba(173, 255, 47, 0.2)"
+                      stroke="#ADFF2F"
+                      stroke-width="1"
+                    />
+                    <text
+                      x="125"
+                      y="87"
+                      fill="#FFD700"
+                      font-size="24"
+                      text-anchor="middle"
+                     font-family="monospace">
+                      ac
+                    </text>
+                    <!-- ad -->
+                    <rect
+                      x="200"
+                      y="50"
+                      width="150"
+                      height="75"
+                      fill="rgba(173, 255, 47, 0.2)"
+                      stroke="#ADFF2F"
+                      stroke-width="1"
+                    />
+                    <text
+                      x="275"
+                      y="87"
+                      fill="#FFD700"
+                      font-size="24"
+                      text-anchor="middle"
+                     font-family="monospace">
+                      ad
+                    </text>
+                    <!-- bc -->
+                    <rect
+                      x="50"
+                      y="125"
+                      width="150"
+                      height="75"
+                      fill="rgba(173, 255, 47, 0.2)"
+                      stroke="#ADFF2F"
+                      stroke-width="1"
+                    />
+                    <text
+                      x="125"
+                      y="162"
+                      fill="#FFD700"
+                      font-size="24"
+                      text-anchor="middle"
+                     font-family="monospace">
+                      bc
+                    </text>
+                    <!-- bd -->
+                    <rect
+                      x="200"
+                      y="125"
+                      width="150"
+                      height="75"
+                      fill="rgba(173, 255, 47, 0.2)"
+                      stroke="#ADFF2F"
+                      stroke-width="1"
+                    />
+                    <text
+                      x="275"
+                      y="162"
+                      fill="#FFD700"
+                      font-size="24"
+                      text-anchor="middle"
+                     font-family="monospace">
+                      bd
+                    </text>
+                  </g>
+                  <!-- Barra vertical com tics para (a+b) -->
+                  <line
+                    x1="20"
+                    y1="50"
+                    x2="20"
+                    y2="200"
+                    stroke="#FFD700"
+                    stroke-width="3"
+                  />
+                  <line
+                    x1="15"
+                    y1="50"
+                    x2="25"
+                    y2="50"
+                    stroke="#FFD700"
+                    stroke-width="3"
+                  />
+                  <line
+                    x1="15"
+                    y1="125"
+                    x2="25"
+                    y2="125"
+                    stroke="#FFD700"
+                    stroke-width="3"
+                  />
+                  <line
+                    x1="15"
+                    y1="200"
+                    x2="25"
+                    y2="200"
+                    stroke="#FFD700"
+                    stroke-width="3"
+                  />
+                  <text x="35" y="87" fill="#FFD700" font-size="18" font-family="monospace">a</text>
+                  <text x="35" y="162" fill="#FFD700" font-size="18" font-family="monospace">b</text>
+                  <!-- Barra horizontal com tics para (c+d) -->
+                  <line
+                    x1="50"
+                    y1="220"
+                    x2="350"
+                    y2="220"
+                    stroke="#FFD700"
+                    stroke-width="3"
+                  />
+                  <line
+                    x1="50"
+                    y1="215"
+                    x2="50"
+                    y2="225"
+                    stroke="#FFD700"
+                    stroke-width="3"
+                  />
+                  <line
+                    x1="200"
+                    y1="215"
+                    x2="200"
+                    y2="225"
+                    stroke="#FFD700"
+                    stroke-width="3"
+                  />
+                  <line
+                    x1="350"
+                    y1="215"
+                    x2="350"
+                    y2="225"
+                    stroke="#FFD700"
+                    stroke-width="3"
+                  />
+                  <text
+                    x="125"
+                    y="240"
+                    fill="#FFD700"
+                    font-size="18"
+                    text-anchor="middle"
+                   font-family="monospace">
+                    c
+                  </text>
+                  <text
+                    x="275"
+                    y="240"
+                    fill="#FFD700"
+                    font-size="18"
+                    text-anchor="middle"
+                   font-family="monospace">
+                    d
+                  </text>
+                </g>
+              </svg>

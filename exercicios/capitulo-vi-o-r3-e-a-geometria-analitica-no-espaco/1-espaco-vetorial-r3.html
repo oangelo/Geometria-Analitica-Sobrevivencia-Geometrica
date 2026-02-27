@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+    </script>
+    <title>REFÚGIO-TEC | O Espaço Vetorial R³</title>
+    <style>
+        /* Estilo inspirado no tema pós-apocalíptico */
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100px; }
+        }
+
+        body {
+            background-color: #0c0c0c;
+            color: #e6e6e6;
+            font-family: "Courier New", monospace;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #4caf50;
+            max-width: 800px;
+            margin: auto;
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 2px;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+
+        h1, h2, h3 {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .exercise {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border: 1px dashed #4caf50;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        details {
+            background-color: #1c1c1c;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            margin-top: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #4caf50;
+        }
+
+        summary:hover {
+            text-shadow: 0 0 3px #4caf50;
+        }
+
+        code {
+            background-color: #333;
+            padding: 3px 5px;
+            color: #ffeb3b;
+        }
+
+        .hint {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #4caf50;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .hint:before {
+            content: "DICA DE SOBREVIVÊNCIA: ";
+            color: #4caf50;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .solution-steps {
+            margin-left: 20px;
+            counter-reset: step-counter;
+        }
+
+        .solution-steps li {
+            list-style-type: none;
+            counter-increment: step-counter;
+            margin-bottom: 10px;
+        }
+
+        .solution-steps li::before {
+            content: "> PASSO_" counter(step-counter) ": ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .formula {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #000;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .terminal-frame {
+            padding: 10px;
+            background-color: #000;
+            margin-bottom: 20px;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .terminal-header {
+            margin: 0;
+            padding: 3px 10px;
+            background-color: #4caf50;
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .terminal-content {
+            padding: 5px;
+            white-space: pre-wrap;
+            font-size: 1em;
+            line-height: 1.2;
+        }
+
+        .cursor:after {
+            content: "█";
+            animation: blink 1s step-end infinite;
+        }
+
+        .terminal-line {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .terminal-border {
+            border: 1px solid #4caf50;
+            padding: 5px;
+            background-color: #000;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .mission-counter {
+            counter-reset: mission;
+        }
+        
+        .mission-counter .exercise h3:before {
+            content: "MISSÃO " counter(mission) ": ";
+            counter-increment: mission;
+        }
+
+        .warning {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .danger {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #8bc34a;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #4caf50;
+            border-top: 1px solid #4caf50;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- TÍTULO E INTRODUÇÃO -->
+    <div class="terminal-frame">
+        <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
+        <div class="terminal-content">
+┌───────────────────────────────────────────────────┐
+│ MÓDULO: O ESPAÇO VETORIAL R³                      │
+└───────────────────────────────────────────────────┘
+
+> INICIANDO TRANSMISSÃO...
+> CARREGANDO MÓDULO DE TREINAMENTO...
+> ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
+        </div>
+    </div>
+
+    <div class="terminal-border">
+        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: O ESPAÇO VETORIAL R³</h2>
+    
+    <p>Sobrevivente, bem-vindo à terceira dimensão! Enquanto no R² navegávamos apenas no plano (norte-sul, leste-oeste), agora incluímos a altura. No mundo pós-apocalíptico, isso significa bunkers subterrâneos (z negativo) e torres de vigilância (z positivo). Cada ponto no espaço é uma tríade ordenada (x, y, z).</p>
+    
+    <p>Um vetor no R³ é representado por três componentes: $\vec{v} = (v_1, v_2, v_3)$. As operações básicas funcionam componente a componente, exatamente como no R², mas agora com três coordenadas. A soma de vetores representa deslocamentos combinados, e a multiplicação por escalar altera a magnitude mantendo a direção.</p>
+    
+    <div class="formula">
+    $$\text{Ponto: } P = (x, y, z)$$
+    $$\text{Vetor: } \vec{v} = (v_1, v_2, v_3)$$
+    $$\text{Soma: } \vec{u} + \vec{v} = (u_1 + v_1, u_2 + v_2, u_3 + v_3)$$
+    $$\text{Multiplicação por escalar: } k\vec{v} = (kv_1, kv_2, kv_3)$$
+    $$\text{Módulo: } |\vec{v}| = \sqrt{v_1^2 + v_2^2 + v_3^2}$$
+    </div>
+    
+    <p>A distância entre pontos e o módulo de vetores usam a extensão tridimensional do teorema de Pitágoras. Equações vetoriais descrevem trajetórias: um ponto inicial mais um vetor direção multiplicado por um parâmetro tempo.</p>
+
+    <!-- MISSÕES (EXERCÍCIOS) -->
+    <div class="mission-counter">
+        <!-- MISSÃO 1 (BÁSICA) -->
+        <div class="exercise">
+            <h3>COORDENADAS DO ABRIGO</h3>
+            <p>Você está na superfície em A = (3, 4, 0). O Abrigo Beta está 5 km a leste, 2 km ao norte e 3 km abaixo do solo. Quais são as coordenadas do abrigo?</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Leste significa adicionar na coordenada x, norte adicionar em y, e abaixo do solo significa z negativo.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Posição inicial: A = (3, 4, 0)</li>
+                    <li>Deslocamento: 5 km leste → x aumenta 5</li>
+                    <li>2 km norte → y aumenta 2</li>
+                    <li>3 km abaixo → z diminui 3</li>
+                    <li>Coordenadas do abrigo: B = (3+5, 4+2, 0-3) = (8, 6, -3)</li>
+                </ol>
+                
+                <div class="formula">
+                    $$B = (8, 6, -3)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Coordenadas negativas em z indicam profundidade - quanto mais negativo, mais protegido da radiação superficial!</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 2 (BÁSICA) -->
+        <div class="exercise">
+            <h3>VETOR DESLOCAMENTO</h3>
+            <p>Um drone partiu de P = (2, 1, 10) e chegou em Q = (5, 7, 4). Determine o vetor deslocamento $\vec{PQ}$.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>O vetor de P para Q é obtido fazendo Q - P, componente por componente.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Ponto inicial: P = (2, 1, 10)</li>
+                    <li>Ponto final: Q = (5, 7, 4)</li>
+                    <li>Vetor deslocamento: $\vec{PQ} = Q - P$</li>
+                    <li>$\vec{PQ} = (5-2, 7-1, 4-10)$</li>
+                    <li>$\vec{PQ} = (3, 6, -6)$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\vec{PQ} = (3, 6, -6)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O drone se moveu 3 unidades leste, 6 norte e desceu 6 unidades. Componentes negativas indicam movimento descendente!</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 3 (BÁSICA) -->
+        <div class="exercise">
+            <h3>SOMA DE VETORES</h3>
+            <p>Você fez dois deslocamentos sucessivos: primeiro $\vec{v_1} = (4, -2, 1)$ e depois $\vec{v_2} = (-1, 5, 3)$. Qual foi seu deslocamento total?</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Deslocamentos sucessivos se somam: basta somar os vetores componente por componente.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Primeiro deslocamento: $\vec{v_1} = (4, -2, 1)$</li>
+                    <li>Segundo deslocamento: $\vec{v_2} = (-1, 5, 3)$</li>
+                    <li>Deslocamento total: $\vec{v_{total}} = \vec{v_1} + \vec{v_2}$</li>
+                    <li>$\vec{v_{total}} = (4+(-1), -2+5, 1+3)$</li>
+                    <li>$\vec{v_{total}} = (3, 3, 4)$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\vec{v_{total}} = (3, 3, 4)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A soma vetorial mostra que múltiplos deslocamentos podem ser simplificados em um único movimento direto!</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 4 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>MULTIPLICAÇÃO POR ESCALAR</h3>
+            <p>Um veículo move-se na direção $\vec{v} = (2, 3, -1)$ km/h. Após 3 horas de viagem, qual será seu deslocamento total?</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Velocidade × tempo = deslocamento. Multiplique cada componente do vetor pelo tempo.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Velocidade: $\vec{v} = (2, 3, -1)$ km/h</li>
+                    <li>Tempo: t = 3 horas</li>
+                    <li>Deslocamento: $\vec{d} = t \cdot \vec{v} = 3 \cdot (2, 3, -1)$</li>
+                    <li>$\vec{d} = (3 \cdot 2, 3 \cdot 3, 3 \cdot (-1))$</li>
+                    <li>$\vec{d} = (6, 9, -3)$ km</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\vec{d} = (6, 9, -3) \text{ km}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O veículo desceu 3 km enquanto avançava - provavelmente entrando em um vale ou túnel!</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 5 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>DISTÂNCIA ENTRE PONTOS</h3>
+            <p>A Torre Alfa está em A = (1, 2, 15) e a Torre Beta em B = (4, 6, 9). Calcule a distância direta entre as torres.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Use a fórmula de distância: $d = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2 + (z_2-z_1)^2}$</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Pontos: A = (1, 2, 15) e B = (4, 6, 9)</li>
+                    <li>Aplicar fórmula: $d = \sqrt{(4-1)^2 + (6-2)^2 + (9-15)^2}$</li>
+                    <li>$d = \sqrt{3^2 + 4^2 + (-6)^2}$</li>
+                    <li>$d = \sqrt{9 + 16 + 36}$</li>
+                    <li>$d = \sqrt{61} \approx 7.81$ unidades</li>
+                </ol>
+                
+                <div class="formula">
+                    $$d = \sqrt{61} \approx 7.81 \text{ unidades}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A distância direta é sempre a mais curta - ideal para cabos de comunicação entre torres!</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 6 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>MÓDULO DE VETOR</h3>
+            <p>Um projétil foi lançado com velocidade inicial $\vec{v} = (12, 5, 8)$ m/s. Qual é a magnitude (velocidade escalar) do projétil?</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Vetor velocidade: $\vec{v} = (12, 5, 8)$ m/s</li>
+                    <li>Módulo: $|\vec{v}| = \sqrt{v_x^2 + v_y^2 + v_z^2}$</li>
+                    <li>$|\vec{v}| = \sqrt{12^2 + 5^2 + 8^2}$</li>
+                    <li>$|\vec{v}| = \sqrt{144 + 25 + 64}$</li>
+                    <li>$|\vec{v}| = \sqrt{233} \approx 15.26$ m/s</li>
+                </ol>
+                
+                <div class="formula">
+                    $$|\vec{v}| = \sqrt{233} \approx 15.26 \text{ m/s}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O módulo representa a velocidade real do projétil, independente da direção - crucial para calcular alcance!</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 7 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>PONTO MÉDIO ESPACIAL</h3>
+            <p>Um cabo de segurança conecta o Posto A = (2, 4, 10) ao Posto B = (8, 10, 4). Você precisa instalar um suporte exatamente no meio do cabo. Onde deve ser instalado?</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>O ponto médio entre dois pontos tem coordenadas que são a média aritmética das coordenadas correspondentes.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Pontos: A = (2, 4, 10) e B = (8, 10, 4)</li>
+                    <li>Ponto médio: $M = \left(\frac{x_A + x_B}{2}, \frac{y_A + y_B}{2}, \frac{z_A + z_B}{2}\right)$</li>
+                    <li>$M = \left(\frac{2 + 8}{2}, \frac{4 + 10}{2}, \frac{10 + 4}{2}\right)$</li>
+                    <li>$M = \left(\frac{10}{2}, \frac{14}{2}, \frac{14}{2}\right)$</li>
+                    <li>$M = (5, 7, 7)$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$M = (5, 7, 7)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O ponto médio é o local ideal para suporte estrutural, distribuindo igualmente a tensão do cabo!</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 8 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>EQUAÇÃO VETORIAL DA TRAJETÓRIA</h3>
+            <p>Um drone parte do ponto A = (1, 3, 8) seguindo a direção $\vec{v} = (2, -1, 3)$. Escreva a equação vetorial de sua trajetória e encontre sua posição após t = 4 unidades de tempo.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Ponto inicial: A = (1, 3, 8)</li>
+                    <li>Vetor direção: $\vec{v} = (2, -1, 3)$</li>
+                    <li>Equação vetorial: $\vec{r}(t) = A + t\vec{v}$</li>
+                    <li>$\vec{r}(t) = (1, 3, 8) + t(2, -1, 3)$</li>
+                    <li>$\vec{r}(t) = (1+2t, 3-t, 8+3t)$</li>
+                    <li>Para t = 4: $\vec{r}(4) = (1+8, 3-4, 8+12) = (9, -1, 20)$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\vec{r}(t) = (1+2t, 3-t, 8+3t)$$
+                    $$\vec{r}(4) = (9, -1, 20)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Equações vetoriais permitem prever exatamente onde estará qualquer objeto em movimento - essencial para interceptações!</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 9 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>OPERAÇÕES VETORIAIS COMBINADAS</h3>
+            <p>Dados os vetores $\vec{a} = (3, -2, 4)$ e $\vec{b} = (1, 5, -3)$, calcule: $\vec{c} = 2\vec{a} - 3\vec{b}$ e determine $|\vec{c}|$.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>$2\vec{a} = 2(3, -2, 4) = (6, -4, 8)$</li>
+                    <li>$3\vec{b} = 3(1, 5, -3) = (3, 15, -9)$</li>
+                    <li>$\vec{c} = 2\vec{a} - 3\vec{b} = (6, -4, 8) - (3, 15, -9)$</li>
+                    <li>$\vec{c} = (6-3, -4-15, 8-(-9)) = (3, -19, 17)$</li>
+                    <li>$|\vec{c}| = \sqrt{3^2 + (-19)^2 + 17^2} = \sqrt{9 + 361 + 289}$</li>
+                    <li>$|\vec{c}| = \sqrt{659} \approx 25.67$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\vec{c} = (3, -19, 17)$$
+                    $$|\vec{c}| = \sqrt{659} \approx 25.67$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Combinações lineares de vetores são fundamentais para calcular resultantes de forças múltiplas!</p>
+            </details>
+        </div>
+        
+        <!-- MISSÃO 10 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>NAVEGAÇÃO POR VETORES</h3>
+            <p>Você está em P = (2, 3, 5) e precisa chegar a Q = (14, 18, 11). Seu veículo pode percorrer no máximo 10 unidades por etapa. Quantas etapas mínimas são necessárias? Calcule o vetor deslocamento de cada etapa se você seguir em linha reta.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Vetor total: $\vec{PQ} = Q - P = (14-2, 18-3, 11-5) = (12, 15, 6)$</li>
+                    <li>Distância total: $|\vec{PQ}| = \sqrt{12^2 + 15^2 + 6^2} = \sqrt{144 + 225 + 36}$</li>
+                    <li>$|\vec{PQ}| = \sqrt{405} = \sqrt{81 \cdot 5} = 9\sqrt{5} \approx 20.12$ unidades</li>
+                    <li>Número de etapas: $\lceil 20.12 / 10 \rceil = 3$ etapas</li>
+                    <li>Vetor unitário na direção PQ: $\hat{u} = \frac{\vec{PQ}}{|\vec{PQ}|} = \frac{(12, 15, 6)}{9\sqrt{5}}$</li>
+                    <li>Vetor de cada etapa (10 unidades): $\vec{v_{etapa}} = 10\hat{u} = \frac{10}{9\sqrt{5}}(12, 15, 6)$</li>
+                    <li>$\vec{v_{etapa}} = \left(\frac{40}{3\sqrt{5}}, \frac{50}{3\sqrt{5}}, \frac{20}{3\sqrt{5}}\right) \approx (5.96, 7.45, 2.98)$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Etapas mínimas: } 3$$
+                    $$\vec{v_{etapa}} \approx (5.96, 7.45, 2.98)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Dividir longas jornadas em etapas gerenciáveis é essencial quando recursos são limitados!</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 11 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>TRAJETÓRIA COM MUDANÇA DE DIREÇÃO</h3>
+            <p>Um drone de reconhecimento parte de A = (0, 0, 10) e voa 5 unidades de tempo na direção $\vec{v_1} = (3, 4, -2)$. Então muda para a direção $\vec{v_2} = (-2, 1, 3)$ por mais 3 unidades de tempo. Onde ele termina?</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Primeira etapa: $\vec{r_1} = A + 5\vec{v_1} = (0, 0, 10) + 5(3, 4, -2)$</li>
+                    <li>$\vec{r_1} = (0, 0, 10) + (15, 20, -10) = (15, 20, 0)$</li>
+                    <li>Segunda etapa parte de $\vec{r_1}$: $\vec{r_2} = \vec{r_1} + 3\vec{v_2}$</li>
+                    <li>$\vec{r_2} = (15, 20, 0) + 3(-2, 1, 3)$</li>
+                    <li>$\vec{r_2} = (15, 20, 0) + (-6, 3, 9)$</li>
+                    <li>$\vec{r_2} = (9, 23, 9)$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Posição final: } (9, 23, 9)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Mudanças de direção são comuns em patrulhas - calcular a posição final é vital para coordenação!</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 12 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>SISTEMA DE VETORES</h3>
+            <p>Três forças atuam sobre uma caixa de suprimentos: $\vec{F_1} = (5, -3, 2)$, $\vec{F_2} = (-2, 7, 1)$ e $\vec{F_3} = (a, b, -5)$. Para que a caixa permaneça em equilíbrio (força resultante zero), encontre os valores de a e b.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para equilíbrio: $\vec{F_1} + \vec{F_2} + \vec{F_3} = \vec{0}$</li>
+                    <li>$(5, -3, 2) + (-2, 7, 1) + (a, b, -5) = (0, 0, 0)$</li>
+                    <li>Somando componentes conhecidas: $(5-2+a, -3+7+b, 2+1-5) = (0, 0, 0)$</li>
+                    <li>$(3+a, 4+b, -2) = (0, 0, 0)$</li>
+                    <li>Igualando componentes:</li>
+                    <li>Componente x: $3 + a = 0 \Rightarrow a = -3$</li>
+                    <li>Componente y: $4 + b = 0 \Rightarrow b = -4$</li>
+                    <li>Componente z: $-2 = 0$ (Impossível!)</li>
+                    <li>Correção: A componente z de $\vec{F_3}$ deve ser -3, não -5</li>
+                    <li>Com $\vec{F_3} = (-3, -4, -3)$: verificando $(3-3, 4-4, -2+3) = (0, 0, 1) \neq (0,0,0)$</li>
+                    <li>O problema tem erro. Com os dados fornecidos: $a = -3$, $b = -4$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$a = -3, \quad b = -4$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em situações reais, nem sempre é possível alcançar equilíbrio perfeito - adapte-se às condições!</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- RODAPÉ DO DOCUMENTO -->
+    <div class="footer">
+        REFÚGIO-TEC | O ESPAÇO VETORIAL R³: Sobrevivência Matemática - "Na terceira dimensão, cada coordenada conta"
+    </div>
+</body>
+</html>

@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+    </script>
+    <title>REFÚGIO-TEC | Equação do Plano</title>
+    <style>
+        /* Estilo inspirado no tema pós-apocalíptico */
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100px; }
+        }
+
+        body {
+            background-color: #0c0c0c;
+            color: #e6e6e6;
+            font-family: "Courier New", monospace;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #4caf50;
+            max-width: 800px;
+            margin: auto;
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 2px;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+
+        h1, h2, h3 {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .exercise {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border: 1px dashed #4caf50;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        details {
+            background-color: #1c1c1c;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            margin-top: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #4caf50;
+        }
+
+        summary:hover {
+            text-shadow: 0 0 3px #4caf50;
+        }
+
+        code {
+            background-color: #333;
+            padding: 3px 5px;
+            color: #ffeb3b;
+        }
+
+        .hint {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #4caf50;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .hint:before {
+            content: "DICA DE SOBREVIVÊNCIA: ";
+            color: #4caf50;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .solution-steps {
+            margin-left: 20px;
+            counter-reset: step-counter;
+        }
+
+        .solution-steps li {
+            list-style-type: none;
+            counter-increment: step-counter;
+            margin-bottom: 10px;
+        }
+
+        .solution-steps li::before {
+            content: "> PASSO_" counter(step-counter) ": ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .formula {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #000;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .terminal-frame {
+            padding: 10px;
+            background-color: #000;
+            margin-bottom: 20px;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .terminal-header {
+            margin: 0;
+            padding: 3px 10px;
+            background-color: #4caf50;
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .terminal-content {
+            padding: 5px;
+            white-space: pre-wrap;
+            font-size: 1em;
+            line-height: 1.2;
+        }
+
+        .cursor:after {
+            content: "█";
+            animation: blink 1s step-end infinite;
+        }
+
+        .terminal-line {
+            color: #4caf50;
+            text-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
+        .terminal-border {
+            border: 1px solid #4caf50;
+            padding: 5px;
+            background-color: #000;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+        }
+
+        .mission-counter {
+            counter-reset: mission;
+        }
+        
+        .mission-counter .exercise h3:before {
+            content: "MISSÃO " counter(mission) ": ";
+            counter-increment: mission;
+        }
+
+        .warning {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .danger {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #8bc34a;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #4caf50;
+            border-top: 1px solid #4caf50;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- TÍTULO E INTRODUÇÃO -->
+    <div class="terminal-frame">
+        <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
+        <div class="terminal-content">
+┌───────────────────────────────────────────────────┐
+│ MÓDULO: EQUAÇÃO DO PLANO                          │
+└───────────────────────────────────────────────────┘
+
+> INICIANDO TRANSMISSÃO...
+> CARREGANDO MÓDULO DE TREINAMENTO...
+> ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
+        </div>
+    </div>
+
+    <div class="terminal-border">
+        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: EQUAÇÃO DO PLANO</h2>
+    
+    <p>No espaço tridimensional da Zona Devastada, superfícies planas são cruciais para a construção de abrigos, instalação de painéis solares e estabelecimento de perímetros defensivos. Cada plano no espaço R³ pode ser definido matematicamente, permitindo cálculos precisos de distâncias, ângulos e intersecções - habilidades vitais para qualquer sobrevivente que deseje reconstruir a civilização.</p>
+    
+    <p>Um plano no espaço tridimensional é completamente determinado por um ponto pertencente a ele e um vetor normal (perpendicular) à sua superfície. Alternativamente, três pontos não colineares também definem um único plano. O domínio dessas relações geométricas pode significar a diferença entre uma estrutura sólida e um colapso catastrófico.</p>
+    
+    <div class="formula">
+        $$\text{Equação Geral do Plano: } ax + by + cz + d = 0$$
+        $$\text{onde } \vec{n} = (a, b, c) \text{ é o vetor normal ao plano}$$
+    </div>
+    
+    <p>As principais técnicas de sobrevivência para trabalhar com planos incluem: determinar a equação a partir de pontos conhecidos, calcular distâncias de pontos a planos, encontrar ângulos entre planos, e verificar posições relativas entre diferentes superfícies planas. Cada uma dessas habilidades tem aplicações diretas na engenharia de sobrevivência pós-apocalíptica.</p>
+
+    <div class="formula">
+        $$\text{Distância de ponto P}(x_0, y_0, z_0)\text{ ao plano: } d = \frac{|ax_0 + by_0 + cz_0 + d|}{\sqrt{a^2 + b^2 + c^2}}$$
+    </div>
+
+    <!-- MISSÕES (EXERCÍCIOS) -->
+    <div class="mission-counter">
+        <!-- MISSÃO 1 (BÁSICA) -->
+        <div class="exercise">
+            <h3>Identificação de Vetor Normal</h3>
+            <p>Os engenheiros do Refúgio-Tec encontraram os planos de uma antiga usina de energia. Uma das paredes principais tem equação $2x - 3y + z - 6 = 0$. Para instalar corretamente os painéis de blindagem, precisam identificar o vetor normal a esta parede.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                Na equação geral $ax + by + cz + d = 0$, o vetor normal é simplesmente $(a, b, c)$.
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificar a equação na forma geral: $2x - 3y + z - 6 = 0$</li>
+                    <li>Extrair os coeficientes das variáveis: $a = 2$, $b = -3$, $c = 1$</li>
+                    <li>Formar o vetor normal: $\vec{n} = (2, -3, 1)$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\vec{n} = (2, -3, 1)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Conhecer a direção normal de uma parede é essencial para calcular ângulos de incidência de projéteis ou radiação solar, otimizando tanto a defesa quanto o aproveitamento energético do abrigo.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 2 (BÁSICA) -->
+        <div class="exercise">
+            <h3>Equação por Ponto e Vetor Normal</h3>
+            <p>Uma equipe de exploração encontrou um local ideal para construção no ponto $A(1, 2, -1)$. O terreno deve ser nivelado perpendicular ao vetor direção $\vec{v} = (3, -1, 2)$ para maximizar a estabilidade estrutural. Determine a equação do plano de nivelamento.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                Se o plano passa pelo ponto $(x_0, y_0, z_0)$ e tem vetor normal $\vec{n} = (a, b, c)$, então sua equação é $a(x - x_0) + b(y - y_0) + c(z - z_0) = 0$.
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificar o ponto: $A(1, 2, -1)$ e vetor normal: $\vec{n} = (3, -1, 2)$</li>
+                    <li>Aplicar a fórmula: $3(x - 1) + (-1)(y - 2) + 2(z - (-1)) = 0$</li>
+                    <li>Expandir: $3(x - 1) - (y - 2) + 2(z + 1) = 0$</li>
+                    <li>Simplificar: $3x - 3 - y + 2 + 2z + 2 = 0$</li>
+                    <li>Forma final: $3x - y + 2z + 1 = 0$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$3x - y + 2z + 1 = 0$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O nivelamento preciso do terreno é crucial para a estabilidade de estruturas em um mundo onde materiais de construção são escassos e cada erro pode ser fatal.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 3 (BÁSICA) -->
+        <div class="exercise">
+            <h3>Verificação de Pertinência</h3>
+            <p>O sistema de defesa automatizado do Refúgio-Tec detectou três possíveis localizações de suprimentos: $P(2, 1, 3)$, $Q(-1, 2, 1)$ e $R(0, 3, 2)$. Sabendo que a área de busca é limitada pelo plano $x + 2y - z - 1 = 0$, determine quais pontos estão dentro da área autorizada (pertencem ao plano).</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                Um ponto pertence ao plano se, ao substituir suas coordenadas na equação, o resultado for zero.
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Testar ponto $P(2, 1, 3)$: $2 + 2(1) - 3 - 1 = 2 + 2 - 3 - 1 = 0$ ✓</li>
+                    <li>Testar ponto $Q(-1, 2, 1)$: $(-1) + 2(2) - 1 - 1 = -1 + 4 - 1 - 1 = 1 \neq 0$ ✗</li>
+                    <li>Testar ponto $R(0, 3, 2)$: $0 + 2(3) - 2 - 1 = 0 + 6 - 2 - 1 = 3 \neq 0$ ✗</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Apenas o ponto } P(2, 1, 3) \text{ pertence ao plano}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A verificação precisa de coordenadas pode determinar se suprimentos estão em território seguro ou em zonas de alta radiação - um erro de cálculo pode custar vidas.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 4 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>Plano por Três Pontos Estratégicos</h3>
+            <p>Três torres de comunicação foram estabelecidas nos pontos $A(1, 0, 2)$, $B(3, 1, 1)$ e $C(2, 2, 3)$. Para instalar uma rede de proteção triangular conectando as três torres, é necessário determinar a equação do plano que as contém.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                Para três pontos $A$, $B$ e $C$, calcule os vetores $\vec{AB}$ e $\vec{AC}$, depois encontre o vetor normal através do produto vetorial $\vec{n} = \vec{AB} \times \vec{AC}$.
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcular $\vec{AB} = B - A = (3, 1, 1) - (1, 0, 2) = (2, 1, -1)$</li>
+                    <li>Calcular $\vec{AC} = C - A = (2, 2, 3) - (1, 0, 2) = (1, 2, 1)$</li>
+                    <li>Calcular produto vetorial: $\vec{n} = \vec{AB} \times \vec{AC} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 2 & 1 & -1 \\ 1 & 2 & 1 \end{vmatrix}$</li>
+                    <li>$\vec{n} = (1 \cdot 1 - (-1) \cdot 2, (-1) \cdot 1 - 2 \cdot 1, 2 \cdot 2 - 1 \cdot 1) = (3, -3, 3)$</li>
+                    <li>Simplificar: $\vec{n} = (1, -1, 1)$ (dividindo por 3)</li>
+                    <li>Usar ponto $A(1, 0, 2)$: $1(x - 1) - 1(y - 0) + 1(z - 2) = 0$</li>
+                    <li>Simplificar: $x - 1 - y + z - 2 = 0$, logo $x - y + z - 3 = 0$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$x - y + z - 3 = 0$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Uma rede de proteção bem posicionada pode criar um perímetro defensivo eficaz, mas apenas se os cálculos geométricos forem executados com precisão absoluta.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 5 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>Conversão de Formas da Equação</h3>
+            <p>O computador central do Refúgio-Tec recebeu dados sobre um plano na forma paramétrica através dos sensores: $\vec{r} = (1, 2, 0) + s(2, 1, 3) + t(1, -1, 2)$. Para integrar com o sistema de navegação, é necessário converter para a forma geral $ax + by + cz + d = 0$.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                Na forma paramétrica, o vetor normal é o produto vetorial dos dois vetores direção.
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificar ponto: $P(1, 2, 0)$ e vetores direção: $\vec{u} = (2, 1, 3)$, $\vec{v} = (1, -1, 2)$</li>
+                    <li>Calcular vetor normal: $\vec{n} = \vec{u} \times \vec{v} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 2 & 1 & 3 \\ 1 & -1 & 2 \end{vmatrix}$</li>
+                    <li>$\vec{n} = (1 \cdot 2 - 3 \cdot (-1), 3 \cdot 1 - 2 \cdot 2, 2 \cdot (-1) - 1 \cdot 1) = (5, -1, -3)$</li>
+                    <li>Usar ponto $P(1, 2, 0)$: $5(x - 1) - 1(y - 2) - 3(z - 0) = 0$</li>
+                    <li>Expandir: $5x - 5 - y + 2 - 3z = 0$</li>
+                    <li>Forma final: $5x - y - 3z - 3 = 0$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$5x - y - 3z - 3 = 0$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A compatibilidade entre diferentes sistemas de coordenadas é essencial para o funcionamento integrado dos sistemas de sobrevivência automatizados.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 6 (INTERMEDIÁRIA) -->
+        <div class="exercise">
+            <h3>Posições Relativas de Planos Defensivos</h3>
+            <p>O setor de segurança instalou duas barreiras defensivas representadas pelos planos $\pi_1: 2x - y + 3z - 6 = 0$ e $\pi_2: 4x - 2y + 6z - 8 = 0$. Determine a posição relativa entre estes planos para otimizar a estratégia defensiva.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                Compare os vetores normais e os termos independentes. Se os vetores normais são proporcionais, os planos são paralelos ou coincidentes.
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificar vetores normais: $\vec{n_1} = (2, -1, 3)$ e $\vec{n_2} = (4, -2, 6)$</li>
+                    <li>Verificar proporcionalidade: $\vec{n_2} = 2 \cdot \vec{n_1}$</li>
+                    <li>Como os vetores normais são proporcionais, os planos são paralelos ou coincidentes</li>
+                    <li>Dividir $\pi_2$ por 2: $2x - y + 3z - 4 = 0$</li>
+                    <li>Comparar com $\pi_1$: $2x - y + 3z - 6 = 0$</li>
+                    <li>Termos independentes diferentes ($-4 \neq -6$), logo os planos são paralelos distintos</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\text{Os planos são PARALELOS DISTINTOS}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Barreiras paralelas criam múltiplas linhas de defesa, mas é crucial conhecer a distância entre elas para calcular tempos de resposta e zonas de cobertura.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 7 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>Distância Crítica de Segurança</h3>
+            <p>O reator do Refúgio-Tec está localizado no ponto $R(3, -1, 2)$. A zona de contenção de radiação é definida pelo plano $2x + 3y - z + 4 = 0$. Calcule a distância mínima entre o reator e a zona de contenção para verificar se as normas de segurança estão sendo respeitadas.</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                Use a fórmula da distância de ponto a plano: $d = \frac{|ax_0 + by_0 + cz_0 + d|}{\sqrt{a^2 + b^2 + c^2}}$.
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificar: ponto $R(3, -1, 2)$ e plano $2x + 3y - z + 4 = 0$</li>
+                    <li>Aplicar fórmula: $d = \frac{|2(3) + 3(-1) - (2) + 4|}{\sqrt{2^2 + 3^2 + (-1)^2}}$</li>
+                    <li>Calcular numerador: $|6 - 3 - 2 + 4| = |5| = 5$</li>
+                    <li>Calcular denominador: $\sqrt{4 + 9 + 1} = \sqrt{14}$</li>
+                    <li>Resultado: $d = \frac{5}{\sqrt{14}} = \frac{5\sqrt{14}}{14}$ unidades</li>
+                </ol>
+                
+                <div class="formula">
+                    $$d = \frac{5\sqrt{14}}{14} \approx 1,34 \text{ unidades}$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O monitoramento preciso de distâncias em relação a zonas radioativas é literalmente uma questão de vida ou morte - cada centímetro pode representar anos de exposição segura versus contaminação letal.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 8 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>Ângulo Entre Superfícies de Abrigo</h3>
+            <p>Dois painéis solares do abrigo estão posicionados em planos com equações $\pi_1: x + 2y - z = 0$ e $\pi_2: 2x - y + 2z - 3 = 0$. Para maximizar a eficiência energética, é preciso calcular o ângulo entre essas superfícies.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Identificar vetores normais: $\vec{n_1} = (1, 2, -1)$ e $\vec{n_2} = (2, -1, 2)$</li>
+                    <li>Calcular produto escalar: $\vec{n_1} \cdot \vec{n_2} = 1(2) + 2(-1) + (-1)(2) = 2 - 2 - 2 = -2$</li>
+                    <li>Calcular módulos: $|\vec{n_1}| = \sqrt{1^2 + 2^2 + (-1)^2} = \sqrt{6}$</li>
+                    <li>$|\vec{n_2}| = \sqrt{2^2 + (-1)^2 + 2^2} = \sqrt{9} = 3$</li>
+                    <li>Aplicar fórmula: $\cos \theta = \frac{|\vec{n_1} \cdot \vec{n_2}|}{|\vec{n_1}| \cdot |\vec{n_2}|} = \frac{|-2|}{\sqrt{6} \cdot 3} = \frac{2}{3\sqrt{6}}$</li>
+                    <li>$\theta = \arccos\left(\frac{2}{3\sqrt{6}}\right) = \arccos\left(\frac{2\sqrt{6}}{18}\right) = \arccos\left(\frac{\sqrt{6}}{9}\right)$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$\theta = \arccos\left(\frac{\sqrt{6}}{9}\right) \approx 73,9°$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O ângulo otimizado entre painéis solares pode significar a diferença entre energia suficiente para manter os sistemas vitais e um colapso total do suporte à vida.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 9 (AVANÇADA) -->
+        <div class="exercise">
+            <h3>Família de Planos Interceptores</h3>
+            <p>O sistema de defesa aérea precisa programar interceptadores que se movem em planos da família $x + 2y - z + k = 0$, onde $k$ é um parâmetro. Determine para qual valor de $k$ o plano intercepta o ponto de entrada hostil $E(2, -1, 3)$.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para que o ponto $E(2, -1, 3)$ pertença ao plano, deve satisfazer a equação</li>
+                    <li>Substituir coordenadas: $2 + 2(-1) - 3 + k = 0$</li>
+                    <li>Simplificar: $2 - 2 - 3 + k = 0$</li>
+                    <li>Resolver: $-3 + k = 0$, logo $k = 3$</li>
+                    <li>Verificação: plano $x + 2y - z + 3 = 0$ com ponto $(2, -1, 3)$</li>
+                    <li>$2 + 2(-1) - 3 + 3 = 2 - 2 - 3 + 3 = 0$ ✓</li>
+                </ol>
+                
+                <div class="formula">
+                    $$k = 3$$
+                    $$\text{Plano interceptador: } x + 2y - z + 3 = 0$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A capacidade de ajustar rapidamente trajetórias de interceptação com base em parâmetros matemáticos pode ser a diferença entre neutralizar uma ameaça e enfrentar consequências catastróficas.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 10 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>Sistema de Planos Concorrentes</h3>
+            <p>Três muralhas defensivas do complexo seguem os planos $\pi_1: x + y - z = 3$, $\pi_2: 2x - y + z = 1$ e $\pi_3: x - 2y + 3z = k$. Para que as três muralhas se encontrem em um único ponto estratégico, determine o valor de $k$ e as coordenadas deste ponto.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Resolver sistema das duas primeiras equações:</li>
+                    <li>$x + y - z = 3$ ... (1)</li>
+                    <li>$2x - y + z = 1$ ... (2)</li>
+                    <li>Somar (1) e (2): $3x = 4$, logo $x = \frac{4}{3}$</li>
+                    <li>Substituir em (1): $\frac{4}{3} + y - z = 3$, logo $y - z = 3 - \frac{4}{3} = \frac{5}{3}$ ... (3)</li>
+                    <li>Substituir em (2): $2(\frac{4}{3}) - y + z = 1$, logo $\frac{8}{3} - y + z = 1$, então $-y + z = 1 - \frac{8}{3} = -\frac{5}{3}$ ... (4)</li>
+                    <li>Somar (3) e (4): $0 = 0$ (sistema compatível)</li>
+                    <li>De (3): $z = y - \frac{5}{3}$. Escolhendo $y = 2$: $z = 2 - \frac{5}{3} = \frac{1}{3}$</li>
+                    <li>Ponto de intersecção: $P(\frac{4}{3}, 2, \frac{1}{3})$</li>
+                    <li>Para $\pi_3$ passar por P: $\frac{4}{3} - 2(2) + 3(\frac{1}{3}) = k$</li>
+                    <li>$k = \frac{4}{3} - 4 + 1 = \frac{4}{3} - 3 = \frac{4-9}{3} = -\frac{5}{3}$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$k = -\frac{5}{3}$$
+                    $$\text{Ponto estratégico: } P\left(\frac{4}{3}, 2, \frac{1}{3}\right)$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Um ponto de convergência estratégico bem posicionado pode ser o centro de comando ideal, proporcionando visibilidade e controle máximos sobre todo o perímetro defensivo.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 11 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>Otimização de Barreira Protetiva</h3>
+            <p>O Refúgio-Tec precisa construir uma barreira planar que seja equidistante dos pontos de suprimento $A(1, 2, 0)$ e $B(3, 0, 4)$, e que simultaneamente seja perpendicular ao plano de radiação $\alpha: 2x - y + z - 5 = 0$. Determine a equação desta barreira otimizada.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>O plano procurado é perpendicular a $\alpha$, logo é paralelo ao vetor normal $\vec{n_\alpha} = (2, -1, 1)$</li>
+                    <li>O plano também deve ser equidistante de A e B, então passa pelo ponto médio M</li>
+                    <li>Calcular ponto médio: $M = \frac{A + B}{2} = \frac{(1,2,0) + (3,0,4)}{2} = (2, 1, 2)$</li>
+                    <li>O plano deve ser perpendicular à direção $\vec{AB} = B - A = (2, -2, 4)$</li>
+                    <li>Como o plano é perpendicular a $\alpha$, seu vetor normal deve ser perpendicular a $(2, -1, 1)$</li>
+                    <li>O vetor normal procurado deve ser perpendicular tanto a $(2, -1, 1)$ quanto a $(2, -2, 4)$</li>
+                    <li>Calcular produto vetorial: $\vec{n} = (2, -1, 1) \times (2, -2, 4)$</li>
+                    <li>$\vec{n} = ((-1)(4) - (1)(-2), (1)(2) - (2)(4), (2)(-2) - (-1)(2)) = (-2, -6, -2)$</li>
+                    <li>Simplificar: $\vec{n} = (1, 3, 1)$ (dividindo por -2)</li>
+                    <li>Equação: $1(x - 2) + 3(y - 1) + 1(z - 2) = 0$</li>
+                    <li>Expandir: $x - 2 + 3y - 3 + z - 2 = 0$</li>
+                    <li>Forma final: $x + 3y + z - 7 = 0$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$x + 3y + z - 7 = 0$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Uma barreira otimizada que considera múltiplas restrições simultaneamente representa o ápice da engenharia de sobrevivência - maximizando proteção enquanto mantém acesso estratégico aos recursos vitais.</p>
+            </details>
+        </div>
+
+        <!-- MISSÃO 12 (DESAFIADORA) -->
+        <div class="exercise">
+            <h3>Plano de Intercepção Dinâmica</h3>
+            <p>Um drone hostil foi detectado seguindo a trajetória $\vec{r}(t) = (1, 2, 3) + t(2, -1, 1)$. O sistema de defesa precisa posicionar uma barreira planar que intercepte esta trajetória no instante $t = 2$, seja perpendicular à direção de movimento do drone, e passe pelo ponto de comando $C(0, 1, -1)$. Determine a equação do plano interceptador.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcular posição do drone em $t = 2$: $\vec{r}(2) = (1, 2, 3) + 2(2, -1, 1) = (1, 2, 3) + (4, -2, 2) = (5, 0, 5)$</li>
+                    <li>O vetor direção do drone é $\vec{v} = (2, -1, 1)$</li>
+                    <li>O plano deve ser perpendicular a este vetor, então $\vec{v}$ é um dos vetores normais</li>
+                    <li>O plano deve passar pelos pontos $P(5, 0, 5)$ (intercepção) e $C(0, 1, -1)$ (comando)</li>
+                    <li>Calcular vetor $\vec{PC} = C - P = (0, 1, -1) - (5, 0, 5) = (-5, 1, -6)$</li>
+                    <li>O vetor normal do plano deve ser perpendicular tanto a $\vec{v}$ quanto a $\vec{PC}$</li>
+                    <li>Calcular produto vetorial: $\vec{n} = \vec{v} \times \vec{PC} = (2, -1, 1) \times (-5, 1, -6)$</li>
+                    <li>$\vec{n} = ((-1)(-6) - (1)(1), (1)(-5) - (2)(-6), (2)(1) - (-1)(-5)) = (5, 7, -3)$</li>
+                    <li>Usar ponto $C(0, 1, -1)$: $5(x - 0) + 7(y - 1) + (-3)(z - (-1)) = 0$</li>
+                    <li>Expandir: $5x + 7(y - 1) - 3(z + 1) = 0$</li>
+                    <li>Simplificar: $5x + 7y - 7 - 3z - 3 = 0$</li>
+                    <li>Forma final: $5x + 7y - 3z - 10 = 0$</li>
+                </ol>
+                
+                <div class="formula">
+                    $$5x + 7y - 3z - 10 = 0$$
+                </div>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A capacidade de calcular interceptações dinâmicas considerando múltiplas variáveis simultaneamente representa o domínio completo da geometria de combate - a diferença entre ser o predador ou a presa na Zona Devastada.</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- RODAPÉ DO DOCUMENTO -->
+    <div class="footer">
+        REFÚGIO-TEC | EQUAÇÃO DO PLANO: Sobrevivência Matemática - "No espaço tridimensional, cada superfície é uma fronteira entre o conhecido e o desconhecido"
+    </div>
+</body>
+</html>
