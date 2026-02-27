@@ -248,6 +248,20 @@ Para facilitar manutenção e contexto de edição, os arquivos de `exercicios/`
 
 Regra prática: não misturar parágrafos de teoria dentro do bloco de enunciados; e não inserir enunciados dentro do bloco de manual.
 
+### Fluxo didático de ajuda por exercício
+
+Quando o exercício tiver suporte ao aluno, usar dois níveis separados:
+
+1. **Dica de início (opcional):**
+   - em `<details class="hint-details">`
+   - com `<summary>DICA DE SOBREVIVÊNCIA</summary>`
+   - objetivo: destravar o começo sem revelar a resolução completa
+
+2. **Solução completa:**
+   - em outro `<details>` separado
+   - com `<summary>ACESSO NÍVEL: SUPERVISOR</summary>`
+   - objetivo: disponibilizar passo a passo completo
+
 ### Organização de arquivos (obrigatória)
 
 Cada tópico em `exercicios/` deve seguir o padrão segmentado:

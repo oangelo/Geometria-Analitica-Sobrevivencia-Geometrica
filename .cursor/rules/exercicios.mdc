@@ -31,8 +31,11 @@ Use o `exercicios/template.html` como base estrutural.
 ## Classes CSS obrigatórias
 - `mission-counter` — numeração automática das missões
 - `formula` — todas as fórmulas e variáveis matemáticas (MathJax)
-- `hint` — dicas, sempre iniciando com "DICA DE SOBREVIVÊNCIA: " e posicionadas dentro de `<details>` (logo após o `<summary>`)
+- `hint` — dicas, sempre iniciando com "DICA DE SOBREVIVÊNCIA: ", dentro de um `<details class="hint-details">` próprio
 - `solution-steps` — passos da solução
+- Estrutura didática obrigatória quando houver dica:
+  1) `<details class="hint-details"><summary>DICA DE SOBREVIVÊNCIA</summary>...</details>`
+  2) `<details><summary>ACESSO NÍVEL: SUPERVISOR</summary>...solução...</details>`
 - Soluções dentro de `<details>` com título "ACESSO NÍVEL: SUPERVISOR"
 
 ## Notação (resumo — ver `ESTILO.md` para referência completa)
