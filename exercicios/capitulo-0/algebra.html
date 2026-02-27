@@ -218,336 +218,40 @@
         </div>
     </div>
 
-    <div class="terminal-border">
-        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: ÁLGEBRA BÁSICA</h2>
-    
-    <p>Bem-vindo, sobrevivente. Os recursos computacionais do REFÚGIO-TEC foram parcialmente restaurados para sua educação. As habilidades algébricas não são apenas exercícios abstratos — são ferramentas de sobrevivência. Estas missões treinarão sua mente para calcular rações, estimar radiação e planejar reconstruções.</p>
-    
-    <p>Na Zona Devastada, a álgebra é o que separa os vivos dos mortos. Quem domina a manipulação de símbolos controla os recursos, prevê comportamentos e otimiza sistemas limitados.</p>
-    
-    <p>As ferramentas algébricas que você dominará incluem a propriedade distributiva, manipulação de potências e produtos notáveis. Lembre-se: cálculos imprecisos resultam em estruturas que desabam e filtros que falham.</p>
-    
-    <div class="formula">
-    $$(a + b)^2 = a^2 + 2ab + b^2$$
-    $$(a - b)^2 = a^2 - 2ab + b^2$$
-    $$(a + b)(a - b) = a^2 - b^2$$
-    $$a^m \times a^n = a^{m+n}$$
-    $$a^m \div a^n = a^{m-n}$$
-    </div>
-    
-    <p>Domine estas propriedades e você sobreviverá onde outros falharão. Erros não são uma opção quando cada cálculo pode significar vida ou morte.</p>
+        <div id="manual-container"></div>
 
-    <!-- MISSÕES (EXERCÍCIOS) -->
-    <div class="mission-counter">
-        <!-- MISSÃO 1 (BÁSICA) -->
-        <div class="exercise">
-            <h3>Cálculo de Recursos</h3>
-            <p>O abrigo encontrou $3$ caixas seladas. Cada caixa contém $a$ latas de RemoveRad e $b$ pacotes de purificador de água. Expresse algebricamente o total de suprimentos encontrados, e simplifique usando a propriedade distributiva.</p>
-            
-            <div class="hint">
-                <p>Pense em como distribuir o número de caixas para cada tipo de item. Se há 3 caixas e cada uma tem "a" latas, quantas latas há no total?</p>
-            </div>
+    <div id="exercicios-container"></div>
 
-            <details>
-                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-                <ol class="solution-steps">
-                    <li>Identifique as quantidades envolvidas: 3 caixas, cada uma com $a$ latas e $b$ pacotes</li>
-                    <li>Como cada caixa contém $a$ latas, o total de latas é $3 \times a = 3a$</li>
-                    <li>Como cada caixa contém $b$ pacotes, o total de pacotes é $3 \times b = 3b$</li>
-                    <li>O total de suprimentos será a soma dos dois: $3a + 3b$</li>
-                    <li>Aplicando a propriedade distributiva ao contrário: $3a + 3b = 3(a + b)$</li>
-                </ol>
-                
-                <div class="formula">
-                    $$3a + 3b = 3(a + b)$$
-                </div>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> A propriedade distributiva permite calcular rapidamente recursos totais, essencial quando você precisa inventariar suprimentos sob pressão ou com luz limitada nas Zonas Devastadas.</p>
-            </details>
-        </div>
+    <script>
+    const PARTES_EXERCICIOS = {
+        manual: "algebra-manual.html",
+        enunciados: "algebra-enunciados.html"
+    };
 
-        <!-- MISSÃO 2 (BÁSICA) -->
-        <div class="exercise">
-            <h3>Distribuição de Rações</h3>
-            <p>O Refúgio deve distribuir suprimentos para dois postos avançados. O primeiro recebe $2x + 3y$ unidades e o segundo recebe $3x + 4y$ unidades. Simplifique a expressão que representa o total enviado, usando a propriedade distributiva para fatorar.</p>
-            
-            <div class="hint">
-                <p>Organize os termos para agrupar aqueles com a mesma variável. Depois, identifique fatores comuns.</p>
-            </div>
+    async function carregarParteExercicios(containerId, arquivo) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
 
-            <details>
-                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-                <ol class="solution-steps">
-                    <li>O total enviado é a soma do que foi para cada posto: $(2x + 3y) + (3x + 4y)$</li>
-                    <li>Agrupe os termos semelhantes: $2x + 3x + 3y + 4y$</li>
-                    <li>Combine os termos semelhantes: $5x + 7y$</li>
-                    <li>Outra forma de visualizar é verificar se há fatores comuns: $5x + 7y = x(5) + y(7)$</li>
-                    <li>Neste caso, não há fator comum para fatorar completamente</li>
-                </ol>
-                
-                <div class="formula">
-                    $$(2x + 3y) + (3x + 4y) = 5x + 7y$$
-                </div>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> Saber simplificar expressões algébricas ajuda a gerenciar recursos de forma eficiente - crucial quando cada erro de cálculo pode significar a diferença entre sobrevivência e escassez.</p>
-            </details>
-        </div>
+        try {
+            const resposta = await fetch(arquivo);
+            if (!resposta.ok) throw new Error(`Falha ao carregar ${arquivo}`);
+            container.innerHTML = await resposta.text();
+        } catch (erro) {
+            container.innerHTML = `<div class="terminal-border"><p class="danger">Erro ao carregar ${arquivo}.</p></div>`;
+            console.error(erro);
+        }
+    }
 
-        <!-- MISSÃO 3 (BÁSICA) -->
-        <div class="exercise">
-            <h3>Fortificação do Perímetro</h3>
-            <p>Para fortificar o perímetro, você precisa calcular $2(x + 3) - 4(2x - 1)$. Expanda usando a propriedade distributiva e simplifique a expressão. Este cálculo determinará a quantidade de materiais necessários.</p>
-            
-            <div class="hint">
-                <p>Aplique a propriedade distributiva para cada termo entre parênteses primeiro. Em seguida, combine os termos semelhantes.</p>
-            </div>
+    document.addEventListener('DOMContentLoaded', async () => {
+        await carregarParteExercicios('manual-container', PARTES_EXERCICIOS.manual);
+        await carregarParteExercicios('exercicios-container', PARTES_EXERCICIOS.enunciados);
 
-            <details>
-                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-                <ol class="solution-steps">
-                    <li>Aplique a propriedade distributiva ao primeiro termo: $2(x + 3) = 2x + 6$</li>
-                    <li>Aplique a propriedade distributiva ao segundo termo: $-4(2x - 1) = -8x + 4$</li>
-                    <li>Substitua na expressão original: $2(x + 3) - 4(2x - 1) = (2x + 6) + (-8x + 4)$</li>
-                    <li>Combine os termos: $2x + 6 - 8x + 4 = 2x - 8x + 6 + 4$</li>
-                    <li>Simplifique: $-6x + 10$</li>
-                </ol>
-                
-                <div class="formula">
-                    $$2(x + 3) - 4(2x - 1) = 2x + 6 - 8x + 4 = -6x + 10$$
-                </div>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> Um erro na aplicação da propriedade distributiva poderia resultar em uma defesa insuficiente. Mutantes e saqueadores exploram falhas de cálculo.</p>
-            </details>
-        </div>
-        
-        <!-- MISSÃO 4 (INTERMEDIÁRIA) -->
-        <div class="exercise">
-            <h3>Cálculo de Radiação Exponencial</h3>
-            <p>Os níveis de radiação em uma Zona Devastada diminuem segundo a expressão $R = R_0 \times 2^{-t/h}$, onde $R_0$ é a radiação inicial, $t$ é o tempo e $h$ é a meia-vida do isótopo. Calcule o valor de $(2^3 \times 2^2) \div 2^4$ para determinar o fator de redução após várias meias-vidas.</p>
-            
-            <div class="hint">
-                <p>Lembre-se das propriedades das potências: $a^m \times a^n = a^{m+n}$ e $a^m \div a^n = a^{m-n}$</p>
-            </div>
+        if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
+            await window.MathJax.typesetPromise();
+        }
+    });
+    </script>
 
-            <details>
-                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-                <ol class="solution-steps">
-                    <li>Aplique a propriedade da multiplicação de potências de mesma base: $2^3 \times 2^2 = 2^{3+2} = 2^5$</li>
-                    <li>Agora divida pelo denominador: $(2^5) \div 2^4 = 2^{5-4} = 2^1$</li>
-                    <li>Calcule o resultado final: $2^1 = 2$</li>
-                </ol>
-                
-                <div class="formula">
-                    $$(2^3 \times 2^2) \div 2^4 = 2^5 \div 2^4 = 2^{5-4} = 2^1 = 2$$
-                </div>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> Compreender as leis de potências é essencial para calcular decaimento radioativo. Um erro pode levar um grupo a entrar em uma zona letal acreditando estar segura. Os sobreviventes que dominam estes cálculos sobrevivem por mais tempo.</p>
-            </details>
-        </div>
-
-        <!-- MISSÃO 5 (INTERMEDIÁRIA) -->
-        <div class="exercise">
-            <h3>Expansão do Abrigo</h3>
-            <p>O abrigo está sendo expandido em formato cúbico. Se a aresta atual mede $x$ unidades, expresse o volume após a expansão para $(x + 2)^3$ unidades cúbicas. Desenvolva esta expressão.</p>
-            
-            <div class="hint">
-                <p>Lembre-se que $(a + b)^3 = a^3 + 3a^2b + 3ab^2 + b^3$</p>
-            </div>
-
-            <details>
-                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-                <ol class="solution-steps">
-                    <li>Aplique a fórmula do cubo de um binômio: $(a + b)^3 = a^3 + 3a^2b + 3ab^2 + b^3$</li>
-                    <li>Substitua $a = x$ e $b = 2$: $(x + 2)^3 = x^3 + 3x^2(2) + 3x(2)^2 + (2)^3$</li>
-                    <li>Simplifique: $(x + 2)^3 = x^3 + 6x^2 + 12x + 8$</li>
-                </ol>
-                
-                <div class="formula">
-                    $$(x + 2)^3 = x^3 + 6x^2 + 12x + 8$$
-                </div>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> Saber calcular volumes com precisão permite otimizar o espaço para armazenar suprimentos e abrigar sobreviventes. Um erro de cálculo pode significar que não haverá espaço suficiente para o gerador ou para o sistema de filtração de água.</p>
-            </details>
-        </div>
-
-        <!-- MISSÃO 6 (INTERMEDIÁRIA) -->
-        <div class="exercise">
-            <h3>Multiplicação de Potências com Bases Diferentes</h3>
-            <p>Para calibrar o sistema de purificação de água, você precisa calcular a expressão $(x^3y^2) \times (x^2y^4)$. Simplifique usando as propriedades das potências.</p>
-            
-            <div class="hint">
-                <p>Observe como você pode agrupar as variáveis com mesma base e somar seus expoentes.</p>
-            </div>
-
-            <details>
-                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-                <ol class="solution-steps">
-                    <li>Agrupe as variáveis com a mesma base: $(x^3y^2) \times (x^2y^4) = (x^3 \times x^2)(y^2 \times y^4)$</li>
-                    <li>Aplique a propriedade da multiplicação de potências de mesma base: $x^3 \times x^2 = x^{3+2} = x^5$</li>
-                    <li>Da mesma forma para $y$: $y^2 \times y^4 = y^{2+4} = y^6$</li>
-                    <li>Combine os resultados: $(x^3y^2) \times (x^2y^4) = x^5y^6$</li>
-                </ol>
-                
-                <div class="formula">
-                    $$(x^3y^2) \times (x^2y^4) = x^{3+2}y^{2+4} = x^5y^6$$
-                </div>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> A manipulação eficiente de expressões com potências permite calibrações rápidas de equipamentos em situações de emergência. Quando o sistema de filtração falha, cada segundo calculando é um segundo sem água potável.</p>
-            </details>
-        </div>
-
-        <!-- MISSÃO 7 (AVANÇADA) -->
-        <div class="exercise">
-            <h3>Área de Cultivo Seguro</h3>
-            <p>O perímetro de uma área retangular livre de radiação tem dimensões $(x + 5)$ por $(x - 2)$ unidades. Calcule a expressão para a área total e simplifique usando o produto notável.</p>
-            
-            <div class="hint">
-                <p>A área de um retângulo é o produto de seus lados.</p>
-            </div>
-
-            <details>
-                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-                <ol class="solution-steps">
-                    <li>A área do retângulo é o produto das dimensões: $A = (x + 5)(x - 2)$</li>
-                    <li>Use o produto notável $(a + b)(c + d) = ac + ad + bc + bd$</li>
-                    <li>Aplique substituindo os valores: $(x + 5)(x - 2) = x \cdot x + x \cdot (-2) + 5 \cdot x + 5 \cdot (-2)$</li>
-                    <li>Simplifique: $(x + 5)(x - 2) = x^2 - 2x + 5x - 10$</li>
-                    <li>Combine os termos semelhantes: $x^2 - 2x + 5x - 10 = x^2 + 3x - 10$</li>
-                </ol>
-                
-                <div class="formula">
-                    $$(x + 5)(x - 2) = x^2 - 2x + 5x - 10 = x^2 + 3x - 10$$
-                </div>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> Conhecer produtos notáveis permite calcular rapidamente áreas seguras para cultivo em zonas parcialmente contaminadas. A diferença entre colheita e fome pode ser um simples cálculo algébrico.</p>
-            </details>
-        </div>
-
-        <!-- MISSÃO 8 (AVANÇADA) -->
-        <div class="exercise">
-            <h3>Quadrado da Diferença</h3>
-            <p>Para reforçar uma estrutura circular de defesa, você precisa calcular $(x - 7)^2$. Desenvolva esta expressão usando o produto notável correspondente.</p>
-            
-            <div class="hint">
-                <p>Lembre-se da fórmula do quadrado da diferença.</p>
-            </div>
-
-            <details>
-                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-                <ol class="solution-steps">
-                    <li>Use a fórmula do quadrado da diferença: $(a - b)^2 = a^2 - 2ab + b^2$</li>
-                    <li>Substitua $a = x$ e $b = 7$: $(x - 7)^2 = x^2 - 2(x)(7) + 7^2$</li>
-                    <li>Calcule: $(x - 7)^2 = x^2 - 14x + 49$</li>
-                </ol>
-                
-                <div class="formula">
-                    $$(x - 7)^2 = x^2 - 14x + 49$$
-                </div>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> Os produtos notáveis economizam tempo precioso em cálculos de engenharia na Zona Devastada. Conhecer esses padrões pode ser a diferença entre uma estrutura que resiste a uma tempestade radioativa e uma que colapsa.</p>
-            </details>
-        </div>
-
-        <!-- MISSÃO 9 (AVANÇADA) -->
-        <div class="exercise">
-            <h3>Produto da Soma pela Diferença</h3>
-            <p>Na construção de um sistema de energia alternativa, duas peças têm medidas complementares expressas por $(2x + 3)$ e $(2x - 3)$. Calcule o produto destas expressões para determinar a capacidade máxima do sistema.</p>
-            
-            <div class="hint">
-                <p>Este é um caso especial de produto notável.</p>
-            </div>
-
-            <details>
-                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-                <ol class="solution-steps">
-                    <li>Identifique o padrão como produto da soma pela diferença: $(a + b)(a - b) = a^2 - b^2$</li>
-                    <li>Substitua $a = 2x$ e $b = 3$: $(2x + 3)(2x - 3) = (2x)^2 - 3^2$</li>
-                    <li>Calcule: $(2x + 3)(2x - 3) = 4x^2 - 9$</li>
-                </ol>
-                
-                <div class="formula">
-                    $$(2x + 3)(2x - 3) = 4x^2 - 9$$
-                </div>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> Dominar este produto notável permite calcular rapidamente capacidades de sistemas e otimizar a geração de energia em recursos limitados. Os sobreviventes com melhor compreensão algébrica têm maior chance de estabelecer infraestruturas funcionais na Zona Devastada.</p>
-            </details>
-        </div>
-
-        <!-- MISSÃO 10 (DESAFIADORA) -->
-        <div class="exercise">
-            <h3>Simplificação de Fração Algébrica Complexa</h3>
-            <p>Uma equação crítica para a síntese de RemoveRad envolve a fração $\frac{x^2 - 9}{x - 3}$. Simplifique esta expressão para otimizar o processo de produção, identificando e usando produtos notáveis.</p>
-
-            <details>
-                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-                <ol class="solution-steps">
-                    <li>Observe que o numerador pode ser fatorado usando o produto notável da diferença de quadrados: $x^2 - 9 = x^2 - 3^2 = (x+3)(x-3)$</li>
-                    <li>Substitua no numerador: $\frac{(x+3)(x-3)}{x-3}$</li>
-                    <li>Simplifique, cancelando o fator comum $(x-3)$: $\frac{(x+3)(x-3)}{x-3} = x+3$</li>
-                    <li>Note que esta simplificação é válida para $x \neq 3$, pois nesse caso teríamos divisão por zero</li>
-                </ol>
-                
-                <div class="formula">
-                    $$\frac{x^2 - 9}{x - 3} = \frac{(x+3)(x-3)}{x-3} = x+3, \quad x \neq 3$$
-                </div>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> A capacidade de simplificar frações algébricas complexas é decisiva na produção de medicamentos anti-radiação. Um erro pode significar desperdício de reagentes escassos ou, pior, medicamentos ineficazes.</p>
-            </details>
-        </div>
-
-        <!-- MISSÃO 11 (DESAFIADORA) -->
-        <div class="exercise">
-            <h3>Expansão Multivariada</h3>
-            <p>Para o desenvolvimento de um sistema modular de filtragem de água, você precisa expandir a expressão $(2a + b)^3 - (3a - 2b)^2$. Simplifique o máximo possível.</p>
-
-            <details>
-                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-                <ol class="solution-steps">
-                    <li>Expanda o cubo do primeiro binômio usando a fórmula $(a + b)^3 = a^3 + 3a^2b + 3ab^2 + b^3$: 
-                    $(2a + b)^3 = (2a)^3 + 3(2a)^2(b) + 3(2a)(b)^2 + b^3 = 8a^3 + 12a^2b + 6ab^2 + b^3$</li>
-                    <li>Expanda o quadrado do segundo binômio usando $(a - b)^2 = a^2 - 2ab + b^2$: 
-                    $(3a - 2b)^2 = (3a)^2 - 2(3a)(2b) + (2b)^2 = 9a^2 - 12ab + 4b^2$</li>
-                    <li>Substitua na expressão original: $(2a + b)^3 - (3a - 2b)^2 = (8a^3 + 12a^2b + 6ab^2 + b^3) - (9a^2 - 12ab + 4b^2)$</li>
-                    <li>Distribua o sinal negativo: $(2a + b)^3 - (3a - 2b)^2 = 8a^3 + 12a^2b + 6ab^2 + b^3 - 9a^2 + 12ab - 4b^2$</li>
-                    <li>Agrupe e combine termos semelhantes: $8a^3 + (12a^2b - 9a^2) + (6ab^2 + 12ab) + (b^3 - 4b^2)$</li>
-                    <li>Simplifique: $8a^3 + (12b - 9)a^2 + (6b^2 + 12)ab + b^3 - 4b^2 = 8a^3 + (12b - 9)a^2 + 6ab(b + 2) + b^2(b - 4)$</li>
-                </ol>
-                
-                <div class="formula">
-                    $$(2a + b)^3 - (3a - 2b)^2 = 8a^3 + (12b - 9)a^2 + 6ab(b + 2) + b^2(b - 4)$$
-                </div>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> Manipular expressões algébricas complexas é essencial no desenvolvimento de tecnologias avançadas nas Zonas Devastadas. Os sobreviventes que dominam estas técnicas podem criar sistemas mais eficientes com menos recursos.</p>
-            </details>
-        </div>
-
-        <!-- MISSÃO 12 (DESAFIADORA) -->
-        <div class="exercise">
-            <h3>Equação do Bunker Seguro</h3>
-            <p>Uma equação determina a profundidade segura de um bunker baseada na intensidade de radiação: $(x^2 - 4)(x^2 + 2x + 4) = 0$. Resolva esta equação utilizando fatoração e encontre todas as possíveis profundidades seguras.</p>
-
-            <details>
-                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-                <ol class="solution-steps">
-                    <li>Para uma equação do tipo $P(x) \cdot Q(x) = 0$, as soluções são encontradas quando $P(x) = 0$ ou $Q(x) = 0$</li>
-                    <li>Fatore o primeiro termo: $x^2 - 4 = (x + 2)(x - 2)$</li>
-                    <li>Para o segundo fator, $x^2 + 2x + 4$, tente completar quadrados: $x^2 + 2x + 4 = (x^2 + 2x + 1) + 3 = (x + 1)^2 + 3$</li>
-                    <li>Como $(x + 1)^2 \geq 0$ para qualquer valor real de $x$, e somando 3 (positivo), temos que $x^2 + 2x + 4 > 0$ para todo $x$ real</li>
-                    <li>Portanto, as soluções vêm apenas de $(x + 2)(x - 2) = 0$</li>
-                    <li>Igualando a zero: $x + 2 = 0$ ou $x - 2 = 0$</li>
-                    <li>Resolvendo: $x = -2$ ou $x = 2$</li>
-                </ol>
-                
-                <div class="formula">
-                    $$(x^2 - 4)(x^2 + 2x + 4) = 0$$
-                    $$(x + 2)(x - 2)(x^2 + 2x + 4) = 0$$
-                    $$x = -2 \text{ ou } x = 2$$
-                </div>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> Resolver equações algébricas complexas pode revelar informações críticas sobre zonas seguras na superfície devastada. Um erro de cálculo pode levar uma expedição inteira a níveis letais de radiação.</p>
-            </details>
-        </div>
-    </div>
 
     <!-- RODAPÉ DO DOCUMENTO -->
     <div class="footer">

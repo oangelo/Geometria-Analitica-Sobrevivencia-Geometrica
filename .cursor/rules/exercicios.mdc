@@ -14,6 +14,13 @@ Use o `exercicios/template.html` como base estrutural.
 - Cada exercício termina com uma **"Reflexão de Sobrevivência"** conectando o problema ao contexto
 
 ## Estrutura
+- Organizar cada tópico em três arquivos:
+  - `<topico>-manual.html` (somente contexto teórico)
+  - `<topico>-enunciados.html` (somente lista de missões/enunciados/soluções)
+  - `<topico>.html` (loader que agrega os dois arquivos)
+- Separar conteúdo em dois blocos explícitos:
+  - `manual-contexto` com `data-context="manual-sobrevivencia"` para teoria e fórmulas-base
+  - `enunciados-exercicios` com `data-context="exercicios-enunciados"` para missões/enunciados/soluções
 - Exatamente **12 exercícios** com progressão de dificuldade:
   - Q1–3: básico, com dicas explícitas
   - Q4–6: intermediário, com algumas dicas
@@ -24,7 +31,7 @@ Use o `exercicios/template.html` como base estrutural.
 ## Classes CSS obrigatórias
 - `mission-counter` — numeração automática das missões
 - `formula` — todas as fórmulas e variáveis matemáticas (MathJax)
-- `hint` — dicas, sempre iniciando com "DICA DE SOBREVIVÊNCIA: "
+- `hint` — dicas, sempre iniciando com "DICA DE SOBREVIVÊNCIA: " e posicionadas dentro de `<details>` (logo após o `<summary>`)
 - `solution-steps` — passos da solução
 - Soluções dentro de `<details>` com título "ACESSO NÍVEL: SUPERVISOR"
 

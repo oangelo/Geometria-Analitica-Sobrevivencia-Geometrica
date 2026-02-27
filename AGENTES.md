@@ -35,3 +35,10 @@ Os arquivos `prompt.md` originais em cada pasta continuam como **referência det
 - **Fórmulas**: sempre MathJax com a classe `formula`
 - **Sem cálculo**: todo o material usa apenas álgebra, geometria e trigonometria básica
 - **Livro adotado**: MACHADO, A. S. *Álgebra linear e geometria analítica*. 2. ed. Atual, 1982.
+- **Exercícios em dois blocos obrigatórios**:
+  - `manual-contexto` (`data-context="manual-sobrevivencia"`) para teoria, fórmulas-base e dicas gerais.
+  - `enunciados-exercicios` (`data-context="exercicios-enunciados"`) para missões, enunciados e soluções.
+- **Exercícios em três arquivos por tópico (obrigatório)**:
+  - `<topico>-manual.html` com o bloco `manual-contexto`.
+  - `<topico>-enunciados.html` com o bloco `enunciados-exercicios`.
+  - `<topico>.html` como loader agregador que carrega manual + enunciados.

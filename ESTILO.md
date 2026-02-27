@@ -229,3 +229,31 @@ Todos os arquivos usam o mesmo esquema de cores. Não criar novas cores.
 - **Cores Oficiais:** Utilize a paleta de cores definida na Seção 6. O fundo padrão pode ser um `#0A0A0A` com opacidade, linhas principais no verde-terminal `#ADFF2F` e destaques em dourado `#FFD700`.
 - **Tipografia:** Quando precisar usar texto no SVG (como rótulos de ângulos ou medidas simples como `r` ou `30°`), defina explicitamente o atributo `font-family="monospace"` para combinar com a temática do terminal Pip-Boy.
 - **Espessura de Linhas (Legibilidade):** Use `stroke-width="3"` ou `4` para os contornos principais de polígonos/triângulos/eixos e `stroke-width="1"` ou `2` para grades, linhas pontilhadas de referência e auxiliares. Lembre-se de que a imagem será projetada, então linhas muito finas (`width="1"`) desaparecem.
+
+---
+
+## 10. Estrutura dos arquivos de exercícios
+
+Para facilitar manutenção e contexto de edição, os arquivos de `exercicios/` devem separar teoria de lista de questões em dois blocos explícitos:
+
+- **Bloco A — Manual de sobrevivência (obrigatório):**
+  - contêiner com classe `manual-contexto`
+  - atributo `data-context="manual-sobrevivencia"`
+  - contém introdução conceitual, fórmulas-base e orientações gerais
+
+- **Bloco B — Missões e enunciados (obrigatório):**
+  - contêiner com classe `enunciados-exercicios`
+  - atributo `data-context="exercicios-enunciados"`
+  - contém apenas exercícios, enunciados, dicas e soluções
+
+Regra prática: não misturar parágrafos de teoria dentro do bloco de enunciados; e não inserir enunciados dentro do bloco de manual.
+
+### Organização de arquivos (obrigatória)
+
+Cada tópico em `exercicios/` deve seguir o padrão segmentado:
+
+- `<topico>-manual.html`: contém apenas o bloco `manual-contexto`.
+- `<topico>-enunciados.html`: contém apenas o bloco `enunciados-exercicios`.
+- `<topico>.html`: arquivo agregador (loader) que monta manual + enunciados.
+
+Objetivo: facilitar contexto de edição, reduzir conflitos em mudanças e manter consistência com o padrão segmentado adotado nas apresentações.
