@@ -209,6 +209,13 @@ Todos os arquivos usam o mesmo esquema de cores. Não criar novas cores.
 | Sistemas | `\begin{cases} ... \end{cases}` |
 | Determinante | `\begin{vmatrix} ... \end{vmatrix}` |
 
+### Regras obrigatórias para equações
+
+- **Toda equação deve ser escrita em LaTeX no HTML** (inline ou bloco via MathJax).
+- **Proibido usar SVG/PNG/JPG para exibir equações** que possam ser escritas em LaTeX.
+- Em listas e frases, variáveis devem ir em LaTeX: `\(x\)`, `\(y\)`, `\(t\)`.
+- Se houver diagrama em SVG, mantenha no SVG apenas elementos geométricos e rótulos curtos; a equação fica fora, no HTML.
+
 ---
 
 ## 9. Diretrizes Visuais (SVGs)
