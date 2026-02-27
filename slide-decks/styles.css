@@ -519,26 +519,36 @@
 
 .visualization-container {
   text-align: center;
-  margin: 15px auto;
+  margin: 8px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .visualization-container canvas,
 .canvas-container canvas {
   max-width: 100%;
-  height: 400px; /* Reduzido de 500px para 400px */
+  max-height: 420px;
+  height: auto;
   background-color: rgba(0, 0, 0, 0.3);
 }
 
 .visualization-container svg {
-  max-width: 100%;
+  max-width: 90%;
+  max-height: 460px;
+  width: auto;
   height: auto;
-  background-color: rgba(0, 0, 0, 0.3);
+  display: block;
+  margin: 0 auto;
 }
 
 .visualization-container img {
-  max-width: 100%;
+  max-width: 90%;
+  max-height: 460px;
+  width: auto;
   height: auto;
-  background-color: rgba(0, 0, 0, 0.3);
+  display: block;
+  margin: 0 auto;
 }
 
 /* Ajustes para o simulador */
