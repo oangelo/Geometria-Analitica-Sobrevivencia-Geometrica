@@ -674,6 +674,12 @@
   background-color: rgba(40, 44, 52, 0.7);
 }
 
+/* Painel de status do simulador de vetores posição */
+#position-info {
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+
 @keyframes pulse {
   0%   { opacity: 0.7; }
   50%  { opacity: 1;   }

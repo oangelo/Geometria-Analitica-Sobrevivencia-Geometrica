@@ -83,8 +83,14 @@ async function loadAndInit() {
     MathJax.startup.promise.then(() => MathJax.typesetPromise());
   }
 
-  // Inicia a animação do slide de título após o Reveal estar pronto
-  Reveal.on('ready', () => initR2Canvas());
+  // Inicia animações/simuladores após o Reveal estar pronto
+  Reveal.on('ready', () => {
+    initR2Canvas();
+    initPositionVectorCanvas();
+  });
+  Reveal.on('slidechanged', () => {
+    initPositionVectorCanvas();
+  });
 }
 
 function initR2Canvas() {
@@ -227,6 +233,167 @@ function initR2Canvas() {
     drawInfo();
     requestAnimationFrame(animate);
   })();
+}
+
+function initPositionVectorCanvas() {
+  const canvas = document.getElementById("positionVectorCanvas");
+  if (!canvas || canvas.dataset.initialized === "true") return;
+
+  const ctx = canvas.getContext("2d");
+  const info = document.getElementById("position-info");
+  const W = canvas.width;
+  const H = canvas.height;
+  const cx = W / 2;
+  const cy = H / 2;
+  const scale = 30;
+  const handleR = 12;
+
+  let r1 = { x: 2, y: 3 };
+  let dr = { x: 3, y: -2 };
+  let dragging = null;
+
+  function toCanvas(vx, vy, ox = cx, oy = cy) {
+    return { x: ox + vx * scale, y: oy - vy * scale };
+  }
+
+  function fromCanvas(px, py, ox = cx, oy = cy) {
+    return { x: (px - ox) / scale, y: -(py - oy) / scale };
+  }
+
+  function mousePos(evt) {
+    const rect = canvas.getBoundingClientRect();
+    const sx = canvas.width / rect.width;
+    const sy = canvas.height / rect.height;
+    return { x: (evt.clientX - rect.left) * sx, y: (evt.clientY - rect.top) * sy };
+  }
+
+  function near(p, q) {
+    const dx = p.x - q.x;
+    const dy = p.y - q.y;
+    return Math.hypot(dx, dy) <= handleR;
+  }
+
+  function drawGrid() {
+    ctx.clearRect(0, 0, W, H);
+    ctx.fillStyle = "#111";
+    ctx.fillRect(0, 0, W, H);
+
+    ctx.strokeStyle = "#333";
+    ctx.lineWidth = 0.5;
+    for (let x = 0; x <= W; x += scale) {
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, H);
+      ctx.stroke();
+    }
+    for (let y = 0; y <= H; y += scale) {
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(W, y);
+      ctx.stroke();
+    }
+
+    ctx.strokeStyle = "#0f0";
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    ctx.moveTo(0, cy);
+    ctx.lineTo(W, cy);
+    ctx.moveTo(cx, 0);
+    ctx.lineTo(cx, H);
+    ctx.stroke();
+  }
+
+  function drawArrow(x1, y1, x2, y2, color, label) {
+    ctx.strokeStyle = color;
+    ctx.fillStyle = color;
+    ctx.lineWidth = 2.3;
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.stroke();
+
+    const dx = x2 - x1;
+    const dy = y2 - y1;
+    const len = Math.hypot(dx, dy) || 1;
+    const ux = dx / len;
+    const uy = dy / len;
+    const ah = 10;
+    ctx.beginPath();
+    ctx.moveTo(x2, y2);
+    ctx.lineTo(x2 - ah * (ux - 0.4 * uy), y2 - ah * (uy + 0.4 * ux));
+    ctx.lineTo(x2 - ah * (ux + 0.4 * uy), y2 - ah * (uy - 0.4 * ux));
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.font = "15px monospace";
+    ctx.fillText(label, x2 + 10, y2 - 6);
+  }
+
+  function drawHandle(p, color) {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, handleR, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(255,255,255,0.25)";
+    ctx.fill();
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  }
+
+  function render() {
+    drawGrid();
+    const r2 = { x: r1.x + dr.x, y: r1.y + dr.y };
+
+    const pR1 = toCanvas(r1.x, r1.y);
+    const pDrStart = pR1;
+    const pDrEnd = toCanvas(dr.x, dr.y, pDrStart.x, pDrStart.y);
+    const pR2 = toCanvas(r2.x, r2.y);
+
+    drawArrow(cx, cy, pR1.x, pR1.y, "#ADFF2F", "r₁");
+    drawArrow(pDrStart.x, pDrStart.y, pDrEnd.x, pDrEnd.y, "#FF6347", "Δr");
+    drawArrow(cx, cy, pR2.x, pR2.y, "#4169E1", "r₂");
+    drawHandle(pR1, "#ADFF2F");
+    drawHandle(pDrEnd, "#FF6347");
+
+    if (info) {
+      info.textContent = `r₁ = (${r1.x.toFixed(1)},${r1.y.toFixed(1)}) | Δr = (${dr.x.toFixed(1)},${dr.y.toFixed(1)}) | r₂ = (${r2.x.toFixed(1)},${r2.y.toFixed(1)})`;
+    }
+  }
+
+  canvas.addEventListener("mousedown", (evt) => {
+    evt.stopPropagation();
+    const mp = mousePos(evt);
+    const pR1 = toCanvas(r1.x, r1.y);
+    const pDrEnd = toCanvas(dr.x, dr.y, pR1.x, pR1.y);
+    if (near(mp, pR1)) dragging = "r1";
+    else if (near(mp, pDrEnd)) dragging = "dr";
+    if (dragging) Reveal.configure({ keyboard: false });
+  }, true);
+
+  canvas.addEventListener("mousemove", (evt) => {
+    const mp = mousePos(evt);
+    if (!dragging) return;
+    evt.stopPropagation();
+    if (dragging === "r1") {
+      const v = fromCanvas(mp.x, mp.y);
+      r1 = { x: v.x, y: v.y };
+    } else {
+      const pR1 = toCanvas(r1.x, r1.y);
+      const v = fromCanvas(mp.x, mp.y, pR1.x, pR1.y);
+      dr = { x: v.x, y: v.y };
+    }
+    render();
+  }, true);
+
+  window.addEventListener("mouseup", () => {
+    if (!dragging) return;
+    dragging = null;
+    Reveal.configure({ keyboard: true });
+  }, true);
+
+  canvas.addEventListener("click", (evt) => evt.stopPropagation(), true);
+
+  canvas.dataset.initialized = "true";
+  render();
 }
 
 loadAndInit();
