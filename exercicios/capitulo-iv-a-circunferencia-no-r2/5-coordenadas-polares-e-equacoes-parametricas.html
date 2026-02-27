@@ -254,9 +254,12 @@
             <h3>RECALIBRAÇÃO DE COORDENADAS</h3>
             <p>Um mapa de radiação encontrado em um bunker abandonado marca um depósito de RemoveRad nas coordenadas cartesianas $(-3, 4)$. Seu dispositivo de navegação funciona apenas com coordenadas polares. Converta as coordenadas para o formato polar $(r, \theta)$, com $\theta$ em radianos.</p>
             
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
             <div class="hint">
                 <p>Use $r = \sqrt{x^2 + y^2}$ para a distância e $\theta = \arctan(y/x)$, mas lembre-se de ajustar o ângulo para o quadrante correto, já que o ponto está no segundo quadrante.</p>
             </div>
+            </details>
 
             <details>
                 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
@@ -280,9 +283,12 @@
             <h3>ROTA DE PATRULHA CIRCULAR</h3>
             <p>Para proteger um assentamento circular com raio de 200 metros, você precisa estabelecer pontos de observação equidistantes ao longo do perímetro. Usando a equação paramétrica da circunferência centrada na origem, determine as coordenadas cartesianas de 4 pontos de observação igualmente espaçados, começando do ponto mais ao leste (ângulo 0).</p>
             
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
             <div class="hint">
                 <p>A equação paramétrica da circunferência é $x = r\cos t$ e $y = r\sin t$. Para pontos equidistantes, divida o intervalo $[0, 2\pi)$ em 4 partes iguais.</p>
             </div>
+            </details>
 
             <details>
                 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
@@ -310,9 +316,12 @@
             <h3>ZONA SEGURA CIRCULAR</h3>
             <p>Após uma tempestade radioativa, um medidor Geiger indica que a radiação está abaixo do limite seguro apenas em pontos que satisfazem a equação polar $r = 300$, onde $r$ é medido em metros. Determine a área total desta zona segura e descreva sua forma geométrica.</p>
             
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
             <div class="hint">
                 <p>A equação $r = 300$ representa uma forma geométrica específica em coordenadas polares. Pense sobre qual forma teria raio constante independente do ângulo $\theta$.</p>
             </div>
+            </details>
 
             <details>
                 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
@@ -337,9 +346,12 @@
             <h3>ESPIRAL DE EXPLORAÇÃO</h3>
             <p>Para explorar uma Zona Devastada de forma sistemática, você projeta uma rota em espiral a partir de um abrigo central. A rota segue a equação polar $r = 50\theta$, com $r$ em metros e $\theta$ em radianos. Você precisa encontrar recursos em no máximo 500 metros de distância. Até qual valor de $\theta$ você deve percorrer a espiral para cobrir toda a área dentro deste limite?</p>
             
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
             <div class="hint">
                 <p>A equação dada representa uma espiral de Arquimedes. Para encontrar o limite de $\theta$, determine quando $r$ atinge o valor máximo desejado.</p>
             </div>
+            </details>
 
             <details>
                 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
@@ -364,9 +376,12 @@
             <h3>ANTENA DIRECIONAL</h3>
             <p>Uma antena direcional improvisada segue o padrão de radiação descrito pela equação polar $r = 200\cos(2\theta)$, onde $r$ representa a intensidade do sinal em metros. Determine todos os ângulos $\theta \in [0, 2\pi)$ onde o sinal é zero e identifique a direção (ângulo) onde o sinal atinge sua máxima intensidade.</p>
             
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
             <div class="hint">
                 <p>Esta equação polar é uma rosa de 4 pétalas. O sinal é zero quando $\cos(2\theta) = 0$, e máximo quando $\cos(2\theta) = \pm 1$.</p>
             </div>
+            </details>
 
             <details>
                 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
@@ -394,9 +409,12 @@
             <h3>PROPAGAÇÃO DE CONTAMINAÇÃO</h3>
             <p>Um vazamento de radiação de um reator danificado segue o padrão descrito pela equação polar $r = 400(1 + \cos\theta)$, com $r$ em metros. Um explorador está atualmente na posição cartesiana $(300, 400)$. Determine se ele está em uma área segura ou contaminada.</p>
             
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
             <div class="hint">
                 <p>A equação representa uma cardioide. Converta as coordenadas cartesianas do explorador para coordenadas polares e verifique se o raio é menor que o valor dado pela equação da cardioide para o mesmo ângulo.</p>
             </div>
+            </details>
 
             <details>
                 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
@@ -422,9 +440,12 @@
             <h3>INTERSEÇÃO DE TRAJETÓRIAS</h3>
             <p>Duas equipes de exploradores seguem rotas circulares ao redor de um ponto central. A equipe Alpha segue a trajetória paramétrica $x = 400\cos(0.1t)$, $y = 400\sin(0.1t)$, enquanto a equipe Beta segue $x = 200\cos(0.2t)$, $y = 200\sin(0.2t)$, onde $t$ é o tempo em minutos desde o início da expedição. Ambas as equipes partem simultaneamente de suas respectivas posições iniciais em $t = 0$. Determine todos os momentos nos primeiros 120 minutos em que as equipes irão se encontrar.</p>
             
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
             <div class="hint">
                 <p>Compare as posições de ambas as equipes em função do tempo e determine quando coincidem. Observe que as equipes têm diferentes raios e velocidades angulares.</p>
             </div>
+            </details>
 
             <details>
                 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
@@ -451,9 +472,12 @@
             <h3>ANÁLISE DE ALCANCE RADAR</h3>
             <p>Um radar improvisado instalado em um posto avançado emite um sinal que segue o padrão $r = 800|\cos(3\theta)|$, onde $r$ é o alcance em metros. Um grupo de mutantes foi detectado a 300 metros de distância, na direção $\theta = \frac{5\pi}{9}$ radianos. O radar consegue detectar objetos a até 60% de seu alcance máximo naquela direção. Determine se os mutantes serão detectados e calcule a área total coberta pelo radar.</p>
             
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
             <div class="hint">
                 <p>Primeiro calcule o alcance do radar na direção dada e compare com a distância dos mutantes. Para a área, você precisará calcular uma integral em coordenadas polares.</p>
             </div>
+            </details>
 
             <details>
                 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
@@ -487,9 +511,12 @@
             <h3>MAPEAMENTO DE ANOMALIA</h3>
             <p>Uma anomalia magnética detectada próxima ao abrigo segue a equação polar $r = 250(1 - 0.8\cos\theta)$. Um componente essencial para o sistema de purificação de água precisa ser instalado a pelo menos 100 metros de distância da origem, mas fora da região afetada pela anomalia. Determine a área segura para instalação, descrita como um anel circular com raio interno 100 metros e raio externo definido pela fronteira da anomalia.</p>
             
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
             <div class="hint">
                 <p>A equação representa uma limaçon. Analise o valor mínimo de $r$ na equação para determinar se alguma parte da curva penetra no círculo de raio 100m.</p>
             </div>
+            </details>
 
             <details>
                 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
