@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>FRONTEIRA DEFENSIVA</h3>
+<p>Um muro defensivo está sendo planejado ao longo da linha $y = 3x - 7$. Para garantir cobertura defensiva máxima, três torres de vigilância serão posicionadas equidistantes desta linha nos pontos A(1, 5), B(4, 8) e C(7, 1). Determine quais torres estão do mesmo lado da linha e qual está do lado oposto. Em seguida, calcule a distância exata de cada torre à linha de defesa para otimizar o alcance dos sistemas de vigilância.</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>A equação da linha de defesa é $y = 3x - 7$, que podemos reescrever como $3x - y - 7 = 0$</li>
+<li>Para determinar de que lado da linha um ponto está, substituímos suas coordenadas na equação $3x - y - 7$ e verificamos o sinal do resultado:
+                    <br/>Para A(1, 5): $3 \cdot 1 - 5 - 7 = 3 - 5 - 7 = -9 &lt; 0$
+                    <br/>Para B(4, 8): $3 \cdot 4 - 8 - 7 = 12 - 8 - 7 = -3 &lt; 0$
+                    <br/>Para C(7, 1): $3 \cdot 7 - 1 - 7 = 21 - 1 - 7 = 13 &gt; 0$</li>
+<li>Como A e B têm resultados negativos e C tem resultado positivo, concluímos que A e B estão do mesmo lado da linha, enquanto C está do lado oposto.</li>
+<li>Para calcular a distância de um ponto à reta, usamos a fórmula $d = \frac{|ax_0 + by_0 + c|}{\sqrt{a^2 + b^2}}$, onde a reta tem equação $ax + by + c = 0$</li>
+<li>Reescrevemos $y = 3x - 7$ como $-3x + y + 7 = 0$, então $a = -3$, $b = 1$ e $c = 7$</li>
+<li>Calculamos a distância para cada torre:
+                    <br/>$d_A = \frac{|-3 \cdot 1 + 1 \cdot 5 + 7|}{\sqrt{(-3)^2 + 1^2}} = \frac{|9|}{\sqrt{10}} = \frac{9}{\sqrt{10}} \approx 2.85$
+                    <br/>$d_B = \frac{|-3 \cdot 4 + 1 \cdot 8 + 7|}{\sqrt{(-3)^2 + 1^2}} = \frac{|-12 + 8 + 7|}{\sqrt{10}} = \frac{|3|}{\sqrt{10}} \approx 0.95$
+                    <br/>$d_C = \frac{|-3 \cdot 7 + 1 \cdot 1 + 7|}{\sqrt{(-3)^2 + 1^2}} = \frac{|-21 + 1 + 7|}{\sqrt{10}} = \frac{|13|}{\sqrt{10}} \approx 4.11$</li>
+</ol>
+<div class="formula">
+                    $$\text{Torre A(1, 5): } d_A \approx 2.85 \text{ unidades, lado negativo}$$
+                    $$\text{Torre B(4, 8): } d_B \approx 0.95 \text{ unidades, lado negativo}$$
+                    $$\text{Torre C(7, 1): } d_C \approx 4.11 \text{ unidades, lado positivo}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Posicionar torres de vigilância em ambos os lados de uma linha defensiva cria um sistema de defesa em profundidade. A torre B está perigosamente próxima à linha (menos de 1 unidade), tornando-a vulnerável a ataques diretos. As torres A e C, por outro lado, oferecem melhor visibilidade a distâncias seguras. Uma configuração defensiva ideal reposicionaria a torre B para manter todas as torres a uma distância segura mínima, enquanto mantém o princípio de defesa em ambos os lados. Este tipo de análise geométrica pode significar a diferença entre a sobrevivência e o colapso de um assentamento em tempos de crise.</p>
+</details>
+</div>

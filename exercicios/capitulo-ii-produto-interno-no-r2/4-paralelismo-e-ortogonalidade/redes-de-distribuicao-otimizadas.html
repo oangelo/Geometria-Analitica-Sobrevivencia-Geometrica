@@ -1,0 +1,26 @@
+<div class="exercise">
+<h3>REDES DE DISTRIBUIÇÃO OTIMIZADAS</h3>
+<p>Uma rede de distribuição de recursos parte do centro de comando em $C(2, 3)$ e possui três ramificações principais que terminam nos pontos $A(5, 7)$, $B(0, -1)$ e $D(4, 1)$. Para minimizar o consumo de combustível, você precisa determinar quais pares de vetores $\overrightarrow{CA}$, $\overrightarrow{CB}$ e $\overrightarrow{CD}$ são ortogonais entre si, se houver algum.</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Calculamos os três vetores a partir do centro de comando:
+                        <br/>$\overrightarrow{CA} = A - C = (5, 7) - (2, 3) = (3, 4)$
+                        <br/>$\overrightarrow{CB} = B - C = (0, -1) - (2, 3) = (-2, -4)$
+                        <br/>$\overrightarrow{CD} = D - C = (4, 1) - (2, 3) = (2, -2)$</li>
+<li>Verificamos a ortogonalidade entre cada par de vetores usando o produto escalar:
+                        <br/>$\overrightarrow{CA} \cdot \overrightarrow{CB} = 3 \cdot (-2) + 4 \cdot (-4) = -6 - 16 = -22 \neq 0$
+                        <br/>$\overrightarrow{CA} \cdot \overrightarrow{CD} = 3 \cdot 2 + 4 \cdot (-2) = 6 - 8 = -2 \neq 0$
+                        <br/>$\overrightarrow{CB} \cdot \overrightarrow{CD} = (-2) \cdot 2 + (-4) \cdot (-2) = -4 + 8 = 4 \neq 0$</li>
+<li>Como nenhum dos produtos escalares é zero, não há pares de vetores ortogonais nesta configuração.</li>
+</ol>
+<div class="formula">
+                    \begin{align}
+                    \overrightarrow{CA} \cdot \overrightarrow{CB} &amp;= -22 \neq 0 \\
+                    \overrightarrow{CA} \cdot \overrightarrow{CD} &amp;= -2 \neq 0 \\
+                    \overrightarrow{CB} \cdot \overrightarrow{CD} &amp;= 4 \neq 0
+                    \end{align}
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> A ausência de ortogonalidade entre as rotas de distribuição significa que a rede não possui a máxima eficiência teórica. Na prática, isso resulta em maior consumo de combustível e sobreposição parcial de áreas cobertas. Para um gestor de recursos em um cenário pós-apocalíptico, esta análise matemática justifica um redesenho das rotas logísticas, potencialmente economizando recursos críticos que determinarão a sobrevivência a longo prazo da comunidade.</p>
+</details>
+</div>

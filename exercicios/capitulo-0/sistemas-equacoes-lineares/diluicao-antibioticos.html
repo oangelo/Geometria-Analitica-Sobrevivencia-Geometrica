@@ -1,0 +1,24 @@
+        <div class="exercise">
+            <h3>Diluição de Antibióticos</h3>
+            <p>Na enfermaria do abrigo, você tem duas soluções de antibióticos salvadas de diferentes farmácias saqueadas. A solução A contém 8% de princípio ativo e 12% de estabilizante. A solução B contém 2% de princípio ativo e 3% de estabilizante. Um paciente grave precisa receber uma infusão com exatamente 5% de princípio ativo e 7.5% de estabilizante. Se o paciente precisa de 400ml de solução para seu tratamento, quanto de cada solução você deve misturar?</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Definimos as variáveis: $x$ = volume da solução A (em ml), $y$ = volume da solução B (em ml)</li>
+                    <li>Para o volume total: $x + y = 400$ ml</li>
+                    <li>Para o princípio ativo: $0.08x + 0.02y = 0.05 \cdot 400 = 20$ ml</li>
+                    <li>Para o estabilizante: $0.12x + 0.03y = 0.075 \cdot 400 = 30$ ml</li>
+                    <li>Da primeira equação, isolamos $y = 400 - x$</li>
+                    <li>Substituímos na equação do princípio ativo: $0.08x + 0.02(400 - x) = 20$</li>
+                    <li>Desenvolvemos: $0.08x + 8 - 0.02x = 20$</li>
+                    <li>Simplificamos: $0.06x = 12$</li>
+                    <li>Resolvemos para $x$: $x = \frac{12}{0.06} = 200$ ml</li>
+                    <li>Calculamos $y$: $y = 400 - 200 = 200$ ml</li>
+                    <li>Verificamos o princípio ativo: $0.08 \cdot 200 + 0.02 \cdot 200 = 16 + 4 = 20$ ml ✓</li>
+                    <li>Verificamos o estabilizante: $0.12 \cdot 200 + 0.03 \cdot 200 = 24 + 6 = 30$ ml ✓</li>
+                </ol>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Na medicina pós-apocalíptica, raramente encontramos medicamentos nas concentrações ideais. A capacidade de calcular diluições precisas pode ser a diferença entre salvar uma vida ou perdê-la. O equilíbrio entre princípio ativo e estabilizante é crítico - muito pouco do primeiro e o medicamento é ineficaz; muito pouco do segundo e o princípio ativo se degrada rapidamente. Observe como o sistema linear nos forneceu uma solução elegante: quantidades iguais de ambas as soluções. Em emergências, soluções matemáticas simples são menos propensas a erros de aplicação, um fator crítico quando cada gota conta.</p>
+            </details>
+        </div>

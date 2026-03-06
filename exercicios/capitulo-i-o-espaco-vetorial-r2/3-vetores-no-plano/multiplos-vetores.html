@@ -1,0 +1,25 @@
+<div class="exercise">
+<h3>MÚLTIPLOS VETORES</h3>
+<p>Uma equipe de sobreviventes precisa fazer uma patrulha complexa, partindo do abrigo principal e percorrendo quatro pontos de verificação antes de retornar. Os deslocamentos entre pontos consecutivos são representados pelos vetores: $\vec{p}_1 = (3, 1)$, $\vec{p}_2 = (-2, 4)$, $\vec{p}_3 = (5, -3)$ e $\vec{p}_4 = (-4, -5)$. Calcule o vetor deslocamento total da patrulha e determine se a equipe retorna exatamente ao ponto de partida.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Some todos os vetores de deslocamento para encontrar o deslocamento total. Se este for o vetor nulo $(0,0)$, a patrulha retorna exatamente ao ponto inicial.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Calculamos o deslocamento total somando todos os vetores: $\vec{p}_{total} = \vec{p}_1 + \vec{p}_2 + \vec{p}_3 + \vec{p}_4$</li>
+<li>$\vec{p}_{total} = (3, 1) + (-2, 4) + (5, -3) + (-4, -5)$</li>
+<li>Componente x: $3 + (-2) + 5 + (-4) = 2$</li>
+<li>Componente y: $1 + 4 + (-3) + (-5) = -3$</li>
+<li>Deslocamento total: $\vec{p}_{total} = (2, -3)$</li>
+<li>Como $\vec{p}_{total} \neq (0,0)$, a patrulha não retorna ao ponto inicial.</li>
+</ol>
+<div class="formula">
+                    $\vec{p}_{total} = \vec{p}_1 + \vec{p}_2 + \vec{p}_3 + \vec{p}_4 = (p_{1x} + p_{2x} + p_{3x} + p_{4x}, p_{1y} + p_{2y} + p_{3y} + p_{4y})$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Calcular o deslocamento total de uma patrulha ou expedição é crucial para o planejamento de recursos e para garantir o retorno seguro da equipe. Um vetor resultante não nulo indica que a equipe precisará de provisões extras para o caminho de volta ou que o planejamento da rota precisa ser ajustado.</p>
+</details>
+</div>

@@ -1,0 +1,52 @@
+<div class="exercise">
+<h3>TRIANGULAÇÃO DE SINAL</h3>
+<p>Três estações de transmissão estão localizadas nos pontos A(0, 0), B(8, 0) e C(4, 6). Para estabelecer uma comunicação estável, você precisa posicionar um receptor em um ponto P de modo que as linhas de transmissão de P para A e de P para B sejam perpendiculares entre si. Determine as coordenadas possíveis para o ponto P (que não seja um dos pontos dados) e verifique se alguma dessas posições também torna as linhas PA e PC perpendiculares.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>O lugar geométrico dos pontos P tais que as retas PA e PB sejam perpendiculares forma uma circunferência. Determine essa circunferência e depois verifique se algum de seus pontos também satisfaz a condição de perpendicularidade entre PA e PC.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Para que os vetores $\overrightarrow{PA}$ e $\overrightarrow{PB}$ sejam perpendiculares, seu produto escalar deve ser zero:
+                    <br/>$\overrightarrow{PA} \cdot \overrightarrow{PB} = 0$</li>
+<li>Se P tem coordenadas (x, y), então:
+                    <br/>$\overrightarrow{PA} = (0-x, 0-y) = (-x, -y)$
+                    <br/>$\overrightarrow{PB} = (8-x, 0-y) = (8-x, -y)$</li>
+<li>O produto escalar é:
+                    <br/>$\overrightarrow{PA} \cdot \overrightarrow{PB} = (-x)(8-x) + (-y)(-y) = -8x + x^2 + y^2 = 0$
+                    <br/>$x^2 + y^2 - 8x = 0$
+                    <br/>$x^2 - 8x + 16 + y^2 - 16 = 0$
+                    <br/>$(x - 4)^2 + y^2 = 16$</li>
+<li>Esta é a equação de uma circunferência com centro em (4, 0) e raio 4.</li>
+<li>Agora, verifiquemos se algum ponto dessa circunferência também satisfaz a perpendicularidade entre PA e PC:
+                    <br/>$\overrightarrow{PC} = (4-x, 6-y)$
+                    <br/>$\overrightarrow{PA} \cdot \overrightarrow{PC} = (-x)(4-x) + (-y)(6-y) = -4x + x^2 - 6y + y^2 = 0$</li>
+<li>Um ponto que pertence à circunferência $(x - 4)^2 + y^2 = 16$ e também satisfaz $-4x + x^2 - 6y + y^2 = 0$ seria uma solução comum para ambas as equações.</li>
+<li>Da primeira equação, podemos expressar $y^2 = 16 - (x - 4)^2 = 16 - x^2 + 8x - 16 = 8x - x^2$</li>
+<li>Substituindo na segunda equação:
+                    <br/>$-4x + x^2 - 6y + (8x - x^2) = 0$
+                    <br/>$-4x + x^2 - 6y + 8x - x^2 = 0$
+                    <br/>$4x - 6y = 0$
+                    <br/>$y = \frac{4x}{6} = \frac{2x}{3}$</li>
+<li>Substituindo de volta na equação da circunferência:
+                    <br/>$(x - 4)^2 + (\frac{2x}{3})^2 = 16$
+                    <br/>$(x - 4)^2 + \frac{4x^2}{9} = 16$
+                    <br/>$9(x - 4)^2 + 4x^2 = 144$
+                    <br/>$9(x^2 - 8x + 16) + 4x^2 = 144$
+                    <br/>$9x^2 - 72x + 144 + 4x^2 = 144$
+                    <br/>$13x^2 - 72x = 0$
+                    <br/>$x(13x - 72) = 0$</li>
+<li>Portanto, $x = 0$ ou $x = \frac{72}{13}$</li>
+<li>Se $x = 0$, então $y = 0$, o que nos dá o ponto A (que foi excluído).</li>
+<li>Se $x = \frac{72}{13}$, então $y = \frac{2}{3} \cdot \frac{72}{13} = \frac{48}{13}$</li>
+</ol>
+<div class="formula">
+                    $$\text{Lugar geométrico dos pontos P: } (x - 4)^2 + y^2 = 16$$
+                    $$\text{Ponto que satisfaz ambas as condições: } P\left(\frac{72}{13}, \frac{48}{13}\right) \approx (5.54, 3.69)$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> A triangulação de sinais com requisitos de perpendicularidade garante máxima clareza na transmissão, minimizando interferências. Em um mundo onde a comunicação confiável pode significar vida ou morte, posicionar receptores em pontos matematicamente otimizados proporciona vantagem estratégica significativa. A aplicação de princípios geométricos avançados na localização precisa desses pontos demonstra como a matemática não é apenas uma ferramenta de sobrevivência, mas uma vantagem evolutiva na Zona Devastada.</p>
+</details>
+</div>

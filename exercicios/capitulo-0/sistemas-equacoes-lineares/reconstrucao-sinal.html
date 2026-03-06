@@ -1,0 +1,29 @@
+        <div class="exercise">
+            <h3>Reconstrução do Sinal de Emergência</h3>
+            <p>Um bunker governamental próximo envia sinais de rádio codificados que seguem um padrão matemático. Seu grupo captou dois sinais sequenciais que revelaram coordenadas parciais. O primeiro sinal tinha coordenadas (8, 13) e o segundo (11, 19). Sabe-se que as coordenadas (x, y) seguem um padrão linear da forma y = ax + b. O próximo sinal, que conterá as coordenadas de um depósito de suprimentos, será transmitido em breve. Porém, sua recepção está danificada e só conseguirá captar o valor de y. Se o próximo valor de x for 15, determine o valor de y correspondente para localizar o depósito. Além disso, se o padrão continuar, qual será a coordenada completa do quarto sinal?</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Precisamos determinar os valores de a e b na equação y = ax + b, utilizando as coordenadas conhecidas</li>
+                    <li>Do primeiro sinal (8, 13): $13 = 8a + b$</li>
+                    <li>Do segundo sinal (11, 19): $19 = 11a + b$</li>
+                    <li>Temos um sistema de duas equações e duas incógnitas</li>
+                    <li>Subtraímos a primeira equação da segunda: $19 - 13 = 11a + b - (8a + b)$</li>
+                    <li>Simplificamos: $6 = 3a$</li>
+                    <li>Resolvemos para $a$: $a = 2$</li>
+                    <li>Substituímos na primeira equação: $13 = 8 \cdot 2 + b = 16 + b$</li>
+                    <li>Resolvemos para $b$: $b = 13 - 16 = -3$</li>
+                    <li>Portanto, a equação que descreve o padrão é: $y = 2x - 3$</li>
+                    <li>Para o terceiro sinal com $x = 15$: $y = 2 \cdot 15 - 3 = 30 - 3 = 27$</li>
+                    <li>Para o quarto sinal, precisamos determinar o valor de $x$</li>
+                    <li>O intervalo entre valores consecutivos de $x$ é: $11 - 8 = 3$ e $15 - 11 = 4$</li>
+                    <li>Parece que o intervalo está aumentando em 1 a cada sinal: 3, 4, ...</li>
+                    <li>Portanto, o próximo intervalo seria 5, e o valor de $x$ para o quarto sinal seria: $15 + 5 = 20$</li>
+                    <li>Com $x = 20$: $y = 2 \cdot 20 - 3 = 40 - 3 = 37$</li>
+                    <li>A coordenada do quarto sinal seria (20, 37)</li>
+                </ol>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A capacidade de detectar, decodificar e prever padrões matemáticos é inestimável em um mundo pós-apocalíptico onde a comunicação é fragmentada e os recursos são escassos. Neste cenário, sistemas lineares permitiram não apenas determinar a localização imediata de suprimentos vitais, mas também prever futuras coordenadas, proporcionando vantagem estratégica. Observe como a matemática transforma dados aparentemente desconexos em informação acionável. Um sobrevivente que domina estes princípios pode não apenas reagir às circunstâncias, mas antecipar-se a elas - a diferença entre apenas sobreviver e efetivamente reconstruir.</p>
+            </details>
+        </div>

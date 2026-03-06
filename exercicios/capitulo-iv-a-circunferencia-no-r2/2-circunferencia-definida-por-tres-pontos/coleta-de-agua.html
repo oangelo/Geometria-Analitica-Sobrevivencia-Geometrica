@@ -1,0 +1,46 @@
+<div class="exercise">
+<h3>COLETA DE ÁGUA</h3>
+<p>Três poços de água foram descobertos nos pontos P(0, 2), Q(6, 2) e R(3, 8). Um analista sugeriu que estes poços estão conectados a um reservatório subterrâneo circular. Determine o centro deste reservatório e seu raio. Se a equipe tiver recursos para perfurar diretamente no centro, qual seria a distância máxima de perfuração para atingir o perímetro do reservatório?</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para confirmar se os três pontos determinam uma única circunferência, verifique se eles não são colineares calculando a área do triângulo que formam.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Primeiro, verifiquemos se os pontos não são colineares, calculando a área do triângulo:
+                    Área = $\frac{1}{2}|x_1(y_2-y_3) + x_2(y_3-y_1) + x_3(y_1-y_2)|$
+                    = $\frac{1}{2}|0(2-8) + 6(8-2) + 3(2-2)|$
+                    = $\frac{1}{2}|0(-6) + 6(6) + 3(0)|$
+                    = $\frac{1}{2}|0 + 36 + 0|$
+                    = $\frac{1}{2} \cdot 36 = 18$
+                    Como a área não é zero, os pontos não são colineares.</li>
+<li>Substituamos os pontos na equação geral $x^2 + y^2 + Dx + Ey + F = 0$:
+                    Para P(0, 2): $0^2 + 2^2 + D \cdot 0 + E \cdot 2 + F = 0 \implies 4 + 2E + F = 0$
+                    Para Q(6, 2): $6^2 + 2^2 + D \cdot 6 + E \cdot 2 + F = 0 \implies 36 + 4 + 6D + 2E + F = 0 \implies 40 + 6D + 2E + F = 0$
+                    Para R(3, 8): $3^2 + 8^2 + D \cdot 3 + E \cdot 8 + F = 0 \implies 9 + 64 + 3D + 8E + F = 0 \implies 73 + 3D + 8E + F = 0$</li>
+<li>Da primeira equação: $F = -4 - 2E$
+                    Substituindo na segunda:
+                    $40 + 6D + 2E - 4 - 2E = 0 \implies 36 + 6D = 0 \implies D = -6$
+                    Substituindo $F$ e $D$ na terceira:
+                    $73 + 3(-6) + 8E - 4 - 2E = 0$
+                    $73 - 18 + 8E - 4 - 2E = 0$
+                    $51 + 6E = 0$
+                    $E = -\frac{51}{6} = -8.5$</li>
+<li>Então $D = -6$, $E = -8.5$ e $F = -4 - 2(-8.5) = -4 + 17 = 13$
+                    A equação da circunferência é: $x^2 + y^2 - 6x - 8.5y + 13 = 0$</li>
+<li>Completando quadrados:
+                    $x^2 - 6x + y^2 - 8.5y + 13 = 0$
+                    $(x^2 - 6x + 9) + (y^2 - 8.5y + 18.0625) + 13 - 9 - 18.0625 = 0$
+                    $(x - 3)^2 + (y - 4.25)^2 = 14.0625$
+                    O centro é $(3, 4.25)$ e o raio é $r = \sqrt{14.0625} = 3.75$</li>
+</ol>
+<div class="formula">
+                    $$(x - 3)^2 + (y - 4.25)^2 = 14.0625$$
+                    $$r = 3.75 \text{ unidades}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Água é o recurso mais precioso na Zona Devastada. Localizar o ponto central de um reservatório circular a partir de pontos de acesso conhecidos permite a exploração eficiente com recursos limitados. A perfuração no centro exato também evita danos à estrutura do reservatório, preservando este recurso vital para gerações futuras. Esta é uma aplicação direta da geometria analítica para a sustentabilidade a longo prazo.</p>
+</details>
+</div>

@@ -1,0 +1,46 @@
+<div class="exercise">
+<h3>DEFESA TRIANGULAR</h3>
+<p>Sua comunidade construiu um sistema de defesa triangular com torres nos pontos A(-2, 0), B(2, 0) e C(0, 4). Para maximizar a cobertura dos canhões de defesa, você propõe instalar um canhão giratório no centro da circunferência que passa pelas três torres. Determine a posição exata onde o canhão deve ser instalado e seu alcance máximo (raio) para cobrir todas as torres.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Este é um caso especial onde as três torres formam um triângulo retângulo. O centro da circunferência circunscrita está na metade da hipotenusa. Verifique se o teorema de Pitágoras é satisfeito e use as propriedades geométricas para encontrar o centro.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Primeiro identifiquemos o triângulo: A(-2, 0), B(2, 0) e C(0, 4).
+                    Note que o ângulo em C é de 90° (triângulo retângulo), pois:
+                    $\overrightarrow{CA} \cdot \overrightarrow{CB} = (-2-0)·(2-0) + (0-4)·(0-4) = -4 + (-4)·(-4) = -4 + 16 = 12$
+                    Mas $|\overrightarrow{CA}|·|\overrightarrow{CB}| = \sqrt{(-2)^2 + (-4)^2}·\sqrt{2^2 + (-4)^2} = \sqrt{4+16}·\sqrt{4+16} = \sqrt{20}·\sqrt{20} = 20$
+                    Como $\overrightarrow{CA} \cdot \overrightarrow{CB} \neq |\overrightarrow{CA}|·|\overrightarrow{CB}|$, os vetores não são perpendiculares.</li>
+<li>Vamos corrigir o cálculo:
+                    $\overrightarrow{CA} = (-2-0, 0-4) = (-2, -4)$
+                    $\overrightarrow{CB} = (2-0, 0-4) = (2, -4)$
+                    $\overrightarrow{CA} \cdot \overrightarrow{CB} = (-2)(2) + (-4)(-4) = -4 + 16 = 12$
+                    Usando o teorema de Pitágoras nas distâncias:
+                    $|AB|^2 = (2-(-2))^2 + (0-0)^2 = 16$
+                    $|AC|^2 = (0-(-2))^2 + (4-0)^2 = 4 + 16 = 20$
+                    $|BC|^2 = (0-2)^2 + (4-0)^2 = 4 + 16 = 20$
+                    Como $|AB|^2 + |BC|^2 \neq |AC|^2$, o triângulo não é retângulo.</li>
+<li>Na verdade, precisamos usar o método geral. Vamos substituir os pontos na equação da circunferência:
+                    Para A(-2, 0): $(-2)^2 + 0^2 + D(-2) + E(0) + F = 0 \implies 4 - 2D + F = 0$
+                    Para B(2, 0): $(2)^2 + 0^2 + D(2) + E(0) + F = 0 \implies 4 + 2D + F = 0$
+                    Para C(0, 4): $(0)^2 + 4^2 + D(0) + E(4) + F = 0 \implies 16 + 4E + F = 0$</li>
+<li>Das duas primeiras equações:
+                    $4 - 2D + F = 0$ e $4 + 2D + F = 0$
+                    Subtraindo: $-4D = 0 \implies D = 0$
+                    Substituindo: $4 + F = 0 \implies F = -4$
+                    Da terceira equação: $16 + 4E - 4 = 0 \implies 4E = -12 \implies E = -3$</li>
+<li>A equação da circunferência é: $x^2 + y^2 - 3y - 4 = 0$
+                    Completando quadrados: $x^2 + (y^2 - 3y + \frac{9}{4}) - 4 - \frac{9}{4} = 0$
+                    $x^2 + (y - \frac{3}{2})^2 = 4 + \frac{9}{4} = \frac{16 + 9}{4} = \frac{25}{4}$
+                    $x^2 + (y - \frac{3}{2})^2 = (\frac{5}{2})^2$</li>
+</ol>
+<div class="formula">
+                    $$x^2 + (y - \frac{3}{2})^2 = \frac{25}{4}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> A defesa eficiente de recursos em um mundo hostil frequentemente exige cobrir vários pontos estratégicos com um esforço mínimo. O canhão centralizado funciona como o centro de uma circunferência matemática - garantindo cobertura equidistante de todas as torres. Esta abordagem geométrica otimiza os recursos limitados e maximiza a proteção. Mesmo nas condições mais adversas, a precisão matemática pode ser a diferença entre manter ou perder seu território.</p>
+</details>
+</div>

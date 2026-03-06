@@ -1,0 +1,23 @@
+<div class="exercise">
+<h3>Volume da Pirâmide de Observação</h3>
+<p>Uma torre de observação tem base triangular nos pontos O(0,0,0), A(4,0,0), B(0,3,0) e vértice no ponto V(1,1,6). Calcule o volume desta estrutura de vigilância.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+                O volume de um tetraedro (pirâmide triangular) formado por quatro pontos é um sexto do valor absoluto do produto misto dos vetores que partem de um dos vértices.
+            </div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Escolher O como origem e calcular os vetores $\overrightarrow{OA} = (4,0,0)$, $\overrightarrow{OB} = (0,3,0)$ e $\overrightarrow{OV} = (1,1,6)$</li>
+<li>Calcular o produto vetorial $\overrightarrow{OA} \times \overrightarrow{OB} = (0,0,12)$</li>
+<li>Calcular o produto misto: $\overrightarrow{OV} \cdot (\overrightarrow{OA} \times \overrightarrow{OB}) = (1,1,6) \cdot (0,0,12) = 72$</li>
+<li>O volume do tetraedro é: $\frac{1}{6}|72| = 12$</li>
+</ol>
+<div class="formula">
+                    $$V = \frac{1}{6}|\overrightarrow{OV} \cdot (\overrightarrow{OA} \times \overrightarrow{OB})| = 12 \text{ unidades}^3$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Uma torre com 12 unidades cúbicas de espaço interno pode abrigar equipamentos de radar e comunicação, além de um pequeno posto de comando para monitorar ameaças mutantes em um raio de várias milhas.</p>
+</details>
+</div>

@@ -1,0 +1,43 @@
+<div class="exercise">
+<h3>REDE DE ABASTECIMENTO</h3>
+<p>Três assentamentos estão localizados nas coordenadas A(2, 1), B(8, 13) e C(14, 7). Para otimizar o sistema de distribuição de recursos, planeje uma rede de rotas que forme um triângulo retângulo, determinando quais pontos devem ser conectados diretamente e quais deveriam ser roteados através de um ponto intermediário. Forneça as equações reduzidas de todas as rotas e calcule o comprimento total da rede em unidades de distância.</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Calculamos as inclinações entre cada par de pontos:
+                    <br/>$m_{AB} = \frac{13 - 1}{8 - 2} = \frac{12}{6} = 2$
+                    <br/>$m_{BC} = \frac{7 - 13}{14 - 8} = \frac{-6}{6} = -1$
+                    <br/>$m_{AC} = \frac{7 - 1}{14 - 2} = \frac{6}{12} = \frac{1}{2}$</li>
+<li>Verificamos a perpendicularidade:
+                    <br/>$m_{AB} \cdot m_{BC} = 2 \cdot (-1) = -2 \neq -1$
+                    <br/>$m_{AB} \cdot m_{AC} = 2 \cdot \frac{1}{2} = 1 \neq -1$
+                    <br/>$m_{BC} \cdot m_{AC} = (-1) \cdot \frac{1}{2} = -\frac{1}{2} \neq -1$</li>
+<li>Nenhum par de retas forma um ângulo reto. Precisamos determinar um ponto D que crie um triângulo retângulo com alguns dos pontos originais.</li>
+<li>Analisando as inclinações, percebemos que se criarmos uma rota perpendicular à AC passando por B, teremos $m_{BD} = -2$</li>
+<li>A equação da reta BD: $y - 13 = -2(x - 8) \Rightarrow y = -2x + 29$</li>
+<li>A interseção com AC (equação $y = \frac{1}{2}x + 0$) ocorre quando:
+                    <br/>$\frac{1}{2}x + 0 = -2x + 29$
+                    <br/>$\frac{1}{2}x + 2x = 29$
+                    <br/>$\frac{5}{2}x = 29$
+                    <br/>$x = \frac{29 \cdot 2}{5} = \frac{58}{5} = 11.6$</li>
+<li>Substituindo: $y = \frac{1}{2} \cdot 11.6 + 0 = 5.8$</li>
+<li>Portanto, o ponto D é aproximadamente (11.6, 5.8)</li>
+<li>As equações reduzidas são:
+                    <br/>$\text{Rota AB: } y = 2x - 3$
+                    <br/>$\text{Rota BD: } y = -2x + 29$
+                    <br/>$\text{Rota AC: } y = \frac{1}{2}x + 0 = \frac{1}{2}x$</li>
+<li>Calculamos as distâncias:
+                    <br/>$d_{AB} = \sqrt{(8-2)^2 + (13-1)^2} = \sqrt{36 + 144} = \sqrt{180} \approx 13.42$
+                    <br/>$d_{BD} = \sqrt{(11.6-8)^2 + (5.8-13)^2} = \sqrt{12.96 + 51.84} = \sqrt{64.8} \approx 8.05$
+                    <br/>$d_{AC} = \sqrt{(14-2)^2 + (7-1)^2} = \sqrt{144 + 36} = \sqrt{180} \approx 13.42$</li>
+<li>A distância total é aproximadamente $13.42 + 8.05 + 13.42 = 34.89$ unidades</li>
+</ol>
+<div class="formula">
+                    $$\text{Rota AB: } y = 2x - 3$$
+                    $$\text{Rota BD: } y = -2x + 29$$
+                    $$\text{Rota AC: } y = \frac{1}{2}x$$
+                    $$\text{Distância total: } 34.89 \text{ unidades}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Esta configuração cria um sistema de rotas com um ângulo reto no ponto D, integrando o assentamento B à rota direta entre A e C. A rede triangular oferece redundância (se uma rota for comprometida, ainda há caminhos alternativos) enquanto mantém a distância total relativamente eficiente. Em um mundo pós-apocalíptico, este equilíbrio entre eficiência e redundância é crucial - economiza recursos ao mesmo tempo que aumenta a resiliência do sistema contra interrupções causadas por ameaças externas.</p>
+</details>
+</div>

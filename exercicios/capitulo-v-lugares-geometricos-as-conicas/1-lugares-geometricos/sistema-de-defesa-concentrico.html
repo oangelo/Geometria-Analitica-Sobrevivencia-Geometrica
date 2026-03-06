@@ -1,0 +1,24 @@
+<div class="exercise">
+<h3>SISTEMA DE DEFESA CONCÊNTRICO</h3>
+<p>Um abrigo central está em O(2, -1). Você precisa estabelecer três perímetros de defesa circulares concêntricos com raios 3, 5 e 7 unidades. Um invasor está se movendo pela reta y = x + 1. Determine em quantos pontos cada círculo intersecta a trajetória do invasor.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Substitua a equação da reta na equação de cada círculo e analise o discriminante da equação quadrática resultante.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Círculo 1: $(x-2)^2 + (y+1)^2 = 9$. Substituir $y = x + 1$:</li>
+<li>$(x-2)^2 + (x+1+1)^2 = 9$ → $(x-2)^2 + (x+2)^2 = 9$</li>
+<li>$x^2 - 4x + 4 + x^2 + 4x + 4 = 9$ → $2x^2 + 8 = 9$ → $2x^2 = 1$</li>
+<li>$\Delta &gt; 0$: duas interseções para todos os círculos</li>
+<li>Verificar que a reta passa por todos os três círculos calculando a distância do centro à reta</li>
+</ol>
+<div class="formula">
+                    $$\text{Cada círculo intersecta a reta em exatamente 2 pontos}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Conhecer os pontos de interseção permite calcular exatamente quando o invasor cruzará cada perímetro, otimizando o tempo de resposta defensiva.</p>
+</details>
+</div>

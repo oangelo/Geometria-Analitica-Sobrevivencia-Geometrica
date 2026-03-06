@@ -1,0 +1,75 @@
+<div class="exercise">
+        <h3>MISSÃO 9: Triangulação de Artefato Misterioso</h3>
+        <p>Três equipes de exploração detectaram um artefato misterioso emitindo um sinal. Do abrigo Alpha, o artefato está a uma distância $d_A$ e direção $35°$ nordeste. Do abrigo Beta, localizado 8 km ao leste de Alpha, o artefato está a uma distância $d_B$ e direção $65°$ noroeste. Do abrigo Gamma, localizado 6 km ao norte de Alpha, o artefato está a uma distância $d_C$ e direção $42°$ sudeste. Estabeleça um sistema de equações para determinar a localização exata $(x, y)$ do artefato em relação a Alpha, considerando Alpha como a origem $(0, 0)$, o leste como eixo x positivo e o norte como eixo y positivo.</p>
+
+        <details>
+            <summary>NÍVEL DE AUTORIZAÇÃO: SUPERVISOR</summary>
+            <ol class="solution-steps">
+                <li>Definimos as coordenadas dos abrigos:
+                    <div class="formula">
+                        Alpha: $(0, 0)$ <br>
+                        Beta: $(8, 0)$ <br>
+                        Gamma: $(0, 6)$
+                    </div>
+                </li>
+                <li>Convertemos as direções em ângulos no sistema de coordenadas:
+                    <div class="formula">
+                        De Alpha: $35°$ nordeste = $35°$ no 1º quadrante <br>
+                        De Beta: $65°$ noroeste = $65° + 180° = 245°$ no 3º quadrante <br>
+                        De Gamma: $42°$ sudeste = $90° + 42° = 132°$ no 2º quadrante
+                    </div>
+                </li>
+                <li>Estabelecemos equações vetoriais para cada direção:
+                    <div class="formula">
+                        De Alpha: $(x, y) = d_A \cdot (\cos(35°), \sin(35°)) = d_A \cdot (0.8192, 0.5736)$
+                    </div>
+                    <div class="formula">
+                        De Beta: $(x, y) - (8, 0) = d_B \cdot (\cos(245°), \sin(245°)) = d_B \cdot (-0.4226, -0.9063)$
+                    </div>
+                    <div class="formula">
+                        De Gamma: $(x, y) - (0, 6) = d_C \cdot (\cos(132°), \sin(132°)) = d_C \cdot (-0.6691, 0.7431)$
+                    </div>
+                </li>
+                <li>Isolamos as equações da primeira direção:
+                    <div class="formula">
+                        $x = 0.8192 \cdot d_A$ <br>
+                        $y = 0.5736 \cdot d_A$
+                    </div>
+                </li>
+                <li>Substituímos nas equações da segunda direção:
+                    <div class="formula">
+                        $0.8192 \cdot d_A - 8 = -0.4226 \cdot d_B$ <br>
+                        $0.5736 \cdot d_A = -0.9063 \cdot d_B$
+                    </div>
+                </li>
+                <li>Da segunda equação:
+                    <div class="formula">
+                        $d_B = \frac{-0.5736 \cdot d_A}{0.9063} = -0.6329 \cdot d_A$
+                    </div>
+                </li>
+                <li>Substituímos na primeira equação:
+                    <div class="formula">
+                        $0.8192 \cdot d_A - 8 = -0.4226 \cdot (-0.6329 \cdot d_A)$ <br>
+                        $0.8192 \cdot d_A - 8 = 0.2675 \cdot d_A$ <br>
+                        $0.5517 \cdot d_A = 8$ <br>
+                        $d_A = \frac{8}{0.5517} = 14.5$
+                    </div>
+                </li>
+                <li>Calculamos as coordenadas do artefato:
+                    <div class="formula">
+                        $x = 0.8192 \cdot 14.5 = 11.88$ <br>
+                        $y = 0.5736 \cdot 14.5 = 8.32$
+                    </div>
+                </li>
+                <li>Verificamos com a terceira direção:
+                    <div class="formula">
+                        $(11.88, 8.32) - (0, 6) = (11.88, 2.32)$ <br>
+                        Este vetor deve ter direção $132°$ <br>
+                        $\tan^{-1}(\frac{2.32}{11.88}) \approx 11°$
+                    </div>
+                </li>
+                <li>Como os ângulos não correspondem, precisamos usar outras técnicas, como encontrar o ponto de intersecção das três direções para triangular com mais precisão.</li>
+            </ol>
+            <p><strong>Reflexão de Sobrevivência:</strong> A triangulação é uma técnica vital na Zona Devastada, mas está sujeita a erros devido a interferências, especialmente com artefatos de origem desconhecida. Quando as três linhas não se encontram em um único ponto, considere a distância mais curta entre elas ou a área do triângulo formado pelas intersecções para estimar a zona de busca. Recomenda-se enviar uma equipe pequena e bem equipada para verificação, mantendo comunicação constante com os três abrigos para refinamento da localização em tempo real.</p>
+        </details>
+    </div>

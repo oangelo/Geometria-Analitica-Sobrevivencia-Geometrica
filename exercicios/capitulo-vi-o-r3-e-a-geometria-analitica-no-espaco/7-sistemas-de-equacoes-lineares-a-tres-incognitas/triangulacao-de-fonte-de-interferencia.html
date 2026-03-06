@@ -1,0 +1,34 @@
+<div class="exercise">
+<h3>Triangulação de Fonte de Interferência</h3>
+<p>Três estações de monitoramento detectaram uma fonte misteriosa de interferência eletromagnética. Use triangulação para localizar suas coordenadas exatas:</p>
+<div class="formula">
+            $$\begin{cases}
+            4x - 3y + 2z = 18 \\
+            -2x + 5y - z = -12 \\
+            6x - y + 3z = 22
+            \end{cases}$$
+            </div>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Multiplicando a segunda equação por 2: $-4x + 10y - 2z = -24$</li>
+<li>Somando com a primeira: $(4x - 3y + 2z) + (-4x + 10y - 2z) = 18 + (-24) \Rightarrow 7y = -6 \Rightarrow y = -\frac{6}{7}$</li>
+<li>Multiplicando a segunda equação por 3: $-6x + 15y - 3z = -36$</li>
+<li>Somando com a terceira: $(6x - y + 3z) + (-6x + 15y - 3z) = 22 + (-36) \Rightarrow 14y = -14 \Rightarrow y = -1$</li>
+<li>Verificação: temos $y = -\frac{6}{7}$ e $y = -1$, que são diferentes!</li>
+<li>Vamos refazer: da primeira soma $7y = -6$, então $y = -\frac{6}{7}$</li>
+<li>Substituindo $y = -\frac{6}{7}$ na segunda equação: $-2x + 5(-\frac{6}{7}) - z = -12 \Rightarrow -2x - \frac{30}{7} - z = -12$</li>
+<li>$-2x - z = -12 + \frac{30}{7} = \frac{-84 + 30}{7} = -\frac{54}{7} \Rightarrow 2x + z = \frac{54}{7}$ ... (4)</li>
+<li>Substituindo na primeira equação: $4x - 3(-\frac{6}{7}) + 2z = 18 \Rightarrow 4x + \frac{18}{7} + 2z = 18 \Rightarrow 4x + 2z = \frac{108}{7}$ ... (5)</li>
+<li>Dividindo (5) por 2: $2x + z = \frac{54}{7}$ (confirma equação 4)</li>
+<li>Da equação (4): $z = \frac{54}{7} - 2x$</li>
+<li>Substituindo na terceira equação: $6x - (-\frac{6}{7}) + 3(\frac{54}{7} - 2x) = 22$</li>
+<li>$6x + \frac{6}{7} + \frac{162}{7} - 6x = 22 \Rightarrow \frac{168}{7} = 22 \Rightarrow 24 = 22$ (contradição!)</li>
+<li>Recalculando: o sistema é inconsistente</li>
+</ol>
+<div class="formula">
+                    Conclusão: Sistema impossível - os dados das estações são inconsistentes
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> A inconsistência nos dados sugere que pelo menos uma estação foi comprometida ou danificada. Na Zona Devastada, informações falsas podem ser mais perigosas que nenhuma informação - sempre verifique a integridade dos dados antes de agir.</p>
+</details>
+</div>

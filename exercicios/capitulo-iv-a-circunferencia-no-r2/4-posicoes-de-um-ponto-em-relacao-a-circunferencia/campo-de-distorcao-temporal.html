@@ -1,0 +1,38 @@
+<div class="exercise">
+<h3>CAMPO DE DISTORÇÃO TEMPORAL</h3>
+<p>Um raro campo de distorção temporal é modelado por uma circunferência cuja equação é $x^2 + y^2 + 2x - 4y - 20 = 0$. Três expedições partiram dos pontos $E_1(2, 6)$, $E_2(-5, 2)$ e $E_3(3, 1)$. Determine qual expedição sofrerá os efeitos do campo de distorção, e para a expedição mais próxima do centro do campo, calcule a que distância ela precisaria se afastar para escapar do campo de distorção.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Trabalhe com a equação na forma canônica e verifique quais pontos estão dentro da circunferência. A distância que uma expedição precisa percorrer para sair do campo é a diferença entre o raio e a distância atual até o centro.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Reescrevemos a equação da circunferência:
+                    $x^2 + y^2 + 2x - 4y - 20 = 0$</li>
+<li>Completando os quadrados:
+                    $x^2 + 2x + 1 + y^2 - 4y + 4 - 20 - 1 - 4 = 0$
+                    $(x + 1)^2 + (y - 2)^2 = 25$</li>
+<li>Identificamos o centro $C(-1, 2)$ e o raio $r = 5$.</li>
+<li>Para $E_1(2, 6)$:
+                    $d(E_1, C) = \sqrt{(2 - (-1))^2 + (6 - 2)^2} = \sqrt{9 + 16} = \sqrt{25} = 5$</li>
+<li>Como $d(E_1, C) = 5 = r$, a expedição $E_1$ está exatamente na borda do campo.</li>
+<li>Para $E_2(-5, 2)$:
+                    $d(E_2, C) = \sqrt{(-5 - (-1))^2 + (2 - 2)^2} = \sqrt{16 + 0} = 4$</li>
+<li>Como $d(E_2, C) = 4 &lt; 5 = r$, a expedição $E_2$ está dentro do campo.</li>
+<li>Para $E_3(3, 1)$:
+                    $d(E_3, C) = \sqrt{(3 - (-1))^2 + (1 - 2)^2} = \sqrt{16 + 1} = \sqrt{17} \approx 4,12$</li>
+<li>Como $d(E_3, C) \approx 4,12 &lt; 5 = r$, a expedição $E_3$ também está dentro do campo.</li>
+<li>Das três expedições, $E_2$ está mais próxima do centro do campo (distância 4).</li>
+<li>Para $E_2$ escapar do campo, ela precisa percorrer pelo menos $r - d(E_2, C) = 5 - 4 = 1$ unidade.</li>
+</ol>
+<div class="formula">
+                    $(x + 1)^2 + (y - 2)^2 = 25$
+                    
+                    Distância mínima para $E_2$ escapar = $r - d(E_2, C) = 5 - 4 = 1$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> As expedições $E_2$ e $E_3$ estão sob efeito do campo de distorção, enquanto $E_1$ está exatamente na borda e pode escapar com um pequeno deslocamento. A expedição $E_2$ precisaria viajar pelo menos 1 unidade em direção à borda para escapar. Em campos de distorção temporal, cada momento conta - o que parece um minuto fora pode ser horas dentro, afetando suprimentos, comunicações e até mesmo a saúde dos membros da expedição.</p>
+</details>
+</div>

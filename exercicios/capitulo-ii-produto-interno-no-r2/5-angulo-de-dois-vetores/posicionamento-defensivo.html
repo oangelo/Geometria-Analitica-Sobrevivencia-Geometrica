@@ -1,0 +1,40 @@
+<div class="exercise">
+<h3>POSICIONAMENTO DEFENSIVO</h3>
+<p>Três sentinelas estão posicionadas nos pontos A(2,1), B(5,7) e C(8,2) formando um triângulo de defesa. Para otimizar o campo de tiro, é importante que os ângulos entre as linhas de visão sejam conhecidos. Se um invasor é detectado no ponto D(4,3), calcule os ângulos formados entre os vetores $\vec{AD}$, $\vec{BD}$ e $\vec{CD}$.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Você precisará calcular três ângulos diferentes (entre AD-BD, BD-CD e CD-AD). Para cada par, calcule os vetores, seus produtos escalares e módulos.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Determinamos os vetores:
+                    $\vec{AD} = (4,3) - (2,1) = (2,2)$
+                    $\vec{BD} = (4,3) - (5,7) = (-1,-4)$
+                    $\vec{CD} = (4,3) - (8,2) = (-4,1)$</li>
+<li>Calculamos os módulos:
+                    $|\vec{AD}| = \sqrt{2^2 + 2^2} = \sqrt{8} = 2\sqrt{2} \approx 2,83$
+                    $|\vec{BD}| = \sqrt{(-1)^2 + (-4)^2} = \sqrt{1 + 16} = \sqrt{17} \approx 4,12$
+                    $|\vec{CD}| = \sqrt{(-4)^2 + 1^2} = \sqrt{16 + 1} = \sqrt{17} \approx 4,12$</li>
+<li>Calculamos o ângulo entre $\vec{AD}$ e $\vec{BD}$:
+                    $\vec{AD} \cdot \vec{BD} = 2 \cdot (-1) + 2 \cdot (-4) = -2 - 8 = -10$
+                    $\cos(\theta_{AB}) = \frac{\vec{AD} \cdot \vec{BD}}{|\vec{AD}| \cdot |\vec{BD}|} = \frac{-10}{2,83 \cdot 4,12} \approx -0,857$
+                    $\theta_{AB} = \arccos(-0,857) \approx 149°$</li>
+<li>Calculamos o ângulo entre $\vec{BD}$ e $\vec{CD}$:
+                    $\vec{BD} \cdot \vec{CD} = (-1) \cdot (-4) + (-4) \cdot 1 = 4 - 4 = 0$
+                    Como o produto escalar é zero, $\theta_{BC} = 90°$</li>
+<li>Calculamos o ângulo entre $\vec{CD}$ e $\vec{AD}$:
+                    $\vec{CD} \cdot \vec{AD} = (-4) \cdot 2 + 1 \cdot 2 = -8 + 2 = -6$
+                    $\cos(\theta_{CA}) = \frac{\vec{CD} \cdot \vec{AD}}{|\vec{CD}| \cdot |\vec{AD}|} = \frac{-6}{4,12 \cdot 2,83} \approx -0,514$
+                    $\theta_{CA} = \arccos(-0,514) \approx 121°$</li>
+</ol>
+<div class="formula">
+                    $$\theta_{AB} = \arccos\left(\frac{\vec{AD} \cdot \vec{BD}}{|\vec{AD}| \cdot |\vec{BD}|}\right) \approx 149°$$
+                    $$\theta_{BC} = 90°$$
+                    $$\theta_{CA} = \arccos\left(\frac{\vec{CD} \cdot \vec{AD}}{|\vec{CD}| \cdot |\vec{AD}|}\right) \approx 121°$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Esta configuração de ângulos revela informações táticas críticas. O ângulo reto (90°) entre os vetores BD e CD significa que as sentinelas B e C têm linhas de tiro perpendiculares ao invasor, criando um fogo cruzado eficiente. Os ângulos obtusos (149° e 121°) indicam que as sentinelas estão bem distribuídas ao redor do invasor, maximizando a cobertura e minimizando o risco de fogo amigo. Em cenários defensivos pós-apocalípticos, onde cada munição é preciosa, esta otimização matemática de posicionamento aumenta significativamente as chances de sobrevivência do grupo.</p>
+</details>
+</div>

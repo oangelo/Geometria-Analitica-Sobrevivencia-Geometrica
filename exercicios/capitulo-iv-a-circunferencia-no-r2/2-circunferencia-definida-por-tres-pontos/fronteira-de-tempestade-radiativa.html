@@ -1,0 +1,41 @@
+<div class="exercise">
+<h3>FRONTEIRA DE TEMPESTADE RADIATIVA</h3>
+<p>Três postos avançados nas coordenadas A(-5, 0), B(3, 4) e C(3, -4) relataram simultaneamente o início de uma tempestade de radiação. Os cientistas acreditam que esta tempestade tem formato circular, com sua intensidade diminuindo à medida que se afasta do epicentro. Determine a equação da circunferência que passa pelos três postos e identifique seu centro (epicentro da tempestade). Se um abrigo estiver localizado no ponto (1, 0), ele está dentro ou fora da zona de tempestade?</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Depois de determinar a equação da circunferência, teste se o ponto (1, 0) satisfaz a desigualdade para determinar sua posição relativa à fronteira da tempestade.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Vamos substituir os três pontos na equação geral $x^2 + y^2 + Dx + Ey + F = 0$:
+                    Para A(-5, 0): $(-5)^2 + 0^2 + D(-5) + E(0) + F = 0 \implies 25 - 5D + F = 0$
+                    Para B(3, 4): $3^2 + 4^2 + D(3) + E(4) + F = 0 \implies 9 + 16 + 3D + 4E + F = 0 \implies 25 + 3D + 4E + F = 0$
+                    Para C(3, -4): $3^2 + (-4)^2 + D(3) + E(-4) + F = 0 \implies 9 + 16 + 3D - 4E + F = 0 \implies 25 + 3D - 4E + F = 0$</li>
+<li>Das duas últimas equações:
+                    $25 + 3D + 4E + F = 0$ e $25 + 3D - 4E + F = 0$
+                    Subtraindo: $8E = 0 \implies E = 0$</li>
+<li>Substituindo $E = 0$ na segunda equação:
+                    $25 + 3D + F = 0$</li>
+<li>Comparando com a primeira equação $25 - 5D + F = 0$, temos:
+                    $25 + 3D + F = 25 - 5D + F$
+                    $3D + 5D = 0$
+                    $8D = 0$
+                    $D = 0$</li>
+<li>Substituindo $D = 0$ na primeira equação:
+                    $25 + F = 0 \implies F = -25$
+                    A equação da circunferência é: $x^2 + y^2 - 25 = 0$
+                    Ou: $x^2 + y^2 = 25$, que é uma circunferência com centro na origem $(0, 0)$ e raio $r = 5$.</li>
+<li>Para verificar se o abrigo (1, 0) está dentro ou fora da circunferência:
+                    $1^2 + 0^2 = 1 &lt; 25$
+                    Como o valor é menor que $r^2 = 25$, o ponto está dentro da circunferência, ou seja, dentro da zona de tempestade.</li>
+</ol>
+<div class="formula">
+                    $$x^2 + y^2 = 25$$
+                    $$\text{Centro} = (0, 0), \text{ Raio} = 5$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> As tempestades radiativas são um dos maiores perigos na Zona Devastada. Identificar com precisão a equação de uma fronteira circular de tempestade permite determinar quais assentamentos estão em risco imediato e quais estão seguros. O modelo matemático fornece informações críticas para evacuação e preparação. No caso do abrigo em (1, 0), a análise mostra que ele está dentro da zona de perigo e deve ser evacuado imediatamente. Esta aplicação da geometria analítica salva vidas em situações de emergência.</p>
+</details>
+</div>

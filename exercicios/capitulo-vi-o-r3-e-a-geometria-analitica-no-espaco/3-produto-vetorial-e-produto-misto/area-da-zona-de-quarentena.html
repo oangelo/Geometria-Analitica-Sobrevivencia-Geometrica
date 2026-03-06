@@ -1,0 +1,24 @@
+<div class="exercise">
+<h3>Área da Zona de Quarentena</h3>
+<p>Para estabelecer uma barreira de descontaminação, você precisa cercar uma área retangular definida pelos vetores $\vec{AB} = (3, 4, 0)$ e $\vec{AC} = (2, -1, 6)$. A quantidade de material de vedação necessária depende da área do paralelogramo formado por esses vetores. Calcule essa área usando a magnitude do produto vetorial.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+                A área do paralelogramo formado por dois vetores é igual à magnitude (módulo) do produto vetorial entre eles: $A = |\vec{u} \times \vec{v}|$.
+            </div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Calculamos $\vec{AB} \times \vec{AC}$: $\begin{vmatrix} \vec{i} &amp; \vec{j} &amp; \vec{k} \\ 3 &amp; 4 &amp; 0 \\ 2 &amp; -1 &amp; 6 \end{vmatrix}$</li>
+<li>$\vec{AB} \times \vec{AC} = \vec{i}(4 \cdot 6 - 0 \cdot (-1)) - \vec{j}(3 \cdot 6 - 0 \cdot 2) + \vec{k}(3 \cdot (-1) - 4 \cdot 2)$</li>
+<li>$= \vec{i}(24) - \vec{j}(18) + \vec{k}(-3 - 8) = (24, -18, -11)$</li>
+<li>Calculamos a magnitude: $|\vec{AB} \times \vec{AC}| = \sqrt{24^2 + (-18)^2 + (-11)^2}$</li>
+<li>$= \sqrt{576 + 324 + 121} = \sqrt{1021} \approx 31.95$ unidades de área</li>
+</ol>
+<div class="formula">
+                    $$\text{Área} = |\vec{AB} \times \vec{AC}| = \sqrt{1021} \approx 31.95 \text{ m}^2$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Com aproximadamente 32 m² de área de quarentena, você precisará de cerca de 25 metros lineares de cerca de contenção e 4 geradores de campo eletromagnético para manter a zona de descontaminação ativa 24 horas por dia.</p>
+</details>
+</div>

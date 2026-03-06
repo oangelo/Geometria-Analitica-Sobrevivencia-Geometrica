@@ -223,15 +223,25 @@
     <div id="exercicios-container"></div>
 
     <script>
-    const PARTES_EXERCICIOS = {
-        manual: "algebra-manual.html",
-        enunciados: "algebra-enunciados.html"
-    };
+    const MANUAL = "algebra-manual.html";
+    const EXERCICIOS = [
+        "algebra/calculo-recursos.html",
+        "algebra/distribuicao-racoes.html",
+        "algebra/fortificacao-perimetro.html",
+        "algebra/radiacao-exponencial.html",
+        "algebra/multiplicacao-monomios.html",
+        "algebra/quadrado-diferenca.html",
+        "algebra/area-cultivo-seguro.html",
+        "algebra/produto-soma-diferenca.html",
+        "algebra/expansao-abrigo.html",
+        "algebra/simplificacao-fracao.html",
+        "algebra/expansao-multivariada.html",
+        "algebra/equacao-bunker.html"
+    ];
 
-    async function carregarParteExercicios(containerId, arquivo) {
-        const container = document.getElementById(containerId);
+    async function carregarManual(arquivo) {
+        const container = document.getElementById('manual-container');
         if (!container) return;
-
         try {
             const resposta = await fetch(arquivo);
             if (!resposta.ok) throw new Error(`Falha ao carregar ${arquivo}`);
@@ -242,9 +252,35 @@
         }
     }
 
+    async function carregarExercicios(exercicios) {
+        const container = document.getElementById('exercicios-container');
+        if (!container) return;
+
+        container.innerHTML = `
+            <section class="enunciados-exercicios" data-context="exercicios-enunciados">
+                <div class="terminal-border">
+                    <h2 class="terminal-line">> MISSÕES E ENUNCIADOS</h2>
+                    <div class="mission-counter" id="mission-container"></div>
+                </div>
+            </section>`;
+
+        const missionContainer = document.getElementById('mission-container');
+        for (const arquivo of exercicios) {
+            try {
+                const resposta = await fetch(arquivo);
+                if (!resposta.ok) throw new Error(`Falha ao carregar ${arquivo}`);
+                missionContainer.insertAdjacentHTML('beforeend', await resposta.text());
+            } catch (erro) {
+                missionContainer.insertAdjacentHTML('beforeend',
+                    `<div class="exercise"><p class="danger">Erro ao carregar ${arquivo}.</p></div>`);
+                console.error(erro);
+            }
+        }
+    }
+
     document.addEventListener('DOMContentLoaded', async () => {
-        await carregarParteExercicios('manual-container', PARTES_EXERCICIOS.manual);
-        await carregarParteExercicios('exercicios-container', PARTES_EXERCICIOS.enunciados);
+        await carregarManual(MANUAL);
+        await carregarExercicios(EXERCICIOS);
 
         if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
             await window.MathJax.typesetPromise();

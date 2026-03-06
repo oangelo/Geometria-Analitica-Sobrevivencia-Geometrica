@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>O PONTO DE EQUILÍBRIO</h3>
+<p>As coordenadas A(0, 0), B(8, 0) e C(4, 4) representam três pontos de extração de água. Um sistema de canalização deve conectar estes pontos, com uma válvula central posicionada no ponto médio do segmento que liga o ponto C ao ponto médio de AB. Determine as coordenadas da válvula e a quantidade total de tubulação necessária para conectar todos os pontos até a válvula.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Este é um problema de aplicação sequencial de ponto médio.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Calcule o ponto médio M de A(0, 0) e B(8, 0): $M = \left(\frac{0 + 8}{2}, \frac{0 + 0}{2}\right) = (4, 0)$</li>
+<li>Agora, calcule o ponto médio V entre M(4, 0) e C(4, 4): $V = \left(\frac{4 + 4}{2}, \frac{0 + 4}{2}\right) = (4, 2)$</li>
+<li>Para calcular a quantidade total de tubulação, determine as distâncias de cada ponto até a válvula:
+                        <br/>$|AV| = \sqrt{(4 - 0)^2 + (2 - 0)^2} = \sqrt{16 + 4} = \sqrt{20} = 2\sqrt{5}$
+                        <br/>$|BV| = \sqrt{(4 - 8)^2 + (2 - 0)^2} = \sqrt{16 + 4} = \sqrt{20} = 2\sqrt{5}$
+                        <br/>$|CV| = \sqrt{(4 - 4)^2 + (2 - 4)^2} = \sqrt{0 + 4} = 2$</li>
+<li>A quantidade total de tubulação será: $|AV| + |BV| + |CV| = 2\sqrt{5} + 2\sqrt{5} + 2 = 4\sqrt{5} + 2$</li>
+</ol>
+<div class="formula">
+                    $$V = (4, 2)$$
+                    $$\text{Tubulação total} = 4\sqrt{5} + 2 \approx 10.94 \text{ unidades}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Em infraestrutura crítica como sistemas hídricos, a aplicação iterativa do conceito de ponto médio permite criar nós de distribuição que minimizam o uso de materiais escassos. Esta otimização não é apenas questão de economia, mas de viabilidade em um mundo onde cada recurso salvo pode significar mais vidas preservadas.</p>
+</details>
+</div>

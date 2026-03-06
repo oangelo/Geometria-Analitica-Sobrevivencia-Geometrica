@@ -1,0 +1,26 @@
+        <div class="exercise">
+            <h3>Circuito Elétrico de Emergência</h3>
+            <p>O sistema de comunicação de emergência requer uma corrente estável de 2 amperes através de um circuito com duas resistências em paralelo. Sabe-se que a voltagem total aplicada ao circuito é de 12 volts. Se a potência dissipada pela primeira resistência é de 16 watts e pela segunda é de 8 watts, determine os valores das resistências e as correntes que passam por cada uma delas.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Definimos as variáveis: $I_1$ = corrente na primeira resistência, $I_2$ = corrente na segunda resistência, $R_1$ = valor da primeira resistência, $R_2$ = valor da segunda resistência</li>
+                    <li>Para a corrente total: $I_1 + I_2 = 2$ amperes</li>
+                    <li>Sabemos que a voltagem é igual em ambas resistências (paralelo): $V = 12$ volts</li>
+                    <li>Relação entre potência, voltagem e corrente: $P = VI$</li>
+                    <li>Para a primeira resistência: $P_1 = 16 = V \cdot I_1 = 12 \cdot I_1$</li>
+                    <li>Resolvemos para $I_1$: $I_1 = \frac{16}{12} = \frac{4}{3}$ amperes</li>
+                    <li>Para a segunda resistência: $P_2 = 8 = V \cdot I_2 = 12 \cdot I_2$</li>
+                    <li>Resolvemos para $I_2$: $I_2 = \frac{8}{12} = \frac{2}{3}$ amperes</li>
+                    <li>Verificação da corrente total: $I_1 + I_2 = \frac{4}{3} + \frac{2}{3} = 2$ amperes ✓</li>
+                    <li>Pela Lei de Ohm: $R = \frac{V}{I}$</li>
+                    <li>Para a primeira resistência: $R_1 = \frac{12}{\frac{4}{3}} = \frac{12 \cdot 3}{4} = 9$ ohms</li>
+                    <li>Para a segunda resistência: $R_2 = \frac{12}{\frac{2}{3}} = \frac{12 \cdot 3}{2} = 18$ ohms</li>
+                    <li>Verificação da potência na primeira resistência: $P_1 = I_1^2 \cdot R_1 = (\frac{4}{3})^2 \cdot 9 = \frac{16}{9} \cdot 9 = 16$ watts ✓</li>
+                    <li>Verificação da potência na segunda resistência: $P_2 = I_2^2 \cdot R_2 = (\frac{2}{3})^2 \cdot 18 = \frac{4}{9} \cdot 18 = 8$ watts ✓</li>
+                </ol>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Os circuitos elétricos no mundo pós-apocalíptico frequentemente precisam ser improvisados com componentes salvados de equipamentos diversos. Compreender as relações matemáticas entre resistência, corrente, voltagem e potência permite construir sistemas funcionais mesmo sem instrumentos de medição precisos. Observe como utilizamos sistemas de equações para determinar valores que não podiam ser medidos diretamente, demonstrando o poder da matemática como ferramenta de inferência na engenharia de sobrevivência. Um sistema de comunicação confiável pode significar a diferença entre receber socorro ou ficar isolado na Zona Devastada.</p>
+            </details>
+        </div>

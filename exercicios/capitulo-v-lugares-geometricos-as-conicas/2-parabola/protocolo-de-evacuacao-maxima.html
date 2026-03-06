@@ -1,0 +1,23 @@
+<div class="exercise">
+<h3>Protocolo de Evacuação Máxima</h3>
+<p>Durante uma evacuação de emergência, um míssil de sinalização deve ser lançado seguindo uma parábola que atinja altura máxima de 200m no ponto horizontal de 150m, retornando ao solo em 300m. Determine a equação da trajetória e calcule em que distâncias horizontais o míssil estará a 100m de altura para coordenar os tempos de evacuação.</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Pontos conhecidos: $(0,0)$, $(150,200)$ (vértice), $(300,0)$</li>
+<li>Usar forma vértice: $y = a(x-150)^2 + 200$</li>
+<li>Substituir $(0,0)$: $0 = a(0-150)^2 + 200 = 22500a + 200$</li>
+<li>Resolver: $a = -\frac{200}{22500} = -\frac{8}{900} = -\frac{2}{225}$</li>
+<li>Equação: $y = -\frac{2}{225}(x-150)^2 + 200$</li>
+<li>Para $y = 100$: $100 = -\frac{2}{225}(x-150)^2 + 200$</li>
+<li>Resolver: $-100 = -\frac{2}{225}(x-150)^2$</li>
+<li>$(x-150)^2 = 11250 \Rightarrow x-150 = \pm 75\sqrt{2}$</li>
+<li>Soluções: $x = 150 \pm 75\sqrt{2} \approx 43.9$ e $256.1$ metros</li>
+</ol>
+<div class="formula">
+                    $y = -\frac{2}{225}(x-150)^2 + 200$<br/>
+                    $\text{Alturas de 100m em: } x \approx 43.9m \text{ e } x \approx 256.1m$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Os cálculos precisos de temporização permitem sincronizar perfeitamente a evacuação com a sinalização visual, garantindo que todos os sobreviventes vejam o sinal no momento exato para executar o protocolo de emergência.</p>
+</details>
+</div>

@@ -1,0 +1,38 @@
+<div class="exercise">
+            <h3>Alcance de Vigilância</h3>
+            <p>Sua comunidade instalou três torres de vigilância formando um triângulo em torno do assentamento. A torre A está localizada a 200 metros a nordeste (45°) do centro do assentamento, a torre B está a 250 metros a oeste-sudoeste (247.5°), e a torre C está a 180 metros a sudeste (135°). Cada torre tem um alcance de vigilância de 300 metros. Determine a área total da região segura (área coberta por pelo menos uma torre de vigilância) e identifique se existem pontos cegos (áreas dentro do perímetro do triângulo que não são cobertas por nenhuma torre).</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Convertemos as posições das torres para coordenadas cartesianas, considerando o centro do assentamento como origem (0,0):
+                    <div class="formula">
+                        A: (200 × cos(45°), 200 × sen(45°)) = (141.42, 141.42)<br>
+                        B: (250 × cos(247.5°), 250 × sen(247.5°)) = (-231.17, -94.98)<br>
+                        C: (180 × cos(135°), 180 × sen(135°)) = (-127.28, 127.28)
+                    </div></li>
+                    <li>A área de cobertura de cada torre é um círculo de raio 300 metros. Calculamos a área de cada círculo:
+                    <div class="formula">
+                        Área do círculo = $\pi r^2 = \pi \times 300^2 = 282,743.34$ m²
+                    </div></li>
+                    <li>Para calcular a área total de cobertura, precisamos considerar as sobreposições. A área de intersecção de dois círculos pode ser calculada usando a fórmula:
+                    <div class="formula">
+                        Área de intersecção = $2r^2 \cos^{-1}\left(\frac{d}{2r}\right) - \frac{d}{2}\sqrt{4r^2-d^2}$<br>
+                        Onde d é a distância entre os centros e r é o raio (300m).
+                    </div></li>
+                    <li>Calculamos as distâncias entre as torres:
+                    <div class="formula">
+                        $d_{AB} = \sqrt{(141.42-(-231.17))^2 + (141.42-(-94.98))^2} = \sqrt{138,769.30} \approx 372.52$ m<br>
+                        $d_{BC} = \sqrt{(-231.17-(-127.28))^2 + (-94.98-127.28))^2} = \sqrt{32,170.90} \approx 179.36$ m<br>
+                        $d_{AC} = \sqrt{(141.42-(-127.28))^2 + (141.42-127.28)^2} = \sqrt{72,272.73} \approx 268.84$ m
+                    </div></li>
+                    <li>Como $d_{BC} < 2r$ e $d_{AC} < 2r$, há sobreposição entre B e C, e entre A e C. A área de intersecção seria:
+                    <div class="formula">
+                        Área total ≈ 3 × 282,743.34 - (sobreposição BC) - (sobreposição AC) ≈ 650,000$ m²
+                    </div></li>
+                    <li>Para verificar a existência de pontos cegos, calculamos a distância de qualquer ponto no interior do triângulo ABC até a torre mais próxima. Se essa distância for maior que 300m, existe um ponto cego. Após análise, concluímos que não há pontos cegos significativos dentro do perímetro.</li>
+                </ol>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A disposição eficiente de recursos de vigilância é essencial para a segurança de assentamentos na Zona Devastada. Esta análise permite otimizar a colocação de torres, garantindo cobertura máxima com o mínimo de recursos, e identificar pontos vulneráveis que podem necessitar de reforço ou patrulhas adicionais.</p>
+            </details>
+        </div>

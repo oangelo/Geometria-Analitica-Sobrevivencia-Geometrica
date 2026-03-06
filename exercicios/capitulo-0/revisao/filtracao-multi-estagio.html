@@ -1,0 +1,32 @@
+<div class="exercise">
+        <h3>MISSÃO 8: Sistema de Filtração Multi-estágio</h3>
+        <p>Seu abrigo utiliza um sistema de filtração de água com três estágios. O primeiro estágio remove $\frac{2}{3}$ das partículas, o segundo estágio remove $\frac{3}{4}$ das partículas restantes, e o terceiro estágio remove $\frac{4}{5}$ das partículas que ainda permanecem. Se você coletar água com $x$ partículas por litro da Zona Devastada, estabeleça um sistema de equações para determinar quanto deve ser o valor de $x$ para que, após a filtração, a água tenha no máximo 10 partículas por litro, que é o limite seguro para consumo.</p>
+
+        <details>
+            <summary>NÍVEL DE AUTORIZAÇÃO: SUPERVISOR</summary>
+            <ol class="solution-steps">
+                <li>Modelamos a quantidade de partículas após cada estágio:
+                    <div class="formula">
+                        Após o 1º estágio: $x - \frac{2}{3}x = \frac{1}{3}x$ partículas
+                    </div>
+                    <div class="formula">
+                        Após o 2º estágio: $\frac{1}{3}x - \frac{3}{4} \cdot \frac{1}{3}x = \frac{1}{3}x \cdot \frac{1}{4} = \frac{1}{12}x$ partículas
+                    </div>
+                    <div class="formula">
+                        Após o 3º estágio: $\frac{1}{12}x - \frac{4}{5} \cdot \frac{1}{12}x = \frac{1}{12}x \cdot \frac{1}{5} = \frac{1}{60}x$ partículas
+                    </div>
+                </li>
+                <li>Para que a água seja segura, o número final de partículas deve ser menor ou igual a 10:
+                    <div class="formula">
+                        $\frac{1}{60}x \leq 10$
+                    </div>
+                </li>
+                <li>Resolvemos para x:
+                    <div class="formula">
+                        $x \leq 10 \cdot 60 = 600$
+                    </div>
+                </li>
+            </ol>
+            <p><strong>Reflexão de Sobrevivência:</strong> A água da Zona Devastada pode conter até 600 partículas por litro para ser adequadamente filtrada pelo seu sistema atual. Se você encontrar fontes com contaminação maior, precisará aumentar a eficiência dos filtros ou realizar múltiplas filtragens. É recomendável manter um contador Geiger-Müller calibrado para partículas em solução aquosa para verificar tanto a entrada quanto a saída do sistema de filtração, garantindo que não ultrapasse o limite seguro de 10 partículas por litro.</p>
+        </details>
+    </div>

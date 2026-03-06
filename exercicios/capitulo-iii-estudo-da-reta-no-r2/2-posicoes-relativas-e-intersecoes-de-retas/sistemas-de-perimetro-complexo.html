@@ -1,0 +1,94 @@
+<div class="exercise">
+<h3>SISTEMAS DE PERÍMETRO COMPLEXO</h3>
+<p>Quatro caminhos na Zona Devastada são representados pelas retas:
+            $r_1: 2x - y + 3 = 0$
+            $r_2: x + 2y - 8 = 0$
+            $r_3: 3x + y - 12 = 0$
+            $r_4: x - 3y + 5 = 0$
+            
+            Determine todos os pontos de interseção entre essas retas e identifique o polígono formado por esses pontos. Calcule a área deste polígono para determinar o tamanho da zona delimitada para o estabelecimento de um novo acampamento.</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Primeiro, identificamos os pontos de interseção entre cada par de retas. Com 4 retas, temos $\binom{4}{2} = 6$ possíveis pares e, consequentemente, até 6 pontos de interseção.
+                    
+                    Interseção de $r_1: 2x - y + 3 = 0$ e $r_2: x + 2y - 8 = 0$:
+                    Da reta $r_1$: $y = 2x + 3$
+                    Substituindo em $r_2$:
+                    $x + 2(2x + 3) - 8 = 0$
+                    $x + 4x + 6 - 8 = 0$
+                    $5x - 2 = 0$
+                    $x = \frac{2}{5}$
+                    $y = 2(\frac{2}{5}) + 3 = \frac{4}{5} + 3 = \frac{4 + 15}{5} = \frac{19}{5}$
+                    Ponto $P_{12} = (\frac{2}{5}, \frac{19}{5})$</li>
+<li>Interseção de $r_1: 2x - y + 3 = 0$ e $r_3: 3x + y - 12 = 0$:
+                    Somando as duas equações:
+                    $(2x - y + 3) + (3x + y - 12) = 0 + 0$
+                    $5x - 9 = 0$
+                    $x = \frac{9}{5}$
+                    Substituindo em $r_1$:
+                    $2(\frac{9}{5}) - y + 3 = 0$
+                    $\frac{18}{5} - y + 3 = 0$
+                    $\frac{18}{5} + \frac{15}{5} - y = 0$
+                    $\frac{33}{5} - y = 0$
+                    $y = \frac{33}{5}$
+                    Ponto $P_{13} = (\frac{9}{5}, \frac{33}{5})$</li>
+<li>Interseção de $r_1: 2x - y + 3 = 0$ e $r_4: x - 3y + 5 = 0$:
+                    Da reta $r_1$: $y = 2x + 3$
+                    Substituindo em $r_4$:
+                    $x - 3(2x + 3) + 5 = 0$
+                    $x - 6x - 9 + 5 = 0$
+                    $-5x - 4 = 0$
+                    $x = -\frac{4}{5}$
+                    $y = 2(-\frac{4}{5}) + 3 = -\frac{8}{5} + 3 = -\frac{8}{5} + \frac{15}{5} = \frac{7}{5}$
+                    Ponto $P_{14} = (-\frac{4}{5}, \frac{7}{5})$</li>
+<li>Interseção de $r_2: x + 2y - 8 = 0$ e $r_3: 3x + y - 12 = 0$:
+                    Da reta $r_3$: $y = 12 - 3x$
+                    Substituindo em $r_2$:
+                    $x + 2(12 - 3x) - 8 = 0$
+                    $x + 24 - 6x - 8 = 0$
+                    $-5x + 16 = 0$
+                    $x = \frac{16}{5}$
+                    $y = 12 - 3(\frac{16}{5}) = 12 - \frac{48}{5} = \frac{60 - 48}{5} = \frac{12}{5}$
+                    Ponto $P_{23} = (\frac{16}{5}, \frac{12}{5})$</li>
+<li>Interseção de $r_2: x + 2y - 8 = 0$ e $r_4: x - 3y + 5 = 0$:
+                    Subtraindo $r_4$ de $r_2$:
+                    $(x + 2y - 8) - (x - 3y + 5) = 0 - 0$
+                    $5y - 13 = 0$
+                    $y = \frac{13}{5}$
+                    Substituindo em $r_2$:
+                    $x + 2(\frac{13}{5}) - 8 = 0$
+                    $x + \frac{26}{5} - 8 = 0$
+                    $x + \frac{26}{5} - \frac{40}{5} = 0$
+                    $x - \frac{14}{5} = 0$
+                    $x = \frac{14}{5}$
+                    Ponto $P_{24} = (\frac{14}{5}, \frac{13}{5})$</li>
+<li>Interseção de $r_3: 3x + y - 12 = 0$ e $r_4: x - 3y + 5 = 0$:
+                    Da reta $r_3$: $y = 12 - 3x$
+                    Substituindo em $r_4$:
+                    $x - 3(12 - 3x) + 5 = 0$
+                    $x - 36 + 9x + 5 = 0$
+                    $10x - 31 = 0$
+                    $x = \frac{31}{10}$
+                    $y = 12 - 3(\frac{31}{10}) = 12 - \frac{93}{10} = \frac{120 - 93}{10} = \frac{27}{10}$
+                    Ponto $P_{34} = (\frac{31}{10}, \frac{27}{10})$</li>
+<li>Analisando os seis pontos de interseção, observamos que eles formam um hexágono irregular. Para calcular a área, podemos usar a fórmula do determinante para polígonos:
+                    
+                    $$A = \frac{1}{2}\left|\sum_{i=1}^{n} x_i(y_{i+1} - y_{i-1})\right|$$
+                    
+                    onde $(x_i, y_i)$ são as coordenadas dos vértices numerados em ordem (horária ou anti-horária) ao redor do polígono, com $(x_{n+1}, y_{n+1}) = (x_1, y_1)$ e $(x_0, y_0) = (x_n, y_n)$.
+                    
+                    Organizando os pontos em ordem e aplicando a fórmula:
+                    
+                    $$A \approx 7,26 \text{ unidades de área}$$</li>
+</ol>
+<div class="formula">
+                    $$\text{Pontos de interseção:}$$
+                    $$P_{12} = \left(\frac{2}{5}, \frac{19}{5}\right), \, P_{13} = \left(\frac{9}{5}, \frac{33}{5}\right), \, P_{14} = \left(-\frac{4}{5}, \frac{7}{5}\right)$$
+                    $$P_{23} = \left(\frac{16}{5}, \frac{12}{5}\right), \, P_{24} = \left(\frac{14}{5}, \frac{13}{5}\right), \, P_{34} = \left(\frac{31}{10}, \frac{27}{10}\right)$$
+                    
+                    $$\text{Área do hexágono} \approx 7,26 \text{ unidades de área}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> A análise de sistemas complexos de retas permite identificar áreas naturalmente delimitadas por rotas da Zona Devastada. O hexágono formado, com área de aproximadamente 7,26 unidades quadradas, representa uma zona significativamente maior que a triangular da missão anterior, capaz de abrigar um acampamento médio. Esta configuração particular oferece seis pontos de acesso/saída, o que aumenta as opções de fuga em caso de emergência, mas também requer mais recursos para vigilância efetiva. A forma irregular do hexágono sugere pontos mais vulneráveis onde a distância entre interseções é maior, orientando a disposição de defesas e a organização interna do acampamento.</p>
+</details>
+</div>

@@ -1,0 +1,25 @@
+<div class="exercise">
+<h3>Orientação da Turbina Eólica</h3>
+<p>Uma turbina eólica precisa ser posicionada perpendicular ao plano formado pelos vetores de vento predominantes $\vec{v_1} = (2, 3, -1)$ e $\vec{v_2} = (4, -2, 5)$. Determine o vetor direção do eixo da turbina e calcule sua magnitude. Além disso, verifique se o vetor $\vec{n} = (13, -14, -16)$ está na mesma direção ou direção oposta.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+                O eixo da turbina deve ser paralelo ao produto vetorial dos ventos. Compare seu resultado com o vetor dado verificando se são múltiplos escalares.
+            </div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Calculamos $\vec{v_1} \times \vec{v_2}$: $\begin{vmatrix} \vec{i} &amp; \vec{j} &amp; \vec{k} \\ 2 &amp; 3 &amp; -1 \\ 4 &amp; -2 &amp; 5 \end{vmatrix}$</li>
+<li>$= \vec{i}(3 \cdot 5 - (-1) \cdot (-2)) - \vec{j}(2 \cdot 5 - (-1) \cdot 4) + \vec{k}(2 \cdot (-2) - 3 \cdot 4)$</li>
+<li>$= \vec{i}(15 - 2) - \vec{j}(10 + 4) + \vec{k}(-4 - 12) = (13, -14, -16)$</li>
+<li>Magnitude: $|\vec{v_1} \times \vec{v_2}| = \sqrt{13^2 + 14^2 + 16^2} = \sqrt{169 + 196 + 256} = \sqrt{621}$</li>
+<li>Comparando com $\vec{n} = (13, -14, -16)$: são exatamente iguais!</li>
+</ol>
+<div class="formula">
+                    $$\vec{v_1} \times \vec{v_2} = (13, -14, -16) = \vec{n}$$
+                    $$|\vec{v_1} \times \vec{v_2}| = \sqrt{621} \approx 24.92$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> O vetor $\vec{n}$ está na direção exata para máxima eficiência da turbina! Com magnitude de quase 25 unidades, esta orientação capturará energia de ventos cruzados otimizando a geração para manter sistemas críticos funcionando durante tempestades.</p>
+</details>
+</div>

@@ -1,0 +1,44 @@
+<div class="exercise">
+<h3>TRIANGULAÇÃO DE IRRADIAÇÃO</h3>
+<p>Três detectores de radiação foram posicionados nos pontos A(0,0), B(5,0) e C(2,4). Cada detector consegue determinar a direção (mas não a distância) de uma fonte de radiação. Os detectores A, B e C detectam a fonte nas direções dadas pelos vetores unitários $\vec{u}_A = \frac{1}{\sqrt{5}}(2,1)$, $\vec{u}_B = \frac{1}{\sqrt{5}}(-1,2)$ e $\vec{u}_C$, respectivamente. Sabendo que a fonte de radiação está localizada em um único ponto e que os ângulos entre quaisquer dois dos vetores $\vec{u}_A$, $\vec{u}_B$ e $\vec{u}_C$ são todos diferentes, determine o vetor unitário $\vec{u}_C$ e as coordenadas da fonte de radiação.</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Seja S(x,y) a posição da fonte de radiação. Os vetores de direção dos detectores para a fonte são:
+                    $\vec{AS} = (x,y) - (0,0) = (x,y)$
+                    $\vec{BS} = (x,y) - (5,0) = (x-5,y)$
+                    $\vec{CS} = (x,y) - (2,4) = (x-2,y-4)$</li>
+<li>Sabemos que $\vec{u}_A = \frac{\vec{AS}}{|\vec{AS}|} = \frac{1}{\sqrt{5}}(2,1)$, então:
+                    $\frac{(x,y)}{\sqrt{x^2 + y^2}} = \frac{1}{\sqrt{5}}(2,1)$
+                    $(x,y) = \frac{\sqrt{x^2 + y^2}}{\sqrt{5}}(2,1) = \sqrt{\frac{x^2 + y^2}{5}}(2,1)$
+                    $x = 2\sqrt{\frac{x^2 + y^2}{5}}, y = \sqrt{\frac{x^2 + y^2}{5}}$
+                    $\frac{x}{2} = \frac{y}{1} = \sqrt{\frac{x^2 + y^2}{5}}$</li>
+<li>Isso implica que $\frac{x}{2} = \frac{y}{1}$, portanto $x = 2y$. A fonte está em algum ponto da semi-reta que parte de A na direção de $\vec{u}_A$.</li>
+<li>Similarmente, com $\vec{u}_B = \frac{\vec{BS}}{|\vec{BS}|} = \frac{1}{\sqrt{5}}(-1,2)$:
+                    $\frac{(x-5,y)}{\sqrt{(x-5)^2 + y^2}} = \frac{1}{\sqrt{5}}(-1,2)$
+                    Isso implica que $\frac{x-5}{-1} = \frac{y}{2}$, ou seja, $y = -2(x-5) = -2x+10$</li>
+<li>Combinando as duas equações:
+                    $x = 2y$ e $y = -2x+10$
+                    $x = 2(-2x+10) = -4x+20$
+                    $5x = 20$
+                    $x = 4$</li>
+<li>Substituindo: $y = -2(4-5) = -2(-1) = 2$</li>
+<li>Portanto, a fonte está no ponto S(4,2)</li>
+<li>Para encontrar $\vec{u}_C$, calculamos:
+                    $\vec{CS} = (4,2) - (2,4) = (2,-2)$
+                    $|\vec{CS}| = \sqrt{2^2 + (-2)^2} = \sqrt{4 + 4} = \sqrt{8} = 2\sqrt{2} \approx 2,83$
+                    $\vec{u}_C = \frac{\vec{CS}}{|\vec{CS}|} = \frac{(2,-2)}{2\sqrt{2}} = \frac{1}{\sqrt{2}}(1,-1) \approx (0,71, -0,71)$</li>
+<li>Verificando os ângulos entre os vetores unitários:
+                    $\vec{u}_A \cdot \vec{u}_B = \frac{1}{\sqrt{5}}(2,1) \cdot \frac{1}{\sqrt{5}}(-1,2) = \frac{1}{5}(-2 + 2) = 0$, então o ângulo entre $\vec{u}_A$ e $\vec{u}_B$ é 90°
+                    $\vec{u}_A \cdot \vec{u}_C = \frac{1}{\sqrt{5}}(2,1) \cdot \frac{1}{\sqrt{2}}(1,-1) = \frac{1}{\sqrt{10}}(2 - 1) = \frac{1}{\sqrt{10}} \approx 0,316$, então o ângulo entre $\vec{u}_A$ e $\vec{u}_C$ é $\arccos(0,316) \approx 71,6°$
+                    $\vec{u}_B \cdot \vec{u}_C = \frac{1}{\sqrt{5}}(-1,2) \cdot \frac{1}{\sqrt{2}}(1,-1) = \frac{1}{\sqrt{10}}(-1 - 2) = -\frac{3}{\sqrt{10}} \approx -0,95$, então o ângulo entre $\vec{u}_B$ e $\vec{u}_C$ é $\arccos(-0,95) \approx 161,6°$</li>
+<li>Confirmamos que os três ângulos (90°, 71,6° e 161,6°) são todos diferentes.</li>
+</ol>
+<div class="formula">
+                    $$\vec{u}_C = \frac{1}{\sqrt{2}}(1,-1) \approx (0,71, -0,71)$$
+                    
+                    $$S(4,2)$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> A triangulação é uma técnica vital na localização de fontes de radiação na Zona Devastada. Usando três detectores, conseguimos determinar com precisão a posição do ponto S(4,2) onde a radiação está concentrada. Os ângulos distintos entre os vetores de direção garantem que estamos identificando um único ponto, não uma região ambígua. Esta técnica permite aos sobreviventes mapearem "pontos quentes" sem precisar se aproximar fisicamente deles, minimizando a exposição à radiação enquanto exploram ruínas urbanas ou instalações industriais abandonadas. O mesmo princípio matemático pode ser aplicado para localizar fontes de sinais de rádio, depósitos subterrâneos ou até mesmo comunidades hostis à distância segura.</p>
+</details>
+</div>

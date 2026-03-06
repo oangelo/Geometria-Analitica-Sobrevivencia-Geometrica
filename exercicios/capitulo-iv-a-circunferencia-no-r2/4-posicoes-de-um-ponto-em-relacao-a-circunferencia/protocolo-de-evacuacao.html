@@ -1,0 +1,38 @@
+<div class="exercise">
+<h3>PROTOCOLO DE EVACUAÇÃO</h3>
+<p>Após um incidente com radiação, três zonas circulares contaminadas surgiram, descritas pelas circunferências $C_1: (x-2)^2 + (y-3)^2 = 4$, $C_2: (x+1)^2 + (y-1)^2 = 9$ e $C_3: (x-4)^2 + (y+2)^2 = 16$. Quatro assentamentos estão localizados nos pontos $A_1(0, 0)$, $A_2(3, 0)$, $A_3(1, 4)$ e $A_4(5, -3)$. Determine quais assentamentos precisam ser evacuados por estarem dentro de pelo menos uma das zonas contaminadas e identifique quais assentamentos estão em zonas de sobreposição de contaminação (dentro de mais de uma circunferência simultaneamente).</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Identificamos os centros e raios de cada circunferência:
+                    $C_1: $ centro $(2, 3)$ e raio $r_1 = 2$
+                    $C_2: $ centro $(-1, 1)$ e raio $r_2 = 3$
+                    $C_3: $ centro $(4, -2)$ e raio $r_3 = 4$</li>
+<li>Para o assentamento $A_1(0, 0)$:
+                    $d(A_1, C_1) = \sqrt{(0 - 2)^2 + (0 - 3)^2} = \sqrt{4 + 9} = \sqrt{13} \approx 3,61 &gt; 2 = r_1$, logo está fora de $C_1$.
+                    $d(A_1, C_2) = \sqrt{(0 - (-1))^2 + (0 - 1)^2} = \sqrt{1 + 1} = \sqrt{2} \approx 1,41 &lt; 3 = r_2$, logo está dentro de $C_2$.
+                    $d(A_1, C_3) = \sqrt{(0 - 4)^2 + (0 - (-2))^2} = \sqrt{16 + 4} = \sqrt{20} \approx 4,47 &gt; 4 = r_3$, logo está fora de $C_3$.</li>
+<li>Para o assentamento $A_2(3, 0)$:
+                    $d(A_2, C_1) = \sqrt{(3 - 2)^2 + (0 - 3)^2} = \sqrt{1 + 9} = \sqrt{10} \approx 3,16 &gt; 2 = r_1$, logo está fora de $C_1$.
+                    $d(A_2, C_2) = \sqrt{(3 - (-1))^2 + (0 - 1)^2} = \sqrt{16 + 1} = \sqrt{17} \approx 4,12 &gt; 3 = r_2$, logo está fora de $C_2$.
+                    $d(A_2, C_3) = \sqrt{(3 - 4)^2 + (0 - (-2))^2} = \sqrt{1 + 4} = \sqrt{5} \approx 2,24 &lt; 4 = r_3$, logo está dentro de $C_3$.</li>
+<li>Para o assentamento $A_3(1, 4)$:
+                    $d(A_3, C_1) = \sqrt{(1 - 2)^2 + (4 - 3)^2} = \sqrt{1 + 1} = \sqrt{2} \approx 1,41 &lt; 2 = r_1$, logo está dentro de $C_1$.
+                    $d(A_3, C_2) = \sqrt{(1 - (-1))^2 + (4 - 1)^2} = \sqrt{4 + 9} = \sqrt{13} \approx 3,61 &gt; 3 = r_2$, logo está fora de $C_2$.
+                    $d(A_3, C_3) = \sqrt{(1 - 4)^2 + (4 - (-2))^2} = \sqrt{9 + 36} = \sqrt{45} \approx 6,71 &gt; 4 = r_3$, logo está fora de $C_3$.</li>
+<li>Para o assentamento $A_4(5, -3)$:
+                    $d(A_4, C_1) = \sqrt{(5 - 2)^2 + (-3 - 3)^2} = \sqrt{9 + 36} = \sqrt{45} \approx 6,71 &gt; 2 = r_1$, logo está fora de $C_1$.
+                    $d(A_4, C_2) = \sqrt{(5 - (-1))^2 + (-3 - 1)^2} = \sqrt{36 + 16} = \sqrt{52} \approx 7,21 &gt; 3 = r_2$, logo está fora de $C_2$.
+                    $d(A_4, C_3) = \sqrt{(5 - 4)^2 + (-3 - (-2))^2} = \sqrt{1 + 1} = \sqrt{2} \approx 1,41 &lt; 4 = r_3$, logo está dentro de $C_3$.</li>
+<li>Os assentamentos $A_1$, $A_2$, $A_3$ e $A_4$ precisam ser evacuados, pois cada um está dentro de pelo menos uma zona contaminada.</li>
+<li>Nenhum assentamento está em uma zona de sobreposição de contaminação (nenhum está dentro de mais de uma circunferência simultaneamente).</li>
+</ol>
+<div class="formula">
+                    Assentamento $A_1$: dentro de $C_2$
+                    Assentamento $A_2$: dentro de $C_3$
+                    Assentamento $A_3$: dentro de $C_1$
+                    Assentamento $A_4$: dentro de $C_3$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Todos os assentamentos estão em perigo e precisam ser evacuados. Curiosamente, cada um está em uma zona de contaminação diferente (ou no caso de $A_2$ e $A_4$, na mesma zona $C_3$), e nenhum está em uma área de contaminação dupla ou tripla. Isso pode facilitar o planejamento da evacuação, pois as equipes podem focar em rotas específicas para cada assentamento que evitem suas respectivas zonas contaminadas.</p>
+</details>
+</div>

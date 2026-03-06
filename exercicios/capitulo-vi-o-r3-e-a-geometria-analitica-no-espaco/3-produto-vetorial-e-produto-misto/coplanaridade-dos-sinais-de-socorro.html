@@ -1,0 +1,24 @@
+<div class="exercise">
+<h3>Coplanaridade dos Sinais de Socorro</h3>
+<p>Três torres de comunicação transmitem sinais nas direções $\vec{r_1} = (2, -3, 1)$, $\vec{r_2} = (4, 1, -2)$ e $\vec{r_3} = (6, -5, 0)$. Para evitar interferência destrutiva, você precisa verificar se os três vetores são coplanares. Use o produto misto para determinar se existe algum plano que contenha todas as três direções.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+                Três vetores são coplanares se e somente se seu produto misto é igual a zero. Calcule o determinante da matriz formada pelos três vetores.
+            </div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Montamos o determinante: $\begin{vmatrix} 2 &amp; -3 &amp; 1 \\ 4 &amp; 1 &amp; -2 \\ 6 &amp; -5 &amp; 0 \end{vmatrix}$</li>
+<li>Expandindo pela terceira coluna (tem zero): $1 \begin{vmatrix} 4 &amp; 1 \\ 6 &amp; -5 \end{vmatrix} - (-2) \begin{vmatrix} 2 &amp; -3 \\ 6 &amp; -5 \end{vmatrix} + 0$</li>
+<li>$1(4 \cdot (-5) - 1 \cdot 6) + 2(2 \cdot (-5) - (-3) \cdot 6)$</li>
+<li>$1(-20 - 6) + 2(-10 + 18) = -26 + 2(8) = -26 + 16 = -10$</li>
+</ol>
+<div class="formula">
+                    $$[\vec{r_1}, \vec{r_2}, \vec{r_3}] = -10 \neq 0$$
+                    $$\text{Os vetores NÃO são coplanares}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Como os vetores não são coplanares, as torres transmitem em direções verdadeiramente tridimensionais, garantindo cobertura espacial completa. Isso elimina zonas mortas de comunicação - essencial para coordenar resgates em terreno acidentado.</p>
+</details>
+</div>

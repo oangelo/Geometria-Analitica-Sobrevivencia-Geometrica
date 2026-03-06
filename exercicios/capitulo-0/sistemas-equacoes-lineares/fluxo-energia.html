@@ -1,0 +1,27 @@
+        <div class="exercise">
+            <h3>Fluxo de Energia no Abrigo</h3>
+            <p>O sistema elétrico do abrigo utiliza dois geradores. Quando apenas o gerador A está funcionando a 100% e o gerador B desligado, produzem-se 24 kW. Quando o gerador A opera a 50% e o gerador B a 100%, produzem-se 30 kW. O sistema de refrigeração necessita exatamente de 18 kW para funcionar. Determine em quais porcentagens os geradores devem operar para fornecer exatamente a energia necessária ao sistema de refrigeração, minimizando o consumo de combustível.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Definimos as variáveis: $x$ = potência do gerador A (em kW a 100%), $y$ = potência do gerador B (em kW a 100%)</li>
+                    <li>Da primeira condição: $x + 0 = 24$, portanto $x = 24$ kW</li>
+                    <li>Da segunda condição: $0.5x + y = 30$</li>
+                    <li>Substituímos o valor de $x$: $0.5 \cdot 24 + y = 30$</li>
+                    <li>Simplificamos: $12 + y = 30$</li>
+                    <li>Resolvemos para $y$: $y = 18$ kW</li>
+                    <li>Agora precisamos encontrar os percentuais $p_A$ e $p_B$ para: $p_A \cdot x + p_B \cdot y = 18$</li>
+                    <li>Substituímos os valores de $x$ e $y$: $p_A \cdot 24 + p_B \cdot 18 = 18$</li>
+                    <li>Simplificamos: $24p_A + 18p_B = 18$</li>
+                    <li>Dividimos por 6: $4p_A + 3p_B = 3$</li>
+                    <li>Isolamos $p_A$ em função de $p_B$: $p_A = \frac{3 - 3p_B}{4}$</li>
+                    <li>Para minimizar o consumo, queremos o menor valor possível para $p_A$ e $p_B$, respeitando que $0 \leq p_A, p_B \leq 1$</li>
+                    <li>Testamos $p_B = 1$: $p_A = \frac{3 - 3}{4} = 0$</li>
+                    <li>Verificamos: $0 \cdot 24 + 1 \cdot 18 = 18$ kW ✓</li>
+                    <li>Conclusão: Para minimizar o consumo, devemos desligar o gerador A ($p_A = 0$) e operar o gerador B a 100% ($p_B = 1$)</li>
+                </ol>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A otimização de sistemas energéticos através de modelagem linear é uma habilidade crítica na gestão de recursos limitados. O princípio de "fazer mais com menos" é crucial para a sobrevivência a longo prazo. Observe como a solução matemática nos conduziu a uma conclusão contra-intuitiva: usar apenas o gerador menor a plena potência, em vez de ambos em potências parciais. Em um mundo de escassez, a matemática frequentemente revela eficiências ocultas que o instinto ignora.</p>
+            </details>
+        </div>

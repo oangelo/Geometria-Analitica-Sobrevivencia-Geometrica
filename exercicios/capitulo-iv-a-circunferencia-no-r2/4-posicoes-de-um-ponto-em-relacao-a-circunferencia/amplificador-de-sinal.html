@@ -1,0 +1,32 @@
+<div class="exercise">
+<h3>AMPLIFICADOR DE SINAL</h3>
+<p>Um amplificador de sinal está instalado no ponto $A(4, 3)$ e consegue receber sinais de todos os pontos externos à circunferência $(x-1)^2 + (y-2)^2 = 4$. Uma equipe de reconhecimento deseja estabelecer três postos de comunicação nos pontos $P_1(0, 0)$, $P_2(3, 4)$ e $P_3(0, 4)$. Para cada posto, determine se haverá comunicação com o amplificador e calcule a potência de cada ponto em relação à circunferência.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Um ponto está externo à circunferência quando sua potência é positiva. Lembre-se que a potência de um ponto é $Pot(P) = d(P, C)^2 - r^2$.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Identificamos o centro da circunferência $C(1, 2)$ e o raio $r = 2$.</li>
+<li>Para $P_1(0, 0)$:
+                    $d(P_1, C) = \sqrt{(0 - 1)^2 + (0 - 2)^2} = \sqrt{1 + 4} = \sqrt{5} \approx 2,24$</li>
+<li>$Pot(P_1) = d(P_1, C)^2 - r^2 = 5 - 4 = 1 &gt; 0$, logo $P_1$ está externo à circunferência.</li>
+<li>Para $P_2(3, 4)$:
+                    $d(P_2, C) = \sqrt{(3 - 1)^2 + (4 - 2)^2} = \sqrt{4 + 4} = \sqrt{8} \approx 2,83$</li>
+<li>$Pot(P_2) = d(P_2, C)^2 - r^2 = 8 - 4 = 4 &gt; 0$, logo $P_2$ está externo à circunferência.</li>
+<li>Para $P_3(0, 4)$:
+                    $d(P_3, C) = \sqrt{(0 - 1)^2 + (4 - 2)^2} = \sqrt{1 + 4} = \sqrt{5} \approx 2,24$</li>
+<li>$Pot(P_3) = d(P_3, C)^2 - r^2 = 5 - 4 = 1 &gt; 0$, logo $P_3$ está externo à circunferência.</li>
+<li>Todos os três postos estão fora da circunferência, portanto todos poderão se comunicar com o amplificador.</li>
+</ol>
+<div class="formula">
+                    $Pot(P_1) = 5 - 4 = 1 &gt; 0$
+                    $Pot(P_2) = 8 - 4 = 4 &gt; 0$
+                    $Pot(P_3) = 5 - 4 = 1 &gt; 0$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Todos os postos de comunicação poderão se comunicar com o amplificador, com o posto $P_2$ tendo a melhor potência de sinal (4). Em um mundo onde a comunicação pode salvar vidas, entender a geometria dos sinais e das zonas de transmissão é crucial para manter a rede de sobreviventes conectada e coordenar operações de resgate.</p>
+</details>
+</div>

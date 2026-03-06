@@ -1,0 +1,32 @@
+<div class="exercise">
+<h3>MAPEAMENTO DE ANOMALIA</h3>
+<p>Uma anomalia magnética detectada próxima ao abrigo segue a equação polar $r = 250(1 - 0.8\cos\theta)$. Um componente essencial para o sistema de purificação de água precisa ser instalado a pelo menos 100 metros de distância da origem, mas fora da região afetada pela anomalia. Determine a área segura para instalação, descrita como um anel circular com raio interno 100 metros e raio externo definido pela fronteira da anomalia.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>A equação representa uma limaçon. Analise o valor mínimo de $r$ na equação para determinar se alguma parte da curva penetra no círculo de raio 100m.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>A equação da anomalia é $r = 250(1 - 0.8\cos\theta)$, que é uma limaçon.</li>
+<li>Primeiro, precisamos determinar o valor mínimo de $r$ para verificar se a anomalia penetra no círculo de raio 100m.</li>
+<li>O valor de $r$ é mínimo quando $\cos\theta = 1$ (em $\theta = 0$):
+                       $r_{min} = 250(1 - 0.8 \cdot 1) = 250 \cdot 0.2 = 50$ metros.</li>
+<li>O valor de $r$ é máximo quando $\cos\theta = -1$ (em $\theta = \pi$):
+                       $r_{max} = 250(1 - 0.8 \cdot (-1)) = 250 \cdot 1.8 = 450$ metros.</li>
+<li>Como $r_{min} = 50m &lt; 100m$, a anomalia penetra no círculo de raio 100m.</li>
+<li>Para encontrar os ângulos onde a anomalia cruza o círculo de raio 100m, resolvemos:
+                       $100 = 250(1 - 0.8\cos\theta)$</li>
+<li>Simplificando: $0.4 = 1 - 0.8\cos\theta$, então $0.8\cos\theta = 0.6$, que resulta em $\cos\theta = 0.75$.</li>
+<li>Isso dá $\theta \approx \pm 0.7227$ radianos ou aproximadamente $\theta \approx \pm 41.4°$.</li>
+<li>Portanto, a área segura para instalação existe apenas para $\theta \in [-0.7227, 0.7227]$ e $\theta \in [2\pi-0.7227, 2\pi+0.7227]$, onde o componente deve ser instalado fora da anomalia mas a pelo menos 100m da origem.</li>
+</ol>
+<div class="formula">
+                    $$\text{Pontos de interseção: } \theta \approx \pm 0.7227 \text{ rad}$$
+                    $$\text{Área segura: } \{ (r, \theta) | r \geq 100 \text{ e } r &gt; 250(1 - 0.8\cos\theta) \}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Mapear corretamente zonas de anomalias é crucial para a instalação de equipamentos sensíveis. Equipamentos eletrônicos expostos a anomalias magnéticas podem falhar catastroficamente, desperdiçando recursos insubstituíveis. Análise cuidadosa dos limites de segurança permite maximizar o aproveitamento do espaço disponível sem comprometer operações vitais.</p>
+</details>
+</div>

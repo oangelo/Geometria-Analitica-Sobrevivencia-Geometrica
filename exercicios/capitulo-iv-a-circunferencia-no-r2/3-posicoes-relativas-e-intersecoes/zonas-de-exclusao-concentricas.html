@@ -1,0 +1,32 @@
+<div class="exercise">
+<h3>ZONAS DE EXCLUSÃO CONCÊNTRICAS</h3>
+<p>Duas zonas de contaminação concêntricas estão centradas no ponto (5, -2). A zona interna tem nível letal de radiação e raio 3 unidades, enquanto a zona externa tem contaminação moderada e raio 7 unidades. Uma expedição de resgate seguirá a rota $2x + 3y - 1 = 0$. Determine que tipo de traje de proteção será necessário com base nas zonas que a rota atravessa.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Calcule a distância da reta ao centro das zonas concêntricas e compare com os raios para determinar quais zonas são atravessadas pela rota.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Temos duas circunferências concêntricas com centro em (5, -2): uma com raio 3 (zona letal) e outra com raio 7 (zona moderada)</li>
+<li>A equação da rota é $2x + 3y - 1 = 0$, com $a = 2$, $b = 3$ e $c = -1$</li>
+<li>A distância do centro (5, -2) à rota é $d = \frac{|2 \cdot 5 + 3 \cdot (-2) - 1|}{\sqrt{2^2 + 3^2}} = \frac{|10 - 6 - 1|}{\sqrt{13}} = \frac{|3|}{\sqrt{13}} \approx 0.83$</li>
+<li>Como $d \approx 0.83 &lt; 3 &lt; 7$, a rota cruza ambas as zonas, passando pela zona letal</li>
+<li>Para encontrar os pontos de interseção com a zona externa (raio 7), substituímos a reta na equação da circunferência $(x-5)^2 + (y+2)^2 = 49$</li>
+<li>Da equação da reta, isolamos $y = \frac{1-2x}{3}$</li>
+<li>Substituindo: $(x-5)^2 + (\frac{1-2x}{3}+2)^2 = 49$</li>
+<li>Simplificando: $(x-5)^2 + (\frac{1-2x+6}{3})^2 = 49$</li>
+<li>Continuando: $(x-5)^2 + (\frac{7-2x}{3})^2 = 49$</li>
+<li>Isto resultará em uma equação quadrática que, quando resolvida, dará os dois pontos de entrada/saída da zona moderada</li>
+<li>De modo similar, podemos encontrar os pontos de interseção com a zona letal (raio 3)</li>
+</ol>
+<div class="formula">
+                    $d = \frac{|2 \cdot 5 + 3 \cdot (-2) - 1|}{\sqrt{13}} \approx 0.83 &lt; 3 &lt; 7$
+                    
+                    $\text{Conclusão: Traje de Proteção para nível letal será necessário, pois a rota cruza a zona interna de contaminação}$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Ao atravessar zonas concêntricas de perigo, o nível de proteção necessário é determinado pela zona de maior risco que será encontrada. Na Zona Devastada, assim como na matemática, devemos nos preparar para o pior cenário - se a distância da rota ao centro é menor que o raio menor, precisamos da proteção máxima disponível.</p>
+</details>
+</div>

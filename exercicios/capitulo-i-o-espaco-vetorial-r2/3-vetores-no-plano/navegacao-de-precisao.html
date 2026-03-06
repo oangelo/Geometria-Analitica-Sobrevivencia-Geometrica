@@ -1,0 +1,37 @@
+<div class="exercise">
+<h3>NAVEGAÇÃO DE PRECISÃO</h3>
+<p>Uma expedição científica planeja coletar amostras em uma região altamente radioativa. Para minimizar a exposição, a equipe deve seguir uma trajetória otimizada. Partindo do ponto $O(0,0)$, a expedição precisa visitar os pontos $A(2,5)$, $B(6,3)$ e $C(4,8)$ exatamente uma vez cada, e retornar a $O$. Considerando que a energia gasta no deslocamento direto de um ponto $P$ para um ponto $Q$ é proporcional ao quadrado da distância euclidiana entre eles, determine a ordem de visitação dos pontos que minimiza o gasto energético total da expedição.</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Precisamos calcular a distância entre cada par de pontos para avaliar todas as possíveis rotas.</li>
+<li>Temos os pontos: $O(0,0)$, $A(2,5)$, $B(6,3)$ e $C(4,8)$.</li>
+<li>As distâncias quadráticas entre cada par de pontos são:
+                        <br/>$|OA|^2 = (0-2)^2 + (0-5)^2 = 4 + 25 = 29$
+                        <br/>$|OB|^2 = (0-6)^2 + (0-3)^2 = 36 + 9 = 45$
+                        <br/>$|OC|^2 = (0-4)^2 + (0-8)^2 = 16 + 64 = 80$
+                        <br/>$|AB|^2 = (2-6)^2 + (5-3)^2 = 16 + 4 = 20$
+                        <br/>$|AC|^2 = (2-4)^2 + (5-8)^2 = 4 + 9 = 13$
+                        <br/>$|BC|^2 = (6-4)^2 + (3-8)^2 = 4 + 25 = 29$
+                    </li>
+<li>Avaliamos todas as possíveis rotas, começando e terminando em O:
+                        <br/>Rota 1: O → A → B → C → O: $|OA|^2 + |AB|^2 + |BC|^2 + |CO|^2 = 29 + 20 + 29 + 80 = 158$
+                        <br/>Rota 2: O → A → C → B → O: $|OA|^2 + |AC|^2 + |CB|^2 + |BO|^2 = 29 + 13 + 29 + 45 = 116$
+                        <br/>Rota 3: O → B → A → C → O: $|OB|^2 + |BA|^2 + |AC|^2 + |CO|^2 = 45 + 20 + 13 + 80 = 158$
+                        <br/>Rota 4: O → B → C → A → O: $|OB|^2 + |BC|^2 + |CA|^2 + |AO|^2 = 45 + 29 + 13 + 29 = 116$
+                        <br/>Rota 5: O → C → A → B → O: $|OC|^2 + |CA|^2 + |AB|^2 + |BO|^2 = 80 + 13 + 20 + 45 = 158$
+                        <br/>Rota 6: O → C → B → A → O: $|OC|^2 + |CB|^2 + |BA|^2 + |AO|^2 = 80 + 29 + 20 + 29 = 158$
+                    </li>
+<li>As rotas 2 e 4 têm o mesmo gasto energético mínimo de 116 unidades.</li>
+<li>Portanto, as ordens ótimas são: O → A → C → B → O ou O → B → C → A → O.</li>
+</ol>
+<div class="formula">
+                    Distância euclidiana ao quadrado entre pontos $(x_1, y_1)$ e $(x_2, y_2)$:
+                    <br/>
+                    $d^2 = (x_2 - x_1)^2 + (y_2 - y_1)^2$
+                    <br/><br/>
+                    Gasto energético mínimo: $116$ unidades
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Em um ambiente hostil onde a exposição prolongada significa morte certa, a otimização de rotas utilizando vetores e cálculos de distância não é apenas uma questão matemática, mas uma necessidade vital. Cada unidade de energia economizada pode significar recursos extras para enfrentar emergências ou tempo adicional para coletar amostras mais valiosas. A aplicação prática da teoria vetorial permite que expedições científicas maximizem seus resultados enquanto minimizam riscos, exemplificando como o conhecimento matemático se traduz diretamente em chances de sobrevivência.</p>
+</details>
+</div>

@@ -1,0 +1,42 @@
+<div class="exercise">
+<h3>BOMBARDEIO DE PRECISÃO</h3>
+<p>Um drone está programado para lançar um projétil de socorro (com suprimentos) em um acampamento distante. O drone está na posição D(2,5) e segue com velocidade constante na direção do vetor $\vec{v} = (3,1)$. O pacote deve ser lançado de modo que chegue exatamente no acampamento localizado no ponto A(8,2). Se o ângulo entre a trajetória do drone e a trajetória do pacote após o lançamento for 60°, determine em qual posição o drone deve soltar o pacote.</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>O drone parte de D(2,5) na direção de $\vec{v} = (3,1)$. Então sua trajetória pode ser descrita como D + t·$\vec{v}$ = (2,5) + t·(3,1) = (2+3t, 5+t) para algum t ≥ 0.</li>
+<li>Seja P o ponto onde o drone lança o pacote. Então P = (2+3t, 5+t) para algum t.</li>
+<li>O vetor $\vec{PA}$ representa a trajetória do pacote do ponto de lançamento até o acampamento:
+                    $\vec{PA} = (8,2) - (2+3t, 5+t) = (6-3t, -3-t)$</li>
+<li>Sabemos que o ângulo entre $\vec{v}$ e $\vec{PA}$ é 60°, então:
+                    $\cos(60°) = \frac{\vec{v} \cdot \vec{PA}}{|\vec{v}| \cdot |\vec{PA}|}$</li>
+<li>Calculamos $|\vec{v}| = \sqrt{3^2 + 1^2} = \sqrt{9 + 1} = \sqrt{10} \approx 3,16$</li>
+<li>O produto escalar:
+                    $\vec{v} \cdot \vec{PA} = 3 \cdot (6-3t) + 1 \cdot (-3-t) = 18 - 9t - 3 - t = 15 - 10t$</li>
+<li>O módulo de $\vec{PA}$:
+                    $|\vec{PA}| = \sqrt{(6-3t)^2 + (-3-t)^2} = \sqrt{(6-3t)^2 + (3+t)^2} = \sqrt{36 - 36t + 9t^2 + 9 + 6t + t^2} = \sqrt{45 - 30t + 10t^2}$</li>
+<li>Aplicando a fórmula do cosseno com $\cos(60°) = 0,5$:
+                    $0,5 = \frac{15 - 10t}{3,16 \cdot \sqrt{45 - 30t + 10t^2}}$</li>
+<li>Elevando ambos os lados ao quadrado:
+                    $0,25 = \frac{(15 - 10t)^2}{10 \cdot (45 - 30t + 10t^2)} = \frac{225 - 300t + 100t^2}{10 \cdot (45 - 30t + 10t^2)} = \frac{22,5 - 30t + 10t^2}{45 - 30t + 10t^2}$</li>
+<li>Simplificando:
+                    $0,25 \cdot (45 - 30t + 10t^2) = 22,5 - 30t + 10t^2$
+                    $11,25 - 7,5t + 2,5t^2 = 22,5 - 30t + 10t^2$
+                    $11,25 - 7,5t + 2,5t^2 - 22,5 + 30t - 10t^2 = 0$
+                    $-11,25 + 22,5t - 7,5t^2 = 0$</li>
+<li>Resolvendo esta equação quadrática:
+                    $t = \frac{-22,5 \pm \sqrt{22,5^2 - 4 \cdot (-11,25) \cdot (-7,5)}}{2 \cdot (-7,5)} = \frac{-22,5 \pm \sqrt{506,25 - 337,5}}{-15} = \frac{-22,5 \pm \sqrt{168,75}}{-15} = \frac{-22,5 \pm 13}{-15}$</li>
+<li>Isso nos dá $t_1 = \frac{-22,5 + 13}{-15} = \frac{-9,5}{-15} \approx 0,63$ e $t_2 = \frac{-22,5 - 13}{-15} = \frac{-35,5}{-15} \approx 2,37$</li>
+<li>Como o drone parte de D, o valor de t deve ser positivo. Ambas soluções são válidas matematicamente, mas vamos verificar qual faz mais sentido no contexto.
+                    Para $t_1 = 0,63$, a posição de lançamento seria P(2+3·0,63, 5+0,63) ≈ P(3,9, 5,63)
+                    Para $t_2 = 2,37$, a posição de lançamento seria P(2+3·2,37, 5+2,37) ≈ P(9,1, 7,37)</li>
+<li>A segunda solução coloca o drone além do acampamento, então o pacote teria que voltar, o que não faz sentido fisicamente. Portanto, a posição de lançamento é aproximadamente P(3,9, 5,63).</li>
+</ol>
+<div class="formula">
+                    $$\cos(60°) = \frac{\vec{v} \cdot \vec{PA}}{|\vec{v}| \cdot |\vec{PA}|}$$
+                    
+                    $$P \approx (3,9, 5,63)$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> A precisão em entregas aéreas é vital em um mundo fragmentado, onde comunidades isoladas dependem de suprimentos externos. O cálculo do ponto exato de lançamento, considerando a trajetória do drone e o ângulo de queda do pacote, maximiza a chance de entrega bem-sucedida e minimiza o desperdício de recursos preciosos. Em termos práticos, o drone deve liberar o pacote quando estiver apenas a uma curta distância do seu ponto de partida (aproximadamente 2 unidades), permitindo que o pacote siga uma trajetória descendente a 60° em relação à rota do drone. Este tipo de precisão matemática é a diferença entre entregar medicamentos vitais com sucesso ou vê-los perdidos em território hostil.</p>
+</details>
+</div>

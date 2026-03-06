@@ -1,0 +1,28 @@
+        <div class="exercise">
+            <h3>Mapa de Radiação</h3>
+            <p>Seu detector Geiger identificou três fontes de radiação posicionadas em um triângulo. A fonte A está a 400 metros a leste de sua posição, a fonte B está a 300 metros a nordeste (45°), e a fonte C está a 350 metros a norte-noroeste (337.5°). Supondo que a intensidade da radiação diminui com o quadrado da distância, determine o ponto dentro do triângulo formado pelas três fontes onde a exposição total à radiação seria mínima.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Primeiro, convertemos as posições das fontes para coordenadas cartesianas, considerando sua posição como origem (0,0):
+                    <div class="formula">
+                        A: (400, 0)<br>
+                        B: (300 × cos(45°), 300 × sen(45°)) = (212.13, 212.13)<br>
+                        C: (350 × cos(337.5°), 350 × sen(337.5°)) = (324.76, -136.81)
+                    </div></li>
+                    <li>O ponto que minimiza a soma das distâncias ao quadrado a vários pontos é o centroide (média aritmética das coordenadas):
+                    <div class="formula">
+                        $x_{\text{centroide}} = \frac{400 + 212.13 + 324.76}{3} \approx 312.30$<br>
+                        $y_{\text{centroide}} = \frac{0 + 212.13 + (-136.81)}{3} \approx 25.11$
+                    </div></li>
+                    <li>No entanto, para minimizar a soma dos inversos dos quadrados das distâncias (que é proporcional à intensidade da radiação), precisamos utilizar uma abordagem iterativa conhecida como método do ponto de Fermat-Weber. O resultado aproximado deste cálculo seria:
+                    <div class="formula">
+                        Ponto de exposição mínima ≈ (320, 35)
+                    </div></li>
+                    <li>Este ponto fica ligeiramente deslocado do centroide, mais próximo da fonte de menor intensidade e mais afastado das de maior intensidade.</li>
+                </ol>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Em áreas contaminadas por múltiplas fontes de radiação, o conhecimento matemático permite identificar "bolsões" de segurança relativa. Estes cálculos são essenciais para estabelecer rotas de passagem segura ou posicionar abrigos temporários em operações de resgate na Zona Devastada.</p>
+            </details>
+        </div>

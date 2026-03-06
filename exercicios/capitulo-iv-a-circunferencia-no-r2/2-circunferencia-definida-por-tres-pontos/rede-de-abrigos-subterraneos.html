@@ -1,0 +1,85 @@
+<div class="exercise">
+<h3>REDE DE ABRIGOS SUBTERRÂNEOS</h3>
+<p>Uma antiga rede de abrigos subterrâneos foi construída com três entradas conhecidas: A(-5, -1), B(-1, 7) e C(3, 3). Arquivos históricos indicam que os engenheiros projetaram a instalação com formato circular, com um centro de comando exatamente no centro da circunferência que passa pelos três pontos de entrada. Se seu grupo precisa estabelecer um quarto ponto de acesso perpendicular à linha que conecta A e B, onde exatamente você deveria cavar? Determine também a distância máxima entre quaisquer dois pontos dentro da instalação.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>O diâmetro da circunferência é a distância máxima entre quaisquer dois pontos.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Vamos substituir os três pontos na equação geral $x^2 + y^2 + Dx + Ey + F = 0$:
+                    Para A(-5, -1): $(-5)^2 + (-1)^2 + D(-5) + E(-1) + F = 0 \implies 25 + 1 - 5D - E + F = 0 \implies 26 - 5D - E + F = 0$ ... (1)
+                    Para B(-1, 7): $(-1)^2 + 7^2 + D(-1) + E(7) + F = 0 \implies 1 + 49 - D + 7E + F = 0 \implies 50 - D + 7E + F = 0$ ... (2)
+                    Para C(3, 3): $3^2 + 3^2 + D(3) + E(3) + F = 0 \implies 9 + 9 + 3D + 3E + F = 0 \implies 18 + 3D + 3E + F = 0$ ... (3)</li>
+<li>Subtraindo (1) de (2):
+                    $50 - D + 7E + F - (26 - 5D - E + F) = 0$
+                    $50 - D + 7E - 26 + 5D + E = 0$
+                    $24 + 4D + 8E = 0$ ... (4)
+                    
+                    Subtraindo (1) de (3):
+                    $18 + 3D + 3E + F - (26 - 5D - E + F) = 0$
+                    $18 + 3D + 3E - 26 + 5D + E = 0$
+                    $-8 + 8D + 4E = 0$ ... (5)</li>
+<li>Multiplicando (5) por 2:
+                    $-16 + 16D + 8E = 0$ ... (6)
+                    
+                    Subtraindo (4) de (6):
+                    $-16 + 16D + 8E - (24 + 4D + 8E) = 0$
+                    $-16 + 16D - 24 - 4D = 0$
+                    $-40 + 12D = 0$
+                    $D = \frac{40}{12} = \frac{10}{3}$</li>
+<li>Substituindo $D = \frac{10}{3}$ em (4):
+                    $24 + 4(\frac{10}{3}) + 8E = 0$
+                    $24 + \frac{40}{3} + 8E = 0$
+                    $\frac{72}{3} + \frac{40}{3} + 8E = 0$
+                    $\frac{112}{3} + 8E = 0$
+                    $8E = -\frac{112}{3}$
+                    $E = -\frac{14}{3}$</li>
+<li>Substituindo $D = \frac{10}{3}$ e $E = -\frac{14}{3}$ em (1):
+                    $26 - 5(\frac{10}{3}) - (-\frac{14}{3}) + F = 0$
+                    $26 - \frac{50}{3} + \frac{14}{3} + F = 0$
+                    $26 - \frac{36}{3} + F = 0$
+                    $26 - 12 + F = 0$
+                    $F = -14$</li>
+<li>A equação da circunferência é:
+                    $x^2 + y^2 + \frac{10}{3}x - \frac{14}{3}y - 14 = 0$
+                    Multiplicando por 3:
+                    $3x^2 + 3y^2 + 10x - 14y - 42 = 0$</li>
+<li>Completando os quadrados:
+                    $3(x^2 + \frac{10}{3}x) + 3(y^2 - \frac{14}{3}y) - 42 = 0$
+                    $3(x^2 + \frac{10}{3}x + \frac{25}{9}) + 3(y^2 - \frac{14}{3}y + \frac{49}{9}) - 42 - 3(\frac{25}{9}) - 3(\frac{49}{9}) = 0$
+                    $3(x + \frac{5}{3})^2 + 3(y - \frac{7}{3})^2 - 42 - \frac{75}{9} - \frac{147}{9} = 0$
+                    $3(x + \frac{5}{3})^2 + 3(y - \frac{7}{3})^2 = 42 + \frac{222}{9} = \frac{378 + 222}{9} = \frac{600}{9} = \frac{200}{3}$
+                    $(x + \frac{5}{3})^2 + (y - \frac{7}{3})^2 = \frac{200}{9}$</li>
+<li>O centro da circunferência é $(-\frac{5}{3}, \frac{7}{3})$ e o raio é $r = \sqrt{\frac{200}{9}} = \frac{\sqrt{200}}{3} = \frac{10\sqrt{2}}{3}$</li>
+<li>Para encontrar o quarto ponto de acesso, precisamos de uma linha perpendicular à linha que conecta A e B:
+                    A linha AB tem direção $\overrightarrow{AB} = (-1-(-5), 7-(-1)) = (4, 8)$
+                    Uma direção perpendicular seria $(-8, 4)$
+                    Uma linha passando pelo centro com esta direção seria
+                    $L: (x, y) = (-\frac{5}{3}, \frac{7}{3}) + t(-8, 4)$, $t \in \mathbb{R}$
+                    Para encontrar a interseção com a circunferência, substituímos na equação:
+                    $((-\frac{5}{3} - 8t) + \frac{5}{3})^2 + ((\frac{7}{3} + 4t) - \frac{7}{3})^2 = \frac{200}{9}$
+                    $(- 8t)^2 + (4t)^2 = \frac{200}{9}$
+                    $64t^2 + 16t^2 = \frac{200}{9}$
+                    $80t^2 = \frac{200}{9}$
+                    $t^2 = \frac{200}{9 \cdot 80} = \frac{200}{720} = \frac{5}{18}$
+                    $t = \pm \sqrt{\frac{5}{18}}$
+                    
+                    Isso nos dá dois pontos de interseção:
+                    $P_1 = (-\frac{5}{3} - 8\sqrt{\frac{5}{18}}, \frac{7}{3} + 4\sqrt{\frac{5}{18}})$
+                    $P_2 = (-\frac{5}{3} + 8\sqrt{\frac{5}{18}}, \frac{7}{3} - 4\sqrt{\frac{5}{18}})$
+                    
+                    Qualquer um desses pontos seria adequado para o quarto ponto de acesso.</li>
+<li>A distância máxima entre quaisquer dois pontos dentro da instalação é o diâmetro da circunferência:
+                    $d_{max} = 2r = 2 \cdot \frac{10\sqrt{2}}{3} = \frac{20\sqrt{2}}{3} \approx 9.43$ unidades</li>
+</ol>
+<div class="formula">
+                    $$(x + \frac{5}{3})^2 + (y - \frac{7}{3})^2 = \frac{200}{9}$$
+                    $$\text{Distância máxima} = \frac{20\sqrt{2}}{3} \text{ unidades}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Instalações subterrâneas pré-guerra frequentemente contêm recursos vitais, mas acessá-las pode ser perigoso se não for feito corretamente. Calcular com precisão onde escavar um novo ponto de acesso minimiza o risco de colapso estrutural e otimiza o uso dos limitados recursos de escavação. A análise geométrica também permite mapear a extensão completa da instalação antes mesmo de explorá-la totalmente, fornecendo informações cruciais para planejamento logístico. Em missões de recuperação de tecnologia, saber a distância máxima dentro da instalação ajuda a determinar o tempo necessário para evacuação em caso de emergência.</p>
+</details>
+</div>

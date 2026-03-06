@@ -1,0 +1,46 @@
+<div class="exercise">
+<h3>RECONSTRUÇÃO DE MAPA DANIFICADO</h3>
+<p>Um mapa antigo e parcialmente degradado da região foi encontrado durante uma expedição. Nele, são visíveis as coordenadas de cinco abrigos: A(2, 3), B(5, 8), C(9, 4), D(7, 1) e E(4, 6). Também há informações fragmentadas indicando que os abrigos A, B e C formam um triângulo com um circuncentro (ponto equidistante dos três vértices) que coincide com outro abrigo. Identifique qual abrigo está nesta posição especial e calcule a distância exata dele até cada um dos vértices do triângulo.</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Para encontrar o circuncentro do triângulo ABC, precisamos encontrar o ponto equidistante dos três vértices. Este é o centro da circunferência que passa pelos três pontos.</li>
+<li>Calculamos as coordenadas do circuncentro usando as equações:
+                    Sejam os pontos $A(x_A, y_A)$, $B(x_B, y_B)$ e $C(x_C, y_C)$.
+                    $D = 2(x_A(y_B - y_C) + x_B(y_C - y_A) + x_C(y_A - y_B))$
+                    $U_x = ((x_A^2 + y_A^2)(y_B - y_C) + (x_B^2 + y_B^2)(y_C - y_A) + (x_C^2 + y_C^2)(y_A - y_B)) / D$
+                    $U_y = ((x_A^2 + y_A^2)(x_C - x_B) + (x_B^2 + y_B^2)(x_A - x_C) + (x_C^2 + y_C^2)(x_B - x_A)) / D$</li>
+<li>Substituindo os valores:
+                    $D = 2(2(8 - 4) + 5(4 - 3) + 9(3 - 8)) = 2(8 + 5 - 45) = 2(-32) = -64$
+                    $U_x = ((2^2 + 3^2)(8 - 4) + (5^2 + 8^2)(4 - 3) + (9^2 + 4^2)(3 - 8)) / (-64)$
+                    $U_x = ((4 + 9)(4) + (25 + 64)(1) + (81 + 16)(-5)) / (-64)$
+                    $U_x = (52 + 89 - 485) / (-64) = -344 / (-64) = 5.375$
+                    
+                    $U_y = ((4 + 9)(9 - 5) + (25 + 64)(2 - 9) + (81 + 16)(5 - 2)) / (-64)$
+                    $U_y = ((13)(4) + (89)(-7) + (97)(3)) / (-64)$
+                    $U_y = (52 - 623 + 291) / (-64) = -280 / (-64) = 4.375$
+                    
+                    O circuncentro está em $(5.375, 4.375)$</li>
+<li>Verificamos qual dos abrigos D ou E está mais próximo deste ponto:
+                    $d(\text{circuncentro}, D) = \sqrt{(5.375 - 7)^2 + (4.375 - 1)^2} = \sqrt{2.625^2 + 3.375^2} = \sqrt{6.89 + 11.39} = \sqrt{18.28} \approx 4.28$
+                    
+                    $d(\text{circuncentro}, E) = \sqrt{(5.375 - 4)^2 + (4.375 - 6)^2} = \sqrt{1.375^2 + (-1.625)^2} = \sqrt{1.89 + 2.64} = \sqrt{4.53} \approx 2.13$
+                    
+                    O abrigo E está mais próximo do circuncentro.</li>
+<li>Agora calculamos a distância do circuncentro exato aos três vértices do triângulo:
+                    $d(\text{circuncentro}, A) = \sqrt{(5.375 - 2)^2 + (4.375 - 3)^2} = \sqrt{3.375^2 + 1.375^2} = \sqrt{11.39 + 1.89} = \sqrt{13.28} \approx 3.64$
+                    
+                    $d(\text{circuncentro}, B) = \sqrt{(5.375 - 5)^2 + (4.375 - 8)^2} = \sqrt{0.375^2 + (-3.625)^2} = \sqrt{0.14 + 13.14} = \sqrt{13.28} \approx 3.64$
+                    
+                    $d(\text{circuncentro}, C) = \sqrt{(5.375 - 9)^2 + (4.375 - 4)^2} = \sqrt{(-3.625)^2 + 0.375^2} = \sqrt{13.14 + 0.14} = \sqrt{13.28} \approx 3.64$
+                    
+                    Confirmamos que o ponto é equidistante dos três vértices, como seria esperado do circuncentro.</li>
+</ol>
+<div class="formula">
+                    $$\text{Circuncentro do triângulo ABC: } (5.375, 4.375)$$
+                    $$\text{O abrigo mais próximo deste ponto é E}(4, 6)$$
+                    $$\text{Distância do circuncentro aos vértices A, B e C: } 3.64 \text{ unidades}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> A capacidade de reconstruir informações a partir de dados fragmentados é inestimável em um mundo onde o conhecimento do passado foi em grande parte perdido. Neste caso, identificar propriedades geométricas especiais permitiu a recuperação de informações cruciais do mapa. Em expedições futuras, este conhecimento pode revelar padrões intencionais no posicionamento de abrigos e recursos, possivelmente indicando locais de interesse que não estão explicitamente marcados.</p>
+</details>
+</div>

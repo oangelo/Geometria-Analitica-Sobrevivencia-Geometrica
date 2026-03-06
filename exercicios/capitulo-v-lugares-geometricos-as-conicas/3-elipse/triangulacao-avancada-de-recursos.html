@@ -1,0 +1,21 @@
+<div class="exercise">
+<h3>Triangulação Avançada de Recursos</h3>
+<p>Três depósitos de recursos foram encontrados nos pontos A(0, 4), B(-3, 0) e C(3, 0). Você precisa estabelecer uma rota de coleta elíptica que passe pelos três pontos. Sabendo que dois destes pontos devem ser os focos da elipse, determine qual configuração é possível e encontre a equação da rota ótima.</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Analisar as possibilidades: B(-3, 0) e C(3, 0) são simétricos em relação à origem</li>
+<li>Configuração possível: focos em B(-3, 0) e C(3, 0), passando por A(0, 4)</li>
+<li>Distância focal: c = 3</li>
+<li>Para encontrar 'a': soma das distâncias de A aos focos = $d(A,B) + d(A,C)$</li>
+<li>$d(A,B) = \sqrt{(-3-0)^2 + (0-4)^2} = \sqrt{9+16} = 5$</li>
+<li>$d(A,C) = \sqrt{(3-0)^2 + (0-4)^2} = \sqrt{9+16} = 5$</li>
+<li>Soma = 10 = 2a, logo a = 5</li>
+<li>Calcular: $b^2 = a^2 - c^2 = 25 - 9 = 16$, logo $b = 4$</li>
+</ol>
+<div class="formula">
+                    $$\frac{x^2}{25} + \frac{y^2}{16} = 1$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Esta configuração otimiza a coleta de recursos, garantindo que a rota passe pelos três depósitos com eficiência máxima. A simetria dos focos simplifica o planejamento logístico.</p>
+</details>
+</div>
