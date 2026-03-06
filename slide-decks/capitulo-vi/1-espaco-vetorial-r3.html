@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cap. VI — O Espaço Vetorial R³</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- SLIDE DE TÍTULO DO CAPÍTULO (PARTE 1) -->
+        <section>
+          <div class="title-screen">
+            <h1>Vetores no Espaço</h1>
+            <h2 class="subtitle">Da Planície à Conquista Vertical - Parte 1</h2>
+            <div class="emblem-number">VI-A</div>
+            <p class="subtitle-warning">O que era útil no mapa agora ganha profundidade... e altura.</p>
+          </div>
+        </section>
+
+        <!-- TÓPICO 1: O Espaço Vetorial R³ -->
+        <section>
+          <!-- 1.1 Conceito e Paralelo R² -->
+          <section class="mission-briefing">
+            <h2>O Espaço Vetorial \(R^3\): Uma Nova Dimensão</h2>
+            <h3 class="mission-subtitle">Do Mapa Plano ao Holograma de Sobrevivência</h3>
+            <p><strong>Paralelo \(R^2\):</strong> Lembram-se do \(R^2\)? Dois eixos (X, Y) para mapear a 'wasteland' em uma superfície. Coordenadas \( P(x,y) \), vetores \( \vec{v}=(x,y) \). Essencial para rotas terrestres.</p>
+            <p><strong>Introdução \(R^3\):</strong> Agora, adicionamos o eixo Z (altura/profundidade). Coordenadas \( P(x,y,z) \), vetores \( \vec{v}=(x,y,z) \). O mundo ganhou volume! Pense em ruínas verticais, cavernas, voo de drones.</p>
+            <div class="definition-box">
+              <p>Ponto em \(R^3\): <span class="formula">\( P(x,y,z) \)</span></p>
+              <p>Vetor em \(R^3\): <span class="formula">\( \vec{v} = (x,y,z) = x\vec{i} + y\vec{j} + z\vec{k} \)</span></p>
+            </div>
+            <p class="mnemonic">"R² era o chão, R³ é o edifício inteiro. Quem só olha pro mapa, não vê o drone traiçoeiro."</p>
+          </section>
+
+          <!-- REMOVIDO: 1.2 Visualização Comparativa (Simulador R² vs R³) -->
+
+          <!-- 1.3 Generalizações e Novidades (Agora 1.2 no fluxo vertical) -->
+          <section class="field-report">
+            <h3>Relatório de Campo: O Que Muda, O Que Permanece?</h3>
+            <div class="info-panel">
+              <div class="info-screen">
+                <h4>Análise Dimensional:</h4>
+                <ul>
+                  <li><strong>Generalizações:</strong> Soma de vetores \( (\vec{u}+\vec{v}) \) e multiplicação por escalar \( (k\vec{v}) \) funcionam de forma análoga – só adicionamos o componente Z. Distância entre pontos também.</li>
+                  <li><strong>Novidades:</strong> O \(R^3\) traz ferramentas exclusivas (Produto Vetorial). E algumas 'velhas conhecidas' do \(R^2\) (equações da reta) se comportam diferente.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="survival-tip">
+              <p>DICA DE SOBREVIVÊNCIA: Não presuma que tudo do \(R^2\) se aplica diretamente. A terceira dimensão tem suas próprias regras.</p>
+            </div>
+          </section>
+
+          <!-- 1.4 Conclusão Tópico 1 (Agora 1.3 no fluxo vertical) -->
+          <section class="debriefing">
+            <h3>Debriefing: Fundamentos Tridimensionais</h3>
+            <div class="summary-box">
+              <p>O \(R^3\) é uma expansão do \(R^2\), com complexidades e ferramentas próprias. Entender pontos e vetores é o alicerce para a navegação 3D.</p>
+            </div>
+            <div class="next-mission">
+              <p>Próximo briefing: Produto Interno em \(R^3\) - É só mais um 'Z' na conta?</p>
+            </div>
+            <div class="instructor-note">
+              <p>"No térreo você sobrevive, mas é nos andares superiores que a reconstrução acontece. Bem-vindos ao \(R^3\)."</p>
+            </div>
+          </section>
+        </section>
+
+        <!-- TÓPICO 2: Produto Interno no R³ -->
+        <section>
+          <!-- 2.1 Conceito e Paralelo R² -->
+          <section class="mission-briefing">
+            <h2>Produto Interno (Escalar) em \(R^3\)</h2>
+            <h3 class="mission-subtitle">Sintonizando Sinais e Ângulos no Espaço</h3>
+            <p><strong>Revisão \(R^2\):</strong> No \(R^2\), \( \vec{u} \cdot \vec{v} = x_1x_2 + y_1y_2 \) ajudou a encontrar ângulos e projeções.</p>
+            <p><strong>Generalização \(R^3\):</strong> Em \(R^3\), é uma generalização direta! Adicionamos o produto dos componentes Z:
+            <p class="formula">\( \vec{u} \cdot \vec{v} = x_1x_2 + y_1y_2 + z_1z_2 \)</p>
+            As interpretações de ângulo (\( \cos \theta = \frac{\vec{u} \cdot \vec{v}}{||\vec{u}|| \cdot ||\vec{v}||} \)), ortogonalidade (\( \vec{u} \cdot \vec{v} = 0 \)) e projeção permanecem válidas.</p>
+            <div class="definition-box">
+              <p>Interpretação R³: Alinhar antenas, verificar perpendicularidade de estruturas, calcular trabalho.</p>
+            </div>
+          </section>
+
+          <!-- 2.2 Visualização -->
+          <section class="simulator">
+            <h3>Simulador: Ângulos e Ortogonalidade em 3D</h3>
+            <div class="canvas-container">
+              <canvas id="produto-interno-r3-canvas" width="800" height="400"></canvas>
+              <div class="simulator-controls">
+                <p>Vetor \( \vec{u} \):</p>
+                <div class="control-panel">
+                  <label for="pi-r3-ux">\(u_x\):</label> <input type="range" id="pi-r3-ux" min="-5" max="5" value="2" step="0.1"> <span id="pi-r3-ux-value">2</span>
+                  <label for="pi-r3-uy">\(u_y\):</label> <input type="range" id="pi-r3-uy" min="-5" max="5" value="1" step="0.1"> <span id="pi-r3-uy-value">1</span>
+                  <label for="pi-r3-uz">\(u_z\):</label> <input type="range" id="pi-r3-uz" min="-5" max="5" value="1" step="0.1"> <span id="pi-r3-uz-value">1</span>
+                </div>
+                <p>Vetor \( \vec{v} \):</p>
+                <div class="control-panel">
+                  <label for="pi-r3-vx">\(v_x\):</label> <input type="range" id="pi-r3-vx" min="-5" max="5" value="-1" step="0.1"> <span id="pi-r3-vx-value">-1</span>
+                  <label for="pi-r3-vy">\(v_y\):</label> <input type="range" id="pi-r3-vy" min="-5" max="5" value="2" step="0.1"> <span id="pi-r3-vy-value">2</span>
+                  <label for="pi-r3-vz">\(v_z\):</label> <input type="range" id="pi-r3-vz" min="-5" max="5" value="0" step="0.1"> <span id="pi-r3-vz-value">0</span>
+                </div>
+                <p>Produto Escalar: <span id="pi-r3-dot-value" class="formula">0</span> | Ângulo: <span id="pi-r3-angle-value" class="formula">90°</span></p>
+              </div>
+            </div>
+            <div class="hint-message">
+              <p>Confirme: produto escalar zero implica vetores ortogonais (ângulo de 90°).</p>
+            </div>
+          </section>
+
+          <!-- 2.3 Problema -->
+          <section class="survival-training">
+            <h3>Treinamento: Alvo Iluminado</h3>
+            <div class="training-problem">
+              <h4>Problema #VI.2.1:</h4>
+              <p>Holofote \( \vec{h}=(1, 1, 2) \). Drone \( \vec{d}=(-2, 0, 1) \).</p>
+              <ol>
+                <li>O holofote está perpendicular à trajetória do drone?</li>
+                <li>Se não, qual o ângulo \( \theta \)? (Dados: \(||\vec{h}|| \approx 2.45\), \(||\vec{d}|| \approx 2.24\))</li>
+              </ol>
+            </div>
+            <div class="problem-context">
+              <p>Um alinhamento errado pode ser o último erro.</p>
+            </div>
+          </section>
+          <!-- 2.3.1 Dicas de Solução -->
+          <section class="field-report">
+            <h3>Análise Tática: Holofote vs. Drone</h3>
+            <div class="info-panel">
+              <div class="info-screen">
+                <h4>Diretrizes (Problema #VI.2.1):</h4>
+                <ul>
+                  <li><strong>Perpendicularidade:</strong> Calcule \( \vec{h} \cdot \vec{d} \). Se for zero, são perpendiculares.</li>
+                  <li><strong>Ângulo:</strong> Use \( \cos \theta = \frac{\vec{h} \cdot \vec{d}}{||\vec{h}|| \cdot ||\vec{d}||} \).</li>
+                  <li><strong>Módulos:</strong> \( ||\vec{v}|| = \sqrt{x^2+y^2+z^2} \).</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- 2.4 Conclusão Tópico 2 -->
+          <section class="debriefing">
+            <h3>Debriefing: Precisão Angular</h3>
+            <div class="summary-box">
+              <p>Produto Interno em \(R^3\): generalização poderosa do \(R^2\). Matemática similar, aplicações tridimensionais.</p>
+            </div>
+            <div class="next-mission">
+              <p>Próximo: Ferramenta essencial - Determinantes 3x3.</p>
+            </div>
+            <div class="instructor-note">
+              <p>"Saber o ângulo certo pode salvar sua vida."</p>
+            </div>
+          </section>
+        </section>
+
+      </div>
+    </div>
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/math/math.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/zoom/zoom.js"></script>
+    <script>
+      window.MathJax = { tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script>
+    <script>
+      // SCRIPTS DOS SIMULADORES (Produto Interno, Produto Vetorial, Produto Misto, Equação do Plano, Equação da Reta)
+      // Manter os scripts IIFE como fornecidos na resposta anterior.
+      // Certifique-se de que os IDs no HTML e no JS correspondam.
+
+      // IIFE para visualização de produto-interno-r3-canvas
+      (function() {
+        const canvas = document.getElementById('produto-interno-r3-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+
+        const uxSlider = document.getElementById('pi-r3-ux'); 
+        const uySlider = document.getElementById('pi-r3-uy');
+        const uzSlider = document.getElementById('pi-r3-uz');
+        const vxSlider = document.getElementById('pi-r3-vx');
+        const vySlider = document.getElementById('pi-r3-vy');
+        const vzSlider = document.getElementById('pi-r3-vz');
+        const uxValue = document.getElementById('pi-r3-ux-value');
+        const uyValue = document.getElementById('pi-r3-uy-value');
+        const uzValue = document.getElementById('pi-r3-uz-value');
+        const vxValue = document.getElementById('pi-r3-vx-value');
+        const vyValue = document.getElementById('pi-r3-vy-value');
+        const vzValue = document.getElementById('pi-r3-vz-value');
+        const dotValueSpan = document.getElementById('pi-r3-dot-value');
+        const angleValueSpan = document.getElementById('pi-r3-angle-value');
+
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+        const scale = 30; 
+
+        function project3D(x, y, z) {
+          const L = 0.4; const alpha = Math.PI / 6; 
+          const screenX = centerX + (x - z * L * Math.cos(alpha)) * scale;
+          const screenY = centerY - (y + z * L * Math.sin(alpha)) * scale; 
+          return { x: screenX, y: screenY };
+        }
+
+        function drawAxes() {
+          ctx.strokeStyle = '#555'; ctx.lineWidth = 1; ctx.font = "12px 'Courier New', monospace"; ctx.fillStyle = '#ADFF2F';
+          const O = project3D(0,0,0);
+          let Px = project3D(5,0,0); ctx.beginPath(); ctx.moveTo(O.x, O.y); ctx.lineTo(Px.x, Px.y); ctx.stroke(); ctx.fillText("X", Px.x + 5, Px.y);
+          let Py = project3D(0,5,0); ctx.beginPath(); ctx.moveTo(O.x, O.y); ctx.lineTo(Py.x, Py.y); ctx.stroke(); ctx.fillText("Y", Py.x, Py.y - 5);
+          let Pz = project3D(0,0,5); ctx.beginPath(); ctx.moveTo(O.x, O.y); ctx.lineTo(Pz.x, Pz.y); ctx.stroke(); ctx.fillText("Z", Pz.x + 5, Pz.y + 5);
+        }
+        
+        function drawVector(vec, color) {
+          const origin = project3D(0,0,0);
+          const endPoint = project3D(vec.x, vec.y, vec.z);
+          
+          ctx.beginPath(); ctx.moveTo(origin.x, origin.y); ctx.lineTo(endPoint.x, endPoint.y);
+          ctx.strokeStyle = color; ctx.lineWidth = 2; ctx.stroke();
+
+          const headlen = 10; const angle = Math.atan2(endPoint.y - origin.y, endPoint.x - origin.x);
+          ctx.beginPath(); ctx.moveTo(endPoint.x, endPoint.y);
+          ctx.lineTo(endPoint.x - headlen * Math.cos(angle - Math.PI / 6), endPoint.y - headlen * Math.sin(angle - Math.PI / 6));
+          ctx.lineTo(endPoint.x - headlen * Math.cos(angle + Math.PI / 6), endPoint.y - headlen * Math.sin(angle + Math.PI / 6));
+          ctx.closePath(); ctx.fillStyle = color; ctx.fill();
+        }
+
+        function draw() {
+          ctx.fillStyle = '#000'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+          drawAxes();
+
+          const u = { x: parseFloat(uxSlider.value), y: parseFloat(uySlider.value), z: parseFloat(uzSlider.value) };
+          const v = { x: parseFloat(vxSlider.value), y: parseFloat(vySlider.value), z: parseFloat(vzSlider.value) };
+
+          uxValue.textContent = u.x.toFixed(1); uyValue.textContent = u.y.toFixed(1); uzValue.textContent = u.z.toFixed(1);
+          vxValue.textContent = v.x.toFixed(1); vyValue.textContent = v.y.toFixed(1); vzValue.textContent = v.z.toFixed(1);
+
+          drawVector(u, '#FFD700'); 
+          drawVector(v, '#4682B4'); 
+
+          const dotProduct = u.x * v.x + u.y * v.y + u.z * v.z;
+          const magU = Math.sqrt(u.x**2 + u.y**2 + u.z**2);
+          const magV = Math.sqrt(v.x**2 + v.y**2 + v.z**2);
+          
+          let angleDeg = 0;
+          if (magU > 0.001 && magV > 0.001) {
+            const cosTheta = Math.max(-1, Math.min(1, dotProduct / (magU * magV)));
+            angleDeg = Math.acos(cosTheta) * (180 / Math.PI);
+          }
+
+          dotValueSpan.innerHTML = `\\( ${dotProduct.toFixed(2)} \\)`;
+          angleValueSpan.innerHTML = `\\( ${angleDeg.toFixed(1)}^\\circ \\)`;
+          
+          if (window.MathJax && window.MathJax.typeset) { window.MathJax.typeset([dotValueSpan, angleValueSpan]); }
+        }
+
+        function setupControls() { 
+            [uxSlider, uySlider, uzSlider, vxSlider, vySlider, vzSlider].forEach(s => s.addEventListener('input', draw));
+        }
+        document.addEventListener('DOMContentLoaded', () => { 
+             const allElementsExist = [canvas, uxSlider, uySlider, uzSlider, vxSlider, vySlider, vzSlider, uxValue, uyValue, uzValue, vxValue, vyValue, vzValue, dotValueSpan, angleValueSpan].every(el => !!el);
+             if(allElementsExist) { setupControls(); draw(); } else { console.error("Produto Interno R3: Elementos não encontrados.");}
+        });
+      })();
+
+    </script>
+    <script>
+      Reveal.initialize({ hash: true, slideNumber: 'c/t', transition: 'convex', plugins: [RevealNotes, RevealHighlight] });
+    </script>
+  </body>
+</html>

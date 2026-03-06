@@ -1,0 +1,37 @@
+        <div class="exercise">
+            <h3>Triângulo de Vigilância Ótimo</h3>
+            <p>Sua comunidade precisa estabelecer um novo perímetro defensivo usando três torres de vigilância. O assentamento ocupa uma área circular de raio 300 metros. Para maximizar a cobertura e minimizar recursos, as torres devem formar um triângulo equilátero circunscrito ao perímetro do assentamento. Determine as coordenadas ideais para posicionar as três torres, considerando o centro do assentamento como origem (0,0), e calcule a área total sob vigilância se cada torre tiver alcance visual de 600 metros.</p>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Para um triângulo equilátero circunscrito a um círculo, as torres devem ser posicionadas nos pontos de tangência entre o triângulo e o círculo, espaçadas uniformemente em intervalos de 120°.</li>
+                    <li>O raio do círculo circunscrito ao triângulo equilátero que circunscreve um círculo de raio r é:
+                    <div class="formula">
+                        $R = \frac{2r}{\sqrt{3}} = \frac{2 \times 300}{\sqrt{3}} \approx 346.41$ metros
+                    </div></li>
+                    <li>As coordenadas das torres serão:
+                    <div class="formula">
+                        Torre 1: (346.41 × cos(0°), 346.41 × sen(0°)) = (346.41, 0)<br>
+                        Torre 2: (346.41 × cos(120°), 346.41 × sen(120°)) = (-173.21, 300)<br>
+                        Torre 3: (346.41 × cos(240°), 346.41 × sen(240°)) = (-173.21, -300)
+                    </div></li>
+                    <li>O lado do triângulo equilátero formado é:
+                    <div class="formula">
+                        $l = 2R \times \sen(60°) = 2 \times 346.41 \times 0.866 = 600$ metros
+                    </div></li>
+                    <li>A área do triângulo equilátero é:
+                    <div class="formula">
+                        $A_{\triangle} = \frac{\sqrt{3}}{4} l^2 = \frac{\sqrt{3}}{4} \times 600^2 \approx 155,885$ m²
+                    </div></li>
+                    <li>Para calcular a área total sob vigilância, consideramos a união dos três círculos de raio 600 metros centrados nas torres:
+                    <div class="formula">
+                        Área do círculo de vigilância = $\pi \times 600^2 = 1,130,973$ m² (cada torre)<br>
+                        Área total sob vigilância ≈ 3 × 1,130,973 - (sobreposições) ≈ 2,400,000 m²
+                    </div></li>
+                    <li>Esta configuração proporciona cobertura completa do assentamento e uma área substancial ao redor, maximizando a capacidade de detecção antecipada de ameaças.</li>
+                </ol>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> O posicionamento estratégico de estruturas defensivas é um elemento fundamental da sobrevivência a longo prazo na Zona Devastada. Este arranjo triangular equilátero não apenas maximiza a cobertura visual com recursos mínimos, mas também cria um perímetro defensivo equilibrado que pode ser facilmente reforçado. A geometria regular facilita cálculos de suporte logístico e permite resposta rápida a qualquer setor do perímetro.</p>
+            </details>
+        </div>

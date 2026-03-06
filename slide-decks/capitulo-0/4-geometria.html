@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cap. 0 — Preparação para a Wasteland: Geometria</title>
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/reveal.js/dist/theme/black.css"
+      id="theme"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+
+    <style>
+      .formula-container {
+        width: 90%;
+        margin: 0 auto;
+        background-color: rgba(40, 44, 52, 0.7);
+        border: 1px solid #33ff33;
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+
+      .two-columns {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .column {
+        width: 48%;
+      }
+
+      .formula-item {
+        margin: 15px 0;
+      }
+
+      .formula-item p:not(.formula) {
+        font-size: 1.4rem;
+        margin: 5px 0 15px 0;
+        color: #aaa;
+      }
+    </style>
+    <style>
+      .formula-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+
+      .concept-box {
+        background-color: rgba(40, 44, 52, 0.7);
+        border: 1px solid #33ff33;
+        border-radius: 5px;
+        padding: 15px;
+      }
+
+      .concept-box h4 {
+        color: #ffd700;
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 1.8rem;
+      }
+
+      .concept-box ul {
+        list-style: none;
+        padding-left: 10px;
+        margin-top: 5px;
+      }
+
+      .concept-box ul li {
+        font-size: 1.4rem;
+        margin-bottom: 5px;
+        line-height: 1.2;
+      }
+
+      .concept-box ul li::before {
+        content: ""; /* Removendo o ícone de radiação padrão para estas listas específicas */
+        position: static;
+      }
+
+      .example-box {
+        background-color: rgba(40, 44, 52, 0.7);
+        border: 1px solid #33ff33;
+        border-radius: 5px;
+        padding: 15px;
+        margin-top: 20px;
+      }
+    </style>
+    <style>
+      .canvas-container {
+        display: flex;
+        justify-content: center;
+        margin: 10px 0;
+      }
+
+      .warning-text {
+        font-family: monospace;
+        text-align: center;
+        margin-top: 10px;
+        animation: pulse 2s infinite;
+      }
+
+      .warning-text span {
+        color: #ff3333;
+        font-weight: bold;
+        padding: 5px 10px;
+        border: 1px solid #ff3333;
+        background-color: rgba(40, 44, 52, 0.7);
+      }
+
+      @keyframes pulse {
+        0% {
+          opacity: 0.7;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.7;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- PLANEJAMENTO DE ESTRUTURAS (GEOMETRIA PLANA) -->
+        <section>
+          <section>
+            <h2>Planejamento de Estruturas</h2>
+            <h3>Sistema S.A.F.E. - Structural Analysis For Endurance</h3>
+            <p>
+              As estruturas na wasteland precisam resistir a condições extremas
+              e otimizar recursos.
+            </p>
+            <img src="img/geometria-estruturas-safe.svg" alt="Diagrama do Sistema S.A.F.E. de estruturas" class="svg-visualization" style="width:600px; height:300px" />
+
+            <!-- Legenda adicional abaixo do SVG -->
+            <div
+              style="
+                width: 80%;
+                margin: 0 auto;
+                display: flex;
+                justify-content: space-around;
+                text-align: center;
+              "
+            >
+              <div>
+                <span style="color: #33ff33; font-weight: bold"
+                  >Triangulação</span
+                >
+                <p style="font-size: 0.9rem; margin-top: 5px">
+                  Distribui forças uniformemente
+                </p>
+              </div>
+              <div>
+                <span style="color: #ffd700; font-weight: bold"
+                  >Pontos de Ancoragem</span
+                >
+                <p style="font-size: 0.9rem; margin-top: 5px">
+                  Essenciais para estabilidade
+                </p>
+              </div>
+              <div>
+                <span style="color: #ff5555; font-weight: bold"
+                  >Áreas de Tensão</span
+                >
+                <p style="font-size: 0.9rem; margin-top: 5px">
+                  Vulneráveis a colapso
+                </p>
+              </div>
+            </div>
+          </section>
+          <!-- Slide principal da seção -->
+          <!-- Slide sobre ângulos e retas -->
+          <section>
+            <h3>Ângulos e Retas: Fundamentos de Construção</h3>
+            <p>
+              Diferentes tipos de ângulos têm aplicações estratégicas na
+              wasteland:
+            </p>
+            <img src="img/geometria-angulos-retas.svg" alt="Tipos de ângulos e retas" class="svg-visualization" style="width:600px; height:300px" />
+            <p>\( \text{Ângulo apropriado} \Rightarrow \text{sobrevivência otimizada} \)</p>
+          </section>
+
+          <!-- Slide sobre triângulos -->
+          <section>
+            <h3>Triângulos e as Estruturas da Wasteland</h3>
+            <div
+              style="
+                display: flex;
+                justify-content: space-around;
+                width: 90%;
+                margin: 0 auto;
+              "
+            >
+              <div
+                style="
+                  width: 30%;
+                  background-color: rgba(40, 44, 52, 0.7);
+                  border: 1px solid #33ff33;
+                  padding: 10px;
+                  border-radius: 5px;
+                "
+              >
+                <h4 style="margin-top: 0; color: #33ff33">
+                  Triângulo Retângulo
+                </h4>
+                <ul>
+                  <li>Um ângulo exatamente 90°</li>
+                  <li>Teorema de Pitágoras aplicável: \( c^2 = a^2 + b^2 \)</li>
+                  <li>Ideal para estruturas com reforço perpendicular</li>
+                  <li>Encontrado em: suportes de torre, esquinas de abrigos</li>
+                </ul>
+              </div>
+
+              <div
+                style="
+                  width: 30%;
+                  background-color: rgba(40, 44, 52, 0.7);
+                  border: 1px solid #ffd700;
+                  padding: 10px;
+                  border-radius: 5px;
+                "
+              >
+                <h4 style="margin-top: 0; color: #ffd700">
+                  Triângulo Isósceles
+                </h4>
+                <ul>
+                  <li>Dois lados com mesmo comprimento</li>
+                  <li>Dois ângulos iguais (base dos lados iguais)</li>
+                  <li>Simetria útil para distribuição de peso</li>
+                  <li>Encontrado em: tendas, coberturas A-frame, telhados</li>
+                </ul>
+              </div>
+
+              <div
+                style="
+                  width: 30%;
+                  background-color: rgba(40, 44, 52, 0.7);
+                  border: 1px solid #ff6b6b;
+                  padding: 10px;
+                  border-radius: 5px;
+                "
+              >
+                <h4 style="margin-top: 0; margin-bottom: 0; color: #ff6b6b">
+                  Triângulo Escaleno
+                </h4>
+                <ul>
+                  <li>Todos os lados com comprimentos diferentes</li>
+                  <li>Todos os ângulos diferentes</li>
+                  <li>Adaptável a terrenos irregulares</li>
+                  <li>
+                    Encontrado em: estruturas improvisadas, adaptações de campo
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- SEÇÃO DE ÁREAS E PERÍMETROS (DIVIDIDA EM SLIDES POR FIGURA) -->
+
+          <!-- Slide sobre retângulos -->
+          <section>
+            <h3>Retângulos: Espaços Habitáveis Eficientes</h3>
+            <p>
+              Formas retangulares são ideais para estruturas habitáveis e
+              modularidade no design.
+            </p>
+
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 20px 0;
+              "
+            >
+              <div style="width: 45%">
+                <img src="img/geometria-retangulo.svg" alt="Retângulo com medidas" class="svg-visualization" style="width:200px; height:200px" />
+              </div>
+
+              <div
+                style="
+                  width: 45%;
+                  background-color: rgba(40, 44, 52, 0.7);
+                  border: 1px solid #33ff33;
+                  padding: 15px;
+                  border-radius: 5px;
+                "
+              >
+                <p class="formula" style="margin: 10px 0">\( A = b \cdot h \)</p>
+                <p class="formula" style="margin: 10px 0">
+                  \( P = 2b + 2h \)
+                </p>
+                <p class="formula" style="margin: 10px 0">
+                  \( d = \sqrt{b^2 + h^2} \)
+                </p>
+
+                <ul style="text-align: left; padding-left: 20px">
+                  <li>Moradias e barracas (cálculo de materiais)</li>
+                  <li>Plantações (maximização de área)</li>
+                  <li>Perímetros defensivos (cálculo de cercas)</li>
+                </ul>
+              </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 10px">
+              O retângulo é a forma mais eficiente para construções habitáveis,
+              permitindo modularidade e expansão planejada.
+            </p>
+          </section>
+
+          <!-- Slide sobre triângulos (área e perímetro) -->
+          <section>
+            <h3>Triângulos: Áreas e Eficiência Estrutural</h3>
+            <p>
+              Cálculos de área para projetar coberturas, tendas e barreiras
+              triangulares.
+            </p>
+
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 20px 0;
+              "
+            >
+              <div style="width: 45%">
+                <img src="img/geometria-triangulo.svg" alt="Triângulo com medidas" class="svg-visualization" style="width:200px; height:200px" />
+              </div>
+
+              <div
+                style="
+                  width: 45%;
+                  background-color: rgba(40, 44, 52, 0.7);
+                  border: 1px solid #33ff33;
+                  padding: 25px;
+                  border-radius: 5px;
+                "
+              >
+                <p class="formula" style="margin: 10px 0">
+                  \( A = \frac{b \cdot h}{2} \)
+                </p>
+                <p class="formula" style="margin: 10px 0">
+                  \( P = a + b + c \)
+                </p>
+                <p class="formula" style="margin: 10px 0">
+                  \( s = \frac{a+b+c}{2} \)
+                </p>
+                <p class="formula" style="margin: 10px 0">
+                  \( A = \sqrt{s(s-a)(s-b)(s-c)} \)
+                </p>
+
+                <ul style="text-align: left; padding-left: 20px">
+                  <li>Tendas e coberturas (cálculo de lona necessária)</li>
+                  <li>Estruturas de suporte (triangulação)</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide sobre círculos -->
+          <section>
+            <h3>Círculos: Zonas de Proteção Otimizadas</h3>
+            <p>
+              A forma circular oferece a máxima área para um perímetro dado -
+              ideal para zonas de segurança.
+            </p>
+
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 20px 0;
+              "
+            >
+              <div style="width: 45%">
+                <img src="img/geometria-circulo.svg" alt="Círculo com medidas" class="svg-visualization" style="width:200px; height:200px" />
+              </div>
+
+              <div
+                style="
+                  width: 45%;
+                  background-color: rgba(40, 44, 52, 0.7);
+                  border: 1px solid #33ff33;
+                  padding: 15px;
+                  border-radius: 5px;
+                "
+              >
+                <p class="formula" style="margin: 10px 0">\( A = \pi r^2 \)</p>
+                <p class="formula" style="margin: 10px 0">
+                  \( C = 2\pi r \)
+                </p>
+                <p class="formula" style="margin: 10px 0">\( d = 2r \)</p>
+                <ul style="text-align: left; padding-left: 20px">
+                  <li>Zonas de radiação (mapeamento de áreas)</li>
+                  <li>Perímetros defensivos (eficiência máxima)</li>
+                  <li>Alcance de torres de comunicação</li>
+                  <li>Tanques de água (capacidade máxima)</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide sobre polígonos regulares -->
+          <section>
+            <h3>Polígonos Regulares: Assentamentos Planejados</h3>
+            <p>
+              Formas poligonais combinam as vantagens práticas do retângulo com
+              a eficiência do círculo.
+            </p>
+
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 20px 0;
+              "
+            >
+              <div style="width: 45%">
+                <img src="img/geometria-poligono.svg" alt="Polígono regular" class="svg-visualization" style="width:200px; height:200px" />
+              </div>
+
+              <div
+                style="
+                  width: 45%;
+                  background-color: rgba(40, 44, 52, 0.7);
+                  border: 1px solid #33ff33;
+                  padding: 15px;
+                  border-radius: 5px;
+                "
+              >
+                <h4 style="margin-top: 0; color: #ffd700">
+                  Fórmulas para n lados
+                </h4>
+                <p class="formula" style="margin: 8px 0">\( P = n \cdot l \)</p>
+                <p class="formula" style="margin: 8px 0">
+                  \( A = \frac{1}{4}nl^2 \cot\left(\frac{\pi}{n}\right) \)
+                </p>
+                <p class="formula" style="margin: 8px 0">
+                  \( \alpha_{\text{interno}} = \frac{(n-2)\cdot 180^\circ}{n} \)
+                </p>
+                <p class="formula" style="margin: 8px 0">
+                  \( l = 2r \sin\left(\frac{\pi}{n}\right) \)
+                </p>
+
+                <ul style="text-align: left; padding-left: 20px">
+                  <li>Planejamento de assentamentos</li>
+                  <li>Fortificações de múltiplos lados</li>
+                  <li>Sistemas de irrigação eficientes</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide sobre semelhança de triângulos -->
+          <section>
+            <h3>Semelhança de Triângulos: Reconhecimento à Distância</h3>
+            <p>
+              A semelhança é uma arma poderosa para calcular distâncias
+              inacessíveis na wasteland.
+            </p>
+
+            <div
+              style="
+                display: flex;
+                justify-content: space-around;
+                width: 90%;
+                margin: 15px auto;
+              "
+            >
+              <div
+                style="
+                  width: 45%;
+                  background-color: rgba(40, 44, 52, 0.7);
+                  border: 1px solid #33ff33;
+                  padding: 10px;
+                  border-radius: 5px;
+                "
+              >
+                <h4 style="margin-top: 0; color: #ffd700">
+                  Aplicação na Wasteland
+                </h4>
+                <ul>
+                  <li>
+                    Calcular a altura de um prédio perigoso sem aproximação
+                  </li>
+                  <li>
+                    Estimar distâncias até bases inimigas ou pontos de recursos
+                  </li>
+                  <li>
+                    Determinar a largura de áreas radioativas sem entrar nelas
+                  </li>
+                  <li>
+                    Mapear terrenos inacessíveis a partir de pontos seguros
+                  </li>
+                </ul>
+              </div>
+
+              <div
+                style="
+                  width: 45%;
+                  background-color: rgba(40, 44, 52, 0.7);
+                  border: 1px solid #33ff33;
+                  padding: 10px;
+                  border-radius: 5px;
+                "
+              >
+                <h4 style="margin-top: 0; color: #ffd700">
+                  Critérios de Semelhança
+                </h4>
+                <ul>
+                  <li>
+                    <span style="color: #33ff33">AAA</span>: Três ângulos iguais
+                    \( (\alpha = \alpha,\ \beta = \beta,\ \gamma = \gamma) \)
+                  </li>
+                  <li>
+                    <span style="color: #33ff33">LAL</span>: Dois lados
+                    proporcionais e ângulo entre eles igual
+                  </li>
+                  <li>
+                    <span style="color: #33ff33">LLL</span>: Três lados
+                    proporcionais \( \left(\frac{AB}{AD} = \frac{BC}{DE} = \frac{AC}{AE}\right) \)
+                  </li>
+                </ul>
+                <p class="formula" style="text-align: center; margin-top: 5px">
+                  \( k = \frac{\text{lado correspondente}}{\text{lado correspondente}} \)
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide sobre aplicações de semelhança -->
+          <section>
+            <h3>Aplicações na Wasteland: Reconhecimento Tático</h3>
+
+            <img src="img/geometria-semelhanca-tatica.svg" alt="Aplicação tática de semelhança" class="svg-visualization" style="width:400px; height:180px" />
+
+            <p>Aplicações cruciais para sobrevivência na wasteland:</p>
+            <ul>
+              <li>
+                Calcular altura de torres e estruturas perigosas a uma distância
+                segura
+              </li>
+              <li>
+                Estimar distância de alvos hostis (Super Mutantes, Deathclaws)
+              </li>
+              <li>
+                Determinar a largura de rios ou áreas radioativas sem precisar
+                cruzá-los
+              </li>
+              <li>Mapear zonas inaccessíveis observando de pontos elevados</li>
+            </ul>
+          </section>
+        </section>
+
+      </div>
+    </div>
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["\\(", "\\)"]],
+          displayMath: [["\\[", "\\]"]],
+        },
+      };
+      Reveal.initialize({
+        hash: true,
+        slideNumber: true,
+      });
+    </script>
+  </body>
+</html>

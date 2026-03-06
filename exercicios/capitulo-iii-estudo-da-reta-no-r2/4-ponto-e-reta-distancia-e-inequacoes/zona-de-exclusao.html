@@ -1,0 +1,42 @@
+<div class="exercise">
+<h3>ZONA DE EXCLUSÃO</h3>
+<p>Um território seguro é definido pelo sistema de inequações: 
+            $$\begin{cases}
+            x + 2y - 10 \leq 0 \\
+            -x + y - 3 \leq 0 \\
+            2x - y - 8 \leq 0
+            \end{cases}$$
+            
+            Um grupo de exploradores parte do ponto $P(3, 2)$ em busca de suprimentos. Determine se eles começarão de dentro da zona segura e, caso contrário, calcule a distância mínima que precisam percorrer para entrar na zona segura.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Verifique se o ponto satisfaz todas as inequações do sistema. Se não estiver na zona segura, calcule a distância até cada uma das retas limítrofes e considere a menor.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Verifique se o ponto $P(3, 2)$ satisfaz a primeira inequação:
+                    $$3 + 2 \cdot 2 - 10 = 3 + 4 - 10 = -3 \leq 0$$
+                    Sim, satisfaz.</li>
+<li>Verifique a segunda inequação:
+                    $$-3 + 2 - 3 = -4 \leq 0$$
+                    Sim, satisfaz.</li>
+<li>Verifique a terceira inequação:
+                    $$2 \cdot 3 - 2 - 8 = 6 - 2 - 8 = -4 \leq 0$$
+                    Sim, satisfaz.</li>
+<li>Como $P(3, 2)$ satisfaz todas as três inequações, o grupo já começa dentro da zona segura.</li>
+<li>A distância mínima que precisam percorrer para entrar na zona segura é 0 unidades, pois já estão nela.</li>
+</ol>
+<div class="formula">
+                    $$\begin{cases}
+                    3 + 2 \cdot 2 - 10 = -3 \leq 0 \\
+                    -3 + 2 - 3 = -4 \leq 0 \\
+                    2 \cdot 3 - 2 - 8 = -4 \leq 0
+                    \end{cases}$$
+                    $$\text{Distância para entrar na zona segura: } 0 \text{ unidades}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Verificar se uma posição está dentro de uma zona segura antes de iniciar uma expedição é fundamental para o planejamento estratégico. Neste caso, os exploradores têm a vantagem de já estarem em território seguro, o que lhes permite conservar recursos para a missão principal de busca por suprimentos, em vez de gastá-los apenas para alcançar um ponto seguro inicial.</p>
+</details>
+</div>

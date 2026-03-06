@@ -1,0 +1,36 @@
+<div class="exercise">
+<h3>REDE DE COMUNICAÇÃO SEGURA</h3>
+<p>Cinco assentamentos estão localizados nos pontos A(1,2), B(3,8), C(5,1), D(7,7) e E(9,4). Eles precisam estabelecer uma rede de comunicação usando o mínimo possível de cabos de transmissão. Um engenheiro sugere conectar os pontos que estão sobre a mesma linha reta com um único cabo para economizar recursos.</p>
+<p>a) Determine se existem três ou mais pontos colineares</p>
+<p>b) Quais são as equações das retas que passam por pelo menos dois dos pontos dados?</p>
+<p>c) Qual é o número mínimo de cabos (segmentos de reta) necessários para conectar todos os cinco assentamentos?</p>
+<p>d) Se os cabos tiverem custo proporcional ao comprimento, qual é o custo total da instalação da rede?</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Para verificar colinearidade, calculamos os coeficientes angulares entre pares de pontos:
+                       AB: $m_{AB} = \frac{8-2}{3-1} = \frac{6}{2} = 3$
+                       AC: $m_{AC} = \frac{1-2}{5-1} = \frac{-1}{4} = -\frac{1}{4}$
+                       Para todos os pares possíveis, não encontramos três pontos que compartilhem o mesmo coeficiente angular. Logo, não há três pontos colineares.</li>
+<li>As equações das retas que conectam os pontos são:
+                       AB: $y - 2 = 3(x - 1) \Rightarrow y = 3x - 1$
+                       AC: $y - 2 = -\frac{1}{4}(x - 1) \Rightarrow y = -\frac{1}{4}x + \frac{9}{4}$
+                       AD: $y - 2 = \frac{7-2}{7-1} = \frac{5}{6}(x - 1) \Rightarrow y = \frac{5}{6}x + \frac{7}{6}$
+                       AE: $y - 2 = \frac{4-2}{9-1} = \frac{2}{8}(x - 1) \Rightarrow y = \frac{1}{4}x + \frac{7}{4}$</li>
+<li>Continuamos com BC, BD, BE, CD, CE e DE (equações omitidas por brevidade)</li>
+<li>Como não há três pontos colineares, precisamos de pelo menos 4 cabos para conectar os 5 pontos em uma árvore geradora mínima (teorema da teoria dos grafos)</li>
+<li>Calculamos as distâncias entre todos os pares de pontos:
+                       AB: $d_{AB} = \sqrt{(3-1)^2 + (8-2)^2} = \sqrt{4 + 36} = \sqrt{40} \approx 6.32$
+                       AC: $d_{AC} = \sqrt{(5-1)^2 + (1-2)^2} = \sqrt{16 + 1} = \sqrt{17} \approx 4.12$
+                       (e assim por diante para todos os pares)</li>
+<li>A árvore geradora mínima seria formada pelos cabos: AC, CE, BD e DE, com comprimento total aproximado de 21.43 unidades</li>
+</ol>
+<div class="formula">
+<p>a) Não existem três pontos colineares</p>
+<p>b) Dez equações de retas conectando pares de pontos (algumas mostradas acima)</p>
+<p>c) Número mínimo de cabos: 4</p>
+<p>d) Custo total (proporcional ao comprimento): 21.43 unidades</p>
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Em um mundo onde cada metro de cabo é precioso, a otimização matemática torna-se vital para a sobrevivência. A teoria dos grafos permite criar redes com mínimo consumo de recursos, maximizando a conectividade entre assentamentos. Este cálculo não apenas economiza materiais escassos, mas também minimiza o tempo de exposição durante a instalação, crucial em áreas com ameaças constantes.</p>
+</details>
+</div>

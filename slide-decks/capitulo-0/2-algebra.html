@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cap. 0 — Preparação para a Wasteland: Álgebra</title>
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/reveal.js/dist/theme/black.css"
+      id="theme"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+
+    <style>
+      .formula-container {
+        width: 90%;
+        margin: 0 auto;
+        background-color: rgba(40, 44, 52, 0.7);
+        border: 1px solid #33ff33;
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+
+      .two-columns {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .column {
+        width: 48%;
+      }
+
+      .formula-item {
+        margin: 15px 0;
+      }
+
+      .formula-item p:not(.formula) {
+        font-size: 1.4rem;
+        margin: 5px 0 15px 0;
+        color: #aaa;
+      }
+    </style>
+    <style>
+      .formula-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+
+      .concept-box {
+        background-color: rgba(40, 44, 52, 0.7);
+        border: 1px solid #33ff33;
+        border-radius: 5px;
+        padding: 15px;
+      }
+
+      .concept-box h4 {
+        color: #ffd700;
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 1.8rem;
+      }
+
+      .concept-box ul {
+        list-style: none;
+        padding-left: 10px;
+        margin-top: 5px;
+      }
+
+      .concept-box ul li {
+        font-size: 1.4rem;
+        margin-bottom: 5px;
+        line-height: 1.2;
+      }
+
+      .concept-box ul li::before {
+        content: ""; /* Removendo o ícone de radiação padrão para estas listas específicas */
+        position: static;
+      }
+
+      .example-box {
+        background-color: rgba(40, 44, 52, 0.7);
+        border: 1px solid #33ff33;
+        border-radius: 5px;
+        padding: 15px;
+        margin-top: 20px;
+      }
+    </style>
+    <style>
+      .canvas-container {
+        display: flex;
+        justify-content: center;
+        margin: 10px 0;
+      }
+
+      .warning-text {
+        font-family: monospace;
+        text-align: center;
+        margin-top: 10px;
+        animation: pulse 2s infinite;
+      }
+
+      .warning-text span {
+        color: #ff3333;
+        font-weight: bold;
+        padding: 5px 10px;
+        border: 1px solid #ff3333;
+        background-color: rgba(40, 44, 52, 0.7);
+      }
+
+      @keyframes pulse {
+        0% {
+          opacity: 0.7;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.7;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- ÁLGEBRA BÁSICA -->
+        <section>
+          <!-- Slide principal sobre álgebra -->
+          <section>
+            <h2>Álgebra Básica</h2>
+            <h3>Ferramentas de Sobrevivência Matemática</h3>
+            <p>
+              Como desativar armadilhas complexas com táticas algébricas
+              simples.
+            </p>
+
+            <div class="formula-container">
+              <p class="formula">
+                \[
+                  2(3x - 4) + 5 = 7(x + 1) - 10
+                \]
+              </p>
+              <p class="formula">
+                \[
+                  6x - 8 + 5 = 7x + 7 - 10
+                \]
+              </p>
+              <p class="formula">
+                \[
+                  6x - 3 = 7x - 3 \Rightarrow x = 0
+                \]
+              </p>
+            </div>
+
+            <p>
+              Dominar a álgebra significa sobreviver onde outros falham:
+              terminais bloqueados, cálculos de radiação, e sistemas de
+              segurança complexos.
+            </p>
+          </section>
+
+          <!-- Slide sobre propriedades distributivas -->
+          <!-- Slide 1: Forma Básica -->
+          <section>
+            <h3>Propriedade Distributiva: Tática de Desmontagem</h3>
+            <p>
+              Decomponha expressões complexas, ótimo para desmontar armadilhas
+              na wasteland.
+            </p>
+
+            <div class="formula-container">
+              <p class="formula">\( a(b + c) = ab + ac \)</p>
+            </div>
+
+            <div class="visual-container">
+              <img src="img/algebra-distributiva-area-basica.svg" alt="Diagrama de área: propriedade distributiva a(b+c)" class="svg-visualization" style="width:550px; height:220px" />
+            </div>
+          </section>
+
+          <!-- Slide 2: Aplicação Avançada -->
+          <section>
+            <h3>Propriedade Distributiva: Aplicação Avançada</h3>
+            <p>
+              Enfrentando expressões mais complexas na wasteland matemática.
+            </p>
+
+            <div class="formula-container">
+              <p class="formula">\( (a + b)(c + d) = ac + ad + bc + bd \)</p>
+            </div>
+
+            <div class="visual-container">
+              <img src="img/algebra-distributiva-area-avancada.svg" alt="Diagrama de área: distributiva (a+b)(c+d)" class="svg-visualization" style="width:600px; height:290px" />
+            </div>
+          </section>
+
+          <!-- Slide 3: Exemplos Práticos -->
+          <section>
+            <h3>Propriedade Distributiva: Exemplos de Sobrevivência</h3>
+            <p>Aplicações práticas para sua jornada na wasteland.</p>
+
+            <div class="examples-container">
+              <div class="example-box forma-basica">
+                <h4>Forma Básica</h4>
+                <div class="example-content">
+                  <p class="formula">
+                    \( 3(x + 2) = 3 \cdot x + 3 \cdot 2 = 3x + 6 \)
+                  </p>
+                </div>
+                <p class="explanation">
+                  Distribua o multiplicador externo (3) para cada termo dentro
+                  dos parênteses.
+                </p>
+              </div>
+
+              <div class="example-box prod-binomios">
+                <h4>Produto de Binômios</h4>
+                <div class="example-content">
+                  <p class="formula">
+                    \( (x + 3)(x + 2) = x \cdot x + x \cdot 2 + 3 \cdot x + 3
+                    \cdot 2 = x^2 + 2x + 3x + 6 =\)
+                  </p>
+                  <p class="formula">\(= x^2 + 5x + 6 \)</p>
+                </div>
+                <p class="explanation">
+                  Multiplique cada termo do primeiro parênteses por cada termo
+                  do segundo. Essencial para calcular áreas em planejamento de
+                  assentamentos.
+                </p>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div class="tactical-tip">
+              <p>
+                <strong>DICA TÁTICA:</strong> Quando desmonta uma expressão
+                distributiva, sempre verifique seu trabalho multiplicando cada
+                termo externo por cada termo interno. Contabilize todos os
+                produtos - uma omissão pode ser fatal na wasteland matemática.
+              </p>
+            </div>
+          </section>
+
+          <!-- Slide sobre potências-->
+          <section>
+            <h3>Propriedades das Potências: Protocolos de Amplificação</h3>
+
+            <div class="formula-container">
+              <div class="two-columns">
+                <div class="column">
+                  <div class="formula-item">
+                    <p class="formula">\( x^a \cdot x^b = x^{a+b} \)</p>
+                    <p>Multiplicação: some os expoentes</p>
+                  </div>
+                  <div class="formula-item">
+                    <p class="formula">\( (x^a)^b = x^{a \cdot b} \)</p>
+                    <p>Potência de potência: multiplique os expoentes</p>
+                  </div>
+                  <div class="formula-item">
+                    <p class="formula">\( (x/y)^a = x^a / y^a \)</p>
+                    <p>Potência de quociente: distribua o expoente</p>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="formula-item">
+                    <p class="formula">\( x^a \div x^b = x^{a-b} \)</p>
+                    <p>Divisão: subtraia os expoentes</p>
+                  </div>
+                  <div class="formula-item">
+                    <p class="formula">\( (x \cdot y)^a = x^a \cdot y^a \)</p>
+                    <p>Potência de produto: distribua o expoente</p>
+                  </div>
+                  <div class="formula-item">
+                    <p class="formula">\( x^{-a} = 1/x^a \)</p>
+                    <p>Expoente negativo: inverta a base</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p>
+              <em
+                >Memorize estas leis para sobreviver a cálculos complexos quando
+                cada segundo conta.</em
+              >
+            </p>
+          </section>
+
+          <!-- Slide sobre aplicações das potências (separado) -->
+          <section>
+            <h3>Aplicações das Potências</h3>
+            <p>Fórmulas essenciais para modelar fenômenos da wasteland.</p>
+
+            <div class="formula-grid">
+              <div class="concept-box">
+                <h4>Crescimento Populacional</h4>
+                <p class="formula">\( P = P_0(1+r)^t \)</p>
+                <ul>
+                  <li>\( P_0 \) = população inicial</li>
+                  <li>\( r \) = taxa de crescimento</li>
+                  <li>\( t \) = tempo</li>
+                </ul>
+              </div>
+
+              <div class="concept-box">
+                <h4>Decaimento Radioativo</h4>
+                <p class="formula">\( A = A_0(1/2)^{t/h} \)</p>
+                <ul>
+                  <li>\( A_0 \) = atividade inicial</li>
+                  <li>\( h \) = meia-vida</li>
+                  <li>\( t \) = tempo</li>
+                </ul>
+              </div>
+            </div>
+            <div class="example-box">
+              <p>
+                <strong>Exemplo prático:</strong> Se sua colônia começa com 20
+                pessoas e cresce 10% ao ano, após 5 anos terá:
+              </p>
+              <p class="formula">
+                \( P = 20 \cdot (1+0.1)^5 = 20 \cdot 1.1^5 = 20 \cdot 1.61
+                \approx 32 \text{ pessoas} \)
+              </p>
+            </div>
+          </section>
+
+          <!-- Slide sobre produtos notáveis - quadrados -->
+          <section>
+            <h3>Produtos Notáveis: Quadrados de Binômios</h3>
+            <p>
+              Padrões reconhecíveis que economizam tempo e recursos em cálculos
+              complexos.
+            </p>
+
+            <div class="concept-box">
+              <h3>Quadrado da Soma</h3>
+              <p class="formula">\( (a + b)^2 = a^2 + 2ab + b^2 \)</p>
+              <img src="img/algebra-quadrado-soma.svg" alt="Diagrama do quadrado da soma (a+b)²" class="svg-visualization" style="width:120px; height:120px" />
+            </div>
+          </section>
+          <section>
+            <h3>Produtos Notáveis: Quadrados de Binômios</h3>
+
+            <div class="flex-container">
+              <div class="concept-box">
+                <h3>Quadrado da Diferença</h3>
+                <p class="formula">\( (a - b)^2 = a^2 - 2ab + b^2 \)</p>
+                <img src="img/algebra-quadrado-diferenca.svg" alt="Diagrama do quadrado da diferença (a-b)²" class="svg-visualization" style="width:120px; height:120px" />
+              </div>
+            </div>
+
+            <div
+              style="
+                background-color: rgba(40, 44, 52, 0.7);
+                border: 1px solid #33ff33;
+                padding: 10px;
+                margin-top: 20px;
+                border-radius: 5px;
+              "
+            >
+              <div style="display: flex; justify-content: space-around">
+                <div style="width: 45%">
+                  <p><strong>Exemplo:</strong> Expandir (x + 3)²</p>
+                  <p class="formula">\( = x^2 + 2(x)(3) + 3^2 \)</p>
+                  <p class="formula">\( = x^2 + 6x + 9 \)</p>
+                </div>
+                <div style="width: 45%">
+                  <p><strong>Exemplo:</strong> Expandir (2x - 5)²</p>
+                  <p class="formula">\( = (2x)^2 - 2(2x)(5) + 5^2 \)</p>
+                  <p class="formula">\( = 4x^2 - 20x + 25 \)</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide sobre diferença de quadrados -->
+          <section>
+            <h3>Produtos Notáveis: Diferença de Quadrados</h3>
+            <p>
+              Um padrão essencial para fatoração e simplificação de expressões.
+            </p>
+
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 20px 0;
+              "
+            >
+              <div
+                style="
+                  width: 55%;
+                  background-color: rgba(40, 44, 52, 0.7);
+                  border: 1px solid #33ff33;
+                  padding: 15px;
+                  border-radius: 5px;
+                "
+              >
+                <p class="formula" style="font-size: 1.3em; text-align: center">
+                  \( a^2 - b^2 = (a + b)(a - b) \)
+                </p>
+
+                <div style="margin-top: 20px">
+                  <p style="margin: 5px 0">
+                    <strong>Exemplo 1:</strong> Fatorar x² - 4
+                  </p>
+                  <p class="formula">\( = x^2 - 2^2 \)</p>
+                  <p class="formula">\( = (x + 2)(x - 2) \)</p>
+                </div>
+
+                <div style="margin-top: 20px">
+                  <p style="margin: 5px 0">
+                    <strong>Exemplo 2:</strong> Fatorar 9y² - 25
+                  </p>
+                  <p class="formula">\( = (3y)^2 - 5^2 \)</p>
+                  <p class="formula">\( = (3y + 5)(3y - 5) \)</p>
+                </div>
+              </div>
+
+              <div style="width: 40%">
+                <img src="img/algebra-diferenca-quadrados.svg" alt="Diagrama da diferença de quadrados a²-b²" class="svg-visualization" style="width:180px; height:180px" />
+              </div>
+            </div>
+
+            <p style="text-align: center">
+              Aplicação na wasteland: Decompor áreas complexas para cálculos de
+              perímetros defensivos e divisão de território entre assentamentos.
+            </p>
+          </section>
+
+          <!-- Slide sobre cubo de binômio (separado) -->
+          <section>
+            <h3>Cubo de Binômio: Expansão de Volume</h3>
+            <p>Para calcular espaços tridimensionais de forma eficiente.</p>
+
+            <div class="formula-container">
+              <p class="formula">\( (a + b)^3 = a^3 + 3a^2b + 3ab^2 + b^3 \)</p>
+            </div>
+
+            <div class="visual-container">
+              <img src="img/algebra-cubo-binomio.svg" alt="Diagrama do cubo de binômio (a+b)³" class="svg-visualization" style="width:780px; height:250px" />
+            </div>
+
+            <p class="footer-note">
+              Aplicação na wasteland: Cálculo preciso de volume de bunkers,
+              reservatórios de água e depósitos de suprimentos.
+            </p>
+          </section>
+
+          <section>
+            <h3>Cubo de Binômio: Exemplos de Cálculo</h3>
+            <p>Simulações do "Vault-Tec" para cálculos volumétricos rápidos.</p>
+
+            <div class="examples-container">
+              <div class="example-box">
+                <h4>Exemplo: Expandir \( (x + 2)^3 \)</h4>
+                <div class="formula-steps">
+                  <p class="formula">
+                    \( (x + 2)^3 = x^3 + 3x^2(2) + 3x(2)^2 + 2^3 \)
+                  </p>
+                  <p class="formula">\( = x^3 + 6x^2 + 12x + 8 \)</p>
+                </div>
+                <p class="example-note">
+                  Use esta fórmula para calcular o volume de um abrigo cúbico
+                  com extensão.
+                </p>
+              </div>
+
+              <div class="example-box">
+                <h4>Exemplo: Expandir \( (x - 1)^3 \)</h4>
+                <div class="formula-steps">
+                  <p class="formula">
+                    \( (x - 1)^3 = x^3 + 3x^2(-1) + 3x(-1)^2 + (-1)^3 \)
+                  </p>
+                  <p class="formula">\( = x^3 - 3x^2 + 3x - 1 \)</p>
+                </div>
+                <p class="example-note">
+                  Útil para calcular reduções de volume em projetos de
+                  engenharia.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h3>Cubo de Binômio: Exemplos de Cálculo 2</h3>
+            <p>Simulações do "Vault-Tec" para cálculos volumétricos rápidos.</p>
+
+            <div class="examples-container">
+              <div class="example-box">
+                <h4>Exemplo: Expandir \( (2x + y)^3 \)</h4>
+                <div class="formula-steps">
+                  <p class="formula">
+                    \( (2x + y)^3 = (2x)^3 + 3(2x)^2(y) + 3(2x)(y)^2 + y^3 \)
+                  </p>
+                  <p class="formula">\( = 8x^3 + 12x^2y + 6xy^2 + y^3 \)</p>
+                </div>
+                <p class="example-note">
+                  Aplicável no dimensionamento de bunkers com diferentes
+                  proporções.
+                </p>
+              </div>
+            </div>
+            <div class="training-note">
+              <p>
+                <strong>Treinamento de Sobrevivência:</strong> Calcule o volume
+                do abrigo expresso como \( (3r + h)^3 \), onde \( r \) é o raio
+                de proteção e \( h \) é a altura da blindagem.
+              </p>
+            </div>
+          </section>
+
+          <!-- Slide sobre simplificação de expressões -->
+          <section>
+            <h3>Simplificação de Expressões: Protocolo de Otimização</h3>
+            <p>
+              Método para reduzir a complexidade e economizar recursos mentais
+              em situações de estresse.
+            </p>
+
+            <div
+              style="
+                background-color: rgba(40, 44, 52, 0.7);
+                border: 1px solid #33ff33;
+                padding: 15px;
+                margin: 10px 0;
+                border-radius: 5px;
+              "
+            >
+              <h3>Exemplo: Desativação de Sistema de Segurança</h3>
+              <p class="formula">\(\frac{x^2 - 4x + 4}{x - 2}\)</p>
+
+              <ol style="text-align: left">
+                <li>Identificar padrões: \(x^2 - 4x + 4 = (x - 2)^2\)</li>
+                <li>Substituir: \(\frac{(x - 2)^2}{x - 2}\)</li>
+                <li>
+                  Simplificar: \(\frac{(x - 2)^2}{x - 2} = (x - 2)\) para \(x
+                  \neq 2\)
+                </li>
+                <li>
+                  Verificar restrições: \(x \neq 2\) (valor que anula o
+                  denominador)
+                </li>
+                <li>Resultado final: \(x - 2\)</li>
+              </ol>
+            </div>
+          </section>
+          <section>
+            <p>Passos táticos para simplificação eficiente:</p>
+            <ul>
+              <li>Agrupar termos semelhantes (estratégia de agrupamento)</li>
+              <li>
+                Fatorar expressões quando possível (tática de decomposição)
+              </li>
+              <li>Identificar produtos notáveis (reconhecimento de padrões)</li>
+              <li>Racionalizar denominadores (neutralização de ameaças)</li>
+              <li>Verifique sempre as restrições (protocolo de segurança)</li>
+            </ul>
+          </section>
+        </section>
+
+      </div>
+    </div>
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["\\(", "\\)"]],
+          displayMath: [["\\[", "\\]"]],
+        },
+      };
+      Reveal.initialize({
+        hash: true,
+        slideNumber: true,
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<div class="exercise">
+<h3>TANGÊNCIA TÁTICA</h3>
+<p>Um grupo de sobreviventes precisa estabelecer um posto de observação que fique exatamente na borda de uma área circular habitada por mutantes, centrada no ponto (4, 1) com raio 5 unidades. Se o posto deve estar sobre a reta de equação $y = 2x - 3$, determine as coordenadas exatas deste posto de observação.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Identifique primeiro se a reta e a circunferência se intersectam. Para que haja um posto de observação na borda, a reta deve cortar a circunferência. Encontre as coordenadas das interseções substituindo a equação da reta na equação da circunferência.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>A equação da circunferência centrada em (4, 1) com raio 5 é $(x-4)^2 + (y-1)^2 = 25$</li>
+<li>A equação da reta $y = 2x - 3$ pode ser reescrita como $-2x + y + 3 = 0$, com $a = -2$, $b = 1$ e $c = 3$</li>
+<li>A distância do centro da circunferência à reta é $d = \frac{|-2 \cdot 4 + 1 \cdot 1 + 3|}{\sqrt{(-2)^2 + 1^2}} = \frac{|-8 + 1 + 3|}{\sqrt{5}} = \frac{|-4|}{\sqrt{5}} = \frac{4}{\sqrt{5}} \approx 1.79$</li>
+<li>Como $d = \frac{4}{\sqrt{5}} \approx 1.79 &lt; 5$ (raio), a reta é secante à circunferência</li>
+<li>Para encontrar os pontos de interseção, substituímos $y = 2x - 3$ na equação da circunferência:</li>
+<li>$(x-4)^2 + (2x-3-1)^2 = 25$</li>
+<li>$(x-4)^2 + (2x-4)^2 = 25$</li>
+<li>$(x-4)^2 + 4(x-2)^2 = 25$</li>
+<li>$x^2 - 8x + 16 + 4(x^2 - 4x + 4) = 25$</li>
+<li>$x^2 - 8x + 16 + 4x^2 - 16x + 16 = 25$</li>
+<li>$5x^2 - 24x + 32 = 25$</li>
+<li>$5x^2 - 24x + 7 = 0$</li>
+<li>Usando a fórmula quadrática: $x = \frac{24 \pm \sqrt{24^2 - 4 \cdot 5 \cdot 7}}{2 \cdot 5} = \frac{24 \pm \sqrt{576 - 140}}{10} = \frac{24 \pm \sqrt{436}}{10}$</li>
+<li>$x \approx 4.09$ ou $x \approx 0.34$</li>
+<li>Substituindo na equação da reta: para $x \approx 4.09$, $y \approx 5.18$ e para $x \approx 0.34$, $y \approx -2.32$</li>
+<li>Portanto, os postos de observação possíveis estão nas coordenadas aproximadas $(4.09, 5.18)$ e $(0.34, -2.32)$</li>
+</ol>
+<div class="formula">
+                    $\text{Postos de observação: } (4.09, 5.18) \text{ e } (0.34, -2.32)$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Posicionar-se exatamente na borda de uma zona perigosa oferece vantagem estratégica - próximo o suficiente para observação, mas a um passo de distância da segurança. Na geometria analítica, os pontos de interseção entre reta e circunferência representam essas posições críticas onde devemos estar alertas para mudar de curso rapidamente se necessário.</p>
+</details>
+</div>

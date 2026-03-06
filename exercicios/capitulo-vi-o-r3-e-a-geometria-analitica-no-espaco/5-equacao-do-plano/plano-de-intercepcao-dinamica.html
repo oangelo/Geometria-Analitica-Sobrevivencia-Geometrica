@@ -1,0 +1,25 @@
+<div class="exercise">
+<h3>Plano de Intercepção Dinâmica</h3>
+<p>Um drone hostil foi detectado seguindo a trajetória $\vec{r}(t) = (1, 2, 3) + t(2, -1, 1)$. O sistema de defesa precisa posicionar uma barreira planar que intercepte esta trajetória no instante $t = 2$, seja perpendicular à direção de movimento do drone, e passe pelo ponto de comando $C(0, 1, -1)$. Determine a equação do plano interceptador.</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Calcular posição do drone em $t = 2$: $\vec{r}(2) = (1, 2, 3) + 2(2, -1, 1) = (1, 2, 3) + (4, -2, 2) = (5, 0, 5)$</li>
+<li>O vetor direção do drone é $\vec{v} = (2, -1, 1)$</li>
+<li>O plano deve ser perpendicular a este vetor, então $\vec{v}$ é um dos vetores normais</li>
+<li>O plano deve passar pelos pontos $P(5, 0, 5)$ (intercepção) e $C(0, 1, -1)$ (comando)</li>
+<li>Calcular vetor $\vec{PC} = C - P = (0, 1, -1) - (5, 0, 5) = (-5, 1, -6)$</li>
+<li>O vetor normal do plano deve ser perpendicular tanto a $\vec{v}$ quanto a $\vec{PC}$</li>
+<li>Calcular produto vetorial: $\vec{n} = \vec{v} \times \vec{PC} = (2, -1, 1) \times (-5, 1, -6)$</li>
+<li>$\vec{n} = ((-1)(-6) - (1)(1), (1)(-5) - (2)(-6), (2)(1) - (-1)(-5)) = (5, 7, -3)$</li>
+<li>Usar ponto $C(0, 1, -1)$: $5(x - 0) + 7(y - 1) + (-3)(z - (-1)) = 0$</li>
+<li>Expandir: $5x + 7(y - 1) - 3(z + 1) = 0$</li>
+<li>Simplificar: $5x + 7y - 7 - 3z - 3 = 0$</li>
+<li>Forma final: $5x + 7y - 3z - 10 = 0$</li>
+</ol>
+<div class="formula">
+                    $$5x + 7y - 3z - 10 = 0$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> A capacidade de calcular interceptações dinâmicas considerando múltiplas variáveis simultaneamente representa o domínio completo da geometria de combate - a diferença entre ser o predador ou a presa na Zona Devastada.</p>
+</details>
+</div>

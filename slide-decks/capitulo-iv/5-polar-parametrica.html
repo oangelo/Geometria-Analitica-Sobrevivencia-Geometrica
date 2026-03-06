@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cap. IV — Polar e Paramétrica</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+            <!-- ============================ -->
+            <!-- TÓPICO 5: POLAR/PARAMÉTRICA (HORIZONTAL →) -->
+            <!-- ============================ -->
+            <section>
+                 <!-- Slide 5.1: Conceito Principal -->
+                 <section class="mission-briefing">
+                     <h2>Tópico 5: Outras Vistas - Polar e Paramétrica</h2>
+                     <h3 class="mission-subtitle">Descrevendo Círculos e Caminhos</h3>
+                     <div class="definition-box">
+                         <h4>Coordenadas Polares \((r, \theta)\):</h4>
+                         <p>Localização por <strong>distância</strong> \(r\) da origem (polo) e <strong>ângulo</strong> \(\theta\) com o eixo polar (eixo x positivo).</p>
+                         <p class="formula">[Diagrama: Ponto P com raio r e ângulo theta da origem]</p>
+                         <h4>Equações Paramétricas \( (x(t), y(t)) \):</h4>
+                         <p>Descrevem \(x\) e \(y\) como funções de um parâmetro \(t\) (tempo, ângulo). Define um caminho ou trajetória.</p>
+                     </div>
+                     <p class="mnemonic">"Raio e ângulo te guiam no polar; Tempo (ou ângulo) te move no paramétrico lugar."</p>
+                 </section>
+
+                 <!-- Slide 5.2: Visualização - Ponto Polar -->
+                 <section class="simulator">
+                     <h3>Visualização: Marcando no Radar</h3>
+                     <p>Ajuste a distância (\(r\)) e o ângulo (\(\theta\)) para posicionar um ponto no sistema polar.</p>
+                     <div class="canvas-container interactive-element">
+                         <canvas id="polar-point-canvas" width="600" height="600"></canvas>
+                         <div class="simulator-controls">
+                              <div class="control-panel">
+                                 <label for="polar-point-r">Raio (r):</label>
+                                 <input type="range" id="polar-point-r" min="0" max="10" value="5" step="0.2">
+                                 <span id="polar-point-r-value">5.0</span>
+                                 <label for="polar-point-theta">Ângulo θ (°):</label>
+                                 <input type="range" id="polar-point-theta" min="0" max="360" value="45" step="1">
+                                 <span id="polar-point-theta-value">45</span>°
+                             </div>
+                              <div class="control-panel">
+                                  <span>Cartesianas:</span>
+                                  <span id="polar-point-cartesian" class="formula">(x=?, y=?)</span>
+                              </div>
+                         </div>
+                     </div>
+                     <div class="hint-message">
+                         <p>Veja como \(r\) e \(\theta\) definem a posição (ângulo anti-horário). Coordenadas cartesianas são calculadas.</p>
+                     </div>
+                 </section>
+
+                 <!-- Slide 5.3: Visualização - Funções Polares -->
+                 <section class="simulator">
+                     <h3>Visualização: O Radar Polar (Funções)</h3>
+                     <p>Veja como diferentes equações polares \(r=f(\theta)\) geram formas. Ajuste parâmetros.</p>
+                     <div class="canvas-container interactive-element">
+                         <canvas id="polar-func-canvas" width="600" height="600"></canvas>
+                         <div class="simulator-controls">
+                              <div class="control-panel">
+                                  <label for="polar-func-select">Forma:</label>
+                                  <select id="polar-func-select">
+                                      <option value="circle" selected>Círculo (r=a)</option>
+                                      <option value="spiral">Espiral (r=aθ)</option>
+                                      <option value="cardioid">Cardioide (r=a(1+cosθ))</option>
+                                      <option value="rose">Rosa (r=a cos(kθ))</option>
+                                  </select>
+                              </div>
+                              <div class="control-panel" id="polar-func-params-a">
+                                  <label for="polar-func-param-a">a:</label>
+                                  <input type="range" id="polar-func-param-a" min="0.1" max="5" value="3" step="0.1">
+                                  <span id="polar-func-param-a-value">3.0</span>
+                              </div>
+                               <div class="control-panel" id="polar-func-params-k" style="display: none;">
+                                  <label for="polar-func-param-k">k:</label>
+                                  <input type="range" id="polar-func-param-k" min="1" max="7" value="3" step="1">
+                                  <span id="polar-func-param-k-value">3</span>
+                              </div>
+                         </div>
+                     </div>
+                     <div class="hint-message">
+                         <p>Selecione uma forma e ajuste os parâmetros 'a' e 'k' (quando aplicável).</p>
+                     </div>
+                 </section>
+
+                 <!-- Slide 5.4: Teorema Relacionado - Conversão e Equações -->
+                 <section class="field-report">
+                     <h3>Teorema: Fórmulas Chave</h3>
+                     <div class="info-panel">
+                         <div class="info-screen">
+                             <h4>Conversão Polar \(\leftrightarrow\) Cartesiana:</h4>
+                             <p>\( x = r \cos \theta \)     \( y = r \sin \theta \)</p>
+                             <p>\( r = \sqrt{x^2 + y^2} \)     \( \tan \theta = y/x \) (cuidado ao quadrante!)</p>
+                             <hr style="border-color: #ADFF2F; opacity: 0.2;">
+                             <h4>Circunferência Paramétrica (Centro \(C(a,b)\), Raio \(R\)):</h4>
+                             <p>\( x(t) = a + R \cos t \)</p>
+                             <p>\( y(t) = b + R \sin t \),   para \( 0 \le t < 2\pi \)</p>
+                         </div>
+                     </div>
+                 </section>
+
+                  <!-- Slide 5.5: Teorema Relacionado - Eq. Polar e Espiral -->
+                  <section class="field-report">
+                     <h3>Teorema: Equações Polares Notáveis</h3>
+                     <div class="info-panel">
+                         <div class="info-screen">
+                             <h4>Circunferência Polar (Centro na Origem):</h4>
+                              <p class="formula">\( r = R \)</p>
+                              <p>(Distância constante à origem)</p>
+                              <hr style="border-color: #ADFF2F; opacity: 0.2;">
+                             <h4>Circunferência Polar (Passando pela Origem):</h4>
+                             <p>Centro \((R, 0)\) no eixo polar: \( r = 2R \cos \theta \).</p>
+                              <hr style="border-color: #ADFF2F; opacity: 0.2;">
+                              <h4>Espiral de Arquimedes:</h4>
+                             <p class="formula">\( r = a \theta \)</p>
+                             <p>(Distância cresce com o ângulo).</p>
+                         </div>
+                     </div>
+                  </section>
+
+                 <!-- Slide 5.6: Problema -->
+                 <section class="survival-training">
+                     <h3>Problema: Novas Perspectivas</h3>
+                     <div class="training-problem">
+                         <h4>Missão 1: Tradução</h4>
+                         <p>O ponto cartesiano \(P(3, -3)\) foi detectado. Suas coordenadas polares \((r, \theta)\)?</p>
+                         <h4>Missão 2: Patrulha</h4>
+                         <p>Descreva parametricamente a rota \(C(1, 2)\), \(R=4\).</p>
+                          <h4>Missão 3: Identificação</h4>
+                          <p>Um sinal segue \(r = 5\). Que forma ele descreve?</p>
+                     </div>
+                     <div class="problem-context">
+                         <p>Diferentes sistemas para diferentes tarefas: radares (polar), trajetórias (paramétrica).</p>
+                     </div>
+                 </section>
+
+                 <!-- Slide 5.7: Solução - Missão 1: Cartesiana -> Polar -->
+                  <section class="field-report">
+                     <h3>Solução 1: Conversão Cartesiana para Polar</h3>
+                     <div class="info-panel">
+                       <div class="info-screen">
+                         <p>Ponto \(P(x=3, y=-3)\).</p>
+                          <h4>Passo 1: Calcular Raio \(r\)</h4>
+                          <p>\( r = \sqrt{x^2 + y^2} = \sqrt{3^2 + (-3)^2} = \sqrt{9 + 9} = \sqrt{18} \)</p>
+                          <p class="formula">\( r = 3\sqrt{2} \approx 4.24 \)</p>
+                          <h4>Passo 2: Calcular Ângulo \(\theta\)</h4>
+                          <p>\(\tan \theta = y/x = -3 / 3 = -1\)</p>
+                          <p>Ponto (3, -3) está no 4º Quadrante.</p>
+                          <p>Ângulo: \( \theta = 315^\circ \) ou \( 7\pi/4 \) rad.</p>
+                          <p>Resultado: \( (3\sqrt{2}, 315^\circ) \) ou \( (3\sqrt{2}, 7\pi/4) \).</p>
+                       </div>
+                     </div>
+                  </section>
+
+                  <!-- Slide 5.8: Solução - Missão 2: Parametrização -->
+                  <section class="field-report">
+                      <h3>Solução 2: Rota de Patrulha Paramétrica</h3>
+                      <div class="info-panel">
+                        <div class="info-screen">
+                          <p>Patrulha circular: Centro \(C(a=1, b=2)\), Raio \(R=4\).</p>
+                          <p>Equações paramétricas:</p>
+                          <p>\( x(t) = a + R \cos t \)</p>
+                          <p>\( y(t) = b + R \sin t \)</p>
+                          <p>Substituindo:</p>
+                          <p class="formula">\( x(t) = 1 + 4 \cos t \)</p>
+                          <p class="formula">\( y(t) = 2 + 4 \sin t \),   \(0 \le t < 2\pi\)</p>
+                        </div>
+                      </div>
+                  </section>
+
+                  <!-- Slide 5.9: Solução - Missão 3: Identificação Polar -->
+                  <section class="field-report">
+                     <h3>Solução 3: Identificando \(r = 5\)</h3>
+                     <div class="info-panel">
+                       <div class="info-screen">
+                         <p>Equação polar: \(r = 5\).</p>
+                         <p>\(r\) é a distância à origem.</p>
+                         <p>A equação diz que a distância à origem é <strong>constante</strong> e igual a 5.</p>
+                         <p>Definição de <strong>circunferência centrada na origem \((0,0)\) com raio \(R=5\)</strong>.</p>
+                          <p>Equivalente cartesiana: \(x^2 + y^2 = 5^2 = 25\).</p>
+                       </div>
+                     </div>
+                  </section>
+
+                 <!-- Slide 5.10: Conclusão -->
+                  <section class="debriefing">
+                     <h3>Conclusão: Novos Sistemas de Referência</h3>
+                     <div class="summary-box">
+                       <h4>Lições Aprendidas:</h4>
+                       <ul>
+                           <li>Polares (\(r, \theta\)): Úteis para distâncias/ângulos da origem.</li>
+                           <li>Paramétricas (\(x(t), y(t)\)): Descrevem caminhos e movimentos.</li>
+                           <li>A circunferência tem representações elegantes em ambos.</li>
+                           <li>Outras formas (espirais) são fáceis em polares.</li>
+                       </ul>
+                       <p>Ampliar seu sistema de coordenadas expande sua capacidade de análise.</p>
+                     </div>
+                 </section>
+            </section>
+
+            <!-- ============================ -->
+            <!-- SLIDES FINAIS DE APLICAÇÃO (HORIZONTAL →) -->
+            <!-- ============================ -->
+            <section>
+                 <!-- Slide A.1: Aplicação Histórica -->
+                 <section class="field-report">
+                     <h3>Aplicação Histórica: Modelos Celestes & Navegação</h3>
+                     <div class="info-panel">
+                       <div class="info-screen crt-effect">
+                         <h4>Círculos no Cosmos e nos Mares</h4>
+                          <p>Modelos cosmológicos (Ptolomeu, Copérnico) usavam extensivamente círculos e combinações (epiciclos, deferentes) para descrever o movimento dos planetas.</p>
+                          <p>Navegadores usavam coordenadas polares (distância e azimute/ângulo) para mapear rotas a partir de um ponto conhecido.</p>
+                       </div>
+                     </div>
+                 </section>
+
+                 <!-- Slide A.2: Aplicação Prática Moderna -->
+                  <section class="field-report">
+                     <h3>Aplicação Moderna: Radar, Robótica e Mais</h3>
+                     <div class="info-panel">
+                       <div class="info-screen crt-effect">
+                         <h4>Do Radar ao Design</h4>
+                         <p><strong>Radar/Sonar:</strong> Operam naturalmente em coordenadas polares (distância e ângulo do eco).</p>
+                         <p><strong>Robótica:</strong> Braços robóticos frequentemente usam ângulos (polares/cilíndricos) e parametrização para definir movimentos.</p>
+                         <p><strong>GPS/Engenharia/Jogos:</strong> Como visto antes, a circunferência é fundamental.</p>
+                         <p><strong>Processamento de Imagem:</strong> Transformações polares são usadas para analisar características radiais.</p>
+                       </div>
+                     </div>
+                 </section>
+            </section>
+
+      </div>
+    </div>
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/math/math.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/zoom/zoom.js"></script>
+    <script>
+      window.MathJax = { tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script>
+      Reveal.initialize({ hash: true, slideNumber: 'c/t', transition: 'convex', plugins: [RevealNotes, RevealHighlight] });
+    </script>
+  </body>
+</html>

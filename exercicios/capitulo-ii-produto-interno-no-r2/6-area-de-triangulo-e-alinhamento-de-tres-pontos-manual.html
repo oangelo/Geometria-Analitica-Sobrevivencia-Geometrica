@@ -1,0 +1,28 @@
+<section class="manual-contexto" data-context="manual-sobrevivencia">
+    <div class="terminal-border">
+    <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: ÁREA E ALINHAMENTO</h2>
+<p>Na reconstrução pós-colapso, a capacidade de calcular áreas precisamente pode significar a diferença entre um abrigo seguro e uma armadilha mortal. O cálculo de áreas usando vetores permite mapear zonas de recursos, delimitar perímetros defensivos e otimizar o uso de terrenos escassos sem a necessidade de instrumentos de medição sofisticados. Similarmente, determinar o alinhamento de pontos é crucial para verificar se estruturas estão em risco de colapso ou se três locais distintos podem ser conectados por uma única rota de patrulha.</p>
+<p>Os vetores, já estabelecidos como ferramentas essenciais de sobrevivência, agora serão utilizados para calcular áreas e verificar alinhamentos. Antes das equações de reta (tecnologia ainda não recuperada), estes métodos representam nossa melhor defesa contra estruturas instáveis e uso ineficiente de recursos.</p>
+<p>Para três pontos no plano, podemos verificar seu alinhamento (colinearidade) ou calcular a área do triângulo formado por eles. Dois vetores com origem em um mesmo ponto determinam um paralelogramo, cuja área pode ser calculada através de operações vetoriais.</p>
+<div class="formula">
+    $$\text{Área do paralelogramo} = |\vec{u} \times \vec{v}| = |u_1v_2 - u_2v_1|$$
+    </div>
+<div class="formula">
+    $$\text{Área do triângulo} = \frac{1}{2}|\vec{u} \times \vec{v}| = \frac{1}{2}|u_1v_2 - u_2v_1|$$
+    </div>
+<div class="formula">
+    $$\text{Teste de colinearidade:}$$
+    $$\text{Pontos } A, B, C \text{ são colineares se e somente se } \overrightarrow{AB} \times \overrightarrow{AC} = 0$$
+    </div>
+<p>Dados três pontos $A(x_A, y_A)$, $B(x_B, y_B)$ e $C(x_C, y_C)$, podemos verificar sua colinearidade através do cálculo do determinante:</p>
+<div class="formula">
+    $$\begin{vmatrix} 
+    x_A &amp; y_A &amp; 1 \\
+    x_B &amp; y_B &amp; 1 \\
+    x_C &amp; y_C &amp; 1
+    \end{vmatrix} = 0 \text{ se os pontos são colineares}$$
+    </div>
+<p>Ou através da comparação da razão das coordenadas dos vetores formados por esses pontos.</p>
+
+    </div>
+</section>

@@ -1,0 +1,37 @@
+<div class="exercise">
+<h3>FRONTEIRA CONTAMINADA</h3>
+<p>Uma área segura é delimitada pela inequação $2x - 3y + 12 \leq 0$. Determine se os abrigos localizados nos pontos $A(2, 5)$, $B(3, 4)$ e $C(-1, 2)$ estão dentro da área segura. Se algum estiver fora, calcule a que distância ele está da fronteira.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Substitua as coordenadas de cada ponto na inequação. Se o resultado for $\leq 0$, o ponto está na área segura. Para pontos fora, calcule a distância até a reta $2x - 3y + 12 = 0$.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Verifique o ponto $A(2, 5)$:
+                    $$2 \cdot 2 - 3 \cdot 5 + 12 = 4 - 15 + 12 = 1 &gt; 0$$
+                    Portanto, $A$ está fora da área segura.</li>
+<li>Verifique o ponto $B(3, 4)$:
+                    $$2 \cdot 3 - 3 \cdot 4 + 12 = 6 - 12 + 12 = 6 &gt; 0$$
+                    Portanto, $B$ está fora da área segura.</li>
+<li>Verifique o ponto $C(-1, 2)$:
+                    $$2 \cdot (-1) - 3 \cdot 2 + 12 = -2 - 6 + 12 = 4 &gt; 0$$
+                    Portanto, $C$ está fora da área segura.</li>
+<li>Calcule a distância de $A$ até a fronteira:
+                    $$d(A, \text{fronteira}) = \frac{|2 \cdot 2 - 3 \cdot 5 + 12|}{\sqrt{2^2 + (-3)^2}} = \frac{|1|}{\sqrt{13}} = \frac{1}{\sqrt{13}} \approx 0,28$$</li>
+<li>Calcule a distância de $B$ até a fronteira:
+                    $$d(B, \text{fronteira}) = \frac{|2 \cdot 3 - 3 \cdot 4 + 12|}{\sqrt{13}} = \frac{|6|}{\sqrt{13}} = \frac{6}{\sqrt{13}} \approx 1,66$$</li>
+<li>Calcule a distância de $C$ até a fronteira:
+                    $$d(C, \text{fronteira}) = \frac{|2 \cdot (-1) - 3 \cdot 2 + 12|}{\sqrt{13}} = \frac{|4|}{\sqrt{13}} = \frac{4}{\sqrt{13}} \approx 1,11$$</li>
+</ol>
+<div class="formula">
+                    $$\text{Área segura: } 2x - 3y + 12 \leq 0$$
+                    $$d(A, \text{fronteira}) = \frac{1}{\sqrt{13}} \approx 0,28 \text{ unidades}$$
+                    $$d(B, \text{fronteira}) = \frac{6}{\sqrt{13}} \approx 1,66 \text{ unidades}$$
+                    $$d(C, \text{fronteira}) = \frac{4}{\sqrt{13}} \approx 1,11 \text{ unidades}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Mapear com precisão as posições dos abrigos em relação às fronteiras contaminadas permite priorizar evacuações e reforços. O abrigo A está perigosamente próximo da fronteira (apenas 0,28 unidades), exigindo atenção imediata, enquanto B, estando a 1,66 unidades, possui uma margem de segurança maior que poderia permitir uma evacuação mais ordenada ou até mesmo a construção de barreiras protetoras.</p>
+</details>
+</div>

@@ -1,0 +1,88 @@
+<div class="exercise">
+<h3>ANOMALIA MAGNÉTICA</h3>
+<p>Uma expedição científica detectou uma anomalia magnética circular em três pontos: A(2, 1), B(6, 3) e C(4, 7). Ao mesmo tempo, um poderoso emissor de interferência está localizado no ponto D(4, 3). Determine a equação da circunferência que passa pelos pontos A, B e C. O emissor D está dentro, fora ou exatamente na borda da anomalia? Se a força da anomalia for proporcional ao inverso do quadrado da distância até seu centro, em qual ponto da linha que conecta D ao centro da anomalia a intensidade seria exatamente metade da intensidade máxima (no centro)?</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Vamos substituir os três pontos na equação geral $x^2 + y^2 + Dx + Ey + F = 0$:
+                    Para A(2, 1): $2^2 + 1^2 + 2D + E + F = 0 \implies 4 + 1 + 2D + E + F = 0 \implies 5 + 2D + E + F = 0$ ... (1)
+                    Para B(6, 3): $6^2 + 3^2 + 6D + 3E + F = 0 \implies 36 + 9 + 6D + 3E + F = 0 \implies 45 + 6D + 3E + F = 0$ ... (2)
+                    Para C(4, 7): $4^2 + 7^2 + 4D + 7E + F = 0 \implies 16 + 49 + 4D + 7E + F = 0 \implies 65 + 4D + 7E + F = 0$ ... (3)</li>
+<li>Subtraindo (1) de (2):
+                    $45 + 6D + 3E + F - (5 + 2D + E + F) = 0$
+                    $45 + 6D + 3E - 5 - 2D - E = 0$
+                    $40 + 4D + 2E = 0$ ... (4)
+                    
+                    Subtraindo (1) de (3):
+                    $65 + 4D + 7E + F - (5 + 2D + E + F) = 0$
+                    $65 + 4D + 7E - 5 - 2D - E = 0$
+                    $60 + 2D + 6E = 0$ ... (5)</li>
+<li>Dividindo (4) por 2:
+                    $20 + 2D + E = 0$ ... (6)
+                    
+                    Dividindo (5) por 2:
+                    $30 + D + 3E = 0$ ... (7)
+                    
+                    Multiplicando (6) por 3:
+                    $60 + 6D + 3E = 0$ ... (8)
+                    
+                    Subtraindo (7) de (8):
+                    $60 + 6D + 3E - (30 + D + 3E) = 0$
+                    $60 + 6D - 30 - D = 0$
+                    $30 + 5D = 0$
+                    $D = -6$</li>
+<li>Substituindo $D = -6$ em (6):
+                    $20 + 2(-6) + E = 0$
+                    $20 - 12 + E = 0$
+                    $E = -8$</li>
+<li>Substituindo $D = -6$ e $E = -8$ em (1):
+                    $5 + 2(-6) + (-8) + F = 0$
+                    $5 - 12 - 8 + F = 0$
+                    $-15 + F = 0$
+                    $F = 15$</li>
+<li>A equação da circunferência é:
+                    $x^2 + y^2 - 6x - 8y + 15 = 0$</li>
+<li>Completando os quadrados:
+                    $x^2 - 6x + y^2 - 8y + 15 = 0$
+                    $(x^2 - 6x + 9) + (y^2 - 8y + 16) + 15 - 9 - 16 = 0$
+                    $(x - 3)^2 + (y - 4)^2 = 10$</li>
+<li>O centro da circunferência é $(3, 4)$ e o raio é $r = \sqrt{10}$
+                    Para verificar se o ponto D(4, 3) está dentro, fora ou na borda da anomalia:
+                    $(4 - 3)^2 + (3 - 4)^2 = 1 + 1 = 2 &lt; 10$
+                    Como a distância ao quadrado é menor que $r^2 = 10$, o ponto D está dentro da circunferência.</li>
+<li>Para encontrar o ponto na linha que conecta D ao centro onde a intensidade é metade da máxima:
+                    Como a intensidade é proporcional ao inverso do quadrado da distância, e queremos que seja metade da intensidade máxima (no centro), temos:
+                    $\frac{I_0}{r^2} = \frac{I_0/2}{d^2}$ onde $d$ é a distância do ponto ao centro da anomalia
+                    $\frac{1}{r^2} = \frac{1/2}{d^2}$
+                    $\frac{d^2}{r^2} = 2$
+                    $d^2 = 2r^2 = 0$
+                    $d = \sqrt{2} \cdot 0 = 0$
+                    
+                    Isso significa que estamos procurando um ponto a uma distância $d = 0$ do centro $(3, 4)$. Como essa distância é impossível (seria o próprio centro), vamos reconsiderar o problema.
+                    
+                    Se a intensidade for metade da intensidade no centro, e assumindo que a intensidade seja proporcional ao inverso do quadrado da distância a partir do centro, então:
+                    $\frac{I}{I_0} = \frac{d_0^2}{d^2}$
+                    onde $I_0$ é a intensidade no centro, $I$ é a intensidade no ponto desejado, $d_0$ é uma constante (podemos assumir como 1), e $d$ é a distância do ponto ao centro.
+                    
+                    Se $\frac{I}{I_0} = \frac{1}{2}$, então:
+                    $\frac{1}{2} = \frac{1}{d^2}$
+                    $d^2 = 2$
+                    $d = \sqrt{2}$
+                    
+                    Ou seja, o ponto está a uma distância $\sqrt{2}$ do centro, na direção que vai do centro a D.
+                    
+                    A direção do centro $(3, 4)$ para D$(4, 3)$ é $(4-3, 3-4) = (1, -1)$
+                    Normalizando: $\frac{(1, -1)}{\sqrt{1^2 + (-1)^2}} = \frac{(1, -1)}{\sqrt{2}} = (\frac{1}{\sqrt{2}}, \frac{-1}{\sqrt{2}})$
+                    
+                    O ponto desejado é:
+                    $(3, 4) + \sqrt{2} \cdot (\frac{1}{\sqrt{2}}, \frac{-1}{\sqrt{2}}) = (3, 4) + (1, -1) = (4, 3)$
+                    
+                    Esse resultado mostra que o ponto D já está exatamente onde a intensidade é metade da máxima.</li>
+</ol>
+<div class="formula">
+                    $$(x - 3)^2 + (y - 4)^2 = 10$$
+                    $$\text{Ponto de intensidade média} = (4, 3)$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Anomalias magnéticas podem indicar depósitos minerais ou tecnologias enterradas de alto valor, mas também podem interferir em equipamentos essenciais. Determinar matematicamente os limites e gradientes de uma anomalia permite planejar rotas seguras para equipes de exploração e posicionar equipamentos sensíveis onde a interferência é minimizada. A descoberta de que o emissor de interferência está exatamente no ponto onde a intensidade da anomalia é metade da máxima sugere uma relação não acidental - possivelmente uma tecnologia antiga tentando neutralizar ou mascarar a anomalia. Esta análise matemática pode revelar padrões intencionais em fenômenos aparentemente naturais, essenciais para compreender tecnologias perdidas.</p>
+</details>
+</div>

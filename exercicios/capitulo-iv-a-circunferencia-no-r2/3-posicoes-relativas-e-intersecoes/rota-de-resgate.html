@@ -1,0 +1,23 @@
+<div class="exercise">
+<h3>ROTA DE RESGATE</h3>
+<p>Um sobrevivente precisa ser resgatado do ponto (5, 8). Existe uma zona de radiação centrada em (3, 4) com raio de 3 unidades. Determine se a rota direta do abrigo na origem (0, 0) até o sobrevivente passa pela zona contaminada.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Encontre a equação da reta que passa pela origem e pelo ponto (5, 8), depois calcule a distância desta reta ao centro da circunferência de radiação. Compare esta distância com o raio para determinar a posição relativa.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>A equação da reta que passa pelos pontos (0, 0) e (5, 8) pode ser encontrada usando a forma $y = mx$, onde $m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{8-0}{5-0} = \frac{8}{5}$</li>
+<li>A equação da reta é $y = \frac{8}{5}x$ ou $8x - 5y = 0$ na forma $ax + by + c = 0$ com $a = 8$, $b = -5$ e $c = 0$</li>
+<li>A distância do centro da zona de radiação (3, 4) à reta é $d = \frac{|a \cdot x_0 + b \cdot y_0 + c|}{\sqrt{a^2 + b^2}} = \frac{|8 \cdot 3 + (-5) \cdot 4 + 0|}{\sqrt{8^2 + (-5)^2}} = \frac{|24 - 20|}{\sqrt{64 + 25}} = \frac{4}{\sqrt{89}} \approx 0.42$</li>
+<li>Como o raio da zona de radiação é 3 e $d \approx 0.42 &lt; 3$, a reta é secante à circunferência, ou seja, a rota direta passa pela zona contaminada</li>
+</ol>
+<div class="formula">
+                    $d = \frac{|8 \cdot 3 + (-5) \cdot 4 + 0|}{\sqrt{8^2 + (-5)^2}} = \frac{4}{\sqrt{89}} \approx 0.42 &lt; 3$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Rotas em linha reta podem parecer eficientes, mas muitas vezes cruzam zonas de perigo. Um bom sobrevivente sempre verifica matematicamente se um caminho é seguro antes de se aventurar, assim como devemos verificar se uma reta intersecta uma circunferência antes de traçar uma rota através da Zona Devastada.</p>
+</details>
+</div>

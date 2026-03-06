@@ -1,0 +1,18 @@
+<div class="exercise">
+<h3>Sistema de Múltiplos Abrigos</h3>
+<p>Você tem três abrigos nas posições A(2, 1, 4), B(-1, 3, 2) e C(3, -2, 1). Determine qual par de abrigos está mais próximo para estabelecer uma rota de comunicação prioritária.</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Calcular $\vec{AB} = (-1-2, 3-1, 2-4) = (-3, 2, -2)$ e $d_{AB} = \sqrt{9+4+4} = \sqrt{17}$</li>
+<li>Calcular $\vec{AC} = (3-2, -2-1, 1-4) = (1, -3, -3)$ e $d_{AC} = \sqrt{1+9+9} = \sqrt{19}$</li>
+<li>Calcular $\vec{BC} = (3-(-1), -2-3, 1-2) = (4, -5, -1)$ e $d_{BC} = \sqrt{16+25+1} = \sqrt{42}$</li>
+<li>Comparar: $\sqrt{17} \approx 4,12 &lt; \sqrt{19} \approx 4,36 &lt; \sqrt{42} \approx 6,48$</li>
+<li>O par mais próximo é A e B</li>
+</ol>
+<div class="formula">
+                    $d_{AB} = \sqrt{17} \approx 4,12$ unidades (menor distância)
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Estabelecer comunicação primeiro entre os abrigos mais próximos garante maior confiabilidade do sinal e menor gasto energético dos equipamentos de transmissão.</p>
+</details>
+</div>

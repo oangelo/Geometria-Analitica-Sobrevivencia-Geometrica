@@ -1,0 +1,29 @@
+<div class="exercise">
+<h3>ALINHAMENTO DE TORRES DE VIGILÂNCIA</h3>
+<p>O perímetro de segurança do acampamento possui três torres de vigilância nas posições $A = (2,1)$, $B = (5,7)$ e $C = (8,13)$. Para maximizar a eficiência dos recursos, é essencial verificar se estas torres estão alinhadas (em linha reta). Utilize operações com pares ordenados para verificar matematicamente se os três pontos são colineares, o que permitiria reduzir o número de vigias necessários.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Pontos colineares podem ser verificados comparando proporções de deslocamento. Analise se o deslocamento de $A$ para $B$ é proporcional ao deslocamento de $A$ para $C$.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Identifique as coordenadas das torres:
+                       $A = (2,1)$, $B = (5,7)$, $C = (8,13)$</li>
+<li>Calcule os vetores deslocamento:
+                       $\vec{AB} = B - A = (5,7) - (2,1) = (3,6)$
+                       $\vec{AC} = C - A = (8,13) - (2,1) = (6,12)$</li>
+<li>Verifique se um vetor é múltiplo escalar do outro:
+                       $\vec{AC} = 2 \cdot \vec{AB}$ pois $(6,12) = 2 \cdot (3,6)$</li>
+<li>Como um vetor é múltiplo escalar do outro, os três pontos são colineares.</li>
+</ol>
+<div class="formula">
+                    Três pontos $A$, $B$ e $C$ são colineares se existir um escalar $k$ tal que $\vec{AC} = k \cdot \vec{AB}$<br/>
+                    $\vec{AC} = (6,12)$ e $\vec{AB} = (3,6)$<br/>
+                    $\vec{AC} = 2 \cdot \vec{AB}$ pois $(6,12) = 2 \cdot (3,6)$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Em um ambiente onde cada recurso humano conta, identificar redundâncias em sistemas de defesa permite realocar pessoal para tarefas mais críticas. A colinearidade das torres significa que apenas duas precisam ser guarnecidas, liberando pessoal para caça, coleta ou outras atividades essenciais à sobrevivência do grupo.</p>
+</details>
+</div>

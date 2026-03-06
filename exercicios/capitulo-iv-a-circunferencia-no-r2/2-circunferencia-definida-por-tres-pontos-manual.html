@@ -1,0 +1,36 @@
+<section class="manual-contexto" data-context="manual-sobrevivencia">
+    <div class="terminal-border">
+    <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: CIRCUNFERÊNCIA POR TRÊS PONTOS</h2>
+<p>Em um mundo devastado onde as antigas tecnologias de GPS e mapeamento estão fragmentadas, a habilidade de localizar pontos e determinar perímetros circulares se tornou vital para sobreviventes como você. Esta técnica matemática permite definir zonas seguras, mapear recursos e planejar fortificações circulares com precisão letal.</p>
+<p>Uma circunferência é completamente determinada por três pontos não colineares. Este conhecimento é crucial para construir abrigos circulares, delimitar zonas de radiação, ou definir o alcance de sistemas de defesa. Três marcos estratégicos no terreno são suficientes para calcular a equação completa que determina uma fronteira circular.</p>
+<p>Para determinar a circunferência por três pontos $P_1(x_1, y_1)$, $P_2(x_2, y_2)$ e $P_3(x_3, y_3)$, precisamos encontrar o centro $(h, k)$ e o raio $r$ da circunferência. Lembre-se: para sobreviver, confirme primeiro que os três pontos não são colineares, caso contrário, o sistema de equações não terá solução única.</p>
+<div class="formula">
+    $$\begin{vmatrix} 
+    x^2 + y^2 &amp; x &amp; y &amp; 1 \\
+    x_1^2 + y_1^2 &amp; x_1 &amp; y_1 &amp; 1 \\
+    x_2^2 + y_2^2 &amp; x_2 &amp; y_2 &amp; 1 \\
+    x_3^2 + y_3^2 &amp; x_3 &amp; y_3 &amp; 1
+    \end{vmatrix} = 0$$
+    </div>
+<p>Alternativamente, podemos usar o sistema de equações que surge da condição de que os três pontos estão a mesma distância do centro $(h, k)$:</p>
+<div class="formula">
+    $$(x_1 - h)^2 + (y_1 - k)^2 = r^2$$
+    $$(x_2 - h)^2 + (y_2 - k)^2 = r^2$$
+    $$(x_3 - h)^2 + (y_3 - k)^2 = r^2$$
+    </div>
+<p>A forma geral da equação da circunferência, uma vez determinados o centro $(h, k)$ e o raio $r$, é:</p>
+<div class="formula">
+    $$(x - h)^2 + (y - k)^2 = r^2$$
+    </div>
+<p>Ou na forma expandida:</p>
+<div class="formula">
+    $$x^2 + y^2 - 2hx - 2ky + (h^2 + k^2 - r^2) = 0$$
+    </div>
+<p>Que também pode ser escrita como:</p>
+<div class="formula">
+    $$x^2 + y^2 + Dx + Ey + F = 0$$
+    </div>
+<p>Onde $D = -2h$, $E = -2k$ e $F = h^2 + k^2 - r^2$.</p>
+
+    </div>
+</section>

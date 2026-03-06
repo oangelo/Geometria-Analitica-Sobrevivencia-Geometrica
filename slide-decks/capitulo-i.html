@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<title>Capítulo I - O Espaço Vetorial R²</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link href="https://unpkg.com/reveal.js/dist/reveal.css" rel="stylesheet"/>
+<link href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+<div class="reveal">
+  <div class="slides" id="slides"></div>
+</div>
+
+<script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+<script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+<script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+<script>
+const SECTIONS = [
+  'capitulo-i/1-conjunto-r2.html',
+  'capitulo-i/2-operacoes-pares-ordenados.html',
+  'capitulo-i/3-vetores.html',
+  'capitulo-i/4-aplicacoes.html',
+  'capitulo-i/5-vetores-posicao-deslocamento.html',
+];
+
+async function loadAndInit() {
+  const container = document.getElementById('slides');
+
+  for (const url of SECTIONS) {
+    const res  = await fetch(url);
+    const text = await res.text();
+    const doc  = new DOMParser().parseFromString(text, 'text/html');
+
+    // Inject any <style> blocks from the section file
+    doc.querySelectorAll('head style').forEach(style => {
+      document.head.appendChild(document.adoptNode(style));
+    });
+
+    // Inject slide sections (skip <script> tags that might break reveal)
+    const slides = doc.querySelector('.slides');
+    if (slides) {
+      [...slides.children].forEach(child => {
+        if (child.tagName !== 'SCRIPT') {
+          container.appendChild(document.adoptNode(child));
+        }
+      });
+    }
+  }
+
+  // Marca slides com visualização para layout dedicado
+  container.querySelectorAll('section').forEach(section => {
+    if (section.querySelector('.visualization-container')) {
+      section.classList.add('visual-slide');
+    }
+  });
+
+  Reveal.initialize({
+    width: 1366,
+    height: 768,
+    margin: 0.02,
+    minScale: 0.2,
+    maxScale: 2.0,
+    center: true,
+    hash: true,
+    slideNumber: true,
+    plugins: [RevealNotes, RevealHighlight],
+  });
+
+  // Aguarda MathJax estar totalmente pronto antes de renderizar
+  if (window.MathJax) {
+    MathJax.startup.promise.then(() => MathJax.typesetPromise());
+  }
+
+  // Inicia animações/simuladores após o Reveal estar pronto
+  Reveal.on('ready', () => {
+    initR2Canvas();
+    initPositionVectorCanvas();
+  });
+  Reveal.on('slidechanged', () => {
+    initPositionVectorCanvas();
+  });
+}
+
+function initR2Canvas() {
+  const canvas = document.getElementById("r2Canvas");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  const W = canvas.width, H = canvas.height;
+  const ox = W / 2, oy = H / 2;
+  const scale = 50;
+  let time = 0;
+
+  const vectors = [
+    { x: 3,  y: 2,  color: "#ffd700",  label: "u = (3,2)"  },
+    { x: -2, y: 3,  color: "#ff6b6b",  label: "v = (-2,3)" },
+    { x: 1,  y: -2, color: "#4ecdc4",  label: "w = (1,-2)" },
+  ];
+  let vecProgress = 0;
+  let currentVec = 0;
+
+  let px = ox - 2 * scale, py = oy - 1 * scale;
+  const path = [
+    { x: ox + 1 * scale, y: oy - 1 * scale },
+    { x: ox + 2 * scale, y: oy + 1 * scale },
+    { x: ox - 1 * scale, y: oy + 2 * scale },
+    { x: ox - 2 * scale, y: oy - 1 * scale },
+  ];
+  let pathIdx = 0;
+
+  function drawGrid() {
+    ctx.fillStyle = "#0c0c0c";
+    ctx.fillRect(0, 0, W, H);
+
+    ctx.strokeStyle = "rgba(76, 175, 80, 0.15)";
+    ctx.lineWidth = 1;
+    for (let x = ox % scale; x < W; x += scale) {
+      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+    }
+    for (let y = oy % scale; y < H; y += scale) {
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+    }
+
+    ctx.strokeStyle = "rgba(76, 175, 80, 0.5)";
+    ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(0, oy); ctx.lineTo(W, oy); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(ox, 0); ctx.lineTo(ox, H); ctx.stroke();
+
+    ctx.fillStyle = "#ffd700";
+    ctx.font = "11px monospace";
+    ctx.textAlign = "center";
+    for (let i = -6; i <= 6; i++) {
+      if (i === 0) continue;
+      const x = ox + i * scale;
+      const y = oy + i * scale;
+      if (x > 10 && x < W - 10) ctx.fillText(i, x, oy + 15);
+      if (y > 10 && y < H - 10) ctx.fillText(-i, ox + 16, y + 4);
+    }
+
+    ctx.font = "14px monospace";
+    ctx.fillText("x", W - 15, oy - 8);
+    ctx.textAlign = "left";
+    ctx.fillText("y", ox + 10, 15);
+
+    ctx.fillStyle = "rgba(76, 175, 80, 0.5)";
+    ctx.beginPath(); ctx.moveTo(W-5,oy); ctx.lineTo(W-15,oy-5); ctx.lineTo(W-15,oy+5); ctx.closePath(); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(ox,5); ctx.lineTo(ox-5,15); ctx.lineTo(ox+5,15); ctx.closePath(); ctx.fill();
+
+    ctx.strokeStyle = "#4caf50";
+    ctx.lineWidth = 3;
+    ctx.strokeRect(5, 5, W - 10, H - 10);
+
+    ctx.fillStyle = `rgba(76,175,80,${0.03 + Math.sin(time * 0.08) * 0.02})`;
+    ctx.fillRect(0, 0, W, H);
+  }
+
+  function drawArrow(x1, y1, x2, y2, color) {
+    const dx = x2 - x1, dy = y2 - y1;
+    const len = Math.sqrt(dx*dx + dy*dy);
+    if (len < 1) return;
+    const ux = dx/len, uy = dy/len, h = 12;
+    ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = 2.5;
+    ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x2, y2);
+    ctx.lineTo(x2 - h*(ux - 0.4*uy), y2 - h*(uy + 0.4*ux));
+    ctx.lineTo(x2 - h*(ux + 0.4*uy), y2 - h*(uy - 0.4*ux));
+    ctx.closePath(); ctx.fill();
+  }
+
+  function drawVectors() {
+    for (let i = 0; i < currentVec && i < vectors.length; i++) {
+      const v = vectors[i];
+      const ex = ox + v.x * scale, ey = oy - v.y * scale;
+      drawArrow(ox, oy, ex, ey, v.color);
+      ctx.fillStyle = v.color; ctx.font = "12px monospace";
+      ctx.fillText(v.label, ex + 8, ey - 8);
+      ctx.beginPath(); ctx.arc(ex, ey, 4, 0, Math.PI * 2); ctx.fill();
+    }
+    if (currentVec < vectors.length) {
+      const v = vectors[currentVec];
+      drawArrow(ox, oy, ox + v.x*scale*vecProgress, oy - v.y*scale*vecProgress, v.color);
+      vecProgress += 0.015;
+      if (vecProgress >= 1) { vecProgress = 0; currentVec++; }
+    }
+  }
+
+  function drawPlayer() {
+    const target = path[pathIdx];
+    const dx = target.x - px, dy = target.y - py;
+    const dist = Math.sqrt(dx*dx + dy*dy);
+    if (dist < 3) pathIdx = (pathIdx + 1) % path.length;
+    else { px += dx * 0.02; py += dy * 0.02; }
+
+    const gx = Math.round((px - ox) / scale);
+    const gy = Math.round((oy - py) / scale);
+    ctx.fillStyle = "#adff2f";
+    ctx.beginPath(); ctx.arc(px, py, 6, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = "#000"; ctx.lineWidth = 1.5; ctx.stroke();
+    ctx.fillStyle = "#adff2f"; ctx.font = "bold 11px monospace";
+    ctx.fillText("(" + gx + "," + gy + ")", px + 10, py - 8);
+  }
+
+  function drawInfo() {
+    ctx.fillStyle = "rgba(0,0,0,0.6)";
+    ctx.fillRect(8, 8, 225, 55);
+    ctx.strokeStyle = "#4caf50"; ctx.lineWidth = 1;
+    ctx.strokeRect(8, 8, 225, 55);
+    ctx.fillStyle = "#adff2f"; ctx.font = "12px monospace";
+    ctx.fillText("PIP-BOY 3000 — R\u00B2", 16, 26);
+    ctx.fillStyle = "#e6e6e6"; ctx.font = "11px monospace";
+    ctx.fillText("Espa\u00E7o vetorial bidimensional", 16, 42);
+    ctx.fillText("Vetores: " + Math.min(currentVec + 1, vectors.length) + "/" + vectors.length, 16, 56);
+  }
+
+  (function animate() {
+    ctx.clearRect(0, 0, W, H);
+    time++;
+    drawGrid();
+    drawVectors();
+    drawPlayer();
+    drawInfo();
+    requestAnimationFrame(animate);
+  })();
+}
+
+function initPositionVectorCanvas() {
+  const canvas = document.getElementById("positionVectorCanvas");
+  if (!canvas || canvas.dataset.initialized === "true") return;
+
+  const ctx = canvas.getContext("2d");
+  const info = document.getElementById("position-info");
+  const W = canvas.width;
+  const H = canvas.height;
+  const cx = W / 2;
+  const cy = H / 2;
+  const scale = 30;
+  const handleR = 12;
+
+  let r1 = { x: 2, y: 3 };
+  let dr = { x: 3, y: -2 };
+  let dragging = null;
+
+  function toCanvas(vx, vy, ox = cx, oy = cy) {
+    return { x: ox + vx * scale, y: oy - vy * scale };
+  }
+
+  function fromCanvas(px, py, ox = cx, oy = cy) {
+    return { x: (px - ox) / scale, y: -(py - oy) / scale };
+  }
+
+  function mousePos(evt) {
+    const rect = canvas.getBoundingClientRect();
+    const sx = canvas.width / rect.width;
+    const sy = canvas.height / rect.height;
+    return { x: (evt.clientX - rect.left) * sx, y: (evt.clientY - rect.top) * sy };
+  }
+
+  function near(p, q) {
+    const dx = p.x - q.x;
+    const dy = p.y - q.y;
+    return Math.hypot(dx, dy) <= handleR;
+  }
+
+  function drawGrid() {
+    ctx.clearRect(0, 0, W, H);
+    ctx.fillStyle = "#111";
+    ctx.fillRect(0, 0, W, H);
+
+    ctx.strokeStyle = "#333";
+    ctx.lineWidth = 0.5;
+    for (let x = 0; x <= W; x += scale) {
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, H);
+      ctx.stroke();
+    }
+    for (let y = 0; y <= H; y += scale) {
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(W, y);
+      ctx.stroke();
+    }
+
+    ctx.strokeStyle = "#0f0";
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    ctx.moveTo(0, cy);
+    ctx.lineTo(W, cy);
+    ctx.moveTo(cx, 0);
+    ctx.lineTo(cx, H);
+    ctx.stroke();
+  }
+
+  function drawArrow(x1, y1, x2, y2, color, label) {
+    ctx.strokeStyle = color;
+    ctx.fillStyle = color;
+    ctx.lineWidth = 2.3;
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.stroke();
+
+    const dx = x2 - x1;
+    const dy = y2 - y1;
+    const len = Math.hypot(dx, dy) || 1;
+    const ux = dx / len;
+    const uy = dy / len;
+    const ah = 10;
+    ctx.beginPath();
+    ctx.moveTo(x2, y2);
+    ctx.lineTo(x2 - ah * (ux - 0.4 * uy), y2 - ah * (uy + 0.4 * ux));
+    ctx.lineTo(x2 - ah * (ux + 0.4 * uy), y2 - ah * (uy - 0.4 * ux));
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.font = "15px monospace";
+    ctx.fillText(label, x2 + 10, y2 - 6);
+  }
+
+  function drawHandle(p, color) {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, handleR, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(255,255,255,0.25)";
+    ctx.fill();
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  }
+
+  function render() {
+    drawGrid();
+    const r2 = { x: r1.x + dr.x, y: r1.y + dr.y };
+
+    const pR1 = toCanvas(r1.x, r1.y);
+    const pDrStart = pR1;
+    const pDrEnd = toCanvas(dr.x, dr.y, pDrStart.x, pDrStart.y);
+    const pR2 = toCanvas(r2.x, r2.y);
+
+    drawArrow(cx, cy, pR1.x, pR1.y, "#ADFF2F", "r₁");
+    drawArrow(pDrStart.x, pDrStart.y, pDrEnd.x, pDrEnd.y, "#FF6347", "Δr");
+    drawArrow(cx, cy, pR2.x, pR2.y, "#4169E1", "r₂");
+    drawHandle(pR1, "#ADFF2F");
+    drawHandle(pDrEnd, "#FF6347");
+
+    if (info) {
+      info.textContent = `r₁ = (${r1.x.toFixed(1)},${r1.y.toFixed(1)}) | Δr = (${dr.x.toFixed(1)},${dr.y.toFixed(1)}) | r₂ = (${r2.x.toFixed(1)},${r2.y.toFixed(1)})`;
+    }
+  }
+
+  canvas.addEventListener("mousedown", (evt) => {
+    evt.stopPropagation();
+    const mp = mousePos(evt);
+    const pR1 = toCanvas(r1.x, r1.y);
+    const pDrEnd = toCanvas(dr.x, dr.y, pR1.x, pR1.y);
+    if (near(mp, pR1)) dragging = "r1";
+    else if (near(mp, pDrEnd)) dragging = "dr";
+    if (dragging) Reveal.configure({ keyboard: false });
+  }, true);
+
+  canvas.addEventListener("mousemove", (evt) => {
+    const mp = mousePos(evt);
+    if (!dragging) return;
+    evt.stopPropagation();
+    if (dragging === "r1") {
+      const v = fromCanvas(mp.x, mp.y);
+      r1 = { x: v.x, y: v.y };
+    } else {
+      const pR1 = toCanvas(r1.x, r1.y);
+      const v = fromCanvas(mp.x, mp.y, pR1.x, pR1.y);
+      dr = { x: v.x, y: v.y };
+    }
+    render();
+  }, true);
+
+  window.addEventListener("mouseup", () => {
+    if (!dragging) return;
+    dragging = null;
+    Reveal.configure({ keyboard: true });
+  }, true);
+
+  canvas.addEventListener("click", (evt) => evt.stopPropagation(), true);
+
+  canvas.dataset.initialized = "true";
+  render();
+}
+
+loadAndInit();
+</script>
+</body>
+</html>

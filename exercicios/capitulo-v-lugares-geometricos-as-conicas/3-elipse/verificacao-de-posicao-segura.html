@@ -1,0 +1,23 @@
+<div class="exercise">
+<h3>Verificação de Posição Segura</h3>
+<p>Um mutante foi detectado na posição P(3, 2). Sua zona de proteção elíptica tem equação $\frac{x^2}{16} + \frac{y^2}{12} = 1$. Determine se o mutante está dentro, sobre ou fora do perímetro de segurança.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Substitua as coordenadas do ponto na equação da elipse. Se o resultado for menor que 1, o ponto está dentro; se igual a 1, está sobre a elipse; se maior que 1, está fora.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Substituir P(3, 2) na equação: $\frac{3^2}{16} + \frac{2^2}{12}$</li>
+<li>Calcular: $\frac{9}{16} + \frac{4}{12} = \frac{9}{16} + \frac{1}{3}$</li>
+<li>Encontrar denominador comum: $\frac{9}{16} + \frac{16}{48} = \frac{27}{48} + \frac{16}{48} = \frac{43}{48}$</li>
+<li>Como $\frac{43}{48} &lt; 1$, o mutante está dentro da zona de proteção</li>
+</ol>
+<div class="formula">
+                    $$\frac{9}{16} + \frac{4}{12} = \frac{43}{48} &lt; 1$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Esta verificação rápida permite avaliar ameaças instantaneamente. Um resultado menor que 1 significa que o alvo está dentro do alcance de suas defesas automáticas.</p>
+</details>
+</div>

@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cap. VI — Determinantes 3×3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- TÓPICO EXTRA: Determinantes 3x3 (dividido em mais slides) -->
+        <section>
+            <!-- X.1 Conceito e Necessidade -->
+            <section class="mission-briefing">
+                <h2>Determinantes 3x3: A Chave Mestra</h2>
+                <h3 class="mission-subtitle">Decifrando Códigos e Analisando Estruturas</h3>
+                <p>Antes de ferramentas 3D avançadas (Produto Vetorial/Misto), precisamos do determinante de uma matriz 3x3.</p>
+                <p>Considere uma matriz 3x3:</p>
+                <p class="formula">\( A = \begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{pmatrix} \)</p>
+                <p>O determinante, \( \det(A) \) ou \( |A| \), é um número único associado a ela, vital para áreas, volumes e sistemas.</p>
+            </section>
+
+            <!-- X.2 Regra de Sarrus - Parte 1 -->
+            <section class="field-report">
+                <h3>Protocolo Rápido: Regra de Sarrus (1/2)</h3>
+                <div class="info-panel">
+                    <div class="info-screen">
+                        <h4>Procedimento de Sarrus (Apenas para 3x3):</h4>
+                        <p>Para calcular \( \det(A) \) de uma matriz 3x3 rapidamente:</p>
+                        <ol>
+                            <li>Repita as duas primeiras colunas da matriz à direita dela.</li>
+                            <li>Some os produtos dos elementos nas três diagonais principais (↘).</li>
+                            <li>Subtraia os produtos dos elementos nas três diagonais secundárias (↗).</li>
+                        </ol>
+                         <p>Visualmente (imagine as colunas repetidas):</p>
+                        <p class="formula">\(\begin{array}{|ccc|cc}
+                        a_{11} & a_{12} & a_{13} & a_{11} & a_{12} \\
+                        a_{21} & a_{22} & a_{23} & a_{21} & a_{22} \\
+                        a_{31} & a_{32} & a_{33} & a_{31} & a_{32}
+                        \end{array}\)</p>
+                    </div>
+                </div>
+            </section>
+            <!-- X.2 Regra de Sarrus - Parte 2 (Fórmula) -->
+            <section class="field-report">
+                <h3>Protocolo Rápido: Regra de Sarrus (2/2)</h3>
+                <p>A fórmula explícita da Regra de Sarrus é:</p>
+                <p class="formula">\(\det(A) = (a_{11}a_{22}a_{33} + a_{12}a_{23}a_{31} + a_{13}a_{21}a_{32}) \)</p>
+                <p class="formula" style="margin-top: -0.5em;">\( \qquad - (a_{13}a_{22}a_{31} + a_{11}a_{23}a_{32} + a_{12}a_{21}a_{33}) \)</p>
+                <div class="survival-tip" style="margin-top: 1em;">
+                    <p>DICA: Sarrus é um atalho visual eficiente para 3x3. Para matrizes maiores ou compreensão teórica, use cofatores.</p>
+                </div>
+            </section>
+
+            <!-- X.3 Expansão por Cofatores - Parte 1 (Menor Complementar) -->
+            <section class="mission-briefing">
+                <h2>Expansão por Cofatores (1/3)</h2>
+                <h3 class="mission-subtitle">O Método Universal</h3>
+                <p>A expansão por cofatores (Teorema de Laplace) é um método mais geral.</p>
+                <p><strong>Menor Complementar (\(M_{ij}\)):</strong></p>
+                <p>É o determinante da submatriz 2x2 obtida ao remover a linha \(i\) e a coluna \(j\) da matriz original \(A\).</p>
+                <p>Exemplo: Para \(M_{11}\), removemos a 1ª linha e 1ª coluna de \(A\):</p>
+                <p class="formula">\( M_{11} = \det \begin{pmatrix} a_{22} & a_{23} \\ a_{32} & a_{33} \end{pmatrix} = a_{22}a_{33} - a_{23}a_{32} \)</p>
+            </section>
+
+            <!-- X.3 Expansão por Cofatores - Parte 2 (Cofator) -->
+            <section class="mission-briefing">
+                <h2>Expansão por Cofatores (2/3)</h2>
+                <p><strong>Cofator (\(C_{ij}\)):</strong></p>
+                <p>É o menor complementar \(M_{ij}\) multiplicado por \( (-1)^{i+j} \).</p>
+                <p class="formula">\( C_{ij} = (-1)^{i+j} M_{ij} \)</p>
+                <p>O fator \( (-1)^{i+j} \) define um padrão de sinais ("tabuleiro de xadrez"):</p>
+                <p class="formula">\( \begin{pmatrix} + & - & + \\ - & + & - \\ + & - & + \end{pmatrix} \)</p>
+                <p>Assim, \(C_{11} = +M_{11}\), \(C_{12} = -M_{12}\), \(C_{21} = -M_{21}\), etc.</p>
+            </section>
+
+            <!-- X.3 Expansão por Cofatores - Parte 3 (Fórmula e Mnemônico) -->
+            <section class="mission-briefing">
+                <h2>Expansão por Cofatores (3/3)</h2>
+                <div class="definition-box">
+                    <p>O determinante pode ser calculado expandindo ao longo de qualquer linha \(i\):</p>
+                    <p class="formula">\( \det(A) = \sum_{j=1}^{3} a_{ij}C_{ij} = a_{i1}C_{i1} + a_{i2}C_{i2} + a_{i3}C_{i3} \)</p>
+                    <p>Ou ao longo de qualquer coluna \(j\):</p>
+                    <p class="formula">\( \det(A) = \sum_{i=1}^{3} a_{ij}C_{ij} = a_{1j}C_{1j} + a_{2j}C_{2j} + a_{3j}C_{3j} \)</p>
+                </div>
+                <p class="mnemonic" style="margin-top: 1em;">"Escolha uma fila, com zelo e atenção. Multiplique elemento por seu cofator, some tudo e eis a solução!"</p>
+            </section>
+
+            <!-- X.4 Exemplo 1 - Expansão por Linha -->
+            <section class="survival-training">
+                <h3>Exercício: Expansão pela 1ª Linha</h3>
+                <div class="training-problem">
+                    <h4>Problema #VI.X.1:</h4>
+                    <p>Calcule \( \det(A) \) usando expansão pela 1ª linha:</p>
+                    <p class="formula">\( A = \begin{pmatrix} 2 & 1 & 0 \\ 3 & -1 & 4 \\ -2 & 0 & 5 \end{pmatrix} \)</p>
+                </div>
+                <div class="problem-context">
+                    <p>Esta matriz pode ser a chave de um sistema. O determinante não nulo indica funcionalidade.</p>
+                </div>
+            </section>
+            <!-- X.5 Dicas de Solução - Exemplo 1 -->
+            <section class="field-report">
+                <h3>Análise: Decodificando Linha 1</h3>
+                <div class="info-panel">
+                    <div class="info-screen">
+                        <h4>Diretrizes (Problema #VI.X.1):</h4>
+                        <ul>
+                            <li>Fórmula: \( \det(A) = a_{11}C_{11} + a_{12}C_{12} + a_{13}C_{13} \).</li>
+                            <li>\(a_{11}=2, a_{12}=1, a_{13}=0\).</li>
+                            <li>\(C_{11} = (+1) \det \begin{pmatrix} -1 & 4 \\ 0 & 5 \end{pmatrix}\).</li>
+                            <li>\(C_{12} = (-1) \det \begin{pmatrix} 3 & 4 \\ -2 & 5 \end{pmatrix}\).</li>
+                            <li>\(C_{13} = (+1) \det \begin{pmatrix} 3 & -1 \\ -2 & 0 \end{pmatrix}\). (Este termo será zero!)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- X.6 Exemplo 2 - Expansão por Coluna -->
+            <section class="survival-training">
+                <h3>Exercício: Expansão pela 2ª Coluna</h3>
+                <div class="training-problem">
+                    <h4>Problema #VI.X.2:</h4>
+                    <p>Recalcule \( \det(A) \) da matriz anterior, agora pela 2ª coluna (note o zero!):</p>
+                    <p class="formula">\( A = \begin{pmatrix} 2 & 1 & 0 \\ 3 & -1 & 4 \\ -2 & 0 & 5 \end{pmatrix} \)</p>
+                </div>
+                <div class="problem-context">
+                    <p>Verificar por método alternativo é boa prática.</p>
+                </div>
+            </section>
+            <!-- X.7 Dicas de Solução - Exemplo 2 -->
+            <section class="field-report">
+                <h3>Análise: Decodificando Coluna 2</h3>
+                <div class="info-panel">
+                    <div class="info-screen">
+                        <h4>Diretrizes (Problema #VI.X.2):</h4>
+                        <ul>
+                            <li>Fórmula: \( \det(A) = a_{12}C_{12} + a_{22}C_{22} + a_{32}C_{32} \).</li>
+                            <li>\(a_{12}=1, a_{22}=-1, a_{32}=0\).</li>
+                            <li>\(C_{12} = (-1) \det \begin{pmatrix} 3 & 4 \\ -2 & 5 \end{pmatrix}\).</li>
+                            <li>\(C_{22} = (+1) \det \begin{pmatrix} 2 & 0 \\ -2 & 5 \end{pmatrix}\).</li>
+                            <li>\(C_{32} = (-1) \det \begin{pmatrix} 2 & 0 \\ 3 & 4 \end{pmatrix}\). (Este termo será zero!)</li>
+                            <li>Compare com o resultado anterior.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- X.8 Conclusão Determinantes -->
+            <section class="debriefing">
+                <h3>Debriefing: A Chave Mestra Decifrada</h3>
+                <div class="summary-box">
+                    <p>O determinante 3x3 (Sarrus ou Cofatores) é fundamental. Cofatores é mais geral e útil com zeros.</p>
+                </div>
+                <div class="next-mission">
+                    <p>Com esta chave, prontos para Produto Vetorial e Misto.</p>
+                </div>
+                <div class="instructor-note">
+                    <p>"Saber determinantes pode ser a diferença entre abrir uma porta... ou disparar uma armadilha."</p>
+                </div>
+            </section>
+        </section>
+
+      </div>
+    </div>
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/math/math.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/zoom/zoom.js"></script>
+    <script>
+      window.MathJax = { tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script>
+      Reveal.initialize({ hash: true, slideNumber: 'c/t', transition: 'convex', plugins: [RevealNotes, RevealHighlight] });
+    </script>
+  </body>
+</html>

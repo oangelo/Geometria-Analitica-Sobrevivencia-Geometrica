@@ -1,0 +1,33 @@
+<div class="exercise">
+<h3>TORRE DE VIGILÂNCIA</h3>
+<p>Você precisa construir uma torre de vigilância que esteja equidistante de três assentamentos localizados nas coordenadas $(0,0)$, $(6,0)$ e $(3,5)$. Determine a localização exata (coordenadas) e a que distância a torre ficará de cada assentamento.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>O centro da circunferência que passa por três pontos é o local equidistante dos três pontos.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Para encontrar o centro da circunferência que passa pelos três pontos, podemos usar as mediatrizes dos segmentos que ligam os pontos:
+                        <ul>
+<li>Ponto A = $(0,0)$</li>
+<li>Ponto B = $(6,0)$</li>
+<li>Ponto C = $(3,5)$</li>
+</ul>
+</li>
+<li>Usaremos um sistema determinando a equação geral da circunferência $x^2 + y^2 + Dx + Ey + F = 0$</li>
+<li>Substituindo A(0,0): $0 + 0 + 0 + 0 + F = 0 \Rightarrow F = 0$</li>
+<li>Substituindo B(6,0): $36 + 0 + 6D + 0 + F = 0 \Rightarrow 6D = -36 \Rightarrow D = -6$</li>
+<li>Substituindo C(3,5): $9 + 25 + 3D + 5E + F = 0 \Rightarrow 34 + 3(-6) + 5E = 0 \Rightarrow 5E = -34 + 18 \Rightarrow E = -3.2$</li>
+<li>Identificando o centro $(a,b) = (-\frac{D}{2}, -\frac{E}{2}) = (3, 1.6)$</li>
+<li>O raio é a distância do centro a qualquer dos pontos: $r = \sqrt{(3-0)^2 + (1.6-0)^2} = \sqrt{9 + 2.56} = \sqrt{11.56} \approx 3.4$</li>
+</ol>
+<div class="formula">
+                    Centro da torre: $(3, 1.6)$
+                    Distância aos assentamentos: $r \approx 3.4$ unidades
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Em um mundo onde a vigilância é essencial para a segurança, posicionar estrategicamente suas torres permite maximizar a cobertura com recursos mínimos. A geometria analítica oferece soluções precisas para problemas táticos complexos.</p>
+</details>
+</div>

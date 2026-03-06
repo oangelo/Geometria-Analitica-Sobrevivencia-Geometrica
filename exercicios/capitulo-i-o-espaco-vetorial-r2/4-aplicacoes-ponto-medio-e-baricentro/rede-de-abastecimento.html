@@ -1,0 +1,30 @@
+<div class="exercise">
+<h3>REDE DE ABASTECIMENTO</h3>
+<p>Três comunidades estão localizadas nos pontos A(2, 1), B(10, 1) e C(6, 8). Para economizar recursos, uma central de distribuição será construída no baricentro deste triângulo. Prove que a soma das distâncias ao quadrado de cada comunidade até esta central é mínima comparada a qualquer outro ponto possível.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para qualquer ponto P(x, y), calcule a soma das distâncias ao quadrado de P até os três pontos dados e verifique que esta soma é mínima quando P é o baricentro.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Calculamos o baricentro G do triângulo: $G = \left(\frac{2 + 10 + 6}{3}, \frac{1 + 1 + 8}{3}\right) = (6, \frac{10}{3}) \approx (6, 3.33)$</li>
+<li>Para qualquer ponto P(x, y), a soma das distâncias ao quadrado é dada por:
+                        <br/>$S(x, y) = |PA|^2 + |PB|^2 + |PC|^2$
+                        <br/>$S(x, y) = (x - 2)^2 + (y - 1)^2 + (x - 10)^2 + (y - 1)^2 + (x - 6)^2 + (y - 8)^2$</li>
+<li>Expandindo: $S(x, y) = 3x^2 - 36x + 144 + 3y^2 - 20y + 66$</li>
+<li>Para encontrar o mínimo, derivamos e igualamos a zero:
+                        <br/>$\frac{\partial S}{\partial x} = 6x - 36 = 0 \implies x = 6$
+                        <br/>$\frac{\partial S}{\partial y} = 6y - 20 = 0 \implies y = \frac{10}{3}$</li>
+<li>O ponto (6, \frac{10}{3}) é exatamente o baricentro G, provando que a soma das distâncias ao quadrado é mínima neste ponto.</li>
+</ol>
+<div class="formula">
+                    $$S(x, y) = |PA|^2 + |PB|^2 + |PC|^2$$
+                    $$\frac{\partial S}{\partial x} = 0 \implies x = 6$$
+                    $$\frac{\partial S}{\partial y} = 0 \implies y = \frac{10}{3}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> O posicionamento otimizado de centros de recursos é crucial em tempos onde cada grama de combustível e cada minuto de exposição contam. O baricentro oferece a solução matemática ideal para minimizar o custo total de transporte em uma rede de comunidades, maximizando a eficiência e prolongando a sobrevivência.</p>
+</details>
+</div>

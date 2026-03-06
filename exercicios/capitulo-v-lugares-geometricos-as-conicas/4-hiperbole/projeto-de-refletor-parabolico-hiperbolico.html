@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>Projeto de Refletor Parabólico Hiperbólico</h3>
+<p>Um sistema de comunicação usa um refletor híbrido onde sinais seguem uma hipérbole $\frac{y^2}{25} - \frac{x^2}{144} = 1$ antes de serem refletidos por uma parábola $x^2 = 16y$. Determine os pontos de intersecção entre essas curvas para otimizar o posicionamento dos componentes.</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Sistema: $\begin{cases} \frac{y^2}{25} - \frac{x^2}{144} = 1 \\ x^2 = 16y \end{cases}$</li>
+<li>Da segunda equação: $x^2 = 16y$, então $y = \frac{x^2}{16}$</li>
+<li>Substituir na primeira: $\frac{(\frac{x^2}{16})^2}{25} - \frac{x^2}{144} = 1$</li>
+<li>Simplificar: $\frac{x^4}{16^2 \cdot 25} - \frac{x^2}{144} = 1$</li>
+<li>$\frac{x^4}{6400} - \frac{x^2}{144} = 1$</li>
+<li>Multiplicar por 6400: $x^4 - \frac{6400x^2}{144} = 6400$</li>
+<li>$x^4 - \frac{400x^2}{9} = 6400$</li>
+<li>Fazer $u = x^2$: $u^2 - \frac{400u}{9} - 6400 = 0$</li>
+<li>$9u^2 - 400u - 57600 = 0$</li>
+<li>$u = \frac{400 \pm \sqrt{160000 + 2073600}}{18} = \frac{400 \pm \sqrt{2233600}}{18}$</li>
+<li>$u = \frac{400 \pm 1494.5}{18}$</li>
+<li>$u_1 = \frac{1894.5}{18} \approx 105.25$ e $u_2 = \frac{-1094.5}{18} &lt; 0$ (descartado)</li>
+<li>$x^2 = 105.25$, então $x = \pm 10.26$</li>
+<li>$y = \frac{x^2}{16} = \frac{105.25}{16} \approx 6.58$</li>
+</ol>
+<div class="formula">
+                    $$\text{Pontos de intersecção: } (\pm 10.26, 6.58)$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> A intersecção precisa entre hipérbole e parábola cria pontos focais ótimos para amplificação de sinais. Estes pontos são cruciais para maximizar o alcance de comunicações de emergência na Zona Devastada.</p>
+</details>
+</div>

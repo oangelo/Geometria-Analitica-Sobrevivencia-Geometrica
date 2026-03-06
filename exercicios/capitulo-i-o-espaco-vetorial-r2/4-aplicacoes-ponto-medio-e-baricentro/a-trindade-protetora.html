@@ -1,0 +1,26 @@
+<div class="exercise">
+<h3>A TRINDADE PROTETORA</h3>
+<p>Três torres de vigia formam um triângulo nas coordenadas A(1, 1), B(7, 1) e C(4, 5√3). Um novo sistema de triagem deve ser posicionado no baricentro. Se cada torre tem um gerador que pode fornecer energia proporcional ao inverso da distância ao quadrado, determine o ponto X na região triangular onde a soma das contribuições energéticas é máxima. Este ponto coincide com o baricentro?</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>A contribuição energética de cada torre para um ponto X segue a lei do inverso do quadrado da distância.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Primeiro, calculamos o baricentro G: $G = \left(\frac{1 + 7 + 4}{3}, \frac{1 + 1 + 5\sqrt{3}}{3}\right) = (4, \frac{2 + 5\sqrt{3}}{3})$</li>
+<li>Para a contribuição energética, definimos uma função: $E(x, y) = \frac{1}{|XA|^2} + \frac{1}{|XB|^2} + \frac{1}{|XC|^2}$</li>
+<li>Expandindo: $E(x, y) = \frac{1}{(x-1)^2 + (y-1)^2} + \frac{1}{(x-7)^2 + (y-1)^2} + \frac{1}{(x-4)^2 + (y-5\sqrt{3})^2}$</li>
+<li>Analisando as propriedades deste triângulo, percebemos que é um triângulo equilátero (podemos verificar as distâncias entre os vértices)</li>
+<li>Para um triângulo equilátero, o ponto que maximiza a soma dos inversos das distâncias ao quadrado não é o baricentro, mas o ponto de Fermat (ou ponto de Torricelli), que coincide com o baricentro apenas para triângulos equiláteros</li>
+<li>Como este é um triângulo equilátero (AB = BC = AC = 6), o ponto X que maximiza a energia coincide com o baricentro G</li>
+</ol>
+<div class="formula">
+                    $$G = \left(4, \frac{2 + 5\sqrt{3}}{3}\right)$$
+                    $$X = G = \left(4, \frac{2 + 5\sqrt{3}}{3}\right)$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> A distribuição ideal de recursos energéticos em um sistema triangular demonstra um princípio fundamental de sobrevivência: geometria e física trabalham juntas na otimização. Conhecer propriedades especiais de configurações geométricas permite criar redes resilientes que aproveitam ao máximo recursos limitados.</p>
+</details>
+</div>

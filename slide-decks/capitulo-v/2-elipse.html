@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cap. V — Lugares Geométricos: Elipse</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      /* Estilos específicos para visualizações interativas (mantidos do original) */
+      .interactive-canvas {
+        width: 600px;
+        height: 400px;
+        background-color: #111;
+        border: 2px solid #ffd700;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .control-panel {
+        width: 600px;
+        margin: 10px auto;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.7);
+        border: 1px solid #555;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .slider-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .slider-label {
+        color: #adff2f;
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+      }
+
+      input[type="range"] {
+        -webkit-appearance: none;
+        width: 150px;
+        height: 10px;
+        background: #333;
+        border: 1px solid #666;
+        border-radius: 5px;
+      }
+
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 20px;
+        height: 20px;
+        background: #ffd700;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      .value-display {
+        color: #fff;
+        font-family: monospace;
+        font-size: 1.2rem;
+        margin-top: 5px;
+        min-width: 40px;
+        text-align: center;
+      }
+
+      .pipboy-info {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        color: #adff2f;
+        font-family: monospace;
+        font-size: 1.2rem;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 5px 10px;
+        border: 1px solid #adff2f;
+      }
+
+      .interactive-element {
+        cursor: pointer;
+        transition: filter 0.3s ease;
+      }
+
+      .interactive-element:hover {
+        filter: brightness(1.5);
+        animation: pulse 1.5s infinite;
+      }
+
+      @keyframes pulse {
+        0% { filter: brightness(1); }
+        50% { filter: brightness(1.5); }
+        100% { filter: brightness(1); }
+      }
+
+      .interaction-hint {
+        position: absolute;
+        color: #ffd700;
+        font-size: 1.2rem;
+        text-shadow: 0 0 5px #ffd700;
+        animation: fadeInOut 2s infinite;
+      }
+
+      @keyframes fadeInOut {
+        0% { opacity: 0.3; }
+        50% { opacity: 1; }
+        100% { opacity: 0.3; }
+      }
+
+      /* Estilo para imagens SVG incorporadas */
+      .svg-visualization {
+        width: 90%; /* Aumentar um pouco para slides dedicados */
+        max-width: 600px; /* Aumentar um pouco */
+        height: auto;
+        background-color: #111;
+        border: 1px solid #333;
+        margin: 5px auto; /* Menor margem superior */
+        display: block;
+      }
+      .slide-title-for-svg {
+        margin-bottom: 5px !important; /* Menor margem para títulos de SVG */
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- ESTRUTURA: RELATÓRIO DE CAMPO - ELIPSE -->
+        <section>
+          <section>
+            <h3>Relatório de Campo: Elipse</h3>
+            <p>
+              A elipse é a forma definitiva da conservação na wasteland — seja
+              conservação de espaço, energia ou tempo de viagem.
+            </p>
+            <div class="formula">
+              <p>
+                Definição: Lugar geométrico dos pontos \(P\) do plano cuja soma das distâncias
+                a dois pontos fixos (focos \(F_1, F_2\)) é constante e igual a \(2a\).
+                \(d(P,F_1) + d(P,F_2) = 2a\)
+              </p>
+              <p>
+                \( \frac{(x-h)^2}{a^2} + \frac{(y-k)^2}{b^2} = 1 \) ou \( \frac{(x-h)^2}{b^2} + \frac{(y-k)^2}{a^2} = 1 \) (centro (h,k))
+              </p>
+            </div>
+            <p>
+              <small
+                >* Nota de campo: As antigas civilizações construíam "abóbadas"
+                elípticas que resistiam ao tempo e às intempéries. Esta
+                propriedade estrutural é vital para construções na wasteland com
+                materiais escassos.</small
+              >
+            </p>
+          </section>
+
+          <section>
+            <h3 class="slide-title-for-svg">Anatomia de uma Elipse (Texto)</h3>
+            <ul>
+              <li>Centro (O): Ponto médio dos focos e dos vértices.</li>
+              <li>Eixo Maior: Segmento de comprimento \(2a\), contém os focos e os vértices principais (\(V_1, V_2\)).</li>
+              <li>Eixo Menor: Segmento de comprimento \(2b\), perpendicular ao eixo maior no centro. Contém os co-vértices (\(B_1, B_2\)).</li>
+              <li>Semi-eixo maior (\(a\)): Metade do eixo maior.</li>
+              <li>Semi-eixo menor (\(b\)): Metade do eixo menor.</li>
+              <li>Distância Focal (\(2c\)): Distância entre os focos (\(F_1, F_2\)).</li>
+              <li>Excentricidade (\(e = c/a\), com \(0 \le e < 1\)): Mede o "achatamento" da elipse. \(e=0\) é um círculo.</li>
+            </ul>
+          </section>
+          
+          <section>
+            <h3 class="slide-title-for-svg">Anatomia de uma Elipse (Visual)</h3>
+            <img src="capitulo-v_svgs/elipse_anatomia.svg" alt="Anatomia de uma Elipse" class="svg-visualization" />
+          </section>
+
+          <section>
+            <h3 class="slide-title-for-svg">Relação Fundamental da Elipse: a, b, c (Texto)</h3>
+            <p>Considere um ponto \(P\) no extremo do eixo menor (um co-vértice, ex: \(B_1\)). A soma das distâncias de \(P\) aos focos é \(2a\). Por simetria, \(d(P,F_1) = d(P,F_2) = a\).</p>
+            <p>Forma-se um triângulo retângulo com vértices no centro (O), um foco (ex: \(F_1\)) e o co-vértice \(B_1\).</p>
+            <ul>
+                <li>Catetos: \(c\) (distância OF₁) e \(b\) (distância OB₁).</li>
+                <li>Hipotenusa: \(a\) (distância F₁B₁).</li>
+            </ul>
+            <div class="formula">
+              \( a^2 = b^2 + c^2 \)
+            </div>
+            <p><small>*Esta relação é crucial para determinar todos os elementos da elipse a partir de alguns conhecidos.</small></p>
+          </section>
+
+          <section>
+            <h3 class="slide-title-for-svg">Relação Fundamental da Elipse (Visual)</h3>
+            <img src="capitulo-v_svgs/elipse_relacao_abc.svg" alt="Relação a,b,c na Elipse" class="svg-visualization" />
+          </section>
+        </section>
+
+        <!-- ESTRUTURA: SIMULADOR VAULT-TEC - ELIPSE -->
+        <section>
+          <h3 class="slide-title-for-svg">Simulador Vault-Tec: Elipse Interativa</h3>
+          <div class="interactive-canvas" id="ellipse-canvas">
+            <div class="interaction-hint" style="top: 50%; left: 30%">
+              Arraste os focos ou ajuste os controles
+            </div>
+            <div class="pipboy-info">Excentricidade: 0.5</div>
+          </div>
+          <div class="control-panel">
+            <div class="slider-container">
+              <div class="slider-label">Semi-eixo a</div>
+              <input type="range" min="50" max="250" step="10" value="200" id="a-ellipse-slider" />
+              <div class="value-display" id="a-ellipse-value">200</div>
+            </div>
+            <div class="slider-container">
+              <div class="slider-label">Semi-eixo b</div>
+              <input type="range" min="50" max="250" step="10" value="100" id="b-ellipse-slider" />
+              <div class="value-display" id="b-ellipse-value">100</div>
+            </div>
+            <div class="slider-container">
+              <div class="slider-label">Rotação</div>
+              <input type="range" min="0" max="180" step="5" value="0" id="rotation-slider" />
+              <div class="value-display" id="rotation-value">0°</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ESTRUTURA: TREINAMENTO DE SOBREVIVÊNCIA - ELIPSE (EXISTENTE) -->
+        <section>
+          <section>
+            <h3>Treinamento de Sobrevivência: Rota de Patrulha</h3>
+            <p>
+              Problema: Você precisa planejar uma rota de patrulha em torno de
+              dois assentamentos (os focos) que deve ter exatamente 10km de
+              percurso total (considerando a propriedade da elipse).
+            </p>
+            <ul>
+              <li>Os assentamentos (focos) estão a 6km de distância um do outro.</li>
+              <li>Qual deve ser o valor do semi-eixo maior (a)?</li>
+              <li>Qual será o valor do semi-eixo menor (b)?</li>
+            </ul>
+            <p>
+              <small
+                >* Recomendação Vault-Tec: Elipses otimizam
+                recursos e aumentam a eficiência em 42.7% comparado a rotas
+                circulares (estatística Vault-Tec, pode não ser precisa).</small
+              >
+            </p>
+          </section>
+
+          <section>
+            <h3>Manual de Sobrevivência: Solução (Rota de Patrulha)</h3>
+            <p>Para uma rota elíptica onde a soma das distâncias aos focos é constante e igual a 10km:</p>
+            <ul>
+              <li>A propriedade da elipse diz que \(d(P,F_1) + d(P,F_2) = 2a\).
+                Então \(2a = 10 \text{km} \Rightarrow a = 5 \text{km}\) (semi-eixo maior).</li>
+              <li>A distância entre os focos é \(2c = 6 \text{km} \Rightarrow c = 3 \text{km}\).</li>
+              <li>
+                Usando a relação fundamental \( a^2 = b^2 + c^2 \):
+                \( 5^2 = b^2 + 3^2 \Rightarrow 25 = b^2 + 9 \Rightarrow b^2 = 16 \).
+              </li>
+              <li>Portanto, \(b = 4 \text{km}\) (semi-eixo menor).</li>
+            </ul>
+            <p class="formula">
+              Fórmula da Wasteland: "Se a distância focal (2c) e o percurso
+              constante (2a) são conhecidos, b é sua margem de manobra."
+            </p>
+          </section>
+        </section>
+
+        <!-- ESTRUTURA: TREINAMENTO DE SOBREVIVÊNCIA - ELIPSE (NOVOS EXERCÍCIOS) -->
+        <section>
+          <section>
+            <h3>Treinamento Avançado: Elipse</h3>
+            <p>Missão: Mapear zonas seguras e órbitas de satélites.</p>
+            <ol>
+              <li>
+                <strong>Zona Segura:</strong> Uma área segura é delimitada por uma elipse com centro na origem, foco em \(F_1(3,0)\) e vértice em \(V_1(5,0)\). Determine a equação da elipse e sua excentricidade. Esboce a zona.
+              </li>
+              <li>
+                <strong>Órbita de Satélite:</strong> A equação da órbita de um satélite (considerada elíptica) é \( \frac{x^2}{100} + \frac{y^2}{36} = 1 \) (unidades em milhares de km, Terra na origem, que é um dos focos). Encontre os semi-eixos, a distância focal e a excentricidade.
+                <br><small>(Nota: Para órbitas reais, o corpo orbitado está em um dos focos, não necessariamente no centro da elipse. Este é um modelo simplificado onde o centro da elipse é a origem, e precisamos calcular a posição dos focos.)</small>
+              </li>
+              <li>
+                <strong>Construção de Câmara Secreta:</strong> Uma câmara elíptica tem eixo maior de 20m e eixo menor de 12m, centrada na origem e com eixo maior ao longo do eixo x. Qual a equação? Onde estão os focos (para posicionar microfones secretos com propriedade reflexiva)? Esboce.
+              </li>
+            </ol>
+            <p><small>*O conhecimento das elipses pode ser a diferença entre uma base segura e uma armadilha.</small></p>
+          </section>
+
+          <section>
+            <h3>Manual de Sobrevivência: Solução (Diretrizes - Elipse Avançado)</h3>
+            <p>Para dominar as elipses:</p>
+            <ul>
+              <li>
+                <strong>Zona Segura (Foco e Vértice dados):</strong>
+                <ul>
+                  <li>Do centro à origem, Foco \(F_1(c,0) \Rightarrow c=3\). Vértice \(V_1(a,0) \Rightarrow a=5\).</li>
+                  <li>Use \(a^2 = b^2 + c^2\) para encontrar \(b^2\).</li>
+                  <li>Monte a equação: \( \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1 \).</li>
+                  <li>Excentricidade: \(e = c/a\).</li>
+                  <li>Esboço: Marque centro, focos, vértices e co-vértices.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Órbita de Satélite (Equação dada):</strong>
+                <ul>
+                  <li>Compare \( \frac{x^2}{100} + \frac{y^2}{36} = 1 \) com \( \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1 \). Identifique \(a^2\) e \(b^2\). Note que \(a^2\) é sempre o maior denominador.</li>
+                  <li>Calcule \(a\) e \(b\).</li>
+                  <li>Use \(a^2 = b^2 + c^2\) para encontrar \(c\). Distância focal é \(2c\).</li>
+                  <li>Excentricidade: \(e = c/a\).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Câmara Secreta (Eixos dados):</strong>
+                <ul>
+                  <li>Eixo maior \(2a = 20 \Rightarrow a = 10\). Eixo menor \(2b = 12 \Rightarrow b = 6\).</li>
+                  <li>Equação (eixo maior em x): \( \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1 \).</li>
+                  <li>Use \(a^2 = b^2 + c^2\) para encontrar \(c\). Focos estarão em \((\pm c, 0)\).</li>
+                  <li>Esboço: Similar ao primeiro item.</li>
+                </ul>
+              </li>
+            </ul>
+            <p><small>*Compreender as elipses é vital para comunicações de longa distância e segurança orbital.</small></p>
+          </section>
+        </section>
+
+      </div>
+    </div>
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+    <script>
+      window.MathJax = { tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script>
+      // Função para configurar a visualização de parábola
+      function setupParabolaSimulator() {
+        const canvasContainer = document.getElementById("parabola-canvas");
+        if (!canvasContainer) return;
+        const canvas = document.createElement("canvas");
+        canvas.width = 600; canvas.height = 400;
+        canvas.style.position = "absolute"; canvas.style.top = "0"; canvas.style.left = "0";
+        canvasContainer.appendChild(canvas);
+        const ctx = canvas.getContext("2d");
+        const aSlider = document.getElementById("a-slider");
+        const bSlider = document.getElementById("b-slider");
+        const cSlider = document.getElementById("c-slider");
+        const aValue = document.getElementById("a-value");
+        const bValue = document.getElementById("b-value");
+        const cValue = document.getElementById("c-value");
+        const pipboyInfo = canvasContainer.querySelector(".pipboy-info");
+        setTimeout(() => { const hint = canvasContainer.querySelector(".interaction-hint"); if (hint) hint.style.opacity = "0";}, 5000);
+        let scannerY = 0, scannerDirection = 1;
+        function animateScanner() {
+          scannerY += scannerDirection * 2;
+          if (scannerY > canvas.height || scannerY < 0) scannerDirection *= -1;
+          requestAnimationFrame(animateScanner); 
+        }
+        animateScanner();
+
+        function updateParabola() {
+          const a = parseFloat(aSlider.value);
+          const b = parseFloat(bSlider.value);
+          const c_val_eq = parseFloat(cSlider.value); // Renomeado para evitar conflito com c da cônica
+          aValue.textContent = a.toFixed(1);
+          bValue.textContent = b.toFixed(1);
+          cValue.textContent = c_val_eq.toFixed(1);
+          const aDisp = a === 1 ? "" : a === -1 ? "-" : a;
+          const bDisp = b === 1 ? "" : b === -1 ? "-" : Math.abs(b);
+          let equation = "y = ";
+          if (a !== 0) equation += (aDisp === 0 ? "" : aDisp) + "x²";
+          if (b !== 0) equation += (b > 0 && a !== 0 ? " + " : b < 0 ? " - " : (b===0 ? "" : "")) + (bDisp === 0 ? "" : bDisp) + "x";
+          if (c_val_eq !== 0 || (a === 0 && b === 0)) equation += (c_val_eq > 0 && (a !== 0 || b !== 0) ? " + " : c_val_eq < 0 ? " - " : (c_val_eq===0 ? "" : "")) + Math.abs(c_val_eq);
+          else if (a === 0 && b === 0 && c_val_eq === 0) equation += "0";
+          pipboyInfo.textContent = equation.replace(/\+ -/g, '- ').replace(/  \+/g,' +');
+
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          const originX = canvas.width / 2;
+          const originY = canvas.height / 2;
+          drawGrid(ctx, originX, originY, canvas.width, canvas.height);
+          ctx.fillStyle = "rgba(173, 255, 47, 0.05)"; 
+          ctx.fillRect(0, scannerY, canvas.width, 4); 
+
+          ctx.beginPath(); ctx.strokeStyle = "#ADFF2F"; ctx.lineWidth = 2;
+          const scale = 20;
+          for (let pixelX = 0; pixelX <= canvas.width; pixelX++) {
+            const x = (pixelX - originX) / scale;
+            const y_val = a * x * x + b * x + c_val_eq;
+            const pixelY = originY - y_val * scale;
+            if (pixelX === 0) ctx.moveTo(pixelX, pixelY);
+            else ctx.lineTo(pixelX, pixelY);
+          }
+          ctx.stroke();
+
+          if (a !== 0) {
+            const vertexX_val = -b / (2 * a);
+            const vertexY_val = a * vertexX_val * vertexX_val + b * vertexX_val + c_val_eq;
+            const pixelVertexX = originX + vertexX_val * scale;
+            const pixelVertexY = originY - vertexY_val * scale;
+            ctx.beginPath(); ctx.arc(pixelVertexX, pixelVertexY, 5, 0, Math.PI * 2); ctx.fillStyle = "#FFD700"; ctx.fill();
+            ctx.fillStyle = "#FFFFFF"; ctx.font = "12px monospace"; ctx.fillText(`V(${vertexX_val.toFixed(1)},${vertexY_val.toFixed(1)})`, pixelVertexX + 8, pixelVertexY - 8);
+
+            const p_param = 1 / (4 * a);
+            const focusX_val = vertexX_val;
+            const focusY_val = vertexY_val + p_param;
+            const pixelFocusX = originX + focusX_val * scale;
+            const pixelFocusY = originY - focusY_val * scale;
+            ctx.beginPath(); ctx.arc(pixelFocusX, pixelFocusY, 4, 0, Math.PI * 2); ctx.fillStyle = "#FF6347"; ctx.fill();
+            ctx.fillText(`F(${focusX_val.toFixed(1)},${focusY_val.toFixed(1)})`, pixelFocusX + 8, pixelFocusY - 8);
+
+            ctx.beginPath(); ctx.setLineDash([5, 5]); ctx.strokeStyle = "#FFD700";
+            ctx.moveTo(pixelVertexX, 0); ctx.lineTo(pixelVertexX, canvas.height); ctx.stroke();
+
+            const diretrizY_val = vertexY_val - p_param;
+            const pixelDiretrizY = originY - diretrizY_val * scale;
+            ctx.strokeStyle = "#87CEFA";
+            ctx.moveTo(0, pixelDiretrizY); ctx.lineTo(canvas.width, pixelDiretrizY); ctx.stroke();
+            ctx.setLineDash([]);
+            ctx.fillStyle = "#87CEFA"; ctx.fillText(`d: y=${diretrizY_val.toFixed(1)}`, 10, pixelDiretrizY - 5 > 15 ? pixelDiretrizY - 5 : 15);
+          }
+        }
+        aSlider.addEventListener("input", updateParabola);
+        bSlider.addEventListener("input", updateParabola);
+        cSlider.addEventListener("input", updateParabola);
+        updateParabola();
+      }
+
+      function setupEllipseSimulator() {
+        const canvasContainer = document.getElementById("ellipse-canvas");
+        if (!canvasContainer) return;
+        const canvas = document.createElement("canvas");
+        canvas.width = 600; canvas.height = 400;
+        canvas.style.position = "absolute"; canvas.style.top = "0"; canvas.style.left = "0";
+        canvasContainer.appendChild(canvas);
+        const ctx = canvas.getContext("2d");
+        const aSlider = document.getElementById("a-ellipse-slider");
+        const bSlider = document.getElementById("b-ellipse-slider");
+        const rotationSlider = document.getElementById("rotation-slider");
+        const aValue = document.getElementById("a-ellipse-value");
+        const bValue = document.getElementById("b-ellipse-value");
+        const rotationValue = document.getElementById("rotation-value");
+        const pipboyInfo = canvasContainer.querySelector(".pipboy-info");
+        setTimeout(() => { const hint = canvasContainer.querySelector(".interaction-hint"); if (hint) hint.style.opacity = "0"; }, 5000);
+        
+        let focusData = [ // Store relative to center, unrotated
+            {relX: -100, relY: 0, absX: 0, absY: 0}, 
+            {relX: 100, relY: 0, absX: 0, absY: 0}
+        ];
+        let draggingFocus = null;
+
+        function getMousePos(canvas_el, evt) {
+            const rect = canvas_el.getBoundingClientRect();
+            return {
+                x: evt.clientX - rect.left,
+                y: evt.clientY - rect.top
+            };
+        }
+
+        canvas.addEventListener('mousedown', function(e) {
+            const mousePos = getMousePos(canvas, e);
+            for(let i=0; i<focusData.length; ++i) {
+                let dx = mousePos.x - focusData[i].absX;
+                let dy = mousePos.y - focusData[i].absY;
+                if (Math.sqrt(dx*dx + dy*dy) < 12) { // Larger hit area
+                    draggingFocus = i; 
+                    return; 
+                }
+            }
+        });
+
+        canvas.addEventListener('mousemove', function(e) {
+            if (draggingFocus === null) return;
+            const mousePos = getMousePos(canvas, e);
+            const originX = canvas.width / 2;
+            const originY = canvas.height / 2;
+            const currentRotationRad = parseFloat(rotationSlider.value) * Math.PI / 180;
+            const cosR = Math.cos(-currentRotationRad); // Inverse rotation to get relative coords
+            const sinR = Math.sin(-currentRotationRad);
+
+            // Convert mouse canvas coords to unrotated coords relative to ellipse center
+            const mouseRelXUnrotated = (mousePos.x - originX) * cosR - (mousePos.y - originY) * sinR;
+            const mouseRelYUnrotated = (mousePos.x - originX) * sinR + (mousePos.y - originY) * cosR;
+            
+            focusData[draggingFocus].relX = mouseRelXUnrotated;
+            focusData[draggingFocus].relY = mouseRelYUnrotated;
+            
+            // Recalculate c based on new foci positions (relative, unrotated)
+            const f1 = focusData[0];
+            const f2 = focusData[1];
+            const dist_f1_f2_rel = Math.sqrt( (f2.relX-f1.relX)**2 + (f2.relY-f1.relY)**2 );
+            const new_c = dist_f1_f2_rel / 2;
+
+            let current_a = parseFloat(aSlider.value);
+            if (current_a <= new_c) {
+                current_a = new_c + 15; 
+                aSlider.value = current_a.toFixed(0);
+            }
+            
+            let new_b_squared = current_a**2 - new_c**2;
+            if (new_b_squared < 25) { // Min b value of 5 (5^2 = 25)
+                 current_a = Math.sqrt(new_c**2 + 25) + 5;
+                 aSlider.value = current_a.toFixed(0);
+                 new_b_squared = current_a**2 - new_c**2;
+            }
+            bSlider.value = Math.sqrt(new_b_squared).toFixed(0);
+
+            // Update rotation based on the line connecting the two foci (relative coords)
+            const angleRadFoci = Math.atan2(f2.relY - f1.relY, f2.relX - f1.relX);
+            rotationSlider.value = (angleRadFoci * 180 / Math.PI).toFixed(0);
+
+            updateEllipse();
+        });
+
+        canvas.addEventListener('mouseup', function() { draggingFocus = null; });
+        canvas.addEventListener('mouseleave', function() { draggingFocus = null; });
+
+
+        function updateEllipse() {
+          let a_axis = parseFloat(aSlider.value);
+          let b_axis = parseFloat(bSlider.value);
+          const rotation_deg = parseFloat(rotationSlider.value);
+          const rotation_rad = rotation_deg * Math.PI / 180;
+
+          aValue.textContent = a_axis.toFixed(0);
+          bValue.textContent = b_axis.toFixed(0);
+          rotationValue.textContent = rotation_deg.toFixed(0) + "°";
+          
+          // Ensure a_axis is semi-major for calculations of c
+          let c_dist;
+          if (a_axis >= b_axis) {
+            c_dist = Math.sqrt(a_axis*a_axis - b_axis*b_axis);
+          } else { // b_axis is major
+            c_dist = Math.sqrt(b_axis*b_axis - a_axis*a_axis);
+            // If b is major, the ellipse is effectively rotated +90 internally for focus calculation
+          }
+          const major_axis_val = Math.max(a_axis,b_axis);
+          const eccentricity = (major_axis_val > 0) ? (c_dist / major_axis_val) : 0;
+          pipboyInfo.textContent = `Excentricidade: ${eccentricity.toFixed(2)}`;
+          
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          const originX = canvas.width / 2;
+          const originY = canvas.height / 2;
+          drawGrid(ctx, originX, originY, canvas.width, canvas.height);
+
+          ctx.save();
+          ctx.translate(originX, originY);
+          ctx.rotate(rotation_rad);
+          
+          ctx.beginPath(); ctx.strokeStyle = "#ADFF2F"; ctx.lineWidth = 2;
+          ctx.ellipse(0, 0, a_axis, b_axis, 0, 0, 2 * Math.PI);
+          ctx.stroke();
+
+          // Update focus relative positions if not dragging
+          if (draggingFocus === null) {
+              if (a_axis >= b_axis) {
+                focusData[0].relX = -c_dist; focusData[0].relY = 0;
+                focusData[1].relX = c_dist;  focusData[1].relY = 0;
+              } else { // b is major, foci along the ellipse's local y-axis
+                focusData[0].relX = 0; focusData[0].relY = -c_dist;
+                focusData[1].relX = 0; focusData[1].relY = c_dist;
+              }
+          }
+          
+          // Draw Foci (using their relative, unrotated positions)
+          ctx.fillStyle = "#FF6347";
+          ctx.beginPath(); ctx.arc(focusData[0].relX, focusData[0].relY, 6, 0, 2 * Math.PI); ctx.fill();
+          ctx.fillText("F1", focusData[0].relX + 10, focusData[0].relY);
+          ctx.beginPath(); ctx.arc(focusData[1].relX, focusData[1].relY, 6, 0, 2 * Math.PI); ctx.fill();
+          ctx.fillText("F2", focusData[1].relX + 10, focusData[1].relY);
+
+          ctx.restore(); // Restore canvas state (undo rotation and translation)
+
+          // Calculate absolute positions for hit testing (after drawing)
+          const cosR_abs = Math.cos(rotation_rad);
+          const sinR_abs = Math.sin(rotation_rad);
+          for(let i=0; i<focusData.length; ++i) {
+            focusData[i].absX = (focusData[i].relX * cosR_abs - focusData[i].relY * sinR_abs) + originX;
+            focusData[i].absY = (focusData[i].relX * sinR_abs + focusData[i].relY * cosR_abs) + originY;
+          }
+          
+          ctx.fillStyle = "#ADFF2F"; ctx.font = "12px monospace";
+          ctx.fillText(`a=${a_axis.toFixed(0)}, b=${b_axis.toFixed(0)}, c=${c_dist.toFixed(1)}`, 10, 20);
+          ctx.fillText(`Excentricidade e=${eccentricity.toFixed(2)}`, 10, 40);
+        }
+        aSlider.addEventListener("input", ()=>{draggingFocus = null; updateEllipse();});
+        bSlider.addEventListener("input", ()=>{draggingFocus = null; updateEllipse();});
+        rotationSlider.addEventListener("input", ()=>{draggingFocus = null; updateEllipse();});
+        updateEllipse();
+      }
+
+
+      function setupHyperbolaSimulator() {
+        const canvasContainer = document.getElementById("hyperbola-canvas");
+        if (!canvasContainer) return;
+        const canvas = document.createElement("canvas");
+        canvas.width = 600; canvas.height = 400;
+        canvas.style.position = "absolute"; canvas.style.top = "0"; canvas.style.left = "0";
+        canvasContainer.appendChild(canvas);
+        const ctx = canvas.getContext("2d");
+        const aSlider = document.getElementById("a-hyper-slider");
+        const bSlider = document.getElementById("b-hyper-slider");
+        const orientationSlider = document.getElementById("orientation-slider");
+        const aValue = document.getElementById("a-hyper-value");
+        const bValue = document.getElementById("b-hyper-value");
+        const orientationValue = document.getElementById("orientation-value");
+        const pipboyInfo = canvasContainer.querySelector(".pipboy-info");
+        setTimeout(() => { const hint = canvasContainer.querySelector(".interaction-hint"); if (hint) hint.style.opacity = "0"; }, 5000);
+
+        function updateHyperbola() {
+          const a_axis = parseFloat(aSlider.value); // Renamed to a_axis
+          const b_axis = parseFloat(bSlider.value); // Renamed to b_axis
+          const orientation = parseInt(orientationSlider.value); 
+          aValue.textContent = a_axis.toFixed(0);
+          bValue.textContent = b_axis.toFixed(0);
+          orientationValue.textContent = orientation === 0 ? "Eixo X" : "Eixo Y";
+          pipboyInfo.textContent = orientation === 0 ? `x²/${a_axis.toFixed(0)}² - y²/${b_axis.toFixed(0)}² = 1` : `y²/${a_axis.toFixed(0)}² - x²/${b_axis.toFixed(0)}² = 1`;
+          
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          const originX = canvas.width / 2;
+          const originY = canvas.height / 2;
+          drawGrid(ctx, originX, originY, canvas.width, canvas.height);
+
+          const c_dist = Math.sqrt(a_axis*a_axis + b_axis*b_axis); // Renamed to c_dist
+
+          ctx.beginPath(); ctx.strokeStyle = "#FFD700"; ctx.lineWidth = 1; ctx.setLineDash([5,5]);
+          if (orientation === 0) { 
+            ctx.moveTo(0, originY - (b_axis/a_axis)*originX); ctx.lineTo(canvas.width, originY + (b_axis/a_axis)*(canvas.width-originX));
+            ctx.moveTo(0, originY + (b_axis/a_axis)*originX); ctx.lineTo(canvas.width, originY - (b_axis/a_axis)*(canvas.width-originX));
+          } else { 
+            ctx.moveTo(0, originY - (a_axis/b_axis)*originX); ctx.lineTo(canvas.width, originY + (a_axis/b_axis)*(canvas.width-originX));
+            ctx.moveTo(0, originY + (a_axis/b_axis)*originX); ctx.lineTo(canvas.width, originY - (a_axis/b_axis)*(canvas.width-originX));
+          }
+          ctx.stroke(); ctx.setLineDash([]);
+
+          ctx.beginPath(); ctx.strokeStyle = "#ADFF2F"; ctx.lineWidth = 2;
+          const rangeLimit = Math.max(originX, originY) * 1.5; // Limit drawing range
+          const step = 1; // Pixel step
+
+          if (orientation === 0) { // x^2/a^2 - y^2/b^2 = 1
+              // Right branch
+              for (let x_coord = a_axis; x_coord < rangeLimit; x_coord += step) {
+                  const y_val_sq = ( (x_coord*x_coord / (a_axis*a_axis)) - 1) * (b_axis*b_axis);
+                  if (y_val_sq < 0) continue;
+                  const y_val = Math.sqrt(y_val_sq);
+                  if (x_coord === a_axis) {
+                      ctx.moveTo(originX + x_coord, originY - y_val);
+                  } else {
+                      ctx.lineTo(originX + x_coord, originY - y_val);
+                  }
+              }
+              for (let x_coord = rangeLimit - step; x_coord >= a_axis; x_coord -= step) { // Draw other half of the branch
+                  const y_val_sq = ( (x_coord*x_coord / (a_axis*a_axis)) - 1) * (b_axis*b_axis);
+                  if (y_val_sq < 0) continue;
+                  const y_val = Math.sqrt(y_val_sq);
+                  ctx.lineTo(originX + x_coord, originY + y_val);
+              }
+              // Left branch
+              for (let x_coord = -a_axis; x_coord > -rangeLimit; x_coord -= step) {
+                  const y_val_sq = ( (x_coord*x_coord / (a_axis*a_axis)) - 1) * (b_axis*b_axis);
+                  if (y_val_sq < 0) continue;
+                  const y_val = Math.sqrt(y_val_sq);
+                  if (x_coord === -a_axis) {
+                       ctx.moveTo(originX + x_coord, originY - y_val);
+                  } else {
+                       ctx.lineTo(originX + x_coord, originY - y_val);
+                  }
+              }
+               for (let x_coord = -rangeLimit + step; x_coord <= -a_axis; x_coord += step) {
+                  const y_val_sq = ( (x_coord*x_coord / (a_axis*a_axis)) - 1) * (b_axis*b_axis);
+                  if (y_val_sq < 0) continue;
+                  const y_val = Math.sqrt(y_val_sq);
+                  ctx.lineTo(originX + x_coord, originY + y_val);
+              }
+
+          } else { // y^2/a^2 - x^2/b^2 = 1
+              // Upper branch
+              for (let y_coord = a_axis; y_coord < rangeLimit; y_coord += step) {
+                  const x_val_sq = ( (y_coord*y_coord / (a_axis*a_axis)) - 1) * (b_axis*b_axis);
+                  if (x_val_sq < 0) continue;
+                  const x_val = Math.sqrt(x_val_sq);
+                  if (y_coord === a_axis) {
+                       ctx.moveTo(originX + x_val, originY - y_coord);
+                  } else {
+                       ctx.lineTo(originX + x_val, originY - y_coord);
+                  }
+              }
+              for (let y_coord = rangeLimit - step; y_coord >= a_axis; y_coord -= step) {
+                  const x_val_sq = ( (y_coord*y_coord / (a_axis*a_axis)) - 1) * (b_axis*b_axis);
+                  if (x_val_sq < 0) continue;
+                  const x_val = Math.sqrt(x_val_sq);
+                  ctx.lineTo(originX - x_val, originY - y_coord);
+              }
+              // Lower branch
+              for (let y_coord = -a_axis; y_coord > -rangeLimit; y_coord -= step) {
+                  const x_val_sq = ( (y_coord*y_coord / (a_axis*a_axis)) - 1) * (b_axis*b_axis);
+                  if (x_val_sq < 0) continue;
+                  const x_val = Math.sqrt(x_val_sq);
+                  if (y_coord === -a_axis) {
+                       ctx.moveTo(originX + x_val, originY - y_coord);
+                  } else {
+                       ctx.lineTo(originX + x_val, originY - y_coord);
+                  }
+              }
+              for (let y_coord = -rangeLimit + step; y_coord <= -a_axis; y_coord += step) {
+                  const x_val_sq = ( (y_coord*y_coord / (a_axis*a_axis)) - 1) * (b_axis*b_axis);
+                  if (x_val_sq < 0) continue;
+                  const x_val = Math.sqrt(x_val_sq);
+                  ctx.lineTo(originX - x_val, originY - y_coord);
+              }
+          }
+          ctx.stroke();
+          
+          ctx.fillStyle = "#FF6347"; 
+          if (orientation === 0) {
+            ctx.beginPath(); ctx.arc(originX + c_dist, originY, 5, 0, 2 * Math.PI); ctx.fill();
+            ctx.beginPath(); ctx.arc(originX - c_dist, originY, 5, 0, 2 * Math.PI); ctx.fill();
+            ctx.fillStyle = "#FFD700"; 
+            ctx.beginPath(); ctx.arc(originX + a_axis, originY, 5, 0, 2 * Math.PI); ctx.fill();
+            ctx.beginPath(); ctx.arc(originX - a_axis, originY, 5, 0, 2 * Math.PI); ctx.fill();
+          } else {
+            ctx.beginPath(); ctx.arc(originX, originY - c_dist, 5, 0, 2 * Math.PI); ctx.fill(); // Y is inverted
+            ctx.beginPath(); ctx.arc(originX, originY + c_dist, 5, 0, 2 * Math.PI); ctx.fill(); // Y is inverted
+            ctx.fillStyle = "#FFD700"; 
+            ctx.beginPath(); ctx.arc(originX, originY - a_axis, 5, 0, 2 * Math.PI); ctx.fill(); // Y is inverted
+            ctx.beginPath(); ctx.arc(originX, originY + a_axis, 5, 0, 2 * Math.PI); ctx.fill(); // Y is inverted
+          }
+          ctx.fillStyle = "#ADFF2F"; ctx.font = "12px monospace";
+          ctx.fillText(`a=${a_axis.toFixed(0)}, b=${b_axis.toFixed(0)}, c=${c_dist.toFixed(1)}`, 10, 20);
+          ctx.fillText(`Excentricidade e=${(c_dist/a_axis).toFixed(2)}`, 10, 40);
+        }
+        aSlider.addEventListener("input", updateHyperbola);
+        bSlider.addEventListener("input", updateHyperbola);
+        orientationSlider.addEventListener("input", updateHyperbola);
+        updateHyperbola();
+      }
+
+      function drawGrid(ctx, originX, originY, width, height) {
+        const gridSize = 20;
+        ctx.strokeStyle = "rgba(100, 100, 100, 0.3)"; 
+        ctx.lineWidth = 0.5;
+        for (let x = originX % gridSize; x < width; x += gridSize) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, height); ctx.stroke(); }
+        for (let y = originY % gridSize; y < height; y += gridSize) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(width, y); ctx.stroke(); }
+        
+        ctx.strokeStyle = "rgba(200, 200, 200, 0.6)"; 
+        ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(0, originY); ctx.lineTo(width, originY); ctx.stroke(); 
+        ctx.beginPath(); ctx.moveTo(originX, 0); ctx.lineTo(originX, height); ctx.stroke(); 
+        
+        ctx.fillStyle = "rgba(200, 200, 200, 0.8)";
+        ctx.font = "10px monospace";
+        const labelOffset = 2 * gridSize; // Label every 2 major grid lines
+        // X-axis labels
+        for (let i = 1; originX + i * labelOffset < width; i++) { ctx.fillText((i*labelOffset/gridSize), originX + i * labelOffset - 5, originY + 12); }
+        for (let i = 1; originX - i * labelOffset > 0; i++) { ctx.fillText(-(i*labelOffset/gridSize), originX - i * labelOffset - 5, originY + 12); }
+        // Y-axis labels (y positive is downwards in canvas)
+        for (let i = 1; originY + i * labelOffset < height; i++) { ctx.fillText(-(i*labelOffset/gridSize), originX + 5, originY + i * labelOffset + 3); } 
+        for (let i = 1; originY - i * labelOffset > 0; i++) { ctx.fillText((i*labelOffset/gridSize), originX + 5, originY - i * labelOffset + 3); }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        setupParabolaSimulator();
+        setupEllipseSimulator();
+        setupHyperbolaSimulator();
+      });
+
+    </script>
+    <script>
+      Reveal.initialize({ hash: true, slideNumber: true, plugins: [RevealNotes, RevealHighlight] });
+    </script>
+  </body>
+</html>

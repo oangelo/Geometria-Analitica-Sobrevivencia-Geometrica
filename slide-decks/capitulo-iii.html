@@ -1,0 +1,1028 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Geometria Analítica: Mapeamento Espacial — Capítulo III</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* ==================== 
+         ESTILOS BASE PARA ELEMENTOS REVEAL (Mantidos do CSS anterior)
+         ==================== */
+      .reveal h1 {
+        font-size: 2.8rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        color: #ffd700;
+        margin-bottom: 0.3em;
+        letter-spacing: 0px;
+      }
+      .reveal h2 {
+        font-size: 2.4rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        color: #ffd700;
+        margin-bottom: 0.3em;
+        letter-spacing: 0px;
+      }
+      .reveal h3 {
+        font-size: 2rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        color: #ffd700;
+        margin-bottom: 0.2em;
+        letter-spacing: 0px;
+      }
+      .reveal h4 {
+        font-size: 1.6rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        color: #ffd700;
+        margin-bottom: 0.15em;
+        letter-spacing: 0px;
+      }
+      .reveal section p {
+        font-size: 1.4rem;
+        line-height: 1.3;
+        margin-bottom: 0.4em;
+        color: #e0e0e0;
+        letter-spacing: 0px;
+      }
+      .reveal section blockquote {
+        font-size: 1.4rem;
+        line-height: 1.3;
+        font-style: italic;
+        border-left: 3px solid #ffd700;
+        padding-left: 0.8em;
+        margin: 0.8em 0;
+        background-color: rgba(50, 50, 50, 0.3);
+      }
+      .reveal .formula {
+        color: #adff2f;
+        font-weight: bold;
+        font-size: 1.2rem;
+        text-align: center;
+        margin: 0.6em 0;
+        font-family: "Courier New", monospace;
+      }
+      .reveal section ul {
+        list-style: none;
+        padding-left: 1.8rem;
+        margin: 0.2em 0;
+      }
+      .reveal section ul li {
+        font-size: 1.4rem;
+        line-height: 1.3;
+        position: relative;
+        margin-bottom: 0.4em;
+        color: #e0e0e0;
+      }
+      .reveal section ul li::before {
+        content: "☢️";
+        position: absolute;
+        left: -2.3rem;
+        font-size: 1.4rem;
+        line-height: 1.3;
+      }
+      .reveal section ol {
+        list-style: none;
+        counter-reset: radCounter;
+        padding-left: 1.8rem;
+        margin: 0.2em 0;
+      }
+      .reveal section ol li {
+        counter-increment: radCounter;
+        font-size: 1.4rem;
+        line-height: 1.3;
+        position: relative;
+        margin-bottom: 0.4em;
+        color: #e0e0e0;
+      }
+      .reveal section ol li::before {
+        content: "☢️" counter(radCounter) ". ";
+        position: absolute;
+        left: -3.2rem;
+        font-size: 1.4rem;
+        line-height: 1.3;
+      }
+      /* ==================== ESTILOS TEMÁTICOS ADAPTADOS (Mantidos do CSS anterior) ==================== */
+      .title-screen {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 85vh;
+        background: radial-gradient(
+          circle,
+          rgba(0, 0, 0, 0) 0%,
+          rgba(0, 100, 0, 0.1) 100%
+        );
+        position: relative;
+      }
+      .title-screen .subtitle {
+        color: #adff2f;
+        font-size: 2rem;
+        margin-top: -0.3em;
+      }
+      .emblem-number {
+        font-size: 2.6rem;
+        font-weight: bold;
+        color: #ffd700;
+        margin: 0.8em auto;
+      }
+      .subtitle-warning {
+        color: #ff6347;
+        border-top: 1px solid #ff6347;
+        border-bottom: 1px solid #ff6347;
+        padding: 0.4em 0.8em;
+        margin-top: 1.5em;
+        font-weight: bold;
+        font-size: 1.2rem;
+        letter-spacing: 0px;
+      }
+      .mission-briefing {
+        padding: 15px;
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+      .mission-subtitle {
+        color: #adff2f !important;
+        font-size: 1.8rem !important;
+        margin-top: -0.3em !important;
+      }
+      .mnemonic {
+        font-style: italic;
+        background-color: rgba(173, 255, 47, 0.1);
+        padding: 0.4em;
+        border-left: 3px solid #adff2f;
+        margin: 0.8em 0;
+        font-size: 1.3rem !important;
+      }
+      .definition-box {
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 0.8em;
+        margin-top: 1.2em;
+        border-radius: 3px;
+      }
+      .field-report {
+        position: relative;
+      }
+      .info-panel {
+        background-color: #1a1a1a;
+        padding: 15px;
+        margin: 15px auto;
+        width: 85%;
+        max-width: 650px;
+        box-shadow: inset 0 0 15px #adff2f;
+      }
+      .info-screen {
+        background-color: #000;
+        color: #adff2f;
+        padding: 12px;
+        border-radius: 3px;
+        font-family: "Courier New", monospace;
+        position: relative;
+      }
+      .info-screen h4 {
+        color: #adff2f !important;
+        font-size: 1.6rem !important;
+        margin-bottom: 0.4em !important;
+        font-family: "Courier New", monospace !important;
+      }
+      .info-screen ul li {
+        color: #adff2f !important;
+        font-size: 1.2rem !important;
+        line-height: 1.2;
+        margin-bottom: 0.3em;
+      }
+      .info-screen ul li::before {
+        font-size: 1.2rem !important;
+        line-height: 1.2;
+        left: -2rem;
+      }
+      .info-screen p {
+        font-size: 1.2rem !important;
+        line-height: 1.2;
+        font-family: "Courier New", monospace !important;
+        color: #adff2f !important;
+      }
+      .info-screen::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(
+          0deg,
+          rgba(0, 255, 0, 0.03),
+          rgba(0, 255, 0, 0.03) 1px,
+          transparent 1px,
+          transparent 2px
+        );
+        pointer-events: none;
+      }
+      .survival-tip {
+        background-color: rgba(255, 215, 0, 0.1);
+        border: 1px dashed #ffd700;
+        padding: 0.4em 0.8em;
+        margin-top: 0.8em;
+        border-radius: 3px;
+      }
+      .survival-tip p {
+        font-size: 1.2rem !important;
+        font-weight: bold;
+        color: #ffd700 !important;
+      }
+      .simulator {
+        text-align: center;
+      }
+      .canvas-container {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+        padding: 8px;
+        margin: 15px auto;
+        width: 90%;
+        max-width: 800px;
+        position: relative;
+      }
+      .canvas-container canvas {
+        max-width: 100%;
+        height: 400px;
+        background-color: rgba(0, 0, 0, 0.3);
+      }
+      .simulator-controls {
+        background-color: #2f2f2f;
+        padding: 5px;
+        border-radius: 0 0 3px 3px;
+        margin-top: 5px;
+      }
+      .control-panel {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .control-panel label {
+        color: #adff2f;
+        font-weight: bold;
+        font-family: "Courier New", monospace;
+        font-size: 0.9rem;
+      }
+      .control-panel input[type="range"] {
+        width: 120px;
+        accent-color: #adff2f;
+        margin: 0 5px;
+      }
+      .control-panel input[type="number"] {
+        width: 60px;
+        background-color: #2f2f2f;
+        color: #adff2f;
+        border: 1px solid #adff2f;
+        padding: 3px;
+        border-radius: 3px;
+        font-family: "Courier New", monospace;
+      }
+      .control-panel span {
+        color: #adff2f;
+        font-family: "Courier New", monospace;
+        background-color: #000;
+        padding: 1px 3px;
+        border-radius: 2px;
+        min-width: 20px;
+        text-align: center;
+        display: inline-block;
+        font-size: 0.9rem;
+      }
+      .operation-btn,
+      .preset-button {
+        background-color: #2f2f2f;
+        color: #adff2f;
+        border: 1px solid #adff2f;
+        padding: 3px 8px;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        margin: 0 3px;
+      }
+      .operation-btn:hover,
+      .preset-button:hover {
+        background-color: #3f3f3f;
+        box-shadow: 0 0 5px #adff2f;
+      }
+      .operation-btn.active {
+        background-color: #adff2f;
+        color: #000;
+      }
+      .hint-message {
+        font-style: italic;
+        margin-top: 0.8em;
+        color: #adff2f;
+        font-size: 1.1rem !important;
+      }
+      .hint-message p {
+        color: #adff2f !important;
+        font-size: 0.9rem !important;
+      }
+      .preset-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 15px;
+        flex-wrap: wrap;
+      }
+      .preset-button.perpendicular {
+        color: #00ffff;
+        border: 1px solid #00ffff;
+      }
+      .preset-button.perpendicular:hover {
+        background-color: rgba(0, 255, 255, 0.2);
+      }
+      .preset-button.concurrent {
+        color: #ff6347;
+        border: 1px solid #ff6347;
+      }
+      .preset-button.concurrent:hover {
+        background-color: rgba(255, 99, 71, 0.2);
+      }
+      .preset-button.parallel {
+        color: #ffd700;
+        border: 1px solid #ffd700;
+      }
+      .preset-button.parallel:hover {
+        background-color: rgba(255, 215, 0, 0.2);
+      }
+      .preset-button.coincident {
+        color: #adff2f;
+        border: 1px solid #adff2f;
+      }
+      .preset-button.coincident:hover {
+        background-color: rgba(173, 255, 47, 0.2);
+      }
+      .intersecao-info {
+        text-align: center;
+        font-size: 1.2rem;
+        margin: 15px 0;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 3px;
+        font-family: "Courier New", monospace;
+      }
+      .survival-training {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+        padding: 12px;
+      }
+      .training-problem {
+        background-color: rgba(255, 255, 255, 0.05);
+        padding: 12px;
+        border-radius: 3px;
+        border-left: 3px solid #ffd700;
+        margin-bottom: 0.8em;
+      }
+      .problem-context {
+        background-color: rgba(255, 0, 0, 0.1);
+        padding: 8px;
+        border-radius: 3px;
+        border: 1px dashed #ff6347;
+        font-style: italic;
+        margin-top: 0.8em;
+      }
+      .problem-context p {
+        color: #ff6347 !important;
+        font-size: 1.2rem !important;
+      }
+      .debriefing {
+        text-align: center;
+      }
+      .summary-box {
+        background-color: rgba(0, 0, 0, 0.2);
+        padding: 12px;
+        border-radius: 3px;
+        margin: 0.8em auto;
+        max-width: 85%;
+      }
+      .summary-box ul li {
+        font-size: 1.2rem !important;
+        line-height: 1.2;
+      }
+      .summary-box ul li::before {
+        font-size: 1.2rem !important;
+        line-height: 1.2;
+        left: -2rem;
+      }
+      .next-mission {
+        background-color: rgba(173, 255, 47, 0.1);
+        padding: 8px;
+        border-radius: 3px;
+        margin: 0.8em auto;
+        max-width: 85%;
+      }
+      .next-mission p {
+        color: #adff2f !important;
+        font-weight: bold;
+      }
+      .instructor-note {
+        font-style: italic;
+        margin-top: 1.5em;
+        padding: 8px;
+        background-color: rgba(255, 215, 0, 0.1);
+        border-radius: 3px;
+      }
+      .instructor-note p {
+        color: #ffd700 !important;
+        font-size: 1.2rem !important;
+      }
+      .conversion-panel {
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 15px;
+        border-radius: 5px;
+        margin: 20px 0;
+        border-left: 3px solid #adff2f;
+      }
+      .conversion-title {
+        color: #adff2f;
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+      .conversion-step {
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: rgba(50, 50, 50, 0.3);
+        border-radius: 3px;
+      }
+      .conversion-step p:first-child {
+        font-weight: bold;
+        color: #ffd700;
+        margin-bottom: 0.3em;
+      }
+      .table-container {
+        width: 100%;
+        overflow-x: auto;
+        margin: 20px 0;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: rgba(0, 0, 0, 0.3);
+        font-size: 1.1rem;
+      }
+      th,
+      td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #444;
+      }
+      th {
+        background-color: #2a2a2a;
+        color: #adff2f;
+        font-family: "Courier New", monospace;
+      }
+      table .reveal section ul li,
+      table ul li {
+        font-size: 1.1rem !important;
+        margin-bottom: 0.2em;
+        line-height: 1.2;
+      }
+      table .reveal section ul li::before,
+      table ul li::before {
+        font-size: 1.1rem !important;
+        left: -2rem;
+        line-height: 1.2;
+      }
+      tr:hover {
+        background-color: rgba(173, 255, 47, 0.1);
+      }
+      .positions-panel {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin: 20px 0;
+      }
+      .position-card {
+        flex: 1;
+        min-width: 200px;
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+        padding: 15px;
+        position: relative;
+        overflow: hidden;
+      }
+      /* Ajuste SVG Size */
+      .position-card svg {
+        width: 90%;
+        max-width: 180px;
+        height: 100px;
+        display: block;
+        margin: 5px auto 10px auto;
+        stroke-linecap: round;
+      }
+      .position-card.perpendicular {
+        border-left: 3px solid #00ffff;
+      }
+      .position-card.concurrent {
+        border-left: 3px solid #ff6347;
+      }
+      .position-card.parallel {
+        border-left: 3px solid #ffd700;
+      }
+      .position-card.coincident {
+        border-left: 3px solid #adff2f;
+      }
+      .position-title {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+      .position-card.perpendicular .position-title {
+        color: #00ffff;
+      }
+      .position-card.concurrent .position-title {
+        color: #ff6347;
+      }
+      .position-card.parallel .position-title {
+        color: #ffd700;
+      }
+      .position-card.coincident .position-title {
+        color: #adff2f;
+      }
+      .position-desc {
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+      }
+      /* Ajuste LaTeX - Mover para dentro da descrição */
+      .position-desc .formula {
+        font-size: 1rem; /* Menor */
+        display: inline;
+        margin: 0;
+        padding: 0 0.2em;
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 2px;
+      }
+      .position-condition {
+        font-family: "Courier New", monospace;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 5px;
+        border-radius: 3px;
+        font-size: 1rem;
+        margin-top: 10px;
+      }
+      .visual-diagram {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin: 20px 0;
+        gap: 20px;
+      }
+      .diagram-container {
+        flex: 1;
+        min-width: 300px;
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 15px;
+        border-radius: 5px;
+        text-align: center;
+      }
+      .diagram-container svg {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        max-height: 200px;
+        display: block;
+        margin: 10px auto;
+      }
+      .diagram-container p {
+        font-size: 1.1rem !important;
+        line-height: 1.2;
+      }
+      .diagram-title {
+        color: #ffd700;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+      .case-study {
+        margin: 20px 0;
+        padding: 15px;
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+      }
+      .case-title {
+        color: #ffd700;
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+      }
+      .case-description {
+        margin-bottom: 15px;
+      }
+      .case-solution {
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 10px;
+        border-radius: 3px;
+        margin-top: 10px;
+      }
+      .case-solution-title {
+        color: #adff2f;
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+      }
+      .case-step {
+        margin-bottom: 0.8em;
+        padding-left: 1em;
+        border-left: 2px solid rgba(173, 255, 47, 0.3);
+      }
+      .case-step strong {
+        color: #ffd700;
+      }
+      .two-column {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin: 20px 0;
+      }
+      .column {
+        flex: 1;
+        min-width: 300px;
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 15px;
+        border-radius: 5px;
+      }
+      .column-title {
+        color: #ffd700;
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+        padding-bottom: 5px;
+      }
+      .level-basic {
+        border-left: 4px solid #4682b4;
+      }
+      .level-intermediate {
+        border-left: 4px solid #ffd700;
+      }
+      .level-advanced {
+        border-left: 4px solid #ff6347;
+      }
+      .level-indicator {
+        font-size: 1.1rem;
+        padding: 2px 6px;
+        border-radius: 2px;
+        margin-left: 8px;
+        font-weight: bold;
+        display: inline-block;
+      }
+      .level-basic .level-indicator {
+        background-color: #4682b4;
+        color: white;
+      }
+      .level-intermediate .level-indicator {
+        background-color: #ffd700;
+        color: black;
+      }
+      .level-advanced .level-indicator {
+        background-color: #ff6347;
+        color: white;
+      }
+      .crt-effect {
+        position: relative;
+        overflow: hidden;
+      }
+      .crt-effect::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          rgba(18, 16, 16, 0) 50%,
+          rgba(0, 0, 0, 0.1) 50%
+        );
+        background-size: 100% 4px;
+        pointer-events: none;
+        z-index: 10;
+      }
+      .interactive-element {
+        cursor: pointer;
+        position: relative;
+      }
+      .interactive-element::after {
+        content: "";
+        position: absolute;
+        top: -3px;
+        left: -3px;
+        right: -3px;
+        bottom: -3px;
+        border: 1px solid #adff2f;
+        border-radius: 3px;
+        animation: pulse 2s infinite;
+        pointer-events: none;
+      }
+      @keyframes pulse {
+        0% {
+          opacity: 0.2;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.5;
+          transform: scale(1.03);
+        }
+        100% {
+          opacity: 0.2;
+          transform: scale(1);
+        }
+      }
+      .radiation-glow {
+        text-shadow:
+          0 0 5px #adff2f,
+          0 0 10px #adff2f;
+        transition: text-shadow 0.3s ease;
+      }
+      .radiation-glow:hover {
+        text-shadow:
+          0 0 10px #adff2f,
+          0 0 15px #adff2f,
+          0 0 20px #adff2f;
+      }
+      .tutorial-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+      .tutorial-content {
+        background-color: #1a1a1a;
+        border: 2px solid #adff2f;
+        padding: 20px;
+        max-width: 400px;
+        text-align: center;
+        color: #e0e0e0;
+        box-shadow: 0 0 15px rgba(173, 255, 47, 0.5);
+      }
+      .tutorial-close-btn {
+        background-color: #2f2f2f;
+        color: #adff2f;
+        border: 1px solid #adff2f;
+        padding: 5px 15px;
+        margin-top: 15px;
+        cursor: pointer;
+        font-family: "Courier New", monospace;
+      }
+      .tutorial-close-btn:hover {
+        background-color: #3f3f3f;
+        box-shadow: 0 0 5px #adff2f;
+      }
+      .highlight-spd {
+        background-color: rgba(0, 255, 255, 0.1);
+        border-left: 2px solid #00ffff;
+        padding: 0.1em 0.3em;
+      }
+      .highlight-si {
+        background-color: rgba(255, 215, 0, 0.1);
+        border-left: 2px solid #ffd700;
+        padding: 0.1em 0.3em;
+      }
+      .highlight-spi {
+        background-color: rgba(173, 255, 47, 0.1);
+        border-left: 2px solid #adff2f;
+        padding: 0.1em 0.3em;
+      }
+      /* Media Queries (Mantidos do CSS anterior) */
+      @media screen and (max-width: 1024px) {
+        .reveal h1 {
+          font-size: 2.4rem;
+        }
+        .reveal h2 {
+          font-size: 2.1rem;
+        }
+        .reveal h3 {
+          font-size: 1.8rem;
+        }
+        .reveal section p {
+          font-size: 1.3rem;
+        }
+        .reveal .formula {
+          font-size: 1.1rem;
+        }
+        .reveal section ul li,
+        .reveal section ol li {
+          font-size: 1.3rem;
+        }
+        .info-panel {
+          width: 95%;
+        }
+        .info-screen ul li {
+          font-size: 1.1rem !important;
+        }
+        .control-panel label,
+        .control-panel span,
+        .operation-btn {
+          font-size: 0.8rem;
+        }
+        .control-panel input[type="range"] {
+          width: 100px;
+        }
+        table {
+          font-size: 1rem;
+        }
+        table .reveal section ul li,
+        table ul li {
+          font-size: 1rem !important;
+        }
+      }
+      @media screen and (max-width: 768px) {
+        .reveal h1 {
+          font-size: 2.2rem;
+        }
+        .reveal h2 {
+          font-size: 1.9rem;
+        }
+        .reveal h3 {
+          font-size: 1.6rem;
+        }
+        .reveal section p {
+          font-size: 1.2rem;
+        }
+        .reveal .formula {
+          font-size: 1rem;
+        }
+        .reveal section ul li,
+        .reveal section ol li {
+          font-size: 1.2rem;
+        }
+        .info-screen ul li {
+          font-size: 1rem !important;
+        }
+        .control-panel {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 5px;
+        }
+        .emblem-number {
+          width: 100px;
+          height: 100px;
+          font-size: 2.2rem;
+        }
+        .control-panel label,
+        .control-panel span,
+        .operation-btn,
+        .preset-button {
+          font-size: 0.8rem;
+        }
+        .control-panel input[type="range"] {
+          width: 150px;
+        }
+        .control-panel input[type="number"] {
+          width: 50px;
+        }
+        table {
+          font-size: 0.9rem;
+        }
+        table th,
+        table td {
+          padding: 6px;
+        }
+        table .reveal section ul li,
+        table ul li {
+          font-size: 0.9rem !important;
+        }
+        table .reveal section ul li::before,
+        table ul li::before {
+          left: -1.8rem;
+        }
+        .visual-diagram,
+        .two-column {
+          flex-direction: column;
+        }
+        .diagram-container,
+        .column {
+          min-width: 80%;
+          margin-bottom: 15px;
+        }
+        .positions-panel {
+          flex-direction: column;
+        }
+        .position-card {
+          min-width: 80%;
+        }
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides" id="slides"></div>
+    </div>
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/math/math.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/zoom/zoom.js"></script>
+    <script>
+      window.MathJax = {
+        tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] },
+        svg: { fontCache: 'global' },
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script>
+      const SECTIONS = ["capitulo-iii/1-equacao-da-reta.html", "capitulo-iii/2-posicoes-relativas.html", "capitulo-iii/3-paralelismo-perpendicularidade.html", "capitulo-iii/4-ponto-e-reta.html", "capitulo-iii/5-equacao-reduzida.html"];
+
+      async function loadAndInit() {
+        const container = document.getElementById('slides');
+        const pendingScripts = [];
+
+        for (const url of SECTIONS) {
+          const res  = await fetch(url);
+          const text = await res.text();
+          const doc  = new DOMParser().parseFromString(text, 'text/html');
+
+          doc.querySelectorAll('head style').forEach(s =>
+            document.head.appendChild(document.adoptNode(s))
+          );
+
+          const slides = doc.querySelector('.slides');
+          if (slides) {
+            [...slides.children].forEach(child =>
+              container.appendChild(document.adoptNode(child))
+            );
+          }
+
+          // Collect inline scripts (skip Reveal.initialize and MathJax config)
+          doc.querySelectorAll('body script:not([src])').forEach(s => {
+            const content = s.textContent.trim();
+            if (content &&
+                !content.includes('Reveal.initialize') &&
+                !content.includes('window.MathJax =')) {
+              pendingScripts.push(content);
+            }
+          });
+        }
+
+        // Re-execute scripts with DOMContentLoaded shim
+        for (const content of pendingScripts) {
+          const s = document.createElement('script');
+          s.textContent = `(function() {
+  const _orig = document.addEventListener.bind(document);
+  document.addEventListener = function(type, fn, opts) {
+    if (type === 'DOMContentLoaded') { fn(); return; }
+    return _orig(type, fn, opts);
+  };
+  ${content}
+  document.addEventListener = _orig;
+})();`;
+          document.body.appendChild(s);
+        }
+
+
+
+        Reveal.initialize({
+          width: 1366,
+          height: 768,
+          margin: 0.02,
+          minScale: 0.2,
+          maxScale: 2.0,
+          center: true,
+          hash: true,
+          slideNumber: 'c/t',
+          transition: 'slide',
+          backgroundTransition: 'fade',
+          math: {
+            mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js',
+            config: 'TeX-AMS_HTML-full',
+          },
+          plugins: [RevealNotes, RevealHighlight, RevealMath, RevealZoom],
+        });
+
+
+        // Reinit canvas visualizations on slide navigation
+        const reinitVisualizations = (slide) => {
+          if (slide.querySelector('[id^="tres-formas-canvas"]'))
+            window.tresFormasVisualization?.init();
+          if (slide.querySelector('[id^="distancia-ponto-reta-canvas"]'))
+            window.distanciaPontoRetaVisualization?.init();
+          if (slide.querySelector('[id^="intersecao-retas-canvas"]'))
+            window.intersecaoRetasVisualization?.init();
+          if (slide.querySelector('[id^="reduzida-canvas"]'))
+            window.reduzidaVisualization?.init();
+        };
+        Reveal.addEventListener('slidechanged', (event) => {
+          reinitVisualizations(event.currentSlide);
+          if (window.MathJax?.typesetPromise) MathJax.typesetPromise();
+        });
+        Reveal.on('ready', (event) => reinitVisualizations(event.currentSlide));
+
+        if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
+      }
+
+      loadAndInit();
+    </script>
+  </body>
+</html>

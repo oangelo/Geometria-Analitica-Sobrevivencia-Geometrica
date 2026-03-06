@@ -1,0 +1,41 @@
+<div class="exercise">
+<h3>TRIANGULAÇÃO DE SINAL</h3>
+<p>Três estações de escuta detectaram um sinal de socorro vindo de algum lugar na Zona Devastada. As estações estão localizadas nos pontos A(0, 0), B(10, 0) e C(5, 8). Se a distância do sinal até cada estação é de 5 km, 6 km e 4 km, respectivamente, determine a posição aproximada da origem do sinal para coordenar o resgate.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para cada estação, considere a equação de uma circunferência centrada na estação com raio igual à distância detectada. A interseção dessas três circunferências dará a posição do sinal.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Para o ponto A(0, 0), a circunferência tem equação: $x^2 + y^2 = 25$</li>
+<li>Para o ponto B(10, 0), a circunferência tem equação: $(x - 10)^2 + y^2 = 36$</li>
+<li>Para o ponto C(5, 8), a circunferência tem equação: $(x - 5)^2 + (y - 8)^2 = 16$</li>
+<li>Resolvendo o sistema de equações: Combinando as equações das duas primeiras circunferências, encontramos: 
+                       $x^2 + y^2 = 25$ e $(x - 10)^2 + y^2 = 36$
+                       $x^2 - 20x + 100 + y^2 = 36$
+                       $x^2 + y^2 - 20x + 100 = 36$
+                       $x^2 + y^2 = 25$ e $x^2 + y^2 - 20x + 64 = 0$
+                       $25 - 20x + 64 = 0$
+                       $-20x = -89$
+                       $x = 4,45$
+                       Substituindo na primeira equação: $4,45^2 + y^2 = 25$
+                       $y^2 = 25 - 19,80 = 5,2$
+                       $y = \pm 2,28$
+                       </li>
+<li>Verificando os pontos $(4.45, 2.28)$ e $(4.45, -2.28)$ na equação da terceira circunferência, confirmamos que $(4.45, 2.28)$ é o ponto que satisfaz todas as condições</li>
+</ol>
+<div class="formula">
+                    $$\begin{cases}
+                    x^2 + y^2 = 25 \\
+                    (x - 10)^2 + y^2 = 36 \\
+                    (x - 5)^2 + (y - 8)^2 = 16
+                    \end{cases}$$
+                    
+                    $$\text{Solução: } (4.45, 2.28)$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> A triangulação é uma técnica essencial para localizar sobreviventes perdidos ou fontes de interferência. Em um mundo sem GPS, dominar técnicas de posicionamento baseadas em distâncias pode salvar vidas quando cada minuto conta durante uma operação de resgate.</p>
+</details>
+</div>

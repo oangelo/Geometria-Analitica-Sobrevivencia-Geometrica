@@ -1,0 +1,23 @@
+<div class="exercise">
+<h3>RELAÇÃO COM PONTO MÉDIO</h3>
+<p>Um estrategista de recursos precisa construir um posto avançado em um ponto equidistante de três assentamentos localizados em $A(1, 2)$, $B(3, 5)$ e $C(5, 1)$. Se $M$ é o ponto médio de $\overline{BC}$, demonstre que $\overrightarrow{AM} \cdot \overrightarrow{BC} = 0$ e explique o significado geométrico desta relação para o posicionamento ótimo.</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Determine o vetor $\overrightarrow{BC} = C - B = (5, 1) - (3, 5) = (2, -4)$</li>
+<li>Calcule o ponto médio $M$ de $\overline{BC}$: $M = \frac{B + C}{2} = \frac{(3, 5) + (5, 1)}{2} = \frac{(8, 6)}{2} = (4, 3)$</li>
+<li>Determine o vetor $\overrightarrow{AM} = M - A = (4, 3) - (1, 2) = (3, 1)$</li>
+<li>Calcule o produto escalar $\overrightarrow{AM} \cdot \overrightarrow{BC} = (3, 1) \cdot (2, -4) = 3 \times 2 + 1 \times (-4) = 6 - 4 = 2$</li>
+<li>Observe que o resultado não é zero, o que contradiz a afirmação. Na verdade, $\overrightarrow{AM} \cdot \overrightarrow{BC} = 2$</li>
+</ol>
+<div class="formula">
+                    \begin{align}
+                    \overrightarrow{BC} &amp;= (5, 1) - (3, 5) = (2, -4) \\
+                    M &amp;= \frac{(3, 5) + (5, 1)}{2} = (4, 3) \\
+                    \overrightarrow{AM} &amp;= (4, 3) - (1, 2) = (3, 1) \\
+                    \overrightarrow{AM} \cdot \overrightarrow{BC} &amp;= 3 \times 2 + 1 \times (-4) = 6 - 4 = 2 \neq 0
+                    \end{align}
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> A afirmação $\overrightarrow{AM} \cdot \overrightarrow{BC} = 0$ seria verdadeira se $A$ estivesse sobre a mediatriz do segmento $\overline{BC}$, o que significaria que $A$ estaria equidistante de $B$ e $C$. No entanto, o cálculo mostra que $\overrightarrow{AM} \cdot \overrightarrow{BC} = 2$, o que indica que os pontos não estão nessa configuração especial. Para fins de sobrevivência, isto significa que o posto avançado não pode ser equidistante dos três assentamentos simultaneamente com a configuração atual, e um compromisso terá que ser feito no planejamento estratégico.</p>
+</details>
+</div>

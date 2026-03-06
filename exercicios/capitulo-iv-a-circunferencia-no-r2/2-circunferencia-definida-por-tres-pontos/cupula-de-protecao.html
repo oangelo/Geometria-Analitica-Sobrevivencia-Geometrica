@@ -1,0 +1,71 @@
+<div class="exercise">
+<h3>CÚPULA DE PROTEÇÃO</h3>
+<p>Sua comunidade planeja construir uma cúpula de proteção circular sobre três estruturas vitais localizadas nos pontos A(-5, 2), B(1, 4) e C(3, -2). Para maximizar a eficiência dos materiais, a cúpula deve ser a menor possível que ainda englobe os três pontos. Determine o centro e o raio dessa cúpula. Um assentamento em D(0, 0) seria protegido por esta cúpula? Determine também o comprimento da cerca necessária para delimitar a base circular da cúpula e a área total protegida. Se um sistema de filtração de ar no centro pode proteger efetivamente até 70% da área total da cúpula, a que distância máxima do centro esse sistema alcançaria?</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Vamos substituir os três pontos na equação geral $x^2 + y^2 + Dx + Ey + F = 0$:
+                    Para A(-5, 2): $(-5)^2 + 2^2 + D(-5) + E(2) + F = 0 \implies 25 + 4 - 5D + 2E + F = 0 \implies 29 - 5D + 2E + F = 0$ ... (1)
+                    Para B(1, 4): $1^2 + 4^2 + D(1) + E(4) + F = 0 \implies 1 + 16 + D + 4E + F = 0 \implies 17 + D + 4E + F = 0$ ... (2)
+                    Para C(3, -2): $3^2 + (-2)^2 + D(3) + E(-2) + F = 0 \implies 9 + 4 + 3D - 2E + F = 0 \implies 13 + 3D - 2E + F = 0$ ... (3)</li>
+<li>Subtraindo (1) de (2):
+                    $17 + D + 4E + F - (29 - 5D + 2E + F) = 0$
+                    $17 + D + 4E - 29 + 5D - 2E = 0$
+                    $-12 + 6D + 2E = 0$ ... (4)
+                    
+                    Subtraindo (1) de (3):
+                    $13 + 3D - 2E + F - (29 - 5D + 2E + F) = 0$
+                    $13 + 3D - 2E - 29 + 5D - 2E = 0$
+                    $-16 + 8D - 4E = 0$ ... (5)</li>
+<li>Dividindo (5) por 2:
+                    $-8 + 4D - 2E = 0$ ... (6)
+                    
+                    Subtraindo (4) de (6):
+                    $-8 + 4D - 2E - (-12 + 6D + 2E) = 0$
+                    $-8 + 4D - 2E + 12 - 6D - 2E = 0$
+                    $4 - 2D - 4E = 0$
+                    $4 - 2D = 4E$
+                    $E = \frac{4 - 2D}{4} = 1 - \frac{D}{2}$ ... (7)</li>
+<li>Substituindo (7) em (4):
+                    $-12 + 6D + 2(1 - \frac{D}{2}) = 0$
+                    $-12 + 6D + 2 - D = 0$
+                    $-10 + 5D = 0$
+                    $D = 2$</li>
+<li>Substituindo $D = 2$ em (7):
+                    $E = 1 - \frac{2}{2} = 1 - 1 = 0$</li>
+<li>Substituindo $D = 2$ e $E = 0$ em (1):
+                    $29 - 5(2) + 2(0) + F = 0$
+                    $29 - 10 + F = 0$
+                    $F = -19$</li>
+<li>A equação da circunferência é:
+                    $x^2 + y^2 + 2x - 19 = 0$</li>
+<li>Completando os quadrados:
+                    $x^2 + 2x + y^2 - 19 = 0$
+                    $(x^2 + 2x + 1) + y^2 - 19 - 1 = 0$
+                    $(x + 1)^2 + y^2 = 20$</li>
+<li>O centro da circunferência é $(-1, 0)$ e o raio é $r = \sqrt{20} = 2\sqrt{5}$
+                    Para verificar se o ponto D(0, 0) está dentro da cúpula:
+                    $(0 - (-1))^2 + (0 - 0)^2 = 1 &lt; 20$
+                    Como a distância ao quadrado é menor que $r^2 = 20$, o ponto D está dentro da cúpula.</li>
+<li>O comprimento da cerca (circunferência) é:
+                    $C = 2\pi r = 2\pi \cdot 2\sqrt{5} = 4\pi\sqrt{5} \approx 28.1$ unidades</li>
+<li>A área total protegida é:
+                    $A = \pi r^2 = \pi \cdot 20 = 20\pi \approx 62.8$ unidades quadradas</li>
+<li>Se o sistema de filtração protege 70% da área total, então a área protegida é:
+                    $A_{filtração} = 0.7 \cdot 20\pi = 14\pi$ unidades quadradas
+                    
+                    Para uma circunferência, a área é proporcional ao quadrado do raio, então:
+                    $\frac{A_{filtração}}{A_{total}} = \frac{r_{filtração}^2}{r_{total}^2}$
+                    $0.7 = \frac{r_{filtração}^2}{20}$
+                    $r_{filtração}^2 = 0.7 \cdot 20 = 14$
+                    $r_{filtração} = \sqrt{14} \approx 3.74$ unidades</li>
+</ol>
+<div class="formula">
+                    $$(x + 1)^2 + y^2 = 20$$
+                    $$\text{Comprimento da cerca} = 4\pi\sqrt{5} \approx 28.1 \text{ unidades}$$
+                    $$\text{Área protegida} = 20\pi \approx 62.8 \text{ unidades quadradas}$$
+                    $$\text{Alcance do sistema de filtração} = \sqrt{14} \approx 3.74 \text{ unidades}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Em um mundo com recursos escassos, dimensionar estruturas com precisão matemática é essencial. A cúpula de proteção representa uma barreira contra tempestades radiativas, contaminantes aéreos e outras ameaças, mas seu material é valioso e limitado. A análise geométrica permite determinar exatamente quanto material será necessário (comprimento da cerca) e qual área total será protegida. Compreender o alcance do sistema de filtração também permite organizar assentamentos e cultivos de forma concêntrica, priorizando as áreas mais limpas para alimentos e medicamentos, e as áreas periféricas para armazenamento ou manufatura menos sensível. Esta é uma aplicação direta da otimização de recursos usando geometria analítica.</p>
+</details>
+</div>

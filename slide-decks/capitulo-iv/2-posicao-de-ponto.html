@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cap. IV — Posição de Ponto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+            <!-- ============================ -->
+            <!-- TÓPICO 2: POSIÇÃO DE PONTO   (HORIZONTAL →) -->
+            <!-- ============================ -->
+            <section>
+                 <!-- Slide 2.1: Conceito Principal -->
+                 <section class="mission-briefing">
+                     <h2>Tópico 2: Posição de Ponto vs. Circunferência</h2>
+                     <h3 class="mission-subtitle">Dentro, Fora ou na Linha?</h3>
+                     <div class="definition-box">
+                         <p>Como saber se um ponto \(P(x_p, y_p)\) está dentro, fora ou na fronteira de uma zona segura \(\lambda(C(a, b), R)\)?</p>
+                         <p>A resposta está na comparação da distância do ponto ao centro com o raio.</p>
+                         <ul>
+                             <li><strong>Interno:</strong> \(d(P,C) < R\)</li>
+                             <li><strong>Pertencente:</strong> \(d(P,C) = R\)</li>
+                             <li><strong>Externo:</strong> \(d(P,C) > R\)</li>
+                         </ul>
+                     </div>
+                      <p class="mnemonic">"Distância ao quadrado calculada, com Raio ao quadrado comparada. Menor, igual ou maior dirá, se seguro o ponto está."</p>
+                 </section>
+
+                 <!-- Slide 2.2: Visualizações -->
+                 <section class="simulator">
+                     <h3>Visualização: Testando a Posição</h3>
+                     <p>Defina a zona segura (C, R) e gere pontos aleatórios para ver onde caem.</p>
+                      <div class="canvas-container interactive-element">
+                         <canvas id="circunferencia-pos-canvas" width="800" height="400"></canvas>
+                         <div class="simulator-controls">
+                              <div class="control-panel">
+                                 <label for="circ-pos-cx">Centro X (a):</label>
+                                 <input type="range" id="circ-pos-cx" min="-8" max="8" value="1" step="0.5">
+                                 <span id="circ-pos-cx-value">1</span>
+                                 <label for="circ-pos-cy">Centro Y (b):</label>
+                                 <input type="range" id="circ-pos-cy" min="-5" max="5" value="-1" step="0.5">
+                                 <span id="circ-pos-cy-value">-1</span>
+                                 <label for="circ-pos-r">Raio (R):</label>
+                                 <input type="range" id="circ-pos-r" min="1" max="8" value="4" step="0.5">
+                                 <span id="circ-pos-r-value">4</span>
+                             </div>
+                             <div class="control-panel">
+                                 <button id="circ-pos-add-point-btn" class="operation-btn radiation-glow">Testar Ponto Aleatório</button>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="hint-message">
+                         <p>Verde (Interno), Amarelo (Na Fronteira), Vermelho (Externo).</p>
+                     </div>
+                 </section>
+
+                 <!-- Slide 2.3: Teorema Relacionado -->
+                  <section class="field-report">
+                     <h3>Teorema: Critério de Posição (Cálculo Eficiente)</h3>
+                     <div class="info-panel">
+                       <div class="info-screen">
+                          <p>Para evitar raízes quadradas, comparamos as distâncias <strong>ao quadrado</strong>.</p>
+                          <p>Dada \(\lambda: (x - a)^2 + (y - b)^2 = R^2\) e \(P(x_p, y_p)\):</p>
+                          <ol>
+                             <li>Calcule: <span class="formula">\(d^2 = (x_p - a)^2 + (y_p - b)^2\)</span></li>
+                             <li>Compare \(d^2\) com \(R^2\):
+                                 <ul>
+                                     <li>\(d^2 < R^2 \implies\) Interno</li>
+                                     <li>\(d^2 = R^2 \implies\) Pertencente</li>
+                                     <li>\(d^2 > R^2 \implies\) Externo</li>
+                                 </ul>
+                             </li>
+                          </ol>
+                          <p><em>Simples, rápido e eficaz para análise de campo.</em></p>
+                       </div>
+                     </div>
+                 </section>
+
+                 <!-- Slide 2.4: Problema -->
+                 <section class="survival-training">
+                     <h3>Problema: Avaliar Ponto de Interesse</h3>
+                     <div class="training-problem">
+                       <h4>Cenário:</h4>
+                       <p>Sua zona segura: Centro \(C(2, 1)\), Raio \(R=5\).</p>
+                       <p>Sinal detectado em: \(P(6, 4)\).</p>
+                        <h4>Missão:</h4>
+                        <p>Classificar a posição do ponto \(P\) (interno, pertencente ou externo).</p>
+                     </div>
+                     <div class="problem-context">
+                       <p>É um aliado dentro dos muros ou uma ameaça na fronteira?</p>
+                     </div>
+                 </section>
+
+                 <!-- Slide 2.5: Solução - Passo 1: Dados e R² -->
+                  <section class="field-report">
+                     <h3>Solução: Passo 1 - Organizar Dados</h3>
+                     <div class="info-panel">
+                       <div class="info-screen">
+                          <p>Centro \(C = (a, b) = (2, 1)\)</p>
+                          <p>Raio \(R = 5 \implies R^2 = 5^2 = 25\)</p>
+                          <p>Ponto \(P = (x_p, y_p) = (6, 4)\)</p>
+                          <p><em>Objetivo: Comparar \(d(P,C)^2\) com \(R^2\).</em></p>
+                       </div>
+                     </div>
+                 </section>
+
+                 <!-- Slide 2.6: Solução - Passo 2: Calcular d² -->
+                  <section class="field-report">
+                     <h3>Solução: Passo 2 - Calcular \(d^2\)</h3>
+                     <div class="info-panel">
+                       <div class="info-screen">
+                          <p>Fórmula da distância ao quadrado:</p>
+                          <p>\(d^2 = (x_p - a)^2 + (y_p - b)^2\)</p>
+                          <p>Substituindo os valores:</p>
+                          <p>\(d^2 = (6 - 2)^2 + (4 - 1)^2\)</p>
+                          <p>\(d^2 = (4)^2 + (3)^2\)</p>
+                          <p>\(d^2 = 16 + 9\)</p>
+                          <p class="formula">\(d^2 = 25\)</p>
+                       </div>
+                     </div>
+                 </section>
+
+                 <!-- Slide 2.7: Solução - Passo 3: Comparar e Classificar -->
+                  <section class="field-report">
+                     <h3>Solução: Passo 3 - Comparar e Classificar</h3>
+                      <div class="info-panel">
+                       <div class="info-screen">
+                          <p>Calculamos \(d^2 = 25\).</p>
+                          <p>Temos \(R^2 = 25\).</p>
+                          <p>Comparando: \(d^2 = R^2\)</p>
+                          <p>Conclusão: Como \(d^2\) é <strong>igual</strong> a \(R^2\), o ponto P é <strong>Pertencente</strong> (está na fronteira).</p>
+                          <p class="formula">Resultado: O sinal vem da borda da zona segura!</p>
+                       </div>
+                     </div>
+                 </section>
+
+                 <!-- Slide 2.8: Conclusão -->
+                  <section class="debriefing">
+                     <h3>Conclusão: Mapeando Inclusão/Exclusão</h3>
+                     <div class="summary-box">
+                       <h4>Lições Aprendidas:</h4>
+                       <ul>
+                           <li>A classificação (interno/pertencente/externo) depende da distância \(d(P,C)\) vs Raio \(R\).</li>
+                           <li>Comparar \(d^2\) com \(R^2\) é o método prático.</li>
+                       </ul>
+                       <p>Permite avaliar rapidamente a localização de qualquer ponto em relação a uma zona circular.</p>
+                     </div>
+                 </section>
+            </section>
+
+      </div>
+    </div>
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/math/math.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/zoom/zoom.js"></script>
+    <script>
+      window.MathJax = { tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script>
+      Reveal.initialize({ hash: true, slideNumber: 'c/t', transition: 'convex', plugins: [RevealNotes, RevealHighlight] });
+    </script>
+  </body>
+</html>
