@@ -90,19 +90,16 @@
     </style>
     <style>
       .canvas-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        margin: 10px 0;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin: 10px 0 !important;
       }
 
-      #wastelandCanvas {
-        display: block;
-        margin: 0;
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
+      .title-canvas-slide .canvas-container #wastelandCanvas {
+        display: block !important;
+        margin: 0 auto !important;
       }
 
       .warning-text {
@@ -141,7 +138,7 @@
           <h1>Capítulo 0: Preparação para a Wasteland</h1>
           <h3>Manual de Sobrevivência Matemática Vault-Tec</h3>
           <div class="canvas-container">
-            <canvas id="wastelandCanvas" width="700" height="400"></canvas>
+            <canvas id="wastelandCanvas" width="700" height="400" style="margin: 0 auto; display: block;"></canvas>
           </div>
           <div class="warning-text">
             <span>AVISO: A matemática salva vidas</span>

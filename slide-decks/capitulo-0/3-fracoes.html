@@ -87,6 +87,21 @@
         padding: 15px;
         margin-top: 20px;
       }
+
+      /* Lista centralizada para slide de frações */
+      .reveal .slides section .fracoes-lista-centralizada {
+        width: 90% !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        list-style: none !important;
+        text-align: center !important;
+      }
+
+      .reveal .slides section .fracoes-lista-centralizada li {
+        margin: 12px auto !important;
+        text-align: center !important;
+        list-style: none !important;
+      }
     </style>
     <style>
       .canvas-container {
@@ -745,23 +760,16 @@
               recursos.
             </p>
 
-            <img src="img/fracoes-sistema-racionamento.svg" alt="Diagrama de frações como sistema de racionamento" class="svg-visualization" style="width:400px; height:120px" />
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+              <img src="img/fracoes-sistema-racionamento.svg" alt="Diagrama de frações como sistema de racionamento" class="svg-visualization" style="width:400px; height:120px; display: block;" />
 
-            <ul>
-              <li>
-                Adição de frações: \( \frac{a}{c} + \frac{b}{c} = \frac{a+b}{c}
-                \)
-              </li>
-              <li>
-                MMC para denominadores diferentes: \( \frac{a}{b} + \frac{c}{d}
-                = \frac{ad + bc}{bd} \)
-              </li>
-              <li>
-                Racione recursos escassos usando proporções (ex: 2L de água para
-                5 pessoas = 0,4L por pessoa)
-              </li>
-            </ul>
-            <p class="formula">
+              <ul class="lista-centro">
+                <li>Adição de frações: \( \frac{a}{c} + \frac{b}{c} = \frac{a+b}{c} \)</li>
+                <li>MMC para denominadores diferentes: \( \frac{a}{b} + \frac{c}{d} = \frac{ad + bc}{bd} \)</li>
+                <li>Racione recursos escassos usando proporções (ex: 2L de água para 5 pessoas = 0,4L por pessoa)</li>
+              </ul>
+            </div>
+            <p class="formula" style="margin-top: 10px;">
               Racionamento insuficiente = perda de população
             </p>
           </section>
