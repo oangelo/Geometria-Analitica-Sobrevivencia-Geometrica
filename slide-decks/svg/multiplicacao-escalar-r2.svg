@@ -1,0 +1,84 @@
+<svg id="svg49" inkscape:version="1.4 (e7c3feb100, 2024-10-09)" sodipodi:docname="multiplicacaoe-escalar.svg" version="1.1" viewBox="0 0 437.5 350" xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg">
+<defs id="defs49"></defs>
+<sodipodi:namedview bordercolor="#000000" borderopacity="0.25" id="namedview49" inkscape:current-layer="svg49" inkscape:cx="250" inkscape:cy="200" inkscape:deskcolor="#d1d1d1" inkscape:pagecheckerboard="0" inkscape:pageopacity="0.0" inkscape:showpageshadow="2" inkscape:window-height="1008" inkscape:window-maximized="1" inkscape:window-width="1920" inkscape:window-x="1920" inkscape:window-y="0" inkscape:zoom="2" pagecolor="#ffffff" showguides="false"></sodipodi:namedview>
+<!-- Fundo estilizado -->
+<rect fill="#1d3557" height="350" id="rect1" opacity="0.9" style="stroke-width:0.875" width="437.5" x="0" y="0"></rect>
+<!-- Grade de fundo esmaecida -->
+<g id="g16" opacity="0.2" stroke="#a8dadc" stroke-width="0.5" transform="scale(0.875)">
+<!-- Linhas verticais da grade -->
+<line id="line1" x1="50" x2="50" y1="50" y2="350"></line>
+<line id="line2" x1="100" x2="100" y1="50" y2="350"></line>
+<line id="line3" x1="150" x2="150" y1="50" y2="350"></line>
+<line id="line4" x1="200" x2="200" y1="50" y2="350"></line>
+<line id="line5" x1="250" x2="250" y1="50" y2="350"></line>
+<line id="line6" x1="300" x2="300" y1="50" y2="350"></line>
+<line id="line7" x1="350" x2="350" y1="50" y2="350"></line>
+<line id="line8" x1="400" x2="400" y1="50" y2="350"></line>
+<line id="line9" x1="450" x2="450" y1="50" y2="350"></line>
+<!-- Linhas horizontais da grade -->
+<line id="line10" x1="50" x2="450" y1="50" y2="50"></line>
+<line id="line11" x1="50" x2="450" y1="100" y2="100"></line>
+<line id="line12" x1="50" x2="450" y1="150" y2="150"></line>
+<line id="line13" x1="50" x2="450" y1="200" y2="200"></line>
+<line id="line14" x1="50" x2="450" y1="250" y2="250"></line>
+<line id="line15" x1="50" x2="450" y1="300" y2="300"></line>
+<line id="line16" x1="50" x2="450" y1="350" y2="350"></line>
+</g>
+<!-- Eixos coordenados principais -->
+<g id="g18" stroke="#f0f0f0" stroke-width="2" transform="scale(0.875)">
+<!-- Eixo X -->
+<line id="line17" x1="50" x2="450" y1="200" y2="200"></line>
+<!-- Eixo Y -->
+<line id="line18" x1="250" x2="250" y1="50" y2="350"></line>
+</g>
+<!-- Origem destacada -->
+<circle cx="218.75" cy="175" fill="#f0f0f0" id="circle18" r="4.375" style="stroke-width:0.875"></circle>
+<text fill="#f0f0f0" font-family="Arial" font-size="10.5px" id="text18" style="stroke-width:0.875" text-anchor="middle" x="210" y="192.5">O</text>
+<!-- Vetor v original: (2,1) - Rota base -->
+<line id="line19" stroke="#4cc9f0" stroke-width="2.625" style="stroke-width:5.32499943;stroke-dasharray:none" x1="218.75" x2="306.25" y1="175" y2="131.25"></line>
+<text fill="#4cc9f0" font-family="Arial" font-size="12.25px" font-weight="bold" id="text19" style="stroke-width:0.875" x="275.25" y="134.375">v</text>
+<text fill="#a8dadc" font-family="Arial" font-size="8.75px" font-style="italic" id="text20" style="stroke-width:0.875" x="301.75" y="150.5">Rota Base</text>
+<!-- Vetor 2v: (4,2) - Rota amplificada -->
+<line id="line20" stroke="#8ac926" stroke-width="2.625" x1="222.75" x2="397.75" y1="173" y2="85.5"></line>
+<text fill="#8ac926" font-family="Arial" font-size="12.25px" font-weight="bold" id="text21" style="stroke-width:0.875" x="399.5" y="111.25">2v</text>
+<text fill="#a8dadc" font-family="Arial" font-size="8.75px" font-style="italic" id="text22" style="stroke-width:0.875" x="319.5" y="83.375">Rota Duplicada</text>
+<!-- Vetor 0.5v: (1,0.5) - Rota reduzida -->
+<line id="line22" stroke="#ffd166" stroke-width="2.625" x1="218.75" x2="262.5" y1="175" y2="153.125"></line>
+<text fill="#ffd166" font-family="Arial" font-size="12.25px" font-weight="bold" id="text23" style="stroke-width:0.875" x="246.375" y="171.125">0.5v</text>
+<text fill="#a8dadc" font-family="Arial" font-size="8.75px" font-style="italic" id="text24" style="stroke-width:0.875" x="181.875" y="153.25">Rota Reduzida</text>
+<!-- Vetor -v: (-2,-1) - Rota inversa -->
+<line id="line24" stroke="#e63946" stroke-width="2.625" x1="218.75" x2="131.25" y1="175" y2="218.75"></line>
+<text fill="#e63946" font-family="Arial" font-size="12.25px" font-weight="bold" id="text25" style="stroke-width:0.875" x="176.25" y="205.625">-v</text>
+<text fill="#a8dadc" font-family="Arial" font-size="8.75px" font-style="italic" id="text26" style="stroke-width:0.875" x="148.25" y="222.25">Rota Inversa</text>
+<!-- Pontos extremos -->
+<circle cx="305.25" cy="131.75" fill="#4cc9f0" id="circle26" r="5.25" style="stroke-width:0.875"></circle>
+<text fill="#4cc9f0" font-family="Arial" font-size="8.75px" id="text27" style="stroke-width:0.875" x="291.625" y="121.5">(2,1)</text>
+<circle cx="393.75" cy="87.5" fill="#8ac926" id="circle27" r="5.25" style="stroke-width:0.875"></circle>
+<text fill="#8ac926" font-family="Arial" font-size="8.75px" id="text28" style="stroke-width:0.875" x="398.125" y="78.75">(4,2)</text>
+<circle cx="262" cy="152.125" fill="#ffd166" id="circle28" r="5.25" style="stroke-width:0.875"></circle>
+<text fill="#ffd166" font-family="Arial" font-size="8.75px" id="text29" style="stroke-width:0.875" x="238.875" y="137.375">(1,0.5)</text>
+<circle cx="131.25" cy="219.75" fill="#e63946" id="circle29" r="5.25" style="stroke-width:0.875"></circle>
+<text fill="#e63946" font-family="Arial" font-size="8.75px" id="text30" style="stroke-width:0.875" x="122.5" y="210">(-2,-1)</text>
+<!-- Painel das operações de escala -->
+<g id="g35" transform="matrix(0.875,0,0,0.875,48.5,53)">
+<rect fill="#457b9d" height="112.94118" id="rect30" opacity="0.7" rx="4.0084033" style="stroke-width:0.95154" width="136.28571" x="-0.57142854" y="0.67226893"></rect>
+<text fill="#ffd166" font-family="Arial" font-size="14px" font-weight="bold" id="text31" x="10" y="20">Mult. por Escalar</text>
+<text fill="#4cc9f0" font-family="Arial" font-size="12px" id="text32" x="10" y="40">v = (2,1)</text>
+<text fill="#8ac926" font-family="Arial" font-size="12px" id="text33" x="10" y="60">2v = (4,2)</text>
+<text fill="#ffd166" font-family="Arial" font-size="12px" id="text34" x="10" y="80">0.5v = (1,0.5)</text>
+<text fill="#e63946" font-family="Arial" font-size="12px" id="text35" x="10" y="100">-v = (-2,-1)</text>
+</g>
+<!-- Painel de interpretação prática -->
+<g id="g39" transform="matrix(0.875,0,0,0.875,254,216)">
+<g id="g49" transform="translate(-16.571429,11.428571)">
+<rect fill="#e63946" height="83.714287" id="rect35" opacity="0.7" rx="5" style="stroke-width:1.09358" width="170" x="0" y="0"></rect>
+<text fill="#f0f0f0" font-family="Arial" font-size="12px" font-weight="bold" id="text36" x="10" y="20">APLICAÇÕES:</text>
+<text fill="#f0f0f0" font-family="Arial" font-size="10px" id="text37" x="10" y="40">• Ajuste de distâncias</text>
+<text fill="#f0f0f0" font-family="Arial" font-size="10px" id="text38" x="10" y="55">• Cálculo para múltiplas pessoas</text>
+<text fill="#f0f0f0" font-family="Arial" font-size="10px" id="text39" x="10" y="70">• Rotas de retorno (-1×vetor)</text>
+</g>
+</g>
+<!-- Ilustração do significado físico -->
+<!-- Título da visualização -->
+<text fill="#f0f0f0" font-family="Arial" font-size="15.75px" font-weight="bold" id="text49" style="stroke-width:0.875" text-anchor="middle" x="218.75" y="21.875">Multiplicação por Escalar: Ajustando Intensidades</text>
+</svg>

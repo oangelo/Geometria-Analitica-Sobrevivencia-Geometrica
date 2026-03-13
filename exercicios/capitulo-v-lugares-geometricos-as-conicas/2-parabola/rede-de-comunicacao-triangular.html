@@ -1,0 +1,22 @@
+<div class="exercise">
+<h3>Rede de Comunicação Triangular</h3>
+<p>Três abrigos formam um triângulo com vértices $A(0,0)$, $B(6,0)$ e $C(3,4)$. Uma torre de comunicação parabólica deve ser posicionada de forma que sua parábola $y = ax^2 + bx + c$ passe pelos três pontos. Determine a equação e calcule a altura máxima de transmissão.</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Montar sistema com os três pontos:</li>
+<li>$A(0,0)$: $0 = a(0)^2 + b(0) + c \Rightarrow c = 0$</li>
+<li>$B(6,0)$: $0 = 36a + 6b + 0 \Rightarrow 6a + b = 0 \Rightarrow b = -6a$</li>
+<li>$C(3,4)$: $4 = 9a + 3b + 0 = 9a + 3(-6a) = -9a$</li>
+<li>Resolver: $a = -\frac{4}{9}$, $b = \frac{24}{9} = \frac{8}{3}$, $c = 0$</li>
+<li>Equação: $y = -\frac{4}{9}x^2 + \frac{8}{3}x$</li>
+<li>Vértice em $x = -\frac{b}{2a} = -\frac{8/3}{2(-4/9)} = 3$</li>
+<li>Altura máxima: $y(3) = -\frac{4}{9}(9) + \frac{8}{3}(3) = -4 + 8 = 4$</li>
+</ol>
+<div class="formula">
+                    $y = -\frac{4}{9}x^2 + \frac{8}{3}x$<br/>
+                    $\text{Altura máxima: } 4 \text{ unidades no ponto } (3,4)$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> A rede triangular de comunicação garante redundância total - mesmo que um abrigo seja comprometido, a comunicação entre os outros dois permanece ativa, mantendo a coordenação de operações críticas.</p>
+</details>
+</div>

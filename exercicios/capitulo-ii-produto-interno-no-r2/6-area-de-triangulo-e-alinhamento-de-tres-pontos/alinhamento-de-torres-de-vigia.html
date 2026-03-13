@@ -1,0 +1,26 @@
+<div class="exercise">
+<h3>ALINHAMENTO DE TORRES DE VIGIA</h3>
+<p>Para otimizar a defesa da colônia, três torres de vigia foram posicionadas nos pontos A(3, 1), B(6, 5) e C(9, 9). Verifique se elas estão alinhadas para determinar se há algum ângulo morto na cobertura defensiva.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Pontos alinhados criam zonas vulneráveis na defesa. Use o teste de colinearidade com determinantes ou compare as direções dos vetores para verificar o alinhamento.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Temos os pontos A(3, 1), B(6, 5) e C(9, 9)</li>
+<li>Calculamos $\overrightarrow{AB} = (3, 4)$ e $\overrightarrow{BC} = (3, 4)$</li>
+<li>Verificamos se $\overrightarrow{AB} = k \cdot \overrightarrow{BC}$ para algum escalar k</li>
+<li>Como $\overrightarrow{AB} = \overrightarrow{BC}$, temos que k = 1</li>
+<li>Portanto, os pontos são colineares</li>
+</ol>
+<div class="formula">
+                    $$\overrightarrow{AB} = (3, 4) \text{ e } \overrightarrow{BC} = (3, 4)$$
+                    $$\frac{x_C - x_B}{x_B - x_A} = \frac{9-6}{6-3} = \frac{3}{3} = 1$$
+                    $$\frac{y_C - y_B}{y_B - y_A} = \frac{9-5}{5-1} = \frac{4}{4} = 1$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Torres de vigia alinhadas criam vulnerabilidades defensivas, pois um único ângulo de ataque pode ficar parcialmente oculto. O posicionamento não-linear das torres garante uma cobertura de 360 graus, essencial para detectar incursões de mutantes ou grupos hostis.</p>
+</details>
+</div>

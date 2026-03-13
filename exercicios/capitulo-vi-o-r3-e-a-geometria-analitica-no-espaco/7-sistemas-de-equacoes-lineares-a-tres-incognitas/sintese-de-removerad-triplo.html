@@ -1,0 +1,34 @@
+<div class="exercise">
+<h3>Síntese de RemoveRad Triplo</h3>
+<p>Para produzir RemoveRad eficiente, você precisa combinar três componentes químicos. As proporções seguem o sistema:</p>
+<div class="formula">
+            $$\begin{cases}
+            x + 2y + z = 10 \\
+            2x + y - z = 3 \\
+            x - y + 2z = 8
+            \end{cases}$$
+            </div>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+                Tente eliminar uma variável adicionando ou subtraindo equações estrategicamente.
+            </div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Somando as equações (1) e (2): $(x + 2y + z) + (2x + y - z) = 10 + 3 \Rightarrow 3x + 3y = 13$</li>
+<li>Simplificando: $x + y = \frac{13}{3}$</li>
+<li>Somando as equações (2) e (3): $(2x + y - z) + (x - y + 2z) = 3 + 8 \Rightarrow 3x + z = 11$</li>
+<li>Da equação (1): $z = 10 - x - 2y$</li>
+<li>Substituindo em $3x + z = 11$: $3x + (10 - x - 2y) = 11 \Rightarrow 2x - 2y = 1 \Rightarrow x - y = \frac{1}{2}$</li>
+<li>Resolvendo o sistema $\begin{cases} x + y = \frac{13}{3} \\ x - y = \frac{1}{2} \end{cases}$: $2x = \frac{13}{3} + \frac{1}{2} = \frac{29}{6} \Rightarrow x = \frac{29}{12}$</li>
+<li>$y = \frac{13}{3} - \frac{29}{12} = \frac{23}{12}$</li>
+<li>$z = 10 - \frac{29}{12} - 2 \cdot \frac{23}{12} = \frac{45}{12} = \frac{15}{4}$</li>
+</ol>
+<div class="formula">
+                    Solução: $(x, y, z) = \left(\frac{29}{12}, \frac{23}{12}, \frac{15}{4}\right)$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> A precisão nestas proporções é crucial - uma dosagem incorreta pode transformar o RemoveRad em um veneno mortal. A matemática salva vidas na Zona Devastada.</p>
+</details>
+</div>

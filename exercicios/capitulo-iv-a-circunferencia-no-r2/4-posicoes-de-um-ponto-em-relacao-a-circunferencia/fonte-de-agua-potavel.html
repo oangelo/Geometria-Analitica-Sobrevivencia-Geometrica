@@ -1,0 +1,31 @@
+<div class="exercise">
+<h3>FONTE DE ÁGUA POTÁVEL</h3>
+<p>Uma estação de purificação de água está localizada no centro de uma circunferência protetora descrita pela equação $x^2 + y^2 - 6x - 8y + 16 = 0$. Um repositório de RemoveRad está no ponto $P(4, 6)$. Determine se é possível acessar o repositório sem atravessar áreas com radiação e calcule a potência do ponto $P$ em relação à circunferência.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Primeiro coloque a equação da circunferência na forma canônica $(x-a)^2 + (y-b)^2 = r^2$ completando os quadrados. Em seguida, calcule a potência do ponto usando a fórmula $Pot(P) = d(P,C)^2 - r^2$.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Reescrevemos a equação da circunferência:
+                    $x^2 + y^2 - 6x - 8y + 16 = 0$</li>
+<li>Completando os quadrados:
+                    $x^2 - 6x + 9 + y^2 - 8y + 16 + 16 - 9 - 16 = 0$
+                    $(x - 3)^2 + (y - 4)^2 = 9$</li>
+<li>Identificamos o centro $C(3, 4)$ e o raio $r = 3$.</li>
+<li>Calculamos a distância do ponto $P(4, 6)$ ao centro:
+                    $d(P, C) = \sqrt{(4 - 3)^2 + (6 - 4)^2} = \sqrt{1 + 4} = \sqrt{5}$</li>
+<li>Como $d(P, C) = \sqrt{5} \approx 2,24 &lt; 3 = r$, o ponto $P$ está dentro da circunferência.</li>
+<li>Calculamos a potência do ponto $P$:
+                    $Pot(P) = d(P, C)^2 - r^2 = 5 - 9 = -4$</li>
+</ol>
+<div class="formula">
+                    $(x - 3)^2 + (y - 4)^2 = 9$
+                    $Pot(P) = d(P, C)^2 - r^2 = 5 - 9 = -4$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> O valor negativo da potência confirma que o repositório de RemoveRad está dentro da zona segura. Localizar recursos em zonas protegidas é uma vantagem estratégica, permitindo acesso frequente sem a necessidade de Trajes de Proteção, economizando recursos valiosos e reduzindo a exposição à radiação da equipe.</p>
+</details>
+</div>

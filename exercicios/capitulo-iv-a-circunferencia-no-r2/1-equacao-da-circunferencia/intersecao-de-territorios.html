@@ -1,0 +1,32 @@
+<div class="exercise">
+<h3>INTERSEÇÃO DE TERRITÓRIOS</h3>
+<p>Dois clãs rivais ocupam áreas circulares. O primeiro controla a região descrita por $(x-2)^2 + (y-3)^2 \leq 16$ e o segundo a região $(x+1)^2 + (y-1)^2 \leq 25$. Você precisa negociar uma zona neutra. Determine se existe uma região de interseção entre estes territórios e calcule a distância entre os centros.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Compare a distância entre os centros com a soma dos raios. Se a distância for menor que a soma dos raios, há interseção.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Identifique os centros e raios das duas regiões:
+                        <ul>
+<li>Região 1: Centro $(2,3)$ e raio $r_1 = 4$</li>
+<li>Região 2: Centro $(-1,1)$ e raio $r_2 = 5$</li>
+</ul>
+</li>
+<li>Calcule a distância entre os centros:
+                        $d = \sqrt{(2-(-1))^2 + (3-1)^2} = \sqrt{9 + 4} = \sqrt{13} \approx 3,61$
+                    </li>
+<li>Calcule a soma dos raios: $r_1 + r_2 = 4 + 5 = 9$</li>
+<li>Como $d = 3,61 &lt; 9$, existe uma região de interseção entre os territórios</li>
+<li>Calcule a diferença dos raios: $|r_1 - r_2| = |4 - 5| = 1$</li>
+<li>Como $d = 3,61 &gt; 1$, uma circunferência não está contida na outra</li>
+</ol>
+<div class="formula">
+                    Condição para interseção: $|r_1 - r_2| &lt; d &lt; r_1 + r_2$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Identificar zonas de interseção entre territórios rivais é crucial para estabelecer áreas neutras de comércio ou negociação, evitando conflitos desnecessários em um mundo onde alianças estratégicas podem ser tão importantes quanto os recursos.</p>
+</details>
+</div>

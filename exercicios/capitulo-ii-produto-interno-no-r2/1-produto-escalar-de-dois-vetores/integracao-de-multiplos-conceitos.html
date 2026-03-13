@@ -1,0 +1,40 @@
+<div class="exercise">
+<h3>INTEGRAÇÃO DE MÚLTIPLOS CONCEITOS</h3>
+<p>Três equipes de reconhecimento reportaram suas posições como $A(1, 2)$, $B(4, 6)$ e $C(7, 3)$. Se o vetor $\vec{p} = (x, y)$ representa a localização de um depósito secreto e deve satisfazer as equações $\vec{p} \cdot \overrightarrow{AB} = 10$ e $\vec{p} \cdot \overrightarrow{AC} = 15$, determine as coordenadas exatas do depósito para garantir o abastecimento das equipes.</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Determine os vetores $\overrightarrow{AB}$ e $\overrightarrow{AC}$:
+                       $\overrightarrow{AB} = B - A = (4, 6) - (1, 2) = (3, 4)$
+                       $\overrightarrow{AC} = C - A = (7, 3) - (1, 2) = (6, 1)$</li>
+<li>Desenvolva a primeira equação: $\vec{p} \cdot \overrightarrow{AB} = 10$
+                       $(x, y) \cdot (3, 4) = 10$
+                       $3x + 4y = 10$</li>
+<li>Desenvolva a segunda equação: $\vec{p} \cdot \overrightarrow{AC} = 15$
+                       $(x, y) \cdot (6, 1) = 15$
+                       $6x + y = 15$</li>
+<li>Isole $y$ da segunda equação: $y = 15 - 6x$</li>
+<li>Substitua na primeira equação: $3x + 4(15 - 6x) = 10$</li>
+<li>Desenvolva: $3x + 60 - 24x = 10$</li>
+<li>Simplifique: $3x - 24x = 10 - 60$</li>
+<li>$-21x = -50$</li>
+<li>$x = \frac{50}{21} \approx 2.38$</li>
+<li>Substitua para encontrar $y$: $y = 15 - 6x = 15 - 6 \times \frac{50}{21} = 15 - \frac{300}{21} = \frac{315 - 300}{21} = \frac{15}{21} \approx 0.71$</li>
+</ol>
+<div class="formula">
+                    \begin{align}
+                    \overrightarrow{AB} &amp;= (3, 4) \\
+                    \overrightarrow{AC} &amp;= (6, 1) \\
+                    \vec{p} \cdot \overrightarrow{AB} &amp;= 10 \Rightarrow 3x + 4y = 10 \\
+                    \vec{p} \cdot \overrightarrow{AC} &amp;= 15 \Rightarrow 6x + y = 15 \\
+                    y &amp;= 15 - 6x \\
+                    3x + 4(15 - 6x) &amp;= 10 \\
+                    3x + 60 - 24x &amp;= 10 \\
+                    -21x &amp;= -50 \\
+                    x &amp;= \frac{50}{21} \approx 2.38 \\
+                    y &amp;= 15 - 6 \times \frac{50}{21} \approx 0.71
+                    \end{align}
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Este problema integra vetores, produto escalar e sistemas de equações lineares para encontrar um ponto estratégico. As coordenadas $(2.38, 0.71)$ representam o único local que satisfaz as condições matemáticas impostas. Em um cenário de sobrevivência, este tipo de cálculo preciso pode ser usado para triangular posições secretas, localizar fontes de recursos ou pontos de encontro. A habilidade de resolver sistemas utilizando produto escalar é uma ferramenta poderosa quando mapas são imprecisos e a navegação GPS não está disponível na Zona Devastada.</p>
+</details>
+</div>

@@ -1,0 +1,32 @@
+<div class="exercise">
+<h3>MAPEAMENTO DE ZONAS CIRCULARES</h3>
+<p>O detector de radiação do Refúgio-Tec pode identificar zonas contaminadas num raio de 5 unidades. Se o detector for colocado na posição (3,4), desenhe no plano cartesiano a região circular que representa a área de detecção. Além disso, determine se os pontos A(7,7), B(-1,2), C(5,0) e D(3,9) estão dentro ou fora da zona de detecção, calculando suas distâncias ao centro do detector.</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>O detector posicionado em (3,4) cria uma zona circular de raio 5 unidades. Para desenhar esta região no plano cartesiano, marcamos o ponto (3,4) como centro e traçamos um círculo com raio 5 ao seu redor.</li>
+<li>Para determinar se um ponto está dentro da zona de detecção, calculamos sua distância ao centro (3,4) e verificamos se é menor ou igual a 5 (dentro) ou maior que 5 (fora).</li>
+<li>Para o ponto A(7,7):
+                       d(A, detector) = √[(7-3)² + (7-4)²] = √[4² + 3²] = √(16 + 9) = √25 = 5 unidades
+                       Como a distância é exatamente 5 unidades, o ponto A está na fronteira da zona de detecção.</li>
+<li>Para o ponto B(-1,2):
+                       d(B, detector) = √[(-1-3)² + (2-4)²] = √[(-4)² + (-2)²] = √(16 + 4) = √20 ≈ 4,47 unidades
+                       Como a distância é menor que 5 unidades, o ponto B está dentro da zona de detecção.</li>
+<li>Para o ponto C(5,0):
+                       d(C, detector) = √[(5-3)² + (0-4)²] = √[2² + (-4)²] = √(4 + 16) = √20 ≈ 4,47 unidades
+                       Como a distância é menor que 5 unidades, o ponto C está dentro da zona de detecção.</li>
+<li>Para o ponto D(3,9):
+                       d(D, detector) = √[(3-3)² + (9-4)²] = √[0² + 5²] = √25 = 5 unidades
+                       Como a distância é exatamente 5 unidades, o ponto D está na fronteira da zona de detecção.</li>
+</ol>
+<div class="formula">
+                    $$\text{Detector em } (3,4) \text{ com raio de detecção } r = 5$$
+                    $$\text{Equação da zona circular: } (x-3)^2 + (y-4)^2 \leq 25$$
+                    $$d(A, \text{detector}) = \sqrt{(7-3)^2 + (7-4)^2} = 5 \text{ (na fronteira)}$$
+                    $$d(B, \text{detector}) = \sqrt{(-1-3)^2 + (2-4)^2} \approx 4.47 \text{ (dentro)}$$
+                    $$d(C, \text{detector}) = \sqrt{(5-3)^2 + (0-4)^2} \approx 4.47 \text{ (dentro)}$$
+                    $$d(D, \text{detector}) = \sqrt{(3-3)^2 + (9-4)^2} = 5 \text{ (na fronteira)}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Compreender a cobertura de equipamentos de detecção é essencial para uma vigilância eficaz. Observe que dois pontos (A e D) estão exatamente na fronteira da zona de detecção - em termos práticos, isso poderia significar leituras intermitentes ou menos confiáveis. Em um ambiente hostil como a Zona Devastada, esta informação poderia significar a diferença entre detectar uma ameaça a tempo ou ser surpreendido por ela.</p>
+</details>
+</div>

@@ -1,0 +1,71 @@
+<div class="exercise">
+<h3>CRATERA MISTERIOSA</h3>
+<p>Exploradores descobriram três pontos não colineares A(2, 0), B(0, 4) e C(4, 8) na borda de uma antiga cratera. Determine a equação da circunferência que passa por esses pontos. Se a cratera foi formada pelo impacto de um meteorito, onde teria sido o ponto exato de impacto (centro)? Um objeto em (2, 4) estaria dentro da cratera? Um segundo objeto em (6, 8) estaria dentro da cratera? Determine também o volume aproximado da cratera, assumindo que ela tem forma hemisférica.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>O volume de uma semiesfera é $V = \frac{2\pi r^3}{3}$, onde $r$ é o raio da circunferência.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Vamos substituir os três pontos na equação geral $x^2 + y^2 + Dx + Ey + F = 0$:
+                    Para A(2, 0): $2^2 + 0^2 + 2D + 0E + F = 0 \implies 4 + 2D + F = 0$ ... (1)
+                    Para B(0, 4): $0^2 + 4^2 + 0D + 4E + F = 0 \implies 16 + 4E + F = 0$ ... (2)
+                    Para C(4, 8): $4^2 + 8^2 + 4D + 8E + F = 0 \implies 16 + 64 + 4D + 8E + F = 0 \implies 80 + 4D + 8E + F = 0$ ... (3)</li>
+<li>De (1): $F = -4 - 2D$ ... (4)
+                    Substituindo (4) em (2):
+                    $16 + 4E - 4 - 2D = 0$
+                    $12 + 4E - 2D = 0$ ... (5)
+                    Substituindo (4) em (3):
+                    $80 + 4D + 8E - 4 - 2D = 0$
+                    $76 + 2D + 8E = 0$ ... (6)</li>
+<li>Multiplicando (5) por 2:
+                    $24 + 8E - 4D = 0$ ... (7)
+                    Somando (6) e (7):
+                    $76 + 2D + 8E + 24 + 8E - 4D = 0$
+                    $100 - 2D + 16E = 0$
+                    $16E = 2D - 100$
+                    $E = \frac{2D - 100}{16} = \frac{D - 50}{8}$ ... (8)</li>
+<li>Substituindo (8) em (5):
+                    $12 + 4(\frac{D - 50}{8}) - 2D = 0$
+                    $12 + \frac{4D - 200}{8} - 2D = 0$
+                    $12 + \frac{D - 50}{2} - 2D = 0$
+                    $12 + \frac{D}{2} - 25 - 2D = 0$
+                    $-13 + \frac{D}{2} - 2D = 0$
+                    $-13 - \frac{3D}{2} = 0$
+                    $-3D = 26$
+                    $D = -\frac{26}{3}$</li>
+<li>Substituindo $D = -\frac{26}{3}$ em (8):
+                    $E = \frac{-\frac{26}{3} - 50}{8} = \frac{-\frac{26}{3} - \frac{150}{3}}{8} = \frac{-\frac{176}{3}}{8} = -\frac{22}{3}$</li>
+<li>Substituindo $D = -\frac{26}{3}$ em (4):
+                    $F = -4 - 2(-\frac{26}{3}) = -4 + \frac{52}{3} = \frac{-12 + 52}{3} = \frac{40}{3}$</li>
+<li>A equação da circunferência é:
+                    $x^2 + y^2 - \frac{26}{3}x - \frac{22}{3}y + \frac{40}{3} = 0$
+                    Multiplicando por 3:
+                    $3x^2 + 3y^2 - 26x - 22y + 40 = 0$</li>
+<li>Completando os quadrados:
+                    $3(x^2 - \frac{26}{3}x) + 3(y^2 - \frac{22}{3}y) + 40 = 0$
+                    $3(x^2 - \frac{26}{3}x + \frac{169}{36}) + 3(y^2 - \frac{22}{3}y + \frac{121}{36}) + 40 - 3(\frac{169}{36}) - 3(\frac{121}{36}) = 0$
+                    $3(x - \frac{13}{6})^2 + 3(y - \frac{11}{6})^2 + 40 - \frac{507}{12} - \frac{363}{12} = 0$
+                    $3(x - \frac{13}{6})^2 + 3(y - \frac{11}{6})^2 = \frac{507 + 363 - 480}{12} = \frac{390}{12} = \frac{65}{2}$
+                    $(x - \frac{13}{6})^2 + (y - \frac{11}{6})^2 = \frac{65}{6}$</li>
+<li>O centro é $(\frac{13}{6}, \frac{11}{6})$ e o raio é $r = \sqrt{\frac{65}{6}}$
+                    Para verificar se (2, 4) está dentro da cratera:
+                    $(2 - \frac{13}{6})^2 + (4 - \frac{11}{6})^2 = (\frac{12 - 13}{6})^2 + (\frac{24 - 11}{6})^2 = (\frac{-1}{6})^2 + (\frac{13}{6})^2 = \frac{1}{36} + \frac{169}{36} = \frac{170}{36}$
+                    Como $\frac{170}{36} &lt; \frac{65}{6} = \frac{390}{36}$, o ponto (2, 4) está dentro da cratera.
+                    
+                    Para (6, 8):
+                    $(6 - \frac{13}{6})^2 + (8 - \frac{11}{6})^2 = (\frac{36 - 13}{6})^2 + (\frac{48 - 11}{6})^2 = (\frac{23}{6})^2 + (\frac{37}{6})^2 = \frac{529}{36} + \frac{1369}{36} = \frac{1898}{36}$
+                    Como $\frac{1898}{36} &gt; \frac{390}{36}$, o ponto (6, 8) está fora da cratera.</li>
+<li>O volume da cratera hemisférica seria:
+                    $V = \frac{2\pi r^3}{3} = \frac{2\pi (\sqrt{\frac{65}{6}})^3}{3} = \frac{2\pi (\frac{65}{6})^{3/2}}{3}$</li>
+</ol>
+<div class="formula">
+                    $$(x - \frac{13}{6})^2 + (y - \frac{11}{6})^2 = \frac{65}{6}$$
+                    $$\text{Volume da cratera} = \frac{2\pi (\frac{65}{6})^{3/2}}{3} \text{ unidades cúbicas}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Em expedições de exploração, encontrar crateras pode revelar recursos valiosos como água congelada, minérios, ou mesmo tecnologias preservadas do impacto. A análise geométrica precisa da cratera permite determinar seu centro exato, que frequentemente contém a maior concentração de recursos valiosos trazidos pelo meteorito. O volume calculado também ajuda a estimar a quantidade potencial desses recursos. Na Zona Devastada, a capacidade de identificar volumes e localizar os pontos centrais de uma formação geológica pode ser a diferença entre uma expedição bem-sucedida e meses de escavações infrutíferas.</p>
+</details>
+</div>

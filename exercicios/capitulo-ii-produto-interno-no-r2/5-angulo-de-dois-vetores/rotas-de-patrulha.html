@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>ROTAS DE PATRULHA</h3>
+<p>Dois patrulheiros de segurança do Refúgio-Tec partem da entrada do bunker seguindo rotas representadas pelos vetores $\vec{u} = (2,5)$ e $\vec{v} = (4,3)$. Calcule o ângulo entre suas rotas de patrulha para garantir cobertura ideal do perímetro de segurança.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Aplique diretamente a fórmula do cosseno do ângulo entre vetores. Lembre-se que para vetores no formato $(a,b)$, o produto escalar é $a_1b_1 + a_2b_2$.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Calculamos o produto escalar dos vetores:
+                    $\vec{u} \cdot \vec{v} = 2 \cdot 4 + 5 \cdot 3 = 8 + 15 = 23$</li>
+<li>Calculamos os módulos dos vetores:
+                    $|\vec{u}| = \sqrt{2^2 + 5^2} = \sqrt{4 + 25} = \sqrt{29} \approx 5,39$
+                    $|\vec{v}| = \sqrt{4^2 + 3^2} = \sqrt{16 + 9} = \sqrt{25} = 5$</li>
+<li>Aplicamos a fórmula do cosseno:
+                    $\cos(\theta) = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}| \cdot |\vec{v}|} = \frac{23}{5,39 \cdot 5} = \frac{23}{26,95} \approx 0,854$</li>
+<li>Portanto: $\theta = \arccos(0,854) \approx 31,2°$</li>
+</ol>
+<div class="formula">
+                    $$\theta = \arccos\left(\frac{\vec{u} \cdot \vec{v}}{|\vec{u}| \cdot |\vec{v}|}\right) = \arccos\left(\frac{23}{5,39 \cdot 5}\right) \approx 31,2°$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Um ângulo de 31,2° entre as rotas de patrulha indica uma cobertura relativamente estreita do perímetro. Em termos práticos de segurança, isso pode criar "pontos cegos" significativos. Para uma cobertura mais eficiente do perímetro de um bunker, ângulos próximos a 90° ou mesmo distribuições radiais de patrulheiros (com ângulos iguais) seriam mais eficazes para detectar ameaças aproximando-se de qualquer direção.</p>
+</details>
+</div>

@@ -1,0 +1,23 @@
+<div class="exercise">
+<h3>MAPEAMENTO DE ZONA SEGURA</h3>
+<p>Seu grupo precisa demarcar uma zona segura para armazenamento de suprimentos. Dados os pontos A(0, 0), B(4, 0) e C(0, 3), calcule a área do triângulo formado para determinar se o espaço é suficiente para os recursos disponíveis.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Escolha um dos vértices como origem e construa dois vetores. A área do triângulo é metade do valor absoluto do determinante formado pelas coordenadas desses vetores.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Identificamos os três pontos: A(0, 0), B(4, 0) e C(0, 3)</li>
+<li>Escolhemos A como origem e calculamos os vetores $\overrightarrow{AB} = (4, 0)$ e $\overrightarrow{AC} = (0, 3)$</li>
+<li>Aplicamos a fórmula da área do triângulo: $\text{Área} = \frac{1}{2}|u_1v_2 - u_2v_1|$</li>
+<li>Substituindo: $\text{Área} = \frac{1}{2}|(4 \cdot 3) - (0 \cdot 0)| = \frac{1}{2} \cdot 12 = 6$ unidades quadradas</li>
+</ol>
+<div class="formula">
+                    $$\text{Área} = \frac{1}{2}|\overrightarrow{AB} \times \overrightarrow{AC}| = \frac{1}{2}|(4 \cdot 3) - (0 \cdot 0)| = 6$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> O conhecimento preciso da área disponível permite uma distribuição eficiente dos recursos. Um triângulo com área de 6 unidades quadradas pode acomodar aproximadamente 12 contêineres padrão de suprimentos, assumindo 0,5 unidades quadradas por contêiner.</p>
+</details>
+</div>

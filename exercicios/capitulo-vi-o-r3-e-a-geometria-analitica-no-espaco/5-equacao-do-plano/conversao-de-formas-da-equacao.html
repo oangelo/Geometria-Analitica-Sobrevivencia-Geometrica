@@ -1,0 +1,25 @@
+<div class="exercise">
+<h3>Conversão de Formas da Equação</h3>
+<p>O computador central do Refúgio-Tec recebeu dados sobre um plano na forma paramétrica através dos sensores: $\vec{r} = (1, 2, 0) + s(2, 1, 3) + t(1, -1, 2)$. Para integrar com o sistema de navegação, é necessário converter para a forma geral $ax + by + cz + d = 0$.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+                Na forma paramétrica, o vetor normal é o produto vetorial dos dois vetores direção.
+            </div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Identificar ponto: $P(1, 2, 0)$ e vetores direção: $\vec{u} = (2, 1, 3)$, $\vec{v} = (1, -1, 2)$</li>
+<li>Calcular vetor normal: $\vec{n} = \vec{u} \times \vec{v} = \begin{vmatrix} \vec{i} &amp; \vec{j} &amp; \vec{k} \\ 2 &amp; 1 &amp; 3 \\ 1 &amp; -1 &amp; 2 \end{vmatrix}$</li>
+<li>$\vec{n} = (1 \cdot 2 - 3 \cdot (-1), 3 \cdot 1 - 2 \cdot 2, 2 \cdot (-1) - 1 \cdot 1) = (5, -1, -3)$</li>
+<li>Usar ponto $P(1, 2, 0)$: $5(x - 1) - 1(y - 2) - 3(z - 0) = 0$</li>
+<li>Expandir: $5x - 5 - y + 2 - 3z = 0$</li>
+<li>Forma final: $5x - y - 3z - 3 = 0$</li>
+</ol>
+<div class="formula">
+                    $$5x - y - 3z - 3 = 0$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> A compatibilidade entre diferentes sistemas de coordenadas é essencial para o funcionamento integrado dos sistemas de sobrevivência automatizados.</p>
+</details>
+</div>

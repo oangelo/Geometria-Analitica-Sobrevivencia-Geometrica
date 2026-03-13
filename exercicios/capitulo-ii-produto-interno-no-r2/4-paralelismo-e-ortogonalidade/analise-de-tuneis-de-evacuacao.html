@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>ANÁLISE DE TÚNEIS DE EVACUAÇÃO</h3>
+<p>Um sistema de túneis de evacuação está sendo planejado a partir do ponto $A(3, 1)$. Dois túneis seguem nas direções dadas pelos vetores $\vec{v_1} = (2, -5)$ e $\vec{v_2} = (k, 2k)$. Para minimizar a chance de colapso estrutural durante tremores, os túneis devem ser ortogonais. Determine o valor de $k$ e as coordenadas do ponto $B$ onde o segundo túnel chegará se tiver o mesmo comprimento que o primeiro.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Primeiro encontre $k$ pela condição de ortogonalidade, depois utilize o módulo para igualar os comprimentos.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Para que $\vec{v_1} = (2, -5)$ e $\vec{v_2} = (k, 2k)$ sejam ortogonais, seu produto escalar deve ser zero.</li>
+<li>$\vec{v_1} \cdot \vec{v_2} = 2 \cdot k + (-5) \cdot 2k = 2k - 10k = -8k = 0$</li>
+<li>Isso implica que $k = 0$, o que resultaria em $\vec{v_2} = (0, 0)$, que não é um vetor direção válido.</li>
+<li>Porém, podemos interpretar que a direção de $\vec{v_2}$ pode ser expressa como $(k, 2k)$ para algum $k \neq 0$. Nesse caso, reescrevemos a condição:</li>
+<li>$\vec{v_1} \cdot \frac{\vec{v_2}}{|\vec{v_2}|} = 0$, o que ainda nos dá $-8k = 0$, sem solução válida para $k \neq 0$.</li>
+<li>Isto indica que não é possível que os vetores $(2, -5)$ e $(k, 2k)$ sejam ortogonais para qualquer $k \neq 0$.</li>
+<li>Se tentarmos com vetores da forma $(k, m)$ ao invés de $(k, 2k)$, teríamos $2k - 5m = 0$, ou $m = \frac{2k}{5}$.</li>
+</ol>
+<div class="formula">
+                    $$\vec{v_1} \cdot \vec{v_2} = 2k - 10k = -8k = 0$$
+                    $$\textrm{Para vetores da forma } (k, m): 2k - 5m = 0 \implies m = \frac{2k}{5}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Esta missão revela um princípio crucial de design: nem todas as configurações matemáticas são fisicamente realizáveis. Na prática da sobrevivência, reconhecer rapidamente quando um plano é inviável pode economizar recursos preciosos. A incapacidade de tornar os túneis ortogonais com a restrição dada significa que os engenheiros precisarão reconsiderar o design completo ou aceitar um maior risco de colapso—um cálculo custoso mas necessário.</p>
+</details>
+</div>

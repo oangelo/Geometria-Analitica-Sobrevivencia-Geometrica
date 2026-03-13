@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>ENCAPSULAMENTO DE ZONA CONTAMINADA</h3>
+<p>Uma área contaminada na Zona Devastada precisa ser isolada. Exploradores identificaram sete pontos no perímetro da contaminação: (1, 1), (2, 4), (5, 6), (8, 6), (9, 3), (7, 1), e (4, 0). Para economizar o valioso material de barreira anti-radiação, é necessário determinar o polígono convexo mínimo que engloba todos esses pontos. Calcule as coordenadas dos vértices desse polígono e o comprimento total da barreira necessária.</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Para encontrar o fecho convexo (convex hull), usaremos o algoritmo do Embrulho de Presente (Gift Wrapping):
+                    Primeiro, encontramos o ponto mais à esquerda: (1, 1)</li>
+<li>Partindo desse ponto, encontramos o ponto que forma o menor ângulo polar em relação ao eixo horizontal: (4, 0)</li>
+<li>Continuando o processo, os pontos seguintes do fecho convexo são: (7, 1), (9, 3), (8, 6), (5, 6), (2, 4) e voltamos para (1, 1)</li>
+<li>Assim, os vértices do polígono convexo são: (1, 1), (4, 0), (7, 1), (9, 3), (8, 6), (5, 6), (2, 4)</li>
+<li>Calculando o perímetro:
+                    $d((1,1),(4,0)) = \sqrt{9 + 1} = \sqrt{10} \approx 3.16$
+                    $d((4,0),(7,1)) = \sqrt{9 + 1} = \sqrt{10} \approx 3.16$
+                    $d((7,1),(9,3)) = \sqrt{4 + 4} = \sqrt{8} \approx 2.83$
+                    $d((9,3),(8,6)) = \sqrt{1 + 9} = \sqrt{10} \approx 3.16$
+                    $d((8,6),(5,6)) = 3$
+                    $d((5,6),(2,4)) = \sqrt{9 + 4} = \sqrt{13} \approx 3.61$
+                    $d((2,4),(1,1)) = \sqrt{1 + 9} = \sqrt{10} \approx 3.16$</li>
+<li>O comprimento total da barreira: $3.16 + 3.16 + 2.83 + 3.16 + 3 + 3.61 + 3.16 = 22.08$ unidades</li>
+</ol>
+<div class="formula">
+                    $$\text{Vértices do polígono convexo: } (1, 1), (4, 0), (7, 1), (9, 3), (8, 6), (5, 6), (2, 4)$$
+                    $$\text{Comprimento total da barreira: } 22.08 \text{ unidades}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Determinar o menor perímetro que encapsula uma zona perigosa é essencial para minimizar o uso de materiais de contenção raros e difíceis de fabricar. Em um mundo onde cada recurso é valioso, a otimização geométrica pode significar a diferença entre conter múltiplas áreas de risco ou deixar algumas sem isolamento adequado, comprometendo a segurança de toda a região.</p>
+</details>
+</div>

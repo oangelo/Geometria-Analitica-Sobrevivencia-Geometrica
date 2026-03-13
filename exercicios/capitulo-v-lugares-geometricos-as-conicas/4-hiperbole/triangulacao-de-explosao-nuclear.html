@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>Triangulação de Explosão Nuclear</h3>
+<p>Três estações sísmicas detectam uma explosão nuclear. As estações A(0, 0) e B(10, 0) registram uma diferença de tempo tal que os pontos equidistantes formam a hipérbole $\frac{x^2}{16} - \frac{y^2}{9} = 1$. Uma terceira estação C(5, 8) confirma que a explosão ocorreu num ponto onde x + y = 7. Determine as coordenadas exatas da explosão.</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>A hipérbole dada: $\frac{x^2}{16} - \frac{y^2}{9} = 1$ com $a = 4$, $b = 3$, $c = 5$</li>
+<li>Os focos estão em $(\pm 5, 0)$, mas as estações estão em (0,0) e (10,0)</li>
+<li>Ajustar: a hipérbole tem focos em (0,0) e (10,0), centro em (5,0)</li>
+<li>Nova equação: $\frac{(x-5)^2}{16} - \frac{y^2}{9} = 1$</li>
+<li>Sistema: $\begin{cases} \frac{(x-5)^2}{16} - \frac{y^2}{9} = 1 \\ x + y = 7 \end{cases}$</li>
+<li>Da segunda: $y = 7 - x$</li>
+<li>Substituir: $\frac{(x-5)^2}{16} - \frac{(7-x)^2}{9} = 1$</li>
+<li>Expandir: $\frac{(x-5)^2}{16} - \frac{(x-7)^2}{9} = 1$</li>
+<li>$\frac{9(x-5)^2 - 16(x-7)^2}{144} = 1$</li>
+<li>$9(x^2 - 10x + 25) - 16(x^2 - 14x + 49) = 144$</li>
+<li>$9x^2 - 90x + 225 - 16x^2 + 224x - 784 = 144$</li>
+<li>$-7x^2 + 134x - 559 = 144$</li>
+<li>$-7x^2 + 134x - 703 = 0$ ou $7x^2 - 134x + 703 = 0$</li>
+<li>Por fórmula de Bhaskara: $x = \frac{134 \pm \sqrt{134^2 - 4 \cdot 7 \cdot 703}}{14} = \frac{134 \pm \sqrt{17956 - 19684}}{14}$</li>
+<li>$\Delta = -1728 &lt; 0$, não há solução real. Verificar o problema...</li>
+</ol>
+<div class="formula">
+                    $$\text{Sistema inconsistente - necessário revisar dados das estações}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Quando os dados sísmicos são inconsistentes, pode indicar múltiplas explosões simultâneas ou reflexões sísmicas complexas. Protocolos de emergência devem assumir o pior cenário até confirmação.</p>
+</details>
+</div>

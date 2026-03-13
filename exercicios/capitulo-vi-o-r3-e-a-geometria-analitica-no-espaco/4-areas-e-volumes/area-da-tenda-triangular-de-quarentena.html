@@ -1,0 +1,24 @@
+<div class="exercise">
+<h3>Área da Tenda Triangular de Quarentena</h3>
+<p>Uma área de quarentena tem formato triangular definida pelos pontos A(1, 0, 2), B(3, 1, 0) e C(0, 2, 1). Determine a área desta zona de isolamento.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+                A área de um triângulo ABC é metade do módulo do produto vetorial entre os vetores $\overrightarrow{AB}$ e $\overrightarrow{AC}$.
+            </div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Calcular os vetores $\overrightarrow{AB} = B - A = (2, 1, -2)$ e $\overrightarrow{AC} = C - A = (-1, 2, -1)$</li>
+<li>Calcular o produto vetorial $\overrightarrow{AB} \times \overrightarrow{AC}$</li>
+<li>$\overrightarrow{AB} \times \overrightarrow{AC} = (1 \cdot (-1) - (-2) \cdot 2, (-2) \cdot (-1) - 2 \cdot (-1), 2 \cdot 2 - 1 \cdot (-1)) = (3, 4, 5)$</li>
+<li>Calcular o módulo: $||\overrightarrow{AB} \times \overrightarrow{AC}|| = \sqrt{3^2 + 4^2 + 5^2} = \sqrt{50} = 5\sqrt{2}$</li>
+<li>A área do triângulo é: $\frac{1}{2} \cdot 5\sqrt{2} = \frac{5\sqrt{2}}{2}$</li>
+</ol>
+<div class="formula">
+                    $$\text{Área} = \frac{1}{2}||\overrightarrow{AB} \times \overrightarrow{AC}|| = \frac{5\sqrt{2}}{2} \approx 3,54 \text{ unidades}^2$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Uma zona de quarentena de 3,54 unidades quadradas pode abrigar com segurança 2-3 sobreviventes infectados enquanto aguardam a administração de RemoveRad.</p>
+</details>
+</div>

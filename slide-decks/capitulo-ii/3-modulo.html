@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cap. II — Módulo e Versores</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <!-- Reveal.js Styles -->
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js@5.1.0/dist/reveal.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/reveal.js@5.1.0/dist/theme/black.css"
+      id="theme"
+    />
+
+    <!-- For syntax highlighting -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/reveal.js@5.1.0/plugin/highlight/monokai.css"
+    />
+
+    <!-- Custom styles (if needed) -->
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <!-- Slide Vertical: Conexão com Produto Escalar -->
+          <section>
+            <h2>Módulo e Versores: O Produto Escalar Revelado</h2>
+            <p>
+              No Capítulo I, definimos o módulo de \(\vec{v} = (x, y)\) como
+              \(|\vec{v}| = \sqrt{x^2 + y^2}\).
+              Agora, com o produto escalar em mãos, enxergamos por que essa fórmula é assim:
+            </p>
+            <p class="formula">
+              \[ \vec{v} \cdot \vec{v} = x^2 + y^2 = |\vec{v}|^2 \]
+            </p>
+            <p>
+              O <strong>módulo ao quadrado</strong> é exatamente o produto escalar do vetor
+              consigo mesmo. Isso não é coincidência: é a mesma relação que Pitágoras,
+              reescrita na linguagem dos vetores.
+            </p>
+            <div class="survival-tip">
+              <span class="emoji-icon">🔑</span>
+              <strong>Conexão fundamental:</strong>
+              sempre que precisar calcular \(|\vec{v}|\), você pode calcular
+              \(\sqrt{\vec{v} \cdot \vec{v}}\) — as duas expressões são equivalentes.
+            </div>
+          </section>
+
+          <!-- Slide Vertical: Definição do Módulo -->
+          <section>
+            <h2>Módulo (Comprimento) de um Vetor</h2>
+            <p>
+              Para medir a intensidade de um vetor \(\vec{v} = (x, y)\) em
+              \(\mathbb{R}^2\), utilizamos:
+            </p>
+            <p class="formula">
+              \[ |\vec{v}| = \sqrt{x^2 + y^2} = \sqrt{\vec{v} \cdot \vec{v}} \]
+            </p>
+            <p class="formula">\[ |\vec{v}|^2 = \vec{v} \cdot \vec{v} \]</p>
+
+            <p>
+              Essa fórmula deriva diretamente do Teorema de Pitágoras,
+              considerando \(x\) e \(y\) como os catetos de um triângulo
+              retângulo, cujo comprimento da hipotenusa é \(|\vec{v}|\).
+            </p>
+            <p>
+              Em aplicações práticas, o módulo indica a “intensidade” ou “força”
+              que esse vetor representa (por exemplo, a intensidade de uma força
+              ou velocidade).
+            </p>
+          </section>
+
+          <!-- Slide Vertical: Versor e Escrita de um Vetor -->
+          <section>
+            <h2>Versor (Vetor Unitário)</h2>
+            <p>
+              Qualquer vetor \(\vec{v}\) pode ser decomposto como seu módulo
+              vezes um <em>vetor unitário</em>, também chamado de
+              <em>versor</em>, que indica apenas a direção e o sentido:
+            </p>
+            <p class="formula">
+              \[ \vec{v} = |\vec{v}|\hat{v}, \quad\text{onde}\quad \hat{v} =
+              \frac{\vec{v}}{|\vec{v}|}. \]
+            </p>
+            <p>
+              Assim, <em>\(\hat{v}\)</em> possui módulo igual a 1 e aponta
+              exatamente na direção de \(\vec{v}\). Esse conceito é útil para
+              normalizar vetores em diversos cálculos, como projeções e direções
+              de movimento.
+            </p>
+          </section>
+
+          <!-- Slide Vertical: Base Canônica -->
+          <section>
+            <h2>Base Canônica em \(\mathbb{R}^2\)</h2>
+            <p>
+              Em \(\mathbb{R}^2\), a forma mais comum de representar um vetor é
+              usando a base canônica:
+            </p>
+            <ul>
+              <li>\(\vec{i} = (1,0)\)</li>
+              <li>\(\vec{j} = (0,1)\)</li>
+            </ul>
+            <p class="formula">\[ \vec{v} = x \vec{i} + y \vec{j}\]</p>
+            <p></p>
+            <p class="formula">
+              \[ \vec{v} = (\vec{v} \cdot \vec{i}) \vec{i} + (\vec{v} \cdot
+              \vec{j}) \vec{j} \]
+            </p>
+            <p>
+              É outra maneira de ver a mesma informação: em vez de agrupar em um
+              par ordenado \((x,y)\), distribuímos as componentes como “pesos”
+              dos vetores unitários \(\vec{i}\) e \(\vec{j}\).
+            </p>
+          </section>
+
+          <!-- Slide Vertical: Exercícios -->
+          <section>
+            <h2>Exercícios</h2>
+            <ol>
+              <li>
+                Calcule o módulo de \(\vec{u} = (3, -2)\) usando \(\displaystyle
+                |\vec{u}| = \sqrt{x^2 + y^2}\). Em seguida, escreva \(\vec{u}\)
+                na forma \(|\vec{u}|\hat{u}\).
+              </li>
+              <li>
+                Represente o mesmo vetor \(\vec{u} = (3, -2)\) em função da base
+                canônica, \(\vec{i}\) e \(\vec{j}\).
+              </li>
+              <li>
+                Escolha outro vetor \(\vec{v} = (x, y)\) e repita o processo:
+                <ul>
+                  <li>Encontre \(|\vec{v}|\).</li>
+                  <li>Determine \(\hat{v}\).</li>
+                  <li>
+                    Escreva \(\vec{v}\) em termos de \(\vec{i}\) e \(\vec{j}\).
+                  </li>
+                </ul>
+              </li>
+            </ol>
+          </section>
+        </section>
+
+      </div>
+      <!-- .slides -->
+    </div>
+    <!-- .reveal -->
+
+    <!-- Reveal.js -->
+    <script src="https://unpkg.com/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+
+    <!-- MathJax -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["\\(", "\\)"]],
+          displayMath: [["\\[", "\\]"]],
+        },
+        svg: { fontCache: "global" },
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+    <script>
+      Reveal.initialize({
+        hash: true,
+        slideNumber: true,
+        plugins: [RevealNotes, RevealHighlight],
+      });
+    </script>
+  </body>
+</html>

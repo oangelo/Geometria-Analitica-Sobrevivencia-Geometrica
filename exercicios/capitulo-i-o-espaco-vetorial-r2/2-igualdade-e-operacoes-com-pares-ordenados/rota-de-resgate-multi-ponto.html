@@ -1,0 +1,29 @@
+<div class="exercise">
+<h3>ROTA DE RESGATE MULTI-PONTO</h3>
+<p>Uma equipe de resgate precisa planejar uma rota eficiente para recuperar sobreviventes em cinco pontos diferentes antes que uma tempestade de radiação atinja a região. As coordenadas dos pontos são $P_1 = (2,3)$, $P_2 = (-4,1)$, $P_3 = (0,-2)$, $P_4 = (5,3)$ e $P_5 = (-1,-5)$. O ponto inicial da missão é $P_0 = (1,0)$ e o ponto final (abrigo seguro) é $P_f = (3P_1 - 2P_3 + P_4)/2$. A rota deve seguir a sequência: $P_0 \rightarrow P_2 \rightarrow P_5 \rightarrow P_3 \rightarrow P_1 \rightarrow P_4 \rightarrow P_f$. Calcule a distância total percorrida, usando os deslocamentos entre pontos consecutivos, e determine as coordenadas do abrigo final $P_f$.</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Primeiro, calculemos as coordenadas do ponto final $P_f$:
+                       $P_f = (3P_1 - 2P_3 + P_4)/2$
+                       $P_f = (3(2,3) - 2(0,-2) + (5,3))/2$
+                       $P_f = ((3 \cdot 2, 3 \cdot 3) - (2 \cdot 0, 2 \cdot (-2)) + (5,3))/2$
+                       $P_f = ((6,9) - (0,-4) + (5,3))/2$
+                       $P_f = ((6+0+5), (9+4+3))/2$
+                       $P_f = (11,16)/2$
+                       $P_f = (5.5, 8)$</li>
+<li>Agora, calculemos cada deslocamento da rota:
+                       $\vec{P_0P_2} = P_2 - P_0 = (-4,1) - (1,0) = (-5,1)$
+                       $\vec{P_2P_5} = P_5 - P_2 = (-1,-5) - (-4,1) = (3,-6)$
+                       $\vec{P_5P_3} = P_3 - P_5 = (0,-2) - (-1,-5) = (1,3)$
+                       $\vec{P_3P_1} = P_1 - P_3 = (2,3) - (0,-2) = (2,5)$
+                       $\vec{P_1P_4} = P_4 - P_1 = (5,3) - (2,3) = (3,0)$
+                       $\vec{P_4P_f} = P_f - P_4 = (5.5,8) - (5,3) = (0.5,5)$</li>
+<li>A distância total será a soma das magnitudes de cada deslocamento, que pode ser calculada como a soma dos comprimentos de cada vetor.</li>
+</ol>
+<div class="formula">
+                    $P_f = (3P_1 - 2P_3 + P_4)/2 = (3(2,3) - 2(0,-2) + (5,3))/2 = ((6,9) - (0,-4) + (5,3))/2 = (11,16)/2 = (5.5, 8)$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Em operações de resgate complexas, a capacidade de calcular pontos de convergência e rotas otimizadas é vital quando o tempo é limitado. Cada minuto economizado pode significar uma vida salva antes que condições ambientais fatais se estabeleçam. Também demonstra como operações matemáticas podem ser combinadas para criar pontos de referência derivados que não existem fisicamente no terreno.</p>
+</details>
+</div>

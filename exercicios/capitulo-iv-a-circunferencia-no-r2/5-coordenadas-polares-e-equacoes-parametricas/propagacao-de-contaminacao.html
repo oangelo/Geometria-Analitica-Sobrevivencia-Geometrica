@@ -1,0 +1,25 @@
+<div class="exercise">
+<h3>PROPAGAÇÃO DE CONTAMINAÇÃO</h3>
+<p>Um vazamento de radiação de um reator danificado segue o padrão descrito pela equação polar $r = 400(1 + \cos\theta)$, com $r$ em metros. Um explorador está atualmente na posição cartesiana $(300, 400)$. Determine se ele está em uma área segura ou contaminada.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>A equação representa uma cardioide. Converta as coordenadas cartesianas do explorador para coordenadas polares e verifique se o raio é menor que o valor dado pela equação da cardioide para o mesmo ângulo.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Primeiro, convertemos as coordenadas cartesianas $(300, 400)$ do explorador para coordenadas polares.</li>
+<li>Calculamos o raio: $r_{explorador} = \sqrt{300^2 + 400^2} = \sqrt{90000 + 160000} = \sqrt{250000} = 500$ metros.</li>
+<li>Calculamos o ângulo: $\theta_{explorador} = \arctan\left(\frac{400}{300}\right) \approx 0.9273$ radianos $\approx 53.13°$.</li>
+<li>Agora, calculamos o valor de $r$ na equação da cardioide para $\theta = 0.9273$:
+                       $r_{contaminação} = 400(1 + \cos(0.9273)) = 400(1 + 0.5960) = 400 \cdot 1.5960 = 638.4$ metros.</li>
+<li>Comparamos: $r_{explorador} = 500$ metros é menor que $r_{contaminação} = 638.4$ metros.</li>
+</ol>
+<div class="formula">
+                    $$r_{explorador} = 500 \text{ m} &lt; r_{contaminação} = 638.4 \text{ m}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> O explorador está em área contaminada! Modelos matemáticos de propagação de contaminantes são vitais para estabelecer zonas de exclusão e rotas seguras. Quando recursos de detecção são limitados, equações que descrevem fronteiras de contaminação podem ser a única ferramenta disponível para evitar exposição a níveis letais de radiação.</p>
+</details>
+</div>

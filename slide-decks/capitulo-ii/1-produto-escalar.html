@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cap. II — Produto Escalar</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <!-- Reveal.js Styles -->
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js@5.1.0/dist/reveal.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/reveal.js@5.1.0/dist/theme/black.css"
+      id="theme"
+    />
+
+    <!-- For syntax highlighting -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/reveal.js@5.1.0/plugin/highlight/monokai.css"
+    />
+
+    <!-- Custom styles (if needed) -->
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Capítulo II – Produto Interno no R²</h1>
+          <p>
+            Em terras arruinadas, às vezes a melhor forma de sobreviver é
+            entender como forças aparentemente opostas podem se alinhar ou
+            coexistir.
+          </p>
+        </section>
+
+        <!-- Slide Horizontal 3: Produto Escalar & Reflexão Rápida -->
+        <section>
+          <section>
+            <h2>Definição do Produto Escalar</h2>
+            <p>
+              O <strong>Produto Interno</strong> (ou escalar) de dois vetores
+              \(\vec{u}\) e \(\vec{v}\) em \(\mathbb{R}^2\) é dado por:
+            </p>
+            <p class="formula">
+              \[ \vec{u} \cdot \vec{v} = x_u\,x_v + y_u\,y_v \]
+            </p>
+            <p>
+              Interpretação: quanto maior o valor, mais “alinhados” (menos
+              atrito) os vetores estão.
+            </p>
+          </section>
+
+          <section>
+            <h3>Exercício</h3>
+            <p>
+              Um exercício simples num mundo difícil: sejam \(\vec{u} = (1,2)\)
+              e \(\vec{v} = (3,-1)\). Calcule o produto escalar.
+            </p>
+          </section>
+          <section>
+            <h2>Propriedades do Produto Escalar</h2>
+            <p>Há certas “leis” que nem mesmo o apocalipse consegue revogar:</p>
+            <ul>
+              <li>
+                <strong>Comutatividade:</strong> \(\vec{u} \cdot \vec{v} =
+                \vec{v} \cdot \vec{u}\)
+              </li>
+              <li>
+                <strong>Distributividade:</strong> \(\vec{u} \cdot (\vec{v} +
+                \vec{w}) = \vec{u} \cdot \vec{v} + \vec{u} \cdot \vec{w}\)
+              </li>
+              <li>
+                <strong>Associatividade com escalar:</strong> \((\alpha \vec{u})
+                \cdot \vec{v} = \alpha (\vec{u} \cdot \vec{v})\)
+              </li>
+              <li>
+                <strong>Auto produto:</strong> \(\vec{v} \cdot \vec{v} =
+                |\vec{v}|^2\), a “potência” ou “força” do vetor medido ao
+                quadrado.
+              </li>
+            </ul>
+            <p>
+              Em termos de ângulo, \(\vec{u} \cdot \vec{v} =
+              |\vec{u}||\vec{v}|\cos(\theta)\). Um valor positivo indica
+              vetores “cooperando”, enquanto um negativo sugere competição
+              intensa.
+            </p>
+          </section>
+
+          <section>
+            <h2>Ângulo entre Vetores: A Bússola do Produto Escalar</h2>
+            <p>
+              O produto escalar revela o ângulo \(\theta\) entre dois vetores. A partir de
+              \(\vec{u} \cdot \vec{v} = |\vec{u}||\vec{v}|\cos(\theta)\), isolamos:
+            </p>
+            <p class="formula">
+              \[ \cos(\theta) = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}||\vec{v}|}, \qquad
+              \theta = \arccos\!\left(\frac{\vec{u} \cdot \vec{v}}{|\vec{u}||\vec{v}|}\right) \]
+            </p>
+            <div class="flex-container">
+              <div class="flex-item">
+                <strong>\(\theta = 0^\circ\)</strong><br/>
+                vetores paralelos, mesmo sentido<br/>
+                \(\vec{u} \cdot \vec{v} = |\vec{u}||\vec{v}| > 0\)
+              </div>
+              <div class="flex-item">
+                <strong>\(\theta = 90^\circ\)</strong><br/>
+                vetores ortogonais<br/>
+                \(\vec{u} \cdot \vec{v} = 0\)
+              </div>
+              <div class="flex-item">
+                <strong>\(\theta = 180^\circ\)</strong><br/>
+                vetores anti-paralelos<br/>
+                \(\vec{u} \cdot \vec{v} = -|\vec{u}||\vec{v}| < 0\)
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h3>Exemplo: Calculando o Ângulo</h3>
+            <p>
+              Sejam \(\vec{u} = (1, 1)\) e \(\vec{v} = (1, 0)\). Qual o ângulo entre eles?
+            </p>
+            <ol>
+              <li>Produto escalar: \(\vec{u} \cdot \vec{v} = 1 \cdot 1 + 1 \cdot 0 = 1\)</li>
+              <li>Módulos: \(|\vec{u}| = \sqrt{2}\), \(|\vec{v}| = 1\)</li>
+              <li>\(\cos(\theta) = \dfrac{1}{\sqrt{2} \cdot 1} = \dfrac{\sqrt{2}}{2}\)</li>
+              <li>\(\theta = \arccos\!\left(\dfrac{\sqrt{2}}{2}\right) = 45^\circ\)</li>
+            </ol>
+            <div class="survival-tip">
+              <span class="emoji-icon">🧭</span>
+              <strong>Regra do Sobrevivente:</strong> sinal do produto escalar basta para saber se o ângulo
+              é agudo (\(> 0\)), reto (\(= 0\)) ou obtuso (\(< 0\)). O \(\arccos\) só é necessário
+              quando o valor exato do ângulo importa.
+            </div>
+          </section>
+
+          <section>
+            <h2>Reflexão Rápida</h2>
+            <p>
+              Nesses tempos hostis, aprender a medir “afinidade” ou
+              “desalinhamento” entre vetores é como negociar com facções rivais:
+              às vezes um simples acordo (produto escalar positivo) evita
+              catástrofes nucleares.
+            </p>
+            <p><em>Teoria dos Jogos</em> (versão pós-apocalipse):</p>
+            <ul>
+              <li>
+                Vetores cooperativos (ângulo menor que 90°) tendem a somar
+                forças.
+              </li>
+              <li>
+                Vetores concorrentes (ângulo maior que 90°) podem se anular ou
+                destruir.
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Pergunta Filosófica</h3>
+            <p>
+              <em
+                >Em que ponto a competição extrema entre grupos (vetores
+                concorrentes) deixa de ser produtiva e passa a ser
+                destrutiva?</em
+              >
+            </p>
+          </section>
+
+          <section>
+            <h2>Exercícios: Produto Escalar e Ângulo</h2>
+            <ol>
+              <li>
+                <strong>Cálculo direto:</strong>
+                Sejam \(\vec{u} = (3, 4)\) e \(\vec{v} = (1, -2)\).
+                Calcule \(\vec{u} \cdot \vec{v}\), \(|\vec{u}|\), \(|\vec{v}|\)
+                e o ângulo \(\theta\) entre eles.
+              </li>
+              <li>
+                <strong>Ortogonalidade:</strong>
+                O vetor \(\vec{w} = (-4, 3)\) é ortogonal a \(\vec{u} = (3, 4)\)?
+                Justifique usando o produto escalar.
+              </li>
+              <li>
+                <strong>Encontrando coordenadas:</strong>
+                Determine o valor de \(k\) tal que \(\vec{a} = (2, k)\) seja
+                ortogonal a \(\vec{b} = (3, -4)\).
+              </li>
+              <li>
+                <strong>Auto produto e módulo:</strong>
+                Se \(\vec{v} \cdot \vec{v} = 25\), qual é \(|\vec{v}|\)?
+              </li>
+            </ol>
+          </section>
+          <section>
+            <h2>O Produto Escalar e a Física Pós-Apocalíptica</h2>
+            <p>
+              Em um mundo onde cada gota de energia é vital, compreender como o
+              produto escalar funciona na Física é questão de sobrevivência.
+              Afinal, mover entulhos e abrir bunkers exige um planejamento
+              preciso dos esforços.
+            </p>
+            <p>
+              <strong>Trabalho (Work) em Física:</strong><br />
+              \( W = \vec{F} \cdot \vec{d} = |\vec{F}||\vec{d}|\cos(\theta)
+              \)<br />
+              Se a força estiver “alinhada” ao deslocamento, o trabalho é
+              positivo (contribui para o progresso). Se estiver na direção
+              oposta, é como remar contra a maré radioativa.
+            </p>
+            <p>
+              Essa mesma ideia de alinhamento (ou desalinhamento) se aplica em
+              diversas grandezas físicas, pois o produto escalar aparece em
+              contextos como energia, potência e até em eletromagnetismo. Em
+              última análise, você está medindo quão “úteis” (ou não) forças e
+              campos podem ser em relação a um determinado movimento ou direção.
+            </p>
+          </section>
+          <section>
+            <h3>Reflexão Estratégica</h3>
+            <p>
+              Se o seu objetivo é empurrar uma barricada até o abrigo, use a
+              força no mesmo sentido do deslocamento. Forças perpendiculares (ou
+              contrárias) resultam em perda de esforços preciosos — e nenhum
+              sobrevivente quer desperdiçar recursos em tempos tão austeros.
+            </p>
+            <p>
+              <em>Dica de Sobrevivência:</em> ao planejar qualquer movimento,
+              avalie o ângulo entre força e deslocamento. Um simples cálculo de
+              produto escalar pode ser a diferença entre encontrar suprimentos
+              ou ficar à deriva no ermo.
+            </p>
+          </section>
+        </section>
+
+      </div>
+      <!-- .slides -->
+    </div>
+    <!-- .reveal -->
+
+    <!-- Reveal.js -->
+    <script src="https://unpkg.com/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+
+    <!-- MathJax -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["\\(", "\\)"]],
+          displayMath: [["\\[", "\\]"]],
+        },
+        svg: { fontCache: "global" },
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+    <script>
+      Reveal.initialize({
+        hash: true,
+        slideNumber: true,
+        plugins: [RevealNotes, RevealHighlight],
+      });
+    </script>
+  </body>
+</html>

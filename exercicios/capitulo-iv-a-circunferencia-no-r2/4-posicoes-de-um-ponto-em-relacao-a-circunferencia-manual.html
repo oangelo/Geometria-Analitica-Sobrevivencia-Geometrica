@@ -1,0 +1,27 @@
+<section class="manual-contexto" data-context="manual-sobrevivencia">
+    <div class="terminal-border">
+    <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: POSIÇÕES DE PONTOS EM RELAÇÃO À CIRCUNFERÊNCIA</h2>
+<p>Sobreviventes, em um mundo onde zonas seguras são delimitadas por barreiras circulares de proteção contra radiação, compreender a relação entre pontos e circunferências tornou-se uma habilidade crucial. Seja para determinar se um abrigo está dentro de uma área segura ou avaliar a distância até o perímetro de proteção, este conhecimento pode significar a diferença entre vida e morte na Zona Devastada.</p>
+<p>A relação entre um ponto e uma circunferência é determinada pela comparação entre a distância do ponto ao centro da circunferência e o raio da mesma. Esta simples comparação nos permite classificar o ponto como <span class="success">interno</span>, <span class="warning">sobre</span> ou <span class="danger">externo</span> à circunferência, informação vital para planejar expedições de coleta de recursos.</p>
+<p>Além disso, a "potência de um ponto" em relação a uma circunferência é um conceito que nos permite quantificar o quão "para dentro" ou "para fora" o ponto está da região circular, facilitando o cálculo de distâncias seguras e o planejamento de rotas otimizadas para economizar recursos em nossas expedições.</p>
+<div class="formula">
+    $$ d(P, C) = \sqrt{(x_P - x_C)^2 + (y_P - y_C)^2} $$
+    
+    <p>Onde $d(P, C)$ é a distância do ponto $P(x_P, y_P)$ ao centro $C(x_C, y_C)$ da circunferência.</p>
+</div>
+<p>Para uma circunferência com centro $C(a, b)$ e raio $r$, podemos determinar a posição de um ponto $P(x, y)$ usando a seguinte regra:</p>
+<div class="formula">
+<ul>
+<li>Se $d(P, C) &lt; r$: ponto está <span class="success">dentro</span> da circunferência (zona segura)</li>
+<li>Se $d(P, C) = r$: ponto está <span class="warning">sobre</span> a circunferência (perímetro)</li>
+<li>Se $d(P, C) &gt; r$: ponto está <span class="danger">fora</span> da circunferência (zona perigosa)</li>
+</ul>
+</div>
+<p>A potência de um ponto $P$ em relação a uma circunferência com centro $C$ e raio $r$ é dada por:</p>
+<div class="formula">
+    $$ Pot(P) = d(P, C)^2 - r^2 $$
+    </div>
+<p>A análise do sinal dessa potência nos dá exatamente a mesma classificação: negativa para pontos internos, zero para pontos sobre a circunferência e positiva para pontos externos.</p>
+
+    </div>
+</section>

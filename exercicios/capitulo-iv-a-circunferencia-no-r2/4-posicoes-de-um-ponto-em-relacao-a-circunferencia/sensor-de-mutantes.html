@@ -1,0 +1,31 @@
+<div class="exercise">
+<h3>SENSOR DE MUTANTES</h3>
+<p>Um sensor de detecção de mutantes tem alcance definido pela circunferência $(x+2)^2 + (y-3)^2 = 25$. Três assentamentos estão localizados nos pontos $A(-5, 6)$, $B(1, 0)$ e $C(2, 8)$. Determine quais assentamentos estão dentro do alcance do sensor e calcule a potência do ponto $B$ em relação à circunferência.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Identifique o centro e o raio da circunferência, e então calcule a distância de cada assentamento até o centro. A potência do ponto é calculada como $Pot(B) = d(B, C)^2 - r^2$, e seu sinal indica a posição relativa.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Da equação $(x+2)^2 + (y-3)^2 = 25$, identificamos o centro $C(-2, 3)$ e o raio $r = 5$.</li>
+<li>Para o assentamento $A(-5, 6)$:
+                    $d(A, C) = \sqrt{(-5 - (-2))^2 + (6 - 3)^2} = \sqrt{(-3)^2 + 3^2} = \sqrt{9 + 9} = \sqrt{18} = 3\sqrt{2} \approx 4,24$</li>
+<li>Como $d(A, C) \approx 4,24 &lt; 5 = r$, o assentamento $A$ está dentro do alcance.</li>
+<li>Para o assentamento $B(1, 0)$:
+                    $d(B, C) = \sqrt{(1 - (-2))^2 + (0 - 3)^2} = \sqrt{3^2 + (-3)^2} = \sqrt{9 + 9} = \sqrt{18} = 3\sqrt{2} \approx 4,24$</li>
+<li>Como $d(B, C) \approx 4,24 &lt; 5 = r$, o assentamento $B$ também está dentro do alcance.</li>
+<li>Para o assentamento $C(2, 8)$:
+                    $d(C, C_{circ}) = \sqrt{(2 - (-2))^2 + (8 - 3)^2} = \sqrt{4^2 + 5^2} = \sqrt{16 + 25} = \sqrt{41} \approx 6,40$</li>
+<li>Como $d(C, C_{circ}) \approx 6,40 &gt; 5 = r$, o assentamento $C$ está fora do alcance.</li>
+<li>A potência do ponto $B$ é:
+                    $Pot(B) = d(B, C)^2 - r^2 = 18 - 25 = -7$</li>
+</ol>
+<div class="formula">
+                    $Pot(B) = d(B, C)^2 - r^2 = 18 - 25 = -7$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Os assentamentos A e B estão protegidos pelo sensor, mas C está vulnerável. A potência negativa de B confirma sua posição dentro da zona de proteção. Em tempos de recursos limitados, priorizar a defesa do assentamento C ou realocá-lo para dentro da zona segura pode ser crucial para a sobrevivência de todos.</p>
+</details>
+</div>

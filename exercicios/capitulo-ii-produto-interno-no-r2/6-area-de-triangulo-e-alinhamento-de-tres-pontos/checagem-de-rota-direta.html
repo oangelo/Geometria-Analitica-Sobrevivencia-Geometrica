@@ -1,0 +1,24 @@
+<div class="exercise">
+<h3>CHECAGEM DE ROTA DIRETA</h3>
+<p>Três abrigos estão localizados nos pontos A(1, 1), B(3, 2) e C(7, 4). Determine se é possível estabelecer uma única rota de patrulha em linha reta que passe por todos eles, economizando recursos de vigilância.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para verificar se três pontos são colineares, calcule os vetores entre dois pares de pontos e verifique se um é múltiplo escalar do outro.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Identificamos os três pontos: A(1, 1), B(3, 2) e C(7, 4)</li>
+<li>Calculamos os vetores $\overrightarrow{AB} = (2, 1)$ e $\overrightarrow{BC} = (4, 2)$</li>
+<li>Verificamos se $\overrightarrow{BC} = k \cdot \overrightarrow{AB}$ para algum escalar k</li>
+<li>Comparamos as razões das coordenadas: $\frac{4}{2} = \frac{2}{1} = 2$</li>
+<li>Como as razões são iguais, os vetores são paralelos, portanto os pontos são colineares</li>
+</ol>
+<div class="formula">
+                    $$\frac{x_C - x_B}{x_B - x_A} = \frac{y_C - y_B}{y_B - y_A} \iff \frac{7-3}{3-1} = \frac{4-2}{2-1} \iff \frac{4}{2} = \frac{2}{1} = 2$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> A colinearidade desses pontos permite economizar recursos críticos ao estabelecer uma única rota de patrulha linear. Na Zona Devastada, cada metro de cerca ou sensor economizado pode ser redirecionado para outras necessidades de sobrevivência.</p>
+</details>
+</div>

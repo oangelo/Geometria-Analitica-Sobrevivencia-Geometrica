@@ -1,0 +1,33 @@
+<div class="exercise">
+<h3>COMBINAÇÃO LINEAR</h3>
+<p>Uma equipe de engenheiros da Refúgio-Tec está construindo uma nova barreira defensiva. Eles dispõem de dois tipos de módulos de proteção: tipo A, que oferece vetor de defesa $\vec{a} = (2, 1)$, e tipo B, com vetor de defesa $\vec{b} = (1, 3)$. Os cálculos indicam que é necessário um vetor de defesa resultante $\vec{r} = (7, 11)$ para proteger adequadamente o abrigo. Determine quantos módulos de cada tipo devem ser instalados para atingir exatamente o nível de proteção necessário.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Você precisa encontrar os valores de $x$ e $y$ tais que $x\vec{a} + y\vec{b} = \vec{r}$. Isso forma um sistema de equações lineares.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Precisamos encontrar valores para $x$ e $y$ tais que $x\vec{a} + y\vec{b} = \vec{r}$</li>
+<li>Substituindo os valores: $x(2, 1) + y(1, 3) = (7, 11)$</li>
+<li>Isso nos dá o sistema: $\begin{cases} 2x + y = 7 \\ x + 3y = 11 \end{cases}$</li>
+<li>Da primeira equação: $y = 7 - 2x$</li>
+<li>Substituindo na segunda: $x + 3(7 - 2x) = 11$</li>
+<li>Simplificando: $x + 21 - 6x = 11$</li>
+<li>Reorganizando: $-5x = -10$</li>
+<li>Resolvendo: $x = 2$</li>
+<li>Substituindo para encontrar y: $y = 7 - 2(2) = 7 - 4 = 3$</li>
+<li>Verificando: $2(2, 1) + 3(1, 3) = (4, 2) + (3, 9) = (7, 11)$ ✓</li>
+</ol>
+<div class="formula">
+                    Sistema de equações:
+                    <br/>
+                    $\begin{cases} 2x + y = 7 \\ x + 3y = 11 \end{cases}$
+                    <br/>
+                    Solução: $x = 2$ e $y = 3$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Combinações lineares de vetores são fundamentais para otimizar recursos escassos em um mundo pós-apocalíptico. Ao encontrar a exata combinação de módulos defensivos, o abrigo obtém proteção adequada sem desperdiçar materiais valiosos ou deixar pontos vulneráveis. Esta análise vetorial precisa pode ser aplicada a distribuição de recursos, planejamento de expedições ou construção de estruturas eficientes.</p>
+</details>
+</div>

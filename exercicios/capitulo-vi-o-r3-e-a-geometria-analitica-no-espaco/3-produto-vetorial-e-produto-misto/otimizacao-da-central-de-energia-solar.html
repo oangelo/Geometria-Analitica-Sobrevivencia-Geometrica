@@ -1,0 +1,21 @@
+<div class="exercise">
+<h3>Otimização da Central de Energia Solar</h3>
+<p>Para maximizar a captação de energia, três painéis solares devem ser posicionados nos vetores $\vec{p_1} = (3, 1, 2)$, $\vec{p_2} = (2, -1, 1)$ e $\vec{p_3} = (k, 2, 3)$. A eficiência máxima ocorre quando o volume do paralelepípedo formado pelos três vetores é exatamente 25 unidades cúbicas. Determine o valor de $k$ que otimiza o sistema.</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>O volume é dado pelo produto misto: $\begin{vmatrix} 3 &amp; 1 &amp; 2 \\ 2 &amp; -1 &amp; 1 \\ k &amp; 2 &amp; 3 \end{vmatrix} = \pm 25$</li>
+<li>Expandindo pela primeira linha: $3 \begin{vmatrix} -1 &amp; 1 \\ 2 &amp; 3 \end{vmatrix} - 1 \begin{vmatrix} 2 &amp; 1 \\ k &amp; 3 \end{vmatrix} + 2 \begin{vmatrix} 2 &amp; -1 \\ k &amp; 2 \end{vmatrix}$</li>
+<li>$3((-1)(3) - (1)(2)) - 1((2)(3) - (1)(k)) + 2((2)(2) - (-1)(k))$</li>
+<li>$3(-3 - 2) - 1(6 - k) + 2(4 + k)$</li>
+<li>$3(-5) - (6 - k) + 2(4 + k) = -15 - 6 + k + 8 + 2k = 3k - 13$</li>
+<li>Para volume = 25: $3k - 13 = 25$ ou $3k - 13 = -25$</li>
+<li>$3k = 38 \Rightarrow k = \frac{38}{3}$ ou $3k = -12 \Rightarrow k = -4$</li>
+</ol>
+<div class="formula">
+                    $$k = \frac{38}{3} \approx 12.67 \text{ ou } k = -4$$
+                    $$\text{Volume} = |3k - 13| = 25$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Para $k = \frac{38}{3}$, os painéis captam luz solar de manhã e tarde otimamente. Para $k = -4$, a configuração favorece radiação solar direta ao meio-dia. Escolha $k = \frac{38}{3}$ para locais com névoa matinal frequente, ou $k = -4$ para desertos com sol intenso constante.</p>
+</details>
+</div>

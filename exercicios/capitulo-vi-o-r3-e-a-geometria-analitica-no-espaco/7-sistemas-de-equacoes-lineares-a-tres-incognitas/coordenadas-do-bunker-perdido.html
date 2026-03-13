@@ -1,0 +1,33 @@
+<div class="exercise">
+<h3>Coordenadas do Bunker Perdido</h3>
+<p>Três torres de comunicação detectaram sinais de um bunker perdido. As coordenadas $(x, y, z)$ satisfazem:</p>
+<div class="formula">
+            $$\begin{cases}
+            3x - y + z = 7 \\
+            x + y + z = 9 \\
+            2x + y - z = 1
+            \end{cases}$$
+            </div>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+                Note que somar a segunda e terceira equações elimina $z$ imediatamente.
+            </div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Somando as equações (2) e (3): $(x + y + z) + (2x + y - z) = 9 + 1 \Rightarrow 3x + 2y = 10$</li>
+<li>Subtraindo a equação (3) da (2): $(x + y + z) - (2x + y - z) = 9 - 1 \Rightarrow -x + 2z = 8 \Rightarrow z = 4 + \frac{x}{2}$</li>
+<li>Substituindo na equação (2): $x + y + 4 + \frac{x}{2} = 9 \Rightarrow \frac{3x}{2} + y = 5 \Rightarrow y = 5 - \frac{3x}{2}$</li>
+<li>Substituindo na primeira equação: $3x - (5 - \frac{3x}{2}) + (4 + \frac{x}{2}) = 7$</li>
+<li>Simplificando: $3x - 5 + \frac{3x}{2} + 4 + \frac{x}{2} = 7 \Rightarrow 3x + 2x - 1 = 7 \Rightarrow 5x = 8 \Rightarrow x = \frac{8}{5}$</li>
+<li>$y = 5 - \frac{3 \cdot 8}{2 \cdot 5} = 5 - \frac{12}{5} = \frac{13}{5}$</li>
+<li>$z = 4 + \frac{8}{2 \cdot 5} = 4 + \frac{4}{5} = \frac{24}{5}$</li>
+</ol>
+<div class="formula">
+                    Solução: $(x, y, z) = \left(\frac{8}{5}, \frac{13}{5}, \frac{24}{5}\right)$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> As coordenadas exatas são vitais para localizar o bunker antes que outros grupos de saqueadores o encontrem. Cada segundo conta na Zona Devastada.</p>
+</details>
+</div>

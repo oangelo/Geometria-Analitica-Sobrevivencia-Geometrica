@@ -1,0 +1,30 @@
+<div class="exercise">
+<h3>PERÍMETRO DE SEGURANÇA</h3>
+<p>Sua equipe de sobrevivência estabeleceu três marcos de vigilância nos pontos A(0, 0), B(4, 0) e C(2, 2). Para otimizar o uso de sensores de movimento, você precisa determinar a equação da circunferência que passa exatamente por estes três pontos, criando assim um perímetro de segurança eficiente.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Substitua as coordenadas dos três pontos na equação geral da circunferência $x^2 + y^2 + Dx + Ey + F = 0$ para gerar um sistema de três equações lineares com três incógnitas (D, E e F).</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Substitua cada ponto na equação geral da circunferência $x^2 + y^2 + Dx + Ey + F = 0$:
+                    Para A(0, 0): $0^2 + 0^2 + D·0 + E·0 + F = 0 \implies F = 0$
+                    Para B(4, 0): $4^2 + 0^2 + D·4 + E·0 + F = 0 \implies 16 + 4D + F = 0$
+                    Para C(2, 2): $2^2 + 2^2 + D·2 + E·2 + F = 0 \implies 8 + 2D + 2E + F = 0$</li>
+<li>Já sabemos que $F = 0$, substituindo nas outras equações:
+                    $16 + 4D = 0 \implies D = -4$
+                    $8 + 2D + 2E = 0 \implies 8 + 2(-4) + 2E = 0 \implies 8 - 8 + 2E = 0 \implies E = 0$</li>
+<li>Então temos $D = -4$, $E = 0$ e $F = 0$.
+                    A equação da circunferência é $x^2 + y^2 - 4x = 0$</li>
+<li>Completando quadrados: $x^2 - 4x + y^2 = 0 \implies (x^2 - 4x + 4) + y^2 - 4 = 0 \implies (x - 2)^2 + y^2 = 4$</li>
+<li>Portanto, o centro da circunferência é $(2, 0)$ e o raio é $r = 2$</li>
+</ol>
+<div class="formula">
+                    $$(x - 2)^2 + y^2 = 4$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Assim como uma circunferência é definida por três pontos estratégicos, seu perímetro de segurança depende de marcos bem posicionados. Não basta ter sensores aleatórios; é preciso um padrão matemático que maximize a cobertura com recursos mínimos. Os pontos colineares são como sentinelas alinhadas - deixam lacunas vulneráveis assim como pontos colineares não formam uma circunferência.</p>
+</details>
+</div>

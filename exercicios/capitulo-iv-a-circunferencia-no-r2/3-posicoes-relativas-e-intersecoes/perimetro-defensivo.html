@@ -1,0 +1,36 @@
+<div class="exercise">
+<h3>PERÍMETRO DEFENSIVO</h3>
+<p>O Refúgio estabeleceu um perímetro defensivo circular centrado em (2, 3) com raio 4 unidades. Uma patrulha segue a rota descrita pela equação $x + 2y - 8 = 0$. Determine a posição relativa desta rota em relação ao perímetro e, se houver interseção, calcule as coordenadas dos pontos de encontro.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Calcule a distância da reta ao centro do perímetro circular. Se esta distância for menor que o raio, encontre os pontos de interseção substituindo a equação da reta na equação da circunferência.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>A equação da circunferência centrada em (2, 3) com raio 4 é $(x-2)^2 + (y-3)^2 = 16$</li>
+<li>Para a reta $x + 2y - 8 = 0$, temos $a = 1$, $b = 2$ e $c = -8$</li>
+<li>A distância do centro da circunferência à reta é $d = \frac{|1 \cdot 2 + 2 \cdot 3 - 8|}{\sqrt{1^2 + 2^2}} = \frac{|2 + 6 - 8|}{\sqrt{5}} = \frac{0}{\sqrt{5}} = 0$</li>
+<li>Como $d = 0 &lt; 4$, a reta é secante à circunferência e passa pelo centro</li>
+<li>Para encontrar os pontos de interseção, isolamos $y$ na equação da reta: $y = \frac{8-x}{2} = 4 - \frac{x}{2}$</li>
+<li>Substituindo na equação da circunferência: $(x-2)^2 + (4-\frac{x}{2}-3)^2 = 16$</li>
+<li>Simplificando: $(x-2)^2 + (1-\frac{x}{2})^2 = 16$</li>
+<li>Expandindo: $x^2 - 4x + 4 + (1-\frac{x}{2})^2 = 16$</li>
+<li>Continuando: $x^2 - 4x + 4 + 1 - x + \frac{x^2}{4} = 16$</li>
+<li>Reorganizando: $\frac{5x^2}{4} - 5x + 5 - 16 = 0$ o que nos dá $\frac{5x^2}{4} - 5x - 11 = 0$</li>
+<li>Multiplicando por 4: $5x^2 - 20x - 44 = 0$</li>
+<li>Usando a fórmula quadrática: $x = \frac{20 \pm \sqrt{20^2 + 4 \cdot 5 \cdot 44}}{2 \cdot 5} = \frac{20 \pm \sqrt{400 + 880}}{10} = \frac{20 \pm \sqrt{1280}}{10}$</li>
+<li>Simplificando: $x \approx -1.31$ ou $x \approx 6.71$</li>
+<li>Substituindo na equação da reta: para $x \approx -1.31$, $y \approx 4.65$ e para $x \approx 6.71$, $y \approx 0.64$</li>
+<li>Portanto, os pontos de interseção são aproximadamente $(-1.31, 4.65)$ e $(6.71, 0.64)$</li>
+</ol>
+<div class="formula">
+                    $d = \frac{|1 \cdot 2 + 2 \cdot 3 - 8|}{\sqrt{1^2 + 2^2}} = 0 &lt; 4 \text{ (raio)}$
+                    
+                    $\text{Pontos de interseção: } (-1.31, 4.65) \text{ e } (6.71, 0.64)$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Quando uma rota cruza diretamente o centro de uma zona circular, ela certamente intersectará o perímetro em dois pontos diametralmente opostos. Na Zona Devastada, isso significa que uma patrulha que passe pelo centro de uma região contaminada terá dois pontos críticos de entrada e saída para gerenciar seus recursos de proteção.</p>
+</details>
+</div>
