@@ -12,6 +12,10 @@ São Paulo: Atual, 1982.
 
 # [Provas](PROVAS.md)
 
+# Calendário Acadêmico
+
+📅 [Planejamento Semestral 2026/1](planejamentos/2026-1.md) — Cronograma de aulas e avaliações
+
 # Índice de Conteúdo
 
 ## [Capítulo 0 - Preparação para a Wasteland](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-0.html)
