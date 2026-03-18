@@ -1,0 +1,23 @@
+<div class="exercise">
+<h3>Volume do Abrigo Subterrâneo</h3>
+<p>Para escavar um bunker anti-radiação, você precisa calcular o volume do paralelepípedo formado pelas dimensões estruturais $\vec{u} = (4, 2, 0)$, $\vec{v} = (1, 3, 2)$ e $\vec{w} = (2, -1, 5)$. Determine o produto misto $[\vec{u}, \vec{v}, \vec{w}]$ para descobrir a capacidade em metros cúbicos.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+                O produto misto é o determinante da matriz 3×3 formada pelos três vetores. Pode ser calculado como $\vec{u} \cdot (\vec{v} \times \vec{w})$ ou diretamente pelo determinante.
+            </div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Montamos o determinante com os três vetores: $\begin{vmatrix} 4 &amp; 2 &amp; 0 \\ 1 &amp; 3 &amp; 2 \\ 2 &amp; -1 &amp; 5 \end{vmatrix}$</li>
+<li>Expandindo pela primeira linha: $4 \begin{vmatrix} 3 &amp; 2 \\ -1 &amp; 5 \end{vmatrix} - 2 \begin{vmatrix} 1 &amp; 2 \\ 2 &amp; 5 \end{vmatrix} + 0 \begin{vmatrix} 1 &amp; 3 \\ 2 &amp; -1 \end{vmatrix}$</li>
+<li>Calculamos os determinantes 2×2: $4(3 \cdot 5 - 2 \cdot (-1)) - 2(1 \cdot 5 - 2 \cdot 2) + 0$</li>
+<li>$4(15 + 2) - 2(5 - 4) = 4(17) - 2(1) = 68 - 2 = 66$</li>
+</ol>
+<div class="formula">
+                    $$[\vec{u}, \vec{v}, \vec{w}] = 66 \text{ metros cúbicos}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Um volume de 66 m³ é suficiente para abrigar 8-10 sobreviventes com suprimentos para 3 meses, considerando espaço para filtragem de ar e armazenamento de RemoveRad. A estrutura triangular garante máxima resistência contra ondas de choque.</p>
+</details>
+</div>

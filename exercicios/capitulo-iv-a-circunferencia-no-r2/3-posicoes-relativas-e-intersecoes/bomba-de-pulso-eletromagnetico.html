@@ -1,0 +1,32 @@
+<div class="exercise">
+<h3>BOMBA DE PULSO ELETROMAGNÉTICO</h3>
+<p>Uma bomba de pulso eletromagnético será detonada em um ponto específico para desativar dispositivos inimigos. A zona de efeito é circular com raio de 6 unidades. Para maximizar o impacto, o ponto de detonação deve ser posicionado de modo que a estrada inimiga de equação $3x - 4y - 12 = 0$ seja tangente à zona de efeito. Determine as coordenadas possíveis para a detonação.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para que a reta seja tangente à circunferência, a distância do centro da circunferência à reta deve ser exatamente igual ao raio. Use esta condição para encontrar possíveis centros.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Se a estrada tem equação $3x - 4y - 12 = 0$, temos $a = 3$, $b = -4$ e $c = -12$</li>
+<li>Para que a reta seja tangente à circunferência, precisamos que a distância do centro $(x_0, y_0)$ à reta seja exatamente igual ao raio 6</li>
+<li>Usando a fórmula da distância: $\frac{|3x_0 - 4y_0 - 12|}{\sqrt{3^2 + (-4)^2}} = 6$</li>
+<li>Simplificando: $\frac{|3x_0 - 4y_0 - 12|}{\sqrt{9 + 16}} = 6$ o que nos dá $\frac{|3x_0 - 4y_0 - 12|}{5} = 6$</li>
+<li>Portanto, $|3x_0 - 4y_0 - 12| = 30$</li>
+<li>Isto nos dá duas possibilidades: $3x_0 - 4y_0 - 12 = 30$ ou $3x_0 - 4y_0 - 12 = -30$</li>
+<li>Caso 1: $3x_0 - 4y_0 - 12 = 30$, que simplifica para $3x_0 - 4y_0 = 42$</li>
+<li>Caso 2: $3x_0 - 4y_0 - 12 = -30$, que simplifica para $3x_0 - 4y_0 = -18$</li>
+<li>Estas são equações de retas paralelas à estrada inimiga, a uma distância de 6 unidades. Qualquer ponto $(x_0, y_0)$ nestas retas pode ser o centro da circunferência</li>
+<li>Podemos escolher pontos específicos, por exemplo, se $y_0 = 0$, então para o Caso 1: $x_0 = 14$ e para o Caso 2: $x_0 = -6$</li>
+</ol>
+<div class="formula">
+                    $\text{Equações das retas dos possíveis centros: }$
+                    $3x_0 - 4y_0 = 42 \text{ ou } 3x_0 - 4y_0 = -18$
+                    
+                    $\text{Exemplos de centros: } (14, 0) \text{ ou } (-6, 0)$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Quando precisamos que uma zona de efeito apenas toque uma linha inimiga sem cruzá-la, estamos buscando tangência matemática. Na Zona Devastada, esta precisão pode significar desativar equipamentos inimigos enquanto preservamos nossos próprios sistemas - uma aplicação direta da geometria analítica para operações táticas eficientes.</p>
+</details>
+</div>

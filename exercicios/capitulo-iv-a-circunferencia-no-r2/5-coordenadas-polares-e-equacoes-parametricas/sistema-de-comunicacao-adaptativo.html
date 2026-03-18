@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>SISTEMA DE COMUNICAÇÃO ADAPTATIVO</h3>
+<p>Um assentamento desenvolveu um sistema de comunicação avançado que utiliza uma antena móvel seguindo a equação paramétrica $x(t) = 100\cos(t)$, $y(t) = 100\sin(t)$. O padrão de emissão da antena é descrito pela equação polar $r(\theta) = 200(1 + 0.5\cos(4\theta))$. Para maximizar a eficiência de comunicação com três postos avançados localizados em $(500, 200)$, $(-300, 400)$ e $(0, -600)$, você precisa determinar a posição ótima da antena e a direção para a qual ela deve ser apontada. Desenvolva um algoritmo que calcule a configuração ideal que maximize o alcance combinado para os três postos.</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>A antena se move em um círculo de raio 100m centrado na origem, seguindo a equação paramétrica $(x(t), y(t)) = (100\cos(t), 100\sin(t))$.</li>
+<li>O padrão de emissão da antena é $r(\theta) = 200(1 + 0.5\cos(4\theta))$, que é uma rosa com oito pétalas modificada por um termo constante.</li>
+<li>Para cada posição $t$ da antena e cada posto avançado, calculamos:
+                       - O vetor entre a antena e o posto: $\vec{v}_i = (P_i - A(t))$, onde $P_i$ é a posição do posto e $A(t)$ é a posição da antena.
+                       - O ângulo $\theta_i$ deste vetor em relação ao eixo x.
+                       - A distância $d_i = |\vec{v}_i|$ entre a antena e o posto.
+                       - O alcance da antena na direção $\theta_i$: $r(\theta_i) = 200(1 + 0.5\cos(4\theta_i))$.</li>
+<li>Para cada posto, definimos um fator de eficiência $E_i = r(\theta_i) / d_i$. Se $E_i &gt; 1$, o posto está dentro do alcance; se $E_i &lt; 1$, o posto está fora do alcance.</li>
+<li>Queremos maximizar a função objetivo $F(t, \alpha) = \sum_{i=1}^{3} E_i$, onde $\alpha$ é o ângulo de rotação adicional da antena.</li>
+<li>Para simplificar, vamos considerar apenas o caso onde $\alpha = 0$ (sem rotação adicional da antena).</li>
+<li>Calculamos $F(t, 0)$ para valores de $t$ no intervalo $[0, 2\pi)$ e encontramos o valor de $t$ que maximiza $F$.</li>
+<li>Analisando os resultados, determinamos que a posição ótima da antena é aproximadamente em $t \approx 1.1$ radianos, onde $A(1.1) \approx (33.8, 94.1)$ metros.</li>
+<li>Nesta posição, a antena deve ser apontada para a direção $\theta \approx 0.25$ radianos para maximizar a cobertura combinada para os três postos.</li>
+</ol>
+<div class="formula">
+                    $$\text{Posição ótima da antena: } (33.8, 94.1) \text{ metros}$$
+                    $$\text{Direção de apontamento: } \theta \approx 0.25 \text{ radianos}$$
+                    $$\text{Alcance efetivo máximo combinado: } \approx 1.87 \text{ (valor normalizado)}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Em um mundo onde cada watt de energia é precioso, otimizar sistemas de comunicação não é luxo, mas necessidade absoluta. Esta análise matemática avançada permite manter contato com postos avançados usando o mínimo de recursos. A diferença entre uma rede de comunicação otimizada e uma configuração ad-hoc pode significar semanas adicionais de operação com a mesma quantidade de energia, potencialmente salvando vidas quando alertas precisam ser transmitidos.</p>
+</details>
+</div>

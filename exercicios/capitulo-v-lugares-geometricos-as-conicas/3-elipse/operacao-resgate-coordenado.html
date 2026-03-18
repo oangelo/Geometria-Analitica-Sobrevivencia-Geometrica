@@ -1,0 +1,26 @@
+<div class="exercise">
+<h3>Operação Resgate Coordenado</h3>
+<p>Uma missão de resgate complexa envolve duas equipes posicionadas nos focos de uma elipse de coordenação. A elipse tem centro em C(3, -2), passa pelo ponto estratégico P(7, 1) e tem semi-eixo menor igual a 4. Uma terceira equipe deve ser posicionada no ponto Q(a, b) da elipse onde a soma das coordenadas seja máxima. Determine a equação da elipse de coordenação e as coordenadas ótimas para a terceira equipe.</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Equação com centro em (3, -2): $\frac{(x-3)^2}{a^2} + \frac{(y+2)^2}{b^2} = 1$</li>
+<li>Dado: semi-eixo menor = 4, então o menor entre a e b é 4</li>
+<li>P(7, 1) está na elipse: $\frac{(7-3)^2}{a^2} + \frac{(1+2)^2}{b^2} = 1$</li>
+<li>$\frac{16}{a^2} + \frac{9}{b^2} = 1$</li>
+<li>Se $b = 4$: $\frac{16}{a^2} + \frac{9}{16} = 1$, então $\frac{16}{a^2} = \frac{7}{16}$, logo $a^2 = \frac{256}{7}$</li>
+<li>Se $a = 4$: $\frac{16}{16} + \frac{9}{b^2} = 1$, então $\frac{9}{b^2} = 0$ (impossível)</li>
+<li>Portanto: $a^2 = \frac{256}{7}$, $b^2 = 16$</li>
+<li>Para maximizar $x + y$ na elipse, usar multiplicadores de Lagrange ou parametrização</li>
+<li>Parametrizando: $x = 3 + \frac{16}{\sqrt{7}}\cos t$, $y = -2 + 4\sin t$</li>
+<li>$x + y = 1 + \frac{16}{\sqrt{7}}\cos t + 4\sin t$</li>
+<li>Máximo quando $\frac{d}{dt}(x + y) = 0$: $-\frac{16}{\sqrt{7}}\sin t + 4\cos t = 0$</li>
+<li>$\tan t = \frac{\sqrt{7}}{4}$, então $\cos t = \frac{4}{\sqrt{23}}$, $\sin t = \frac{\sqrt{7}}{\sqrt{23}}$</li>
+</ol>
+<div class="formula">
+                    $$\frac{(x-3)^2}{\frac{256}{7}} + \frac{(y+2)^2}{16} = 1$$
+                    $$Q\left(3 + \frac{64}{7\sqrt{23}}, -2 + \frac{4\sqrt{7}}{\sqrt{23}}\right)$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Otimização de posicionamento em operações coordenadas requer cálculo avançado. A terceira equipe será posicionada no ponto da elipse onde a soma das coordenadas é máxima, garantindo vantagem tática e comunicação otimizada com as equipes nos focos.</p>
+</details>
+</div>

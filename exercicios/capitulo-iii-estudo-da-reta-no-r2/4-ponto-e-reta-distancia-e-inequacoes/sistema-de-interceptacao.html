@@ -1,0 +1,44 @@
+<div class="exercise">
+<h3>SISTEMA DE INTERCEPTAÇÃO</h3>
+<p>Um mutante hostil foi detectado movendo-se em linha reta representada pela equação $y = 2x - 5$. Um sistema de defesa automático está localizado no ponto $D(3, 8)$ e precisa interceptar o mutante. O sistema pode disparar um projétil que se move em linha reta a partir do ponto $D$. Determine:
+            
+            a) As coordenadas do ponto onde o projétil deve mirar para interceptar o mutante pelo caminho mais curto.
+            
+            b) Se o sistema de defesa tem alcance máximo de 5 unidades, determine se é possível realizar a interceptação.
+            
+            c) Se o mutante move-se a 2 unidades por minuto ao longo de sua trajetória e estará no ponto $(4, 3)$ em $t=0$, determine quando e onde ocorrerá a interceptação, supondo que o projétil se move a 8 unidades por minuto.</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>A trajetória do mutante é dada pela reta $r_m: y = 2x - 5$</li>
+<li>O ponto mais próximo na trajetória do mutante ao sistema de defesa $D(3, 8)$ é encontrado traçando uma reta perpendicular a $r_m$ que passa por $D$</li>
+<li>A reta $r_m$ tem coeficiente angular $m = 2$, então a reta perpendicular tem coeficiente $m_{\perp} = -\frac{1}{2}$</li>
+<li>A equação da reta perpendicular que passa por $D(3, 8)$ é:
+                    $$y - 8 = -\frac{1}{2}(x - 3) \Rightarrow y = -\frac{1}{2}x + 9,5$$</li>
+<li>Para encontrar o ponto de interseção, resolvemos o sistema:
+                    $$\begin{cases}
+                    y = 2x - 5 \\
+                    y = -\frac{1}{2}x + 9,5
+                    \end{cases}$$</li>
+<li>Igualando as equações: $2x - 5 = -\frac{1}{2}x + 9,5 \Rightarrow 2,5x = 14,5 \Rightarrow x = 5,8$</li>
+<li>Substituindo: $y = 2 \cdot 5,8 - 5 = 11,6 - 5 = 6,6$</li>
+<li>Portanto, o ponto de mira ideal é $P(5,8; 6,6)$</li>
+<li>Calcule a distância de $D$ até $P$:
+                    $$d(D,P) = \sqrt{(5,8-3)^2 + (6,6-8)^2} = \sqrt{2,8^2 + (-1,4)^2} = \sqrt{7,84 + 1,96} = \sqrt{9,8} \approx 3,13$$</li>
+<li>Como $d(D,P) \approx 3,13 &lt; 5$, a interceptação é possível</li>
+<li>Para a parte (c), precisamos determinar quando o mutante estará no ponto $P(5,8; 6,6)$:
+                        - No tempo $t=0$, o mutante está em $(4, 3)$
+                        - A distância de $(4, 3)$ até $(5,8; 6,6)$ é:
+                        $$d = \sqrt{(5,8-4)^2 + (6,6-3)^2} = \sqrt{1,8^2 + 3,6^2} = \sqrt{3,24 + 12,96} = \sqrt{16,2} \approx 4,02$$
+                        - Com velocidade de 2 unidades/min, o mutante levará $t_m = \frac{4,02}{2} = 2,01$ minutos para chegar ao ponto $P$
+                        - O projétil leva $t_p = \frac{3,13}{8} \approx 0,39$ minutos para chegar a $P$
+                        - Para interceptação, o projétil deve ser disparado em $t = 2,01 - 0,39 = 1,62$ minutos após o tempo $t=0$</li>
+</ol>
+<div class="formula">
+                    $$\text{a) Ponto de mira: } P(5,8; 6,6)$$
+                    $$\text{b) Distância necessária: } 3,13 \text{ unidades} &lt; 5 \text{ unidades (possível)}$$
+                    $$\text{c) Momento do disparo: } t = 1,62 \text{ minutos após o tempo inicial}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Em sistemas de defesa automatizados, a geometria analítica permite otimizar a interceptação de ameaças com precisão milimétrica. Ao calcular o ponto exato de intersecção $(5,8; 6,6)$ e o momento preciso do disparo (1,62 minutos após a detecção inicial), o sistema economiza munição valiosa e maximiza a probabilidade de neutralização da ameaça. Este tipo de cálculo representa a diferença entre proteção eficaz e falhas catastróficas no sistema de defesa de um assentamento.</p>
+</details>
+</div>

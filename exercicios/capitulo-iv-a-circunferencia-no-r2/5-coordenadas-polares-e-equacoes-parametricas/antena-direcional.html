@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>ANTENA DIRECIONAL</h3>
+<p>Uma antena direcional improvisada segue o padrão de radiação descrito pela equação polar $r = 200\cos(2\theta)$, onde $r$ representa a intensidade do sinal em metros. Determine todos os ângulos $\theta \in [0, 2\pi)$ onde o sinal é zero e identifique a direção (ângulo) onde o sinal atinge sua máxima intensidade.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Esta equação polar é uma rosa de 4 pétalas. O sinal é zero quando $\cos(2\theta) = 0$, e máximo quando $\cos(2\theta) = \pm 1$.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Para encontrar os ângulos onde o sinal é zero, precisamos resolver $r = 0$, ou seja, $200\cos(2\theta) = 0$.</li>
+<li>Isso ocorre quando $\cos(2\theta) = 0$, o que acontece quando $2\theta = \frac{\pi}{2} + n\pi$ para qualquer inteiro $n$.</li>
+<li>Resolvendo para $\theta$ no intervalo $[0, 2\pi)$: $\theta = \frac{\pi}{4} + \frac{n\pi}{2}$ para $n = 0, 1, 2, 3$.</li>
+<li>Substituindo os valores de $n$: $\theta = \frac{\pi}{4}, \frac{3\pi}{4}, \frac{5\pi}{4}, \frac{7\pi}{4}$.</li>
+<li>Para encontrar os ângulos de intensidade máxima, precisamos determinar quando $|\cos(2\theta)| = 1$.</li>
+<li>Isso ocorre quando $2\theta = 0, \pi, 2\pi, 3\pi$, o que resulta em $\theta = 0, \frac{\pi}{2}, \pi, \frac{3\pi}{2}$.</li>
+<li>O sinal é positivo para $\theta = 0, \pi$ (máximos) e negativo para $\theta = \frac{\pi}{2}, \frac{3\pi}{2}$ (mínimos).</li>
+</ol>
+<div class="formula">
+                    $$\text{Ângulos com sinal zero: } \theta = \frac{\pi}{4}, \frac{3\pi}{4}, \frac{5\pi}{4}, \frac{7\pi}{4} \text{ rad}$$
+                    $$\text{Ângulos com intensidade máxima: } \theta = 0, \pi \text{ rad} \text{ (equivalente a } 0° \text{ e } 180°\text{)}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Entender os padrões de radiação de antenas direcionais permite estabelecer comunicação eficiente com outros assentamentos sem desperdiçar energia preciosa. Apontar corretamente uma antena não é apenas questão de conveniência, mas pode ser a diferença entre receber um alerta vital sobre uma tempestade radioativa iminente ou permanecer em ignorância fatal.</p>
+</details>
+</div>

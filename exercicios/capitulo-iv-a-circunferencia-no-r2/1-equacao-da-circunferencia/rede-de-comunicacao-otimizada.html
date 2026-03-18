@@ -1,0 +1,60 @@
+<div class="exercise">
+<h3>REDE DE COMUNICAÇÃO OTIMIZADA</h3>
+<p>Você precisa estabelecer uma rede de comunicação entre quatro assentamentos localizados em $(0,0)$, $(10,0)$, $(8,6)$ e $(2,8)$. Para economizar cabo, você quer encontrar o ponto que minimiza a soma das distâncias a esses quatro assentamentos. Verifique se o centro da circunferência circunscrita aos assentamentos seria uma solução otimizada, e se não for, proponha uma alternativa.</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Primeiro, vamos verificar se é possível desenhar uma única circunferência que passe pelos quatro pontos:
+                        <ul>
+<li>Os pontos $(0,0)$, $(10,0)$, $(8,6)$ e $(2,8)$ formam um quadrilátero</li>
+<li>Para que um quadrilátero seja cíclico (possa ser inscrito em uma circunferência), a soma dos ângulos opostos deve ser $180°$</li>
+<li>Calculemos os vetores entre os pontos para analisar os ângulos</li>
+</ul>
+</li>
+<li>Na verdade, podemos usar um teste mais direto: quatro pontos estão em uma circunferência se e somente se o determinante de uma matriz específica for zero</li>
+<li>Para os nossos pontos, podemos calcular:
+                        <ul>
+<li>$\begin{vmatrix} 
+                            x_1^2+y_1^2 &amp; x_1 &amp; y_1 &amp; 1 \\
+                            x_2^2+y_2^2 &amp; x_2 &amp; y_2 &amp; 1 \\
+                            x_3^2+y_3^2 &amp; x_3 &amp; y_3 &amp; 1 \\
+                            x_4^2+y_4^2 &amp; x_4 &amp; y_4 &amp; 1
+                            \end{vmatrix}$</li>
+<li>Substituindo nossos pontos:
+                            $\begin{vmatrix} 
+                            0 &amp; 0 &amp; 0 &amp; 1 \\
+                            100 &amp; 10 &amp; 0 &amp; 1 \\
+                            100 &amp; 8 &amp; 6 &amp; 1 \\
+                            68 &amp; 2 &amp; 8 &amp; 1
+                            \end{vmatrix}$</li>
+</ul>
+</li>
+<li>O cálculo deste determinante é complexo, mas podemos verificar que é diferente de zero, indicando que os quatro pontos não estão em uma única circunferência</li>
+<li>Portanto, não existe uma circunferência que passe por todos os quatro assentamentos</li>
+<li>Para o problema de minimização da soma das distâncias (conhecido como problema de Fermat-Weber), a solução não é trivial</li>
+<li>Em vez de usar o centro da circunferência (que não existe para os quatro pontos), podemos usar algoritmos iterativos como o método de Weiszfeld</li>
+<li>Uma abordagem prática seria calcular o centroide dos quatro pontos como aproximação inicial:
+                        <ul>
+<li>$C_x = \frac{0 + 10 + 8 + 2}{4} = 5$</li>
+<li>$C_y = \frac{0 + 0 + 6 + 8}{4} = 3.5$</li>
+<li>Centroide: $(5, 3.5)$</li>
+</ul>
+</li>
+<li>Para verificar se este é um bom ponto, calculamos a soma das distâncias:
+                        <ul>
+<li>$d_1 = \sqrt{(5-0)^2 + (3.5-0)^2} = \sqrt{25 + 12.25} = \sqrt{37.25} \approx 6.1$</li>
+<li>$d_2 = \sqrt{(5-10)^2 + (3.5-0)^2} = \sqrt{25 + 12.25} = \sqrt{37.25} \approx 6.1$</li>
+<li>$d_3 = \sqrt{(5-8)^2 + (3.5-6)^2} = \sqrt{9 + 6.25} = \sqrt{15.25} \approx 3.9$</li>
+<li>$d_4 = \sqrt{(5-2)^2 + (3.5-8)^2} = \sqrt{9 + 20.25} = \sqrt{29.25} \approx 5.4$</li>
+<li>Soma total: $6.1 + 6.1 + 3.9 + 5.4 = 21.5$ unidades</li>
+</ul>
+</li>
+<li>A solução exata do problema de Fermat-Weber geralmente requer métodos numéricos, mas o centroide é uma boa aproximação inicial</li>
+</ol>
+<div class="formula">
+                    Ponto aproximado para a rede: $(5, 3.5)$
+                    Soma das distâncias: aproximadamente $21.5$ unidades
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Em um mundo com recursos limitados, otimizar redes de infraestrutura é vital. Este problema demonstra que nem sempre existe uma solução geométrica perfeita, e aproximações práticas como o centroide podem ser necessárias. A adaptabilidade matemática é tão importante quanto o conhecimento teórico para sobreviver em um mundo pós-apocalíptico.</p>
+</details>
+</div>

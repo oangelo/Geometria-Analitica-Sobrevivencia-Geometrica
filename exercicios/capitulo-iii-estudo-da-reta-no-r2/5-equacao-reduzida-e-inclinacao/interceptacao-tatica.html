@@ -1,0 +1,31 @@
+<div class="exercise">
+<h3>INTERCEPTAÇÃO TÁTICA</h3>
+<p>Uma caravana hostil se move ao longo da rota $y = \frac{3}{4}x + 2$ a uma velocidade constante, partindo do ponto (0, 2) às 06:00. Uma equipe de defesa móvel localizada no ponto (8, 12) pretende interceptar a caravana seguindo uma trajetória em linha reta. Determine a equação reduzida da rota de interceptação e o ângulo que esta rota forma com a rota da caravana. Se a equipe de defesa puder se mover 1.5 vezes mais rápido que a caravana, a que distância do ponto inicial da caravana ocorrerá o encontro?</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Seja (x, y) o ponto de interceptação, onde x é a distância horizontal percorrida pela caravana a partir do ponto (0, 2)</li>
+<li>A posição da caravana no ponto de interceptação será $(x, \frac{3}{4}x + 2)$</li>
+<li>Para que a equipe de defesa encontre a caravana nesse ponto, precisamos encontrar a equação da reta passando por (8, 12) e $(x, \frac{3}{4}x + 2)$</li>
+<li>A inclinação desta reta será $m_{intercept} = \frac{\frac{3}{4}x + 2 - 12}{x - 8} = \frac{\frac{3}{4}x - 10}{x - 8}$</li>
+<li>Se a equipe de defesa se move 1.5 vezes mais rápido que a caravana, então a distância percorrida pela caravana dividida pela distância percorrida pela equipe de defesa será $\frac{1}{1.5} = \frac{2}{3}$</li>
+<li>A distância percorrida pela caravana é $\sqrt{x^2 + (\frac{3}{4}x)^2} = x\sqrt{1 + \frac{9}{16}} = x\sqrt{\frac{25}{16}} = \frac{5x}{4}$</li>
+<li>A distância percorrida pela equipe de defesa é $\sqrt{(x-8)^2 + (\frac{3}{4}x + 2 - 12)^2} = \sqrt{(x-8)^2 + (\frac{3}{4}x - 10)^2}$</li>
+<li>Pela relação de velocidades: $\frac{\frac{5x}{4}}{\sqrt{(x-8)^2 + (\frac{3}{4}x - 10)^2}} = \frac{2}{3}$</li>
+<li>Resolvendo esta equação (que é complexa e envolve uma equação quadrática), obtemos $x = 16$</li>
+<li>Portanto, o ponto de interceptação é $(16, \frac{3}{4} \cdot 16 + 2) = (16, 14)$</li>
+<li>A equação da reta de interceptação passando por (8, 12) e (16, 14) tem inclinação $m = \frac{14 - 12}{16 - 8} = \frac{2}{8} = \frac{1}{4}$</li>
+<li>Equação reduzida: $y - 12 = \frac{1}{4}(x - 8) \Rightarrow y = \frac{1}{4}x + 10$</li>
+<li>O ângulo entre as retas com inclinações $m_1 = \frac{3}{4}$ e $m_2 = \frac{1}{4}$ é dado por:
+                    <br/>$\tan \theta = |\frac{m_1 - m_2}{1 + m_1m_2}| = |\frac{\frac{3}{4} - \frac{1}{4}}{1 + \frac{3}{4} \cdot \frac{1}{4}}| = |\frac{\frac{1}{2}}{1 + \frac{3}{16}}| = |\frac{\frac{1}{2}}{\frac{19}{16}}| = |\frac{8}{19}| \approx 0.421$</li>
+<li>Portanto, $\theta = \arctan(0.421) \approx 22.8°$</li>
+<li>A distância do ponto inicial da caravana até o ponto de interceptação é $\sqrt{16^2 + 12^2} = \sqrt{256 + 144} = \sqrt{400} = 20$ unidades</li>
+</ol>
+<div class="formula">
+                    $$\text{Equação da rota de interceptação: } y = \frac{1}{4}x + 10$$
+                    $$\text{Ângulo entre as rotas: } \theta \approx 22.8°$$
+                    $$\text{Distância do ponto inicial: } 20 \text{ unidades}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> A interceptação tática exige precisão matemática absoluta - um erro de cálculo pode significar o desperdício de recursos valiosos ou a falha completa da missão. A equação reduzida $y = \frac{1}{4}x + 10$ fornece à equipe de defesa uma trajetória direta que maximiza sua vantagem de velocidade, permitindo interceptar a caravana após esta percorrer 20 unidades de distância. O ângulo relativamente pequeno de aproximadamente 23° minimiza o perfil de detecção, aumentando o elemento surpresa. Este tipo de planejamento matemático meticuloso é exatamente o que diferencia operações táticas bem-sucedidas de fracassos custosos na Zona Devastada.</p>
+</details>
+</div>

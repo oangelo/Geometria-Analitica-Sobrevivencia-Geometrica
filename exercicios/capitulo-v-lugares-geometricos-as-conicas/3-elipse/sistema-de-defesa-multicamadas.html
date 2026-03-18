@@ -1,0 +1,24 @@
+<div class="exercise">
+<h3>Sistema de Defesa Multicamadas</h3>
+<p>Você está projetando um sistema de defesa com múltiplas elipses concêntricas. A elipse externa tem equação $\frac{x^2}{100} + \frac{y^2}{64} = 1$. A elipse interna deve ter os mesmos focos, mas metade da área da externa. Considerando que a área de uma elipse é $A = \pi ab$, determine a equação da elipse interna e calcule a diferença entre as excentricidades das duas elipses.</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Para a elipse externa: $a_1 = 10$, $b_1 = 8$, $c_1^2 = 100 - 64 = 36$, logo $c_1 = 6$</li>
+<li>Área externa: $A_1 = \pi \cdot 10 \cdot 8 = 80\pi$</li>
+<li>Área interna: $A_2 = \frac{A_1}{2} = 40\pi = \pi a_2 b_2$, logo $a_2 b_2 = 40$</li>
+<li>Para mesmos focos: $c_2 = c_1 = 6$, então $c_2^2 = a_2^2 - b_2^2 = 36$</li>
+<li>Sistema: $a_2 b_2 = 40$ e $a_2^2 - b_2^2 = 36$</li>
+<li>De $b_2 = \frac{40}{a_2}$: $a_2^2 - \frac{1600}{a_2^2} = 36$</li>
+<li>$a_2^4 - 36a_2^2 - 1600 = 0$. Seja $u = a_2^2$: $u^2 - 36u - 1600 = 0$</li>
+<li>$u = \frac{36 \pm \sqrt{1296 + 6400}}{2} = \frac{36 \pm \sqrt{7696}}{2} = \frac{36 \pm 4\sqrt{481}}{2}$</li>
+<li>Como $\sqrt{481} \approx 21.9$: $u \approx 50$, logo $a_2 \approx \sqrt{50} = 5\sqrt{2}$</li>
+<li>$b_2 = \frac{40}{5\sqrt{2}} = 4\sqrt{2}$</li>
+</ol>
+<div class="formula">
+                    $$\text{Elipse interna: } \frac{x^2}{50} + \frac{y^2}{32} = 1$$
+                    $$e_1 = \frac{6}{10} = 0.6, \quad e_2 = \frac{6}{5\sqrt{2}} = \frac{3\sqrt{2}}{5} \approx 0.849$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Sistemas de defesa multicamadas com diferentes excentricidades criam zonas de proteção complementares. A elipse interna mais "alongada" oferece cobertura direcionada, enquanto a externa fornece proteção mais uniforme.</p>
+</details>
+</div>

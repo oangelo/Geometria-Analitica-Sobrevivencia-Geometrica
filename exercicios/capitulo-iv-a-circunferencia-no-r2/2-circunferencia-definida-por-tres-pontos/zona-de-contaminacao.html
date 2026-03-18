@@ -1,0 +1,45 @@
+<div class="exercise">
+<h3>ZONA DE CONTAMINAÇÃO</h3>
+<p>Exploradores detectaram três pontos com altos níveis de radiação em P(1, 1), Q(5, 1) e R(3, 5). O padrão de dispersão indica que a fonte da radiação está no centro de uma circunferência que passa exatamente por estes três pontos. Determine a equação dessa circunferência para localizar a fonte de radiação e calcular o raio da zona contaminada.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Use o sistema de equações que surge quando cada ponto é equidistante do centro: subtraia equações para eliminar $r^2$ e isole as coordenadas do centro $(h, k)$.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Escreva as equações que representam que cada ponto está na circunferência:
+                    $(1-h)^2 + (1-k)^2 = r^2$
+                    $(5-h)^2 + (1-k)^2 = r^2$
+                    $(3-h)^2 + (5-k)^2 = r^2$</li>
+<li>Subtraia a primeira equação da segunda para eliminar $r^2$:
+                    $(5-h)^2 + (1-k)^2 - [(1-h)^2 + (1-k)^2] = 0$
+                    $(5-h)^2 - (1-h)^2 = 0$
+                    $25 - 10h + h^2 - (1 - 2h + h^2) = 0$
+                    $25 - 10h + h^2 - 1 + 2h - h^2 = 0$
+                    $24 - 8h = 0$
+                    $h = 3$</li>
+<li>Subtraia a primeira equação da terceira:
+                    $(3-h)^2 + (5-k)^2 - [(1-h)^2 + (1-k)^2] = 0$
+                    $(3-h)^2 - (1-h)^2 + (5-k)^2 - (1-k)^2 = 0$
+                    $9 - 6h + h^2 - (1 - 2h + h^2) + 25 - 10k + k^2 - (1 - 2k + k^2) = 0$
+                    $9 - 6h + h^2 - 1 + 2h - h^2 + 25 - 10k + k^2 - 1 + 2k - k^2 = 0$
+                    $8 - 4h + 25 - 8k = 0$
+                    $33 - 4h - 8k = 0$</li>
+<li>Substituindo $h = 3$:
+                    $33 - 4(3) - 8k = 0$
+                    $33 - 12 - 8k = 0$
+                    $21 - 8k = 0$
+                    $k = \frac{21}{8} = 2.625$</li>
+<li>Calculamos o raio usando o primeiro ponto:
+                    $r^2 = (1-3)^2 + (1-2.625)^2 = (-2)^2 + (-1.625)^2 = 4 + 2.64 = 6.64$
+                    $r = \sqrt{6.64} \approx 2.58$</li>
+</ol>
+<div class="formula">
+                    $$(x - 3)^2 + (y - 2.625)^2 = 6.64$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Identificar o padrão de dispersão de radiação é como rastrear uma ameaça invisível. Ao calcular precisamente o centro da contaminação, você não apenas localiza a fonte do perigo, mas também pode estabelecer perímetros seguros a uma distância conhecida. Na Zona Devastada, prever o alcance de contaminação frequentemente significa a diferença entre vida e morte.</p>
+</details>
+</div>

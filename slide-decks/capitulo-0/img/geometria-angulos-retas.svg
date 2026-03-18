@@ -1,0 +1,400 @@
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300">
+              <!-- Fundo estilo terminal Pip-Boy -->
+              <rect
+                width="600"
+                height="300"
+                fill="#0A0A0A"
+                opacity="0.7"
+                rx="5"
+                ry="5"
+              />
+              <!-- Grade de fundo estilo Pip-Boy -->
+              <g opacity="0.15">
+                <path
+                  d="M0,30 L600,30 M0,60 L600,60 M0,90 L600,90 M0,120 L600,120 M0,150 L600,150 M0,180 L600,180 M0,210 L600,210 M0,240 L600,240 M0,270 L600,270"
+                  stroke="#ADFF2F"
+                  stroke-width="1"
+                />
+                <path
+                  d="M30,0 L30,300 M60,0 L60,300 M90,0 L90,300 M120,0 L120,300 M150,0 L150,300 M180,0 L180,300 M210,0 L210,300 M240,0 L240,300 M270,0 L270,300 M300,0 L300,300 M330,0 L330,300 M360,0 L360,300 M390,0 L390,300 M420,0 L420,300 M450,0 L450,300 M480,0 L480,300 M510,0 L510,300 M540,0 L540,300 M570,0 L570,300"
+                  stroke="#ADFF2F"
+                  stroke-width="1"
+                />
+              </g>
+              <!-- Seção Ângulo Agudo -->
+              <g transform="translate(100,80)">
+                <!-- Ponto central com brilho -->
+                <circle cx="0" cy="0" r="4" fill="#ADFF2F" />
+                <circle
+                  cx="0"
+                  cy="0"
+                  r="6"
+                  fill="none"
+                  stroke="#ADFF2F"
+                  stroke-width="1"
+                  opacity="0.6"
+                >
+                  <animate
+                    attributeName="opacity"
+                    values="0.3;0.8;0.3"
+                    dur="3s"
+                    repeatCount="indefinite"
+                  />
+                  <animate
+                    attributeName="r"
+                    values="6;8;6"
+                    dur="3s"
+                    repeatCount="indefinite"
+                  />
+                </circle>
+                <!-- Linhas do ângulo (30 graus: 80 * cos(30) ~ 69.3, 80 * sin(-30) = -40) -->
+                <line
+                  x1="0"
+                  y1="0"
+                  x2="80"
+                  y2="0"
+                  stroke="#ADFF2F"
+                  stroke-width="3"
+                />
+                <line
+                  x1="0"
+                  y1="0"
+                  x2="69.3"
+                  y2="-40"
+                  stroke="#ADFF2F"
+                  stroke-width="3"
+                />
+                <!-- Arco do ângulo com animação -->
+                <path
+                  d="M 20,0 A 20,20 0 0,0 17.3,-10"
+                  stroke="#FFD700"
+                  stroke-width="2"
+                  fill="none"
+                />
+                <path
+                  d="M 18,0 A 18,18 0 0,0 15.6,-9"
+                  stroke="#FFD700"
+                  stroke-width="1"
+                  fill="none"
+                  opacity="0.6"
+                >
+                  <animate
+                    attributeName="opacity"
+                    values="0.3;0.8;0.3"
+                    dur="2s"
+                    repeatCount="indefinite"
+                  />
+                </path>
+                <!-- Valor do ângulo -->
+                <text
+                  x="20"
+                  y="-10"
+                  fill="#FFD700"
+                  font-size="14"
+                  font-weight="bold"
+                 font-family="monospace">
+                  30°
+                </text>
+                <!-- Ícone radiação pequeno -->
+                <text x="-10" y="-15" fill="#FFD700" font-size="10" font-family="monospace">☢️</text>
+                <!-- Texto descritivo -->
+                <text
+                  x="0"
+                  y="70"
+                  fill="#ADFF2F"
+                  font-size="14"
+                  text-anchor="middle"
+                  font-weight="bold"
+                 font-family="monospace">
+                  ÂNGULO AGUDO
+                </text>
+                <text
+                  x="0"
+                  y="90"
+                  fill="#FFD700"
+                  font-size="12"
+                  text-anchor="middle"
+                 font-family="monospace">
+                  Defesa afiada: maximiza
+                </text>
+                <text
+                  x="0"
+                  y="105"
+                  fill="#FFD700"
+                  font-size="12"
+                  text-anchor="middle"
+                 font-family="monospace">
+                  resistência a invasores
+                </text>
+              </g>
+              <!-- Seção Ângulo Reto -->
+              <g transform="translate(300,80)">
+                <!-- Ponto central com brilho -->
+                <circle cx="0" cy="0" r="4" fill="#ADFF2F" />
+                <circle
+                  cx="0"
+                  cy="0"
+                  r="6"
+                  fill="none"
+                  stroke="#ADFF2F"
+                  stroke-width="1"
+                  opacity="0.6"
+                >
+                  <animate
+                    attributeName="opacity"
+                    values="0.3;0.8;0.3"
+                    dur="3s"
+                    repeatCount="indefinite"
+                  />
+                  <animate
+                    attributeName="r"
+                    values="6;8;6"
+                    dur="3s"
+                    repeatCount="indefinite"
+                  />
+                </circle>
+                <!-- Linhas do ângulo -->
+                <line
+                  x1="0"
+                  y1="0"
+                  x2="80"
+                  y2="0"
+                  stroke="#ADFF2F"
+                  stroke-width="2.5"
+                />
+                <line
+                  x1="0"
+                  y1="0"
+                  x2="0"
+                  y2="-60"
+                  stroke="#ADFF2F"
+                  stroke-width="2.5"
+                />
+                <!-- Símbolo de ângulo reto -->
+                <path
+                  d="M0,0 L15,0 L15,-15 L0,-15"
+                  stroke="#FFD700"
+                  stroke-width="1.5"
+                  fill="none"
+                />
+                <path
+                  d="M0,0 L14,0 L14,-14 L0,-14"
+                  stroke="#FFD700"
+                  stroke-width="0.5"
+                  fill="none"
+                  opacity="0.6"
+                >
+                  <animate
+                    attributeName="opacity"
+                    values="0.3;0.8;0.3"
+                    dur="2s"
+                    repeatCount="indefinite"
+                  />
+                </path>
+                <!-- Valor do ângulo -->
+                <text
+                  x="20"
+                  y="-20"
+                  fill="#FFD700"
+                  font-size="14"
+                  font-weight="bold"
+                 font-family="monospace">
+                  90°
+                </text>
+                <!-- Ícone radiação pequeno -->
+                <text x="-10" y="-20" fill="#FFD700" font-size="10" font-family="monospace">☢️</text>
+                <!-- Texto descritivo -->
+                <text
+                  x="0"
+                  y="70"
+                  fill="#ADFF2F"
+                  font-size="14"
+                  text-anchor="middle"
+                  font-weight="bold"
+                 font-family="monospace">
+                  ÂNGULO RETO
+                </text>
+                <text
+                  x="0"
+                  y="90"
+                  fill="#FFD700"
+                  font-size="12"
+                  text-anchor="middle"
+                 font-family="monospace">
+                  Estruturas estáveis:
+                </text>
+                <text
+                  x="0"
+                  y="105"
+                  fill="#FFD700"
+                  font-size="12"
+                  text-anchor="middle"
+                 font-family="monospace">
+                  abrigos duradouros
+                </text>
+              </g>
+              <!-- Seção Ângulo Obtuso - Redesenhada completamente -->
+              <g transform="translate(500,80)">
+                <!-- Ponto central com brilho -->
+                <circle cx="0" cy="0" r="4" fill="#ADFF2F" />
+                <circle
+                  cx="0"
+                  cy="0"
+                  r="6"
+                  fill="none"
+                  stroke="#ADFF2F"
+                  stroke-width="1"
+                  opacity="0.6"
+                >
+                  <animate
+                    attributeName="opacity"
+                    values="0.3;0.8;0.3"
+                    dur="3s"
+                    repeatCount="indefinite"
+                  />
+                  <animate
+                    attributeName="r"
+                    values="6;8;6"
+                    dur="3s"
+                    repeatCount="indefinite"
+                  />
+                </circle>
+                <!-- Linhas do ângulo - ângulo obtuso de 120° -->
+                <line
+                  x1="0"
+                  y1="0"
+                  x2="60"
+                  y2="0"
+                  stroke="#ADFF2F"
+                  stroke-width="2.5"
+                />
+                <line
+                  x1="0"
+                  y1="0"
+                  x2="-30"
+                  y2="-52"
+                  stroke="#ADFF2F"
+                  stroke-width="2.5"
+                />
+                <!-- Arco do ângulo correto para 120° -->
+                <path
+                  d="M15,0 A15,15 0 0,0 -7.5,-13"
+                  stroke="#FFD700"
+                  stroke-width="1.5"
+                  fill="none"
+                />
+                <path
+                  d="M14,0 A14,14 0 0,0 -7,-12.1"
+                  stroke="#FFD700"
+                  stroke-width="0.5"
+                  fill="none"
+                  opacity="0.6"
+                >
+                  <animate
+                    attributeName="opacity"
+                    values="0.3;0.8;0.3"
+                    dur="2s"
+                    repeatCount="indefinite"
+                  />
+                </path>
+                <!-- Valor do ângulo -->
+                <text
+                  x="-12"
+                  y="-20"
+                  fill="#FFD700"
+                  font-size="14"
+                  font-weight="bold"
+                 font-family="monospace">
+                  120°
+                </text>
+                <!-- Ícone radiação pequeno -->
+                <text x="-25" y="-25" fill="#FFD700" font-size="10" font-family="monospace">☢️</text>
+                <!-- Texto descritivo -->
+                <text
+                  x="0"
+                  y="70"
+                  fill="#ADFF2F"
+                  font-size="14"
+                  text-anchor="middle"
+                  font-weight="bold"
+                 font-family="monospace">
+                  ÂNGULO OBTUSO
+                </text>
+                <text
+                  x="0"
+                  y="90"
+                  fill="#FFD700"
+                  font-size="12"
+                  text-anchor="middle"
+                 font-family="monospace">
+                  Campo de visão amplo:
+                </text>
+                <text
+                  x="0"
+                  y="105"
+                  fill="#FFD700"
+                  font-size="12"
+                  text-anchor="middle"
+                 font-family="monospace">
+                  detecção de ameaças
+                </text>
+              </g>
+              <!-- Título da visualização no estilo Pip-Boy -->
+              <g transform="translate(300,240)">
+                <rect
+                  x="-200"
+                  y="10"
+                  width="400"
+                  height="30"
+                  fill="#0A0A0A"
+                  stroke="#ADFF2F"
+                  stroke-width="1"
+                  rx="5"
+                  ry="5"
+                />
+                <text
+                  x="0"
+                  y="30"
+                  fill="#ADFF2F"
+                  font-size="16"
+                  text-anchor="middle"
+                  font-weight="bold"
+                 font-family="monospace">
+                  VAULT-TEC ÂNGULOS DE SOBREVIVÊNCIA
+                </text>
+                <!-- Pequenos detalhes decorativos tipo interface -->
+                <circle cx="-210" cy="25" r="3" fill="#FFD700" />
+                <circle cx="210" cy="25" r="3" fill="#FFD700" />
+                <text x="-225" y="30" fill="#FFD700" font-size="10" font-family="monospace">V</text>
+                <text x="222" y="30" fill="#FFD700" font-size="10" font-family="monospace">T</text>
+              </g>
+              <!-- Efeitos de CRT/Scanline -->
+              <rect
+                width="600"
+                height="300"
+                fill="url(#scanline)"
+                opacity="0.05"
+              />
+              <rect
+                width="600"
+                height="300"
+                fill="none"
+                stroke="#ADFF2F"
+                stroke-width="3"
+                rx="8"
+                ry="8"
+              />
+              <!-- Definições de padrões e filtros -->
+              <defs>
+                <!-- Padrão de scanline para efeito CRT -->
+                <pattern
+                  id="scanline"
+                  patternUnits="userSpaceOnUse"
+                  width="4"
+                  height="4"
+                >
+                  <rect width="4" height="2" fill="#FFFFFF" />
+                  <rect y="2" width="4" height="2" fill="#000000" />
+                </pattern>
+              </defs>
+            </svg>

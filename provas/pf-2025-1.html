@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova Final de Geometria Analítica (com Gabarito)</title>
+    
+    <!-- Script do MathJax para renderizar LaTeX -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(', '\\)']],
+          displayMath: [['\\[', '\\]']]
+        },
+        svg: {
+          fontCache: 'global'
+        }
+      };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+
+    <!-- Estilos CSS para formatação -->
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 20px;
+        }
+        h2 {
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        ol {
+            list-style-type: lower-alpha;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 15px;
+        }
+        details {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+            color: #0056b3;
+        }
+        .solution {
+            padding-top: 10px;
+            margin-top: 10px;
+            border-top: 1px dashed #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Prova Final de Geometria Analítica (com Gabarito)</h1>
+
+    <h2>Questão 1</h2>
+    <p>Considere os pontos no R³: \( A = (1, 1, 0) \), \( B = (3, 0, 1) \), \( C = (1, 2, 2) \) e \( D = (4, 1, 5) \).</p>
+    <ol>
+        <li>
+            Calcule a área do triângulo formado pelos pontos A, B e C.
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>Primeiro, determinamos os vetores \(\overrightarrow{AB}\) e \(\overrightarrow{AC}\):</p>
+                    <p>\(\overrightarrow{AB} = B - A = (3-1, 0-1, 1-0) = (2, -1, 1)\)</p>
+                    <p>\(\overrightarrow{AC} = C - A = (1-1, 2-1, 2-0) = (0, 1, 2)\)</p>
+                    <p>O produto vetorial \(\overrightarrow{AB} \times \overrightarrow{AC}\) é:</p>
+                    <p>\( \overrightarrow{AB} \times \overrightarrow{AC} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 2 & -1 & 1 \\ 0 & 1 & 2 \end{vmatrix} = \vec{i}(-2 - 1) - \vec{j}(4 - 0) + \vec{k}(2 - 0) = (-3, -4, 2) \)</p>
+                    <p>A área do triângulo é metade do módulo deste vetor:</p>
+                    <p>\( |\overrightarrow{AB} \times \overrightarrow{AC}| = \sqrt{(-3)^2 + (-4)^2 + 2^2} = \sqrt{9 + 16 + 4} = \sqrt{29} \)</p>
+                    <p>A área é: <strong>\( \text{Área} = \frac{\sqrt{29}}{2} \) u.a.</strong></p>
+                </div>
+            </details>
+        </li>
+        <li>
+            Calcule o volume do tetraedro de vértices A, B, C e D.
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                     <p>O volume do tetraedro é dado por \( V = \frac{1}{6} |(\overrightarrow{AD}) \cdot (\overrightarrow{AB} \times \overrightarrow{AC})| \).</p>
+                     <p>Calculamos o vetor \(\overrightarrow{AD}\):</p>
+                     <p>\( \overrightarrow{AD} = D - A = (4-1, 1-1, 5-0) = (3, 0, 5) \)</p>
+                     <p>Usamos o produto vetorial \(\overrightarrow{AB} \times \overrightarrow{AC} = (-3, -4, 2)\) do item anterior.</p>
+                     <p>Calculamos o produto misto:</p>
+                     \[ (\overrightarrow{AD}) \cdot (\overrightarrow{AB} \times \overrightarrow{AC}) = (3, 0, 5) \cdot (-3, -4, 2) = (3)(-3) + (0)(-4) + (5)(2) = -9 + 0 + 10 = 1 \]
+                     <p>O volume do tetraedro é:</p>
+                     \[ V = \frac{1}{6} |1| = \frac{1}{6} \text{ u.v.} \]
+                </div>
+            </details>
+        </li>
+    </ol>
+    
+    <h2>Questão 2</h2>
+    <p>Considere o sistema linear nas variáveis \(x, y, z\):</p>
+    \[
+    \begin{cases}
+    x + y + z = 1 \\
+    2x - y + 3z = 4 \\
+    3x + ay + 5z = b
+    \end{cases}
+    \]
+    <p>Determine os valores dos parâmetros \(a\) e \(b\) para que o sistema:</p>
+    <ol>
+        <li>tenha solução única.</li>
+        <li>tenha infinitas soluções.</li>
+        <li>não tenha solução.</li>
+    </ol>
+    <details>
+        <summary>Ver Resolução Completa</summary>
+        <div class="solution">
+            <p>Vamos escalonar a matriz aumentada do sistema:</p>
+            \[ \left[ \begin{array}{ccc|c} 1 & 1 & 1 & 1 \\ 2 & -1 & 3 & 4 \\ 3 & a & 5 & b \end{array} \right] \]
+            <p>Operações: \(L_2 \leftarrow L_2 - 2L_1\) e \(L_3 \leftarrow L_3 - 3L_1\).</p>
+            \[ \left[ \begin{array}{ccc|c} 1 & 1 & 1 & 1 \\ 0 & -3 & 1 & 2 \\ 0 & a-3 & 2 & b-3 \end{array} \right] \]
+            <p>Operação: \(L_3 \leftarrow L_3 + \frac{a-3}{3}L_2\).</p>
+             \[ \left[ \begin{array}{ccc|c} 1 & 1 & 1 & 1 \\ 0 & -3 & 1 & 2 \\ 0 & 0 & 2 + \frac{a-3}{3} & (b-3) + \frac{2(a-3)}{3} \end{array} \right] \]
+            <p>Simplificando a última linha:</p>
+            <p>Coeficiente de z: \( 2 + \frac{a-3}{3} = \frac{6+a-3}{3} = \frac{a+3}{3} \).</p>
+            <p>Termo independente: \( b-3 + \frac{2a-6}{3} = \frac{3b-9+2a-6}{3} = \frac{2a+3b-15}{3} \).</p>
+            <p>A última equação é: \( (\frac{a+3}{3})z = \frac{2a+3b-15}{3} \), ou simplesmente \( (a+3)z = 2a+3b-15 \).</p>
+            
+            <p><b>a) Solução Única (SPD):</b> Ocorre quando o coeficiente de z é diferente de zero.
+            \( a+3 \neq 0 \implies \mathbf{a \neq -3} \). Neste caso, o valor de \(b\) pode ser qualquer número real.</p>
+            
+            <p><b>b) Infinitas Soluções (SPI):</b> Ocorre quando o coeficiente de z e o termo independente são ambos zero.
+            \( a+3 = 0 \implies a = -3 \).
+            Substituindo \(a=-3\) no termo independente: \( 2(-3)+3b-15 = 0 \implies -6+3b-15=0 \implies 3b=21 \implies b=7 \).
+            Portanto, para <strong>\( a = -3 \) e \( b = 7 \)</strong>.</p>
+            
+            <p><b>c) Nenhuma Solução (SI):</b> Ocorre quando o coeficiente de z é zero, mas o termo independente não é.
+            \( a+3 = 0 \implies a = -3 \).
+            O termo independente não pode ser zero, então \( b \neq 7 \).
+            Portanto, para <strong>\( a = -3 \) e \( b \neq 7 \)</strong>.</p>
+        </div>
+    </details>
+
+    <h2>Questão 3</h2>
+    <p>Considere o sistema de inequações lineares no R²:</p>
+     \[
+    \begin{cases}
+    x + 3y \le 9 \\
+    2x + y \le 8 \\
+    x \ge 0 \\
+    y \ge 0
+    \end{cases}
+    \]
+    <ol>
+        <li>
+            Determine as coordenadas dos vértices que delimitam a região-solução.
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>Os vértices são as interseções das retas-fronteira:</p>
+                    <p><b>Vértice A:</b> Interseção de \(x=0\) e \(y=0\). <strong>A = (0, 0)</strong>.</p>
+                    <p><b>Vértice B:</b> Interseção de \(y=0\) e \(2x+y=8\). \(2x=8 \implies x=4\). <strong>B = (4, 0)</strong>.</p>
+                    <p><b>Vértice C:</b> Interseção de \(x+3y=9\) e \(2x+y=8\).
+                    Da segunda equação, \(y = 8-2x\). Substituindo na primeira:
+                    \( x + 3(8-2x) = 9 \implies x + 24 - 6x = 9 \implies -5x = -15 \implies x=3 \).
+                    Logo, \( y = 8-2(3) = 2 \). <strong>C = (3, 2)</strong>.</p>
+                    <p><b>Vértice D:</b> Interseção de \(x=0\) e \(x+3y=9\). \(3y=9 \implies y=3\). <strong>D = (0, 3)</strong>.</p>
+                    <p>Os vértices são (0,0), (4,0), (3,2) e (0,3).</p>
+                </div>
+            </details>
+        </li>
+        <li>
+            Represente graficamente a região-solução, indicando seus vértices.
+             <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>A região-solução é a interseção dos quatro semiplanos. As condições \(x \ge 0\) e \(y \ge 0\) restringem a solução ao primeiro quadrante.</p>
+                    <ol>
+                        <li><b>Reta 1:</b> \(x+3y=9\). Pontos: (9,0) e (0,3). A região é abaixo desta reta.</li>
+                        <li><b>Reta 2:</b> \(2x+y=8\). Pontos: (4,0) e (0,8). A região é abaixo desta reta.</li>
+                    </ol>
+                    <p>O gráfico é um polígono (quadrilátero) fechado com os vértices A(0,0), B(4,0), C(3,2) e D(0,3) devidamente marcados.</p>
+                </div>
+            </details>
+        </li>
+    </ol>
+    
+    <h2>Questão 4</h2>
+    <p>Considere o triângulo de vértices \( A=(1, 1) \), \( B=(7, 3) \) e \( C=(3, 5) \). O circuncentro de um triângulo é o ponto de interseção das mediatrizes de seus lados.</p>
+    <ol>
+        <li>
+            Encontre a equação da mediatriz do lado AB.
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>A mediatriz é a reta perpendicular que passa pelo ponto médio.</p>
+                    <p><b>Ponto Médio de AB (M_AB):</b> \( M_{AB} = \left(\frac{1+7}{2}, \frac{1+3}{2}\right) = (4, 2) \).</p>
+                    <p><b>Coeficiente angular de AB (m_AB):</b> \( m_{AB} = \frac{3-1}{7-1} = \frac{2}{6} = \frac{1}{3} \).</p>
+                    <p><b>Coeficiente angular da mediatriz (m_perp):</b> \( m_{\perp} = -\frac{1}{m_{AB}} = -3 \).</p>
+                    <p>Equação da mediatriz: \( y - 2 = -3(x - 4) \implies y - 2 = -3x + 12 \implies \mathbf{3x + y - 14 = 0} \).</p>
+                </div>
+            </details>
+        </li>
+        <li>
+            Encontre a equação da mediatriz do lado BC.
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p><b>Ponto Médio de BC (M_BC):</b> \( M_{BC} = \left(\frac{7+3}{2}, \frac{3+5}{2}\right) = (5, 4) \).</p>
+                    <p><b>Coeficiente angular de BC (m_BC):</b> \( m_{BC} = \frac{5-3}{3-7} = \frac{2}{-4} = -\frac{1}{2} \).</p>
+                    <p><b>Coeficiente angular da mediatriz (m_perp):</b> \( m_{\perp} = -\frac{1}{m_{BC}} = 2 \).</p>
+                    <p>Equação da mediatriz: \( y - 4 = 2(x - 5) \implies y - 4 = 2x - 10 \implies \mathbf{2x - y - 6 = 0} \).</p>
+                </div>
+            </details>
+        </li>
+        <li>
+            Calcule as coordenadas do circuncentro do triângulo ABC.
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>O circuncentro é a interseção das duas mediatrizes. Resolvemos o sistema:</p>
+                    \[ \begin{cases} 3x + y = 14 \\ 2x - y = 6 \end{cases} \]
+                    <p>Somando as duas equações: \( 5x = 20 \implies x = 4 \).</p>
+                    <p>Substituindo x na segunda equação: \( 2(4) - y = 6 \implies 8 - y = 6 \implies y = 2 \).</p>
+                    <p>O circuncentro é o ponto <strong>(4, 2)</strong>.</p>
+                </div>
+            </details>
+        </li>
+        <li>
+            Determine a equação da circunferência circunscrita ao triângulo ABC.
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>A circunferência tem centro no circuncentro C(4, 2). O raio (R) é a distância do centro a qualquer um dos vértices. Vamos usar o ponto A(1, 1).</p>
+                    \[ R^2 = (x_A - x_C)^2 + (y_A - y_C)^2 = (1-4)^2 + (1-2)^2 = (-3)^2 + (-1)^2 = 9 + 1 = 10 \]
+                    <p>A equação da circunferência é \( (x-h)^2 + (y-k)^2 = R^2 \).</p>
+                    \[ \mathbf{(x-4)^2 + (y-2)^2 = 10} \]
+                </div>
+            </details>
+        </li>
+        <li>
+            Verifique que o ponto C = (3, 5) pertence à circunferência encontrada.
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>Substituímos as coordenadas do ponto C(3, 5) na equação da circunferência:</p>
+                    \[ (3-4)^2 + (5-2)^2 \stackrel{?}{=} 10 \]
+                    \[ (-1)^2 + (3)^2 \stackrel{?}{=} 10 \]
+                    \[ 1 + 9 \stackrel{?}{=} 10 \]
+                    \[ 10 = 10 \]
+                    <p>A igualdade é verdadeira, confirmando que o ponto C pertence à circunferência.</p>
+                </div>
+            </details>
+        </li>
+    </ol>
+</body>
+</html>

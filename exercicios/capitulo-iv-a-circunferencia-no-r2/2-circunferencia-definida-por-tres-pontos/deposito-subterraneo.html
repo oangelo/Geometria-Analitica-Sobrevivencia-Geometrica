@@ -1,0 +1,46 @@
+<div class="exercise">
+<h3>DEPÓSITO SUBTERRÂNEO</h3>
+<p>Exploradores descobriram três entradas para um antigo depósito subterrâneo nas coordenadas A(1, 3), B(5, 3) e C(3, 7). Registros históricos indicam que o depósito foi construído em formato circular, com seu centro exatamente equidistante das três entradas. Determine a localização do centro do depósito e qual seria o perímetro total da estrutura.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Trabalhe com as equações na forma $(x-h)^2 + (y-k)^2 = r^2$ para cada ponto e elimine o $r^2$ subtraindo as equações. O perímetro é $2\pi r$.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Escrevemos as equações para cada ponto:
+                    $(1-h)^2 + (3-k)^2 = r^2$
+                    $(5-h)^2 + (3-k)^2 = r^2$
+                    $(3-h)^2 + (7-k)^2 = r^2$</li>
+<li>Subtraindo a primeira da segunda:
+                    $(5-h)^2 - (1-h)^2 = 0$
+                    $25 - 10h + h^2 - (1 - 2h + h^2) = 0$
+                    $25 - 10h + h^2 - 1 + 2h - h^2 = 0$
+                    $24 - 8h = 0$
+                    $h = 3$</li>
+<li>Subtraindo a primeira da terceira:
+                    $(3-h)^2 + (7-k)^2 - [(1-h)^2 + (3-k)^2] = 0$
+                    $(3-h)^2 - (1-h)^2 + (7-k)^2 - (3-k)^2 = 0$
+                    $9 - 6h + h^2 - (1 - 2h + h^2) + 49 - 14k + k^2 - (9 - 6k + k^2) = 0$
+                    $9 - 6h + h^2 - 1 + 2h - h^2 + 49 - 14k + k^2 - 9 + 6k - k^2 = 0$
+                    $8 - 4h + 40 - 8k = 0$
+                    $48 - 4h - 8k = 0$</li>
+<li>Substituindo $h = 3$:
+                    $48 - 4(3) - 8k = 0$
+                    $48 - 12 - 8k = 0$
+                    $36 - 8k = 0$
+                    $k = \frac{36}{8} = 4.5$</li>
+<li>Calculamos o raio usando o primeiro ponto:
+                    $r^2 = (1-3)^2 + (3-4.5)^2 = 4 + 2.25 = 6.25$
+                    $r = 2.5$
+                    O perímetro é $2\pi r = 2\pi \cdot 2.5 = 5\pi \approx 15.71$ unidades</li>
+</ol>
+<div class="formula">
+                    $$(x - 3)^2 + (y - 4.5)^2 = 6.25$$
+                    $$\text{Perímetro} = 2\pi r = 5\pi \approx 15.71$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> As antigas estruturas pré-apocalipse frequentemente seguiam padrões geométricos precisos. Ao mapear estruturas circulares a partir de pontos de entrada conhecidos, você pode localizar centros ocultos que frequentemente contêm sistemas de controle ou recursos valiosos. A compreensão da geometria analítica não apenas revela segredos do passado, mas também permite estimar a quantidade de recursos necessários para segurar ou fortificar todo o perímetro.</p>
+</details>
+</div>

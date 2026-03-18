@@ -1,0 +1,25 @@
+<div class="exercise">
+<h3>ZONA CONTAMINADA</h3>
+<p>Uma área circular contaminada por radiação tem centro no ponto $R(1, 2)$ e raio de $3$ unidades. Um grupo de sobreviventes encontra-se no ponto $S(4, 5)$. Determine se os sobreviventes estão em zona de perigo e calcule a distância mais curta até um ponto seguro fora da área contaminada.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Primeiro determine se o ponto está dentro, sobre ou fora da circunferência. Se estiver dentro, a distância mais curta até um ponto seguro será a distância do ponto até a borda da circunferência (ou seja, $r - d(S, R)$ se $d(S, R) &lt; r$).</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>O centro da área contaminada é $R(1, 2)$ com raio $r = 3$.</li>
+<li>Os sobreviventes estão no ponto $S(4, 5)$.</li>
+<li>Calculamos a distância entre $S$ e $R$:
+                    $d(S, R) = \sqrt{(4 - 1)^2 + (5 - 2)^2} = \sqrt{9 + 9} = \sqrt{18} = 3\sqrt{2} \approx 4,24$</li>
+<li>Como $d(S, R) \approx 4,24 &gt; 3 = r$, o ponto $S$ está fora da circunferência.</li>
+<li>Como os sobreviventes já estão fora da zona contaminada, a distância mais curta até um ponto seguro é $0$.</li>
+</ol>
+<div class="formula">
+                    $d(S, R) = \sqrt{(4 - 1)^2 + (5 - 2)^2} = \sqrt{18} = 3\sqrt{2} &gt; 3 = r$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Boas notícias para os sobreviventes - eles já estão em uma zona segura. No entanto, saber exatamente onde estão as fronteiras das zonas perigosas é essencial para o planejamento de rotas e a definição de perímetros seguros para acampamentos.</p>
+</details>
+</div>

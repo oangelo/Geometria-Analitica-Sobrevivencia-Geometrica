@@ -1,0 +1,33 @@
+<div class="exercise">
+<h3>CONFIGURAÇÃO DE ANTENAS QUÂNTICAS</h3>
+<p>Para estabelecer uma rede de comunicação resistente a interferências, antenas quânticas devem ser posicionadas em uma configuração específica. Partindo do transmissor central em $O(0, 0)$, três antenas estão posicionadas em $A(a, 0)$, $B(0, b)$ e $C(c, d)$, onde $a, b &gt; 0$. Determine as condições sobre $c$ e $d$ para que os vetores $\overrightarrow{OA}$, $\overrightarrow{OB}$ e $\overrightarrow{OC}$ formem um conjunto onde cada vetor é ortogonal a exatamente um dos outros.</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Calculamos os vetores a partir da origem:
+                        <br/>$\overrightarrow{OA} = A - O = (a, 0) - (0, 0) = (a, 0)$
+                        <br/>$\overrightarrow{OB} = B - O = (0, b) - (0, 0) = (0, b)$
+                        <br/>$\overrightarrow{OC} = C - O = (c, d) - (0, 0) = (c, d)$</li>
+<li>Verificamos que $\overrightarrow{OA} \cdot \overrightarrow{OB} = a \cdot 0 + 0 \cdot b = 0$, então $\overrightarrow{OA}$ e $\overrightarrow{OB}$ já são ortogonais.</li>
+<li>Para satisfazer a condição, $\overrightarrow{OC}$ deve ser ortogonal a exatamente um dos outros dois vetores.</li>
+<li>Se $\overrightarrow{OC}$ for ortogonal a $\overrightarrow{OA}$, então:
+                        <br/>$\overrightarrow{OA} \cdot \overrightarrow{OC} = a \cdot c + 0 \cdot d = ac = 0$
+                        <br/>Como $a &gt; 0$, isto implica que $c = 0$. Além disso, $\overrightarrow{OC}$ não deve ser ortogonal a $\overrightarrow{OB}$:
+                        <br/>$\overrightarrow{OB} \cdot \overrightarrow{OC} = 0 \cdot c + b \cdot d = bd \neq 0$
+                        <br/>Como $b &gt; 0$, isto implica que $d \neq 0$.</li>
+<li>Se $\overrightarrow{OC}$ for ortogonal a $\overrightarrow{OB}$, então:
+                        <br/>$\overrightarrow{OB} \cdot \overrightarrow{OC} = 0 \cdot c + b \cdot d = bd = 0$
+                        <br/>Como $b &gt; 0$, isto implica que $d = 0$. Além disso, $\overrightarrow{OC}$ não deve ser ortogonal a $\overrightarrow{OA}$:
+                        <br/>$\overrightarrow{OA} \cdot \overrightarrow{OC} = a \cdot c + 0 \cdot d = ac \neq 0$
+                        <br/>Como $a &gt; 0$, isto implica que $c \neq 0$.</li>
+<li>Portanto, temos duas possibilidades:
+                        <br/>Caso 1: $c = 0$ e $d \neq 0$, ou seja, $C(0, d)$ com $d \neq 0$
+                        <br/>Caso 2: $d = 0$ e $c \neq 0$, ou seja, $C(c, 0)$ com $c \neq 0$</li>
+</ol>
+<div class="formula">
+                    $$\textrm{Caso 1: } C(0, d) \textrm{ onde } d \neq 0$$
+                    $$\textrm{Caso 2: } C(c, 0) \textrm{ onde } c \neq 0$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> A configuração geométrica de antenas quânticas com ortogonalidade seletiva não é apenas um exercício matemático abstrato, mas um princípio crítico para comunicações seguras em ambiente hostil. Quando cada antena forma um canal ortogonal com exatamente outra, cria-se uma rede resiliente onde a interferência em um canal não compromete toda a comunicação. Para comunidades isoladas após o colapso, tais sistemas de comunicação redundantes representam a diferença entre permanecer conectado com outros sobreviventes ou enfrentar o isolamento total—frequentemente uma sentença de morte no mundo devastado.</p>
+</details>
+</div>

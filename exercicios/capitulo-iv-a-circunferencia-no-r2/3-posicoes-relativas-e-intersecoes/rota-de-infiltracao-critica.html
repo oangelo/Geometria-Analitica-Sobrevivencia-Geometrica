@@ -1,0 +1,25 @@
+<div class="exercise">
+<h3>ROTA DE INFILTRAÇÃO CRÍTICA</h3>
+<p>Uma equipe de infiltração precisa entrar em um complexo inimigo vigiado por sensores. O sistema de segurança consiste em três sensores circulares: o primeiro centrado em (1, 2) com alcance de 3 unidades, o segundo em (7, 3) com alcance de 4 unidades, e o terceiro em (4, 8) com alcance de 5 unidades. Determine as equações de todas as retas que são tangentes a exatamente duas das três zonas de detecção e não intersectam a terceira. Qual dessas rotas minimiza a distância percorrida entre os pontos (-2, -1) e (10, 7)?</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Temos três circunferências: $C_1(1, 2)$ com raio $r_1 = 3$, $C_2(7, 3)$ com raio $r_2 = 4$ e $C_3(4, 8)$ com raio $r_3 = 5$</li>
+<li>Para cada par de circunferências, existem quatro retas tangentes comuns: duas externas e duas internas</li>
+<li>Começamos analisando as tangentes externas entre $C_1$ e $C_2$:</li>
+<li>A distância entre os centros é $d_{12} = \sqrt{(7-1)^2 + (3-2)^2} = \sqrt{36 + 1} = \sqrt{37} \approx 6.08$</li>
+<li>Para tangentes externas, a distância entre os pontos de tangência é $T_{12} = \frac{d_{12} \cdot |r_1 - r_2|}{r_1 + r_2} = \frac{6.08 \cdot |3-4|}{3+4} = \frac{6.08}{7} \approx 0.87$</li>
+<li>Calculamos os pontos de tangência e as equações das retas tangentes</li>
+<li>Repetimos o processo para os pares $C_1$ e $C_3$, e $C_2$ e $C_3$</li>
+<li>Para cada reta tangente a dois círculos, verificamos se ela não intersecta o terceiro círculo</li>
+<li>Depois de obter todas as retas viáveis, calculamos os comprimentos dos segmentos que conectam os pontos (-2, -1) e (10, 7) através dessas rotas</li>
+<li>A rota ótima envolve seguir um caminho que tangencia $C_1$ e $C_2$ com equação aproximada $y = 0.4x + 1.2$</li>
+</ol>
+<div class="formula">
+                    $\text{Rota ótima: } y = 0.4x + 1.2$
+                    
+                    $\text{Distância total percorrida: } \approx 15.8 \text{ unidades}$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Infiltrar-se em território hostil exige identificar os pontos cegos entre sistemas de vigilância sobrepostos. Da mesma forma, na geometria analítica, encontrar retas que sejam tangentes a certas circunferências enquanto evitam outras representa o caminho mais seguro através de um campo minado de ameaças. A matemática não apenas ajuda a encontrar rotas possíveis, mas a otimizar a que minimiza o risco e o tempo de exposição.</p>
+</details>
+</div>

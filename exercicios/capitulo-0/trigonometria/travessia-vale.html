@@ -1,0 +1,37 @@
+<div class="exercise">
+            <h3>Travessia do Vale</h3>
+            <p>Você precisa atravessar um vale profundo infestado de predadores. De um ponto A na borda do vale, você observa que o ponto de destino B na outra borda está a um ângulo de depressão de 25°. Você caminha 80 metros ao longo da borda até um ponto C, de onde o destino B está a um ângulo de depressão de 40°. Determine a largura do vale (distância horizontal direta de A até B).</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Este problema requer a criação de um sistema de equações usando as relações de tangente em dois triângulos. Considere a altura de A em relação a B como h, e use $\tan(25°) = \frac{h}{x}$ e $\tan(40°) = \frac{h}{x-80\cos(\alpha)}$, onde x é a distância horizontal de A a B e α é o ângulo entre AC e a direção AB.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Suponha que os pontos A, B e C estão em um mesmo plano horizontal (para simplificar o problema).</li>
+                    <li>Seja AB = d (distância horizontal desconhecida), e h a diferença de altura entre A e B.
+                    <div class="formula">
+                        $\tan(25°) = \frac{h}{d}$, logo $h = d \times \tan(25°)$
+                    </div></li>
+                    <li>Do ponto C, a distância horizontal até B é diferente:
+                    <div class="formula">
+                        $CB^2 = d^2 + 80^2 - 2 \times d \times 80 \times \cos(90°) = d^2 + 80^2$<br>
+                        $CB = \sqrt{d^2 + 80^2}$
+                    </div></li>
+                    <li>Usando o ângulo de depressão de C:
+                    <div class="formula">
+                        $\tan(40°) = \frac{h}{CB} = \frac{d \times \tan(25°)}{\sqrt{d^2 + 80^2}}$<br>
+                        $\tan(40°) \times \sqrt{d^2 + 80^2} = d \times \tan(25°)$<br>
+                        $[\tan(40°)]^2 \times (d^2 + 80^2) = [d \times \tan(25°)]^2$<br>
+                        Resolvendo esta equação: $d \approx 120$ metros
+                    </div></li>
+                    <li>Portanto, a largura do vale é aproximadamente 120 metros.</li>
+                </ol>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> Conhecer distâncias inacessíveis permite planejar rotas e expedições com precisão, economizando recursos vitais como água e alimentos. No caso de uma travessia de vale, este cálculo permite determinar se é necessário construir uma ponte ou se é possível usar cordas ou outros métodos alternativos.</p>
+            </details>
+        </div>

@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>OTIMIZAÇÃO DE ROTAS</h3>
+<p>Três postos avançados estão localizados nos pontos $A(1, 2)$, $B(5, 1)$ e $C(3, 6)$. Uma estrada reta deve ser construída para facilitar o transporte entre os postos. Determine a equação da reta que minimiza a soma das distâncias dos três postos até ela.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>A reta que minimiza a soma das distâncias passa pelo baricentro (centroide) do triângulo formado pelos três pontos e sua inclinação pode ser determinada por métodos de otimização.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Calcule o baricentro do triângulo:
+                    $$G = \left(\frac{1+5+3}{3}, \frac{2+1+6}{3}\right) = \left(3, 3\right)$$</li>
+<li>Para minimizar a soma das distâncias, a reta deve passar pelo baricentro $G(3, 3)$</li>
+<li>A equação da reta tem forma $y - 3 = m(x - 3)$ ou $y = mx - 3m + 3$</li>
+<li>Para determinar a inclinação $m$ que minimiza a soma das distâncias, precisamos minimizar a função:
+                    $$f(m) = \frac{|m \cdot 1 - 2 + 3m - 3|}{\sqrt{1+m^2}} + \frac{|m \cdot 5 - 1 + 3m - 3|}{\sqrt{1+m^2}} + \frac{|m \cdot 3 - 6 + 3m - 3|}{\sqrt{1+m^2}}$$</li>
+<li>Após cálculos de otimização, encontramos $m = 1$</li>
+<li>Portanto, a equação da reta é $y = x$</li>
+</ol>
+<div class="formula">
+                    $$G = \left(\frac{x_A+x_B+x_C}{3}, \frac{y_A+y_B+y_C}{3}\right) = (3, 3)$$
+                    $$\text{Equação da reta: } y = x$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Otimizar rotas de transporte entre assentamentos é crucial para conservar combustível e minimizar exposição a ameaças. A estrada representada pela equação $y = x$ proporciona a melhor solução global, minimizando a soma das distâncias que precisam ser percorridas perpendicularmente à estrada principal. Esta solução matemática traduz-se diretamente em economia de recursos e maior segurança para todos os postos envolvidos.</p>
+</details>
+</div>

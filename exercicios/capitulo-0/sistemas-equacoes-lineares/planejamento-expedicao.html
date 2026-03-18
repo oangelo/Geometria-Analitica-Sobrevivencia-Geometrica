@@ -1,0 +1,31 @@
+        <div class="exercise">
+            <h3>Planejamento de Expedição</h3>
+            <p>Sua equipe planeja uma expedição usando dois veículos: uma motocicleta que consome 4 litros de combustível por 100km e um jipe que consome 12 litros por 100km. Você tem 36 litros de combustível disponíveis e precisa percorrer o equivalente a 500km-veículo (soma das distâncias percorridas por cada veículo). Quanto cada veículo deve percorrer para otimizar a exploração?</p>
+            
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Estabeleça uma equação para o consumo total de combustível e outra para a distância total percorrida. Considere as taxas de consumo diferentes para cada veículo.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Definimos as variáveis: $x$ = distância percorrida pela motocicleta (km), $y$ = distância percorrida pelo jipe (km)</li>
+                    <li>Para a distância total: $x + y = 500$ (requisito da missão)</li>
+                    <li>Para o consumo de combustível: $\frac{4x}{100} + \frac{12y}{100} = 36$ (consumo total igual ao combustível disponível)</li>
+                    <li>Simplificamos a segunda equação: $0.04x + 0.12y = 36$</li>
+                    <li>Multiplicamos por 100: $4x + 12y = 3600$</li>
+                    <li>Da primeira equação, isolamos $y = 500 - x$</li>
+                    <li>Substituímos na equação do combustível: $4x + 12(500 - x) = 3600$</li>
+                    <li>Desenvolvemos: $4x + 6000 - 12x = 3600$</li>
+                    <li>Simplificamos: $-8x = 3600 - 6000 = -2400$</li>
+                    <li>Resolvemos para $x$: $x = 300$ km (motocicleta)</li>
+                    <li>Calculamos $y$: $y = 500 - 300 = 200$ km (jipe)</li>
+                    <li>Verificação do combustível: $\frac{4 \cdot 300}{100} + \frac{12 \cdot 200}{100} = 12 + 24 = 36$ litros ✓</li>
+                </ol>
+                
+                <p><strong>Reflexão de Sobrevivência:</strong> A otimização de recursos escassos através de sistemas lineares é fundamental para expedições bem-sucedidas. A solução matemática encontrada equilibra a eficiência do veículo leve com a capacidade de carga do veículo pesado. Na prática da Zona Devastada, isso significa maximizar o alcance de exploração enquanto mantém combustível suficiente para o retorno seguro. Lembre-se: expedições mal planejadas não têm segunda chance.</p>
+            </details>
+        </div>

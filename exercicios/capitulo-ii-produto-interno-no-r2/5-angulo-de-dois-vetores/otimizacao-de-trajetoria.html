@@ -1,0 +1,43 @@
+<div class="exercise">
+<h3>OTIMIZAÇÃO DE TRAJETÓRIA</h3>
+<p>Um drone de reconhecimento está seguindo uma trajetória definida pelo vetor $\vec{d_1} = (5,2)$. Devido à detecção de uma zona de alta radiação, ele precisa ajustar sua rota para um novo vetor $\vec{d_2}$ que forme exatamente 60° com a trajetória original. Sabendo que $|\vec{d_2}| = 4$ e que a primeira coordenada de $\vec{d_2}$ é positiva, determine as coordenadas do vetor $\vec{d_2}$.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Use a fórmula do cosseno do ângulo entre vetores "ao contrário". Você conhece o ângulo e precisa encontrar o vetor, então estabeleça um sistema usando o produto escalar.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Temos $\vec{d_1} = (5,2)$, $|\vec{d_2}| = 4$ e o ângulo entre eles é $\theta = 60°$.</li>
+<li>Calculamos $|\vec{d_1}| = \sqrt{5^2 + 2^2} = \sqrt{25 + 4} = \sqrt{29} \approx 5,39$</li>
+<li>Seja $\vec{d_2} = (x,y)$. Aplicamos a fórmula do cosseno:
+                    $\cos(60°) = \frac{\vec{d_1} \cdot \vec{d_2}}{|\vec{d_1}| \cdot |\vec{d_2}|} = \frac{5x + 2y}{5,39 \cdot 4}$</li>
+<li>Sabemos que $\cos(60°) = 0,5$, então:
+                    $0,5 = \frac{5x + 2y}{21,56}$
+                    $10,78 = 5x + 2y$</li>
+<li>Também sabemos que $|\vec{d_2}| = 4$, então:
+                    $x^2 + y^2 = 16$</li>
+<li>Da primeira equação: $y = \frac{10,78 - 5x}{2}$</li>
+<li>Substituindo na segunda equação:
+                    $x^2 + \left(\frac{10,78 - 5x}{2}\right)^2 = 16$
+                    $x^2 + \frac{(10,78 - 5x)^2}{4} = 16$
+                    $4x^2 + (10,78 - 5x)^2 = 64$
+                    $4x^2 + 116,21 - 107,8x + 25x^2 = 64$
+                    $29x^2 - 107,8x + 52,21 = 0$</li>
+<li>Resolvendo esta equação quadrática, e considerando que $x &gt; 0$, obtemos $x \approx 3,46$</li>
+<li>Substituindo: $y = \frac{10,78 - 5(3,46)}{2} = \frac{10,78 - 17,3}{2} \approx -3,26$</li>
+<li>Portanto, $\vec{d_2} \approx (3,46, -3,26)$ ou aproximadamente $(3,5, -3,3)$</li>
+</ol>
+<div class="formula">
+                    $$\begin{cases}
+                    \cos(60°) = \frac{\vec{d_1} \cdot \vec{d_2}}{|\vec{d_1}| \cdot |\vec{d_2}|} \\
+                    |\vec{d_2}| = 4
+                    \end{cases}$$
+                    
+                    $$\vec{d_2} \approx (3,5, -3,3)$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> A capacidade de calcular com precisão uma nova trajetória que evite perigos é uma habilidade crítica na Zona Devastada. Para um drone de reconhecimento, desviar de áreas de alta radiação preserva não apenas o equipamento, mas também a missão de coleta de dados. O vetor calculado mostra que o drone deve se mover para o nordeste enquanto desce em altitude (se interpretarmos a coordenada y como altitude). Esta matemática vetorial torna-se literalmente a diferença entre recuperar recursos vitais ou perder equipamentos insubstituíveis.</p>
+</details>
+</div>

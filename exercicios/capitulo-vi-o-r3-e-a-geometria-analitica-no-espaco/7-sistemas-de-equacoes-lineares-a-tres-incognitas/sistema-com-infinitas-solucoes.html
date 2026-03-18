@@ -1,0 +1,33 @@
+<div class="exercise">
+<h3>Sistema com Infinitas Soluções</h3>
+<p>Três grupos de escavadores relataram descobertas em diferentes coordenadas, mas os dados parecem relacionados. Analise o sistema:</p>
+<div class="formula">
+            $$\begin{cases}
+            x + 2y - z = 3 \\
+            2x + 4y - 2z = 6 \\
+            -x - 2y + z = -3
+            \end{cases}$$
+            </div>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+                Observe as relações entre os coeficientes das equações. A segunda equação é múltipla da primeira?
+            </div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Observando a segunda equação: todos os coeficientes são o dobro da primeira equação</li>
+<li>Segunda equação: $2(x + 2y - z) = 2 \cdot 3 \Rightarrow 2x + 4y - 2z = 6$ ✓</li>
+<li>Terceira equação: todos os coeficientes são opostos da primeira equação</li>
+<li>Terceira equação: $-(x + 2y - z) = -3 \Rightarrow -x - 2y + z = -3$ ✓</li>
+<li>As três equações são equivalentes à primeira: $x + 2y - z = 3$</li>
+<li>Escolhendo parâmetros: $y = t$ e $z = s$</li>
+<li>Da primeira equação: $x = 3 - 2t + s$</li>
+</ol>
+<div class="formula">
+                    Solução geral: $(x, y, z) = (3 - 2t + s, t, s)$, onde $t, s \in \mathbb{R}$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> As infinitas soluções indicam que os três grupos estão na verdade explorando a mesma região em pontos diferentes. Esta redundância pode ser aproveitada para cobrir mais área ou como backup em caso de ataque a um dos grupos.</p>
+</details>
+</div>

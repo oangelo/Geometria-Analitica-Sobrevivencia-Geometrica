@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<title>Cap. I — Vetores no Plano</title>
+<link href="https://unpkg.com/reveal.js@5.1.0/dist/reveal.css" rel="stylesheet"/>
+<link href="https://unpkg.com/reveal.js@5.1.0/dist/theme/black.css" id="theme" rel="stylesheet"/>
+<link href="../styles.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<!-- SEÇÃO 3: VETORES APRIMORADA -->
+<section>
+<!-- Conceito de vetor expandido -->
+<section>
+<h2>Vetores: As Setas da Sobrevivência</h2>
+<div class="concept-definition">
+<p>Um <strong>vetor</strong> \(\vec{v}\) no plano é uma quantidade com magnitude e direção, representado geometricamente por uma seta direcionada e algebricamente por um par ordenado \((x,y)\).</p>
+</div>
+<p>Os vetores são a linguagem matemática de:</p>
+<ul>
+<li><strong>Movimento</strong>: Deslocamentos entre locais</li>
+<li><strong>Força</strong>: Direção e intensidade de efeitos físicos</li>
+<li><strong>Tendência</strong>: Padrões direcionais em fenômenos naturais</li>
+</ul>
+<div class="narrative-text">
+<p>Os Cartógrafos usam notação vetorial para marcar não apenas locais, mas também rotas seguras, correntes de vento, fluxos de radiação e padrões migratórios de criaturas mutantes.</p>
+</div>
+</section>
+        <!-- Slide Horizontal 2: Notação -->
+        <section>
+          <h2>Notação de Pontos, Vetores e Escalares</h2>
+          <p>Em <strong>R²</strong>, tanto pontos quanto vetores são pares ordenados (x, y). Entretanto, o que muda é a forma de rotular e interpretar:</p>
+          <ul>
+            <li><strong>Pontos</strong>: Letras maiúsculas (p. ex. A, B), indicando posições específicas no plano. Ex.: A(2,3), B(-1,4).</li>
+            <li><strong>Vetores</strong>: Letras minúsculas com a notação de seta, (por exemplo \(\vec{u}\), \(\vec{v}\)). Outro exemplo, \(\vec{u} = (2,3)\) pode representar um deslocamento.</li>
+            <li><strong>Escalares</strong>: Letras gregas minúsculas (por exemplo \(\alpha\), \(\beta\), \(\theta\)), representando valores numéricos que podem escalonar vetores. Ex.: \(\alpha = 2\).</li>
+          </ul>
+        </section>
+
+<!-- vetor definido por dois pontos -->
+      <section>
+        <h3>Vetor Definido por Dois Pontos: A Rota Direta</h3>
+        
+        <div class="concept-definition">
+          <p>Para dois pontos \(A(x_1, y_1)\) e \(B(x_2, y_2)\), o vetor \(\overrightarrow{AB}\) é definido como:</p>
+          <p>\[ \overrightarrow{AB} = (x_2 - x_1, y_2 - y_1) \]</p>
+          <p>Representa o deslocamento <em>direcionado</em> necessário para ir do ponto A ao ponto B.</p>
+        </div>
+        
+        <p>Este vetor captura a <strong>direção</strong> e <strong>magnitude</strong> exatas para ir de uma localização a outra no deserto pós-apocalíptico.</p>
+        
+        
+        <div class="survival-tip">
+          <span class="emoji-icon">🧭</span> <strong>Diretiva de Navegação:</strong> "Sempre calcule o vetor exato entre sua posição atual e o destino. Um erro de cálculo não permite segunda tentativa."
+        </div>
+      </section>
+<section>
+<h3>Visualização: Vetor definido por dois pontos</h3>
+<div class="visualization-container">
+<img alt="Descrição" src="svg/vetor-dois-pontos.svg"/>
+</div>
+</section>
+
+<!-- Norma de vetor em contexto -->
+<section>
+<h3>Norma do Vetor: Medindo o Esforço</h3>
+<div class="concept-definition">
+<p>A <strong>norma</strong> (ou magnitude) de um vetor \(\vec{v} = (x,y)\) é dada por:</p>
+<p>\[ |\vec{v}| = \sqrt{x^2 + y^2} \]</p>
+<p>Geometricamente, representa o comprimento da seta vetorial.</p>
+</div>
+<p>A norma quantifica o "custo total" de um deslocamento, independentemente da direção – seja em termos de energia, tempo, ou recursos necessários.</p>
+<div class="survival-tip">
+<span class="emoji-icon">⚡</span> <strong>Protocolo de Eficiência:</strong> "Entre dois vetores que conduzem ao mesmo destino, aquele com menor norma sempre preservará mais recursos vitais."
+          </div>
+</section>
+<!-- Vetores unitários e direção -->
+<section>
+<h3>Vetores Unitários: A Bússola Matemática</h3>
+<div class="concept-definition">
+<p>Um <strong>vetor unitário</strong> \(\hat{u}\) tem norma igual a 1 e preserva apenas a informação de direção:</p>
+<p>\[ \hat{u} = \frac{\vec{v}}{|\vec{v}|} \]</p>
+</div>
+<p>Vetores unitários funcionam como bússolas matemáticas, apontando direções sem comprometimento com distâncias específicas. São fundamentais para:</p>
+<ul>
+<li>Navegar seguindo uma direção específica</li>
+<li>Padronizar indicações de rota entre comunidades</li>
+<li>Calcular componentes direcionais de forças naturais</li>
+</ul>
+<div class="narrative-text">
+<p>As bandeiras de sinalização dos guias de caravana usam um sistema codificado por cores baseado nos oito vetores unitários principais, permitindo comunicação visual à distância mesmo durante tempestades de poeira.</p>
+</div>
+</section>
+<!-- Base canônica -->
+ <section>
+        <h3>Base Canônica: Os Vetores Fundamentais</h3>
+        
+        <div class="concept-definition">
+          <p>A <strong>base canônica</strong> de \(\mathbb{R}^2\) consiste em dois vetores unitários:</p>
+          <p>\[ \hat{\imath} = (1,0) \quad \text{e} \quad \hat{\jmath} = (0,1) \]</p>
+          <p>Qualquer vetor \(\vec{v} = (a,b)\) pode ser escrito como combinação linear:</p>
+          <p>\[ \vec{v} = a\hat{\imath} + b\hat{\jmath} \]</p>
+        </div>
+        
+        <p>Estes vetores formam as <strong>direções fundamentais</strong> do nosso sistema de coordenadas, como as direções cardeais Leste (\(\hat{\imath}\)) e Norte (\(\hat{\jmath}\)) em uma bússola.</p>
+        
+        <div class="survival-tip">
+          <span class="emoji-icon">🧭</span> <strong>Protocolo de Orientação:</strong> "Se você se perder, primeiro determine a direção dos vetores \(\hat{\imath}\) e \(\hat{\jmath}\) em relação a pontos de referência estáveis, como montanhas ou ruínas destacadas."
+        </div>
+      </section>
+<section>
+<h3>Visualização: Base Canônica</h3>
+<div class="visualization-container">
+<img alt="Descrição" src="svg/base-canonica.svg"/>
+</div>
+</section>
+
+</section>
+
+      </div>
+</div>
+<script src="https://unpkg.com/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\(','\)']],
+        displayMath: [['\[','\]']]
+      }
+    };
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true
+    });
+  </script>
+</body>
+</html>

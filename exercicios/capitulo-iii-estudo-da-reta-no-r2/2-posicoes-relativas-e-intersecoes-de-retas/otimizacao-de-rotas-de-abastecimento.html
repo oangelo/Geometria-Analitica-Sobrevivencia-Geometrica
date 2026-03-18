@@ -1,0 +1,54 @@
+<div class="exercise">
+<h3>OTIMIZAÇÃO DE ROTAS DE ABASTECIMENTO</h3>
+<p>Três assentamentos na Zona Devastada estão localizados nos pontos $A(2, 1)$, $B(8, 3)$ e $C(4, 7)$. Você precisa estabelecer uma rota de abastecimento que minimize a distância total percorrida. Determine a equação da reta que representa a melhor rota, de forma que a soma das distâncias dos três assentamentos até esta rota seja mínima.</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Este é um problema de otimização geométrica. A reta que minimiza a soma das distâncias perpendiculares de um conjunto de pontos até ela é conhecida como "reta de regressão ortogonal" ou "reta de melhor ajuste".
+                    
+                    Primeiro, calculamos o ponto médio (centroide) dos três assentamentos:
+                    $$\bar{x} = \frac{x_A + x_B + x_C}{3} = \frac{2 + 8 + 4}{3} = \frac{14}{3} \approx 4,67$$
+                    $$\bar{y} = \frac{y_A + y_B + y_C}{3} = \frac{1 + 3 + 7}{3} = \frac{11}{3} \approx 3,67$$
+                    
+                    O centroide é $(\frac{14}{3}, \frac{11}{3})$.</li>
+<li>Agora, calculamos os momentos de segunda ordem:
+                    $$S_{xx} = \sum (x_i - \bar{x})^2 = (2 - \frac{14}{3})^2 + (8 - \frac{14}{3})^2 + (4 - \frac{14}{3})^2 = \frac{8}{9} + \frac{26^2}{9} + \frac{-2}{3}^2 = \frac{8 + 676 + 4/9}{9} = \frac{764/9}{9} = \frac{764}{81}$$
+                    
+                    $$S_{yy} = \sum (y_i - \bar{y})^2 = (1 - \frac{11}{3})^2 + (3 - \frac{11}{3})^2 + (7 - \frac{11}{3})^2 = \frac{-8}{3}^2 + \frac{-2}{3}^2 + \frac{10}{3}^2 = \frac{64/9 + 4/9 + 100/9}{9} = \frac{168/9}{9} = \frac{168}{81}$$
+                    
+                    $$S_{xy} = \sum (x_i - \bar{x})(y_i - \bar{y}) = (2 - \frac{14}{3})(1 - \frac{11}{3}) + (8 - \frac{14}{3})(3 - \frac{11}{3}) + (4 - \frac{14}{3})(7 - \frac{11}{3}) = \frac{-4}{3} \cdot \frac{-8}{3} + \frac{10}{3} \cdot \frac{-2}{3} + \frac{-2}{3} \cdot \frac{10}{3} = \frac{32/9 - 20/9 - 20/9}{1} = \frac{-8/9}{1} = \frac{-8}{9}$$</li>
+<li>O coeficiente angular da reta de melhor ajuste é dado pela solução da equação:
+                    $$S_{xy} = \lambda (S_{yy} - S_{xx})$$
+                    
+                    onde $\lambda$ é a inclinação da reta e $\lambda^2$ é o valor próprio da matriz de covariância. Neste caso:
+                    
+                    $$-\frac{8}{9} = \lambda (\frac{168}{81} - \frac{764}{81})$$
+                    $$-\frac{8}{9} = \lambda \cdot \frac{-596}{81}$$
+                    $$\lambda = \frac{-8/9}{-596/81} = \frac{-8/9}{-596/81} = \frac{-8 \cdot 81}{-9 \cdot 596} = \frac{-648}{-5364} = \frac{648}{5364} = \frac{108}{894} = \frac{12}{99} = \frac{4}{33}$$</li>
+<li>A reta de melhor ajuste passa pelo centroide e tem coeficiente angular $\lambda = \frac{4}{33}$. Usando a forma ponto-angular:
+                    $$y - \bar{y} = \lambda(x - \bar{x})$$
+                    $$y - \frac{11}{3} = \frac{4}{33}(x - \frac{14}{3})$$
+                    $$y - \frac{11}{3} = \frac{4}{33}x - \frac{4 \cdot 14}{33 \cdot 3}$$
+                    $$y - \frac{11}{3} = \frac{4}{33}x - \frac{56}{99}$$
+                    $$y = \frac{4}{33}x - \frac{56}{99} + \frac{11}{3}$$
+                    $$y = \frac{4}{33}x - \frac{56}{99} + \frac{11 \cdot 33}{3 \cdot 33}$$
+                    $$y = \frac{4}{33}x - \frac{56}{99} + \frac{363}{99}$$
+                    $$y = \frac{4}{33}x + \frac{363 - 56}{99}$$
+                    $$y = \frac{4}{33}x + \frac{307}{99}$$</li>
+<li>Reescrevendo na forma geral $ax + by + c = 0$:
+                    $$\frac{4}{33}x - y + \frac{307}{99} = 0$$
+                    Multiplicando por 99:
+                    $$12x - 99y + 307 = 0$$
+                    Que podemos reescrever como:
+                    $$12x - 99y + 307 = 0$$</li>
+</ol>
+<div class="formula">
+                    $$\text{Equação da rota ótima de abastecimento:}$$
+                    $$12x - 99y + 307 = 0$$
+                    
+                    $$\text{Ou na forma explícita:}$$
+                    $$y = \frac{4}{33}x + \frac{307}{99} \approx 0,12x + 3,10$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Em um mundo onde cada passo extra representa energia vital desperdiçada e maior exposição a perigos, a otimização de rotas é questão de sobrevivência. A reta calculada, com sua pequena inclinação positiva, representa o caminho mais eficiente para abastecer os três assentamentos, minimizando o desgaste de veículos, consumo de combustível e exposição a ameaças. Esta rota também fornece uma base para futuras expansões – se novos assentamentos forem estabelecidos próximos a esta linha, o sistema de abastecimento continuará eficiente. A matemática não apenas economiza recursos, mas potencialmente salva vidas ao reduzir o tempo de exposição na Zona Devastada.</p>
+</details>
+</div>

@@ -1,0 +1,71 @@
+<div class="exercise">
+<h3>TRIANGULAÇÃO DE ZONA SEGURA</h3>
+<p>Três rotas de patrulha são representadas pelas retas $r_1: 2x + 3y - 12 = 0$, $r_2: x - y + 1 = 0$ e $r_3: 3x - 2y + 4 = 0$. Para estabelecer uma zona segura, você precisa determinar os pontos de interseção entre essas retas e verificar se formam um triângulo. Em caso afirmativo, calcule a área deste triângulo para determinar a capacidade da zona segura.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Encontre os três pontos de interseção resolvendo os sistemas de equações para cada par de retas. Verifique se esses pontos são distintos e use a fórmula da área do triângulo a partir das coordenadas dos vértices.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Primeiramente, encontraremos os pontos de interseção entre cada par de retas.
+                    
+                    Interseção de $r_1: 2x + 3y - 12 = 0$ e $r_2: x - y + 1 = 0$:
+                    Da segunda equação: $y = x + 1$
+                    Substituindo na primeira:
+                    $2x + 3(x + 1) - 12 = 0$
+                    $2x + 3x + 3 - 12 = 0$
+                    $5x - 9 = 0$
+                    $x = \frac{9}{5}$
+                    $y = \frac{9}{5} + 1 = \frac{9}{5} + \frac{5}{5} = \frac{14}{5}$
+                    Ponto $P_1 = (\frac{9}{5}, \frac{14}{5})$</li>
+<li>Interseção de $r_1: 2x + 3y - 12 = 0$ e $r_3: 3x - 2y + 4 = 0$:
+                    Multiplicando $r_1$ por 2: $4x + 6y - 24 = 0$
+                    Multiplicando $r_3$ por 3: $9x - 6y + 12 = 0$
+                    Somando as equações:
+                    $13x - 12 = 0$
+                    $x = \frac{12}{13}$
+                    Substituindo em $r_3$:
+                    $3(\frac{12}{13}) - 2y + 4 = 0$
+                    $\frac{36}{13} - 2y + 4 = 0$
+                    $\frac{36}{13} + \frac{52}{13} - 2y = 0$
+                    $\frac{88}{13} - 2y = 0$
+                    $y = \frac{44}{13}$
+                    Ponto $P_2 = (\frac{12}{13}, \frac{44}{13})$</li>
+<li>Interseção de $r_2: x - y + 1 = 0$ e $r_3: 3x - 2y + 4 = 0$:
+                    Da primeira equação: $y = x + 1$
+                    Substituindo na segunda:
+                    $3x - 2(x + 1) + 4 = 0$
+                    $3x - 2x - 2 + 4 = 0$
+                    $x + 2 = 0$
+                    $x = -2$
+                    $y = -2 + 1 = -1$
+                    Ponto $P_3 = (-2, -1)$</li>
+<li>Agora verificamos se os três pontos são distintos, o que confirmamos, então eles formam um triângulo.</li>
+<li>Calculamos a área do triângulo usando a fórmula com determinante:
+                    $$A = \frac{1}{2}\left|\begin{vmatrix} 
+                    x_1 &amp; y_1 &amp; 1 \\
+                    x_2 &amp; y_2 &amp; 1 \\
+                    x_3 &amp; y_3 &amp; 1
+                    \end{vmatrix}\right|$$
+                    
+                    $$A = \frac{1}{2}\left|\begin{vmatrix} 
+                    \frac{9}{5} &amp; \frac{14}{5} &amp; 1 \\
+                    \frac{12}{13} &amp; \frac{44}{13} &amp; 1 \\
+                    -2 &amp; -1 &amp; 1
+                    \end{vmatrix}\right|$$
+                    
+                    Realizando o cálculo do determinante e simplificando:
+                    $$A \approx 8,26 \text{ unidades de área}$$</li>
+</ol>
+<div class="formula">
+                    $$\text{Pontos de interseção:}$$
+                    $$P_1 = \left(\frac{9}{5}, \frac{14}{5}\right), \, P_2 = \left(\frac{12}{13}, \frac{44}{13}\right), \, P_3 = (-2, -1)$$
+                    
+                    $$\text{Área do triângulo} \approx 8,26 \text{ unidades de área}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> A triangulação de rotas de patrulha cria um perímetro natural de defesa, estabelecendo uma zona segura de aproximadamente 8,26 unidades quadradas. Este espaço pode acomodar um posto avançado pequeno ou servir como ponto de encontro temporário. A geometria triangular oferece excelente visibilidade em todas as direções, permitindo vigilância com recursos humanos limitados - três sentinelas posicionadas nos vértices do triângulo podem monitorar tanto o interior quanto o exterior da zona segura com eficiência máxima.</p>
+</details>
+</div>

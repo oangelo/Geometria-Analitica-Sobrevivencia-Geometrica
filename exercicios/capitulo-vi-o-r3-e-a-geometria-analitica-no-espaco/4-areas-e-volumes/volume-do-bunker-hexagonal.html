@@ -1,0 +1,18 @@
+<div class="exercise">
+<h3>Volume do Bunker Hexagonal</h3>
+<p>Um bunker subterrâneo é construído usando três vetores estruturais: $\vec{x} = (3, 1, 2)$, $\vec{y} = (-1, 2, 3)$ e $\vec{z} = (2, -1, 1)$. Determine se este bunker tem volume suficiente para abrigar suprimentos (volume &gt; 10 unidades cúbicas).</p>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Calcular o produto vetorial $\vec{y} \times \vec{z}$</li>
+<li>$\vec{y} \times \vec{z} = (2 \cdot 1 - 3 \cdot (-1), 3 \cdot 2 - (-1) \cdot 1, (-1) \cdot (-1) - 2 \cdot 2) = (5, 7, -3)$</li>
+<li>Calcular o produto misto: $\vec{x} \cdot (\vec{y} \times \vec{z}) = (3, 1, 2) \cdot (5, 7, -3) = 15 + 7 - 6 = 16$</li>
+<li>O volume é $|16| = 16$ unidades cúbicas</li>
+<li>Como $16 &gt; 10$, o bunker tem volume suficiente</li>
+</ol>
+<div class="formula">
+                    $$V = |\vec{x} \cdot (\vec{y} \times \vec{z})| = 16 \text{ unidades}^3$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Com 16 unidades cúbicas, este bunker pode armazenar suprimentos para 6 meses: 800 latas de comida, 160 galões de água e equipamentos médicos básicos para uma família de sobreviventes.</p>
+</details>
+</div>
