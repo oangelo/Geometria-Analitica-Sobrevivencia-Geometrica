@@ -93,58 +93,35 @@
           </section>
 
           <section>
-            <h2>Ângulo entre Vetores: A Bússola do Produto Escalar</h2>
+            <h2>Conexão Fundamental: |v|² = v·v</h2>
             <p>
-              O produto escalar revela o ângulo \(\theta\) entre dois vetores. A partir de
-              \(\vec{u} \cdot \vec{v} = |\vec{u}||\vec{v}|\cos(\theta)\), isolamos:
+              Uma consequência direta e poderosa do produto escalar: quando
+              calculamos o produto de um vetor consigo mesmo, obtemos o
+              <strong>módulo ao quadrado</strong>.
             </p>
             <p class="formula">
-              \[ \cos(\theta) = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}||\vec{v}|}, \qquad
-              \theta = \arccos\!\left(\frac{\vec{u} \cdot \vec{v}}{|\vec{u}||\vec{v}|}\right) \]
+              \\[ \\vec{v} \\cdot \\vec{v} = |\\vec{v}|^2 \\]
             </p>
-            <div class="flex-container">
-              <div class="flex-item">
-                <strong>\(\theta = 0^\circ\)</strong><br/>
-                vetores paralelos, mesmo sentido<br/>
-                \(\vec{u} \cdot \vec{v} = |\vec{u}||\vec{v}| > 0\)
-              </div>
-              <div class="flex-item">
-                <strong>\(\theta = 90^\circ\)</strong><br/>
-                vetores ortogonais<br/>
-                \(\vec{u} \cdot \vec{v} = 0\)
-              </div>
-              <div class="flex-item">
-                <strong>\(\theta = 180^\circ\)</strong><br/>
-                vetores anti-paralelos<br/>
-                \(\vec{u} \cdot \vec{v} = -|\vec{u}||\vec{v}| < 0\)
-              </div>
-            </div>
-          </section>
-
-          <section>
-            <h3>Exemplo: Calculando o Ângulo</h3>
             <p>
-              Sejam \(\vec{u} = (1, 1)\) e \(\vec{v} = (1, 0)\). Qual o ângulo entre eles?
+              Para \\(\\vec{v} = (x, y)\\), temos:
+              \\(\\vec{v} \\cdot \\vec{v} = x^2 + y^2 = |\\vec{v}|^2\\)
             </p>
-            <ol>
-              <li>Produto escalar: \(\vec{u} \cdot \vec{v} = 1 \cdot 1 + 1 \cdot 0 = 1\)</li>
-              <li>Módulos: \(|\vec{u}| = \sqrt{2}\), \(|\vec{v}| = 1\)</li>
-              <li>\(\cos(\theta) = \dfrac{1}{\sqrt{2} \cdot 1} = \dfrac{\sqrt{2}}{2}\)</li>
-              <li>\(\theta = \arccos\!\left(\dfrac{\sqrt{2}}{2}\right) = 45^\circ\)</li>
-            </ol>
-            <div class="survival-tip">
-              <span class="emoji-icon">🧭</span>
-              <strong>Regra do Sobrevivente:</strong> sinal do produto escalar basta para saber se o ângulo
-              é agudo (\(> 0\)), reto (\(= 0\)) ou obtuso (\(< 0\)). O \(\arccos\) só é necessário
-              quando o valor exato do ângulo importa.
+            <div class="info-panel">
+              <h4>Implicação Prática</h4>
+              <p>
+                Isso significa que podemos calcular o módulo de um vetor usando
+                apenas o produto escalar: \\(|\\vec{v}| = \\sqrt{\\vec{v} \\cdot \\vec{v}}\\).
+                Essa relação será fundamental para calcular distâncias e ângulos
+                na Zona Devastada.
+              </p>
             </div>
           </section>
 
           <section>
             <h2>Reflexão Rápida</h2>
             <p>
-              Nesses tempos hostis, aprender a medir “afinidade” ou
-              “desalinhamento” entre vetores é como negociar com facções rivais:
+              Nesses tempos hostis, aprender a medir "afinidade" ou
+              "desalinhamento" entre vetores é como negociar com facções rivais:
               às vezes um simples acordo (produto escalar positivo) evita
               catástrofes nucleares.
             </p>
@@ -173,13 +150,12 @@
           </section>
 
           <section>
-            <h2>Exercícios: Produto Escalar e Ângulo</h2>
+            <h2>Exercícios: Produto Escalar</h2>
             <ol>
               <li>
                 <strong>Cálculo direto:</strong>
                 Sejam \(\vec{u} = (3, 4)\) e \(\vec{v} = (1, -2)\).
-                Calcule \(\vec{u} \cdot \vec{v}\), \(|\vec{u}|\), \(|\vec{v}|\)
-                e o ângulo \(\theta\) entre eles.
+                Calcule \(\vec{u} \cdot \vec{v}\).
               </li>
               <li>
                 <strong>Ortogonalidade:</strong>
