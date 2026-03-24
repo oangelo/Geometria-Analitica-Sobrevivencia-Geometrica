@@ -561,12 +561,22 @@
 
 .visualization-container {
   text-align: center;
-  margin: 0.2em auto 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: min(95vw, 1280px);
-  height: min(72vh, 900px);
+  position: relative;
+  overflow: hidden;
+}
+
+.visualization-container svg,
+.visualization-container img {
+  max-width: 100%;
+  max-height: 65vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 
 .visualization-container canvas,
@@ -578,20 +588,20 @@
 }
 
 .visualization-container svg {
-  max-width: 100%;
-  max-height: 100%;
-  width: 100%;
-  height: 100%;
+  max-width: 70%;
+  max-height: 70%;
+  width: auto;
+  height: auto;
   object-fit: contain;
   display: block;
   margin: 0 auto;
 }
 
 .visualization-container img {
-  max-width: 100%;
-  max-height: 100%;
-  width: 100%;
-  height: 100%;
+  max-width: 70%;
+  max-height: 70%;
+  width: auto;
+  height: auto;
   object-fit: contain;
   display: block;
   margin: 0 auto;
@@ -602,10 +612,12 @@
    - e também automaticamente quando a section contém visualization-container */
 .reveal .slides section.visual-slide,
 .reveal .slides section:has(.visualization-container) {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  align-items: center;
-  gap: 0.2em;
+  /* Layout padrão do Reveal.js */
+}
+
+.reveal .slides section.visual-slide .visualization-container,
+.reveal .slides section:has(.visualization-container) .visualization-container {
+  /* Container se adapta ao espaço disponível */
 }
 
 .reveal .slides section.visual-slide h2,
@@ -617,7 +629,7 @@
 
 .reveal .slides section.visual-slide .visualization-container,
 .reveal .slides section:has(.visualization-container) .visualization-container {
-  min-height: min(62vh, 900px);
+  /* Container se adapta ao espaço disponível */
 }
 
 /* Ajustes para o simulador */
@@ -714,7 +726,7 @@
   font-family: monospace;
   text-align: center;
   margin-top: 10px;
-  animation: pulse 2s infinite;
+  animation: warning-pulse 2s infinite;
 }
 
 .warning-text span {
@@ -731,8 +743,96 @@
   line-height: 1.2;
 }
 
-@keyframes pulse {
+@keyframes warning-pulse {
   0%   { opacity: 0.7; }
   50%  { opacity: 1;   }
   100% { opacity: 0.7; }
+}
+
+/* ====================
+   CAPÍTULO I — CLASSES ADICIONAIS
+   ==================== */
+
+/* Texto narrativo/contextual */
+.narrative-text {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-left: 3px solid #ADFF2F;
+  padding: 0.8em 1em;
+  margin: 0.8em 0;
+  font-style: italic;
+  color: #C0C0C0;
+}
+
+.narrative-text p {
+  color: #C0C0C0 !important;
+  font-size: 1.2rem !important;
+}
+
+/* Definições de conceitos */
+.concept-definition {
+  background-color: rgba(173, 255, 47, 0.1);
+  border: 1px solid #ADFF2F;
+  border-radius: 3px;
+  padding: 0.8em 1em;
+  margin: 0.8em 0;
+}
+
+.concept-definition p {
+  color: #E0E0E0 !important;
+}
+
+/* Notas estilo Pip-Boy */
+.pip-boy-note {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid #ADFF2F;
+  border-radius: 3px;
+  padding: 0.8em 1em;
+  margin: 0.8em 0;
+  font-family: 'Courier New', monospace;
+  color: #ADFF2F;
+}
+
+.pip-boy-note p {
+  color: #ADFF2F !important;
+  font-size: 1.2rem !important;
+}
+
+/* Caixas estilo Vault-Tec */
+.vault-box {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 2px solid #FFD700;
+  border-radius: 5px;
+  padding: 1em;
+  margin: 0.8em 0;
+}
+
+.vault-title {
+  color: #FFD700 !important;
+  font-size: 1.4rem !important;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 0.5em !important;
+}
+
+/* Títulos de exercícios */
+.exercise-title {
+  color: #FF6347 !important;
+  font-size: 1.8rem !important;
+  border-bottom: 2px solid #FF6347;
+  padding-bottom: 0.3em;
+  margin-bottom: 0.5em !important;
+}
+
+/* Citações */
+.quote {
+  background-color: rgba(255, 215, 0, 0.1);
+  border-left: 4px solid #FFD700;
+  padding: 1em 1.5em;
+  margin: 1em 0;
+  font-style: italic;
+}
+
+.quote p {
+  color: #FFD700 !important;
+  font-size: 1.4rem !important;
 }
