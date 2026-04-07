@@ -161,7 +161,7 @@ The following Cursor rule files are automatically applied:
 - `.cursor/rules/slides.mdc` — For `slide-decks/**/*.html`
 - `.cursor/rules/provas.mdc` — For `provas/**/*.html`
 
-These rules contain essential guidelines. Reference `ESTILO.md` for complete notation reference and `AGENTES.md` forhigh-level structure.
+These rules contain essential guidelines. Reference `ESTILO.md` for complete notation reference.
 
 ---
 
@@ -183,7 +183,6 @@ Before any commit, verify:
 ## Reference Documents
 
 - `ESTILO.md` — Complete style guide for mathematical notation
-- `AGENTES.md` — Portuguese version of this guide
 - `README.md` — Course overview and content index
 - `exercicios/prompt.md` — Detailed exercise creation reference
 - `slide-decks/prompt.md` — Detailed slide creation reference
