@@ -19,6 +19,45 @@ All materials follow a **post-apocalyptic theme** inspired by survival games, wi
 
 ---
 
+## Git Worktrees (Feature Branches)
+
+This repo uses Git worktrees organized by content type. Each worktree has its own branch for independent development.
+
+### Structure
+
+```
+Geometria-Analitica-Sobrevivencia-Geometrica/
+├── worktrees/
+│   ├── exercicios/   → branch 'feature/exercicios'
+│   ├── slides/       → branch 'feature/slides'
+│   └── provas/       → branch 'feature/provas'
+└── (root)            → branch 'main' (principal worktree)
+```
+
+### Workflow
+
+1. **Navigate to the appropriate worktree** based on the content you're editing:
+   - Exercises → `worktrees/exercicios/`
+   - Slides → `worktrees/slides/`
+   - Exams → `worktrees/provas/`
+
+2. **Make changes and commit** within that worktree (commits are independent per branch)
+
+3. **Integrate to main** via merge:
+   ```bash
+   # From the main worktree root
+   git merge feature/exercicios
+   ```
+
+4. **Start the dev server** from the appropriate directory to test changes:
+   ```bash
+   cd worktrees/exercicios && python3 -m http.server 8080
+   ```
+
+> The `worktrees/` directory is gitignored and not committed.
+
+---
+
 ## Build/Test/Lint Commands
 
 ### Local Development Server
