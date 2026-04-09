@@ -128,11 +128,10 @@ No automated test suite exists. Manual verification required:
    - `<section class="manual-contexto" data-context="manual-sobrevivencia">` for theory
    - `<section class="enunciados-exercicios" data-context="exercicios-enunciados">` for exercises
 
-3. **Exercise count:** Exactly 12 exercises per topic with difficulty progression:
+3. **Exercise count:** Flexible — cover the content with as many exercises as needed. Minimum 6, typical 8-15. Priority is content coverage, not a fixed number.
    - Q1–Q3: Basic, with explicit hints
    - Q4–Q6: Intermediate, some hints
-   - Q7–Q9: Advanced, minimal hints
-   - Q10–Q12: Challenging, no hints, multiple concepts
+   - Q7+: Advanced, minimal hints, multiple concepts
 
 4. **Hint/Solution structure:**
    ```html
@@ -193,6 +192,58 @@ No automated test suite exists. Manual verification required:
 
 ---
 
+## Exercise Design Principles
+
+When creating or reviewing exercises, follow these principles:
+
+### 1. Mathematical Narrative
+
+The exercise list must tell a **mathematical story**, not just be a collection of problems. The student should understand WHY each concept exists and HOW concepts connect.
+
+**Bad**: Random list of unrelated exercises about vectors.
+**Good**: Progression that shows how two points define a vector, two vectors define an angle (dot product), two vectors define an area (cross product).
+
+### 2. Clear Motivation
+
+Each exercise should start with a clear statement of purpose:
+
+```
+"O objetivo deste exercício é entender como usar o produto escalar 
+para encontrar ângulos entre vetores."
+```
+
+This tells the student WHY the exercise exists, not just WHAT to calculate.
+
+### 3. Logical Progression
+
+Exercises should build on each other. Example for the dot product topic:
+
+| Phase | Exercises | Concept |
+|-------|-----------|---------|
+| Construction | Q1-Q3 | Two points → a vector |
+| New tool | Q4-Q6 | Two vectors → angle (dot product) |
+| Motivation | Q7-Q9 | Why dot product > direct trigonometry |
+| Combination | Q10+ | Multiple concepts → complex applications |
+
+### 4. Content Coverage Over Fixed Count
+
+Do not enforce a rigid number of exercises. Cover the content thoroughly:
+- Minimum 6 exercises per topic
+- Typical: 8-15 exercises
+- Add more if the topic is complex or has many sub-concepts
+
+### 5. Web Search for Missing Exercises
+
+Use FireCrawl to search for exercises from textbooks and adapt them to the post-apocalyptic theme:
+```bash
+# Search for exercises on a topic
+curl -X POST http://100.65.237.67:3002/v1/search \
+  -H "Content-Type: application/json" \
+  -d '{"query": "exercícios produto escalar geometria analítica", "limit": 3}'
+```
+
+---
+
 ## Cursor Rules Integration
 
 The following Cursor rule files are automatically applied:
@@ -212,7 +263,8 @@ Before any commit, verify:
 - [ ] No new CSS — only existing classes from template stylesheets
 - [ ] Decimal numbers use comma: `$0{,}5$` not `$0.5$`
 - [ ] No calculus concepts — only algebra/geometry/trigonometry
-- [ ] Exercise difficulty follows Q1–Q12 progression pattern
+- [ ] Exercise difficulty follows progressive difficulty (basic → advanced)
+- [ ] Each exercise has a clear motivation statement
 - [ ] Hints use `<details class="hint-details">` structure
 - [ ] Files named in lowercase kebab-case
 - [ ] For slides: verified visually via screenshot (see `slide-decks/AGENTS.md`)
