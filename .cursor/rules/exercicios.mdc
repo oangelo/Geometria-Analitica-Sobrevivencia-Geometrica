@@ -8,6 +8,12 @@ alwaysApply: false
 
 Use o `exercicios/template.html` como base estrutural.
 
+**Antes de começar, leia (nesta ordem):**
+1. `exercicios/checklist-conceitos-permitidos.md` — conceitos permitidos por capítulo, progressão narrativa
+2. `exercicios/diretrizes-listas-de-exercicios.md` — 8 princípios de design + formato de enunciado
+3. `exercicios/agents.md` — guia completo do agente (estrutura, pipeline, regras)
+4. `ESTILO.md` — referência de notação matemática
+
 ## Temática e Tom
 - Cenário pós-apocalíptico: "Zona Devastada", "Abrigo", "Mutantes", "Traje de Proteção", "RemoveRad", "SUPERVISOR"
 - Tom sério com humor sutil e sarcástico — sem piadas forçadas
@@ -16,22 +22,23 @@ Use o `exercicios/template.html` como base estrutural.
 ## Estrutura
 - Organizar cada tópico em três arquivos:
   - `<topico>-manual.html` (somente contexto teórico)
-  - `<topico>-enunciados.html` (somente lista de missões/enunciados/soluções)
+  - `<topico>-enunciados.html` (somente lista de missões/enunciados/soluções) OU pasta `<topico>/` com exercícios individuais
   - `<topico>.html` (loader que agrega os dois arquivos)
 - Separar conteúdo em dois blocos explícitos:
   - `manual-contexto` com `data-context="manual-sobrevivencia"` para teoria e fórmulas-base
   - `enunciados-exercicios` com `data-context="exercicios-enunciados"` para missões/enunciados/soluções
-- Exatamente **12 exercícios** com progressão de dificuldade:
-  - Q1–3: básico, com dicas explícitas
-  - Q4–6: intermediário, com algumas dicas
-  - Q7–9: avançado, dicas mínimas
-  - Q10–12: desafiador, sem dicas, múltiplos conceitos
+- **Número de exercícios:** flexível — cobrir o conteúdo é mais importante que um número fixo. Mínimo 6, típico 8-15. Progressão ALFA (básico) → BETA (intermediário) → GAMMA (avançado) → OMEGA (desafiador, sem dica)
 - Introdução de 3–5 parágrafos explicando os conceitos do tópico
+
+## Formato do Enunciado
+- Texto corrido com `<p>` — sem `<div>` wrapper, sem `<ul><li>`
+- Sub-itens: `<p><strong>(a)</strong> texto...</p>`
+- Referências a outros exercícios pelo **conceito**, nunca pelo número
 
 ## Classes CSS obrigatórias
 - `mission-counter` — numeração automática das missões
 - `formula` — todas as fórmulas e variáveis matemáticas (MathJax)
-- `hint` — dicas, sempre iniciando com "DICA DE SOBREVIVÊNCIA: ", dentro de um `<details class="hint-details">` próprio
+- `hint` — dicas, dentro de `<details class="hint-details">` com `<summary>DICA DE SOBREVIVÊNCIA</summary>`
 - `solution-steps` — passos da solução
 - Estrutura didática obrigatória quando houver dica:
   1) `<details class="hint-details"><summary>DICA DE SOBREVIVÊNCIA</summary>...</details>`
@@ -49,4 +56,16 @@ Use o `exercicios/template.html` como base estrutural.
 - **NUNCA** usar cálculo diferencial ou integral
 - Apenas álgebra, geometria e trigonometria básica
 - Respeitar a progressão do curso: não antecipar conceitos de capítulos futuros
-- Referência de progressão detalhada em `exercicios/prompt.md`
+- Referência de progressão detalhada em `exercicios/checklist-conceitos-permitidos.md`
+
+## Princípios de Design (resumo)
+1. **Narrativa** — cada exercício prepara o seguinte
+2. **Transparência** — explicitar por que o exercício está ali
+3. **Construir sobre o sabido** — retomar conceitos anteriores
+4. **Scaffolding** — sub-itens (a, b, c) para problemas complexos
+5. **Significado antes da álgebra** — interpretação geométrica primeiro
+6. **Notação como conteúdo** — exercícios dedicados a notação
+7. **Desenhar** — pedir esboços e diagramas
+8. **Autonomia** — derivar resultados, não decorar fórmulas
+
+Ver detalhes em `exercicios/diretrizes-listas-de-exercicios.md`.

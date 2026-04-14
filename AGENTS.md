@@ -275,5 +275,7 @@ Before any commit, verify:
 
 - `ESTILO.md` — Complete style guide for mathematical notation
 - `README.md` — Course overview and content index
-- `exercicios/prompt.md` — Detailed exercise creation reference
+- `exercicios/agents.md` — Agent guide for exercise creation (workflow, format, rules)
+- `exercicios/diretrizes-listas-de-exercicios.md` — 8 design principles for exercise lists
+- `exercicios/checklist-conceitos-permitidos.md` — Concept progression by chapter
 - `slide-decks/prompt.md` — Detailed slide creation reference
