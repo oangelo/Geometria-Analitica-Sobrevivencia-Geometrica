@@ -9,17 +9,17 @@
     />
 
     <!-- Reveal.js Styles -->
-    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js@5.1.0/dist/reveal.css" />
     <link
       rel="stylesheet"
-      href="https://unpkg.com/reveal.js/dist/theme/black.css"
+      href="https://unpkg.com/reveal.js@5.1.0/dist/theme/black.css"
       id="theme"
     />
 
     <!-- For syntax highlighting -->
     <link
       rel="stylesheet"
-      href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css"
+      href="https://unpkg.com/reveal.js@5.1.0/plugin/highlight/monokai.css"
     />
 
     <!-- Custom styles (if needed) -->
@@ -49,11 +49,11 @@
           <section>
             <h2>Distância entre Dois Pontos</h2>
             <p>
-              Dados dois pontos \\(A(x_1, y_1)\\) e \\(B(x_2, y_2)\\), a distância 
-              entre eles é o módulo do vetor \\(\\vec{AB}\\):
+              Dados dois pontos \(A(x_1, y_1)\) e \(B(x_2, y_2)\), a distância 
+              entre eles é o módulo do vetor \(\vec{AB}\):
             </p>
             <p class="formula">
-              \\[ d(A,B) = |\\vec{AB}| = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \\]
+              \[ d(A,B) = |\vec{AB}| = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \]
             </p>
             <p>
               Isso é uma aplicação direta do módulo de um vetor, onde as coordenadas 
@@ -64,7 +64,7 @@
               <p>
                 <strong>Relação Fundamental:</strong> A distância entre dois pontos 
                 é o módulo do vetor posição relativa entre eles. Isso conecta diretamente 
-                com a relação \\(|\\vec{v}|^2 = \\vec{v} \\cdot \\vec{v}\\).
+                com a relação \(|\vec{v}|^2 = \vec{v} \cdot \vec{v}\).
               </p>
             </div>
           </section>
@@ -73,17 +73,17 @@
           <section>
             <h2>Conexão com o Produto Escalar</h2>
             <p>
-              A relação \\(|\\vec{v}|^2 = \\vec{v} \\cdot \\vec{v}\\) é consequência 
-              direta do produto escalar. Para \\(\\vec{v} = (x, y)\\):
+              A relação \(|\vec{v}|^2 = \vec{v} \cdot \vec{v}\) é consequência 
+              direta do produto escalar. Para \(\vec{v} = (x, y)\):
             </p>
             <p class="formula">
-              \\[ \\vec{v} \\cdot \\vec{v} = x^2 + y^2 = |\\vec{v}|^2 \\]
+              \[ \vec{v} \cdot \vec{v} = x^2 + y^2 = |\vec{v}|^2 \]
             </p>
             <p>
-              Portanto, a distância entre \\(A\\) e \\(B\\) pode ser calculada como:
+              Portanto, a distância entre \(A\) e \(B\) pode ser calculada como:
             </p>
             <p class="formula">
-              \\[ d(A,B) = \\sqrt{\\vec{AB} \\cdot \\vec{AB}} \\]
+              \[ d(A,B) = \sqrt{\vec{AB} \cdot \vec{AB}} \]
             </p>
             
             <div class="survival-tip">
@@ -97,14 +97,14 @@
           <section>
             <h2>Exemplo: Distância ao Abrigo</h2>
             <p>
-              Um sobrevivente está em \\(P(3, -4)\\) e o Abrigo está em \\(Q(-1, 2)\\).
+              Um sobrevivente está em \(P(3, -4)\) e o Abrigo está em \(Q(-1, 2)\).
               Qual a distância até o Abrigo?
             </p>
             
             <ol>
-              <li>Calcule o vetor \\(\\vec{PQ}\\): \\(\\vec{PQ} = (-1-3, 2-(-4)) = (-4, 6)\\)</li>
-              <li>Calcule o módulo: \\(|\\vec{PQ}| = \\sqrt{(-4)^2 + 6^2} = \\sqrt{16 + 36} = \\sqrt{52}\\)</li>
-              <li>Simplifique: \\(\\sqrt{52} = 2\\sqrt{13} \\approx 7{,}21\\) unidades</li>
+              <li>Calcule o vetor \(\vec{PQ}\): \(\vec{PQ} = (-1-3, 2-(-4)) = (-4, 6)\)</li>
+              <li>Calcule o módulo: \(|\vec{PQ}| = \sqrt{(-4)^2 + 6^2} = \sqrt{16 + 36} = \sqrt{52}\)</li>
+              <li>Simplifique: \(\sqrt{52} = 2\sqrt{13} \approx 7{,}21\) unidades</li>
             </ol>
             
             <div class="info-panel">
@@ -120,14 +120,14 @@
           <section>
             <h2>Exemplo: Raio de Detecção de Mutantes</h2>
             <p>
-              Um sensor de Mutantes tem alcance de 10 unidades. O sensor está em \\(S(1, 2)\\).
-              Um Mutante é detectado em \\(M(7, 10)\\). Está dentro do alcance?
+              Um sensor de Mutantes tem alcance de 10 unidades. O sensor está em \(S(1, 2)\).
+              Um Mutante é detectado em \(M(7, 10)\). Está dentro do alcance?
             </p>
             
             <ol>
-              <li>Calcule \\(\\vec{SM} = (7-1, 10-2) = (6, 8)\\)</li>
-              <li>Calcule \\(|\\vec{SM}| = \\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10\\)</li>
-              <li>Como \\(|\\vec{SM}| = 10\\), o Mutante está exatamente no limite do alcance.</li>
+              <li>Calcule \(\vec{SM} = (7-1, 10-2) = (6, 8)\)</li>
+              <li>Calcule \(|\vec{SM}| = \sqrt{6^2 + 8^2} = \sqrt{36 + 64} = \sqrt{100} = 10\)</li>
+              <li>Como \(|\vec{SM}| = 10\), o Mutante está exatamente no limite do alcance.</li>
             </ol>
             
             <div class="problem-context">
@@ -143,18 +143,18 @@
             <h2>Exemplo: Área de Segurança Circular</h2>
             <p>
               O Abrigo principal possui uma área de segurança circular com raio de 5 km.
-              Um sobrevivente está em \\(P(4, 3)\\). Está dentro da área segura?
+              Um sobrevivente está em \(P(4, 3)\). Está dentro da área segura?
             </p>
             
             <ol>
-              <li>Calcule a distância à origem: \\(|\\vec{OP}| = \\sqrt{4^2 + 3^2} = \\sqrt{16 + 9} = 5\\)</li>
-              <li>Como \\(|\\vec{OP}| = 5\\), o sobrevivente está exatamente na borda da área segura.</li>
+              <li>Calcule a distância à origem: \(|\vec{OP}| = \sqrt{4^2 + 3^2} = \sqrt{16 + 9} = 5\)</li>
+              <li>Como \(|\vec{OP}| = 5\), o sobrevivente está exatamente na borda da área segura.</li>
             </ol>
             
             <div class="survival-tip">
               <span class="emoji-icon">🛡️</span>
-              <strong>Regra de Segurança:</strong> Se \\(|\\vec{OP}| < r\\), está dentro da área segura.
-              Se \\(|\\vec{OP}| = r\\), está na fronteira. Se \\(|\\vec{OP}| > r\\), está em zona de perigo.
+              <strong>Regra de Segurança:</strong> Se \(|\vec{OP}| < r\), está dentro da área segura.
+              Se \(|\vec{OP}| = r\), está na fronteira. Se \(|\vec{OP}| > r\), está em zona de perigo.
             </div>
           </section>
 
@@ -166,7 +166,7 @@
               <div class="training-problem">
                 <h4>Problema 1: Distância entre Postos</h4>
                 <p>
-                  Dois postos de vigilância estão em \\(A(2, -3)\\) e \\(B(5, 1)\\).
+                  Dois postos de vigilância estão em \(A(2, -3)\) e \(B(5, 1)\).
                   Calcule a distância entre eles.
                 </p>
               </div>
@@ -174,16 +174,16 @@
               <div class="training-problem">
                 <h4>Problema 2: Cobertura de RemoveRad</h4>
                 <p>
-                  Um RemoveRad em \\(R(0, 0)\\) tem alcance de 8 unidades. 
-                  Um ponto contaminado está em \\(C(6, 5)\\). Será descontaminado?
+                  Um RemoveRad em \(R(0, 0)\) tem alcance de 8 unidades. 
+                  Um ponto contaminado está em \(C(6, 5)\). Será descontaminado?
                 </p>
               </div>
               
               <div class="training-problem">
                 <h4>Problema 3: Rota de Fuga</h4>
                 <p>
-                  Uma rota de fuga liga os pontos \\(X(-2, 4)\\) a \\(Y(3, -1)\\).
-                  Calcule o comprimento da rota e determine se há Abrigos em \\(Z(1, 2)\\) 
+                  Uma rota de fuga liga os pontos \(X(-2, 4)\) a \(Y(3, -1)\).
+                  Calcule o comprimento da rota e determine se há Abrigos em \(Z(1, 2)\) 
                   a menos de 4 unidades de distância do ponto médio da rota.
                 </p>
               </div>
@@ -198,8 +198,8 @@
               <div class="summary-box">
                 <h3>Pontos-Chave</h3>
                 <ul>
-                  <li>Distância entre dois pontos: \\(d(A,B) = \\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}\\)</li>
-                  <li>Relação fundamental: \\(|\\vec{v}|^2 = \\vec{v} \\cdot \\vec{v}\\)</li>
+                  <li>Distância entre dois pontos: \(d(A,B) = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}\)</li>
+                  <li>Relação fundamental: \(|\vec{v}|^2 = \vec{v} \cdot \vec{v}\)</li>
                   <li>Distância = módulo do vetor posição relativa</li>
                   <li>Aplicações: alcance de sensores, áreas de segurança, rotas</li>
                 </ul>
@@ -214,7 +214,7 @@
               
               <div class="instructor-note">
                 <p>
-                  <em>Nota do SUPERVISOR:</em> A relação \\(|\\vec{v}|^2 = \\vec{v} \\cdot \\vec{v}\\) 
+                  <em>Nota do SUPERVISOR:</em> A relação \(|\vec{v}|^2 = \vec{v} \cdot \vec{v}\) 
                   é fundamental para conectar produto escalar com módulo. Certifique-se de que 
                   todos os sobreviventes dominam essa conexão antes de avançar.
                 </p>
@@ -229,9 +229,9 @@
     <!-- .reveal -->
 
     <!-- Reveal.js -->
-    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
-    <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
-    <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="https://unpkg.com/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
 
     <!-- MathJax -->
     <script>
