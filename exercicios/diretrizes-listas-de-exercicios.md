@@ -32,30 +32,38 @@ Os exercícios devem pedir que o aluno faça esboços e diagramas, conectando eq
 ### 8. Autonomia sobre decoreba
 O objetivo é que, com as definições básicas, o aluno consiga derivar resultados sozinho, sem depender de fórmulas memorizadas. Em vez de "aplique a fórmula da distância", prefira "use a definição de produto escalar para encontrar a distância". A fórmula é consequência, não ponto de partida.
 
-### 9. Narrativa por exercício (OBRIGATÓRIO)
-Cada exercício deve começar com um **parágrafo narrativo** que conecta o exercício ao anterior e explica a história da matemática. Este parágrafo vem ANTES do enunciado e responde três perguntas:
+### 9. Texto integrado (OBRIGATÓRIO)
+O enunciado de cada exercício deve ser um **texto integrado** — não dois parágrafos separados (narrativa + enunciado), mas um único fluxo onde a história motiva o problema e o problema nasce da história.
 
-- **POR QUE** este exercício existe? (motivação matemática ou científica)
-- **O QUE** mudou em relação ao anterior? (o incremento de dificuldade ou conceito)
-- **COMO** se conecta ao que já sabemos? (a ponte com exercícios anteriores)
+**Estrutura do texto integrado:**
 
-O aluno nunca deve se perguntar "por que estou fazendo isso?". A narrativa torna explícito o fio condutor.
+1. **Situação** — descreve o cenário concreto (o que está acontecendo na Zona Devastada)
+2. **Problema** — o que o aluno precisa descobrir, nascendo naturalmente da situação
+3. **Ferramenta** — o conceito ou técnica que o aluno vai usar (mas NÃO a aplicação dela)
+4. **Deixar para o aluno** — o que o aluno deve descobrir/calcular sozinho
 
-**Formato:** Um `<p>` antes do enunciado, em *itálico*:
+**Regra de ouro:** A ferramenta diz O QUE o aluno pode fazer. O aluno descobre COM aplicar e QUAL resultado.
+
+**Formato:** Um único `<p>` (ou dois no máximo, se o texto for longo):
 
 ```html
-<p><em>Em engenharia e ciência, é comum conhecermos algumas grandezas e
-desconhecermos outras. Quando traduzimos essa situação para equações,
-o princípio fundamental é: mesma operação dos dois lados mantém a
-relação válida. Vamos praticar com a equação mais simples possível.</em></p>
-
-<p>Resolva a equação $x + 3 = 7$.</p>
+<p>Seu abrigo possui dois reservatórios parciais de água. O primeiro
+contém $\frac{2}{5}$ de um tanque, o segundo $\frac{1}{5}$ do mesmo
+tanque — ambas falam de "quintos", as mesmas partes. Se combinar os
+dois, que fração do tanque total ficará disponível?</p>
 ```
 
-**Regras:**
-- Referenciar o exercício anterior pelo **conceito**, nunca pelo número
-- A narrativa conta a "história da matemática" — como o conceito nasce de uma necessidade
-- Cada parágrafo deve deixar claro qual é o **incremento** em relação ao exercício anterior
+**O que NÃO fazer:**
+- ❌ Dar a solução junto com a ferramenta ("use o MMC 12, que dá 4/12 + 3/12 = 7/12")
+- ❌ Separar em "parágrafo narrativo" + "parágrafo enunciado" como blocos distintos
+- ❌ Repetir o cenário no enunciado depois de já ter descrito na narrativa
+- ❌ Dar spoiler da resposta no texto ("a operação é simples, basta somar")
+
+**O que fazer:**
+- ✅ Dar a ferramenta sem aplicá-la ("multiplicar em cima e em baixo pelo mesmo número não muda a fração, pois equivale a multiplicar por 1")
+- ✅ Deixar o aluno descobrir o MMC, fazer as conversões e calcular
+- ✅ Integrar narrativa e problema num fluxo contínuo
+- ✅ Referenciar o exercício anterior pelo conceito, nunca pelo número
 
 ---
 
@@ -87,50 +95,50 @@ FASE 4: APLICAR em contexto
 
 ## Exemplos de Progressão Pedagógica
 
-Os exemplos abaixo mostram como aplicar os princípios acima. Use-os como modelo ao gerar progressões para outros tópicos.
+Os exemplos abaixo mostram como aplicar os princípios acima no formato **texto integrado** — narrativa, problema e ferramenta num único fluxo. O aluno descobre COM aplicar e QUAL resultado.
 
 ### Exemplo 1: Álgebra
 
 #### Fase 1 — Isolamento de x (equação linear pura)
 
 **Q1** — $x + 3 = 7$
-> *Em engenharia e ciência, é comum conhecermos algumas grandezas e descrevermos outras. Quando traduzimos essa situação para a linguagem matemática, caímos numa equação. O princípio fundamental é este: se fizermos a mesma operação dos dois lados da equação, a relação entre as grandezas continua válida — e podemos isolar a quantidade desconhecida. Vamos praticar com a equação mais simples possível.*
+> Em engenharia e ciência, é comum conhecermos algumas grandezas e descrevermos outras. Quando traduzimos essa situação para equações, o princípio fundamental é: se fizermos a mesma operação dos dois lados, a relação entre as grandezas continua válida. Dado $x + 3 = 7$, descubra o valor de $x$ aplicando esse princípio.
 
 **Q2** — $2x = 10$
-> *No exercício anterior, a incógnita estava somada a um número. Agora a incógnita está multiplicada por um número. O princípio é o mesmo — mesma operação dos dois lados — mas a operação inversa agora é a divisão. Note como o raciocínio não mudou, apenas a ferramenta.*
+> No exercício anterior, a incógnita estava somada a um número. Agora ela está multiplicada por 2. O raciocínio é o mesmo — mesma operação dos dois lados — mas a operação inversa mudou. Qual é a operação inversa da multiplicação? Use-a para descobrir o valor de $x$.
 
 **Q3** — $2x + 3 = 11$
-> *Situações reais raramente são tão simples. Aqui temos duas operações envolvendo x: ele é multiplicado por 2 E somado a 3. Para isolar x, precisamos desfazer essas operações na ordem inversa — primeiro a soma, depois a multiplicação. Este é o início de um método que funcionará para equações cada vez mais complexas.*
+> Na prática, raramente temos uma única operação envolvendo $x$. Aqui, ele é multiplicado por 2 e depois somado a 3. Para isolar $x$, precisamos desfazer essas operações na ordem inversa. Descubra a sequência correta e encontre $x$.
 
 **Q4** — $\frac{x}{4} + 2 = 5$
-> *Agora x aparece no denominador de uma fração. O princípio é o mesmo — mesma operação dos dois lados — mas o aluno precisa reconhecer que dividir por 4 é o mesmo que multiplicar por $\frac{1}{4}$, e que a operação inversa é multiplicar por 4. A fração não muda o raciocínio, apenas disfarça a operação.*
+> Agora $x$ aparece dividido por 4, o que é o mesmo que multiplicado por $\frac{1}{4}$. O princípio não mudou — mesma operação dos dois lados — mas a fração pode confundir. Lembre-se: dividir por 4 e multiplicar por 4 são operações inversas. Use essa ideia para isolar $x$.
 
 #### Fase 2 — Propriedades algébricas
 
 **Q5** — Expandir $(3 + 4)^2$ e comparar com $3^2 + 2 \cdot 3 \cdot 4 + 4^2$
-> *Até agora, resolvíamos equações isolando x. Mas e quando a incógnita aparece elevada ao quadrado? Precisamos de uma nova ferramenta: os produtos notáveis. Antes de usá-los com incógnitas, vamos entender o que acontece quando multiplicamos $(a + b)$ por ele mesmo, usando números concretos. O aluno deve verificar que $(a+b)^2 \neq a^2 + b^2$ — o termo $2ab$ que aparece é geometricamente a área de dois retângulos que ficam "de fora".*
+> O que acontece quando multiplicamos $(a + b)$ por ele mesmo? Vamos descobrir com números: calcule $(3 + 4)^2$ diretamente e depois calcule $3^2 + 2 \cdot 3 \cdot 4 + 4^2$. Os dois resultados são iguais? O que o termo $2 \cdot 3 \cdot 4$ representa geometricamente? (Dica: pense em um quadrado de lado $a+b$ e veja quais áreas ficam "de fora" de $a^2$ e $b^2$.)
 
 **Q6** — Expandir $(5 + 2)(5 - 2)$ e descobrir o padrão
-> *No exercício anterior, vimos que $(a+b)^2$ gera três termos. Agora vamos multiplicar $(a+b)$ por $(a-b)$. O resultado surpreende: os termos intermediários se cancelam, e sobra apenas $a^2 - b^2$. Este padrão — a diferença de quadrados — aparecerá com frequência e nos permitirá fatorar expressões que pareciam complicadas.*
+> Agora vamos multiplicar $(a+b)$ por $(a-b)$. Calcule $(5+2)(5-2)$ expandindo os parênteses. O que acontece com os termos intermediários? Escreva o padrão geral que você descobriu — ele aparecerá com frequência e nos permitirá simplificar expressões que parecem complicadas.
 
 **Q7** — Calcular $2^3 \cdot 2^4$ e descobrir a regra $a^m \cdot a^n = a^{m+n}$
-> *Potências representam multiplicações repetidas. $2^3$ é $2 \cdot 2 \cdot 2$, e $2^4$ é $2 \cdot 2 \cdot 2 \cdot 2$. Quando multiplicamos, estamos juntando as multiplicações — o total de fatores é a soma dos expoentes. O mesmo raciocínio vale para a divisão: $a^m \div a^n = a^{m-n}$. Não são regras decoradas — são consequências diretas do significado de potência.*
+> $2^3$ é $2 \cdot 2 \cdot 2$, e $2^4$ é $2 \cdot 2 \cdot 2 \cdot 2$. Quando multiplicamos, juntamos todas as multiplicações. Quantos fatores de 2 temos ao todo? Generalize: se $a^m$ tem $m$ fatores e $a^n$ tem $n$ fatores, qual é a regra para $a^m \cdot a^n$? E para $a^m \div a^n$?
 
 #### Fase 3 — Combinar ferramentas com incógnitas
 
-**Q8** — Expandir $(x + 3)^2$ e depois resolver $(x + 3)^2 = 25$
-> *Agora juntamos duas ferramentas: o produto notável do Q5 e o isolamento de x dos Q1-Q4. Primeiro expandimos $(x+3)^2$ usando o padrão que descobrimos. Depois, a equação resultante é resolvível com o método que já dominamos. A matemática avança combinando o que já sabemos.*
+**Q8** — Resolver $(x + 3)^2 = 25$
+> Nos exercícios anteriores, expandimos produtos notáveis com números. Agora o padrão aparece com incógnita: $(x+3)^2 = 25$. Use o produto notável que você descobriu para expandir o lado esquerdo. A equação resultante será resolvível com o método dos primeiros exercícios. Combine as ferramentas e encontre $x$.
 
 **Q9** — Simplificar $\frac{x^5}{x^2}$ e depois resolver $x^3 = 27$
-> *A regra de potências do Q7 agora aparece com incógnitas. $\frac{x^5}{x^2} = x^3$ — reduzimos uma expressão complicada para algo simples. E quando temos $x^3 = 27$, o isolamento de x exige uma operação que ainda não usamos: a raiz cúbica. Cada novo tipo de equação nos ensina uma nova operação inversa.*
+> A regra de potências que você descobriu agora aparece com incógnitas. Simplifique $\frac{x^5}{x^2}$ usando a propriedade da divisão de potências. Depois, resolva $x^3 = 27$. Para essa última equação, você precisará de uma operação inversa que ainda não usamos — pense no "oposto" de elevar ao cubo.
 
 **Q10** — Resolver $(x + 1)^2 - (x - 1)^2 = 8$
-> *Este exercício combina tudo: a diferença de quadrados do Q6 simplifica $(x+1)^2 - (x-1)^2$ para $4x$. O resultado é uma equação linear — que sabemos resolver desde o Q1. A matemática frequentemente nos surpreende: algo que parece complexo se reduz ao básico quando usamos as ferramentas certas.*
+> Aqui temos uma diferença de dois quadrados — o padrão do exercício Q6. Reconheça a estrutura, aplique a simplificação e resolva a equação resultante. Você vai descobrir que algo aparentemente complexo se reduz ao básico.
 
 #### Fase 4 — Aplicação
 
-**Q11-Q12** — Problemas onde o aluno precisa montar a equação a partir de uma situação
-> *Nos exercícios anteriores, a equação era dada. Agora cabe a você traduzir uma situação real em equação — e depois resolvê-la com todas as ferramentas que construímos. Este é o passo final: o aluno não apenas resolve equações, mas as cria.*
+**Q11-Q12** — Problemas onde o aluno precisa montar a equação
+> Nos exercícios anteriores, a equação era dada. Agora a situação é descrita em palavras — cabe a você identificar a incógnita, montar a equação e resolver. Use tudo que construímos até aqui.
 
 ---
 
@@ -139,49 +147,49 @@ Os exemplos abaixo mostram como aplicar os princípios acima. Use-os como modelo
 #### Fase 1 — Frações com números
 
 **Q1** — $\frac{2}{5} + \frac{1}{5}$
-> *Uma fração representa uma divisão: $\frac{2}{5}$ são 2 partes de algo dividido em 5. Quando os denominadores são iguais, somar é trivial — somamos os numeradores e mantemos o denominador. O denominador comum nos diz que estamos falando das mesmas partes.*
+> Seu abrigo possui dois reservatórios parciais de água. O primeiro contém $\frac{2}{5}$ de um tanque, o segundo $\frac{1}{5}$ do mesmo tanque — ambas falam de "quintos", as mesmas partes. Se combinar os dois, que fração do tanque total ficará disponível?
 
 **Q2** — $\frac{1}{3} + \frac{1}{4}$
-> *Mas e quando as partes são de tamanhos diferentes? Não podemos simplesmente somar numeradores — seriam como somar terços com quartos. Precisamos converter ambos para "partes do mesmo tamanho". O mínimo múltiplo comum nos dá esse denominador comum. $\frac{1}{3} = \frac{4}{12}$ e $\frac{1}{4} = \frac{3}{12}$ — agora são partes comparáveis.*
+> No exercício anterior, os denominadores eram iguais — partes do mesmo tamanho. Mas a expedição retornou com dois frascos de RemoveRad: um contém $\frac{1}{3}$ de dose, o outro $\frac{1}{4}$. São "terços" e "quartos" — partes diferentes. Para somar, precisamos convertê-las em partes do mesmo tamanho. Lembre-se: multiplicar o numerador e o denominador pelo mesmo número não muda a fração, pois equivale a multiplicar por 1. Encontre um denominador comum, converta e some.
 
 **Q3** — $3 \times \frac{2}{7}$
-> *Multiplicar uma fração por um inteiro é repetir a fração. $3 \times \frac{2}{7}$ são três grupos de $\frac{2}{7}$, ou seja, $\frac{6}{7}$. Em termos de grandezas: se cada membro do grupo consome $\frac{2}{7}$ de uma reserva, 3 membros consomem $\frac{6}{7}$.*
+> Se cada membro do grupo consome $\frac{2}{7}$ de uma reserva de RemoveRad, quanto 3 membros consomem? Multiplicar uma fração por um inteiro significa repetir aquela fração. Calcule o total.
 
 **Q4** — $\frac{3}{4} \div 2$
-> *Dividir uma fração por um inteiro é reparti-la. $\frac{3}{4} \div 2$ significa: pegue $\frac{3}{4}$ e divida em 2 partes iguais. Cada parte é $\frac{3}{8}$. Note que dividir por 2 é o mesmo que multiplicar por $\frac{1}{2}$ — a operação inversa da multiplicação.*
+> Você tem $\frac{3}{4}$ de um tanque de combustível e precisa dividi-lo igualmente entre 2 expedições. Quanto cada uma recebe? Note que dividir por 2 é equivalente a multiplicar por $\frac{1}{2}$ — a operação inversa. Use essa ideia para encontrar a resposta.
 
 **Q5** — $\frac{3}{4} \div \frac{2}{5}$
-> *Dividir por uma fração não é intuitivo. $\frac{3}{4} \div \frac{2}{5}$ significa: quantas vezes $\frac{2}{5}$ cabe em $\frac{3}{4}$? A regra — inverter e multiplicar — vem do fato de que dividir por $\frac{2}{5}$ é o mesmo que multiplicar por $\frac{5}{2}$. Vamos verificar numericamente que faz sentido.*
+> Quantas vezes $\frac{2}{5}$ cabe em $\frac{3}{4}$? Essa é a pergunta que a divisão por fração responde. A regra geral: dividir por uma fração é o mesmo que multiplicar pela fração invertida. Aplique essa regra e verifique se o resultado faz sentido.
 
 **Q6** — $\frac{2}{3} \times \frac{4}{5} + \frac{1}{6}$
-> *Agora combinamos: multiplicação de frações E soma com denominadores diferentes. A ordem das operações importa — primeiro multiplicação, depois soma. A fração resultante da multiplicação precisa ter seu denominador compatível com $\frac{1}{6}$ para somarmos.*
+> Primeiro multiplicamos, depois somamos — a ordem das operações vale para frações também. Calcule $\frac{2}{3} \times \frac{4}{5}$, depois some com $\frac{1}{6}$. Para somar, você precisará de um denominador comum entre o resultado da multiplicação e $\frac{1}{6}$.
 
 #### Fase 2 — Frações com incógnitas
 
 **Q7** — $\frac{x}{3} + \frac{x}{4} = 7$
-> *Até agora, as frações continham números. Agora a incógnita está no numerador. O raciocínio é o mesmo do Q2 — precisamos de um denominador comum — mas agora o denominador comum nos permite "limpar" as frações e transformar o problema numa equação linear que sabemos resolver.*
+> Até agora, as frações continham números. Agora a incógnita está no numerador. A técnica é a mesma do Q2 — encontrar um denominador comum — mas agora o denominador comum nos permite "limpar" as frações e transformar o problema numa equação linear. Multiplique tudo pelo denominador comum e resolva.
 
 **Q8** — $\frac{2}{x} + \frac{3}{x} = 5$
-> *Aqui a incógnita está no denominador. A situação é ainda mais simples que o Q7: os denominadores já são iguais (ambos são $x$), então somamos os numeradores como no Q1. Mas o passo seguinte — isolar x — exige multiplicar os dois lados por $x$, o que nos leva a uma equação linear.*
+> Aqui a incógnita está no denominador. Os denominadores já são iguais (ambos são $x$), então a soma funciona como no Q1. Mas o que fazer em seguida para isolar $x$? Pense: qual operação "limpa" o $x$ do denominador?
 
 **Q9** — $\frac{1}{x+1} + \frac{1}{x-1} = \frac{2x}{x^2-1}$
-> *Este exercício combina tudo que vimos: denominadores diferentes (Q2), incógnitas nas frações (Q7-Q8) e a identidade $x^2 - 1 = (x+1)(x-1)$ que reconhecemos da diferença de quadrados (Álgebra, Q6). A matemática é uma rede — conceitos de seções diferentes se conectam.*
+> Este exercício conecta tudo que vimos. Os denominadores são $(x+1)$ e $(x-1)$ — diferentes. Para achar o denominador comum, observe o lado direito: $x^2 - 1$. Você reconhece esse padrão? Ele é o resultado de uma operação que já vimos em Álgebra. Use essa reconhecimento para encontrar o denominador comum e resolver.
 
 #### Fase 3 — Proporções
 
-**Q10** — $\frac{a}{b} = \frac{c}{d}$, descobrir a relação
-> *Quando duas frações são iguais, dizemos que há uma proporção. "Para cada 3 unidades de a, temos 5 de b; para cada 6 unidades de c, temos 10 de d." A proporção $\frac{3}{5} = \frac{6}{10}$ expressa que as razões são as mesmas. Multiplicando em cruz: $3 \times 10 = 5 \times 6$. Esta não é uma regra decorada — é consequência direta de que as duas frações são iguais.*
+**Q10** — Se $\frac{3}{5} = \frac{6}{10}$, o que vale para $\frac{a}{b} = \frac{c}{d}$?
+> "Para cada 3 unidades de a, temos 5 de b; para cada 6 de c, temos 10 de d." As razões são iguais. Multiplique em cruz na igualdade $\frac{3}{5} = \frac{6}{10}$ e veja o que acontece. Agora generalize: se $\frac{a}{b} = \frac{c}{d}$, qual relação vale entre os quatro números? Esta não é uma regra decorada — é consequência de que as frações são iguais.
 
-**Q11** — Problema de contexto com proporção (diluição, escala, receita)
-> *Na prática, proporções resolvem problemas de escala e diluição. Se 2 mL de RemoveRad precisam de 500 mL de água, quanto RemoveRad para 2 litros? O aluno monta a proporção, resolve usando o produto cruzado, e interpreta o resultado no contexto.*
+**Q11** — Problema de contexto com proporção
+> A fórmula de diluição do RemoveRad diz: 2 mL de concentrado para cada 500 mL de água. Se você tem apenas 2 litros de água, quanto concentrado precisa? Monte a proporção, resolva e interprete o resultado.
 
 #### Fase 4 — Porcentagens
 
 **Q12** — Calcular 15% de 200
-> *Porcentagem é uma fração com denominador 100 — literalmente "por cento". 15% significa $\frac{15}{100}$. Calcular 15% de 200 é simplesmente $\frac{15}{100} \times 200$. Não existe nada de novo aqui — é apenas uma fração disfarçada de linguagem cotidiana.*
+> "Por cento" literalmente significa "dividido por 100". Então 15% é simplesmente a fração $\frac{15}{100}$. Calcular 15% de 200 é multiplicar: $\frac{15}{100} \times 200$. Não existe nada de novo — é uma fração disfarçada de linguagem cotidiana. Calcule o resultado.
 
-**Q13** — Problema combinando porcentagem + fração + contexto
-> *Nos exercícios anteriores, calculamos porcentagens isoladas. Agora vamos combiná-las com tudo que aprendemos: se 40% dos suprimentos são combustível, e $\frac{2}{3}$ do combustível é destinado à expedição, qual fração do total vai para a expedição? O aluno precisa converter, operar com frações e interpretar o resultado.*
+**Q13** — Problema combinando porcentagem + fração
+> Do suprimento total do abrigo, 40% é combustível. Do combustível, $\frac{2}{3}$ é destinado à expedição. Qual fração do suprimento total vai para a expedição? Converta, opere e interprete.
 
 ---
 

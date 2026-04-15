@@ -59,14 +59,9 @@ capitulo-N/
 <div class="exercise">
 <h3>TÍTULO EM MAIÚSCULAS</h3>
 
-<p><em>Parágrafo narrativo: conexão com exercício anterior, motivação matemática,
-o que mudou, para onde estamos indo. Este parágrafo é OBRIGATÓRIO e vem ANTES
-do enunciado. Ver princípio 9 em diretrizes-listas-de-exercicios.md.</em></p>
-
-<p>Enunciado do problema com $math$ inline e dados necessários.</p>
-
-<p><strong>(a)</strong> Primeira parte do problema...</p>
-<p><strong>(b)</strong> Segunda parte...</p>
+<p>Texto integrado: situação + problema + ferramenta (sem dar a solução).
+O aluno descobre COM aplicar e QUAL resultado. Ver princípio 9 em
+diretrizes-listas-de-exercicios.md.</p>
 
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
@@ -91,8 +86,8 @@ $$fórmula principal$$
 
 ### Regras de formatação
 
-- **Parágrafo narrativo:** `<p><em>...</em></p>` antes do enunciado — OBRIGATÓRIO (princípio 9)
-- **Enunciado:** texto corrido com `<p>`, sem `<div>` wrapper, sem `<ul><li>`
+- **Texto integrado:** um único `<p>` (ou dois se longo) — narrativa e problema juntos, sem separação
+- **Não dar spoiler:** a ferramenta diz O QUE o aluno pode fazer, mas o aluno descobre COM aplicar
 - **Sub-itens:** `<p><strong>(a)</strong> texto...</p>` (nunca `<ul><li>`)
 - **Referências:** pelo conceito ("no exercício anterior sobre produto escalar"), nunca pelo número
 - **Dica:** omitir completamente nos exercícios OMEGA (desafiador, sem dica)
