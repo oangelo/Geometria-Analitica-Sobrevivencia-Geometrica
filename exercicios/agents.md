@@ -13,6 +13,11 @@ Antes de começar qualquer trabalho, leia estes documentos (nesta ordem):
 
 ## Estrutura de arquivos por tópico
 
+> **Nota sobre branches:** Os exercícios estão sendo editados diretamente na branch `main`
+> do repositório raiz (`exercicios/`), e não nos worktrees.
+> O workflow de worktrees (`worktrees/exercicios/` → `feature/exercicios`) não está em uso
+> para este projeto no momento.
+
 Cada tópico tem três arquivos:
 
 ```
