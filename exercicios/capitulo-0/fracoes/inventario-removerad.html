@@ -1,31 +1,37 @@
 <div class="exercise">
-            <h3>Inventário de RemoveRad</h3>
-            <p>Em uma expedição, sua equipe encontrou 15 frascos de RemoveRad, mas $\frac{1}{3}$ deles estava danificado pela exposição à umidade. Qual porcentagem do RemoveRad encontrado ainda está utilizável?</p>
-            
-            <details class="hint-details">
-                <summary>DICA DE SOBREVIVÊNCIA</summary>
-            <div class="hint">
-                <p>Calcule a fração de frascos utilizáveis e converta para porcentagem.</p>
-            </div>
-            </details>
+<h3>INVENTÁRIO DE REMOVERAD</h3>
 
-            <details>
-                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-                <ol class="solution-steps">
-                    <li>Se $\frac{1}{3}$ dos frascos está danificado, então a fração de frascos utilizáveis é:
-                        <div class="formula">
-                            $1 - \frac{1}{3} = \frac{3}{3} - \frac{1}{3} = \frac{2}{3}$
-                        </div>
-                    </li>
-                    <li>Para converter a fração $\frac{2}{3}$ em porcentagem, multiplicamos por 100%:
-                        <div class="formula">
-                            $\frac{2}{3} \times 100\% = \frac{200}{3}\% \approx 66,67\%$
-                        </div>
-                    </li>
-                </ol>
-                
-                <p>Aproximadamente 66,67% do RemoveRad encontrado ainda está utilizável.</p>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> Ao avaliar recursos médicos na Zona Devastada, é crucial saber exatamente qual porcentagem está em condições de uso. Isso permite planejar futuras expedições e priorizar quem receberá tratamento em caso de exposição à radiação.</p>
-            </details>
-        </div>
+<p><em>No exercício anterior, os reservatórios tinham o mesmo denominador — partes do mesmo tamanho. Mas nem sempre temos essa sorte. A expedição retornou com dois tipos de frascos de RemoveRad: uns contêm $\frac{1}{3}$ de dose, outros contêm $\frac{1}{4}$ de dose. Para saber o total disponível, precisamos somar frações com denominadores diferentes — e isso exige converter ambas para "partes do mesmo tamanho" usando o mínimo múltiplo comum.</em></p>
+
+<p>Sua equipe encontrou dois frascos parciais de RemoveRad. O primeiro contém $\frac{1}{3}$ de dose completa, e o segundo contém $\frac{1}{4}$ de dose. Quantas doses completas de RemoveRad você tem ao todo?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Encontre o mínimo múltiplo comum (MMC) entre 3 e 4. Depois converta ambas as frações para esse denominador comum.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Os denominadores são diferentes ($3$ e $4$). Precisamos do MMC:
+<div class="formula">
+$$\text{MMC}(3, 4) = 12$$
+</div>
+</li>
+<li>Convertemos ambas as frações para denominador $12$:
+<div class="formula">
+$$\frac{1}{3} = \frac{4}{12} \quad \text{e} \quad \frac{1}{4} = \frac{3}{12}$$
+</div>
+</li>
+<li>Agora somamos as frações com denominador comum:
+<div class="formula">
+$$\frac{4}{12} + \frac{3}{12} = \frac{7}{12}$$
+</div>
+</li>
+</ol>
+<p>Você tem $\frac{7}{12}$ de dose completa de RemoveRad.</p>
+<p><strong>Reflexão de Sobrevivência:</strong> Na prática, $\frac{7}{12}$ de dose pode ser insuficiente para uma descontaminação completa. Saber que você precisa de mais $\frac{5}{12}$ para completar uma dose plena permite planejar a próxima expedição com precisão cirúrgica.</p>
+</details>
+</div>

@@ -1,27 +1,31 @@
         <div class="exercise">
-            <h3>Multiplicação de Monômios</h3>
-            <p>Para calibrar o sistema de purificação de água, você precisa calcular a expressão $(x^3y^2) \times (x^2y^4)$. Simplifique usando as propriedades das potências.</p>
-            
+            <h3>PRODUTO NOTÁVEL COM NÚMEROS</h3>
+
+            <p><em>Até agora, resolvíamos equações isolando $x$. Mas e quando a incógnita aparece elevada ao quadrado? Precisamos de uma nova ferramenta: os produtos notáveis. Antes de usá-los com incógnitas, vamos entender o que acontece quando multiplicamos $(a + b)$ por ele mesmo, usando números concretos. O erro mais comum é acreditar que $(a+b)^2 = a^2 + b^2$ — e na Zona Devastada, erros desse tipo derrubam estruturas.</em></p>
+
+            <p>Verifique, calculando explicitamente, que $(3 + 4)^2 \neq 3^2 + 4^2$. Depois, confirme que $(3 + 4)^2 = 3^2 + 2 \cdot 3 \cdot 4 + 4^2$. O termo extra $2 \cdot 3 \cdot 4 = 24$ é o que aparece "de fora" geometricamente — são dois retângulos de área $3 \times 4$.</p>
+
             <details class="hint-details">
                 <summary>DICA DE SOBREVIVÊNCIA</summary>
             <div class="hint">
-                <p>Observe como você pode agrupar as variáveis com mesma base e somar seus expoentes.</p>
+                <p>Calcule $(3+4)^2$ primeiro: $7^2 = 49$. Depois calcule $3^2 + 4^2 = 9 + 16 = 25$. Compare os dois resultados. A diferença de $24$ é o termo $2ab$.</p>
             </div>
             </details>
 
             <details>
                 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
                 <ol class="solution-steps">
-                    <li>Agrupe as variáveis com a mesma base: $(x^3y^2) \times (x^2y^4) = (x^3 \times x^2)(y^2 \times y^4)$</li>
-                    <li>Aplique a propriedade da multiplicação de potências de mesma base: $x^3 \times x^2 = x^{3+2} = x^5$</li>
-                    <li>Da mesma forma para $y$: $y^2 \times y^4 = y^{2+4} = y^6$</li>
-                    <li>Combine os resultados: $(x^3y^2) \times (x^2y^4) = x^5y^6$</li>
+                    <li>Calcule $(3 + 4)^2 = 7^2 = 49$</li>
+                    <li>Calcule $3^2 + 4^2 = 9 + 16 = 25$</li>
+                    <li>Compare: $49 \neq 25$. O erro comum $(a+b)^2 = a^2 + b^2$ ignora o termo cruzado.</li>
+                    <li>Agora calcule com o termo completo: $3^2 + 2 \cdot 3 \cdot 4 + 4^2 = 9 + 24 + 16 = 49$ ✓</li>
+                    <li>O termo extra $2ab = 24$ são dois retângulos de área $3 \times 4$ que ficam "de fora" do quadrado.</li>
                 </ol>
-                
+
                 <div class="formula">
-                    $$(x^3y^2) \times (x^2y^4) = x^{3+2}y^{2+4} = x^5y^6$$
+                    $$(a + b)^2 = a^2 + 2ab + b^2$$
                 </div>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> A manipulação eficiente de expressões com potências permite calibrações rápidas de equipamentos em situações de emergência. Quando o sistema de filtração falha, cada segundo calculando é um segundo sem água potável.</p>
+
+                <p><strong>Reflexão de Sobrevivência:</strong> Esquecer o termo $2ab$ é um dos erros algébricos mais comuns. Na Zona Devastada, calcular uma área de plantio ou uma seção de parede com esse erro significa subestimar a necessidade de material em até 50%. Não cometa esse erro.</p>
             </details>
         </div>

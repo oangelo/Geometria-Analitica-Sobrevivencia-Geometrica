@@ -33,10 +33,10 @@ capitulo-N/
 
 ## Como criar um exercício
 
-1. Leia `checklist-conceitos-permitidos.md` — identifique o capítulo e a progressão narrativa
-2. Leia `diretrizes-listas-de-exercicios.md` — entenda os 8 princípios
-3. Identifique onde este exercício se encaixa na progressão (construção → novo conceito → aplicação → combinação)
-4. Pense na conexão com o exercício anterior — o que o aluno já sabe? Para onde estamos levando?
+1. Leia `checklist-conceitos-permitidos.md` — identifique o capítulo e a progressão narrativa obrigatória
+2. Leia `diretrizes-listas-de-exercicios.md` — entenda os 9 princípios, a progressão pedagógica (4 fases) e os exemplos
+3. Gere a **progressão pedagógica** para o tópico (seguindo o padrão das 4 fases e os exemplos de Álgebra/Frações)
+4. Para cada exercício, escreva o **parágrafo narrativo** que conecta ao anterior (princípio 9)
 5. Use APENAS conceitos já abordados até aquele ponto na progressão
 6. Escreva o enunciado como texto corrido (ver seção de formato abaixo)
 7. Inclua dica (níveis básico/intermediário) e solução completa
@@ -52,8 +52,9 @@ capitulo-N/
 <div class="exercise">
 <h3>TÍTULO EM MAIÚSCULAS</h3>
 
-<p>Parágrafo de conexão narrativa (opcional): "No exercício anterior, você calculou...
-Agora vamos usar esse resultado para..."</p>
+<p><em>Parágrafo narrativo: conexão com exercício anterior, motivação matemática,
+o que mudou, para onde estamos indo. Este parágrafo é OBRIGATÓRIO e vem ANTES
+do enunciado. Ver princípio 9 em diretrizes-listas-de-exercicios.md.</em></p>
 
 <p>Enunciado do problema com $math$ inline e dados necessários.</p>
 
@@ -83,6 +84,7 @@ $$fórmula principal$$
 
 ### Regras de formatação
 
+- **Parágrafo narrativo:** `<p><em>...</em></p>` antes do enunciado — OBRIGATÓRIO (princípio 9)
 - **Enunciado:** texto corrido com `<p>`, sem `<div>` wrapper, sem `<ul><li>`
 - **Sub-itens:** `<p><strong>(a)</strong> texto...</p>` (nunca `<ul><li>`)
 - **Referências:** pelo conceito ("no exercício anterior sobre produto escalar"), nunca pelo número

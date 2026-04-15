@@ -1,26 +1,32 @@
         <div class="exercise">
-            <h3>Expansão do Abrigo</h3>
-            <p>O abrigo está sendo expandido em formato cúbico. Se a aresta atual mede $x$ unidades, expresse o volume após a expansão para $(x + 2)^3$ unidades cúbicas. Desenvolva esta expressão.</p>
-            
+            <h3>DIFERENÇA DE QUADRADOS NA PRÁTICA</h3>
+
+            <p><em>Este exercício combina tudo que vimos até agora: a diferença de quadrados do exercício anterior simplifica $(x+1)^2 - (x-1)^2$ para $4x$. O resultado é uma equação linear — que sabemos resolver desde o primeiro exercício. A matemática frequentemente nos surpreende: algo que parece complexo se reduz ao básico quando usamos as ferramentas certas.</em></p>
+
+            <p>Resolva a equação $(x + 1)^2 - (x - 1)^2 = 8$. Reconheça o padrão de diferença de quadrados para simplificar antes de resolver.</p>
+
             <details class="hint-details">
                 <summary>DICA DE SOBREVIVÊNCIA</summary>
             <div class="hint">
-                <p>Comece calculando $(x + 2)^2$ e depois multiplique o resultado por $(x + 2)$.</p>
+                <p>Note que $(x+1)^2 - (x-1)^2$ tem a forma $a^2 - b^2$ com $a = (x+1)$ e $b = (x-1)$. Aplique $(a+b)(a-b)$ e simplifique.</p>
             </div>
             </details>
 
             <details>
                 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
                 <ol class="solution-steps">
-                    <li>Aplique a fórmula do cubo de um binômio: $(a + b)^3 = a^3 + 3a^2b + 3ab^2 + b^3$</li>
-                    <li>Substitua $a = x$ e $b = 2$: $(x + 2)^3 = x^3 + 3x^2(2) + 3x(2)^2 + (2)^3$</li>
-                    <li>Simplifique: $(x + 2)^3 = x^3 + 6x^2 + 12x + 8$</li>
+                    <li>Reconheça a diferença de quadrados: $(x+1)^2 - (x-1)^2 = [(x+1)+(x-1)][(x+1)-(x-1)]$</li>
+                    <li>Simplifique cada fator: $(x+1)+(x-1) = 2x$ e $(x+1)-(x-1) = 2$</li>
+                    <li>O produto é: $2x \times 2 = 4x$</li>
+                    <li>A equação fica: $4x = 8$</li>
+                    <li>Resolva: $x = \frac{8}{4} = 2$</li>
+                    <li>Verificação: $(2+1)^2 - (2-1)^2 = 9 - 1 = 8$ ✓</li>
                 </ol>
-                
+
                 <div class="formula">
-                    $$(x + 2)^3 = x^3 + 6x^2 + 12x + 8$$
+                    $$(x+1)^2 - (x-1)^2 = 4x = 8 \implies x = 2$$
                 </div>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> Saber calcular volumes com precisão permite otimizar o espaço para armazenar suprimentos e abrigar sobreviventes. Um erro de cálculo pode significar que não haverá espaço suficiente para o gerador ou para o sistema de filtração de água.</p>
+
+                <p><strong>Reflexão de Sobrevivência:</strong> Este exercício mostra que reconhecer padrões é mais poderoso do que calcular mecanicamente. Expandir ambos os quadrados e depois simplificar funcionaria, mas levaria mais tempo e mais chances de errar. Na Zona Devastada, eficiência é sobrevivência — e padrões são atalhos.</p>
             </details>
         </div>

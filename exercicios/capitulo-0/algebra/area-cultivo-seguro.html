@@ -1,28 +1,33 @@
         <div class="exercise">
-            <h3>Área de Cultivo Seguro</h3>
-            <p>O perímetro de uma área retangular livre de radiação tem dimensões $(x + 5)$ por $(x - 2)$ unidades. Calcule a expressão para a área total, expandindo o produto dos binômios e simplificando.</p>
-            
+            <h3>PRODUTO NOTÁVEL COM INCÓGNITA</h3>
+
+            <p><em>Agora juntamos duas ferramentas: o produto notável que descobrimos com números e o isolamento de $x$ que praticamos nas missões anteriores. Primeiro expandimos $(x+3)^2$ usando o padrão que verificamos. Depois, a equação resultante é resolvível com o método que já dominamos. A matemática avança combinando o que já sabemos.</em></p>
+
+            <p>Resolva a equação $(x + 3)^2 = 25$. Expanda o quadrado do binômio usando o produto notável e depois isole $x$.</p>
+
             <details class="hint-details">
                 <summary>DICA DE SOBREVIVÊNCIA</summary>
             <div class="hint">
-                <p>A área de um retângulo é o produto de seus lados.</p>
+                <p>Use $(a+b)^2 = a^2 + 2ab + b^2$ para expandir $(x+3)^2$. Depois, resolva a equação resultante como uma equação quadrática: primeiro tire a raiz quadrada dos dois lados.</p>
             </div>
             </details>
 
             <details>
                 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
                 <ol class="solution-steps">
-                    <li>A área do retângulo é o produto das dimensões: $A = (x + 5)(x - 2)$</li>
-                    <li>Aplique a distributiva, multiplicando cada termo do primeiro parêntese por cada termo do segundo:</li>
-                    <li>$(x + 5)(x - 2) = x \cdot x + x \cdot (-2) + 5 \cdot x + 5 \cdot (-2)$</li>
-                    <li>Simplifique: $(x + 5)(x - 2) = x^2 - 2x + 5x - 10$</li>
-                    <li>Combine os termos semelhantes: $x^2 - 2x + 5x - 10 = x^2 + 3x - 10$</li>
+                    <li>Expanda $(x+3)^2$ usando o produto notável: $(x+3)^2 = x^2 + 2(x)(3) + 3^2 = x^2 + 6x + 9$</li>
+                    <li>A equação fica: $x^2 + 6x + 9 = 25$</li>
+                    <li>Subtraia 25 dos dois lados: $x^2 + 6x - 16 = 0$</li>
+                    <li>Ou, mais elegante: perceba que $(x+3)^2 = 25$ implica $x + 3 = \pm 5$</li>
+                    <li>Se $x + 3 = 5$: $x = 2$</li>
+                    <li>Se $x + 3 = -5$: $x = -8$</li>
+                    <li>Verificação: $(2+3)^2 = 25$ ✓ e $(-8+3)^2 = (-5)^2 = 25$ ✓</li>
                 </ol>
-                
+
                 <div class="formula">
-                    $$(x + 5)(x - 2) = x^2 - 2x + 5x - 10 = x^2 + 3x - 10$$
+                    $$(x+3)^2 = 25 \implies x + 3 = \pm 5 \implies x = 2 \text{ ou } x = -8$$
                 </div>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> Saber multiplicar expressões algébricas permite calcular rapidamente áreas seguras para cultivo em zonas parcialmente contaminadas. A diferença entre colheita e fome pode ser um simples cálculo algébrico.</p>
+
+                <p><strong>Reflexão de Sobrevivência:</strong> Quando o SUPERVISOR diz que a área de cultivo deve ser 25 unidades quadradas e o formato é um quadrado com lado $(x+3)$, existem dois valores possíveis para $x$. Na Zona Devastada, interpretar corretamente ambas as soluções pode significar descobrir uma área extra de cultivo que outros sobreviventes ignoraram.</p>
             </details>
         </div>

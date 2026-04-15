@@ -1,36 +1,33 @@
-        <div class="exercise">
-            <h3>Coleta de Alimentos</h3>
-            <p>Uma expedição de 5 dias rendeu os seguintes resultados: no primeiro dia, foram encontradas 12 latas de conserva; no segundo dia, 8 latas; no terceiro, 15 latas; no quarto, 9 latas; e no quinto, 6 latas. Se $\frac{1}{6}$ de todas as latas estão vencidas, quantas latas utilizáveis foram coletadas?</p>
-            
-            <details class="hint-details">
-                <summary>DICA DE SOBREVIVÊNCIA</summary>
-            <div class="hint">
-                <p>Primeiro some o total de latas, depois calcule quantas estão utilizáveis.</p>
-            </div>
-            </details>
+<div class="exercise">
+<h3>COLETA DE ALIMENTOS</h3>
 
-            <details>
-                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-                <ol class="solution-steps">
-                    <li>Calculamos o total de latas coletadas:
-                        <div class="formula">
-                            $12 + 8 + 15 + 9 + 6 = 50$ latas
-                        </div>
-                    </li>
-                    <li>Se $\frac{1}{6}$ das latas estão vencidas, então a fração de latas utilizáveis é:
-                        <div class="formula">
-                            $1 - \frac{1}{6} = \frac{6}{6} - \frac{1}{6} = \frac{5}{6}$
-                        </div>
-                    </li>
-                    <li>Calculamos o número de latas utilizáveis:
-                        <div class="formula">
-                            $\frac{5}{6} \times 50 = \frac{250}{6} = 41\frac{4}{6} = 41\frac{2}{3}$
-                        </div>
-                    </li>
-                </ol>
-                
-                <p>Foram coletadas 41,67 latas utilizáveis, ou seja, 41 latas completas e 2/3 de outra lata.</p>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> Na prática, isso significa 41 latas inteiras e uma lata parcialmente utilizável (provavelmente precisa ser consumida rapidamente). Saber calcular com precisão o inventário de alimentos permite um planejamento adequado das refeições para evitar desperdício ou fome.</p>
-            </details>
-        </div>
+<p><em>Nos dois exercícios anteriores, as incógnitas apareciam em frações separadas. Agora vamos juntar tudo: denominadores diferentes com expressões envolvendo a incógnita. A identidade $x^2 - 1 = (x+1)(x-1)$ — a diferença de quadrados que aprendemos na lista de Álgebra — será a chave para encontrar o denominador comum e "limpar" as frações. A matemática é uma rede: conceitos de seções diferentes se conectam.</em></p>
+
+<p>Em um protocolo de racionamento, dois tipos de rações devem ser verificados. A primeira fração de ração disponível é $\frac{1}{x+1}$ e a segunda é $\frac{1}{x-1}$. O protocolo do SUPERVISOR indica que a soma dessas frações deve ser igual a $\frac{2x}{x^2-1}$. Verifique se essa igualdade é verdadeira para todo $x \neq 1$ e $x \neq -1$, e explique o significado da condição sobre $x$.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Reconheça que $x^2 - 1 = (x+1)(x-1)$. Use isso como denominador comum para somar as duas frações do lado esquerdo.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Reconhecemos o fatoramento da diferença de quadrados:
+<div class="formula">
+$$x^2 - 1 = (x+1)(x-1)$$
+</div>
+</li>
+<li>Usamos $(x+1)(x-1)$ como denominador comum para somar as duas frações:
+<div class="formula">
+$$\frac{1}{x+1} + \frac{1}{x-1} = \frac{(x-1) + (x+1)}{(x+1)(x-1)} = \frac{2x}{x^2-1}$$
+</div>
+</li>
+<li>A igualdade é verificada para todo $x \neq 1$ e $x \neq -1$, pois nesses valores os denominadores seriam zero (operação indefinida).</li>
+</ol>
+<p>A identidade $\frac{1}{x+1} + \frac{1}{x-1} = \frac{2x}{x^2-1}$ é verdadeira para todo $x \neq \pm 1$.</p>
+<p><strong>Reflexão de Sobrevivência:</strong> Na Zona Devastada, reconhecer padrões — como a diferença de quadrados — acelera resoluções que podem salvar vidas. Um sobrevivente que "enxerga" a estrutura por trás das expressões resolve problemas que outros levariam horas para decifrar. Matemática não é decoreba; é sobrevivência analítica.</p>
+</details>
+</div>

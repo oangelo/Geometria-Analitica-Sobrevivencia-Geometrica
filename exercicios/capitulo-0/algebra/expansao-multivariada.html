@@ -1,30 +1,35 @@
         <div class="exercise">
-            <h3>Expansão Multivariada</h3>
-            <p>Para o desenvolvimento de um sistema modular de filtragem de água, você precisa expandir a expressão $(2a + b)^3 - (3a - 2b)^2$. Simplifique o máximo possível.</p>
+            <h3>DOSE DE EMERGÊNCIA: APLICAÇÃO FINAL</h3>
+
+            <p><em>Este é o último exercício da lista — e o mais completo. Aqui você precisará combinar produto notável, propriedade distributiva, simplificação e isolamento de incógnita para resolver um problema real. O SUPERVISOR não dá dicas em situações de emergência. É hora de provar que você domina as ferramentas.</em></p>
+
+            <p>O laboratório do Abrigo sintetiza RemoveRad em lotes. A quantidade de RemoveRad produzida por lote é dada pela fórmula $Q = (x + 2)^2 - x^2$, onde $x$ é a quantidade de matéria-prima em quilogramas.</p>
+            <p><strong>(a)</strong> Simplifique a expressão $(x + 2)^2 - x^2$ usando produtos notáveis.</p>
+            <p><strong>(b)</strong> Se o laboratório precisa produzir exatamente 20 unidades de RemoveRad, resolva a equação simplificada para encontrar $x$.</p>
+            <p><strong>(c)</strong> Interprete: por que a expressão simplificada é linear, mesmo sendo composta de termos quadráticos?</p>
 
             <details class="hint-details">
                 <summary>DICA DE SOBREVIVÊNCIA</summary>
             <div class="hint">
-                <p>Use as fórmulas do cubo $(a + b)^3 = a^3 + 3a^2b + 3ab^2 + b^3$ e do quadrado $(a - b)^2 = a^2 - 2ab + b^2$ separadamente, depois subtraia.</p>
+                <p>Para (a), expanda $(x+2)^2 = x^2 + 4x + 4$ e depois subtraia $x^2$. Os termos $x^2$ se cancelam. Para (b), resolva a equação linear resultante.</p>
             </div>
             </details>
 
             <details>
                 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
                 <ol class="solution-steps">
-                    <li>Expanda o cubo do primeiro binômio usando a fórmula $(a + b)^3 = a^3 + 3a^2b + 3ab^2 + b^3$: 
-                    $(2a + b)^3 = (2a)^3 + 3(2a)^2(b) + 3(2a)(b)^2 + b^3 = 8a^3 + 12a^2b + 6ab^2 + b^3$</li>
-                    <li>Expanda o quadrado do segundo binômio usando $(a - b)^2 = a^2 - 2ab + b^2$: 
-                    $(3a - 2b)^2 = (3a)^2 - 2(3a)(2b) + (2b)^2 = 9a^2 - 12ab + 4b^2$</li>
-                    <li>Substitua na expressão original: $(2a + b)^3 - (3a - 2b)^2 = (8a^3 + 12a^2b + 6ab^2 + b^3) - (9a^2 - 12ab + 4b^2)$</li>
-                    <li>Distribua o sinal negativo: $8a^3 + 12a^2b + 6ab^2 + b^3 - 9a^2 + 12ab - 4b^2$</li>
-                    <li>Organize os termos por grau decrescente: $8a^3 + 12a^2b - 9a^2 + 6ab^2 + 12ab + b^3 - 4b^2$</li>
+                    <li>Parte (a): expanda $(x+2)^2$ usando o produto notável: $x^2 + 2(x)(2) + 4 = x^2 + 4x + 4$</li>
+                    <li>Subtraia $x^2$: $(x+2)^2 - x^2 = x^2 + 4x + 4 - x^2 = 4x + 4$</li>
+                    <li>A expressão simplificada é $4x + 4$ — que é linear!</li>
+                    <li>Parte (b): resolva $4x + 4 = 20$. Subtraia 4: $4x = 16$. Divida por 4: $x = 4$ kg</li>
+                    <li>Verificação: $(4+2)^2 - 4^2 = 36 - 16 = 20$ ✓</li>
+                    <li>Parte (c): os termos quadráticos $x^2$ se cancelam porque ambos são positivos com mesmo coeficiente. É o mesmo princípio da diferença de quadrados — o padrão $a^2 - b^2$ com $a = (x+2)$ e $b = x$.</li>
                 </ol>
-                
+
                 <div class="formula">
-                    $$(2a + b)^3 - (3a - 2b)^2 = 8a^3 + 12a^2b - 9a^2 + 6ab^2 + 12ab + b^3 - 4b^2$$
+                    $$(x+2)^2 - x^2 = 4x + 4 = 20 \implies x = 4$$
                 </div>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> Manipular expressões algébricas complexas é essencial no desenvolvimento de tecnologias avançadas nas Zonas Devastadas. Os sobreviventes que dominam estas técnicas podem criar sistemas mais eficientes com menos recursos.</p>
+
+                <p><strong>Reflexão de Sobrevivência:</strong> Saber que $(x+2)^2 - x^2$ se reduz a $4x + 4$ é exatamente o tipo de conhecimento que separa o sobrevivente comum do técnico de laboratório indispensável. Na Zona Devastada, produzir RemoveRad com precisão significa salvar vidas. Produzir com erro significa desperdiçar recursos escassos — ou pior, sintetizar algo ineficaz.</p>
             </details>
         </div>

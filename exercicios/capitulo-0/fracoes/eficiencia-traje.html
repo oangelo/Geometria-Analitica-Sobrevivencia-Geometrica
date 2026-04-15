@@ -1,36 +1,38 @@
-        <div class="exercise">
-            <h3>Eficiência do Traje de Proteção</h3>
-            <p>Seu Traje de Proteção reduz a exposição à radiação em 75%. Se você entrar em uma zona com nível de radiação de 800 rads, qual é o valor efetivo da radiação que atingirá seu corpo? Se em seguida você tomar um RemoveRad que elimina 60% da radiação absorvida, qual porcentagem da radiação original permanecerá em seu organismo?</p>
-            
-            <details class="hint-details">
-                <summary>DICA DE SOBREVIVÊNCIA</summary>
-            <div class="hint">
-                <p>Calcule a radiação que passa pelo traje e depois a redução pelo RemoveRad.</p>
-            </div>
-            </details>
+<div class="exercise">
+<h3>EFICIÊNCIA DO TRAJE DE PROTEÇÃO</h3>
 
-            <details>
-                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-                <ol class="solution-steps">
-                    <li>Se o traje reduz a exposição em 75%, então permite a passagem de 25% da radiação:
-                        <div class="formula">
-                            $25\% \times 800 = 0,25 \times 800 = 200$ rads
-                        </div>
-                    </li>
-                    <li>Após tomar o RemoveRad, 60% da radiação absorvida é eliminada, restando 40%:
-                        <div class="formula">
-                            $40\% \times 200 = 0,4 \times 200 = 80$ rads
-                        </div>
-                    </li>
-                    <li>Calculamos qual porcentagem da radiação original esses 80 rads representam:
-                        <div class="formula">
-                            $\frac{80}{800} \times 100\% = 10\%$
-                        </div>
-                    </li>
-                </ol>
-                
-                <p>10% da radiação original permanecerá em seu organismo após usar o Traje de Proteção e tomar o RemoveRad.</p>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> Entender a eficácia combinada de diferentes métodos de proteção contra radiação é vital na Zona Devastada. Estes cálculos permitem determinar quanto tempo é seguro permanecer em áreas contaminadas e planejar o uso estratégico de medicamentos anti-radiação.</p>
-            </details>
-        </div>
+<p><em>No exercício anterior, a incógnita estava no numerador. Agora a situação se inverte: a incógnita está no denominador. Se o consumo diário de RemoveRad é $\frac{2}{x}$ frascos para um grupo e $\frac{3}{x}$ frascos para outro, os denominadores já são iguais — somamos os numeradores como já sabemos. Mas o passo seguinte — isolar $x$ — exige multiplicar os dois lados por $x$, o que nos leva a uma equação linear simples.</em></p>
+
+<p>Em um protocolo de descontaminação, dois grupos de sobreviventes compartilham o mesmo estoque de RemoveRad. O primeiro grupo consome $\frac{2}{x}$ frascos por dia, e o segundo consome $\frac{3}{x}$ frascos por dia. Se o consumo total combinado é de 5 frascos por dia, determine o valor de $x$.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Os denominadores são iguais ($x$). Some os numeradores e depois isole $x$ multiplicando ambos os lados por $x$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Escrevemos a equação com denominadores iguais:
+<div class="formula">
+$$\frac{2}{x} + \frac{3}{x} = 5$$
+$$\frac{5}{x} = 5$$
+</div>
+</li>
+<li>Multiplicamos ambos os lados por $x$ para eliminar a fração:
+<div class="formula">
+$$5 = 5x$$
+</div>
+</li>
+<li>Isolamos $x$:
+<div class="formula">
+$$x = \frac{5}{5} = 1$$
+</div>
+</li>
+</ol>
+<p>O valor de $x$ é 1. Isso significa que cada grupo consome diretamente o numerador de frascos por dia ($2$ e $3$), totalizando $5$ frascos/dia.</p>
+<p><strong>Reflexão de Sobrevivência:</strong> Saber que o abrigo consome 5 frascos de RemoveRad por dia permite planejar expedições de ressuprimento com precisão. Se o estoque tiver 50 frascos, você tem exatamente 10 dias antes de ficar desprotegido contra a radiação — e na Zona Devastada, cada dia conta.</p>
+</details>
+</div>

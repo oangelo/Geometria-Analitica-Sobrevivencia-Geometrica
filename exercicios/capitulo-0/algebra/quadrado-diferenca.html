@@ -1,26 +1,29 @@
         <div class="exercise">
-            <h3>Quadrado da Diferença</h3>
-            <p>Para reforçar uma estrutura circular de defesa, você precisa calcular $(x - 7)^2$. Desenvolva esta expressão usando o produto notável correspondente.</p>
-            
+            <h3>DIFERENÇA DE QUADRADOS</h3>
+
+            <p><em>No exercício anterior, vimos que $(a+b)^2$ gera três termos. Agora vamos multiplicar $(a+b)$ por $(a-b)$. O resultado surpreende: os termos intermediários se cancelam, e sobra apenas $a^2 - b^2$. Este padrão — a diferença de quadrados — aparecerá com frequência nos próximos exercícios e nos permitirá fatorar expressões que pareciam complicadas.</em></p>
+
+            <p>Calcule $(5 + 2)(5 - 2)$ multiplicando diretamente e depois verificando que o resultado é $5^2 - 2^2$. Confirme que os dois métodos dão o mesmo valor.</p>
+
             <details class="hint-details">
                 <summary>DICA DE SOBREVIVÊNCIA</summary>
             <div class="hint">
-                <p>Lembre-se da fórmula do quadrado da diferença: $(a - b)^2 = a^2 - 2ab + b^2$.</p>
+                <p>Multiplicando diretamente: $(5+2)(5-2) = 7 \times 3 = 21$. Pela fórmula: $5^2 - 2^2 = 25 - 4 = 21$. Ambos devem dar o mesmo resultado.</p>
             </div>
             </details>
 
             <details>
                 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
                 <ol class="solution-steps">
-                    <li>Use a fórmula do quadrado da diferença: $(a - b)^2 = a^2 - 2ab + b^2$</li>
-                    <li>Substitua $a = x$ e $b = 7$: $(x - 7)^2 = x^2 - 2(x)(7) + 7^2$</li>
-                    <li>Calcule: $(x - 7)^2 = x^2 - 14x + 49$</li>
+                    <li>Método direto: $(5 + 2)(5 - 2) = 7 \times 3 = 21$</li>
+                    <li>Método algébrico: $(5 + 2)(5 - 2) = 5^2 - 2^2 = 25 - 4 = 21$ ✓</li>
+                    <li>Por que funciona: expandindo com distributiva, $(a+b)(a-b) = a^2 - ab + ab - b^2 = a^2 - b^2$. Os termos $-ab$ e $+ab$ se cancelam.</li>
                 </ol>
-                
+
                 <div class="formula">
-                    $$(x - 7)^2 = x^2 - 14x + 49$$
+                    $$(a + b)(a - b) = a^2 - b^2$$
                 </div>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> Os produtos notáveis economizam tempo precioso em cálculos de engenharia na Zona Devastada. Conhecer esses padrões pode ser a diferença entre uma estrutura que resiste a uma tempestade radioativa e uma que colapsa.</p>
+
+                <p><strong>Reflexão de Sobrevivência:</strong> A diferença de quadrados não é apenas uma curiosidade algébrica. Ela aparece em cálculos de energia, áreas e, crucialmente, em fatoração. Reconhecer este padrão pode transformar uma equação aparentemente complexa em algo simples — e simplicidade é sinônimo de sobrevivência.</p>
             </details>
         </div>

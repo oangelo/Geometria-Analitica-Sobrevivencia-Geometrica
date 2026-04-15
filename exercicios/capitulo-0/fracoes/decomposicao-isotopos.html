@@ -1,41 +1,37 @@
 <div class="exercise">
-            <h3>Decomposição de Isótopos</h3>
-            <p>Um isótopo radioativo perde 20% de sua massa a cada 12 horas devido à decomposição. Se você encontrou uma amostra com 125 gramas desse isótopo, qual será a massa restante após 3 dias? Expresse a resposta como fração da massa original na forma mais simplificada.</p>
-            
-            <details class="hint-details">
-                <summary>DICA DE SOBREVIVÊNCIA</summary>
-            <div class="hint">
-                <p>Determine quantos períodos de 12 horas existem em 3 dias e calcule o decaimento consecutivo.</p>
-            </div>
-            </details>
+<h3>DECOMPOSIÇÃO DE ISÓTOPOS</h3>
 
-            <details>
-                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-                <ol class="solution-steps">
-                    <li>Primeiro, determinamos quantos períodos de 12 horas existem em 3 dias:
-                        <div class="formula">
-                            $3 \textrm{ dias} = 3 \times 24 \textrm{ horas} = 72 \textrm{ horas} = 6 \textrm{ períodos de 12 horas}$
-                        </div>
-                    </li>
-                    <li>Se a cada período o isótopo perde 20% de sua massa, então resta 80% da massa anterior:
-                        <div class="formula">
-                            $\textrm{Fator de redução por período} = 80\% = 0,8$
-                        </div>
-                    </li>
-                    <li>Após 6 períodos, a massa restante será:
-                        <div class="formula">
-                            $125 \times (0,8)^6 = 125 \times 0,262144 = 32,768 \textrm{ gramas}$
-                        </div>
-                    </li>
-                    <li>Expressando como fração da massa original:
-                        <div class="formula">
-                            $\frac{32,768}{125} = \frac{32768}{125000} = \frac{4096}{15625}$
-                        </div>
-                    </li>
-                </ol>
-                
-                <p>A massa restante após 3 dias será de $\frac{4096}{15625}$ da massa original, o que equivale a aproximadamente 26,21% da massa inicial.</p>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> Entender a decomposição radioativa é crucial para determinar por quanto tempo uma área contaminada permanecerá perigosa ou quanto tempo um material radioativo pode ser usado como fonte de energia em dispositivos improvisados.</p>
-            </details>
-        </div>
+<p><em>No exercício anterior, calculamos uma porcentagem simples. Mas os problemas da Zona Devastada raramente são tão diretos. Agora vamos combinar porcentagens com frações em sequência: uma taxa de germinação em porcentagem seguida de uma taxa de sobrevivência em fração. O aluno precisa converter entre os dois formatos e aplicar operações compostas — exatamente o tipo de raciocínio que separa quem sobrevive de quem improvisa.</em></p>
+
+<p>Das 78 plantas que germinaram (conforme o exercício anterior), $\frac{3}{13}$ morreram na segunda semana devido à contaminação do solo. Quantas plantas sobreviveram após duas semanas? Qual porcentagem do total original de 120 sementes isso representa?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint>
+<p>Se $\frac{3}{13}$ morreram, então $\frac{10}{13}$ sobreviveram. Multiplique essa fração pelas 78 plantas germinadas.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Se $\frac{3}{13}$ das plantas morreram, a fração de sobreviventes é:
+<div class="formula">
+$$1 - \frac{3}{13} = \frac{13}{13} - \frac{3}{13} = \frac{10}{13}$$
+</div>
+</li>
+<li>Calculamos quantas plantas sobreviveram:
+<div class="formula">
+$$\frac{10}{13} \times 78 = \frac{780}{13} = 60 \text{ plantas}$$
+</div>
+</li>
+<li>Convertendo para porcentagem do total original de 120 sementes:
+<div class="formula">
+$$\frac{60}{120} \times 100\\% = \frac{1}{2} \times 100\\% = 50\\%$$
+</div>
+</li>
+</ol>
+<p>Sobreviveram 60 plantas, correspondendo a 50% do total original de sementes.</p>
+<p><strong>Reflexão de Sobrevivência:</strong> Apenas metade das sementes se tornou planta produtiva. Esse tipo de análise permite ajustar a quantidade de sementes plantadas na próxima estação — se você quiser 60 plantas e sabe que a taxa de sobrevivência é 50%, precisa plantar 120 sementes. Dados transformados em decisão: essa é a matemática de quem sobrevive.</p>
+</details>
+</div>
