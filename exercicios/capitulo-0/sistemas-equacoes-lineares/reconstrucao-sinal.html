@@ -1,29 +1,30 @@
-        <div class="exercise">
-            <h3>Reconstrução do Sinal de Emergência</h3>
-            <p>Um bunker governamental próximo envia sinais de rádio codificados que seguem um padrão matemático. Seu grupo captou dois sinais sequenciais que revelaram coordenadas parciais. O primeiro sinal tinha coordenadas (8, 13) e o segundo (11, 19). Sabe-se que as coordenadas (x, y) seguem um padrão linear da forma y = ax + b. O próximo sinal, que conterá as coordenadas de um depósito de suprimentos, será transmitido em breve. Porém, sua recepção está danificada e só conseguirá captar o valor de y. Se o próximo valor de x for 15, determine o valor de y correspondente para localizar o depósito. Além disso, se o padrão continuar, qual será a coordenada completa do quarto sinal?</p>
+<div class="exercise">
+<h3>RECONSTRUÇÃO DO SINAL DE EMERGÊNCIA</h3>
 
-            <details>
-                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-                <ol class="solution-steps">
-                    <li>Precisamos determinar os valores de a e b na equação y = ax + b, utilizando as coordenadas conhecidas</li>
-                    <li>Do primeiro sinal (8, 13): $13 = 8a + b$</li>
-                    <li>Do segundo sinal (11, 19): $19 = 11a + b$</li>
-                    <li>Temos um sistema de duas equações e duas incógnitas</li>
-                    <li>Subtraímos a primeira equação da segunda: $19 - 13 = 11a + b - (8a + b)$</li>
-                    <li>Simplificamos: $6 = 3a$</li>
-                    <li>Resolvemos para $a$: $a = 2$</li>
-                    <li>Substituímos na primeira equação: $13 = 8 \cdot 2 + b = 16 + b$</li>
-                    <li>Resolvemos para $b$: $b = 13 - 16 = -3$</li>
-                    <li>Portanto, a equação que descreve o padrão é: $y = 2x - 3$</li>
-                    <li>Para o terceiro sinal com $x = 15$: $y = 2 \cdot 15 - 3 = 30 - 3 = 27$</li>
-                    <li>Para o quarto sinal, precisamos determinar o valor de $x$</li>
-                    <li>O intervalo entre valores consecutivos de $x$ é: $11 - 8 = 3$ e $15 - 11 = 4$</li>
-                    <li>Parece que o intervalo está aumentando em 1 a cada sinal: 3, 4, ...</li>
-                    <li>Portanto, o próximo intervalo seria 5, e o valor de $x$ para o quarto sinal seria: $15 + 5 = 20$</li>
-                    <li>Com $x = 20$: $y = 2 \cdot 20 - 3 = 40 - 3 = 37$</li>
-                    <li>A coordenada do quarto sinal seria (20, 37)</li>
-                </ol>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> A capacidade de detectar, decodificar e prever padrões matemáticos é inestimável em um mundo pós-apocalíptico onde a comunicação é fragmentada e os recursos são escassos. Neste cenário, sistemas lineares permitiram não apenas determinar a localização imediata de suprimentos vitais, mas também prever futuras coordenadas, proporcionando vantagem estratégica. Observe como a matemática transforma dados aparentemente desconexos em informação acionável. Um sobrevivente que domina estes princípios pode não apenas reagir às circunstâncias, mas antecipar-se a elas - a diferença entre apenas sobreviver e efetivamente reconstruir.</p>
-            </details>
-        </div>
+<p>Um bunker governamental envia coordenadas de suprimentos em sinais de rádio codificados. Seu grupo captou dois sinais com coordenadas parciais: $(8, 13)$ e $(11, 19)$. Suspeita-se que os pares $(x, y)$ seguem um padrão linear da forma $y = ax + b$ — os mesmos coeficientes $a$ e $b$ valem para todos os sinais. Se o próximo valor de $x$ transmitido for 15, você precisa prever $y$ para localizar o depósito. O padrão linear gera um sistema de duas equações (uma para cada sinal capturado) com duas incógnitas ($a$ e $b$). Resolva o sistema, encontre a equação do padrão e use-a para prever a coordenada completa do terceiro e do quarto sinal, assumindo que os intervalos de $x$ aumentam em 1 a cada transmissão (3, 4, 5...).</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Substitua cada coordenada conhecida em $y = ax + b$ para formar duas equações. Subtraindo uma da outra, $b$ desaparece e você encontra $a$ diretamente.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Do sinal (8, 13): $13 = 8a + b$</li>
+<li>Do sinal (11, 19): $19 = 11a + b$</li>
+<li>Subtraindo: $6 = 3a \Rightarrow a = 2$</li>
+<li>Substituindo: $13 = 16 + b \Rightarrow b = -3$</li>
+<li>Equação do padrão: $y = 2x - 3$</li>
+<li>Terceiro sinal ($x = 15$): $y = 2 \cdot 15 - 3 = 27$</li>
+<li>Intervalos de $x$: 3, 4, 5... → quarto sinal: $x = 20$</li>
+<li>Quarto sinal: $y = 2 \cdot 20 - 3 = 37$ — coordenada $(20, 37)$</li>
+</ol>
+<div class="formula">
+$$\begin{cases} 8a + b = 13 \\ 11a + b = 19 \end{cases} \Rightarrow a = 2,\; b = -3$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Detectar e decodificar padrões matemáticos em comunicações fragmentadas é uma vantagem estratégica incomensurável. Um sobrevivente que domina sistemas lineares não apenas reage às circunstâncias — antecipa-se a elas. A diferença entre sobreviver e reconstruir está em transformar dados aparentemente desconexos em informação acionável.</p>
+</details>
+</div>

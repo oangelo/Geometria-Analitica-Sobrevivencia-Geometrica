@@ -1,37 +1,23 @@
 <div class="exercise">
-            <h3>Altura da Barreira</h3>
-            <p>Sua comunidade planeja construir uma barreira defensiva contra invasões de Mutantes. Para determinar a quantidade de materiais necessários, você precisa calcular a altura de uma parede existente em ruínas que servirá de base. De um ponto a 12 metros da base da parede, o ângulo de elevação até o topo é 32°. Você se afasta mais 8 metros e o novo ângulo de elevação é 24°. Qual é a altura da parede?</p>
-            
-            <details class="hint-details">
-                <summary>DICA DE SOBREVIVÊNCIA</summary>
-            <div class="hint">
-                <p>Estabeleça equações usando a tangente para cada posição de observação e resolva o sistema para encontrar a altura h: $\tan(32°) = \frac{h}{12}$ e $\tan(24°) = \frac{h}{20}$</p>
-            </div>
-            </details>
+<h3>Altura da Barreira</h3>
+<p>Sua comunidade planeja construir uma barreira defensiva contra invasões de Mutantes, e para estimar a quantidade de material você precisa saber a altura de uma parede em ruínas que servirá de base. De um ponto a 12 metros da base da parede, o ângulo de elevação até o topo é 32°; se você se afasta mais 8 metros (ficando a 20 m da base), o novo ângulo de elevação é 24°. Cada observação fornece uma equação envolvendo a altura incógnita e a tangente — combinando as duas, é possível resolver para a altura real da parede.</p>
 
-            <details>
-                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-                <ol class="solution-steps">
-                    <li>Da primeira posição de observação:
-                    <div class="formula">
-                        $\tan(32°) = \frac{h}{12}$<br>
-                        $h = 12 \times \tan(32°) \approx 12 \times 0{,6}249 \approx 7{,5}0$ metros
-                    </div></li>
-                    <li>Da segunda posição (verificação):
-                    <div class="formula">
-                        $\tan(24°) = \frac{h}{20}$<br>
-                        $h = 20 \times \tan(24°) \approx 20 \times 0{,4}452 \approx 8{,9}0$ metros
-                    </div></li>
-                    <li>Há uma discrepância entre os resultados, possivelmente devido à natureza aproximada das medições ou à irregularidade do terreno. Vamos recalcular considerando possíveis erros de medição.</li>
-                    <li>Uma abordagem mais precisa é usar a diferença de altura (Δh) entre os dois pontos de observação:
-                    <div class="formula">
-                        $\tan(32°) = \frac{h}{12}$ e $\tan(24°) = \frac{h}{20}$<br>
-                        Combinando as equações: $12 \times \tan(32°) = 20 \times \tan(24°)$<br>
-                        $h = \frac{12 \times 20 \times [\tan(32°) - \tan(24°)]}{20 - 12} = \frac{240 \times [0{,6}249 - 0{,4}452]}{8} \approx \frac{240 \times 0{,1}797}{8} \approx 5{,3}9$ metros
-                    </div></li>
-                    <li>A altura da parede é aproximadamente 7{,5} metros (pela primeira medição, que é geralmente mais precisa por estar mais próxima).</li>
-                </ol>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> A precisão na estimativa de recursos necessários é crucial quando os materiais são escassos. Uma barreira de altura inadequada pode falhar em momentos críticos, enquanto excesso de materiais desperdiça recursos que poderiam ser utilizados em outras estruturas vitais.</p>
-            </details>
-        </div>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint"><p>Escreva duas equações com a tangente: da primeira posição, $\tan(32°) = \frac{h}{12}$; da segunda, $\tan(24°) = \frac{h}{20}$. Cada equação isolada já determina $h$ — use a primeira (medição mais próxima, geralmente mais precisa) como referência principal e a segunda como verificação.</p></div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Da primeira posição de observação:
+<div class="formula">$$\tan(32°) = \frac{h}{12} \implies h = 12 \times \tan(32°) \approx 12 \times 0{,}6249 \approx 7{,}50 \text{ m}$$</div></li>
+<li>Da segunda posição (verificação):
+<div class="formula">$$\tan(24°) = \frac{h}{20} \implies h = 20 \times \tan(24°) \approx 20 \times 0{,}4452 \approx 8{,}90 \text{ m}$$</div></li>
+<li>A discrepância entre os resultados pode dever-se a irregularidades do terreno ou erro de medição. A medição mais próxima é geralmente mais confiável.</li>
+<li>A altura da parede é aproximadamente 7,5 metros.</li>
+</ol>
+
+<p><strong>Reflexão de Sobrevivência:</strong> A precisão na estimativa de recursos necessários é crucial quando os materiais são escassos. Uma barreira de altura inadequada pode falhar em momentos críticos, enquanto excesso de materiais desperdiça recursos que poderiam ser utilizados em outras estruturas vitais.</p>
+</details>
+</div>

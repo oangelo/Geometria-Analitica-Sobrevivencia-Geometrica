@@ -1,31 +1,22 @@
 <div class="exercise">
-            <h3>Triangulação de Ameaça</h3>
-            <p>Dois postos de observação distantes 500 metros entre si detectam um grupo de Mutantes. Do posto A, os Mutantes são avistados a um ângulo de 65° (medido no sentido horário a partir da linha que conecta os postos). Do posto B, eles são avistados a um ângulo de 45° (medido no sentido anti-horário a partir da mesma linha). Determine a distância dos Mutantes ao posto A.</p>
-            
-            <details class="hint-details">
-                <summary>DICA DE SOBREVIVÊNCIA</summary>
-            <div class="hint">
-                <p>Use a Lei dos Senos para relacionar os lados e ângulos do triângulo formado. O ângulo entre as duas linhas de visão é 180° - (65° + 45°) = 70°.</p>
-            </div>
-            </details>
+<h3>Triangulação de Ameaça</h3>
+<p>Dois postos de observação distantes 500 metros entre si detectam um grupo de Mutantes. Do posto A, os Mutantes são avistados a um ângulo de 65° medido no sentido horário a partir da linha que conecta os postos; do posto B, a um ângulo de 45° medido no sentido anti-horário. O triângulo formado pelos dois postos e pela ameaça possui três ângulos internos — o terceiro pode ser calculado pela soma dos ângulos. Com a Lei dos Senos, que relaciona cada lado ao seno do ângulo oposto, determine a distância dos Mutantes ao posto A.</p>
 
-            <details>
-                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-                <ol class="solution-steps">
-                    <li>Identifique o triângulo formado pelos postos A e B e a posição dos Mutantes (ponto M).</li>
-                    <li>Calcule o ângulo no vértice M do triângulo:
-                    <div class="formula">
-                        $\angle M = 180° - (65° + 45°) = 180° - 110° = 70°$
-                    </div></li>
-                    <li>Aplique a Lei dos Senos para encontrar a distância AM:
-                    <div class="formula">
-                        $\frac{AM}{\sin(45°)} = \frac{500}{\sin(70°)}$<br>
-                        $AM = \frac{500 \times \sin(45°)}{\sin(70°)}$<br>
-                        $AM = \frac{500 \times 0{,7}071}{0{,9}397} \approx 376{,4}$ metros
-                    </div></li>
-                    <li>Portanto, os Mutantes estão a aproximadamente 376{,4} metros do posto A.</li>
-                </ol>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> A triangulação permite localizar precisamente ameaças ou recursos sem exposição direta. Posicionando adequadamente os postos de observação, sua comunidade pode monitorar grandes áreas com recursos humanos limitados e planejar respostas apropriadas.</p>
-            </details>
-        </div>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint"><p>Calcule primeiro o ângulo no vértice da ameaça: a soma dos três ângulos internos é 180°. Depois aplique a Lei dos Senos $\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}$, onde o lado de 500 m é oposto ao ângulo na ameaça e o lado procurado (distância ao posto A) é oposto ao ângulo de 45° no posto B.</p></div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Identifique o triângulo formado pelos postos A, B e a posição dos Mutantes (M).</li>
+<li>Calcule o ângulo no vértice M:
+<div class="formula">$$\angle M = 180° - (65° + 45°) = 70°$$</div></li>
+<li>Aplique a Lei dos Senos para encontrar AM (lado oposto ao ângulo de 45°):
+<div class="formula">$$\frac{AM}{\sin(45°)} = \frac{500}{\sin(70°)} \implies AM = \frac{500 \times \sin(45°)}{\sin(70°)} \approx \frac{500 \times 0{,}7071}{0{,}9397} \approx 376{,}4 \text{ m}$$</div></li>
+</ol>
+
+<p><strong>Reflexão de Sobrevivência:</strong> A triangulação permite localizar precisamente ameaças ou recursos sem exposição direta. Posicionando adequadamente os postos de observação, sua comunidade pode monitorar grandes áreas com recursos humanos limitados e planejar respostas apropriadas.</p>
+</details>
+</div>

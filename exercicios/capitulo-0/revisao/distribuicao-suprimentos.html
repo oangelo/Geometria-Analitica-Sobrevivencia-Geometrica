@@ -1,57 +1,22 @@
 <div class="exercise">
-        <h3>MISSÃO 4: Distribuição de Suprimentos</h3>
-        <p>Três abrigos na região precisam compartilhar recursos. O primeiro abrigo recebe $2x + 3y$ unidades de comida e $3x - y$ unidades de medicamentos. O segundo recebe $x - 2y$ unidades de comida e $4x + 2y$ unidades de medicamentos. O terceiro recebe o restante: $4x + 4y$ unidades de comida e $2x + 4y$ unidades de medicamentos. Se no total há 210 unidades de comida e 225 unidades de medicamentos, determine os valores de $x$ e $y$ e verifique qual abrigo recebe mais recursos no total.</p>
+<h3>MISSÃO 4: Distribuição de Suprimentos</h3>
+<p>Três abrigos compartilham recursos no total de $210$ unidades de comida e $225$ unidades de medicamentos. O primeiro abrigo recebe $2x + 3y$ unidades de comida e $3x - y$ de medicamentos; o segundo recebe $x - 2y$ de comida e $4x + 2y$ de medicamentos; o terceiro recebe o restante: $4x + 4y$ de comida e $2x + 4y$ de medicamentos. Some as expressões de cada recurso entre os três abrigos, monte um sistema de equações e resolva para descobrir os valores de $x$ e $y$ que tornam a distribuição consistente com o total disponível.</p>
 
-        <details>
-            <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-            <ol class="solution-steps">
-                <li>Montamos um sistema de equações com as informações dadas:
-                    <div class="formula">
-                        $(2x + 3y) + (x - 2y) + (4x + 4y) = 210$ <br>
-                        $(3x - y) + (4x + 2y) + (2x + 4y) = 225$
-                    </div>
-                </li>
-                <li>Simplificamos a primeira equação:
-                    <div class="formula">
-                        $7x + 5y = 210$ (Equação 1)
-                    </div>
-                </li>
-                <li>Simplificamos a segunda equação:
-                    <div class="formula">
-                        $9x + 5y = 225$ (Equação 2)
-                    </div>
-                </li>
-                <li>Subtraímos a Equação 1 da Equação 2:
-                    <div class="formula">
-                        $2x = 15$
-                    </div>
-                </li>
-                <li>Resolvemos para $x$:
-                    <div class="formula">
-                        $x = 7{,}5$
-                    </div>
-                </li>
-                <li>Substituímos na Equação 1 para encontrar $y$:
-                    <div class="formula">
-                        $7(7{,}5) + 5y = 210$ <br>
-                        $52{,}5 + 5y = 210$ <br>
-                        $5y = 157{,}5$ <br>
-                        $y = 31{,}5$
-                    </div>
-                </li>
-                <li>Calculamos os recursos para cada abrigo:
-                    <div class="formula">
-                        Abrigo 1: $(2 \times 7{,}5 + 3 \times 31{,}5) + (3 \times 7{,}5 - 31{,}5) = 15 + 94{,}5 + 22{,}5 - 31{,}5 = 100{,}5$ unidades
-                    </div>
-                    <div class="formula">
-                        Abrigo 2: $(7{,}5 - 2 \times 31{,}5) + (4 \times 7{,}5 + 2 \times 31{,}5) = 7{,}5 - 63 + 30 + 63 = 37{,}5$ unidades
-                    </div>
-                    <div class="formula">
-                        Abrigo 3: $(4 \times 7{,}5 + 4 \times 31{,}5) + (2 \times 7{,}5 + 4 \times 31{,}5) = 30 + 126 + 15 + 126 = 297$ unidades
-                    </div>
-                </li>
-            </ol>
-            <p><strong>Conclusão:</strong> O Abrigo 3 recebe significativamente mais recursos (297 unidades) do que os outros abrigos.</p>
-            <p><strong>Reflexão de Sobrevivência:</strong> A distribuição desproporcional de recursos pode levar a tensões entre comunidades na Zona Devastada. Para manter alianças estáveis, uma redistribuição mais equilibrada deve ser considerada, embora o Abrigo 3 possivelmente tenha mais sobreviventes ou esteja em uma situação mais crítica.</p>
-        </details>
-    </div>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Somamos as expressões de comida e medicamentos para montar o sistema:
+<div class="formula">$$\text{Comida: } (2x + 3y) + (x - 2y) + (4x + 4y) = 7x + 5y = 210$$</div>
+<div class="formula">$$\text{Medicamentos: } (3x - y) + (4x + 2y) + (2x + 4y) = 9x + 5y = 225$$</div>
+</li>
+<li>Subtraímos a primeira equação da segunda:
+<div class="formula">$$(9x + 5y) - (7x + 5y) = 225 - 210 \implies 2x = 15 \implies x = 7{,}5$$</div>
+</li>
+<li>Substituímos em $7x + 5y = 210$:
+<div class="formula">$$7(7{,}5) + 5y = 210 \implies 52{,}5 + 5y = 210 \implies y = 31{,}5$$</div>
+</li>
+<li>Total por abrigo (comida + medicamentos): Abrigo 1 = $100{,}5$; Abrigo 2 = $37{,}5$; Abrigo 3 = $297$.</li>
+</ol>
+<p><strong>Reflexão de Sobrevivência:</strong> A distribuição desproporcional de recursos pode gerar tensões entre comunidades na Zona Devastada. Para manter alianças estáveis, avalie se o Abrigo 3 realmente tem mais sobreviventes ou está em situação mais crítica antes de aceitar a disparidade.</p>
+</details>
+</div>

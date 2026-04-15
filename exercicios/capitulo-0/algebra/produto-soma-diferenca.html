@@ -1,30 +1,27 @@
         <div class="exercise">
-            <h3>POTÊNCIAS NÃO SOMAM</h3>
+            <h3>DIFERENÇA DE QUADRADOS</h3>
 
-            <p><em>Potências representam multiplicações repetidas. $2^3$ é $2 \cdot 2 \cdot 2$, e $2^4$ é $2 \cdot 2 \cdot 2 \cdot 2$. Quando multiplicamos, estamos juntando as multiplicações — o total de fatores é a soma dos expoentes. O mesmo raciocínio vale para a divisão. Antes de usar potências com incógnitas, vamos consolidar a regra com números concretos.</em></p>
-
-            <p>Os níveis de radiação em uma Zona Devastada são medidos em potências de 2. O fator de contaminação acumulado é $2^3 \times 2^4$ e o fator de proteção do abrigo é $2^5$. Calcule a radiação efetiva: $(2^3 \times 2^4) \div 2^5$, simplificando usando as propriedades das potências.</p>
+            <p>No exercício anterior, vimos que $(a+b)^2$ gera três termos. Agora vamos multiplicar $(a+b)$ por $(a-b)$ e ver o que acontece com os termos intermediários: calcule $(5+2)(5-2)$ multiplicando diretamente e depois verificando que o resultado é $5^2 - 2^2$. Confirme que os dois métodos dão o mesmo valor e descubra o padrão geral — ele aparecerá com frequência e nos permitirá simplificar expressões que parecem complicadas.</p>
 
             <details class="hint-details">
                 <summary>DICA DE SOBREVIVÊNCIA</summary>
             <div class="hint">
-                <p>Para multiplicar potências de mesma base, some os expoentes. Para dividir, subtraia. Não calcule os valores: trabalhe com os expoentes.</p>
+                <p>Multiplicando diretamente: $(5+2)(5-2) = 7 \times 3 = 21$. Pela fórmula: $5^2 - 2^2 = 25 - 4 = 21$. Ambos devem dar o mesmo resultado.</p>
             </div>
             </details>
 
             <details>
                 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
                 <ol class="solution-steps">
-                    <li>Primeiro, multiplique: $2^3 \times 2^4 = 2^{3+4} = 2^7$</li>
-                    <li>Depois, divida: $2^7 \div 2^5 = 2^{7-5} = 2^2$</li>
-                    <li>Calcule o resultado: $2^2 = 4$</li>
-                    <li>Verificação explícita: $2^3 = 8$, $2^4 = 16$, $2^5 = 32$. Então $(8 \times 16) \div 32 = 128 \div 32 = 4$ ✓</li>
+                    <li>Método direto: $(5 + 2)(5 - 2) = 7 \times 3 = 21$</li>
+                    <li>Método algébrico: $(5 + 2)(5 - 2) = 5^2 - 2^2 = 25 - 4 = 21$ ✓</li>
+                    <li>Por que funciona: expandindo com distributiva, $(a+b)(a-b) = a^2 - ab + ab - b^2 = a^2 - b^2$. Os termos $-ab$ e $+ab$ se cancelam.</li>
                 </ol>
 
                 <div class="formula">
-                    $$a^m \times a^n = a^{m+n}, \qquad a^m \div a^n = a^{m-n}$$
+                    $$(a + b)(a - b) = a^2 - b^2$$
                 </div>
 
-                <p><strong>Reflexão de Sobrevivência:</strong> As propriedades de potências não são regras decoradas — são consequências diretas do significado de potência como multiplicação repetida. Compreender isso permite calcular rapidamente níveis de radiação. Um erro pode levar um grupo a entrar em uma zona letal acreditando estar segura.</p>
+                <p><strong>Reflexão de Sobrevivência:</strong> A diferença de quadrados não é apenas uma curiosidade algébrica. Ela aparece em cálculos de energia, áreas e, crucialmente, em fatoração. Reconhecer este padrão pode transformar uma equação aparentemente complexa em algo simples — e simplicidade é sinônimo de sobrevivência.</p>
             </details>
         </div>

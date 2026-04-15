@@ -1,31 +1,29 @@
         <div class="exercise">
-            <h3>FRAÇÃO COMO DISFARCE</h3>
+            <h3>POTÊNCIAS COM INCÓGNITAS</h3>
 
-            <p><em>Agora $x$ aparece no numerador de uma fração. Na superfície, parece diferente — mas o raciocínio é o mesmo do que praticamos: mesma operação dos dois lados. Reconhecer que $\frac{x}{4}$ significa "um quarto de $x$" e que a operação inversa é multiplicar por 4 é a chave. A fração não muda o raciocínio, apenas disfarça a operação.</em></p>
-
-            <p>O nível de radiação em um setor é medido por uma equação de calibração. Após ajustar o sensor, a leitura resultou na equação $\frac{x}{4} + 2 = 5$, onde $x$ é a leitura bruta em mSv. Resolva para descobrir a leitura real do sensor.</p>
+            <p>A regra de potências que consolidamos com números agora aparece com incógnitas. Simplificar $\frac{x^5}{x^2}$ usando a propriedade da divisão de potências — subtrair os expoentes — reduz uma expressão aparentemente complexa a algo simples. Depois, resolva $x^3 = 27$: para essa equação, você precisará de uma operação inversa que ainda não usamos — pense no "oposto" de elevar ao cubo.</p>
 
             <details class="hint-details">
                 <summary>DICA DE SOBREVIVÊNCIA</summary>
             <div class="hint">
-                <p>Primeiro, subtraia 2 dos dois lados para ficar com apenas a fração. Depois, multiplique os dois lados por 4 para eliminar o denominador.</p>
+                <p>Para (a), subtraia os expoentes: $x^5 \div x^2 = x^{5-2}$. Para (b), pense: "qual número elevado ao cubo dá 27?" — isso é a raiz cúbica.</p>
             </div>
             </details>
 
             <details>
                 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
                 <ol class="solution-steps">
-                    <li>A equação é $\frac{x}{4} + 2 = 5$.</li>
-                    <li>Passo 1 — eliminar o $+2$: subtraia 2 dos dois lados: $\frac{x}{4} + 2 - 2 = 5 - 2$, ou seja, $\frac{x}{4} = 3$</li>
-                    <li>Passo 2 — eliminar a divisão por 4: multiplique os dois lados por 4: $\frac{x}{4} \times 4 = 3 \times 4$</li>
-                    <li>Simplifique: $x = 12$</li>
-                    <li>Verificação: $\frac{12}{4} + 2 = 3 + 2 = 5$ ✓</li>
+                    <li>Parte (a): $\frac{x^5}{x^2} = x^{5-2} = x^3$</li>
+                    <li>Parte (b): $x^3 = 27$. A operação inversa de elevar ao cubo é a raiz cúbica.</li>
+                    <li>Aplique a raiz cúbica dos dois lados: $\sqrt[3]{x^3} = \sqrt[3]{27}$</li>
+                    <li>Isso dá: $x = 3$</li>
+                    <li>Verificação: $3^3 = 27$ ✓</li>
                 </ol>
 
                 <div class="formula">
-                    $$\frac{x}{4} + 2 = 5 \implies \frac{x}{4} = 3 \implies x = 12$$
+                    $$\frac{x^5}{x^2} = x^3, \qquad x^3 = 27 \implies x = 3$$
                 </div>
 
-                <p><strong>Reflexão de Sobrevivência:</strong> Calibrar sensores de radiação com precisão é uma habilidade vital. Um erro na interpretação de frações pode levar a uma leitura incorreta — e uma leitura incorreta pode enviar uma expedição para dentro de uma zona letal achando que está segura.</p>
+                <p><strong>Reflexão de Sobrevivência:</strong> O padrão é constante: para desfazer uma operação, aplicamos a inversa. Soma → subtração. Multiplicação → divisão. Potência → raiz. Se você dominar essa lógica, nenhuma equação será impossível de resolver — e nenhuma dose de RemoveRad será calculada errada.</p>
             </details>
         </div>

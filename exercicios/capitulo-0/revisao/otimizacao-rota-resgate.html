@@ -1,77 +1,20 @@
 <div class="exercise">
-        <h3>MISSÃO 10: Otimização da Rota de Resgate</h3>
-        <p>Uma expedição de resgate precisa chegar a um sobrevivente isolado no ponto $(12, 8)$ partindo do abrigo na origem $(0, 0)$. A equipe pode usar um veículo que se move a $5$ km/h em terreno plano (eixo x), mas deve prosseguir a pé a $3$ km/h em terreno acidentado (eixo y). Devido à radiação, a rota ideal deve minimizar o tempo total de viagem. A equipe pode dirigir ao longo do eixo x até um ponto $(a, 0)$ e depois seguir a pé até o sobrevivente. Determine o valor de $a$ que otimiza o tempo total da missão e calcule esse tempo mínimo. Expresse sua resposta usando proporções trigonométricas.</p>
+<h3>MISSÃO 10: Comparação de Rotas de Resgate</h3>
+<p>Uma equipe de resgate sai do abrigo na origem $(0, 0)$ rumo a um sobrevivente no ponto $(12, 8)$. O veículo percorre o eixo x a $5$ km/h em terreno plano, mas fora do eixo a equipe caminha a $3$ km/h em terreno acidentado. Para decidir a melhor rota, calcule o tempo total de duas opções: a Rota A vai direto em linha reta até o sobrevivente (só caminhando), enquanto a Rota B dirige até $(12, 0)$ e depois caminha reto até o destino. Use o Teorema de Pitágoras para as distâncias e a relação tempo $=$ distância $/$ velocidade para comparar qual rota é mais rápida.</p>
 
-        <details>
-            <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-            <ol class="solution-steps">
-                <li>Modelamos o problema: a equipe vai do ponto $(0, 0)$ ao ponto $(a, 0)$ de veículo, depois do ponto $(a, 0)$ ao ponto $(12, 8)$ a pé.
-                </li>
-                <li>Calculamos o tempo de viagem de veículo:
-                    <div class="formula">
-                        $t_{\\text{veículo}} = \\frac{a}{5}$ horas
-                    </div>
-                </li>
-                <li>Calculamos a distância a pé:
-                    <div class="formula">
-                        $d_{\\text{pé}} = \\sqrt{(12-a)^2 + 8^2} = \\sqrt{(12-a)^2 + 64}$
-                    </div>
-                </li>
-                <li>Calculamos o tempo de viagem a pé:
-                    <div class="formula">
-                        $t_{\\text{pé}} = \\frac{d_{\\text{pé}}}{3} = \\frac{\\sqrt{(12-a)^2 + 64}}{3}$
-                    </div>
-                </li>
-                <li>O tempo total é a soma dos dois tempos:
-                    <div class="formula">
-                        $T(a) = \\frac{a}{5} + \\frac{\\sqrt{(12-a)^2 + 64}}{3}$
-                    </div>
-                </li>
-                <li>Para minimizar o tempo, derivamos e igualamos a zero:
-                    <div class="formula">
-                        $\\frac{dT}{da} = \\frac{1}{5} - \\frac{2(12-a)}{6\\sqrt{(12-a)^2 + 64}} = 0$
-                    </div>
-                </li>
-                <li>Resolvemos a equação:
-                    <div class="formula">
-                        $\\frac{1}{5} = \\frac{12-a}{3\\sqrt{(12-a)^2 + 64}}$ <br>
-                        $\\frac{3\\sqrt{(12-a)^2 + 64}}{5} = 12-a$ <br>
-                        $\\frac{3\\sqrt{(12-a)^2 + 64}}{5(12-a)} = 1$ <br>
-                        $\\frac{9[(12-a)^2 + 64]}{25(12-a)^2} = 1$ <br>
-                        $9[(12-a)^2 + 64] = 25(12-a)^2$ <br>
-                        $9(12-a)^2 + 576 = 25(12-a)^2$ <br>
-                        $576 = 16(12-a)^2$ <br>
-                        $36 = 4(12-a)^2$ <br>
-                        $9 = (12-a)^2$ <br>
-                        $3 = |12-a|$ <br>
-                    </div>
-                </li>
-                <li>Como $a < 12$ neste contexto (não faz sentido passar do ponto do sobrevivente), temos:
-                    <div class="formula">
-                        $12-a = 3$ <br>
-                        $a = 9$
-                    </div>
-                </li>
-                <li>Calculamos o tempo mínimo:
-                    <div class="formula">
-                        $T(9) = \\frac{9}{5} + \\frac{\\sqrt{(12-9)^2 + 64}}{3} = \\frac{9}{5} + \\frac{\\sqrt{9 + 64}}{3} = \\frac{9}{5} + \\frac{\\sqrt{73}}{3}$ <br>
-                        $T(9) = 1{,}8 + \\frac{\\sqrt{73}}{3} \\approx 1{,}8 + 2{,}85 = 4{,}65$ horas
-                    </div>
-                </li>
-                <li>Expressamos usando proporções trigonométricas. Considerando um triângulo retângulo com catetos 3 e 8:
-                    <div class="formula">
-                        $\\sin(\\theta) = \\frac{8}{\\sqrt{3^2 + 8^2}} = \\frac{8}{\\sqrt{73}}$ <br>
-                        $\\cos(\\theta) = \\frac{3}{\\sqrt{73}}$ <br>
-                        $\\tan(\\theta) = \\frac{8}{3}$
-                    </div>
-                </li>
-                <li>O tempo de viagem pode ser expresso como:
-                    <div class="formula">
-                        $T_{min} = \\frac{9}{5} + \\frac{\\sqrt{73}}{3} = \\frac{9}{5} + \\frac{1}{3} \\cdot \\frac{\\sqrt{73} \\cdot \\sqrt{73}}{\\sqrt{73}} = \\frac{9}{5} + \\frac{73}{3\\sqrt{73}} = \\frac{9}{5} + \\frac{73}{3} \\cdot \\frac{1}{\\sqrt{73}}$ <br>
-                        $T_{min} = \\frac{9}{5} + \\frac{73}{3} \\cdot \\frac{1}{\\sqrt{73}} = \\frac{9}{5} + \\frac{73}{3\\sqrt{73}}$
-                    </div>
-                </li>
-            </ol>
-            <p><strong>Reflexão de Sobrevivência:</strong> Esta análise de otimização é crucial em missões de alto risco na Zona Devastada, onde a eficiência temporal pode significar a diferença entre vida e morte. O ponto ótimo para transição entre veículo e deslocamento a pé está a 9 km da base, resultando em um tempo total aproximado de 4 horas e 39 minutos. O princípio aplicado aqui - balancear diferentes ritmos de movimento em diferentes terrenos - é fundamental para qualquer operação de sobrevivência e pode ser generalizado para outras missões com restrições semelhantes.</p>
-        </details>
-    </div>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li><strong>Rota A (tudo a pé):</strong> distância pela hipotenusa:
+<div class="formula">$$d_A = \sqrt{12^2 + 8^2} = \sqrt{144 + 64} = \sqrt{208} \approx 14{,}42 \text{ km}$$</div>
+<div class="formula">$$t_A = \frac{14{,}42}{3} \approx 4{,}81 \text{ horas}$$</div>
+</li>
+<li><strong>Rota B (veículo + caminhada):</strong>
+<div class="formula">$$t_{\text{veículo}} = \frac{12}{5} = 2{,}40 \text{ h} \qquad t_{\text{caminhada}} = \frac{8}{3} \approx 2{,}67 \text{ h}$$</div>
+<div class="formula">$$t_B = 2{,}40 + 2{,}67 \approx 5{,}07 \text{ horas}$$</div>
+</li>
+<li>Comparação: a Rota A ($4{,}81$h) é mais rápida que a Rota B ($5{,}07$h) por aproximadamente $15$ minutos. O ganho de velocidade do veículo no eixo x não compensa o desvio extra de $8$ km a pé.</li>
+</ol>
+<p><strong>Reflexão de Sobrevivência:</strong> Nem sempre o veículo é a melhor opção. A rota mais curta pode superar uma rota parcialmente rápida. Em missões de resgate, compare sempre a distância total percorrida — o caminho mais reto costuma ser o mais eficiente quando a diferença de velocidade entre terrenos não é muito grande.</p>
+</details>
+</div>

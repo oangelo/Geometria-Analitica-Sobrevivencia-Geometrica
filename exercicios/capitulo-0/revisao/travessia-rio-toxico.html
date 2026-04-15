@@ -1,44 +1,25 @@
 <div class="exercise">
-        <h3>MISSÃO 6: Travessia do Rio Tóxico</h3>
-        <p>Você precisa atravessar um rio contaminado por resíduos tóxicos. A largura do rio varia linearmente de $x + 2y$ metros em um ponto a $2x - y$ metros 500 metros rio abaixo. Você tem materiais para construir uma ponte de $25$ metros. Se $x = 8$ e $y = 3$, determine a equação da reta que representa a largura do rio em função da distância percorrida rio abaixo. Em qual ponto exato (a quantos metros do ponto inicial) você deve construir sua ponte para garantir a travessia segura?</p>
+<h3>MISSÃO 6: Travessia do Rio Tóxico</h3>
+<p>Você precisa atravessar um rio contaminado cuja largura varia linearmente: no ponto inicial, a largura é $x + 2y$ metros; $500$ metros rio abaixo, é $2x - y$ metros. Com $x = 8$ e $y = 3$, calcule as larguras nos dois pontos, determine a equação linear $L(d) = ad + b$ que descreve a largura em função da distância $d$ rio abaixo, e avalie se sua ponte portátil de $25$ metros é suficiente para cruzar em qualquer ponto ao longo dos primeiros $500$ metros.</p>
 
-        <details>
-            <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-            <ol class="solution-steps">
-                <li>Calculamos as larguras nos pontos dados:
-                    <div class="formula">
-                        No ponto inicial: $x + 2y = 8 + 2(3) = 8 + 6 = 14$ metros
-                    </div>
-                    <div class="formula">
-                        500 metros rio abaixo: $2x - y = 2(8) - 3 = 16 - 3 = 13$ metros
-                    </div>
-                </li>
-                <li>Estabelecemos a equação linear da largura $L$ em função da distância $d$:
-                    <div class="formula">
-                        $L(d) = ad + b$, onde $a$ é a taxa de variação e $b$ é a largura inicial
-                    </div>
-                </li>
-                <li>Calculamos $a$ usando os pontos conhecidos:
-                    <div class="formula">
-                        $a = \\frac{13 - 14}{500 - 0} = \\frac{-1}{500} = -0{,}002$ metros/metro
-                    </div>
-                </li>
-                <li>Encontramos $b$ (largura inicial):
-                    <div class="formula">
-                        $b = 14$ metros
-                    </div>
-                </li>
-                <li>Portanto, a equação da largura do rio é:
-                    <div class="formula">
-                        $L(d) = -0{,}002d + 14$
-                    </div>
-                </li>
-                <li>Para descobrir onde a largura é menor ou igual a 25 metros:
-                    <div class="formula">
-                        Como a largura está diminuindo rio abaixo (inclinação negativa) e já começa com 14 metros, que é menor que 25 metros, você pode construir a ponte em qualquer ponto.
-                    </div>
-                </li>
-            </ol>
-            <p><strong>Análise Estratégica:</strong> A largura do rio está diminuindo gradualmente rio abaixo (a taxa é de -0{,}002 metros por metro percorrido). Como a largura inicial já é de 14 metros e sua ponte pode cobrir até 25 metros, você pode construir a ponte em qualquer ponto do rio. No entanto, a decisão mais estratégica seria construir próximo ao início, pois isso minimizaria a distância total de deslocamento. Considere também outros fatores como cobertura contra ameaças e estabilidade das margens.</p>
-        </details>
-    </div>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint"><p>Substitua os valores de $x$ e $y$ para achar as duas larguras. A taxa de variação $a$ é a diferença entre as larguras dividida pela distância entre os pontos. A largura inicial $b$ é o valor quando $d = 0$.</p></div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Calculamos as larguras nos dois pontos:
+<div class="formula">$$L(0) = 8 + 2(3) = 14 \text{ metros}$$</div>
+<div class="formula">$$L(500) = 2(8) - 3 = 13 \text{ metros}$$</div>
+</li>
+<li>A taxa de variação é:
+<div class="formula">$$a = \frac{13 - 14}{500 - 0} = \frac{-1}{500} = -0{,}002 \text{ m/m}$$</div>
+</li>
+<li>A equação da largura é $L(d) = -0{,}002d + 14$.</li>
+<li>Como a largura diminui de $14$m para $13$m ao longo de $500$m, e ambos os valores são menores que $25$m, a ponte é suficiente em qualquer ponto.</li>
+</ol>
+<p><strong>Reflexão de Sobrevivência:</strong> A largura do rio está diminuindo gradualmente rio abaixo. Como a largura inicial já é de $14$ metros e sua ponte cobre até $25$ metros, você pode atravessar em qualquer ponto. A decisão mais estratégica seria construir próximo ao início, minimizando o deslocamento total e a exposição à radiação.</p>
+</details>
+</div>

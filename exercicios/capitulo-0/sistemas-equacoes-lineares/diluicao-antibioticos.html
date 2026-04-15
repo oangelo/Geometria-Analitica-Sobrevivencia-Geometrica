@@ -1,24 +1,30 @@
-        <div class="exercise">
-            <h3>Diluição de Antibióticos</h3>
-            <p>Na enfermaria do abrigo, você tem duas soluções de antibióticos salvadas de diferentes farmácias saqueadas. A solução A contém 8% de princípio ativo e 12% de estabilizante. A solução B contém 2% de princípio ativo e 3% de estabilizante. Um paciente grave precisa receber uma infusão com exatamente 5% de princípio ativo e 7{,}5% de estabilizante. Se o paciente precisa de 400ml de solução para seu tratamento, quanto de cada solução você deve misturar?</p>
+<div class="exercise">
+<h3>DILUIÇÃO DE ANTIBIÓTICOS</h3>
 
-            <details>
-                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-                <ol class="solution-steps">
-                    <li>Definimos as variáveis: $x$ = volume da solução A (em ml), $y$ = volume da solução B (em ml)</li>
-                    <li>Para o volume total: $x + y = 400$ ml</li>
-                    <li>Para o princípio ativo: $0{,}08x + 0{,}02y = 0{,}05 \\cdot 400 = 20$ ml</li>
-                    <li>Para o estabilizante: $0{,}12x + 0{,}03y = 0{,}075 \\cdot 400 = 30$ ml</li>
-                    <li>Da primeira equação, isolamos $y = 400 - x$</li>
-                    <li>Substituímos na equação do princípio ativo: $0{,}08x + 0{,}02(400 - x) = 20$</li>
-                    <li>Desenvolvemos: $0{,}08x + 8 - 0{,}02x = 20$</li>
-                    <li>Simplificamos: $0{,}06x = 12$</li>
-                    <li>Resolvemos para $x$: $x = \\frac{12}{0{,}06} = 200$ ml</li>
-                    <li>Calculamos $y$: $y = 400 - 200 = 200$ ml</li>
-                    <li>Verificamos o princípio ativo: $0{,}08 \\cdot 200 + 0{,}02 \\cdot 200 = 16 + 4 = 20$ ml ✓</li>
-                    <li>Verificamos o estabilizante: $0{,}12 \\cdot 200 + 0{,}03 \\cdot 200 = 24 + 6 = 30$ ml ✓</li>
-                </ol>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> Na medicina pós-apocalíptica, raramente encontramos medicamentos nas concentrações ideais. A capacidade de calcular diluições precisas pode ser a diferença entre salvar uma vida ou perdê-la. O equilíbrio entre princípio ativo e estabilizante é crítico - muito pouco do primeiro e o medicamento é ineficaz; muito pouco do segundo e o princípio ativo se degrada rapidamente. Observe como o sistema linear nos forneceu uma solução elegante: quantidades iguais de ambas as soluções. Em emergências, soluções matemáticas simples são menos propensas a erros de aplicação, um fator crítico quando cada gota conta.</p>
-            </details>
-        </div>
+<p>A enfermaria do abrigo dispõe de duas soluções de antibiótico coletadas em farmácias diferentes. A solução A tem 8% de princípio ativo e 12% de estabilizante; a solução B tem apenas 2% de princípio ativo e 3% de estabilizante. Um paciente grave precisa de 400ml de infusão com exatamente 5% de princípio ativo e 7,5% de estabilizante — concentrações que nenhuma das soluções isoladas fornece. Para ajustar a concentração final, tanto o volume total quanto o teor de cada componente devem satisfazer equações simultâneas: o volume das duas soluções deve somar 400ml, e as quantidades de princípio ativo e estabilizante devem corresponder às concentrações desejadas. Resolva o sistema para encontrar os volumes necessários de cada solução.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Temos três restrições (volume, princípio ativo, estabilizante), mas apenas duas incógnitas. Monte as equações e verifique se a terceira restrição é automaticamente satisfeita — se for, o sistema é consistente e tem solução única.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Definimos: $x$ = ml da solução A, $y$ = ml da solução B</li>
+<li>Volume total: $x + y = 400$</li>
+<li>Princípio ativo: $0{,}08x + 0{,}02y = 0{,}05 \cdot 400 = 20$</li>
+<li>Estabilizante: $0{,}12x + 0{,}03y = 0{,}075 \cdot 400 = 30$ (verificação)</li>
+<li>Isolamos $y = 400 - x$ e substituímos na equação do princípio ativo</li>
+<li>$0{,}08x + 0{,}02(400 - x) = 20 \Rightarrow 0{,}06x = 12$</li>
+<li>Resolvemos: $x = 200$ ml, $y = 200$ ml</li>
+<li>Verificação estabilizante: $0{,}12 \cdot 200 + 0{,}03 \cdot 200 = 24 + 6 = 30$ ✓</li>
+</ol>
+<div class="formula">
+$$\begin{cases} x + y = 400 \\ 0{,}08x + 0{,}02y = 20 \end{cases} \Rightarrow x = 200,\; y = 200$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Na medicina pós-apocalíptica, encontrar a concentração certa pode salvar uma vida; errar pode desperdiçar medicamentos que não existem em dobro. Observe como a solução exigiu quantidades iguais de ambas as soluções — em emergências, soluções simétricas são menos propensas a erros de aplicação, um detalhe crítico quando cada gota conta.</p>
+</details>
+</div>

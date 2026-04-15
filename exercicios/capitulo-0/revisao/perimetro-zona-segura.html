@@ -1,36 +1,20 @@
 <div class="exercise">
-        <h3>MISSÃO 5: Perímetro da Zona Segura</h3>
-        <p>Seu abrigo mapeou uma área considerada segura (baixa radiação) no formato de um triângulo. Sensores foram colocados nos vértices formando ângulos internos de $40°$, $60°$ e $80°$. Se a distância entre os sensores A e B é de $120$ metros, calcule o perímetro total da zona segura para saber quanto material será necessário para cercar a área.</p>
+<h3>MISSÃO 5: Perímetro da Zona Segura</h3>
+<p>Seu abrigo mapeou uma área segura (baixa radiação) no formato de um triângulo, com sensores nos vértices formando ângulos de $40°$, $60°$ e $80°$. A distância entre dois dos sensores é de $120$ metros. Para cercar a área, você precisa saber o perímetro total — use a Lei dos Senos, que diz que a razão entre cada lado e o seno do ângulo oposto é a mesma para todos os lados do triângulo, para encontrar os dois lados desconhecidos e depois some os três.</p>
 
-        <details>
-            <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-            <ol class="solution-steps">
-                <li>Verificamos se os ângulos formam um triângulo válido:
-                    <div class="formula">
-                        $40° + 60° + 80° = 180°$ ✓
-                    </div>
-                </li>
-                <li>Usamos a Lei dos Senos para encontrar os outros lados. Designamos o lado AB = 120m, e os ângulos opostos aos lados a, b, c como A, B, C:
-                    <div class="formula">
-                        $\\frac{a}{\\sin(A)} = \\frac{b}{\\sin(B)} = \\frac{c}{\\sin(C)}$
-                    </div>
-                </li>
-                <li>Como sabemos que AB = c = 120m (oposto ao ângulo C = 80°), podemos calcular os outros lados:
-                    <div class="formula">
-                        $\\frac{a}{\\sin(40°)} = \\frac{120}{\\sin(80°)}$ <br>
-                        $a = \\frac{120 \\times \\sin(40°)}{\\sin(80°)} = \\frac{120 \\times 0{,}6428}{0{,}9848} \\approx 78{,}26$ metros
-                    </div>
-                    <div class="formula">
-                        $\\frac{b}{\\sin(60°)} = \\frac{120}{\\sin(80°)}$ <br>
-                        $b = \\frac{120 \\times \\sin(60°)}{\\sin(80°)} = \\frac{120 \\times 0{,}866}{0{,}9848} \\approx 105{,}64$ metros
-                    </div>
-                </li>
-                <li>Calculamos o perímetro total:
-                    <div class="formula">
-                        $Perímetro = a + b + c = 78{,}26 + 105{,}64 + 120 = 303{,}9$ metros
-                    </div>
-                </li>
-            </ol>
-            <p><strong>Reflexão de Sobrevivência:</strong> O conhecimento de geometria e trigonometria é indispensável para o planejamento de perímetros defensivos. Com um perímetro de aproximadamente 304 metros, você precisará de pelo menos 310 metros de cerca para garantir a segurança, considerando sobreposições nas junções. Estime também os recursos necessários: postes a cada 3 metros significaria aproximadamente 102 postes.</p>
-        </details>
-    </div>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Confirmamos que os ângulos formam um triângulo válido: $40° + 60° + 80° = 180°$ ✓</li>
+<li>Aplicamos a Lei dos Senos com o lado conhecido de $120$m oposto ao ângulo de $80°$:
+<div class="formula">$$\frac{a}{\sin 40°} = \frac{b}{\sin 60°} = \frac{120}{\sin 80°}$$</div>
+</li>
+<li>Calculamos os lados desconhecidos:
+<div class="formula">$$a = \frac{120 \times \sin 40°}{\sin 80°} = \frac{120 \times 0{,}6428}{0{,}9848} \approx 78{,}26 \text{ m}$$</div>
+<div class="formula">$$b = \frac{120 \times \sin 60°}{\sin 80°} = \frac{120 \times 0{,}8660}{0{,}9848} \approx 105{,}64 \text{ m}$$</div>
+</li>
+<li>Perímetro total: $78{,}26 + 105{,}64 + 120 = 303{,}9$ metros.</li>
+</ol>
+<p><strong>Reflexão de Sobrevivência:</strong> Com um perímetro de aproximadamente $304$ metros, você precisará de pelo menos $310$ metros de material para cercar a área, considerando sobreposições. Postes a cada $3$ metros significariam cerca de $102$ postes — verifique se há estoque suficiente antes de iniciar a obra.</p>
+</details>
+</div>

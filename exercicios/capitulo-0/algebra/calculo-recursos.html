@@ -1,30 +1,30 @@
         <div class="exercise">
-            <h3>ISOLAMENTO DE RECURSOS</h3>
+            <h3>DOSE DE EMERGÊNCIA: APLICAÇÃO FINAL</h3>
 
-            <p><em>Em engenharia e ciência, é comum conhecermos algumas grandezas e descrevermos outras. Quando traduzimos essa situação para a linguagem matemática, caímos numa equação. Na Zona Devastada, a equação mais simples possível pode representar uma situação de vida ou morte: quantos litros de RemoveRad sobram após uma doação? O princípio fundamental é este: se fizermos a mesma operação dos dois lados da equação, a relação entre as grandezas continua válida — e podemos isolar a quantidade desconhecida. Vamos praticar com a equação mais simples possível.</em></p>
-
-            <p>Após uma expedição, o Abrigo recebeu uma doação de suprimentos. Após entregar 3 unidades de RemoveRad ao posto avançado, restaram 7 unidades no estoque. Se $x$ representa a quantidade inicial de RemoveRad no Abrigo, resolva a equação $x + 3 = 7$ para descobrir quantas unidades o Abrigo tinha antes da doação.</p>
+            <p>O laboratório do Abrigo sintetiza RemoveRad em lotes. A quantidade de RemoveRad produzida por lote é dada pela fórmula $Q = (x + 2)^2 - x^2$, onde $x$ é a quantidade de matéria-prima em quilogramas. Simplifique a expressão usando produtos notáveis. Se o laboratório precisa produzir exatamente 20 unidades de RemoveRad, resolva a equação simplificada para encontrar $x$. Por que a expressão simplificada é linear, mesmo sendo composta de termos quadráticos?</p>
 
             <details class="hint-details">
                 <summary>DICA DE SOBREVIVÊNCIA</summary>
             <div class="hint">
-                <p>Para isolar $x$, subtraia 3 dos dois lados da equação. A mesma operação dos dois lados mantém a igualdade válida.</p>
+                <p>Expanda $(x+2)^2 = x^2 + 4x + 4$ e depois subtraia $x^2$. Os termos $x^2$ se cancelam. Resolva a equação linear resultante.</p>
             </div>
             </details>
 
             <details>
                 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
                 <ol class="solution-steps">
-                    <li>A equação é $x + 3 = 7$. Para isolar $x$, precisamos eliminar o $+3$ do lado esquerdo.</li>
-                    <li>Subtraia 3 dos dois lados: $x + 3 - 3 = 7 - 3$</li>
-                    <li>Simplifique: $x = 4$</li>
-                    <li>Verificação: $4 + 3 = 7$ ✓</li>
+                    <li>Expanda $(x+2)^2$ usando o produto notável: $x^2 + 2(x)(2) + 4 = x^2 + 4x + 4$</li>
+                    <li>Subtraia $x^2$: $(x+2)^2 - x^2 = x^2 + 4x + 4 - x^2 = 4x + 4$</li>
+                    <li>A expressão simplificada é $4x + 4$ — que é linear!</li>
+                    <li>Resolva $4x + 4 = 20$. Subtraia 4: $4x = 16$. Divida por 4: $x = 4$ kg</li>
+                    <li>Verificação: $(4+2)^2 - 4^2 = 36 - 16 = 20$ ✓</li>
+                    <li>Os termos quadráticos $x^2$ se cancelam porque ambos são positivos com mesmo coeficiente. É o mesmo princípio da diferença de quadrados — o padrão $a^2 - b^2$ com $a = (x+2)$ e $b = x$.</li>
                 </ol>
 
                 <div class="formula">
-                    $$x + 3 = 7 \implies x = 4$$
+                    $$(x+2)^2 - x^2 = 4x + 4 = 20 \implies x = 4$$
                 </div>
 
-                <p><strong>Reflexão de Sobrevivência:</strong> O princípio de fazer a mesma operação dos dois lados é o fundamento de toda manipulação algébrica. Sem ele, não é possível resolver nenhuma equação — e sem equações, não há como calcular rações, doses de medicamentos ou distâncias seguras na Zona Devastada.</p>
+                <p><strong>Reflexão de Sobrevivência:</strong> Saber que $(x+2)^2 - x^2$ se reduz a $4x + 4$ é exatamente o tipo de conhecimento que separa o sobrevivente comum do técnico de laboratório indispensável. Na Zona Devastada, produzir RemoveRad com precisão significa salvar vidas. Produzir com erro significa desperdiçar recursos escassos — ou pior, sintetizar algo ineficaz.</p>
             </details>
         </div>

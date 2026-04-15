@@ -1,31 +1,28 @@
         <div class="exercise">
-            <h3>PRODUTO NOTÁVEL COM NÚMEROS</h3>
+            <h3>POTÊNCIAS NÃO SOMAM</h3>
 
-            <p><em>Até agora, resolvíamos equações isolando $x$. Mas e quando a incógnita aparece elevada ao quadrado? Precisamos de uma nova ferramenta: os produtos notáveis. Antes de usá-los com incógnitas, vamos entender o que acontece quando multiplicamos $(a + b)$ por ele mesmo, usando números concretos. O erro mais comum é acreditar que $(a+b)^2 = a^2 + b^2$ — e na Zona Devastada, erros desse tipo derrubam estruturas.</em></p>
-
-            <p>Verifique, calculando explicitamente, que $(3 + 4)^2 \neq 3^2 + 4^2$. Depois, confirme que $(3 + 4)^2 = 3^2 + 2 \cdot 3 \cdot 4 + 4^2$. O termo extra $2 \cdot 3 \cdot 4 = 24$ é o que aparece "de fora" geometricamente — são dois retângulos de área $3 \times 4$.</p>
+            <p>Os níveis de radiação em uma Zona Devastada são medidos em potências de 2. O fator de contaminação acumulado é $2^3 \times 2^4$ e o fator de proteção do abrigo é $2^5$. Potências representam multiplicações repetidas — $2^3$ é $2 \cdot 2 \cdot 2$, e $2^4$ é $2 \cdot 2 \cdot 2 \cdot 2$. Quando multiplicamos, juntamos as multiplicações; quando dividimos, separamos. Calcule a radiação efetiva: $(2^3 \times 2^4) \div 2^5$, simplificando usando as propriedades das potências — some os expoentes na multiplicação e subtraia na divisão.</p>
 
             <details class="hint-details">
                 <summary>DICA DE SOBREVIVÊNCIA</summary>
             <div class="hint">
-                <p>Calcule $(3+4)^2$ primeiro: $7^2 = 49$. Depois calcule $3^2 + 4^2 = 9 + 16 = 25$. Compare os dois resultados. A diferença de $24$ é o termo $2ab$.</p>
+                <p>Para multiplicar potências de mesma base, some os expoentes. Para dividir, subtraia. Não calcule os valores: trabalhe com os expoentes.</p>
             </div>
             </details>
 
             <details>
                 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
                 <ol class="solution-steps">
-                    <li>Calcule $(3 + 4)^2 = 7^2 = 49$</li>
-                    <li>Calcule $3^2 + 4^2 = 9 + 16 = 25$</li>
-                    <li>Compare: $49 \neq 25$. O erro comum $(a+b)^2 = a^2 + b^2$ ignora o termo cruzado.</li>
-                    <li>Agora calcule com o termo completo: $3^2 + 2 \cdot 3 \cdot 4 + 4^2 = 9 + 24 + 16 = 49$ ✓</li>
-                    <li>O termo extra $2ab = 24$ são dois retângulos de área $3 \times 4$ que ficam "de fora" do quadrado.</li>
+                    <li>Primeiro, multiplique: $2^3 \times 2^4 = 2^{3+4} = 2^7$</li>
+                    <li>Depois, divida: $2^7 \div 2^5 = 2^{7-5} = 2^2$</li>
+                    <li>Calcule o resultado: $2^2 = 4$</li>
+                    <li>Verificação explícita: $2^3 = 8$, $2^4 = 16$, $2^5 = 32$. Então $(8 \times 16) \div 32 = 128 \div 32 = 4$ ✓</li>
                 </ol>
 
                 <div class="formula">
-                    $$(a + b)^2 = a^2 + 2ab + b^2$$
+                    $$a^m \times a^n = a^{m+n}, \qquad a^m \div a^n = a^{m-n}$$
                 </div>
 
-                <p><strong>Reflexão de Sobrevivência:</strong> Esquecer o termo $2ab$ é um dos erros algébricos mais comuns. Na Zona Devastada, calcular uma área de plantio ou uma seção de parede com esse erro significa subestimar a necessidade de material em até 50%. Não cometa esse erro.</p>
+                <p><strong>Reflexão de Sobrevivência:</strong> As propriedades de potências não são regras decoradas — são consequências diretas do significado de potência como multiplicação repetida. Compreender isso permite calcular rapidamente níveis de radiação. Um erro pode levar um grupo a entrar em uma zona letal acreditando estar segura.</p>
             </details>
         </div>

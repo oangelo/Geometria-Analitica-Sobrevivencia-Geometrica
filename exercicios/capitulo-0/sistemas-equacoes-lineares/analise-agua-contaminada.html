@@ -1,32 +1,32 @@
-        <div class="exercise">
-            <h3>Análise de Água Contaminada</h3>
-            <p>Você encontrou duas fontes de água, ambas contaminadas com diferentes níveis de dois tipos de radioisótopos. A fonte A contém 3 unidades de Césio-137 e 2 unidades de Estrôncio-90 por litro. A fonte B contém 1 unidade de Césio-137 e 4 unidades de Estrôncio-90 por litro. Seu purificador pode processar no máximo 25 unidades de radioisótopos por dia. Você precisa obter exatamente 14 unidades de Césio-137 e 16 unidades de Estrôncio-90 para um experimento crucial. Quantos litros deve coletar de cada fonte?</p>
-            
-            <details class="hint-details">
-                <summary>DICA DE SOBREVIVÊNCIA</summary>
-            <div class="hint">
-                <p>Monte duas equações considerando a quantidade total de cada radioisótopo e verifique se a solução respeita a limitação do purificador.</p>
-            </div>
-            </details>
+<div class="exercise">
+<h3>ANÁLISE DE ÁGUA CONTAMINADA</h3>
 
-            <details>
-                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-                <ol class="solution-steps">
-                    <li>Definimos as variáveis: $x$ = litros da fonte A, $y$ = litros da fonte B</li>
-                    <li>Para o Césio-137: $3x + y = 14$ (necessitamos de 14 unidades no total)</li>
-                    <li>Para o Estrôncio-90: $2x + 4y = 16$ (necessitamos de 16 unidades no total)</li>
-                    <li>Da primeira equação, isolamos $y = 14 - 3x$</li>
-                    <li>Substituímos na segunda equação: $2x + 4(14 - 3x) = 16$</li>
-                    <li>Desenvolvemos: $2x + 56 - 12x = 16$</li>
-                    <li>Simplificamos: $-10x = 16 - 56 = -40$</li>
-                    <li>Resolvemos para $x$: $x = 4$ litros (fonte A)</li>
-                    <li>Calculamos $y$: $y = 14 - 3 \cdot 4 = 14 - 12 = 2$ litros (fonte B)</li>
-                    <li>Verificação para Césio-137: $3 \cdot 4 + 1 \cdot 2 = 12 + 2 = 14$ unidades ✓</li>
-                    <li>Verificação para Estrôncio-90: $2 \cdot 4 + 4 \cdot 2 = 8 + 8 = 16$ unidades ✓</li>
-                    <li>Verificamos a restrição do purificador: total de unidades = $14 + 16 = 30 > 25$ (limite excedido)</li>
-                    <li>Conclusão: Embora matematicamente correto, a solução não é viável devido à limitação do purificador. Você precisará realizar o experimento em mais de um dia ou aumentar a capacidade do purificador.</li>
-                </ol>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> Este é um exemplo crucial de como sistemas lineares podem identificar impossibilidades físicas mesmo quando as equações possuem solução matemática. Na Zona Devastada, as limitações dos equipamentos frequentemente impõem restrições adicionais que vão além das variáveis principais. A capacidade de reconhecer e adaptar-se a estas limitações é tão importante quanto encontrar a solução algébrica ideal. Um sobrevivente sábio sabe quando alterar o problema, não apenas resolver o que está dado.</p>
-            </details>
-        </div>
+<p>Você encontrou duas fontes de água contaminadas com radioisótopos diferentes. A fonte A contém 3 unidades de Césio-137 e 2 unidades de Estrôncio-90 por litro; a fonte B contém 1 unidade de Césio-137 e 4 unidades de Estrôncio-90 por litro. Para um experimento crucial, você precisa coletar fontes A e B de modo que o total resulte em exatamente 14 unidades de Césio-137 e 16 unidades de Estrôncio-90. Como a quantidade de cada radioisótopo depende de quantos litros você coleta de cada fonte, duas equações — uma para cada isótopo — formam um sistema cuja solução revela os volumes necessários. Verifique também se o purificador do abrigo, que processa no máximo 25 unidades de radioisótopos por dia, dá conta do volume total.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Uma equação para o Césio-137 e outra para o Estrôncio-90, ambas em função dos litros de cada fonte. Após resolver, some as unidades totais de radioisótopos e compare com o limite do purificador.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Definimos: $x$ = litros da fonte A, $y$ = litros da fonte B</li>
+<li>Césio-137: $3x + y = 14$</li>
+<li>Estrôncio-90: $2x + 4y = 16$</li>
+<li>Isolamos $y = 14 - 3x$ e substituímos na segunda: $2x + 4(14 - 3x) = 16$</li>
+<li>Desenvolvemos: $2x + 56 - 12x = 16 \Rightarrow -10x = -40$</li>
+<li>Resolvemos: $x = 4$ litros (fonte A), $y = 14 - 12 = 2$ litros (fonte B)</li>
+<li>Verificação Césio: $3(4) + 2 = 14$ ✓</li>
+<li>Verificação Estrôncio: $2(4) + 4(2) = 16$ ✓</li>
+<li>Total de radioisótopos: $14 + 16 = 30$ unidades, mas o purificador aceita no máximo 25</li>
+<li>Conclusão: a solução matemática existe, mas excede a capacidade do purificador — será necessário processar em dois dias</li>
+</ol>
+<div class="formula">
+$$\begin{cases} 3x + y = 14 \\ 2x + 4y = 16 \end{cases} \Rightarrow x = 4,\; y = 2$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Este exercício mostra que nem toda solução matematicamente correta é fisicamente viável. Na Zona Devastada, as limitações dos equipamentos impõem restrições que vão além das equações — e reconhecer a impossibilidade a tempo pode ser mais valioso do que encontrar uma resposta que não se pode executar.</p>
+</details>
+</div>

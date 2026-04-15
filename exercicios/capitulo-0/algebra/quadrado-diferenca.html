@@ -1,29 +1,30 @@
         <div class="exercise">
-            <h3>DIFERENÇA DE QUADRADOS</h3>
+            <h3>DIFERENÇA DE QUADRADOS NA PRÁTICA</h3>
 
-            <p><em>No exercício anterior, vimos que $(a+b)^2$ gera três termos. Agora vamos multiplicar $(a+b)$ por $(a-b)$. O resultado surpreende: os termos intermediários se cancelam, e sobra apenas $a^2 - b^2$. Este padrão — a diferença de quadrados — aparecerá com frequência nos próximos exercícios e nos permitirá fatorar expressões que pareciam complicadas.</em></p>
-
-            <p>Calcule $(5 + 2)(5 - 2)$ multiplicando diretamente e depois verificando que o resultado é $5^2 - 2^2$. Confirme que os dois métodos dão o mesmo valor.</p>
+            <p>Resolva a equação $(x + 1)^2 - (x - 1)^2 = 8$. Note que esta expressão tem a forma $a^2 - b^2$ com $a = (x+1)$ e $b = (x-1)$ — a diferença de quadrados que descobrimos anteriormente. Reconheça o padrão, aplique a simplificação e resolva a equação resultante. Você vai descobrir que algo aparentemente complexo se reduz ao básico.</p>
 
             <details class="hint-details">
                 <summary>DICA DE SOBREVIVÊNCIA</summary>
             <div class="hint">
-                <p>Multiplicando diretamente: $(5+2)(5-2) = 7 \times 3 = 21$. Pela fórmula: $5^2 - 2^2 = 25 - 4 = 21$. Ambos devem dar o mesmo resultado.</p>
+                <p>Note que $(x+1)^2 - (x-1)^2$ tem a forma $a^2 - b^2$ com $a = (x+1)$ e $b = (x-1)$. Aplique $(a+b)(a-b)$ e simplifique.</p>
             </div>
             </details>
 
             <details>
                 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
                 <ol class="solution-steps">
-                    <li>Método direto: $(5 + 2)(5 - 2) = 7 \times 3 = 21$</li>
-                    <li>Método algébrico: $(5 + 2)(5 - 2) = 5^2 - 2^2 = 25 - 4 = 21$ ✓</li>
-                    <li>Por que funciona: expandindo com distributiva, $(a+b)(a-b) = a^2 - ab + ab - b^2 = a^2 - b^2$. Os termos $-ab$ e $+ab$ se cancelam.</li>
+                    <li>Reconheça a diferença de quadrados: $(x+1)^2 - (x-1)^2 = [(x+1)+(x-1)][(x+1)-(x-1)]$</li>
+                    <li>Simplifique cada fator: $(x+1)+(x-1) = 2x$ e $(x+1)-(x-1) = 2$</li>
+                    <li>O produto é: $2x \times 2 = 4x$</li>
+                    <li>A equação fica: $4x = 8$</li>
+                    <li>Resolva: $x = \frac{8}{4} = 2$</li>
+                    <li>Verificação: $(2+1)^2 - (2-1)^2 = 9 - 1 = 8$ ✓</li>
                 </ol>
 
                 <div class="formula">
-                    $$(a + b)(a - b) = a^2 - b^2$$
+                    $$(x+1)^2 - (x-1)^2 = 4x = 8 \implies x = 2$$
                 </div>
 
-                <p><strong>Reflexão de Sobrevivência:</strong> A diferença de quadrados não é apenas uma curiosidade algébrica. Ela aparece em cálculos de energia, áreas e, crucialmente, em fatoração. Reconhecer este padrão pode transformar uma equação aparentemente complexa em algo simples — e simplicidade é sinônimo de sobrevivência.</p>
+                <p><strong>Reflexão de Sobrevivência:</strong> Este exercício mostra que reconhecer padrões é mais poderoso do que calcular mecanicamente. Expandir ambos os quadrados e depois simplificar funcionaria, mas levaria mais tempo e mais chances de errar. Na Zona Devastada, eficiência é sobrevivência — e padrões são atalhos.</p>
             </details>
         </div>

@@ -1,60 +1,28 @@
-        <div class="exercise">
-            <h3>Planejamento de Dieta de Sobrevivência</h3>
-            <p>No abrigo, restam apenas latas de feijão e pacotes de carne seca. Cada lata de feijão contém 15g de proteína e 30g de carboidratos. Cada pacote de carne seca contém 25g de proteína e 5g de carboidratos. O médico do abrigo determinou que cada sobrevivente precisa consumir diariamente pelo menos 200g de proteína e 180g de carboidratos para manter-se saudável. Quantas unidades de cada alimento devem ser consumidas diariamente para atender às necessidades nutricionais com o mínimo de recursos?</p>
-            
-            <details class="hint-details">
-                <summary>DICA DE SOBREVIVÊNCIA</summary>
-            <div class="hint">
-                <p>Este é um problema de desigualdades. Monte duas inequações representando os requisitos mínimos de proteína e carboidratos, depois identifique a solução que minimiza o número total de unidades.</p>
-            </div>
-            </details>
+<div class="exercise">
+<h3>PLANEJAMENTO DE DIETA DE SOBREVIVÊNCIA</h3>
 
-            <details>
-                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-                <ol class="solution-steps">
-                    <li>Definimos as variáveis: $x$ = número de latas de feijão, $y$ = número de pacotes de carne seca</li>
-                    <li>Para as proteínas: $15x + 25y \\geq 200$ (mínimo de 200g de proteína)</li>
-                    <li>Para os carboidratos: $30x + 5y \\geq 180$ (mínimo de 180g de carboidratos)</li>
-                    <li>Precisamos encontrar valores inteiros não-negativos de $x$ e $y$ que satisfaçam ambas as desigualdades</li>
-                    <li>Para minimizar recursos, queremos minimizar $x + y$ (número total de unidades)</li>
-                    <li>Da primeira inequação, isolamos $y$: $y \\geq \\frac{200 - 15x}{25} = 8 - \\frac{3x}{5}$</li>
-                    <li>Da segunda inequação, isolamos $y$: $y \\geq \\frac{180 - 30x}{5} = 36 - 6x$</li>
-                    <li>Para valores inteiros, precisamos que $y \\geq \\lceil 8 - \\frac{3x}{5} \\rceil$ e $y \\geq \\lceil 36 - 6x \\rceil$</li>
-                    <li>Testando $x = 6$: 
-                        <ul>
-                            <li>Da primeira inequação: $y \\geq 8 - \\frac{3 \\cdot 6}{5} = 8 - \\frac{18}{5} = 8 - 3{,}6 = 4{,}4$, então $y \\geq 5$</li>
-                            <li>Da segunda inequação: $y \\geq 36 - 6 \\cdot 6 = 36 - 36 = 0$, então $y \\geq 0$</li>
-                            <li>Portanto, com $x = 6$, precisamos $y \\geq 5$</li>
-                        </ul>
-                    </li>
-                    <li>Testando $x = 7$: 
-                        <ul>
-                            <li>Da primeira inequação: $y \\geq 8 - \\frac{3 \\cdot 7}{5} = 8 - \\frac{21}{5} = 8 - 4{,}2 = 3{,}8$, então $y \\geq 4$</li>
-                            <li>Da segunda inequação: $y \\geq 36 - 6 \\cdot 7 = 36 - 42 = -6$, então $y \\geq 0$</li>
-                            <li>Portanto, com $x = 7$, precisamos $y \\geq 4$</li>
-                        </ul>
-                    </li>
-                    <li>Comparando as opções:
-                        <ul>
-                            <li>Com $x = 6$ e $y = 5$: total de $6 + 5 = 11$ unidades</li>
-                            <li>Com $x = 7$ e $y = 4$: total de $7 + 4 = 11$ unidades (mesmo total)</li>
-                        </ul>
-                    </li>
-                    <li>Verificamos os nutrientes para $x = 6$ e $y = 5$:
-                        <ul>
-                            <li>Proteínas: $15 \\cdot 6 + 25 \\cdot 5 = 90 + 125 = 215$ g ✓</li>
-                            <li>Carboidratos: $30 \\cdot 6 + 5 \\cdot 5 = 180 + 25 = 205$ g ✓</li>
-                        </ul>
-                    </li>
-                    <li>Verificamos os nutrientes para $x = 7$ e $y = 4$:
-                        <ul>
-                            <li>Proteínas: $15 \\cdot 7 + 25 \\cdot 4 = 105 + 100 = 205$ g ✓</li>
-                            <li>Carboidratos: $30 \\cdot 7 + 5 \\cdot 4 = 210 + 20 = 230$ g ✓</li>
-                        </ul>
-                    </li>
-                    <li>Ambas as soluções atendem aos requisitos com o mesmo número de unidades, mas $x = 6$ e $y = 5$ fornece mais proteína</li>
-                </ol>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> Na Zona Devastada, o planejamento nutricional eficiente é crucial para a sobrevivência a longo prazo. Este problema ilustra como sistemas de inequações lineares permitem otimizar dietas com recursos limitados. Um sobrevivente astuto usa a matemática para equilibrar necessidades nutricionais com conservação de suprimentos, garantindo saúde sem desperdício. Observe como encontramos duas soluções matematicamente equivalentes (11 unidades), mas na prática, a solução com mais proteína poderia ser preferível para quem realiza trabalho físico intenso, enquanto a outra poderia ser adequada para economizar carne seca, que geralmente tem maior durabilidade.</p>
-            </details>
-        </div>
+<p>No abrigo restam apenas latas de feijão e pacotes de carne seca. Cada lata de feijão fornece 15 g de proteína e 30 g de carboidratos; cada pacote de carne seca, 25 g de proteína e 5 g de carboidratos. O médico exige que cada sobrevivente consuma diariamente pelo menos 200 g de proteína e 180 g de carboidratos. Como as exigências são mínimos (não valores exatos), as relações se tornam inequações em vez de equações: $15x + 25y \geq 200$ para proteínas e $30x + 5y \geq 180$ para carboidratos, onde $x$ e $y$ são o número de latas e pacotes. Encontre a combinação de unidades inteiras que satisfaz ambas as inequações minimizando o consumo total de recursos.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Igualdades seriam equações; mínimos são inequações ($\geq$). Isole $y$ em cada inequação e teste valores inteiros de $x$ até encontrar a combinação que minimiza $x + y$ satisfazendo ambas.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Definimos: $x$ = latas de feijão, $y$ = pacotes de carne seca</li>
+<li>Inequações: $15x + 25y \geq 200$ e $30x + 5y \geq 180$</li>
+<li>Isolando $y$: $y \geq 8 - \frac{3x}{5}$ e $y \geq 36 - 6x$</li>
+<li>Testando $x = 6$: $y \geq 4{,}4$ (→ 5) e $y \geq 0$ → total 11 unidades</li>
+<li>Testando $x = 7$: $y \geq 3{,}8$ (→ 4) e $y \geq -6$ → total 11 unidades</li>
+<li>Ambas dão 11 unidades; verificando $x=6, y=5$: proteína = 215 g ✓, carboidratos = 205 g ✓</li>
+</ol>
+<div class="formula">
+$$\begin{cases} 15x + 25y \geq 200 \\ 30x + 5y \geq 180 \end{cases}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Na Zona Devastada, a matemática não apenas encontra respostas — confronta com realidades duras. Com os recursos disponíveis, apenas parte das necessidades pode ser atendida. Um líder responsável usa estes cálculos para planejar expedições de busca antes que a crise se instale, não depois.</p>
+</details>
+</div>

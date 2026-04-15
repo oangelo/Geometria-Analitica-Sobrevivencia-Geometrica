@@ -1,32 +1,32 @@
-        <div class="exercise">
-            <h3>Racionamento de Recursos Básicos</h3>
-            <p>O abrigo central está com suprimentos limitados. Cada adulto precisa de 2 litros de água purificada e 1 pacote de RemoveRad por dia. Cada criança precisa de 1 litro de água purificada e 2 pacotes de RemoveRad por dia. Se temos 16 litros de água e 19 pacotes de RemoveRad para distribuir hoje, quantos adultos e crianças podemos atender?</p>
-            
-            <details class="hint-details">
-                <summary>DICA DE SOBREVIVÊNCIA</summary>
-            <div class="hint">
-                <p>Defina $x$ como o número de adultos e $y$ como o número de crianças, depois crie duas equações baseadas nas informações de recursos disponíveis e consumo.</p>
-            </div>
-            </details>
+<div class="exercise">
+<h3>RACIONAMENTO DE RECURSOS BÁSICOS</h3>
 
-            <details>
-                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-                <ol class="solution-steps">
-                    <li>Definimos as variáveis: $x$ = número de adultos, $y$ = número de crianças</li>
-                    <li>Para a água purificada: $2x + y = 16$ (2 litros por adulto, 1 litro por criança, total de 16 litros)</li>
-                    <li>Para o RemoveRad: $x + 2y = 19$ (1 pacote por adulto, 2 pacotes por criança, total de 19 pacotes)</li>
-                    <li>Utilizando o método da substituição, isolamos $x$ da primeira equação: $x = \\frac{16 - y}{2} = 8 - \\frac{y}{2}$</li>
-                    <li>Substituímos na segunda equação: $(8 - \\frac{y}{2}) + 2y = 19$</li>
-                    <li>Simplificamos: $8 - \\frac{y}{2} + 2y = 19$</li>
-                    <li>Continuamos: $8 + \\frac{3y}{2} = 19$</li>
-                    <li>Resolvemos para $y$: $\\frac{3y}{2} = 11 \\Rightarrow y = \\frac{22}{3}$</li>
-                    <li>Como não podemos ter um número fracionário de pessoas, verificamos que não existe solução inteira exata</li>
-                    <li>Recalculando com $y = 6$: $2x + 6 = 16 \\Rightarrow x = 5$</li>
-                    <li>Verificação: $2(5) + 6 = 16$ ✓ e $5 + 2(6) = 17 \\neq 19$ ✗</li>
-                    <li>Recalculando com $y = 7$: $2x + 7 = 16 \\Rightarrow x = 4{,}5$ (impossível)</li>
-                    <li>Conclusão: A solução possível é $x = 5$ adultos e $y = 6$ crianças, com 2 pacotes de RemoveRad sobrando</li>
-                </ol>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> Em cenários de escassez de recursos, os sistemas de equações lineares nos permitem otimizar a distribuição. No entanto, a vida real muitas vezes não produz soluções perfeitas. Precisamos adaptar nossos modelos matemáticos para a realidade da Zona Devastada, onde cada recurso não utilizado pode significar uma chance a mais de sobrevivência no futuro.</p>
-            </details>
-        </div>
+<p>O abrigo central está com suprimentos críticos: cada adulto consome 2 litros de água purificada e 1 pacote de RemoveRad por dia, enquanto cada criança consome 1 litro de água e 2 pacotes de RemoveRad. Hoje restam 16 litros de água e 19 pacotes de RemoveRad. O SUPERVISOR quer saber quantas pessoas — adultos e crianças — o abrigo pode atender com exatamente esses recursos. Como o consumo de água e de RemoveRad depende diferentemente de adultos e crianças, as duas restrições formam um sistema: uma equação para a água, outra para o RemoveRad, ambas envolvendo o número de adultos e crianças.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Monte uma equação para cada recurso. Se $x$ é o número de adultos e $y$ o de crianças, a equação da água vem do consumo de cada grupo em relação aos 16 litros. Depois, o mesmo raciocínio vale para o RemoveRad.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Definimos: $x$ = número de adultos, $y$ = número de crianças</li>
+<li>Equação da água: $2x + y = 16$</li>
+<li>Equação do RemoveRad: $x + 2y = 19$</li>
+<li>Isolamos $x$ da primeira equação: $x = 8 - \frac{y}{2}$</li>
+<li>Substituímos na segunda: $(8 - \frac{y}{2}) + 2y = 19$</li>
+<li>Simplificamos: $8 + \frac{3y}{2} = 19$</li>
+<li>Resolvemos: $\frac{3y}{2} = 11 \Rightarrow y = \frac{22}{3} \approx 7{,}33$</li>
+<li>Como não existe fração de pessoa, testamos $y = 6$: $x = 5$, mas RemoveRad = 17 ≠ 19</li>
+<li>Testamos $y = 7$: $x = 4{,}5$ (impossível)</li>
+<li>Conclusão: a solução inteira mais próxima é $x = 5$ adultos e $y = 6$ crianças, sobrando 2 pacotes de RemoveRad</li>
+</ol>
+<div class="formula">
+$$\begin{cases} 2x + y = 16 \\ x + 2y = 19 \end{cases}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Na Zona Devastada, os modelos matemáticos nem sempre produzem soluções perfeitas — a realidade de pessoas inteiras e recursos discretos frequentemente frustra equações contínuas. O verdadeiro sobrevivente usa a matemática como guia, mas adapta o plano quando o mundo se recusa a cooperar com as frações.</p>
+</details>
+</div>

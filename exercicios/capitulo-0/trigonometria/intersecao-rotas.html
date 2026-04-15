@@ -1,51 +1,26 @@
 <div class="exercise">
-            <h3>Interseção de Rotas</h3>
-            <p>Duas expedições de sua comunidade partiram simultaneamente do assentamento principal. A expedição A move-se a 5 km/h em direção a nordeste (45°), enquanto a expedição B move-se a 4 km/h em direção a noroeste (315°). Após 2 horas, a expedição A muda sua direção para norte-noroeste (337{,5}°) mantendo a mesma velocidade, enquanto a expedição B continua em sua trajetória original. Considerando que a comunicação via rádio tem alcance limitado, determine o momento e a posição em que as duas expedições estarão mais próximas uma da outra após a mudança de direção da expedição A.</p>            <details class="hint-details">
-                <summary>DICA DE SOBREVIVÊNCIA</summary>
-            <div class="hint">
-                <p>Identifique o triângulo formado e aplique as relações trigonométricas adequadas (seno, cosseno ou tangente) conforme o tipo de informação disponível.</p>
-            </div>
-            </details>
+<h3>Interseção de Rotas</h3>
+<p>Duas expedições partiram simultaneamente do assentamento principal. A expedição A move-se a 5 km/h em direção a nordeste (45°), e a expedição B a 4 km/h em direção a noroeste (315°). Após 2 horas, a expedição A muda para norte-noroeste (337,5°) mantendo a mesma velocidade, enquanto B continua em sua trajetória. Convertendo cada posição em coordenadas cartesianas com cosseno e seno e expressando a distância entre as equipes em função do tempo adicional, determine em que momento e posição as duas expedições estarão mais próximas uma da outra após a mudança de direção.</p>
 
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint"><p>Primeiro calcule as posições de cada expedição no instante da mudança ($t = 0$ do novo trecho) usando $x = vt\cos\theta$, $y = vt\sen\theta$. Depois expresse as posições futuras como funções lineares do tempo adicional. A distância ao quadrado $d^2(t)$ será uma quadrática em $t$ — para achar o mínimo, derive e iguale a zero (ou observe o sinal do coeficiente angular).</p></div>
+</details>
 
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Posições após 2 horas:
+<div class="formula">$$A_0 = (5 \times 2 \times \cos 45°,\ 5 \times 2 \times \sen 45°) \approx (7{,}07,\ 7{,}07)$$
+$$B_0 = (4 \times 2 \times \cos 315°,\ 4 \times 2 \times \sen 315°) \approx (5{,}66,\ -5{,}66)$$</div></li>
+<li>Posições em função do tempo adicional $t$ (horas):
+<div class="formula">$$A(t) = (7{,}07 + 4{,}63t,\ 7{,}07 - 1{,}94t)$$
+$$B(t) = (5{,}66 + 2{,}83t,\ -5{,}66 - 2{,}83t)$$</div></li>
+<li>A distância quadrática $d^2(t) = (1{,}41 + 1{,}8t)^2 + (12{,}73 + 0{,}89t)^2$ é crescente para $t \geq 0$, portanto as expedições se afastam continuamente.</li>
+<li>A distância mínima ocorre no instante da mudança ($t = 0$):
+<div class="formula">$$d(0) = \sqrt{1{,}41^2 + 12{,}73^2} \approx 12{,}81 \text{ km}$$</div></li>
+</ol>
 
-            <details>
-
-
-                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-                <ol class="solution-steps">
-                    <li>Primeiro, calculamos a posição de cada expedição após 2 horas:
-                    <div class="formula">
-                        Expedição A: (5 × 2 × cos(45°), 5 × 2 × sen(45°)) = (7{,0}7, 7{,0}7)<br>
-                        Expedição B: (4 × 2 × cos(315°), 4 × 2 × sen(315°)) = (5{,6}6, -5{,6}6)
-                    </div></li>
-                    <li>A partir desse ponto, as expedições seguem trajetórias em linha reta com velocidades constantes. Podemos representar suas posições em função do tempo adicional t (em horas):
-                    <div class="formula">
-                        Posição A(t) = (7{,0}7, 7{,0}7) + (5t × cos(337{,5}°), 5t × sen(337{,5}°)) = (7{,0}7, 7{,0}7) + (4{,6}3t, -1{,9}4t)<br>
-                        Posição B(t) = (5{,6}6, -5{,6}6) + (4t × cos(315°), 4t × sen(315°)) = (5{,6}6, -5{,6}6) + (2{,8}3t, -2{,8}3t)
-                    </div></li>
-                    <li>A distância quadrática entre as expedições em função do tempo é:
-                    <div class="formula">
-                        $d^2(t) = [7{,0}7 + 4{,6}3t - (5{,6}6 + 2{,8}3t)]^2 + [7{,0}7 - 1{,9}4t - (-5{,6}6 - 2{,8}3t)]^2$<br>
-                        $d^2(t) = (1{,4}1 + 1{,8}t)^2 + (12{,7}3 + 0{,8}9t)^2$<br>
-                        $d^2(t) = (1{,4}1 + 1{,8}t)^2 + (12{,7}3 + 0{,8}9t)^2$
-                    </div></li>
-                    <li>Para encontrar o momento de distância mínima, derivamos esta expressão em relação a t e igualamos a zero:
-                    <div class="formula">
-                        $\frac{d(d^2(t))}{dt} = 2(1{,4}1 + 1{,8}t) × 1{,8} + 2(12{,7}3 + 0{,8}9t) × 0{,8}9 = 0$<br>
-                        $3{,6}(1{,4}1 + 1{,8}t) + 1{,7}8(12{,7}3 + 0{,8}9t) = 0$<br>
-                        $5{,0}8 + 6{,4}8t + 22{,6}6 + 1{,5}8t = 0$<br>
-                        $27{,7}4 + 8{,0}6t = 0$<br>
-                        $t = -\frac{27{,7}4}{8{,0}6} \approx -3{,4}4$
-                    </div></li>
-                    <li>Como obtivemos um valor negativo de t, isso indica que o momento de maior proximidade já ocorreu antes da mudança de direção. Na nova configuração, as expedições estão se afastando continuamente. A distância mínima futura ocorrerá no momento da mudança de direção (t = 0).</li>
-                    <li>Calculamos a distância nesse momento:
-                    <div class="formula">
-                        $d(0) = \sqrt{(7{,0}7 - 5{,6}6)^2 + (7{,0}7 - (-5{,6}6))^2} = \sqrt{1{,4}1^2 + 12{,7}3^2} \approx 12{,8}1$ km
-                    </div></li>
-                    <li>Portanto, após a mudança de direção, as expedições estarão mais próximas uma da outra no exato momento da mudança, a uma distância de aproximadamente 12{,8}1 km.</li>
-                </ol>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> A capacidade de prever pontos de aproximação máxima entre equipes é vital para coordenar operações na Zona Devastada. Isto permite planejar encontros estratégicos para troca de recursos, ou evitar detecção mantendo distância adequada entre grupos. Estes cálculos também são essenciais para planejar resgates em caso de emergência.</p>
-            </details>
-        </div>
+<p><strong>Reflexão de Sobrevivência:</strong> A capacidade de prever pontos de aproximação máxima entre equipes é vital para coordenar operações na Zona Devastada — planejar encontros estratégicos para troca de recursos, ou evitar detecção mantendo distância adequada entre grupos.</p>
+</details>
+</div>

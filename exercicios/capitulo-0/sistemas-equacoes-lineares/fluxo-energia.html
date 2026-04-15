@@ -1,27 +1,29 @@
-        <div class="exercise">
-            <h3>Fluxo de Energia no Abrigo</h3>
-            <p>O sistema elétrico do abrigo utiliza dois geradores. Quando apenas o gerador A está funcionando a 100% e o gerador B desligado, produzem-se 24 kW. Quando o gerador A opera a 50% e o gerador B a 100%, produzem-se 30 kW. O sistema de refrigeração necessita exatamente de 18 kW para funcionar. Determine em quais porcentagens os geradores devem operar para fornecer exatamente a energia necessária ao sistema de refrigeração, minimizando o consumo de combustível.</p>
+<div class="exercise">
+<h3>FLUXO DE ENERGIA NO ABRIGO</h3>
 
-            <details>
-                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-                <ol class="solution-steps">
-                    <li>Definimos as variáveis: $x$ = potência do gerador A (em kW a 100%), $y$ = potência do gerador B (em kW a 100%)</li>
-                    <li>Da primeira condição: $x + 0 = 24$, portanto $x = 24$ kW</li>
-                    <li>Da segunda condição: $0{,}5x + y = 30$</li>
-                    <li>Substituímos o valor de $x$: $0{,}5 \\cdot 24 + y = 30$</li>
-                    <li>Simplificamos: $12 + y = 30$</li>
-                    <li>Resolvemos para $y$: $y = 18$ kW</li>
-                    <li>Agora precisamos encontrar os percentuais $p_A$ e $p_B$ para: $p_A \\cdot x + p_B \\cdot y = 18$</li>
-                    <li>Substituímos os valores de $x$ e $y$: $p_A \\cdot 24 + p_B \\cdot 18 = 18$</li>
-                    <li>Simplificamos: $24p_A + 18p_B = 18$</li>
-                    <li>Dividimos por 6: $4p_A + 3p_B = 3$</li>
-                    <li>Isolamos $p_A$ em função de $p_B$: $p_A = \\frac{3 - 3p_B}{4}$</li>
-                    <li>Para minimizar o consumo, queremos o menor valor possível para $p_A$ e $p_B$, respeitando que $0 \\leq p_A, p_B \\leq 1$</li>
-                    <li>Testamos $p_B = 1$: $p_A = \\frac{3 - 3}{4} = 0$</li>
-                    <li>Verificamos: $0 \\cdot 24 + 1 \\cdot 18 = 18$ kW ✓</li>
-                    <li>Conclusão: Para minimizar o consumo, devemos desligar o gerador A ($p_A = 0$) e operar o gerador B a 100% ($p_B = 1$)</li>
-                </ol>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> A otimização de sistemas energéticos através de modelagem linear é uma habilidade crítica na gestão de recursos limitados. O princípio de \"fazer mais com menos\" é crucial para a sobrevivência a longo prazo. Observe como a solução matemática nos conduziu a uma conclusão contra-intuitiva: usar apenas o gerador menor a plena potência, em vez de ambos em potências parciais. Em um mundo de escassez, a matemática frequentemente revela eficiências ocultas que o instinto ignora.</p>
-            </details>
-        </div>
+<p>O abrigo possui dois geradores elétricos. Em um teste, com o gerador A a 100% e o B desligado, a produção foi de 24 kW; em outro, com o gerador A a 50% e o B a 100%, a produção foi de 30 kW. O sistema de refrigeração precisa de exatamente 18 kW para funcionar — nem mais (desperdício de combustível), nem menos (alimento estraga). Encontrar a potência máxima de cada gerador a partir dos dois testes é o primeiro passo: duas equações, duas incógnitas. Depois, combinar frações das potências para totalizar 18 kW é uma equação adicional que pode ter mais de uma solução — cabe a você encontrar a que minimiza o consumo de combustível.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Primeiro resolva o sistema dos dois testes para achar a potência de cada gerador. Depois, a equação $p_A \cdot P_A + p_B \cdot P_B = 18$ (onde $p_A$ e $p_B$ são frações entre 0 e 1) pode ser satisfeita de várias formas — qual combinação usa menos combustível?</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Definimos: $x$ = potência do gerador A (kW a 100%), $y$ = potência do gerador B (kW a 100%)</li>
+<li>Teste 1: $x = 24$ kW</li>
+<li>Teste 2: $0{,}5x + y = 30 \Rightarrow 12 + y = 30 \Rightarrow y = 18$ kW</li>
+<li>Para gerar 18 kW: $p_A \cdot 24 + p_B \cdot 18 = 18$, ou $4p_A + 3p_B = 3$</li>
+<li>Para minimizar consumo, minimizamos $p_A + p_B$ sujeito a $4p_A + 3p_B = 3$ e $0 \leq p_A, p_B \leq 1$</li>
+<li>Testando $p_B = 1$: $p_A = 0$ → funciona! Gerador B a 100%, A desligado.</li>
+<li>Verificação: $0 \cdot 24 + 1 \cdot 18 = 18$ kW ✓</li>
+</ol>
+<div class="formula">
+$$\begin{cases} x = 24 \\ 0{,}5x + y = 30 \end{cases} \Rightarrow x = 24,\; y = 18$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A solução contra-intuitiva — desligar o gerador maior e usar apenas o menor a plena carga — mostra que a matemática frequentemente revela eficiências ocultas que o instinto ignora. Em um mundo de escassez, "fazer mais com menos" não é um clichê, é uma equação.</p>
+</details>
+</div>

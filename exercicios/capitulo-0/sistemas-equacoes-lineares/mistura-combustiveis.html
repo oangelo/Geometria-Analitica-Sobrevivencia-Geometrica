@@ -1,30 +1,31 @@
-        <div class="exercise">
-            <h3>Mistura de Combustíveis</h3>
-            <p>Seu grupo encontrou dois tanques de combustível parcialmente cheios. O tanque A contém uma mistura com 30% de etanol e 70% de gasolina. O tanque B contém uma mistura com 80% de etanol e 20% de gasolina. Para o gerador do abrigo funcionar adequadamente, você precisa de exatamente 50 litros de uma mistura com 50% de cada combustível. Quantos litros deve extrair de cada tanque?</p>
-            
-            <details class="hint-details">
-                <summary>DICA DE SOBREVIVÊNCIA</summary>
-            <div class="hint">
-                <p>Defina $x$ como o volume do tanque A e $y$ como o volume do tanque B a serem utilizados. Crie uma equação para o volume total e outra para a quantidade de etanol na mistura final.</p>
-            </div>
-            </details>
+<div class="exercise">
+<h3>MISTURA DE COMBUSTÍVEIS</h3>
 
-            <details>
-                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-                <ol class="solution-steps">
-                    <li>Definimos as variáveis: $x$ = volume do tanque A (em litros), $y$ = volume do tanque B (em litros)</li>
-                    <li>Para o volume total: $x + y = 50$ (precisamos de 50 litros no total)</li>
-                    <li>Para o conteúdo de etanol: $0{,}30x + 0{,}80y = 0{,}50 \\cdot 50$ (30% do volume de A + 80% do volume de B = 50% do volume total)</li>
-                    <li>Simplificamos a segunda equação: $0{,}30x + 0{,}80y = 25$</li>
-                    <li>Da primeira equação, isolamos $y$: $y = 50 - x$</li>
-                    <li>Substituímos na equação do etanol: $0{,}30x + 0{,}80(50 - x) = 25$</li>
-                    <li>Desenvolvemos: $0{,}30x + 40 - 0{,}80x = 25$</li>
-                    <li>Simplificamos: $-0{,}50x = 25 - 40 = -15$</li>
-                    <li>Resolvemos para $x$: $x = 30$ litros (do tanque A)</li>
-                    <li>Calculamos $y$: $y = 50 - 30 = 20$ litros (do tanque B)</li>
-                    <li>Verificação: $0{,}30 \\cdot 30 + 0{,}80 \\cdot 20 = 9 + 16 = 25$ litros de etanol ✓</li>
-                </ol>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> Na Zona Devastada, recursos como combustível raramente são encontrados na forma ideal. A capacidade de calcular misturas precisas é vital para equipamentos sensíveis como geradores, veículos e purificadores. Um erro de cálculo pode significar um gerador danificado quando mais se precisa dele, ou um veículo que falha durante uma fuga de mutantes. Sistemas lineares transformam aproximações perigosas em soluções exatas, maximizando a utilidade dos poucos recursos disponíveis.</p>
-            </details>
-        </div>
+<p>Seu grupo encontrou dois tanques de combustível parcialmente cheios. O tanque A contém uma mistura com 30% de etanol e 70% de gasolina; o tanque B, 80% de etanol e 20% de gasolina. Para o gerador do abrigo funcionar adequadamente, são necessários exatamente 50 litros de uma mistura com 50% de etanol e 50% de gasolina. A proporção final depende de quanto se extrai de cada tanque: uma equação garante o volume total de 50 litros, e outra garante que o etanol combinado corresponda a exatamente 50% do volume final. As duas equações, simultâneas, revelam os volumes necessários de cada tanque.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Uma equação para o volume total ($x + y = 50$) e outra para o etanol: a porcentagem de etanol vinda de cada tanque, aplicada ao volume extraído, deve resultar em 50% de 50 litros.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Definimos: $x$ = litros do tanque A, $y$ = litros do tanque B</li>
+<li>Volume total: $x + y = 50$</li>
+<li>Etanol: $0{,}30x + 0{,}80y = 0{,}50 \cdot 50 = 25$</li>
+<li>Da primeira: $y = 50 - x$</li>
+<li>Substituímos: $0{,}30x + 0{,}80(50 - x) = 25$</li>
+<li>Desenvolvemos: $0{,}30x + 40 - 0{,}80x = 25$</li>
+<li>Simplificamos: $-0{,}50x = -15$</li>
+<li>Resolvemos: $x = 30$ litros (tanque A), $y = 20$ litros (tanque B)</li>
+<li>Verificação: $0{,}30 \cdot 30 + 0{,}80 \cdot 20 = 9 + 16 = 25$ litros de etanol ✓</li>
+</ol>
+<div class="formula">
+$$\begin{cases} x + y = 50 \\ 0{,}30x + 0{,}80y = 25 \end{cases} \Rightarrow x = 30,\; y = 20$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Na Zona Devastada, combustível raramente vem na concentração certa. Um erro de cálculo na mistura pode significar um gerador travando no pior momento. Sistemas lineares transformam o "mais ou menos" em soluções exatas — e exatidão, neste mundo, é sinônimo de sobrevivência.</p>
+</details>
+</div>

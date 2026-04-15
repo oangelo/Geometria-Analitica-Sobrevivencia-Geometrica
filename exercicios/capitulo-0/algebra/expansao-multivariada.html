@@ -1,35 +1,29 @@
         <div class="exercise">
-            <h3>DOSE DE EMERGÊNCIA: APLICAÇÃO FINAL</h3>
+            <h3>PRODUTO NOTÁVEL COM NÚMEROS</h3>
 
-            <p><em>Este é o último exercício da lista — e o mais completo. Aqui você precisará combinar produto notável, propriedade distributiva, simplificação e isolamento de incógnita para resolver um problema real. O SUPERVISOR não dá dicas em situações de emergência. É hora de provar que você domina as ferramentas.</em></p>
-
-            <p>O laboratório do Abrigo sintetiza RemoveRad em lotes. A quantidade de RemoveRad produzida por lote é dada pela fórmula $Q = (x + 2)^2 - x^2$, onde $x$ é a quantidade de matéria-prima em quilogramas.</p>
-            <p><strong>(a)</strong> Simplifique a expressão $(x + 2)^2 - x^2$ usando produtos notáveis.</p>
-            <p><strong>(b)</strong> Se o laboratório precisa produzir exatamente 20 unidades de RemoveRad, resolva a equação simplificada para encontrar $x$.</p>
-            <p><strong>(c)</strong> Interprete: por que a expressão simplificada é linear, mesmo sendo composta de termos quadráticos?</p>
+            <p>Ao calcular uma área de plantio, um colega afirmou que $(3 + 4)^2 = 3^2 + 4^2$, subestimando a área real. O erro é comum e perigoso: na Zona Devastada, subestimar uma área de plantio ou uma seção de parede com esse erro significa não ter material suficiente. O que acontece quando multiplicamos $(a + b)$ por ele mesmo? Antes de usar incógnitas, vamos descobrir com números. Calcule $(3 + 4)^2$ diretamente e depois calcule $3^2 + 2 \cdot 3 \cdot 4 + 4^2$. Os dois resultados são iguais? O que o termo extra $2 \cdot 3 \cdot 4 = 24$ representa — geometricamente, são dois retângulos de área $3 \times 4$ que ficam "de fora" de $a^2$ e $b^2$.</p>
 
             <details class="hint-details">
                 <summary>DICA DE SOBREVIVÊNCIA</summary>
             <div class="hint">
-                <p>Para (a), expanda $(x+2)^2 = x^2 + 4x + 4$ e depois subtraia $x^2$. Os termos $x^2$ se cancelam. Para (b), resolva a equação linear resultante.</p>
+                <p>Calcule $(3+4)^2$ primeiro: $7^2 = 49$. Depois calcule $3^2 + 4^2 = 9 + 16 = 25$. Compare os dois resultados. A diferença de $24$ é o termo $2ab$.</p>
             </div>
             </details>
 
             <details>
                 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
                 <ol class="solution-steps">
-                    <li>Parte (a): expanda $(x+2)^2$ usando o produto notável: $x^2 + 2(x)(2) + 4 = x^2 + 4x + 4$</li>
-                    <li>Subtraia $x^2$: $(x+2)^2 - x^2 = x^2 + 4x + 4 - x^2 = 4x + 4$</li>
-                    <li>A expressão simplificada é $4x + 4$ — que é linear!</li>
-                    <li>Parte (b): resolva $4x + 4 = 20$. Subtraia 4: $4x = 16$. Divida por 4: $x = 4$ kg</li>
-                    <li>Verificação: $(4+2)^2 - 4^2 = 36 - 16 = 20$ ✓</li>
-                    <li>Parte (c): os termos quadráticos $x^2$ se cancelam porque ambos são positivos com mesmo coeficiente. É o mesmo princípio da diferença de quadrados — o padrão $a^2 - b^2$ com $a = (x+2)$ e $b = x$.</li>
+                    <li>Calcule $(3 + 4)^2 = 7^2 = 49$</li>
+                    <li>Calcule $3^2 + 4^2 = 9 + 16 = 25$</li>
+                    <li>Compare: $49 \neq 25$. O erro comum $(a+b)^2 = a^2 + b^2$ ignora o termo cruzado.</li>
+                    <li>Agora calcule com o termo completo: $3^2 + 2 \cdot 3 \cdot 4 + 4^2 = 9 + 24 + 16 = 49$ ✓</li>
+                    <li>O termo extra $2ab = 24$ são dois retângulos de área $3 \times 4$ que ficam "de fora" do quadrado.</li>
                 </ol>
 
                 <div class="formula">
-                    $$(x+2)^2 - x^2 = 4x + 4 = 20 \implies x = 4$$
+                    $$(a + b)^2 = a^2 + 2ab + b^2$$
                 </div>
 
-                <p><strong>Reflexão de Sobrevivência:</strong> Saber que $(x+2)^2 - x^2$ se reduz a $4x + 4$ é exatamente o tipo de conhecimento que separa o sobrevivente comum do técnico de laboratório indispensável. Na Zona Devastada, produzir RemoveRad com precisão significa salvar vidas. Produzir com erro significa desperdiçar recursos escassos — ou pior, sintetizar algo ineficaz.</p>
+                <p><strong>Reflexão de Sobrevivência:</strong> Esquecer o termo $2ab$ é um dos erros algébricos mais comuns. Na Zona Devastada, calcular uma área de plantio ou uma seção de parede com esse erro significa subestimar a necessidade de material em até 50%. Não cometa esse erro.</p>
             </details>
         </div>
