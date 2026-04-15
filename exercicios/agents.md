@@ -13,10 +13,12 @@ Antes de começar qualquer trabalho, leia estes documentos (nesta ordem):
 
 ## Estrutura de arquivos por tópico
 
-> **Nota sobre branches:** Os exercícios estão sendo editados diretamente na branch `main`
-> do repositório raiz (`exercicios/`), e não nos worktrees.
-> O workflow de worktrees (`worktrees/exercicios/` → `feature/exercicios`) não está em uso
-> para este projeto no momento.
+> **Importante sobre worktrees:** Sempre trabalhe nos worktrees, nunca diretamente no `main`.
+> - Exercícios → `worktrees/exercicios/` (branch `feature/exercicios`)
+> - Slides → `worktrees/slides/` (branch `feature/slides`)
+> - Provas → `worktrees/provas/` (branch `feature/provas`)
+>
+> Faça commits no worktree. Mergear para `main` somente quando solicitado pelo usuário.
 
 Cada tópico tem três arquivos:
 
