@@ -1,18 +1,27 @@
 <div class="exercise">
             <h3>Trajetória de Interceptação</h3>
-            <p>Um membro isolado de sua comunidade envia um sinal de socorro de um ponto a 8 km a nordeste (45°) do assentamento. Devido a uma tempestade de radiação se aproximando, ele só pode se mover a 3 km/h em direção ao sudoeste (225°). Sua equipe de resgate, partindo do assentamento, pode se mover a 5 km/h em qualquer direção. Determine o ângulo de deslocamento (em relação ao norte) que a equipe de resgate deve seguir para interceptar o membro isolado no menor tempo possível, e calcule esse tempo.</p>
+            <p>Um membro isolado de sua comunidade envia um sinal de socorro de um ponto a 8 km a nordeste (45°) do assentamento. Devido a uma tempestade de radiação se aproximando, ele só pode se mover a 3 km/h em direção ao sudoeste (225°). Sua equipe de resgate, partindo do assentamento, pode se mover a 5 km/h em qualquer direção. Determine o ângulo de deslocamento (em relação ao norte) que a equipe de resgate deve seguir para interceptar o membro isolado no menor tempo possível, e calcule esse tempo.</p>            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Identifique o triângulo formado e aplique as relações trigonométricas adequadas (seno, cosseno ou tangente) conforme o tipo de informação disponível.</p>
+            </div>
+            </details>
+
+
 
             <details>
+
+
                 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
                 <ol class="solution-steps">
                     <li>Este é um problema de interceptação de movimento. Vamos estabelecer as coordenadas:
                     <div class="formula">
                         Assentamento: (0, 0)<br>
-                        Membro isolado: (8 × cos(45°), 8 × sen(45°)) = (5.66, 5.66)
+                        Membro isolado: (8 × cos(45°), 8 × sen(45°)) = (5{,6}6, 5{,6}6)
                     </div></li>
                     <li>O membro isolado se move a 3 km/h em direção a 225°. Sua posição após t horas será:
                     <div class="formula">
-                        Posição isolado(t) = (5.66, 5.66) + (3t × cos(225°), 3t × sen(225°)) = (5.66, 5.66) + (-2.12t, -2.12t)
+                        Posição isolado(t) = (5{,6}6, 5{,6}6) + (3t × cos(225°), 3t × sen(225°)) = (5{,6}6, 5{,6}6) + (-2{,1}2t, -2{,1}2t)
                     </div></li>
                     <li>A equipe de resgate, movendo-se a 5 km/h em um ângulo θ, terá posição:
                     <div class="formula">
@@ -20,8 +29,8 @@
                     </div></li>
                     <li>Para interceptação, as posições devem ser iguais no tempo t:
                     <div class="formula">
-                        5t × cos(θ) = 5.66 - 2.12t<br>
-                        5t × sen(θ) = 5.66 - 2.12t
+                        5t × cos(θ) = 5{,6}6 - 2{,1}2t<br>
+                        5t × sen(θ) = 5{,6}6 - 2{,1}2t
                     </div></li>
                     <li>Dividindo estas equações:
                     <div class="formula">
@@ -30,13 +39,13 @@
                     </div></li>
                     <li>Substituindo de volta em uma das equações:
                     <div class="formula">
-                        5t × cos(45°) = 5.66 - 2.12t<br>
-                        5t × 0.7071 = 5.66 - 2.12t<br>
-                        3.54t + 2.12t = 5.66<br>
-                        5.66t = 5.66<br>
+                        5t × cos(45°) = 5{,6}6 - 2{,1}2t<br>
+                        5t × 0{,7}071 = 5{,6}6 - 2{,1}2t<br>
+                        3{,5}4t + 2{,1}2t = 5{,6}6<br>
+                        5{,6}6t = 5{,6}6<br>
                         t = 1
                     </div></li>
-                    <li>A equipe de resgate deve se mover a um ângulo de 45° (nordeste) e interceptará o membro isolado após 1 hora, a aproximadamente 3.54 km do assentamento.</li>
+                    <li>A equipe de resgate deve se mover a um ângulo de 45° (nordeste) e interceptará o membro isolado após 1 hora, a aproximadamente 3{,5}4 km do assentamento.</li>
                 </ol>
                 
                 <p><strong>Reflexão de Sobrevivência:</strong> Em operações de resgate na Zona Devastada, a eficiência é medida em vidas salvas. A capacidade de calcular trajetórias de interceptação ótimas permite minimizar o tempo de exposição a ameaças ambientais, como tempestades de radiação, e maximizar as chances de sobrevivência de membros isolados da comunidade.</p>

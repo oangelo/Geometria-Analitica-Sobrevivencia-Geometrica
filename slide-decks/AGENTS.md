@@ -101,4 +101,36 @@ browser_vision: "A lista com os 3 itens está alinhada ao centro?"
 
 ---
 
-**Lembrete**: Nunca assuma que o código está correto sem verificar visualmente. CSS é imprevisível, especialmente com frameworks como Reveal.js.
+**Lembrete**: Nunma assuma que o código está correto sem verificar visualmente. CSS é imprevisível, especialmente com frameworks como Reveal.js.
+
+---
+
+## Convenções de LaTeX nos Slides
+
+### Formato correto de backslashes
+
+Os slides usam MathJax com delimitadores `\\( ... \\)` (inline) e `\\[ ... \\]` (display). No arquivo HTML, isso significa **uma barra invertida** antes do delimitador e dos comandos LaTeX:
+
+```
+CORRETO (uma barra no arquivo HTML):   \\(\\vec{v} = (x, y)\\)
+ERRADO  (duas barras no arquivo HTML): \\\\(\\\\vec{v} = (x, y)\\\\)
+```
+
+### Cuidados ao corrigir
+
+1. **NÃO use `write_file`** para corrigir backslashes — a ferramenta pode duplicá-los. Use `sed`.
+2. **Preserve a config do MathJax** no `<script>` — ela precisa de `\\` (barra dupla) por ser JavaScript:
+   ```javascript
+   inlineMath: [["\\(", "\\)"]]   // ← CORRETO no <script>
+   ```
+3. **Separadores de linha em matrizes** LaTeX (`\\` dentro de `bmatrix`) também precisam de barra dupla no arquivo:
+   ```html
+   \\begin{bmatrix} 3 & 1 \\\\ 4 & 2 \\end{bmatrix}
+   ```
+
+### Comando sed para correção em massa
+
+```bash
+# Corrige barras duplas em LaTeX, preservando config do MathJax
+sed -i '/inlineMath\|displayMath/!{s/\\\\(/\\(/g; s/\\\\)/\\)/g; s/\\\\\[/\\[/g; s/\\\\\]/\\]/g; s/\\\\\([a-zA-Z]\)/\\\1/g}' arquivo.html
+```

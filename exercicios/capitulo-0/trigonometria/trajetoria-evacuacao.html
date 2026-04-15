@@ -1,8 +1,17 @@
 <div class="exercise">
             <h3>Trajetória de Evacuação</h3>
-            <p>Uma nuvem de gás tóxico se aproxima de seu assentamento a uma velocidade de 15 km/h vinda do norte. Você precisa evacuar para um abrigo subterrâneo localizado a 8 km a leste e 6 km ao sul de sua posição atual. Se sua velocidade máxima de deslocamento é 12 km/h, em que ângulo (em relação ao leste) você deve se mover para chegar ao abrigo antes da nuvem tóxica, e quanto tempo antes da chegada da nuvem você alcançará o abrigo?</p>
+            <p>Uma nuvem de gás tóxico se aproxima de seu assentamento a uma velocidade de 15 km/h vinda do norte. Você precisa evacuar para um abrigo subterrâneo localizado a 8 km a leste e 6 km ao sul de sua posição atual. Se sua velocidade máxima de deslocamento é 12 km/h, em que ângulo (em relação ao leste) você deve se mover para chegar ao abrigo antes da nuvem tóxica, e quanto tempo antes da chegada da nuvem você alcançará o abrigo?</p>            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Identifique o triângulo formado e aplique as relações trigonométricas adequadas (seno, cosseno ou tangente) conforme o tipo de informação disponível.</p>
+            </div>
+            </details>
+
+
 
             <details>
+
+
                 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
                 <ol class="solution-steps">
                     <li>Primeiro, calculamos a distância direta até o abrigo:
@@ -11,26 +20,26 @@
                     </div></li>
                     <li>O ângulo de deslocamento em relação ao leste é:
                     <div class="formula">
-                        $\theta = \arctan\left(\frac{6}{8}\right) = \arctan(0.75) \approx 36.87°$ (sul do leste)
+                        $\theta = \arctan\left(\frac{6}{8}\right) = \arctan(0{,7}5) \approx 36{,8}7°$ (sul do leste)
                     </div></li>
                     <li>O tempo necessário para alcançar o abrigo é:
                     <div class="formula">
-                        $t = \frac{d}{\text{velocidade}} = \frac{10}{12} = \frac{5}{6} \approx 0.833$ horas $\approx 50$ minutos
+                        $t = \frac{d}{\text{velocidade}} = \frac{10}{12} = \frac{5}{6} \approx 0{,8}33$ horas $\approx 50$ minutos
                     </div></li>
                     <li>A nuvem de gás, vinda do norte, percorre 8 km para chegar à sua posição atual (o assentamento):
                     <div class="formula">
-                        $t_{\text{nuvem}} = \frac{8}{15} = \frac{8}{15} \approx 0.533$ horas $\approx 32$ minutos
+                        $t_{\text{nuvem}} = \frac{8}{15} = \frac{8}{15} \approx 0{,5}33$ horas $\approx 32$ minutos
                     </div></li>
                     <li>A diferença de tempo é:
                     <div class="formula">
-                        $\Delta t = t_{\text{nuvem}} - t = 0.533 - 0.833 = -0.3$ horas $\approx -18$ minutos
+                        $\Delta t = t_{\text{nuvem}} - t = 0{,5}33 - 0{,8}33 = -0{,3}$ horas $\approx -18$ minutos
                     </div>
                     O valor negativo indica que você chegará ao abrigo 18 minutos após a chegada da nuvem tóxica ao assentamento.</li>
-                    <li>Como a resposta indica que você não chegaria a tempo, precisamos recalcular considerando a posição relativa: quando você está a caminho do abrigo, a nuvem também está se movendo. A distância norte-sul entre você e a nuvem está diminuindo a uma taxa de 15 km/h (velocidade da nuvem) + 12 × sen(36.87°) km/h (componente sul da sua velocidade) = 15 + 7.2 = 22.2 km/h. 
+                    <li>Como a resposta indica que você não chegaria a tempo, precisamos recalcular considerando a posição relativa: quando você está a caminho do abrigo, a nuvem também está se movendo. A distância norte-sul entre você e a nuvem está diminuindo a uma taxa de 15 km/h (velocidade da nuvem) + 12 × sen(36{,8}7°) km/h (componente sul da sua velocidade) = 15 + 7{,2} = 22{,2} km/h. 
                     <div class="formula">
-                        Tempo para a nuvem te alcançar = $\frac{8}{22.2} \approx 0.36$ horas $\approx 21.6$ minutos
+                        Tempo para a nuvem te alcançar = $\frac{8}{22{,2}} \approx 0{,3}6$ horas $\approx 21{,6}$ minutos
                     </div></li>
-                    <li>Para chegar ao abrigo, você precisa percorrer 10 km a 12 km/h, o que leva aproximadamente 50 minutos. Como isso é maior que 21.6 minutos, a nuvem te alcançará antes de você chegar ao abrigo.</li>
+                    <li>Para chegar ao abrigo, você precisa percorrer 10 km a 12 km/h, o que leva aproximadamente 50 minutos. Como isso é maior que 21{,6} minutos, a nuvem te alcançará antes de você chegar ao abrigo.</li>
                     <li>A conclusão é que, com os parâmetros dados, não é possível chegar ao abrigo antes da nuvem tóxica utilizando uma trajetória direta. Você precisaria de um caminho alternativo, reduzir a distância ou aumentar sua velocidade.</li>
                 </ol>
                 

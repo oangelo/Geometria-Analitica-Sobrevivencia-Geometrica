@@ -1,24 +1,33 @@
         <div class="exercise">
             <h3>Triângulo de Vigilância Ótimo</h3>
-            <p>Sua comunidade precisa estabelecer um novo perímetro defensivo usando três torres de vigilância. O assentamento ocupa uma área circular de raio 300 metros. Para maximizar a cobertura e minimizar recursos, as torres devem formar um triângulo equilátero circunscrito ao perímetro do assentamento. Determine as coordenadas ideais para posicionar as três torres, considerando o centro do assentamento como origem (0,0), e calcule a área total sob vigilância se cada torre tiver alcance visual de 600 metros.</p>
+            <p>Sua comunidade precisa estabelecer um novo perímetro defensivo usando três torres de vigilância. O assentamento ocupa uma área circular de raio 300 metros. Para maximizar a cobertura e minimizar recursos, as torres devem formar um triângulo equilátero circunscrito ao perímetro do assentamento. Determine as coordenadas ideais para posicionar as três torres, considerando o centro do assentamento como origem (0,0), e calcule a área total sob vigilância se cada torre tiver alcance visual de 600 metros.</p>            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Identifique o triângulo formado e aplique as relações trigonométricas adequadas (seno, cosseno ou tangente) conforme o tipo de informação disponível.</p>
+            </div>
+            </details>
+
+
 
             <details>
+
+
                 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
                 <ol class="solution-steps">
                     <li>Para um triângulo equilátero circunscrito a um círculo, as torres devem ser posicionadas nos pontos de tangência entre o triângulo e o círculo, espaçadas uniformemente em intervalos de 120°.</li>
                     <li>O raio do círculo circunscrito ao triângulo equilátero que circunscreve um círculo de raio r é:
                     <div class="formula">
-                        $R = \frac{2r}{\sqrt{3}} = \frac{2 \times 300}{\sqrt{3}} \approx 346.41$ metros
+                        $R = \frac{2r}{\sqrt{3}} = \frac{2 \times 300}{\sqrt{3}} \approx 346{,4}1$ metros
                     </div></li>
                     <li>As coordenadas das torres serão:
                     <div class="formula">
-                        Torre 1: (346.41 × cos(0°), 346.41 × sen(0°)) = (346.41, 0)<br>
-                        Torre 2: (346.41 × cos(120°), 346.41 × sen(120°)) = (-173.21, 300)<br>
-                        Torre 3: (346.41 × cos(240°), 346.41 × sen(240°)) = (-173.21, -300)
+                        Torre 1: (346{,4}1 × cos(0°), 346{,4}1 × sen(0°)) = (346{,4}1, 0)<br>
+                        Torre 2: (346{,4}1 × cos(120°), 346{,4}1 × sen(120°)) = (-173{,2}1, 300)<br>
+                        Torre 3: (346{,4}1 × cos(240°), 346{,4}1 × sen(240°)) = (-173{,2}1, -300)
                     </div></li>
                     <li>O lado do triângulo equilátero formado é:
                     <div class="formula">
-                        $l = 2R \times \sen(60°) = 2 \times 346.41 \times 0.866 = 600$ metros
+                        $l = 2R \times \sen(60°) = 2 \times 346{,4}1 \times 0{,8}66 = 600$ metros
                     </div></li>
                     <li>A área do triângulo equilátero é:
                     <div class="formula">
