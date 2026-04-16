@@ -225,18 +225,22 @@
     <script>
     const MANUAL = "algebra-manual.html";
     const EXERCICIOS = [
-        "algebra/calculo-recursos.html",
-        "algebra/distribuicao-racoes.html",
-        "algebra/fortificacao-perimetro.html",
-        "algebra/radiacao-exponencial.html",
-        "algebra/multiplicacao-monomios.html",
-        "algebra/quadrado-diferenca.html",
-        "algebra/produto-soma-diferenca.html",
-        "algebra/area-cultivo-seguro.html",
-        "algebra/simplificacao-fracao.html",
-        "algebra/expansao-abrigo.html",
-        "algebra/equacao-bunker.html",
-        "algebra/expansao-multivariada.html"
+        // Fase 1 — Isolamento de x (equação linear)
+        "algebra/calculo-recursos.html",       // Q1: x + 3 = 7 (subtrair)
+        "algebra/distribuicao-racoes.html",    // Q2: 2x = 10 (dividir)
+        "algebra/fortificacao-perimetro.html", // Q3: 2x + 3 = 11 (duas operações)
+        "algebra/simplificacao-fracao.html",   // Q4: x/4 + 2 = 5 (fração)
+        // Fase 2 — Propriedades algébricas
+        "algebra/expansao-multivariada.html",  // Q5: (3+4)² vs 3²+2ab+4²
+        "algebra/produto-soma-diferenca.html", // Q6: (5+2)(5-2) = 5²-2²
+        "algebra/multiplicacao-monomios.html", // Q7: 2³·2⁴ ÷ 2⁵ (potências)
+        // Fase 3 — Combinar com incógnitas
+        "algebra/expansao-abrigo.html",        // Q8: (x+3)² = 25
+        "algebra/radiacao-exponencial.html",   // Q9: x⁵/x² e x³ = 27
+        "algebra/quadrado-diferenca.html",     // Q10: (x+1)²-(x-1)² = 8
+        // Fase 4 — Aplicação
+        "algebra/area-cultivo-seguro.html",    // Q11: x(x+5) = 36 (montar equação)
+        "algebra/equacao-bunker.html"          // Q12: (x+2)²-x² = 20 (simplificar e resolver)
     ];
 
     async function carregarManual(arquivo) {

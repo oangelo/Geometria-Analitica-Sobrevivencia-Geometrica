@@ -1,30 +1,33 @@
-        <div class="exercise">
-            <h3>ÁREA SEGURO: MONTE A EQUAÇÃO</h3>
+<div class="exercise">
+<h3>DOSE DE EMERGÊNCIA: APLICAÇÃO FINAL</h3>
 
-            <p>Um terreno retangular livre de radiação precisa ser cercado. O comprimento é 5 unidades a mais que a largura, e a área total deve ser de 36 unidades quadradas. Nos exercícios anteriores, a equação era dada; agora cabe a você traduzir a situação em equação — identifique a incógnita, monte a equação para a área, expanda e resolva. Note que a equação resultante pode ter duas raízes, mas nem todas fazem sentido físico para o problema.</p>
+<p>O laboratório do Abrigo sintetiza RemoveRad em lotes. A quantidade produzida por lote é $Q = (x + 2)^2 - x^2$, onde $x$ é a quantidade de matéria-prima em quilogramas. Nos exercícios anteriores, usamos produtos notáveis com números e depois com incógnitas. Agora a expressão já vem dada — simplifique-a usando o padrão que descobrimos e resolva $Q = 20$ para encontrar $x$. Pergunta para pensar: por que o resultado é linear, se a expressão original tem termos quadráticos?</p>
 
-            <details class="hint-details">
-                <summary>DICA DE SOBREVIVÊNCIA</summary>
-            <div class="hint">
-                <p>Área = largura $\times$ comprimento. Se largura = $x$ e comprimento = $x + 5$, então $x(x+5) = 36$. Expanda e resolva a equação quadrática.</p>
-            </div>
-            </details>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Expanda $(x+2)^2$ usando o produto notável $(a+b)^2 = a^2 + 2ab + b^2$. Depois subtraia $x^2$ e veja o que sobra.</p>
+</div>
+</details>
 
-            <details>
-                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-                <ol class="solution-steps">
-                    <li>largura = $x$, comprimento = $x + 5$. Área: $x(x + 5) = 36$</li>
-                    <li>Expanda: $x^2 + 5x = 36$, então $x^2 + 5x - 36 = 0$</li>
-                    <li>Fatore: $(x + 9)(x - 4) = 0$, pois $9 \times (-4) = -36$ e $9 + (-4) = 5$</li>
-                    <li>Soluções: $x = -9$ ou $x = 4$</li>
-                    <li>$x = -9$ não faz sentido (largura negativa). A solução é $x = 4$ (largura) e $x + 5 = 9$ (comprimento).</li>
-                    <li>Verificação: $4 \times 9 = 36$ ✓</li>
-                </ol>
-
-                <div class="formula">
-                    $$x(x+5) = 36 \implies x^2 + 5x - 36 = 0 \implies x = 4 \text{ (largura)}, \quad x + 5 = 9 \text{ (comprimento)}$$
-                </div>
-
-                <p><strong>Reflexão de Sobrevivência:</strong> Na prática, equações raramente vêm prontas. Um sobrevivente eficaz traduz o problema do mundo real para a linguagem matemática — e depois filtra as soluções, descartando as que não fazem sentido físico. Uma área negativa é tão útil quanto um filtro de água que funciona ao contrário.</p>
-            </details>
-        </div>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Expandimos $(x+2)^2$ usando o produto notável:
+<div class="formula">
+$$(x+2)^2 = x^2 + 2 \cdot x \cdot 2 + 2^2 = x^2 + 4x + 4$$
+</div></li>
+<li>Agora subtraímos $x^2$:
+<div class="formula">
+$$Q = (x^2 + 4x + 4) - x^2 = 4x + 4$$
+</div></li>
+<li>Os termos $x^2$ se cancelaram! A expressão é linear: $Q = 4x + 4$.</li>
+<li>Resolvendo $Q = 20$:
+<div class="formula">
+$$4x + 4 = 20 \implies 4x = 16 \implies x = 4$$
+</div></li>
+<li>O laboratório precisa de 4 kg de matéria-prima.</li>
+</ol>
+<p><strong>Reflexão de Sobrevivência:</strong> Este exercício mostra que expressões aparentemente complexas podem se simplificar drasticamente. Na Zona Devastada, o tempo é recurso — saber reconhecer padrões que eliminam contas desnecessárias é tão vital quanto ter munição. Os termos quadráticos se cancelaram porque a diferença entre dois quadrados consecutivos sempre cresce linearmente.</p>
+</details>
+</div>
