@@ -1,6 +1,12 @@
 <div class="exercise">
-<h3>RELAÇÃO COM PONTO MÉDIO</h3>
-<p>Um estrategista de recursos precisa construir um posto avançado em um ponto equidistante de três assentamentos localizados em $A(1, 2)$, $B(3, 5)$ e $C(5, 1)$. Se $M$ é o ponto médio de $\overline{BC}$, demonstre que $\overrightarrow{AM} \cdot \overrightarrow{BC} = 0$ e explique o significado geométrico desta relação para o posicionamento ótimo.</p>
+<h3>PRODUTO ESCALAR E PONTO MÉDIO</h3>
+<p>Um estrategista de recursos precisa construir um posto avançado em um ponto equidistante de três assentamentos localizados em $A(1, 2)$, $B(3, 5)$ e $C(5, 1)$. Se $M$ é o ponto médio de $\overline{BC}$, calcule o produto escalar $\overrightarrow{AM} \cdot \overrightarrow{BC}$ e analise o resultado: o valor obtido indica que o ponto $M$ está sobre a mediatriz de $\overline{BC}$ em relação a $A$? O que isso revela sobre o posicionamento do posto avançado?</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para verificar se o produto escalar é nulo, lembre-se de que isso indica perpendicularidade. Calcule os vetores envolvidos e aplique a definição de produto escalar.</p>
+</div>
+</details>
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
@@ -8,7 +14,7 @@
 <li>Calcule o ponto médio $M$ de $\overline{BC}$: $M = \frac{B + C}{2} = \frac{(3, 5) + (5, 1)}{2} = \frac{(8, 6)}{2} = (4, 3)$</li>
 <li>Determine o vetor $\overrightarrow{AM} = M - A = (4, 3) - (1, 2) = (3, 1)$</li>
 <li>Calcule o produto escalar $\overrightarrow{AM} \cdot \overrightarrow{BC} = (3, 1) \cdot (2, -4) = 3 \times 2 + 1 \times (-4) = 6 - 4 = 2$</li>
-<li>Observe que o resultado não é zero, o que contradiz a afirmação. Na verdade, $\overrightarrow{AM} \cdot \overrightarrow{BC} = 2$</li>
+<li>Observe que $\overrightarrow{AM} \cdot \overrightarrow{BC} = 2 \neq 0$, o que significa que $\overrightarrow{AM}$ não é perpendicular a $\overrightarrow{BC}$</li>
 </ol>
 <div class="formula">
                     \begin{align}
@@ -18,6 +24,6 @@
                     \overrightarrow{AM} \cdot \overrightarrow{BC} &amp;= 3 \times 2 + 1 \times (-4) = 6 - 4 = 2 \neq 0
                     \end{align}
                 </div>
-<p><strong>Reflexão de Sobrevivência:</strong> A afirmação $\overrightarrow{AM} \cdot \overrightarrow{BC} = 0$ seria verdadeira se $A$ estivesse sobre a mediatriz do segmento $\overline{BC}$, o que significaria que $A$ estaria equidistante de $B$ e $C$. No entanto, o cálculo mostra que $\overrightarrow{AM} \cdot \overrightarrow{BC} = 2$, o que indica que os pontos não estão nessa configuração especial. Para fins de sobrevivência, isto significa que o posto avançado não pode ser equidistante dos três assentamentos simultaneamente com a configuração atual, e um compromisso terá que ser feito no planejamento estratégico.</p>
+<p><strong>Reflexão de Sobrevivência:</strong> O produto escalar $\overrightarrow{AM} \cdot \overrightarrow{BC} = 2$ revela que a mediana $\overrightarrow{AM}$ não é perpendicular ao lado $\overline{BC}$. Geometricamente, isso significa que o ponto $A$ não está sobre a mediatriz de $\overline{BC}$. Para fins de sobrevivência, isto indica que o abrigo $A$ não está equidistante de $B$ e $C$, e o posto avançado em $M$ não otimiza simultaneamente a proximidade com todos os assentamentos — um compromisso logístico inevitável na Zona Devastada.</p>
 </details>
 </div>

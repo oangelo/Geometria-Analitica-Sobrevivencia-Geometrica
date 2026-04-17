@@ -4,7 +4,7 @@
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
 <div class="hint">
-<p>Parametrize as posições dos veículos em função do tempo e encontre o tempo que minimiza a função de distância entre eles.</p>
+<p>Expresse as posições dos dois veículos como funções do tempo. A distância mínima ocorre quando a derivada da função de distância se anula.</p>
 </div>
 </details>
 <details>
@@ -12,29 +12,29 @@
 <ol class="solution-steps">
 <li>Determinamos as coordenadas dos veículos em função do tempo:
                     $A(t) = (2, 3) + t \cdot 5 \cdot \frac{(1, 2)}{\sqrt{1^2 + 2^2}} = (2, 3) + t \cdot 5 \cdot \frac{(1, 2)}{\sqrt{5}} = (2, 3) + t \cdot \frac{5}{\sqrt{5}} \cdot (1, 2)$
-                    $A(t) = (2, 3) + t \cdot (5/\sqrt{5}, 10/\sqrt{5}) \approx (2, 3) + t \cdot (2.24, 4.47)$</li>
+                    $A(t) = (2, 3) + t \cdot (5/\sqrt{5}, 10/\sqrt{5}) \approx (2, 3) + t \cdot (2{,}24, 4{,}47)$</li>
 <li>De forma similar:
                     $B(t) = (8, 10) + t \cdot 4 \cdot \frac{(-2, -1)}{\sqrt{(-2)^2 + (-1)^2}} = (8, 10) + t \cdot 4 \cdot \frac{(-2, -1)}{\sqrt{5}} = (8, 10) + t \cdot \frac{4}{\sqrt{5}} \cdot (-2, -1)$
-                    $B(t) = (8, 10) + t \cdot (-4\sqrt{5}/5, -2\sqrt{5}/5) \approx (8, 10) + t \cdot (-3.58, -1.79)$</li>
-<li>A posição de A em função do tempo: $A(t) = (2 + 2.24t, 3 + 4.47t)$</li>
-<li>A posição de B em função do tempo: $B(t) = (8 - 3.58t, 10 - 1.79t)$</li>
+                    $B(t) = (8, 10) + t \cdot (-4\sqrt{5}/5, -2\sqrt{5}/5) \approx (8, 10) + t \cdot (-3{,}58, -1{,}79)$</li>
+<li>A posição de A em função do tempo: $A(t) = (2 + 2{,}24t, 3 + 4{,}47t)$</li>
+<li>A posição de B em função do tempo: $B(t) = (8 - 3{,}58t, 10 - 1{,}79t)$</li>
 <li>O quadrado da distância entre A e B em função do tempo:
-                    $d^2(t) = [(8 - 3.58t) - (2 + 2.24t)]^2 + [(10 - 1.79t) - (3 + 4.47t)]^2$
-                    $d^2(t) = [6 - 5.82t]^2 + [7 - 6.26t]^2$</li>
+                    $d^2(t) = [(8 - 3{,}58t) - (2 + 2{,}24t)]^2 + [(10 - 1{,}79t) - (3 + 4{,}47t)]^2$
+                    $d^2(t) = [6 - 5{,}82t]^2 + [7 - 6{,}26t]^2$</li>
 <li>Para encontrar o mínimo, derivamos e igualamos a zero:
-                    $\frac{d(d^2(t))}{dt} = 2[6 - 5.82t](-5.82) + 2[7 - 6.26t](-6.26) = 0$
-                    $-11.64[6 - 5.82t] - 12.52[7 - 6.26t] = 0$
-                    $-69.84 + 67.84t - 87.64 + 78.55t = 0$
-                    $146.39t = 157.48$
-                    $t \approx 1.08$ horas</li>
+                    $\frac{d(d^2(t))}{dt} = 2[6 - 5{,}82t](-5{,}82) + 2[7 - 6{,}26t](-6{,}26) = 0$
+                    $-11{,}64[6 - 5{,}82t] - 12{,}52[7 - 6{,}26t] = 0$
+                    $-69{,}84 + 67{,}84t - 87{,}64 + 78{,}55t = 0$
+                    $146{,}39t = 157{,}48$
+                    $t \approx 1{,}08$ horas</li>
 <li>As posições nesse momento:
-                    $A(1.08) \approx (2 + 2.24 \cdot 1.08, 3 + 4.47 \cdot 1.08) \approx (4.42, 7.83)$
-                    $B(1.08) \approx (8 - 3.58 \cdot 1.08, 10 - 1.79 \cdot 1.08) \approx (4.13, 8.07)$</li>
+                    $A(1{,}08) \approx (2 + 2{,}24 \cdot 1{,}08, 3 + 4{,}47 \cdot 1{,}08) \approx (4{,}42, 7{,}83)$
+                    $B(1{,}08) \approx (8 - 3{,}58 \cdot 1{,}08, 10 - 1{,}79 \cdot 1{,}08) \approx (4{,}13, 8{,}07)$</li>
 <li>A distância mínima:
-                    $d_{min} = \sqrt{(4.42 - 4.13)^2 + (7.83 - 8.07)^2} = \sqrt{0.29^2 + (-0.24)^2} = \sqrt{0.084 + 0.058} = \sqrt{0.142} \approx 0.38$ km</li>
+                    $d_{min} = \sqrt{(4{,}42 - 4{,}13)^2 + (7{,}83 - 8{,}07)^2} = \sqrt{0{,}29^2 + (-0{,}24)^2} = \sqrt{0{,}084 + 0{,}058} = \sqrt{0{,}142} \approx 0{,}38$ km</li>
 </ol>
 <div class="formula">
-                    $$d_{min} \approx 0.38 \text{ km, ocorrendo após } t \approx 1.08 \text{ horas}$$
+                    $$d_{min} \approx 0{,}38 \text{ km, ocorrendo após } t \approx 1{,}08 \text{ horas}$$
                 </div>
 <p><strong>Reflexão de Sobrevivência:</strong> Calcular distâncias mínimas entre objetos em movimento é essencial para planejar intercepções ou evitar colisões. Essa habilidade permite coordenar encontros entre equipes de exploradores ou prever quando e onde grupos hostis podem interceptar suas rotas de viagem.</p>
 </details>

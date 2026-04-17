@@ -1,13 +1,12 @@
 <div class="exercise">
 <h3>ZONA DE EXCLUSÃO</h3>
-<p>Uma área fortemente contaminada tem formato triangular, delimitada por três linhas de radiação descritas pelas equações:</p>
-<p>$r_1: 2x + y - 8 = 0$</p>
-<p>$r_2: x - 2y + 7 = 0$</p>
-<p>$r_3: 3x + 4y - 24 = 0$</p>
-<p>Determine:</p>
-<p>a) As coordenadas dos três vértices da zona contaminada</p>
-<p>b) Um ponto no interior da zona que seja equidistante das três fronteiras (incentro)</p>
-<p>c) A mínima distância segura que uma expedição deve manter de cada linha de radiação</p>
+<p>Uma área fortemente contaminada tem formato triangular, delimitada por três linhas de radiação descritas pelas equações $r_1: 2x + y - 8 = 0$, $r_2: x - 2y + 7 = 0$ e $r_3: 3x + 4y - 24 = 0$. Para mapear a zona sem entrar nela, você precisa resolver pares de sistemas de equações — cada vértice do triângulo é a interseção de duas retas. <strong>(a)</strong> Determine as coordenadas dos três vértices da zona contaminada resolvendo os sistemas de equações dois a dois. <strong>(b)</strong> Encontre o ponto interior equidistante das três fronteiras (incentro), que representa o centro de máximo risco. <strong>(c)</strong> A mínima distância segura que uma expedição deve manter de cada linha de radiação.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para encontrar os vértices, resolva cada par de equações como um sistema 2×2. Para o incentro, use a fórmula de distância de um ponto a uma reta e imponha que as três distâncias sejam iguais.</p>
+</div>
+</details>
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
@@ -24,19 +23,19 @@
                         V2 (intersecção de r2 e r3) = $(3, 5)$
                         V3 (intersecção de r1 e r3) = $(4, 0)$</li>
 <li>Para o incentro (equidistante das três linhas), usamos a fórmula de distância de um ponto a uma reta e a condição de equidistância</li>
-<li>O incentro do triângulo é aproximadamente I(3.1, 1.8) (cálculos omitidos por brevidade)</li>
+<li>O incentro do triângulo é aproximadamente $I(3{,}1, 1{,}8)$ (cálculos omitidos por brevidade)</li>
 <li>A distância mínima segura deve ser calculada considerando a contaminação, geralmente um múltiplo da unidade base. Se adotarmos um valor padrão de segurança de 2 unidades:
                        Distância segura de r1: 2 unidades
                        Distância segura de r2: 2 unidades
                        Distância segura de r3: 2 unidades</li>
 </ol>
 <div class="formula">
-<p>a) V1 = $(\frac{9}{5}, \frac{22}{5}) \approx (1.8, 4.4)$</p>
-<p>   V2 = $(3, 5)$</p>
-<p>   V3 = $(4, 0)$</p>
-<p>b) Incentro ≈ (3.1, 1.8)</p>
+<p>a) $V_1 = (\frac{9}{5}, \frac{22}{5}) \approx (1{,}8, 4{,}4)$</p>
+<p>   $V_2 = (3, 5)$</p>
+<p>   $V_3 = (4, 0)$</p>
+<p>b) Incentro $\approx (3{,}1, 1{,}8)$</p>
 <p>c) Distância mínima segura: 2 unidades de cada fronteira</p>
 </div>
-<p><strong>Reflexão de Sobrevivência:</strong> Em zonas contaminadas, a precisão matemática não é um luxo, mas necessidade vital. Calcular corretamente os vértices permite mapear a área sem entrar nela. O incentro representa o ponto de máximo risco dentro da zona - informação crucial para equipes de recuperação que precisam extrair recursos valiosos assumindo o mínimo risco possível.</p>
+<p><strong>Reflexão de Sobrevivência:</strong> Em zonas contaminadas, a precisão matemática não é um luxo, mas necessidade vital. Calcular corretamente os vértices permite mapear a área sem entrar nela. O incentro representa o ponto de máximo risco dentro da zona — informação crucial para equipes de recuperação que precisam extrair recursos valiosos assumindo o mínimo risco possível.</p>
 </details>
 </div>

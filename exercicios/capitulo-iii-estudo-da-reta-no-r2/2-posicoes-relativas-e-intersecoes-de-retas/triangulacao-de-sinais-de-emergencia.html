@@ -1,11 +1,12 @@
 <div class="exercise">
 <h3>TRIANGULAÇÃO DE SINAIS DE EMERGÊNCIA</h3>
-<p>Três estações de monitoramento localizadas nos pontos $A(1, 1)$, $B(5, 2)$ e $C(3, 6)$ detectaram um sinal de emergência. Cada estação determinou uma direção (reta) de onde o sinal parece ter se originado:
-            $r_A: y = 3x - 2$
-            $r_B: y = -2x + 12$
-            $r_C: y = \frac{1}{2}x + 4.5$
-            
-            Idealmente, essas três retas deveriam se cruzar em um único ponto (a origem do sinal), mas devido a interferências na Zona Devastada, isso raramente acontece. Determine as coordenadas do ponto que melhor aproxima a origem do sinal, minimizando a soma dos quadrados das distâncias até as três retas.</p>
+<p>Três estações de monitoramento localizadas nos pontos $A(1,1)$, $B(5,2)$ e $C(3,6)$ detectaram um sinal de emergência. Cada estação determinou uma direção (reta) de onde o sinal parece ter se originado: $r_A: y = 3x - 2$, $r_B: y = -2x + 12$ e $r_C: y = \frac{1}{2}x + 4,5$. Idealmente, essas três retas deveriam se cruzar em um único ponto, mas devido a interferências, isso raramente acontece. Determine as coordenadas do ponto que melhor aproxima a origem do sinal, minimizando a soma dos quadrados das distâncias até as três retas.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Converta as equações para a forma geral $ax + by + c = 0$. A distância de um ponto $(p,q)$ até cada reta é $d = \frac{|ap + bq + c|}{\sqrt{a^2 + b^2}}$. O ponto ótimo minimiza a soma dos quadrados dessas distâncias.</p>
+</div>
+</details>
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">

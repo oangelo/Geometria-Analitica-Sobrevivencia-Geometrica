@@ -1,30 +1,36 @@
 <div class="exercise">
 <h3>REDE DE COMUNICAÇÃO OTIMIZADA</h3>
 <p>Cinco assentamentos estão localizados nos pontos A(1, 2), B(5, 1), C(8, 5), D(4, 7) e E(2, 6). Para estabelecer uma rede de comunicação eficiente, é necessário conectar todos os assentamentos usando a menor quantidade possível de cabo de fibra óptica recuperado. Determine quais conexões devem ser feitas e o comprimento total de cabo necessário.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Este é um problema de otimização: conectar todos os pontos com o menor comprimento total. Comece calculando todas as distâncias possíveis e depois escolha as menores sem formar ciclos.</p>
+</div>
+</details>
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
 <li>Este é um problema de Árvore Geradora Mínima. Primeiro, calculamos todas as distâncias possíveis entre os assentamentos:
-                    $d(A,B) = \sqrt{(5-1)^2 + (1-2)^2} = \sqrt{16 + 1} = \sqrt{17} \approx 4.12$
-                    $d(A,C) = \sqrt{(8-1)^2 + (5-2)^2} = \sqrt{49 + 9} = \sqrt{58} \approx 7.62$
-                    $d(A,D) = \sqrt{(4-1)^2 + (7-2)^2} = \sqrt{9 + 25} = \sqrt{34} \approx 5.83$
-                    $d(A,E) = \sqrt{(2-1)^2 + (6-2)^2} = \sqrt{1 + 16} = \sqrt{17} \approx 4.12$
+                    $d(A,B) = \sqrt{(5-1)^2 + (1-2)^2} = \sqrt{16 + 1} = \sqrt{17} \approx 4{,}12$
+                    $d(A,C) = \sqrt{(8-1)^2 + (5-2)^2} = \sqrt{49 + 9} = \sqrt{58} \approx 7{,}62$
+                    $d(A,D) = \sqrt{(4-1)^2 + (7-2)^2} = \sqrt{9 + 25} = \sqrt{34} \approx 5{,}83$
+                    $d(A,E) = \sqrt{(2-1)^2 + (6-2)^2} = \sqrt{1 + 16} = \sqrt{17} \approx 4{,}12$
                     $d(B,C) = \sqrt{(8-5)^2 + (5-1)^2} = \sqrt{9 + 16} = \sqrt{25} = 5$
-                    $d(B,D) = \sqrt{(4-5)^2 + (7-1)^2} = \sqrt{1 + 36} = \sqrt{37} \approx 6.08$
-                    $d(B,E) = \sqrt{(2-5)^2 + (6-1)^2} = \sqrt{9 + 25} = \sqrt{34} \approx 5.83$
-                    $d(C,D) = \sqrt{(4-8)^2 + (7-5)^2} = \sqrt{16 + 4} = \sqrt{20} \approx 4.47$
-                    $d(C,E) = \sqrt{(2-8)^2 + (6-5)^2} = \sqrt{36 + 1} = \sqrt{37} \approx 6.08$
-                    $d(D,E) = \sqrt{(2-4)^2 + (6-7)^2} = \sqrt{4 + 1} = \sqrt{5} \approx 2.24$</li>
-<li>Usando o algoritmo de Kruskal, começamos com a menor aresta: D-E (2.24)</li>
-<li>Próxima menor aresta: A-E (4.12) ou A-B (4.12), escolhemos A-E</li>
-<li>Próxima menor aresta: A-B (4.12)</li>
-<li>Próxima menor aresta: C-D (4.47)</li>
+                    $d(B,D) = \sqrt{(4-5)^2 + (7-1)^2} = \sqrt{1 + 36} = \sqrt{37} \approx 6{,}08$
+                    $d(B,E) = \sqrt{(2-5)^2 + (6-1)^2} = \sqrt{9 + 25} = \sqrt{34} \approx 5{,}83$
+                    $d(C,D) = \sqrt{(4-8)^2 + (7-5)^2} = \sqrt{16 + 4} = \sqrt{20} \approx 4{,}47$
+                    $d(C,E) = \sqrt{(2-8)^2 + (6-5)^2} = \sqrt{36 + 1} = \sqrt{37} \approx 6{,}08$
+                    $d(D,E) = \sqrt{(2-4)^2 + (6-7)^2} = \sqrt{4 + 1} = \sqrt{5} \approx 2{,}24$</li>
+<li>Usando o algoritmo de Kruskal, começamos com a menor aresta: D-E (2,24)</li>
+<li>Próxima menor aresta: A-E (4,12) ou A-B (4,12), escolhemos A-E</li>
+<li>Próxima menor aresta: A-B (4,12)</li>
+<li>Próxima menor aresta: C-D (4,47)</li>
 <li>As conexões são: D-E, A-E, A-B, C-D</li>
-<li>O comprimento total do cabo: $2.24 + 4.12 + 4.12 + 4.47 = 14.95$ unidades</li>
+<li>O comprimento total do cabo: $2{,}24 + 4{,}12 + 4{,}12 + 4{,}47 = 14{,}95$ unidades</li>
 </ol>
 <div class="formula">
                     $$\text{Conexões ótimas: D-E, A-E, A-B, C-D}$$
-                    $$\text{Comprimento total: } 14.95 \text{ unidades}$$
+                    $$\text{Comprimento total: } 14{,}95 \text{ unidades}$$
                 </div>
 <p><strong>Reflexão de Sobrevivência:</strong> A otimização de recursos escassos como cabos de comunicação é fundamental para a sustentabilidade de uma rede de assentamentos. Uma rede bem planejada não apenas economiza materiais valiosos, mas também facilita a coordenação entre comunidades dispersas, aumentando significativamente as chances de sobrevivência e reconstrução a longo prazo.</p>
 </details>
