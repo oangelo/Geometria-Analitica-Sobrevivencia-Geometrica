@@ -1,32 +1,26 @@
 <div class="exercise">
 <h3>ESTRUTURA DEFENSIVA</h3>
-<p>A Refúgio-Tec está desenvolvendo uma nova estrutura defensiva hexagonal contra mutantes. O projeto começa com um ponto central O e seis torres de vigia posicionadas nos vértices de um hexágono regular. Se a distância de O a qualquer vértice é 5 unidades e o primeiro vértice A está diretamente ao leste de O, determine as coordenadas vetoriais de todos os seis vértices em relação a O. Em seguida, calcule a soma vetorial de todos os vetores de posição das torres e explique o significado desse resultado para o design da estrutura.</p>
+<p>A Refúgio-Tec está desenvolvendo uma estrutura defensiva hexagonal contra mutantes. O projeto posiciona seis torres de vigia nos vértices de um hexágono regular com centro na origem $O(0,0)$. As coordenadas dos vértices são: $A(5, 0)$, $B(2{,}5, 4{,}33)$, $C(-2{,}5, 4{,}33)$, $D(-5, 0)$, $E(-2{,}5, -4{,}33)$ e $F(2{,}5, -4{,}33)$. Calcule a soma vetorial $\vec{OA} + \vec{OB} + \vec{OC} + \vec{OD} + \vec{OE} + \vec{OF}$ e explique o significado do resultado para o design da estrutura.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Some as componentes $x$ de todos os vetores e as componentes $y$ de todos os vetores separadamente. Observe os padrões de simetria — os valores positivos e negativos podem se cancelar.</p>
+</div>
+</details>
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Num hexágono regular, os vértices estão igualmente espaçados ao redor do centro, com ângulos de 60° entre eles.</li>
-<li>Se A está diretamente a leste de O, então o vetor $\overrightarrow{OA} = (5, 0)$.</li>
-<li>Os demais vértices estão a ângulos de 60°, 120°, 180°, 240° e 300° em relação ao eixo x positivo.</li>
-<li>Para cada ângulo θ, as coordenadas são $(5\cos(θ), 5\sin(θ))$.</li>
-<li>Calculando para cada vértice:
-                        <br/>Vértice A (0°): $\overrightarrow{OA} = (5\cos(0°), 5\sin(0°)) = (5, 0)$
-                        <br/>Vértice B (60°): $\overrightarrow{OB} = (5\cos(60°), 5\sin(60°)) = (5 \cdot 0.5, 5 \cdot 0.866) = (2.5, 4.33)$
-                        <br/>Vértice C (120°): $\overrightarrow{OC} = (5\cos(120°), 5\sin(120°)) = (5 \cdot (-0.5), 5 \cdot 0.866) = (-2.5, 4.33)$
-                        <br/>Vértice D (180°): $\overrightarrow{OD} = (5\cos(180°), 5\sin(180°)) = (5 \cdot (-1), 5 \cdot 0) = (-5, 0)$
-                        <br/>Vértice E (240°): $\overrightarrow{OE} = (5\cos(240°), 5\sin(240°)) = (5 \cdot (-0.5), 5 \cdot (-0.866)) = (-2.5, -4.33)$
-                        <br/>Vértice F (300°): $\overrightarrow{OF} = (5\cos(300°), 5\sin(300°)) = (5 \cdot 0.5, 5 \cdot (-0.866)) = (2.5, -4.33)$
-                    </li>
-<li>A soma vetorial é: $\overrightarrow{OA} + \overrightarrow{OB} + \overrightarrow{OC} + \overrightarrow{OD} + \overrightarrow{OE} + \overrightarrow{OF}$</li>
-<li>Calculando: $(5, 0) + (2.5, 4.33) + (-2.5, 4.33) + (-5, 0) + (-2.5, -4.33) + (2.5, -4.33)$</li>
-<li>Componente x: $5 + 2.5 + (-2.5) + (-5) + (-2.5) + 2.5 = 0$</li>
-<li>Componente y: $0 + 4.33 + 4.33 + 0 + (-4.33) + (-4.33) = 0$</li>
-<li>A soma vetorial é $\vec{0} = (0, 0)$</li>
+<li>Os vetores de posição são iguais às coordenadas dos vértices, pois a origem é $(0,0)$.</li>
+<li>Componente $x$ da soma: $5 + 2{,}5 + (-2{,}5) + (-5) + (-2{,}5) + 2{,}5 = 0$</li>
+<li>Componente $y$ da soma: $0 + 4{,}33 + 4{,}33 + 0 + (-4{,}33) + (-4{,}33) = 0$</li>
+<li>A soma vetorial é $\vec{0} = (0, 0)$.</li>
+<li>Isso ocorre porque os vértices estão simetricamente distribuídos: cada vértice no "lado direito" tem um correspondente no "lado esquerdo" com componente $x$ oposta, e o mesmo vale para $y$.</li>
 </ol>
 <div class="formula">
-                    Posição de cada vértice: $(5\cos(θ), 5\sin(θ))$, onde θ = 0°, 60°, 120°, 180°, 240°, 300°
-                    <br/><br/>
-                    Soma vetorial: $\sum_{i=1}^{6} \overrightarrow{OV_i} = \vec{0}$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> O resultado da soma vetorial sendo o vetor nulo $(0,0)$ demonstra o equilíbrio perfeito desta estrutura defensiva. Este equilíbrio tem profundas implicações para a construção: as forças estruturais se cancelam mutuamente, proporcionando estabilidade máxima contra pressões externas. Além disso, o sistema de vigilância tem cobertura uniforme em todas as direções, sem pontos cegos ou áreas de concentração excessiva. Em termos de defesa contra mutantes, isso significa que não há direção preferencial de ataque - todas as abordagens são igualmente monitoradas, tornando a estrutura excepcionalmente resistente a incursões de qualquer ângulo.</p>
+$$\sum_{i=1}^{6} \vec{OV_i} = \vec{0}$$
+$$\text{Componente } x\text{: } 5 + 2{,}5 - 2{,}5 - 5 - 2{,}5 + 2{,}5 = 0$$
+$$\text{Componente } y\text{: } 0 + 4{,}33 + 4{,}33 + 0 - 4{,}33 - 4{,}33 = 0$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O resultado da soma vetorial sendo o vetor nulo demonstra o equilíbrio perfeito desta estrutura defensiva. As forças estruturais se cancelam mutuamente, proporcionando estabilidade máxima. Além disso, o sistema de vigilância tem cobertura uniforme em todas as direções — não há direção preferencial de ataque, tornando a estrutura excepcionalmente resistente a incursões de qualquer ângulo.</p>
 </details>
 </div>

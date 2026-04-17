@@ -1,0 +1,24 @@
+<div class="exercise">
+<h3>SCRIPT DE DETECÇÃO</h3>
+<p>O sensor do Refúgio-Tec identificou oito pontos suspeitos no território: $A(3, 7)$, $B(-5, 2)$, $C(-1, -8)$, $D(6, -3)$, $E(0, 4)$, $F(-7, 0)$, $G(0, 0)$ e $H(2, -9)$. Classifique cada ponto: se estiver em um quadrante, indique qual; se estiver sobre um eixo, especifique qual; se for a origem, declare explicitamente. Em seguida, conte quantos pontos estão em cada categoria.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Siga três verificações: primeiro, verifique se é a origem $(0, 0)$. Depois, verifique se alguma coordenada é zero (eixo). Por fim, use os sinais para determinar o quadrante.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Classificação ponto a ponto: $A(3, 7)$ — Quadrante I ($x > 0, y > 0$); $B(-5, 2)$ — Quadrante II ($x < 0, y > 0$); $C(-1, -8)$ — Quadrante III ($x < 0, y < 0$); $D(6, -3)$ — Quadrante IV ($x > 0, y < 0$).</li>
+<li>$E(0, 4)$ — sobre o eixo $y$ (positivo), pois $x = 0$ e $y > 0$; $F(-7, 0)$ — sobre o eixo $x$ (negativo), pois $y = 0$ e $x < 0$; $G(0, 0)$ — origem; $H(2, -9)$ — Quadrante IV ($x > 0, y < 0$).</li>
+<li>Contagem: Quadrante I — 1 ponto ($A$); Quadrante II — 1 ponto ($B$); Quadrante III — 1 ponto ($C$); Quadrante IV — 2 pontos ($D$ e $H$); Eixo $x$ — 1 ponto ($F$); Eixo $y$ — 1 ponto ($E$); Origem — 1 ponto ($G$).</li>
+<li>Total verificado: $1 + 1 + 1 + 2 + 1 + 1 + 1 = 8$ pontos. ✓</li>
+</ol>
+<div class="formula">
+$$\text{Q.I: } A \quad \text{Q.II: } B \quad \text{Q.III: } C \quad \text{Q.IV: } D, H$$
+$$\text{Eixo } x\text{: } F \quad \text{Eixo } y\text{: } E \quad \text{Origem: } G$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A classificação sistemática de múltiplos pontos revela padrões de distribuição que indicam direções de maior perigo. Neste caso, o Quadrante IV concentra dois pontos suspeitos, enquanto as outras regiões têm apenas um — informação que deve influenciar o planejamento de patrulhas e rotas de evacuação.</p>
+</details>
+</div>

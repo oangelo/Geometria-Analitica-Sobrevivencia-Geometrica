@@ -1,23 +1,22 @@
 <div class="exercise">
 <h3>ESTOQUES DE MEDICAMENTOS</h3>
-<p>Um assentamento tem dois depósitos de RemoveRad localizados em D(3, -1) e E(7, 5). Para facilitar o acesso durante emergências, um novo estoque deve ser construído no ponto médio entre estes depósitos. Se um sobrevivente parte deste novo ponto em direção às coordenadas (8, 0), qual será a distância total percorrida para ir do ponto médio até este destino?</p>
+<p>Um assentamento tem dois depósitos de RemoveRad localizados em $D(3, -1)$ e $E(7, 5)$. Para facilitar o acesso durante emergências, um novo estoque deve ser construído no ponto médio entre estes depósitos. As coordenadas do novo estoque representam um compromisso equilibrado entre os dois depósitos originais. Determine as coordenadas deste ponto e verifique se ele pertence ao Quadrante I.</p>
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
 <div class="hint">
-<p>Primeiro encontre o ponto médio entre D e E, depois calcule a distância desse ponto até as coordenadas (8, 0) usando a fórmula da distância entre dois pontos.</p>
+<p>Use a fórmula do ponto médio: some as coordenadas correspondentes e divida por 2. Depois verifique os sinais das coordenadas resultantes.</p>
 </div>
 </details>
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Calcule o ponto médio M entre D(3, -1) e E(7, 5): $M = \left(\frac{3 + 7}{2}, \frac{-1 + 5}{2}\right) = (5, 2)$</li>
-<li>Agora, calcule a distância do ponto M(5, 2) até o ponto P(8, 0)</li>
-<li>Use a fórmula da distância: $d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$</li>
-<li>Substitua os valores: $d = \sqrt{(8 - 5)^2 + (0 - 2)^2} = \sqrt{9 + 4} = \sqrt{13}$</li>
+<li>Ponto médio $M$ entre $D(3, -1)$ e $E(7, 5)$: $M = \left(\frac{3 + 7}{2}, \frac{-1 + 5}{2}\right) = \left(\frac{10}{2}, \frac{4}{2}\right) = (5, 2)$.</li>
+<li>Verificação do quadrante: $x = 5 > 0$ e $y = 2 > 0$, portanto $M(5, 2)$ está no Quadrante I.</li>
+<li>Observação: o depósito $D(3, -1)$ está no Quadrante IV e $E(7, 5)$ está no Quadrante I. O ponto médio "cruzou" para o Quadrante I, pois a coordenada $y$ de $E$ ($+5$) é maior em valor absoluto que a de $D$ ($-1$).</li>
 </ol>
 <div class="formula">
-                    $$d = \sqrt{(8 - 5)^2 + (0 - 2)^2} = \sqrt{9 + 4} = \sqrt{13}$$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> Em tempos de escassez, a otimização de rotas é crucial. Conhecer o ponto médio entre locais importantes e calcular distâncias precisas permite planejar o uso de recursos limitados como combustível e tempo, aumentando as chances de sobrevivência durante deslocamentos perigosos.</p>
+$$M = \left(\frac{3 + 7}{2}, \frac{-1 + 5}{2}\right) = (5, 2) \in \text{Quadrante I}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O ponto médio entre dois depósitos em quadrantes diferentes pode resultar em um local em um terceiro quadrante. Na Zona Devastada, isto significa que o novo estoque pode acabar em uma região inesperada — é crucial verificar sempre em qual quadrante o ponto resultante se encontra antes de enviar equipes de construção.</p>
 </details>
 </div>

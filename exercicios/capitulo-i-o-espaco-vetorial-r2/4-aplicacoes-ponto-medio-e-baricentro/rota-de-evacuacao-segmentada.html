@@ -1,35 +1,30 @@
 <div class="exercise">
 <h3>ROTA DE EVACUAÇÃO SEGMENTADA</h3>
-<p>Três pontos de controle estão situados em A(0, 0), B(10, 0) e C(5, 8). Uma rota de evacuação deve ser planejada saindo do ponto A, passando pelo ponto médio M1 entre A e B, depois pelo baricentro G do triângulo ABC, em seguida pelo ponto médio M2 entre B e C, e finalmente chegando em C. Determine o comprimento total desta rota e compare com o perímetro do triângulo ABC.</p>
+<p>Três pontos de controle estão situados em $A(0, 0)$, $B(10, 0)$ e $C(5, 8)$. Uma rota de evacuação deve ser planejada saindo do ponto $A$, passando pelo ponto médio $M_1$ entre $A$ e $B$, depois pelo baricentro $G$ do triângulo $ABC$, em seguida pelo ponto médio $M_2$ entre $B$ e $C$, e finalmente chegando em $C$. Determine as coordenadas de todos os pontos da rota e liste os vetores de deslocamento de cada trecho.</p>
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
 <div class="hint">
-<p>Calcule cada segmento da rota sequencialmente e some as distâncias.</p>
+<p>Calcule cada ponto intermediário usando as fórmulas de ponto médio e baricentro. Depois calcule o vetor de deslocamento de cada trecho subtraindo a origem do destino.</p>
 </div>
 </details>
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Calcule o ponto médio M1 entre A(0, 0) e B(10, 0): $M1 = (5, 0)$</li>
-<li>Calcule o baricentro G do triângulo: $G = \left(\frac{0 + 10 + 5}{3}, \frac{0 + 0 + 8}{3}\right) = (5, \frac{8}{3}) \approx (5, 2.67)$</li>
-<li>Calcule o ponto médio M2 entre B(10, 0) e C(5, 8): $M2 = \left(\frac{10 + 5}{2}, \frac{0 + 8}{2}\right) = (7.5, 4)$</li>
-<li>Calcule o comprimento de cada segmento da rota:
-                        <br/>$|AM1| = \sqrt{(5 - 0)^2 + (0 - 0)^2} = 5$
-                        <br/>$|M1G| = \sqrt{(5 - 5)^2 + (2.67 - 0)^2} = 2.67$
-                        <br/>$|GM2| = \sqrt{(7.5 - 5)^2 + (4 - 2.67)^2} = \sqrt{6.25 + 1.78} \approx 2.94$
-                        <br/>$|M2C| = \sqrt{(5 - 7.5)^2 + (8 - 4)^2} = \sqrt{6.25 + 16} = \sqrt{22.25} \approx 4.72$</li>
-<li>Comprimento total da rota: $5 + 2.67 + 2.94 + 4.72 = 15.33$</li>
-<li>Agora, calculamos o perímetro do triângulo ABC:
-                        <br/>$|AB| = \sqrt{(10 - 0)^2 + (0 - 0)^2} = 10$
-                        <br/>$|BC| = \sqrt{(5 - 10)^2 + (8 - 0)^2} = \sqrt{25 + 64} = \sqrt{89} \approx 9.43$
-                        <br/>$|CA| = \sqrt{(0 - 5)^2 + (0 - 8)^2} = \sqrt{25 + 64} = \sqrt{89} \approx 9.43$</li>
-<li>Perímetro do triângulo: $10 + 9.43 + 9.43 = 28.86$</li>
+<li>Ponto médio $M_1$ de $A(0, 0)$ e $B(10, 0)$: $M_1 = (5, 0)$.</li>
+<li>Baricentro $G$ do triângulo: $G = \left(\frac{0 + 10 + 5}{3}, \frac{0 + 0 + 8}{3}\right) = \left(5, \frac{8}{3}\right) \approx (5, 2{,}67)$.</li>
+<li>Ponto médio $M_2$ de $B(10, 0)$ e $C(5, 8)$: $M_2 = \left(\frac{10 + 5}{2}, \frac{0 + 8}{2}\right) = (7{,}5, 4)$.</li>
+<li>Vetores de deslocamento de cada trecho:
+$\vec{AM_1} = M_1 - A = (5, 0) - (0, 0) = (5, 0)$
+$\vec{M_1G} = G - M_1 = (5, \frac{8}{3}) - (5, 0) = (0, \frac{8}{3})$
+$\vec{GM_2} = M_2 - G = (7{,}5, 4) - (5, \frac{8}{3}) = (2{,}5, \frac{4}{3})$
+$\vec{M_2C} = C - M_2 = (5, 8) - (7{,}5, 4) = (-2{,}5, 4)$</li>
+<li>Verificação: a soma dos vetores deve dar $\vec{AC} = (5, 8)$.
+$(5, 0) + (0, \frac{8}{3}) + (2{,}5, \frac{4}{3}) + (-2{,}5, 4) = (5, 0 + \frac{8}{3} + \frac{4}{3} + 4) = (5, 8) = \vec{AC}$. ✓</li>
 </ol>
 <div class="formula">
-                    $$\text{Comprimento da rota} = |AM1| + |M1G| + |GM2| + |M2C| \approx 15.33$$
-                    $$\text{Perímetro do triângulo} = |AB| + |BC| + |CA| \approx 28.86$$
-                    $$\text{Razão} = \frac{15.33}{28.86} \approx 0.53 \text{ ou } 53\%$$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> Rotas que utilizam pontos médios e baricentros estratégicos podem reduzir significativamente as distâncias percorridas, economizando até 47% dos recursos de deslocamento em comparação com rotas perimetrais. Em um mundo hostil, esta eficiência pode ser a diferença entre alcançar o abrigo antes do anoitecer ou enfrentar os perigos noturnos da Zona Devastada.</p>
+$$M_1 = (5, 0), \quad G = \left(5, \frac{8}{3}\right), \quad M_2 = (7{,}5, 4)$$
+$$\vec{AM_1} + \vec{M_1G} + \vec{GM_2} + \vec{M_2C} = \vec{AC} = (5, 8)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Decompor uma rota em trechos intermediários usando ponto médio e baricentro permite planejar pontos de controle estratégicos. A verificação de que a soma dos vetores intermediários iguala o vetor total é um teste simples — usando apenas operações com pares ordenados — que garante que nenhum trecho foi esquecido no planejamento.</p>
 </details>
 </div>

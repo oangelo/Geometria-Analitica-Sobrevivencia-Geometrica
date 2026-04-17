@@ -1,57 +1,24 @@
 <div class="exercise">
-<h3>COORDENADAS MISTERIOSAS</h3>
-<p>O Refúgio-Tec interceptou uma transmissão contendo três coordenadas: (4,3), (-2,5) e (x,y). Sabe-se que as três coordenadas formam um triângulo isósceles, onde duas distâncias entre pontos são iguais. Além disso, foi informado que o ponto (x,y) está a uma distância de 5 unidades da origem. Determine as possíveis coordenadas do ponto misterioso (x,y).</p>
+<h3>COODENADAS MISTERIOSAS</h3>
+<p>O Refúgio-Tec recebeu um relatório parcial sobre três pontos de interesse. Sabe-se que o ponto $P$ está no Quadrante I, a ponto $Q$ está no Quadrante III e o ponto $R$ está sobre o eixo $y$ positivo. Além disso, todas as coordenadas destes pontos são números inteiros entre $-5$ e $5$. Apresente três exemplos de pares ordenados que satisfazem estas condições e descreva a característica comum das coordenadas de cada ponto.</p>
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
 <div class="hint">
-<p>Um triângulo isósceles tem dois lados iguais. Teste diferentes possibilidades para o ponto (x,y), lembrando que ele deve estar a 5 unidades da origem, ou seja, x² + y² = 25.</p>
+<p>Lembre-se das regras dos quadrantes: no Quadrante I, ambos $x$ e $y$ são positivos; no Quadrante III, ambos são negativos. Para pontos sobre o eixo $y$ positivo, $x = 0$ e $y > 0$.</p>
 </div>
 </details>
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Identificamos os dois pontos conhecidos: A(4,3) e B(-2,5)</li>
-<li>Calculamos a distância entre esses pontos:
-                       d(A,B) = √[(4-(-2))² + (3-5)²] = √[6² + (-2)²] = √(36 + 4) = √40 ≈ 6,32 unidades</li>
-<li>Sabemos que o ponto (x,y) está a uma distância de 5 unidades da origem, o que significa que ele está em um círculo de raio 5 centrado na origem:
-                       x² + y² = 25</li>
-<li>Para que o triângulo seja isósceles, precisamos que duas distâncias sejam iguais. Temos três possibilidades:
-                       1. d(A,C) = d(B,C)
-                       2. d(A,C) = d(A,B)
-                       3. d(B,C) = d(A,B)</li>
-<li>Testando a primeira possibilidade (d(A,C) = d(B,C)):
-                       √[(4-x)² + (3-y)²] = √[(-2-x)² + (5-y)²]
-                       Elevando ambos os lados ao quadrado:
-                       (4-x)² + (3-y)² = (-2-x)² + (5-y)²
-                       16 - 8x + x² + 9 - 6y + y² = 4 + 4x + x² + 25 - 10y + y²
-                       16 - 8x + 9 - 6y = 4 + 4x + 25 - 10y
-                       25 - 8x - 6y = 29 + 4x - 10y
-                       25 - 29 = 4x + 8x - 10y + 6y
-                       -4 = 12x - 4y
-                       4y = 12x + 4
-                       y = 3x + 1</li>
-<li>Substituindo na equação do círculo:
-                       x² + (3x + 1)² = 25
-                       x² + 9x² + 6x + 1 = 25
-                       10x² + 6x - 24 = 0
-                       5x² + 3x - 12 = 0</li>
-<li>Usando a fórmula de Bhaskara:
-                       x = [-3 ± √(9 + 240)]/10 = [-3 ± √249]/10 = [-3 ± 15.78]/10
-                       x ≈ 1.28 ou x ≈ -1.88</li>
-<li>Calculamos os valores correspondentes de y:
-                       Para x ≈ 1.28: y ≈ 3(1.28) + 1 ≈ 4.84
-                       Para x ≈ -1.88: y ≈ 3(-1.88) + 1 ≈ -4.64</li>
-<li>Verificamos se esses pontos estão realmente a 5 unidades da origem:
-                       Para (1.28, 4.84): √(1.28² + 4.84²) ≈ √(1.64 + 23.43) ≈ √25.07 ≈ 5.01 ✓
-                       Para (-1.88, -4.64): √((-1.88)² + (-4.64)²) ≈ √(3.53 + 21.53) ≈ √25.06 ≈ 5.01 ✓</li>
-<li>As possíveis coordenadas para o ponto misterioso (x,y) são aproximadamente (1.28, 4.84) ou (-1.88, -4.64).</li>
+<li>Para o ponto $P$ no Quadrante I, precisamos de $x > 0$ e $y > 0$. Exemplos válidos: $(2, 3)$, $(1, 4)$, $(5, 1)$.</li>
+<li>Para o ponto $Q$ no Quadrante III, precisamos de $x < 0$ e $y < 0$. Exemplos válidos: $(-3, -2)$, $(-1, -5)$, $(-4, -4)$.</li>
+<li>Para o ponto $R$ sobre o eixo $y$ positivo, precisamos de $x = 0$ e $y > 0$. Exemplos válidos: $(0, 1)$, $(0, 3)$, $(0, 5)$.</li>
+<li>A característica comum: os sinais das coordenadas determinam unicamente a posição do ponto no plano. Mudar os sinais altera o quadrante, e zerar uma componente coloca o ponto sobre um eixo.</li>
 </ol>
 <div class="formula">
-                    $$d(A,B) = \sqrt{(4-(-2))^2 + (3-5)^2} = \sqrt{40} \approx 6,32$$
-                    $$\text{Condição 1: } x^2 + y^2 = 25 \text{ (distância à origem)}$$
-                    $$\text{Condição 2: } d(A,C) = d(B,C) \text{ (triângulo isósceles)}$$
-                    $$\text{Solução: } (x,y) \approx (1.28, 4.84) \text{ ou } (x,y) \approx (-1.88, -4.64)$$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> A capacidade de decifrar coordenadas parciais a partir de relações geométricas pode ser crucial quando as transmissões são fragmentadas ou deliberadamente codificadas. Observe que obtivemos duas possíveis localizações para o ponto misterioso - em uma situação real, informações adicionais como quadrante ou região geral seriam necessárias para determinar qual das duas coordenadas é a correta, destacando a importância de múltiplas fontes de informação.</p>
+$$\text{Quadrante I: } x > 0, \, y > 0 \qquad \text{Quadrante III: } x < 0, \, y < 0$$
+$$\text{Eixo } y \text{ positivo: } x = 0, \, y > 0$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Na Zona Devastada, transmitir "ponto no Quadrante III" com coordenadas inteiras entre $-5$ e $5$ reduz drasticamente a área de busca. Saber que o sinal das coordenadas define o quadrante permite triagem rápida mesmo com informações incompletas — habilidade crucial quando cada minuto de exposição conta.</p>
 </details>
 </div>

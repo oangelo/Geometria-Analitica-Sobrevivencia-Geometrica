@@ -1,35 +1,30 @@
 <div class="exercise">
 <h3>OS QUATRO ABRIGOS</h3>
-<p>Quatro comunidades sobreviventes estabeleceram abrigos nas coordenadas A(0, 0), B(6, 0), C(6, 6) e D(0, 6), formando um quadrado. Para otimizar o uso de recursos, decidiu-se construir um ponto de encontro no baricentro deste quadrilátero. Uma segunda proposta sugere construir quatro pontos de distribuição nos pontos médios de cada lado do quadrado e então posicionar o centro principal no baricentro destes quatro pontos. Determine as coordenadas destes dois centros propostos e discuta se eles coincidem.</p>
+<p>Quatro comunidades sobreviventes estabeleceram abrigos nas coordenadas $A(0, 0)$, $B(6, 0)$, $C(6, 6)$ e $D(0, 6)$, formando um quadrado. Para otimizar o uso de recursos, decidiu-se construir um ponto de encontro no baricentro deste quadrilátero. Uma segunda proposta sugere construir quatro pontos de distribuição nos pontos médios de cada lado do quadrado e então posicionar o centro principal no baricentro destes quatro pontos. Determine as coordenadas destes dois centros propostos e discuta se eles coincidem.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>O baricentro de 4 pontos usa a soma das coordenadas dividida por 4 (não por 3 como no triângulo). Calcule os dois baricentros e compare.</p>
+</div>
+</details>
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Calculamos o baricentro do quadrilátero original:
-                        <br/>$G_1 = \left(\frac{0 + 6 + 6 + 0}{4}, \frac{0 + 0 + 6 + 6}{4}\right) = \left(\frac{12}{4}, \frac{12}{4}\right) = (3, 3)$</li>
-<li>Agora, calculamos os pontos médios dos lados do quadrado:
-                        <br/>$M_{AB} = \left(\frac{0 + 6}{2}, \frac{0 + 0}{2}\right) = (3, 0)$
-                        <br/>$M_{BC} = \left(\frac{6 + 6}{2}, \frac{0 + 6}{2}\right) = (6, 3)$
-                        <br/>$M_{CD} = \left(\frac{6 + 0}{2}, \frac{6 + 6}{2}\right) = (3, 6)$
-                        <br/>$M_{DA} = \left(\frac{0 + 0}{2}, \frac{6 + 0}{2}\right) = (0, 3)$</li>
-<li>Calculamos o baricentro destes quatro pontos médios:
-                        <br/>$G_2 = \left(\frac{3 + 6 + 3 + 0}{4}, \frac{0 + 3 + 6 + 3}{4}\right) = \left(\frac{12}{4}, \frac{12}{4}\right) = (3, 3)$</li>
-<li>Verificamos que $G_1 = G_2 = (3, 3)$, portanto as duas propostas resultam no mesmo ponto central</li>
-<li>Para verificar a distância de G até cada um dos abrigos originais:
-                        <br/>$|GA| = \sqrt{(3-0)^2 + (3-0)^2} = \sqrt{18} = 3\sqrt{2} \approx 4.24$
-                        <br/>$|GB| = \sqrt{(3-6)^2 + (3-0)^2} = \sqrt{18} = 3\sqrt{2} \approx 4.24$
-                        <br/>$|GC| = \sqrt{(3-6)^2 + (3-6)^2} = \sqrt{18} = 3\sqrt{2} \approx 4.24$
-                        <br/>$|GD| = \sqrt{(3-0)^2 + (3-6)^2} = \sqrt{18} = 3\sqrt{2} \approx 4.24$</li>
-<li>Para verificar a distância de G até cada um dos pontos médios:
-                        <br/>$|GM_{AB}| = \sqrt{(3-3)^2 + (3-0)^2} = 3$
-                        <br/>$|GM_{BC}| = \sqrt{(3-6)^2 + (3-3)^2} = 3$
-                        <br/>$|GM_{CD}| = \sqrt{(3-3)^2 + (3-6)^2} = 3$
-                        <br/>$|GM_{DA}| = \sqrt{(3-0)^2 + (3-3)^2} = 3$</li>
+<li>Baricentro do quadrilátero original (4 pontos): $G_1 = \left(\frac{0 + 6 + 6 + 0}{4}, \frac{0 + 0 + 6 + 6}{4}\right) = (3, 3)$.</li>
+<li>Pontos médios dos lados:
+$M_{AB} = \left(\frac{0 + 6}{2}, \frac{0 + 0}{2}\right) = (3, 0)$
+$M_{BC} = \left(\frac{6 + 6}{2}, \frac{0 + 6}{2}\right) = (6, 3)$
+$M_{CD} = \left(\frac{6 + 0}{2}, \frac{6 + 6}{2}\right) = (3, 6)$
+$M_{DA} = \left(\frac{0 + 0}{2}, \frac{6 + 0}{2}\right) = (0, 3)$</li>
+<li>Baricentro dos quatro pontos médios: $G_2 = \left(\frac{3 + 6 + 3 + 0}{4}, \frac{0 + 3 + 6 + 3}{4}\right) = (3, 3)$.</li>
+<li>$G_1 = G_2 = (3, 3)$ — as duas propostas resultam no mesmo ponto central.</li>
+<li>Esta coincidência é uma propriedade geométrica dos quadrados: a simetria garante que o baricentro dos pontos médios coincide com o baricentro dos vértices.</li>
 </ol>
 <div class="formula">
-                    $G_1 = G_2 = (3, 3)$
-                    $\text{Distância de G até cada abrigo} = 3\sqrt{2} \approx 4.24 \text{ unidades}$
-                    $\text{Distância de G até cada ponto médio} = 3 \text{ unidades}$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> A coincidência dos baricentros demonstra uma propriedade fundamental dos sistemas de distribuição em ambientes hostis: as estruturas hierárquicas de suprimentos mantêm seu ponto central ideal independentemente do nível de distribuição. Isto permite criar sistemas redundantes que podem ser adaptados conforme a necessidade (centralização ou descentralização) sem alterar as rotas principais de logística, otimizando a resistência do assentamento contra ameaças externas.</p>
+$$G_1 = \left(\frac{0+6+6+0}{4}, \frac{0+0+6+6}{4}\right) = (3, 3)$$
+$$G_2 = \left(\frac{3+6+3+0}{4}, \frac{0+3+6+3}{4}\right) = (3, 3)$$
+$$G_1 = G_2$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A coincidência dos baricentros demonstra um princípio fundamental dos sistemas de distribuição: estruturas hierárquicas de suprimentos mantêm seu ponto central ideal independentemente do nível de distribuição. Isto permite criar sistemas redundantes que podem ser adaptados conforme a necessidade sem alterar as rotas principais de logística, otimizando a resistência do assentamento.</p>
 </details>
 </div>

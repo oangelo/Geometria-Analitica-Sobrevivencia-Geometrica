@@ -1,33 +1,26 @@
 <div class="exercise">
 <h3>COORDENADAS ALTERNATIVAS</h3>
-<p>Em uma expedição à antiga base militar, você encontrou um mapa usando um sistema de coordenadas diferente, rotacionado 45° em relação ao seu sistema padrão. Um ponto estratégico está marcado como $(4, 2)$ neste sistema. Se a origem dos dois sistemas coincide, determine as coordenadas deste ponto no seu sistema padrão para programar seu dispositivo de navegação. Assuma que o novo sistema tem os mesmos valores de unidade que o seu sistema padrão.</p>
+<p>Em uma expedição à antiga base militar, você encontrou um mapa que usa um sistema de coordenadas deslocado em relação ao seu sistema padrão. O deslocamento é de 3 unidades para leste e 2 unidades para norte. Um ponto estratégico está marcado como $(4, 2)$ neste sistema de coordenadas deslocado. Determine as coordenadas deste ponto no seu sistema padrão para programar seu dispositivo de navegação.</p>
+<p><strong>(a)</strong> Se o sistema deslocado tem sua origem em $(3, 2)$ do sistema padrão, como as coordenadas $(4, 2)$ do sistema deslocado se traduzem no sistema padrão?</p>
+<p><strong>(b)</strong> Geralize: se um ponto tem coordenadas $(x', y')$ no sistema deslocado com origem em $(a, b)$, quais são suas coordenadas $(x, y)$ no sistema padrão?</p>
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
 <div class="hint">
-<p>O problema pode ser resolvido visualizando como cada componente do sistema rotacionado se projeta nos eixos do sistema padrão.</p>
+<p>Se a origem do sistema deslocado está em $(a, b)$ no sistema padrão, então um ponto $(x', y')$ no sistema deslocado corresponde ao ponto $(x' + a, y' + b)$ no sistema padrão. É como somar dois pares ordenados.</p>
 </div>
 </details>
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Para um sistema rotacionado em 45°, podemos calcular a transformação de coordenadas usando relações geométricas.</li>
-<li>Seja $(x', y')$ as coordenadas no sistema rotacionado e $(x, y)$ no sistema padrão.</li>
-<li>Um ponto com coordenadas $(x', y')$ no sistema rotacionado tem projeções em ambos os eixos do sistema padrão.</li>
-<li>Para rotação de 45°: $x = x' \cdot \cos(45°) - y' \cdot \sin(45°)$ e $y = x' \cdot \sin(45°) + y' \cdot \cos(45°)$</li>
-<li>Substituindo $\cos(45°) = \sin(45°) = \frac{\sqrt{2}}{2}$:</li>
-<li>$x = \frac{\sqrt{2}}{2} \cdot 4 - \frac{\sqrt{2}}{2} \cdot 2 = \frac{\sqrt{2}}{2} \cdot (4 - 2) = \frac{\sqrt{2}}{2} \cdot 2 = \sqrt{2}$</li>
-<li>$y = \frac{\sqrt{2}}{2} \cdot 4 + \frac{\sqrt{2}}{2} \cdot 2 = \frac{\sqrt{2}}{2} \cdot (4 + 2) = \frac{\sqrt{2}}{2} \cdot 6 = 3\sqrt{2}$</li>
-<li>As coordenadas no sistema padrão são $(\sqrt{2}, 3\sqrt{2})$ ou aproximadamente $(1.414, 4.243)$</li>
+<li>O sistema deslocado tem origem em $(3, 2)$ do sistema padrão. O ponto $(4, 2)$ no sistema deslocado está 4 unidades na horizontal e 2 unidades na vertical a partir dessa origem.</li>
+<li>Convertendo: $x = 4 + 3 = 7$ e $y = 2 + 2 = 4$. Portanto, o ponto no sistema padrão é $(7, 4)$.</li>
+<li>Generalização: para um ponto $(x', y')$ no sistema deslocado com origem em $(a, b)$, as coordenadas no sistema padrão são $(x' + a, y' + b)$.</li>
+<li>Isso equivale a somar o par ordenado $(x', y')$ ao par ordenado $(a, b)$: $(x, y) = (x', y') + (a, b)$.</li>
 </ol>
 <div class="formula">
-                    Para rotação de 45°:
-                    <br/>
-                    $x = x' \cdot \cos(45°) - y' \cdot \sin(45°)$
-                    <br/>
-                    $y = x' \cdot \sin(45°) + y' \cdot \cos(45°)$
-                    <br/>
-                    Com $(x', y') = (4, 2)$, obtemos $(x, y) = (\sqrt{2}, 3\sqrt{2})$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> Mapas e sistemas de coordenadas de diferentes épocas ou origens são comuns em expedições. A capacidade de converter entre sistemas é essencial para interpretar corretamente locais estratégicos, evitando áreas perigosas e localizando recursos vitais. Um erro de conversão poderia levar uma equipe diretamente para uma área altamente contaminada.</p>
+$$(x, y) = (x', y') + (a, b) = (x' + a, y' + b)$$
+$$(4, 2) + (3, 2) = (7, 4)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Mapas e sistemas de coordenadas de diferentes épocas ou origens são comuns em expedições. A capacidade de converter entre sistemas usando simples adição de pares ordenados é essencial para interpretar corretamente locais estratégicos, evitando erros que poderiam levar uma equipe diretamente para uma área perigosa.</p>
 </details>
 </div>

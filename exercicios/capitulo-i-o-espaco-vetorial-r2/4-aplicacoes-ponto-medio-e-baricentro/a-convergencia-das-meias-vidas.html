@@ -1,35 +1,30 @@
 <div class="exercise">
 <h3>A CONVERGÊNCIA DAS MEIAS-VIDAS</h3>
-<p>Quatro estações de monitoramento formam um quadrilátero com vértices A(0, 0), B(8, 0), C(9, 7) e D(1, 7). Para criar uma rede de comunicação eficiente, planeja-se unir os pontos médios dos lados consecutivos, formando um novo quadrilátero. Prove que este novo quadrilátero é sempre um paralelogramo, independentemente da forma do quadrilátero original, e calcule o perímetro deste novo quadrilátero.</p>
+<p>Quatro estações de monitoramento formam um quadrilátero com vértices $A(0, 0)$, $B(8, 0)$, $C(9, 7)$ e $D(1, 7)$. Para criar uma rede de comunicação eficiente, planeja-se unir os pontos médios dos lados consecutivos, formando um novo quadrilátero. Prove que este novo quadrilátero é sempre um paralelogramo, verificando se os lados opostos são descritos pelo mesmo vetor de deslocamento (ou seu oposto).</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Calcule os quatro pontos médios, depois calcule os vetores que descrevem cada lado do novo quadrilátero. Dois lados são opostos se seus vetores são iguais ou opostos.</p>
+</div>
+</details>
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Calculamos os pontos médios dos lados do quadrilátero:
-                        <br/>$M_{AB} = \left(\frac{0 + 8}{2}, \frac{0 + 0}{2}\right) = (4, 0)$
-                        <br/>$M_{BC} = \left(\frac{8 + 9}{2}, \frac{0 + 7}{2}\right) = (8.5, 3.5)$
-                        <br/>$M_{CD} = \left(\frac{9 + 1}{2}, \frac{7 + 7}{2}\right) = (5, 7)$
-                        <br/>$M_{DA} = \left(\frac{1 + 0}{2}, \frac{7 + 0}{2}\right) = (0.5, 3.5)$</li>
-<li>Para provar que o quadrilátero $M_{AB}M_{BC}M_{CD}M_{DA}$ é um paralelogramo, verificamos se os lados opostos são paralelos e iguais.
-                        <br/>$\overrightarrow{M_{AB}M_{BC}} = (8.5 - 4, 3.5 - 0) = (4.5, 3.5)$
-                        <br/>$\overrightarrow{M_{CD}M_{DA}} = (0.5 - 5, 3.5 - 7) = (-4.5, -3.5)$</li>
-<li>Verificamos que $\overrightarrow{M_{AB}M_{BC}} = -\overrightarrow{M_{CD}M_{DA}}$, o que prova que os lados opostos são paralelos e de mesmo comprimento</li>
-<li>Da mesma forma, podemos verificar para os outros dois lados:
-                        <br/>$\overrightarrow{M_{BC}M_{CD}} = (5 - 8.5, 7 - 3.5) = (-3.5, 3.5)$
-                        <br/>$\overrightarrow{M_{DA}M_{AB}} = (4 - 0.5, 0 - 3.5) = (3.5, -3.5)$</li>
-<li>Novamente, $\overrightarrow{M_{BC}M_{CD}} = -\overrightarrow{M_{DA}M_{AB}}$</li>
-<li>Isso prova matematicamente que o quadrilátero formado pelos pontos médios é sempre um paralelogramo</li>
-<li>Para calcular o perímetro, precisamos da soma dos comprimentos dos lados:
-                        <br/>$|M_{AB}M_{BC}| = \sqrt{4.5^2 + 3.5^2} = \sqrt{20.25 + 12.25} = \sqrt{32.5} \approx 5.7$
-                        <br/>$|M_{BC}M_{CD}| = \sqrt{(-3.5)^2 + 3.5^2} = \sqrt{24.5} \approx 4.95$
-                        <br/>$|M_{CD}M_{DA}| = \sqrt{(-4.5)^2 + (-3.5)^2} = \sqrt{32.5} \approx 5.7$
-                        <br/>$|M_{DA}M_{AB}| = \sqrt{3.5^2 + (-3.5)^2} = \sqrt{24.5} \approx 4.95$</li>
-<li>Perímetro = $2 \cdot (5.7 + 4.95) = 21.3$</li>
+<li>Pontos médios: $M_{AB} = (4, 0)$, $M_{BC} = (8{,}5, 3{,}5)$, $M_{CD} = (5, 7)$, $M_{DA} = (0{,}5, 3{,}5)$.</li>
+<li>Vetores dos lados do novo quadrilátero:
+$\vec{M_{AB}M_{BC}} = (8{,}5 - 4, 3{,}5 - 0) = (4{,}5, 3{,}5)$
+$\vec{M_{BC}M_{CD}} = (5 - 8{,}5, 7 - 3{,}5) = (-3{,}5, 3{,}5)$
+$\vec{M_{CD}M_{DA}} = (0{,}5 - 5, 3{,}5 - 7) = (-4{,}5, -3{,}5)$
+$\vec{M_{DA}M_{AB}} = (4 - 0{,}5, 0 - 3{,}5) = (3{,}5, -3{,}5)$</li>
+<li>Verificando lados opostos: $\vec{M_{AB}M_{BC}} = (4{,}5, 3{,}5)$ e $\vec{M_{CD}M_{DA}} = (-4{,}5, -3{,}5)$ — são opostos!</li>
+<li>Verificando o outro par: $\vec{M_{BC}M_{CD}} = (-3{,}5, 3{,}5)$ e $\vec{M_{DA}M_{AB}} = (3{,}5, -3{,}5)$ — também são opostos!</li>
+<li>Como os pares de lados opostos são descritos por vetores opostos, o quadrilátero formado pelos pontos médios é sempre um paralelogramo.</li>
 </ol>
 <div class="formula">
-                    $$\overrightarrow{M_{AB}M_{BC}} = -\overrightarrow{M_{CD}M_{DA}}$$
-                    $$\overrightarrow{M_{BC}M_{CD}} = -\overrightarrow{M_{DA}M_{AB}}$$
-                    $$\text{Perímetro do paralelogramo} \approx 21.3 \text{ unidades}$$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> A descoberta de que pontos médios de quadriláteros sempre formam paralelogramos garante estabilidade estrutural previsível, mesmo em terrenos irregulares. Esta propriedade invariante é valiosa para engenheiros de sobrevivência construindo estruturas defensivas com recursos limitados, permitindo projetar sistemas estáveis independentemente das condições iniciais encontradas.</p>
+$$\vec{M_{AB}M_{BC}} = -\vec{M_{CD}M_{DA}} = (4{,}5, 3{,}5) \text{ e } (-4{,}5, -3{,}5)$$
+$$\vec{M_{BC}M_{CD}} = -\vec{M_{DA}M_{AB}} = (-3{,}5, 3{,}5) \text{ e } (3{,}5, -3{,}5)$$
+$$\Rightarrow \text{Paralelogramo}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A descoberta de que pontos médios de quadriláteros sempre formam paralelogramos garante estabilidade estrutural previsível, mesmo em terrenos irregulares. Esta propriedade invariante é valiosa para engenheiros de sobrevivência construindo estruturas defensivas com recursos limitados — a geometria básica (operações com pares ordenados) é suficiente para prová-la, sem necessidade de fórmulas complexas.</p>
 </details>
 </div>

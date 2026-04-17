@@ -1,23 +1,26 @@
 <div class="exercise">
 <h3>SISTEMA DE DEFESA TRIANGULAR</h3>
-<p>Três torres de defesa formam um triângulo nas coordenadas A(-3, 0), B(9, 0) e C(3, 12). O sistema de comunicação central deve ser instalado no baricentro deste triângulo. Um artefato tecnológico importante foi encontrado nas coordenadas (5, 4). Calcule a distância do artefato até o sistema de comunicação central.</p>
+<p>Três torres de defesa formam um triângulo nas coordenadas $A(-3, 0)$, $B(9, 0)$ e $C(3, 12)$. O sistema de comunicação central deve ser instalado no baricentro deste triângulo. Um artefato tecnológico importante foi encontrado nas coordenadas $(5, 4)$. Compare as coordenadas do artefato com as do baricentro e descreva a posição relativa do artefato em relação ao centro de comunicação.</p>
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
 <div class="hint">
-<p>Calcule o baricentro do triângulo e depois determine a distância entre esse ponto e as coordenadas do artefato.</p>
+<p>Calcule o baricentro e depois compare componente a componente com as coordenadas do artefato. A diferença entre as coordenadas indica a direção relativa.</p>
 </div>
 </details>
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Calcule o baricentro G do triângulo com vértices A(-3, 0), B(9, 0) e C(3, 12): $G = \left(\frac{-3 + 9 + 3}{3}, \frac{0 + 0 + 12}{3}\right) = (3, 4)$</li>
-<li>O artefato está localizado em P(5, 4)</li>
-<li>Calcule a distância entre G(3, 4) e P(5, 4): $d = \sqrt{(5 - 3)^2 + (4 - 4)^2} = \sqrt{4 + 0} = 2$</li>
+<li>Baricentro: $G = \left(\frac{-3 + 9 + 3}{3}, \frac{0 + 0 + 12}{3}\right) = \left(\frac{9}{3}, \frac{12}{3}\right) = (3, 4)$.</li>
+<li>Artefato: $P(5, 4)$.</li>
+<li>Comparação: $x_G = 3$ e $x_P = 5$ — o artefato está 2 unidades à direita do baricentro.</li>
+<li>$y_G = 4$ e $y_P = 4$ — o artefato está na mesma altura do baricentro.</li>
+<li>O artefato está exatamente na mesma horizontal que o centro de comunicação, mas 2 unidades a leste.</li>
 </ol>
 <div class="formula">
-                    $$G = \left(\frac{-3 + 9 + 3}{3}, \frac{0 + 0 + 12}{3}\right) = (3, 4)$$
-                    $$d = \sqrt{(5 - 3)^2 + (4 - 4)^2} = 2$$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> O posicionamento estratégico de sistemas de comunicação em relação a outros recursos críticos pode determinar a velocidade de resposta em crises. A análise matemática precisa das distâncias entre pontos-chave é fundamental para o planejamento de defesa em um mundo hostil.</p>
+$$G = (3, 4), \quad P = (5, 4)$$
+$$\Delta x = 5 - 3 = 2, \quad \Delta y = 4 - 4 = 0$$
+$$\text{Artefato: 2 unidades a leste do centro de comunicação}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Comparar coordenadas de recursos críticos com o baricentro do perímetro defensivo revela a posição relativa de cada item. Neste caso, o artefato está na mesma linha horizontal do centro — um deslocamento simples na direção leste é suficiente para alcançá-lo. Este tipo de análise de posição relativa, usando apenas subtração de coordenadas, é uma ferramenta poderosa para planejamento operacional.</p>
 </details>
 </div>

@@ -1,38 +1,29 @@
 <div class="exercise">
 <h3>ESCUDOS VETORIAIS</h3>
-<p>O laboratório de pesquisa da Refúgio-Tec desenvolveu um sistema de escudos vetoriais contra radiação. Cada escudo projeta um campo de proteção representado por um vetor no plano. A eficácia da proteção depende de como esses campos se combinam. Três escudos são posicionados nos pontos $A(2,1)$, $B(5,3)$ e $C(3,6)$, projetando campos de proteção proporcionais aos vetores $\overrightarrow{AB}$, $\overrightarrow{BC}$ e $\overrightarrow{CA}$. Um sobrevivente localizado no ponto $P$ está protegido se, e somente se, $P$ está no interior do triângulo $ABC$. Prove que qualquer ponto $P$ no interior do triângulo pode ser expresso como uma combinação dos vértices na forma $P = \alpha A + \beta B + \gamma C$, onde $\alpha + \beta + \gamma = 1$ e $\alpha, \beta, \gamma &gt; 0$, e explique como isso garante a proteção completa contra radiação em todo o abrigo.</p>
+<p>O laboratório de pesquisa da Refúgio-Tec desenvolveu um sistema de escudos vetoriais contra radiação. Cada escudo projeta um campo de proteção representado por um vetor no plano. A eficácia da proteção depende de como esses campos se combinam. Três escudos são posicionados nos pontos $A(2,1)$, $B(5,3)$ e $C(3,6)$, projetando campos de proteção proporcionais aos vetores $\vec{AB}$, $\vec{BC}$ e $\vec{CA}$. Determine os três vetores de campo e calcule o vetor resultante da soma dos três campos. O que o vetor resultante revela sobre o sistema de proteção?</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Calcule cada vetor usando subtração de pares ordenados: $\vec{AB} = B - A$. Depois some os três vetores componente a componente.</p>
+</div>
+</details>
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Vamos provar que qualquer ponto $P$ no interior do triângulo $ABC$ pode ser expresso como uma combinação dos vértices na forma $P = \alpha A + \beta B + \gamma C$, onde $\alpha + \beta + \gamma = 1$ e $\alpha, \beta, \gamma &gt; 0$, usando o conceito de coordenadas baricêntricas.</li>
-<li>Consideremos um ponto $P$ no interior do triângulo $ABC$. Este ponto define três subtriângulos: $\triangle PAB$, $\triangle PBC$ e $\triangle PCA$.</li>
-<li>Denotamos as áreas desses triângulos por $\Delta_{PAB}$, $\Delta_{PBC}$ e $\Delta_{PCA}$, e a área do triângulo original por $\Delta_{ABC}$.</li>
-<li>Como $P$ está no interior do triângulo, é verdade que $\Delta_{PAB} + \Delta_{PBC} + \Delta_{PCA} = \Delta_{ABC}$ e todas as áreas são positivas.</li>
-<li>Definimos as coordenadas baricêntricas de $P$ como:
-                        <br/>$\alpha = \frac{\Delta_{PBC}}{\Delta_{ABC}}$
-                        <br/>$\beta = \frac{\Delta_{PCA}}{\Delta_{ABC}}$
-                        <br/>$\gamma = \frac{\Delta_{PAB}}{\Delta_{ABC}}$
-                    </li>
-<li>Como cada área é positiva e a soma das áreas dos subtriângulos é igual à área do triângulo original, temos que $\alpha + \beta + \gamma = 1$ e $\alpha, \beta, \gamma &gt; 0$.</li>
-<li>É um resultado da geometria que estas razões de áreas conduzem precisamente à expressão $P = \alpha A + \beta B + \gamma C$.</li>
-<li>Casos especiais que verificam este resultado:
-                        <br/>- Se $P$ coincide com $A$: $\alpha = 1, \beta = 0, \gamma = 0$
-                        <br/>- Se $P$ coincide com $B$: $\alpha = 0, \beta = 1, \gamma = 0$
-                        <br/>- Se $P$ coincide com $C$: $\alpha = 0, \beta = 0, \gamma = 1$
-                        <br/>- Se $P$ está no ponto médio de $AB$: $\alpha = 0.5, \beta = 0.5, \gamma = 0$
-                    </li>
-<li>Se $P$ está em um dos lados do triângulo, um dos coeficientes será zero (pois a área de um dos subtriângulos será nula).</li>
-<li>Se $P$ está estritamente no interior, todos os coeficientes são positivos, pois todas as áreas dos subtriângulos são positivas.</li>
+<li>Calculamos os três vetores de campo:
+$\vec{AB} = B - A = (5,3) - (2,1) = (3, 2)$
+$\vec{BC} = C - B = (3,6) - (5,3) = (-2, 3)$
+$\vec{CA} = A - C = (2,1) - (3,6) = (-1, -5)$</li>
+<li>Somamos os três vetores: $\vec{R} = \vec{AB} + \vec{BC} + \vec{CA} = (3, 2) + (-2, 3) + (-1, -5)$</li>
+<li>Componente $x$: $3 + (-2) + (-1) = 0$</li>
+<li>Componente $y$: $2 + 3 + (-5) = 0$</li>
+<li>O vetor resultante é $\vec{R} = (0, 0) = \vec{0}$.</li>
+<li>O vetor nulo indica que os três campos se cancelam perfeitamente — o sistema está em equilíbrio.</li>
 </ol>
 <div class="formula">
-                    Para qualquer ponto $P$ no interior do triângulo $ABC$:
-                    <br/>
-                    $P = \alpha A + \beta B + \gamma C$
-                    <br/>
-                    onde $\alpha = \frac{\Delta_{PBC}}{\Delta_{ABC}}$, $\beta = \frac{\Delta_{PCA}}{\Delta_{ABC}}$, $\gamma = \frac{\Delta_{PAB}}{\Delta_{ABC}}$
-                    <br/>
-                    com $\alpha + \beta + \gamma = 1$ e $\alpha, \beta, \gamma &gt; 0$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> Esta propriedade matemática fundamenta o princípio de operação dos escudos vetoriais. As coordenadas baricêntricas podem ser interpretadas fisicamente como "intensidades de influência" de cada escudo sobre um ponto no interior do abrigo. Um ponto interior recebe contribuição não desprezível dos três escudos (todos os coeficientes são positivos), garantindo proteção completa em todo o triângulo. Pontos fora do triângulo não podem ser expressos como combinação convexa dos vértices com coeficientes positivos, o que significa que perdem, em alguma medida, a sobreposição dos campos de proteção. Com apenas três geradores de campo estrategicamente posicionados, o sistema cria uma zona de segurança contínua e homogênea sem "pontos mortos", demonstrando como princípios matemáticos avançados maximizam a eficiência de recursos escassos em um mundo devastado.</p>
+$$\vec{AB} = (3, 2), \quad \vec{BC} = (-2, 3), \quad \vec{CA} = (-1, -5)$$
+$$\vec{R} = \vec{AB} + \vec{BC} + \vec{CA} = \vec{0}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Quando a soma dos vetores de campo resulta no vetor nulo, o sistema de escudos está em equilíbrio perfeito — não há direção preferencial de vazamento de radiação. Esta configuração triangular garante proteção uniforme em todas as direções. Em contraste, se o vetor resultante fosse não nulo, haveria uma "direção de vazamento" que precisaria ser reforçada com escudos adicionais.</p>
 </details>
 </div>
