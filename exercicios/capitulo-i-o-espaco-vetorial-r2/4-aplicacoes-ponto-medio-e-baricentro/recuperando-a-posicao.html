@@ -1,0 +1,25 @@
+<div class="exercise">
+<h3>RECUPERANDO A POSIÇÃO DO COLEGAMENTO</h3>
+<p>Um sobrevivente está em $A(1, 2)$ e sabe que o ponto de encontro seguro $M$ está nas coordenadas $(3, 4)$. O problema: o segundo sobrevivente perdeu suas coordenadas! Se $M$ é o ponto médio entre $A$ e $B$, quais são as coordenadas de $B$? Note que se $M$ está no meio, então $\vec{AM} = \vec{MB}$, o que implica $B = 2M - A$.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Se $M$ é o ponto médio, então $M$ está a "metade do caminho" de $A$ até $B$. Isso significa que para chegar em $B$, você precisa percorrer o mesmo vetor $\vec{AM}$ mais uma vez. Ou seja: $B = M + \vec{AM}$.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Método 1 (usando o vetor): Calculando $\vec{AM} = M - A = (3 - 1, 4 - 2) = (2, 2)$.</li>
+<li>Como $M$ é o ponto médio, $\vec{AM} = \vec{MB}$. Portanto: $B = M + \vec{MB} = (3, 4) + (2, 2) = (5, 6)$.</li>
+<li>Método 2 (usando a fórmula direta): Da fórmula do ponto médio, $M = \left(\frac{x_A + x_B}{2}, \frac{y_A + y_B}{2}\right)$. Isolando $B$: $B = 2M - A$.</li>
+<li>Calculando: $B = 2(3, 4) - (1, 2) = (6, 8) - (1, 2) = (5, 6)$.</li>
+<li>Verificação: o ponto médio de $A(1, 2)$ e $B(5, 6)$ é $\left(\frac{1+5}{2}, \frac{2+6}{2}\right) = (3, 4) = M$. Confirmado!</li>
+</ol>
+<div class="formula">
+$$B = 2M - A = 2(3, 4) - (1, 2) = (5, 6)$$
+$$\vec{AM} = \vec{MB} = (2, 2)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Recuperar a posição de um aliado a partir do ponto de encontro e da posição conhecida é uma operação inversa essencial. Na Zona Devastada, quando a comunicação é intermitente, basta transmitir "encontro em $(3,4)$" para que o outro sobrevivente possa deduzir sua posição original usando $B = 2M - A$. A matemática compensa a falta de informação.</p>
+</details>
+</div>

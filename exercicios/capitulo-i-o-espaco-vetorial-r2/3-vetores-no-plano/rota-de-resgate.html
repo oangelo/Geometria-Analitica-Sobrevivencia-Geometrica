@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>ROTA DE RESGATE</h3>
+
+<p>Uma equipe de resgate sai do abrigo na origem e executa quatro deslocamentos consecutivos: $\vec{d}_1 = (2, 3)$, $\vec{d}_2 = (-1, 5)$, $\vec{d}_3 = (4, -2)$ e $\vec{d}_4 = (-3, -4)$. Calcule a posição final da equipe em relação ao abrigo. Depois, verifique se a rota forma um circuito fechado — ou seja, se a equipe voltou ao abrigo. Desenhe os quatro vetores encadeados (ponta-cauda) a partir da origem.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>A posição final é a soma de todos os deslocamentos. Some componente a componente e verifique se o resultado é $(0, 0)$. Cada deslocamento "empurra" a equipe a partir de onde ela está.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Somamos todos os deslocamentos: $\vec{d}_1 + \vec{d}_2 + \vec{d}_3 + \vec{d}_4$.</li>
+<li>Componente $x$: $2 + (-1) + 4 + (-3) = 2$.</li>
+<li>Componente $y$: $3 + 5 + (-2) + (-4) = 2$.</li>
+<li>Posição final: $(2, 2) \neq (0, 0)$. A equipe <strong>não</strong> retornou ao abrigo.</li>
+<li>Para voltar ao abrigo, a equipe precisaria percorrer o vetor $(-2, -2)$.</li>
+</ol>
+<div class="formula">
+$$\vec{d}_1 + \vec{d}_2 + \vec{d}_3 + \vec{d}_4 = (2, 3) + (-1, 5) + (4, -2) + (-3, -4) = (2, 2)$$
+$$\text{Vetor de retorno ao abrigo: } (-2, -2)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Em uma operação de resgate, saber a posição exata em relação ao abrigo é vital para coordenar o retorno. O vetor $(2, 2)$ diz ao helicóptero exatamente onde procurar — sem esse cálculo, a busca seria às cegas na Zona Devastada.</p>
+</details>
+</div>

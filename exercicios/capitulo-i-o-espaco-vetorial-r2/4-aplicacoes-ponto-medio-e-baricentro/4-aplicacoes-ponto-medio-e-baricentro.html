@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<!-- Include MathJax -->
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
     MathJax = {
       tex: {
         inlineMath: [['$', '$'], ['\\(', '\\)']],
@@ -19,8 +19,8 @@
       }
     };
     </script>
-<title>REFÚGIO-TEC | VETORES NO PLANO</title>
-<style>
+    <title>REFÚGIO-TEC | Ponto Médio e Baricentro</title>
+    <style>
         /* Estilo inspirado no tema pós-apocalíptico */
         @keyframes blink {
             0%, 49% { opacity: 1; }
@@ -169,6 +169,11 @@
             box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
         }
 
+        .manual-contexto,
+        .enunciados-exercicios {
+            margin-bottom: 20px;
+        }
+
         .mission-counter {
             counter-reset: mission;
         }
@@ -206,38 +211,38 @@
 <body>
     <!-- TÍTULO E INTRODUÇÃO -->
     <div class="terminal-frame">
-<div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
-<div class="terminal-content">
+        <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
+        <div class="terminal-content">
 ┌───────────────────────────────────────────────────┐
-│ MÓDULO: VETORES NO PLANO                          │
+│ MÓDULO: PONTO MÉDIO E BARICENTRO                  │
 └───────────────────────────────────────────────────┘
 
-&gt; INICIANDO TRANSMISSÃO...
-&gt; CARREGANDO MÓDULO DE TREINAMENTO...
-&gt; ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
-</div>
-</div>
+> INICIANDO TRANSMISSÃO...
+> CARREGANDO MÓDULO DE TREINAMENTO...
+> ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
+        </div>
+    </div>
 
+    <!-- BLOCO A: Manual de sobrevivência (contexto teórico) -->
         <div id="manual-container"></div>
 
     <div id="exercicios-container"></div>
 
     <script>
-    const MANUAL = "3-vetores-no-plano-manual.html";
+    const MANUAL = "4-aplicacoes-ponto-medio-e-baricentro-manual.html";
     const EXERCICIOS = [
-        "3-vetores-no-plano/ponto-vs-vetor.html",
-        "3-vetores-no-plano/vetor-deslocamento.html",
-        "3-vetores-no-plano/mesma-estrutura-diferente-significado.html",
-        "3-vetores-no-plano/soma-vetorial.html",
-        "3-vetores-no-plano/multiplicacao-escalar.html",
-        "3-vetores-no-plano/combinacao-de-operacoes.html",
-        "3-vetores-no-plano/circuito-fechado.html",
-        "3-vetores-no-plano/verificando-circuitos.html",
-        "3-vetores-no-plano/encontro-de-exploradores.html",
-        "3-vetores-no-plano/rota-de-resgate.html",
-        "3-vetores-no-plano/ponto-estrategico-paralelogramo.html",
-        "3-vetores-no-plano/otimizacao-modulos-defensivos.html",
-        "3-vetores-no-plano/deslocamento-inverso.html"
+        "ponto-medio-do-caminho.html",
+        "recuperando-a-posicao.html",
+        "encontro-entre-abrigos.html",
+        "baricentro-do-triangulo-defensivo.html",
+        "recuperando-o-terceiro-vertice.html",
+        "baricentro-do-quadrilatero.html",
+        "baricentro-com-vetores-posicao.html",
+        "ponto-medio-como-metade-do-vetor.html",
+        "estoque-de-medicamentos.html",
+        "sistema-de-defesa-triangular.html",
+        "rota-de-evacuacao-segmentada.html",
+        "o-ponto-de-equilibrio.html"
     ];
 
     async function carregarManual(arquivo) {
@@ -292,7 +297,7 @@
 
     <!-- RODAPÉ DO DOCUMENTO -->
     <div class="footer">
-        REFÚGIO-TEC | VETORES NO PLANO: Sobrevivência Matemática - Calcule sua trajetória ou torne-se estatística
+        REFÚGIO-TEC | PONTO MÉDIO E BARICENTRO: Sobrevivência Matemática - Encontre o equilíbrio geométrico na Zona Devastada
     </div>
 </body>
 </html>

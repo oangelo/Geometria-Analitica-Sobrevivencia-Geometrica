@@ -1,32 +1,24 @@
 <div class="exercise">
 <h3>CONFIGURAÇÃO DE PERÍMETRO DEFENSIVO</h3>
-<p>O acampamento principal está localizado na posição $O = (0,0)$. Quatro pontos de defesa avançada foram posicionados em $A = (3,5)$, $B = (-2,4)$, $C = (-3,-1)$ e $D = (2,-2)$. Para testar a eficácia da configuração defensiva, é necessário determinar se estes pontos formam um paralelogramo, o que garantiria cobertura cruzada ideal contra invasores. Verifique esta condição usando operações com pares ordenados.</p>
+<p>Quatro pontos de defesa avançada estão em $A = (3, 5)$, $B = (-2, 4)$, $C = (-3, -1)$ e $D = (2, -2)$, formando um perímetro ao redor do acampamento em $(0, 0)$. Para garantir cobertura cruzada ideal contra invasores, os lados opostos devem ter o mesmo deslocamento. Calcule os deslocamentos $A \to B$ e $C \to D$ (lados opostos) e verifique se são iguais. Depois faça o mesmo para $B \to C$ e $D \to A$. Se ambos os pares de lados opostos tiverem deslocamentos iguais, o perímetro é um paralelogramo.</p>
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
 <div class="hint">
-<p>Um paralelogramo possui lados opostos paralelos e de mesma medida. Verifique se os vetores que representam lados opostos são iguais.</p>
+<p>Para cada lado, subtraia o ponto final menos o inicial. Lados opostos devem resultar no mesmo par ordenado para formar um paralelogramo.</p>
 </div>
 </details>
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Identifique as coordenadas dos pontos:
-                       $A = (3,5)$, $B = (-2,4)$, $C = (-3,-1)$, $D = (2,-2)$</li>
-<li>Calcule os vetores que representam os lados, considerando a ordem $A$, $B$, $C$, $D$:
-                       $\vec{AB} = B - A = (-2,4) - (3,5) = (-5,-1)$
-                       $\vec{BC} = C - B = (-3,-1) - (-2,4) = (-1,-5)$
-                       $\vec{CD} = D - C = (2,-2) - (-3,-1) = (5,-1)$
-                       $\vec{DA} = A - D = (3,5) - (2,-2) = (1,7)$</li>
-<li>Verifique se os lados opostos são paralelos e de mesmo comprimento:
-                       $\vec{AB} = (-5,-1)$ e $\vec{CD} = (5,-1)$
-                       $\vec{BC} = (-1,-5)$ e $\vec{DA} = (1,7)$</li>
-<li>Observe que $\vec{AB}$ e $\vec{CD}$ têm mesma magnitude, mas direções opostas (um é o negativo do outro). Porém, $\vec{BC}$ e $\vec{DA}$ não são paralelos. Portanto, os pontos não formam um paralelogramo.</li>
+<li>Deslocamentos dos lados: $B - A = (-2,4)-(3,5)=(-5,-1)$ e $D - C=(2,-2)-(-3,-1)=(5,-1)$.</li>
+<li>Verificação do primeiro par de lados opostos: $(-5,-1) \neq (5,-1)$. Eles têm mesma componente vertical mas opostas na horizontal — não são iguais.</li>
+<li>Deslocamentos do outro par: $C - B=(-3,-1)-(-2,4)=(-1,-5)$ e $A - D=(3,5)-(2,-2)=(1,7)$.</li>
+<li>$(-1,-5) \neq (1,7)$. Nenhum par de lados opostos coincide. O perímetro NÃO é um paralelogramo.</li>
 </ol>
 <div class="formula">
-                    Um quadrilátero $ABCD$ é um paralelogramo se e somente se $\vec{AB} = \vec{CD}$ e $\vec{BC} = \vec{DA}$<br/>
-                    $\vec{AB} = (-5,-1)$ e $\vec{CD} = (5,-1)$, temos que $\vec{CD} = -\vec{AB}$<br/>
-                    $\vec{BC} = (-1,-5)$ e $\vec{DA} = (1,7)$, claramente $\vec{DA} \neq \vec{BC}$ e $\vec{DA} \neq -\vec{BC}$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> A geometria do perímetro defensivo determina sua eficácia. Um paralelogramo oferece cobertura ideal com o mínimo de recursos, enquanto configurações irregulares podem criar pontos cegos. Reconhecer essas falhas antes de um ataque permite reposicionar equipes defensivas para mitigar vulnerabilidades, aumentando as chances de sobrevivência do grupo.</p>
+$$B - A = (-5,-1), \quad D - C = (5,-1) \quad \Rightarrow \quad B-A \neq D-C$$
+$$C - B = (-1,-5), \quad A - D = (1,7) \quad \Rightarrow \quad C-B \neq A-D$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Um paralelogramo perfeito garante que cada lado oposto cobre exatamente o mesmo deslocamento — cobertura simétrica. Quando os deslocamentos não coincidem, há pontos cegos. Reconhecer essa falha no perímetro antes de um ataque permite reposicionar vigias nos lados mais longos, onde a cobertura é mais fraca. A subtração de pares ordenados é a ferramenta que revela essas desigualdades.</p>
 </details>
 </div>

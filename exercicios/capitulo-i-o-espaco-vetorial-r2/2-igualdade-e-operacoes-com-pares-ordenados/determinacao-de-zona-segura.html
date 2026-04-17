@@ -1,26 +1,22 @@
 <div class="exercise">
-<h3>DETERMINAÇÃO DE ZONA SEGURA</h3>
-<p>Após análise de dados de três estações de monitoramento, os cientistas do RefúgioTEC determinaram que uma zona segura pode ser encontrada resolvendo o seguinte sistema de equações: o ponto seguro $P = (x,y)$ é tal que $P = 2A - B + 3C$, $P = 4A + 2B - 3C$ e $P = -A + 5B + 0.5C$, onde $A = (1,3)$, $B = (2,-1)$ e $C = (0,2)$ são as localizações das estações. Determine se existe um ponto seguro que satisfaça simultaneamente todas estas condições, e se existir, forneça suas coordenadas precisas para que uma equipe de resgate possa ser enviada imediatamente.</p>
+<h3>CÁLCULO DE DOSES DE REMOVERAD</h3>
+<p>O Refúgio-TEC encontrou três estoques de RemoveRad nos pontos $A = (2, -1)$, $B = (1, 3)$ e $C = (0, 2)$. A fórmula de distribuição do SUPERVISOR exige calcular $3A - 2B$, que representa a posição de um ponto de coleta derivado. Primeiro multiplique cada componente de $A$ por 3 e de $B$ por 2, depois subtraia os resultados. Determine o par ordenado final.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Siga a ordem das operações: primeiro calcule $3 \cdot A$ e $2 \cdot B$ separadamente, depois subtraia um do outro. A multiplicação vem antes da subtração.</p>
+</div>
+</details>
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Substitua os valores de $A$, $B$ e $C$ em cada equação:
-                       Equação 1: $P = 2A - B + 3C = 2(1,3) - (2,-1) + 3(0,2) = (2,6) - (2,-1) + (0,6) = (0,13)$
-                       Equação 2: $P = 4A + 2B - 3C = 4(1,3) + 2(2,-1) - 3(0,2) = (4,12) + (4,-2) - (0,6) = (8,4)$
-                       Equação 3: $P = -A + 5B + 0{,}5C = -(1,3) + 5(2,-1) + 0{,}5(0,2) = (-1,-3) + (10,-5) + (0,1) = (9,-7)$</li>
-<li>Observe que obtivemos três valores diferentes para $P$:
-                       $P_1 = (0,13)$
-                       $P_2 = (8,4)$
-                       $P_3 = (9,-7)$</li>
-<li>Como obtivemos três valores diferentes para $P$, não existe um único ponto que satisfaça simultaneamente todas as condições. Portanto, não existe uma zona segura conforme os critérios estabelecidos.</li>
+<li>Calcule $3A = 3 \cdot (2, -1) = (6, -3)$.</li>
+<li>Calcule $2B = 2 \cdot (1, 3) = (2, 6)$.</li>
+<li>Subtraia: $3A - 2B = (6, -3) - (2, 6) = (6 - 2,\; -3 - 6) = (4, -9)$.</li>
 </ol>
 <div class="formula">
-                    Sistema de equações:<br/>
-                    $P = 2A - B + 3C = (0,13)$<br/>
-                    $P = 4A + 2B - 3C = (8,4)$<br/>
-                    $P = -A + 5B + 0{,}5C = (9,-7)$<br/>
-                    Como temos $(0,13) \neq (8,4) \neq (9,-7)$, o sistema não tem solução.
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> Em situações críticas, a inexistência de uma solução matemática pode ser tão informativa quanto sua presença. Este resultado indica que os critérios de segurança são incompatíveis, sinalizando a necessidade de revisar pressupostos ou buscar alternativas. Reconhecer rapidamente a impossibilidade de uma solução evita desperdício de recursos valiosos na busca de um lugar seguro que não existe, permitindo direcionar esforços para estratégias alternativas de sobrevivência.</p>
+$$3 \cdot (2, -1) - 2 \cdot (1, 3) = (6, -3) - (2, 6) = (4, -9)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Operações combinadas com pares ordenados — multiplicação por escalar seguida de soma ou subtração — aparecem em quase toda fórmula de posicionamento derivado. O ponto de coleta $(4, -9)$ não existe no mapa original; ele foi construído a partir de coordenadas conhecidas. Na Zona Devastada, a maioria dos pontos estratégicos é derivada, não medida diretamente.</p>
 </details>
 </div>

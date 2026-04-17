@@ -1,28 +1,22 @@
 <div class="exercise">
-<h3>ROTA DE NAVEGAÇÃO SEGURA</h3>
-<p>Um sobrevivente no ponto $P = (1,6)$ precisa alcançar o abrigo no ponto $Q = (13,2)$ evitando uma zona de alta radiação. A rota segura consiste em se deslocar primeiro do ponto $P$ ao ponto intermediário $R$, calculado como $R = P + 2(Q - P)/3$, e depois seguir em linha reta de $R$ até $Q$. Determine as coordenadas do ponto intermediário $R$ onde o sobrevivente deve parar antes de continuar para o destino final.</p>
+<h3>ROTA DE NAVEGAÇÃO COM PONTO INTERMEDIÁRIO</h3>
+<p>Um sobrevivente está em $P = (1, 6)$ e precisa alcançar o abrigo em $Q = (13, 2)$, mas uma zona de alta radiação bloqueia o caminho direto. A rota segura exige uma parada no ponto $R$, definido como $R = P + \frac{2}{3}(Q - P)$. Note que a expressão começa calculando o deslocamento total $(Q - P)$, depois tomando $\frac{2}{3}$ dele e somando ao ponto de partida — ou seja, $R$ está a $\frac{2}{3}$ do caminho entre $P$ e $Q$. Calcule $R$ passo a passo: primeiro o deslocamento, depois a fração, depois a soma.</p>
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
 <div class="hint">
-<p>Primeiro calcule o vetor deslocamento total $(Q - P)$, multiplique-o pelo fator $2/3$ e adicione ao ponto inicial $P$.</p>
+<p>Siga a ordem: 1) subtraia $P$ de $Q$ para obter o deslocamento total; 2) multiplique por $\frac{2}{3}$; 3) some ao ponto $P$. Três operações, três passos.</p>
 </div>
 </details>
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Identifique as coordenadas:
-                       $P = (1,6)$, $Q = (13,2)$</li>
-<li>Calcule o vetor deslocamento total:
-                       $Q - P = (13,2) - (1,6) = (13-1, 2-6) = (12, -4)$</li>
-<li>Multiplique o vetor deslocamento pelo fator $2/3$:
-                       $2(Q - P)/3 = 2(12, -4)/3 = (2 \cdot 12/3, 2 \cdot (-4)/3) = (8, -8/3) = (8, -2{,}67)$</li>
-<li>Adicione o resultado ao ponto inicial:
-                       $R = P + 2(Q - P)/3 = (1,6) + (8, -2{,}67) = (1+8, 6+(-2{,}67)) = (9, 3{,}33)$</li>
+<li>Deslocamento total: $Q - P = (13, 2) - (1, 6) = (12, -4)$.</li>
+<li>Fração do deslocamento: $\frac{2}{3} \cdot (12, -4) = \left(\frac{2 \cdot 12}{3},\; \frac{2 \cdot (-4)}{3}\right) = (8,\; -\frac{8}{3}) \approx (8,\; -2{,}67)$.</li>
+<li>Ponto intermediário: $R = P + (8,\; -2{,}67) = (1 + 8,\; 6 - 2{,}67) = (9,\; 3{,}33)$.</li>
 </ol>
 <div class="formula">
-                    $R = P + 2(Q - P)/3 = (a,b) + 2((c,d) - (a,b))/3 = (a,b) + 2(c-a, d-b)/3 = (a + 2(c-a)/3, b + 2(d-b)/3)$<br/>
-                    $(1,6) + 2((13,2) - (1,6))/3 = (1,6) + 2(12,-4)/3 = (1,6) + (8,-2{,}67) = (9, 3{,}33)$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> Em terreno contaminado, raro é o luxo de seguir em linha reta. Calcular pontos intermediários de parada permite criar rotas seguras contornando zonas de perigo. A matemática torna-se literalmente um mapa para a sobrevivência, mostrando não apenas onde você quer chegar, mas o caminho seguro para fazê-lo.</p>
+$$R = P + \frac{2}{3}(Q - P) = (1, 6) + \frac{2}{3}(12, -4) = (1, 6) + (8, -\tfrac{8}{3}) = (9,\; 3{,}33)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Na Zona Devastada, raro é o luxo de seguir em linha reta. Calcular pontos intermediários usando frações de deslocamento permite criar rotas seguras que contornam zonas de perigo. A expressão $P + \frac{2}{3}(Q - P)$ é uma ferramenta de navegação compacta: ela diz exatamente onde parar sem precisar conhecer o terreno, apenas as coordenadas de partida e destino.</p>
 </details>
 </div>

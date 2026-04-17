@@ -1,30 +1,22 @@
 <div class="exercise">
-<h3>PONTOS DE ENCONTRO ESTRATÉGICOS</h3>
-<p>Três equipes de busca operam a partir de abrigos nas posições $A = (-2,5)$, $B = (4,1)$ e $C = (6,7)$. Para minimizar o tempo total de viagem, o ponto de encontro ideal deve ser calculado como $P = 0.5A + 0.3B + 0.2C$, onde os coeficientes representam a prioridade de cada equipe. Determine as coordenadas deste ponto de encontro estratégico e informe via rádio para todas as equipes.</p>
+<h3>PONTO DE ENCONTRO PONDERADO</h3>
+<p>Três equipes de busca operam a partir de abrigos em $A = (-2, 5)$, $B = (4, 1)$ e $C = (6, 7)$. Para minimizar o tempo total de deslocamento, o SUPERVISOR definiu o ponto de encontro ideal como $P = 0{,}5A + 0{,}3B + 0{,}2C$ — uma média ponderada onde os coeficientes refletem a prioridade de cada equipe (a que sai de $A$ tem maior prioridade). Calcule as coordenadas de $P$ e identifique em qual quadrante o encontro ocorre.</p>
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
 <div class="hint">
-<p>Multiplique cada ponto pelo seu coeficiente e então some todos os resultados para encontrar o ponto ponderado ideal.</p>
+<p>Multiplique cada ponto pelo seu coeficiente primeiro (escalar), depois some os três resultados. Cuidado com as casas decimais — use vírgula como separador.</p>
 </div>
 </details>
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Identifique as coordenadas e coeficientes:
-                       $A = (-2,5)$ com coeficiente $0.5$
-                       $B = (4,1)$ com coeficiente $0.3$
-                       $C = (6,7)$ com coeficiente $0.2$</li>
-<li>Multiplique cada ponto pelo seu respectivo coeficiente:
-                       $0{,}5A = 0{,}5 \cdot (-2,5) = (-1, 2{,}5)$
-                       $0{,}3B = 0{,}3 \cdot (4,1) = (1{,}2, 0{,}3)$
-                       $0{,}2C = 0{,}2 \cdot (6,7) = (1{,}2, 1{,}4)$</li>
-<li>Some os resultados:
-                       $P = 0{,}5A + 0{,}3B + 0{,}2C = (-1, 2{,}5) + (1{,}2, 0{,}3) + (1{,}2, 1{,}4) = (-1+1{,}2+1{,}2, 2{,}5+0{,}3+1{,}4) = (1{,}4, 4{,}2)$</li>
+<li>Multiplique cada ponto pelo seu coeficiente: $0{,}5 \cdot (-2, 5) = (-1,\; 2{,}5)$, $0{,}3 \cdot (4, 1) = (1{,}2,\; 0{,}3)$, $0{,}2 \cdot (6, 7) = (1{,}2,\; 1{,}4)$.</li>
+<li>Some os três resultados componente a componente: $(-1 + 1{,}2 + 1{,}2,\; 2{,}5 + 0{,}3 + 1{,}4) = (1{,}4,\; 4{,}2)$.</li>
+<li>O ponto de encontro $P = (1{,}4,\; 4{,}2)$ está no primeiro quadrante.</li>
 </ol>
 <div class="formula">
-                    $P = 0{,}5A + 0{,}3B + 0{,}2C = 0{,}5(a,b) + 0{,}3(c,d) + 0{,}2(e,f) = (0{,}5a + 0{,}3c + 0{,}2e, 0{,}5b + 0{,}3d + 0{,}2f)$<br/>
-                    $0{,}5(-2,5) + 0{,}3(4,1) + 0{,}2(6,7) = (-1,2{,}5) + (1{,}2,0{,}3) + (1{,}2,1{,}4) = (1{,}4, 4{,}2)$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> Em um mundo onde recursos e energia são limitados, a otimização de rotas não é apenas conveniente, mas necessária para a sobrevivência. Pontos de encontro ponderados permitem equilibrar diferentes prioridades (segurança, distância, urgência) e maximizar a eficiência do grupo. Esta técnica pode ser a diferença entre reunir todas as equipes antes do anoitecer ou deixar alguém vulnerável à noite.</p>
+$$P = 0{,}5 \cdot A + 0{,}3 \cdot B + 0{,}2 \cdot C = (1{,}4,\; 4{,}2)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Médias ponderadas de posições aparecem sempre que diferentes fatores influenciam a decisão de onde concentrar esforços — segurança, distância, prioridade da equipe. O coeficiente maior de $A$ "puxa" o ponto de encontro mais perto do abrigo Alpha. Na Zona Devastada, raramente todas as equipes têm o mesmo peso: a que carrega RemoveRad sempre terá prioridade.</p>
 </details>
 </div>

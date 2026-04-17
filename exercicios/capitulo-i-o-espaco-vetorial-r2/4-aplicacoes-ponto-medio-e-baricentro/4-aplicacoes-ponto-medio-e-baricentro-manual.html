@@ -1,0 +1,58 @@
+<section class="manual-contexto" data-context="manual-sobrevivencia">
+<div class="terminal-border">
+<h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA: PONTO MÉDIO E BARICENTRO</h2>
+<div class="terminal-content">
+
+<h3>PONTO MÉDIO — O ENCONTRO JUSTO</h3>
+<p>Na Zona Devastada, coordenar encontros entre sobreviventes exige precisão. O <strong>ponto médio</strong> entre dois pontos $A(x_1, y_1)$ e $B(x_2, y_2)$ é o ponto que divide o segmento $AB$ em duas partes iguais:</p>
+<div class="formula">
+$$M = \left(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}\right)$$
+</div>
+<p>Interpretação vetorial: o ponto médio é "metade do caminho" entre $A$ e $B$. Os vetores $\vec{AM}$ e $\vec{MB}$ são idênticos — ambos representam o mesmo deslocamento.</p>
+<div class="formula">
+$$\vec{AM} = \vec{MB} \quad \Rightarrow \quad M \text{ é o ponto médio}$$
+$$\vec{OM} = \frac{\vec{OA} + \vec{OB}}{2}$$
+</div>
+<p>Nota: $\vec{OM}$ denota o vetor posição do ponto $M$ (vetor da origem até $M$).</p>
+
+<h3>BARICENTRO — O CENTRO DE EQUILÍBRIO</h3>
+<p>Quando três ou mais pontos formam um território, o <strong>baricentro</strong> $G$ é o ponto de equilíbrio geométrico — onde o sistema estaria em equilíbrio se cada vértice tivesse o mesmo "peso". Para um triângulo com vértices $A$, $B$, $C$:</p>
+<div class="formula">
+$$G = \left(\frac{x_A + x_B + x_C}{3}, \frac{y_A + y_B + y_C}{3}\right)$$
+</div>
+<p>Usando vetores posição: $\vec{OG} = \frac{\vec{OA} + \vec{OB} + \vec{OC}}{3}$.</p>
+
+<p>Propriedade fundamental: cada mediana do triângulo (segmento de um vértice ao ponto médio do lado oposto) passa pelo baricentro, e $G$ divide cada mediana na razão $2:1$ a partir do vértice.</p>
+
+<h3>GENERALIZAÇÃO PARA $n$ PONTOS</h3>
+<p>Para $n$ pontos $P_1, P_2, \ldots, P_n$, o centro de equilíbrio geométrico é:</p>
+<div class="formula">
+$$G = \frac{1}{n}\sum_{i=1}^{n} P_i = \left(\frac{x_1 + x_2 + \cdots + x_n}{n}, \frac{y_1 + y_2 + \cdots + y_n}{n}\right)$$
+</div>
+<p>Note que o ponto médio de dois pontos é o caso particular do baricentro para $n = 2$.</p>
+
+<h3>FÓRMULAS INVERSAS</h3>
+<p>Se conhecemos o baricentro e dois vértices, podemos recuperar o terceiro:</p>
+<div class="formula">
+$$C = 3G - A - B$$
+</div>
+<p>E se conhecemos o ponto médio e um extremo, recuperamos o outro:</p>
+<div class="formula">
+$$B = 2M - A$$
+</div>
+
+<h3>APLICAÇÕES NA ZONA DEVASTADA</h3>
+<ul>
+<li><strong>Pontos de encontro:</strong> Calcular o ponto médio garante encontros justos</li>
+<li><strong>Centros de comando:</strong> O baricentro de um território triangular é o local ideal para centralizar operações</li>
+<li><strong>Recuperação de informação:</strong> Fórmulas inversas permitem deduzir posições perdidas</li>
+<li><strong>Verificação:</strong> Soma de vetores intermediários deve dar o vetor total</li>
+</ul>
+
+<div class="warning">
+<strong>AVISO:</strong> Todas as operações deste tópico usam apenas pares ordenados e operações básicas (soma, subtração, multiplicação por escalar). Não é necessário calcular distâncias, módulos ou produtos escalares.
+</div>
+
+</div>
+</div>
+</section>

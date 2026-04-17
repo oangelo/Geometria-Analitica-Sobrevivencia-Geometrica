@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>PONTO ESTRATÉGICO VIA PARALELOGRAMO</h3>
+
+<p>O Conselho de Sobrevivência precisa posicionar um quarto ponto de observação $D$ para completar uma rede de vigilância. Os três pontos existentes são $A(1, 2)$, $B(4, 3)$ e $C(2, 5)$. A regra do Refúgio-Tec exige que o vetor $\overrightarrow{AD}$ seja igual à soma $\overrightarrow{AB} + \overrightarrow{AC}$. Calcule primeiro $\overrightarrow{AB}$ e $\overrightarrow{AC}$, depois some-os para obter $\overrightarrow{AD}$, e finalmente determine as coordenadas de $D$ somando $\overrightarrow{AD}$ ao ponto $A$. O que essa configuração forma geometricamente?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Calcule $\overrightarrow{AB} = B - A$ e $\overrightarrow{AC} = C - A$. Some para obter $\overrightarrow{AD}$. Depois, $D = A + \overrightarrow{AD}$ — adicione o vetor ao ponto componente a componente.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Calculamos os vetores: $\overrightarrow{AB} = B - A = (4, 3) - (1, 2) = (3, 1)$ e $\overrightarrow{AC} = C - A = (2, 5) - (1, 2) = (1, 3)$.</li>
+<li>Somamos: $\overrightarrow{AD} = \overrightarrow{AB} + \overrightarrow{AC} = (3, 1) + (1, 3) = (4, 4)$.</li>
+<li>Encontramos $D$: $D = A + \overrightarrow{AD} = (1, 2) + (4, 4) = (5, 6)$.</li>
+<li>Geometricamente, os quatro pontos $A$, $B$, $C$, $D$ formam um paralelogramo: os lados opostos são representados por vetores iguais ($\overrightarrow{AB} = \overrightarrow{DC}$ e $\overrightarrow{AC} = \overrightarrow{BD}$).</li>
+</ol>
+<div class="formula">
+$$\overrightarrow{AD} = \overrightarrow{AB} + \overrightarrow{AC} = (3, 1) + (1, 3) = (4, 4)$$
+$$D = A + \overrightarrow{AD} = (1, 2) + (4, 4) = (5, 6)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O paralelogramo é a configuração ideal para vigilância: cada ponto tem linha de visão para dois outros. Se um observador detectar mutantes, pode alertar rapidamente os postos adjacentes. Usar vetores para construir essa geometria garante posicionamento preciso — nada de "mais ou menos ali".</p>
+</details>
+</div>

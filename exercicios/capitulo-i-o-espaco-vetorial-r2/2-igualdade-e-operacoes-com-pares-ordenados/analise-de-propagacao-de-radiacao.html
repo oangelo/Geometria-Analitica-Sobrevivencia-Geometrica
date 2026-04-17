@@ -1,28 +1,24 @@
 <div class="exercise">
-<h3>ANÁLISE DE PROPAGAÇÃO DE RADIAÇÃO</h3>
-<p>Três sensores de radiação foram posicionados nos pontos $A = (1,2)$, $B = (5,3)$ e $C = (2,7)$. Após uma explosão em um reator próximo, os níveis de radiação aumentaram exponencialmente. Os cientistas do RefúgioTEC modelaram a transformação da zona de contaminação como uma operação vetorial onde cada ponto $P = (x,y)$ na área é mapeado para um novo ponto $P' = (2x-y, x+y)$. O bunker de sobrevivência está localizado no ponto $S = (4,5)$. Determine as coordenadas transformadas dos sensores e do bunker, e desenhe ambas as configurações no plano cartesiano para avaliar se o bunker permanece protegido.</p>
+<h3>DECODIFICANDO COORDENADAS CRIPTOGRAFADAS</h3>
+<p>Um mensageiro capturado carregava uma nota codificada: o abrigo secreto está em $(2a,\; b + 1)$, onde $a$ e $b$ são números que o rádio do Refúgio-TEC conseguiu interceptar como sendo $2a = 4$ e $b + 1 = 5$. Para localizar o abrigo antes dos patrulheiros mutantes, é preciso descobrir os valores de $a$ e $b$ e então escrever o par ordenado completo. Sabendo que dois pares ordenados são iguais apenas quando cada coordenada coincide, resolva as equações componente a componente.</p>
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
 <div class="hint">
-<p>Aplique a transformação componente a componente: a primeira coordenada de $P'$ é $2x - y$ e a segunda é $x + y$. Substitua os valores de $x$ e $y$ de cada ponto.</p>
+<p>Trate cada coordenada separadamente: a primeira equação envolve apenas $a$, a segunda apenas $b$. Resolva-as como equações lineares independentes.</p>
 </div>
 </details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Aplique a transformação a cada ponto, começando pelos sensores:
-                       $A' = (2 \cdot 1 - 2, 1 + 2) = (0, 3)$
-                       $B' = (2 \cdot 5 - 3, 5 + 3) = (7, 8)$
-                       $C' = (2 \cdot 2 - 7, 2 + 7) = (-3, 9)$</li>
-<li>Agora aplique a transformação ao bunker:
-                       $S' = (2 \cdot 4 - 5, 4 + 5) = (3, 9)$</li>
-<li>Para verificar se o bunker transformado está na zona de contenção formada pelos sensores transformados, precisaríamos verificar se $S'$ está dentro do triângulo formado por $A'$, $B'$ e $C'$. Isso exigiria análise adicional além do escopo das operações básicas com pares ordenados. Mas você pode desenhar o plano cartesiano e verificar visualmente.</li>
+<li>Igualando as coordenadas correspondentes: $2a = 4$ e $b + 1 = 5$.</li>
+<li>Resolvendo a primeira: $2a = 4 \Rightarrow a = 2$.</li>
+<li>Resolvendo a segunda: $b + 1 = 5 \Rightarrow b = 4$.</li>
+<li>O abrigo secreto está em $(2 \cdot 2,\; 4 + 1) = (4, 5)$.</li>
 </ol>
 <div class="formula">
-                    Transformação: $P = (x,y) \mapsto P' = (2x-y, x+y)$<br/>
-                    $A = (1,2) \mapsto A' = (0,3)$<br/>
-                    $B = (5,3) \mapsto B' = (7,8)$<br/>
-                    $C = (2,7) \mapsto C' = (-3,9)$<br/>
-                    $S = (4,5) \mapsto S' = (3,9)$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> Em cenários de desastre radioativo, modelar matematicamente a propagação da contaminação permite prever áreas seguras e rotas de evacuação. A capacidade de mapear transformações de pontos no espaço possibilita antecipar riscos invisíveis e potencialmente fatais, dando tempo para evacuação ou fortalecimento de barreiras antes que seja tarde demais.</p>
+$$(2a,\; b+1) = (4,\; 5) \Rightarrow \begin{cases} 2a = 4 \Rightarrow a = 2 \\ b + 1 = 5 \Rightarrow b = 4 \end{cases}$$
+$$\text{Logo o ponto é } (4, 5).$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Mensagens codificadas são comuns na Zona Devastada — nem todo sobrevivente quer que sua posição fique exposta. Saber extrair valores de variáveis a partir de igualdade de pares ordenados permite decodificar transmissões interceptadas e localizar aliados (ou inimigos) com precisão.</p>
 </details>
 </div>

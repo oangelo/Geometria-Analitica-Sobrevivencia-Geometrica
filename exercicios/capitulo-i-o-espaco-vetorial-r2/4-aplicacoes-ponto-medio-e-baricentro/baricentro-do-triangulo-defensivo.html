@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>O BARICENTRO DO TRIÂNGULO DEFENSIVO</h3>
+<p>Três torres de vigia formam um triângulo nas coordenadas $A(0, 0)$, $B(6, 0)$ e $C(3, 6)$. O sistema de comunicação central deve ser instalado no baricentro deste triângulo — o ponto onde as três medianas se encontram, também chamado de centro de equilíbrio geométrico. O baricentro $G$ de um triângulo com vértices $A$, $B$, $C$ é dado por $G = \left(\frac{x_A + x_B + x_C}{3}, \frac{y_A + y_B + y_C}{3}\right)$. Calcule as coordenadas de $G$, desenhe o triângulo e marque o baricentro. As três medianas realmente se encontram neste ponto?</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Primeiro desenhe o triângulo $ABC$. Depois calcule o baricentro usando a fórmula da média das coordenadas. Para verificar, calcule o ponto médio de cada lado e observe que a mediana (segmento de vértice ao ponto médio do lado oposto) passa por $G$.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Calculando o baricentro: $G = \left(\frac{0 + 6 + 3}{3}, \frac{0 + 0 + 6}{3}\right) = \left(\frac{9}{3}, \frac{6}{3}\right) = (3, 2)$.</li>
+<li>Desenhando: marque $A(0, 0)$, $B(6, 0)$, $C(3, 6)$ e $G(3, 2)$ no plano cartesiano.</li>
+<li>Calculando os pontos médios dos lados:
+$M_{AB} = \left(\frac{0+6}{2}, \frac{0+0}{2}\right) = (3, 0)$
+$M_{BC} = \left(\frac{6+3}{2}, \frac{0+6}{2}\right) = (4{,}5, 3)$
+$M_{CA} = \left(\frac{3+0}{2}, \frac{6+0}{2}\right) = (1{,}5, 3)$</li>
+<li>Verificando as medianas: a mediana de $A$ até $M_{BC}$ passa por $G$? O vetor $\vec{AG} = (3, 2)$ e $\vec{AM_{BC}} = (4{,}5, 3)$. Note que $(3, 2) = \frac{2}{3}(4{,}5, 3)$. Sim! $G$ divide a mediana na razão $2:1$ a partir do vértice.</li>
+<li>Verificando as outras duas medianas de forma análoga: $G$ sempre divide cada mediana na razão $2:1$ a partir do vértice. As três medianas se encontram em $G$.</li>
+</ol>
+<div class="formula">
+$$G = \left(\frac{0 + 6 + 3}{3}, \frac{0 + 0 + 6}{3}\right) = (3, 2)$$
+$$\vec{AG} = \frac{2}{3}\vec{AM_{BC}} \quad \Rightarrow \quad G \text{ divide cada mediana na razão } 2:1$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O baricentro é o ponto de equilíbrio geométrico de um triângulo. Na Zona Devastada, instalando o sistema de comunicação no baricentro, cada torre contribui igualmente para a centralidade do equipamento. Nenhuma torre "domina" — o equilíbrio é perfeito. Esta propriedade de razão $2:1$ nas medianas é uma verificação poderosa que pode ser feita apenas com operações com pares ordenados.</p>
+</details>
+</div>
