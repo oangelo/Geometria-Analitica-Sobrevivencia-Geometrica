@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Cap. I — Operações com Pares Ordenados</title>
+<link href="https://unpkg.com/reveal.js@5.1.0/dist/reveal.css" rel="stylesheet"/>
+<link href="https://unpkg.com/reveal.js@5.1.0/dist/theme/black.css" id="theme" rel="stylesheet"/>
+<link href="../styles.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<!-- SEÇÃO 3: OPERAÇÕES COM PARES ORDENADOS -->
+<section>
+
+<!-- Slide 3.1 — Álgebra da Sobrevivência (Motivação) -->
+<section class="field-report">
+<h2>Álgebra da Sobrevivência</h2>
+<h3 class="mission-subtitle">Por Que Precisamos de Operações?</h3>
+<div class="narrative-text">
+<p>O Conselho dos Anciões gerencia os recursos de toda a comunidade durante os longos invernos nucleares. Cada caravana que retorna ao Abrigo traz um inventário de suprimentos. Mas como somar os estoques de duas caravanas diferentes? Como calcular os recursos para uma expedição maior? As operações com pares ordenados são a ferramenta que torna essa contabilidade possível.</p>
+</div>
+<div class="survival-tip">
+<p>DICA DE SOBREVIVÊNCIA: Quem não soma seus recursos corretamente, acaba sem munição no meio da Wasteland.</p>
+</div>
+</section>
+
+<!-- Slide 3.2 — Adição de Pares Ordenados (Definição) -->
+<section class="mission-briefing">
+<h2>Adição de Pares Ordenados</h2>
+<h3 class="mission-subtitle">Somando Suprimentos de Duas Caravanas</h3>
+<div class="concept-definition">
+<p>Dados dois vetores <span class="formula">\(\vec{u} = (a, b)\)</span> e <span class="formula">\(\vec{v} = (c, d)\)</span> em <span class="formula">\(\mathbb{R}^2\)</span>, a adição é definida por:</p>
+<p class="formula">\(\vec{u} + \vec{v} = (a + c,\; b + d)\)</p>
+</div>
+<div class="narrative-text">
+<p>Exemplo temático: A Caravana Alpha trouxe <span class="formula">\((5, 3)\)</span> unidades de água e comida. A Caravana Beta trouxe <span class="formula">\((2, 4)\)</span>. O estoque total é <span class="formula">\((5, 3) + (2, 4) = (7, 7)\)</span>.</p>
+</div>
+<div class="survival-tip">
+<p>DICA DE SOBREVIVÊNCIA: Some componente a componente. Nunca tente somar água com comida diretamente — cada recurso tem sua própria coordenada.</p>
+</div>
+</section>
+
+<!-- Slide 3.3 — Visualização: Adição de Vetores -->
+<section class="simulator">
+<h3>Visualização: Adição de Vetores</h3>
+<div class="visualization-container">
+<img alt="Adição de vetores no R²: regra do paralelogramo e soma gráfica de dois vetores" src="svg/adicao-vetores-r2.svg"/>
+</div>
+<div class="hint-message">
+<p>A soma gráfica segue a regra do paralelogramo: desloque <span class="formula">\(\vec{v}\)</span> até a ponta de <span class="formula">\(\vec{u}\)</span> — a diagonal é o vetor resultante.</p>
+</div>
+</section>
+
+<!-- Slide 3.4 — Multiplicação por Escalar -->
+<section class="mission-briefing">
+<h2>Multiplicação por Escalar</h2>
+<h3 class="mission-subtitle">Escalando Recursos e Deslocamentos</h3>
+<div class="concept-definition">
+<p>Dado um vetor <span class="formula">\(\vec{v} = (a, b)\)</span> e um escalar <span class="formula">\(\lambda \in \mathbb{R}\)</span>:</p>
+<p class="formula">\(\lambda \vec{v} = (\lambda a,\; \lambda b)\)</p>
+</div>
+<ul>
+<li><strong>Ampliação/Redução</strong>: <span class="formula">\(\lambda > 1\)</span> aumenta a magnitude; <span class="formula">\(0 < \lambda < 1\)</span> reduz</li>
+<li><strong>Direção oposta</strong>: <span class="formula">\(\lambda = -1\)</span> inverte o sentido do vetor</li>
+<li><strong>Logística</strong>: Calcular recursos para grupos de diferentes tamanhos</li>
+</ul>
+<div class="narrative-text">
+<p>Uma expedição de 5 pessoas precisa de <span class="formula">\((2, 3)\)</span> suprimentos cada (água, comida). O Oficial de Recursos multiplica pelo escalar 5, obtendo <span class="formula">\(5 \cdot (2, 3) = (10, 15)\)</span>.</p>
+</div>
+</section>
+
+<!-- Slide 3.5 — Propriedades das Operações -->
+<section class="mission-briefing">
+<h2>Propriedades das Operações</h2>
+<h3 class="mission-subtitle">Leis da Navegação e Logística</h3>
+<div class="concept-definition">
+<p><strong>Associatividade:</strong> <span class="formula">\((\vec{u} + \vec{v}) + \vec{w} = \vec{u} + (\vec{v} + \vec{w})\)</span></p>
+<p><strong>Comutatividade:</strong> <span class="formula">\(\vec{u} + \vec{v} = \vec{v} + \vec{u}\)</span></p>
+<p><strong>Distributividade:</strong> <span class="formula">\(\lambda(\vec{u} + \vec{v}) = \lambda\vec{u} + \lambda\vec{v}\)</span></p>
+</div>
+<div class="narrative-text">
+<p>Estas leis garantem que reorganizar uma cadeia de suprimentos não altera o resultado final. Os planejadores podem reordenar rotas e redistribuir cargas com a certeza de que a matemática permanece consistente — uma confiabilidade vital em um mundo cheio de incertezas.</p>
+</div>
+<div class="survival-tip">
+<p>DICA DE SOBREVIVÊNCIA: A matemática não mente. Se seus cálculos derem errado, o erro foi seu — não das leis.</p>
+</div>
+</section>
+
+<!-- Slide 3.6 — Treinamento: Operações (Exercícios) -->
+<section class="survival-training level-intermediate">
+<h2>Treinamento: Operações</h2>
+<h3 class="mission-subtitle">Exercícios de Campo <span class="level-indicator">NÍVEL INTERMEDIÁRIO</span></h3>
+
+<div class="training-problem">
+<h4>Problema #1: Cálculo Direto</h4>
+<p>Calcule as seguintes operações:</p>
+<ol>
+<li><span class="formula">\((2, 3) + (4, -1)\)</span></li>
+<li><span class="formula">\(3 \cdot (2, -1)\)</span></li>
+</ol>
+</div>
+
+      <div class="training-problem">
+<h4>Problema #2: Posição Final da Caravana</h4>
+<p>Uma caravana parte da posição \((0,0)\) e faz dois deslocamentos consecutivos: primeiro \((3,2)\) unidades, depois \((4,-1)\) unidades. Qual é a posição final da caravana? Use a adição de pares ordenados.</p>
+</div>
+
+<div class="training-problem">
+<h4>Problema #3: Logística de Expedição</h4>
+<p>Uma expedição de 5 pessoas precisa de <span class="formula">\((2, 3)\)</span> suprimentos (água, comida) cada. Calcule o total de suprimentos usando multiplicação por escalar.</p>
+</div>
+
+<div class="problem-context">
+<p>Os suprimentos são limitados e a próxima caravana só chega em 7 dias. Calcule com precisão — erros de logística são fatais na Wasteland.</p>
+</div>
+</section>
+
+</section>
+</div>
+</div>
+<script src="https://unpkg.com/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(','\\)')],
+      displayMath: [['\\[','\\]']]
+    }
+  };
+  Reveal.initialize({ hash: true, slideNumber: true });
+</script>
+</body>
+</html>

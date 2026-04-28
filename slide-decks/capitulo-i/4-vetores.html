@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Cap. I — Vetores no Plano</title>
+  <link href="https://unpkg.com/reveal.js@5.1.0/dist/reveal.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/reveal.js@5.1.0/dist/theme/black.css" id="theme" rel="stylesheet"/>
+  <link href="../styles.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- SEÇÃO 4: VETORES NO PLANO -->
+<section>
+
+  <!-- Slide 4.1 — Além das Coordenadas: Por que Vetores? (Motivação) -->
+  <section class="field-report">
+    <h2>Além das Coordenadas: Por que Vetores?</h2>
+    <div class="narrative-text">
+      <p>Coordenadas dizem <strong>onde</strong> você está. Mas para ir do Abrigo Alpha ao Posto Bravo, precisamos saber não só a distância, mas a <strong>DIREÇÃO</strong>.</p>
+    </div>
+    <p>Pontos e coordenadas têm uma limitação crítica na wasteland:</p>
+    <ul>
+      <li>Sabemos a <strong>localização</strong> exata de um recurso</li>
+      <li>Mas não sabemos <strong>como chegar lá</strong> a partir de onde estamos</li>
+      <li>Não capturam a <strong>direção do vento</strong>, a <strong>corrente de água</strong>, ou a <strong>tendência de migração</strong> de criaturas</li>
+    </ul>
+    <div class="survival-tip">
+      <p>DICA DE SOBREVIVÊNCIA: "Quem só sabe onde está, mas não para onde ir, vira almoço de predador."</p>
+    </div>
+  </section>
+
+  <!-- Slide 4.2 — Vetores: As Setas da Sobrevivência (Definição) -->
+  <section class="mission-briefing">
+    <h2>Vetores: As Setas da Sobrevivência</h2>
+    <h3 class="mission-subtitle">A ferramenta que une magnitude e direção</h3>
+    <div class="concept-definition">
+      <p>Um <strong>vetor</strong> \(\vec{v}\) no plano é uma quantidade com <strong>magnitude</strong> e <strong>direção</strong>, representado geometricamente por uma seta direcionada e algebricamente por um par ordenado \((x,y)\).</p>
+    </div>
+    <p>Os vetores são a linguagem matemática de:</p>
+    <ul>
+      <li><strong>Movimento</strong>: Deslocamentos entre locais</li>
+      <li><strong>Força</strong>: Direção e intensidade de efeitos físicos</li>
+      <li><strong>Tendência</strong>: Padrões direcionais em fenômenos naturais</li>
+    </ul>
+    <div class="narrative-text">
+      <p>Os Cartógrafos usam notação vetorial para marcar não apenas locais, mas também rotas seguras, correntes de vento, fluxos de radiação e padrões migratórios de criaturas mutantes.</p>
+    </div>
+  </section>
+
+  <!-- Slide 4.3 — Vetor Definido por Dois Pontos -->
+  <section class="mission-briefing">
+    <h3>Vetor Definido por Dois Pontos: A Rota Direta</h3>
+    <div class="concept-definition">
+      <p>Para dois pontos \(A(x_1, y_1)\) e \(B(x_2, y_2)\), o vetor \(\overrightarrow{AB}\) é definido como:</p>
+      <p class="formula">\[ \overrightarrow{AB} = (x_2 - x_1, y_2 - y_1) \]</p>
+      <p>Representa o deslocamento <em>direcionado</em> necessário para ir do ponto \(A\) ao ponto \(B\).</p>
+    </div>
+    <p>Este vetor captura a <strong>direção</strong> e <strong>magnitude</strong> exatas para ir de uma localização a outra no deserto pós-apocalíptico.</p>
+    <div class="survival-tip">
+      <p>DIRETIVA DE NAVEGAÇÃO: "Sempre calcule o vetor exato entre sua posição atual e o destino. Um erro de cálculo não permite segunda tentativa."</p>
+    </div>
+  </section>
+
+  <!-- Slide 4.4 — Visualização: Vetor entre Dois Pontos -->
+  <section class="simulator">
+    <h3>Visualização: Vetor entre Dois Pontos</h3>
+    <div class="visualization-container">
+      <img alt="Vetor definido por dois pontos A e B no plano" src="svg/vetor-dois-pontos.svg"/>
+    </div>
+    <div class="hint-message">
+      <p>O vetor \(\overrightarrow{AB}\) aponta de \(A\) para \(B\), codificando a rota mais direta entre os pontos.</p>
+    </div>
+  </section>
+
+  <!-- Slide 4.5 — Norma do Vetor -->
+  <section class="mission-briefing">
+    <h3>Norma do Vetor: Medindo o Esforço</h3>
+    <div class="concept-definition">
+      <p>A <strong>norma</strong> (ou magnitude) de um vetor \(\vec{v} = (x,y)\) é dada por:</p>
+      <p class="formula">\[ |\vec{v}| = \sqrt{x^2 + y^2} \]</p>
+      <p>Geometricamente, representa o comprimento da seta vetorial.</p>
+    </div>
+    <p>A norma quantifica o "custo total" de um deslocamento, independentemente da direção – seja em termos de energia, tempo, ou recursos necessários.</p>
+    <div class="survival-tip">
+      <p>PROTOCOLO DE EFICIÊNCIA: "Entre dois vetores que conduzem ao mesmo destino, aquele com menor norma sempre preservará mais recursos vitais."</p>
+    </div>
+  </section>
+
+  <!-- Slide 4.6 — Vetores Unitários e Direção -->
+  <section class="mission-briefing">
+    <h3>Vetores Unitários: A Bússola Matemática</h3>
+    <div class="concept-definition">
+      <p>Um <strong>vetor unitário</strong> \(\hat{u}\) tem norma igual a 1 e preserva apenas a informação de direção:</p>
+      <p class="formula">\[ \hat{u} = \frac{\vec{v}}{|\vec{v}|} \]</p>
+    </div>
+    <p>Vetores unitários funcionam como bússolas matemáticas, apontando direções sem comprometimento com distâncias específicas. São fundamentais para:</p>
+    <ul>
+      <li>Navegar seguindo uma direção específica</li>
+      <li>Padronizar indicações de rota entre comunidades</li>
+      <li>Calcular componentes direcionais de forças naturais</li>
+    </ul>
+    <div class="narrative-text">
+      <p>As bandeiras de sinalização dos guias de caravana usam um sistema codificado por cores baseado nos oito vetores unitários principais, permitindo comunicação visual à distância mesmo durante tempestades de poeira.</p>
+    </div>
+  </section>
+
+  <!-- Slide 4.7 — Base Canônica -->
+  <section class="mission-briefing">
+    <h3>Base Canônica: Os Vetores Fundamentais</h3>
+    <div class="concept-definition">
+      <p>A <strong>base canônica</strong> de \(\mathbb{R}^2\) consiste em dois vetores unitários:</p>
+      <p class="formula">\[ \vec{e}_1 = (1,0) \quad \text{e} \quad \vec{e}_2 = (0,1) \]</p>
+      <p>Qualquer vetor \(\vec{v} = (a,b)\) pode ser escrito como combinação linear:</p>
+      <p class="formula">\[ \vec{v} = a\vec{e}_1 + b\vec{e}_2 \]</p>
+    </div>
+    <p>Estes vetores formam as <strong>direções fundamentais</strong> do nosso sistema de coordenadas, como as direções cardeais Leste (\(\vec{e}_1\)) e Norte (\(\vec{e}_2\)) em uma bússola.</p>
+    <div class="survival-tip">
+      <p>PROTOCOLO DE ORIENTAÇÃO: "Se você se perder, primeiro determine a direção dos vetores \(\vec{e}_1\) e \(\vec{e}_2\) em relação a pontos de referência estáveis, como montanhas ou ruínas destacadas."</p>
+    </div>
+  </section>
+
+  <!-- Slide 4.7b — Visualização: Base Canônica -->
+  <section class="simulator">
+    <h3>Visualização: Base Canônica</h3>
+    <div class="visualization-container">
+      <img alt="Base canônica do R² com vetores e1 e e2" src="svg/base-canonica.svg"/>
+    </div>
+  </section>
+
+  <!-- Slide 4.8 — Simulador: Vetores Posição e Deslocamento -->
+  <section class="simulator" data-state="vector-position-slide">
+    <h3>Simulador: Vetores Posição e Deslocamento</h3>
+    <div class="canvas-container">
+      <canvas id="positionVectorCanvas" width="450" height="450"></canvas>
+      <div id="position-info">
+        r₁ = (2,3) | Δr = (3,-2) | r₂ = (5,1)
+      </div>
+    </div>
+    <div class="hint-message">
+      <p>Manipule o vetor posição inicial (verde) e o vetor deslocamento (vermelho) para ver como afetam a posição final (azul).</p>
+    </div>
+  </section>
+
+  <!-- Slide 4.9 — Treinamento: Vetores (Exercícios) -->
+  <section class="survival-training level-intermediate">
+    <h3>Treinamento de Sobrevivência: Vetores</h3>
+    <span class="level-indicator">NÍVEL INTERMEDIÁRIO</span>
+
+    <div class="training-problem">
+      <h4>Problema #1: Rota Direta</h4>
+      <p>Dados \(A(1,2)\) e \(B(4,6)\), encontre o vetor \(\overrightarrow{AB}\) e calcule sua norma \(|\overrightarrow{AB}|\).</p>
+    </div>
+
+    <div class="training-problem">
+      <h4>Problema #2: Expedição ao Bunker</h4>
+      <p>Um explorador está em \((2,3)\) e quer chegar a \((7,8)\). Qual o vetor deslocamento? Qual sua norma?</p>
+    </div>
+
+    <div class="training-problem">
+      <h4>Problema #3: Normalizando a Rota</h4>
+      <p>Dado \(\vec{v}=(3,4)\), encontre o vetor unitário na mesma direção.</p>
+    </div>
+
+    <div class="problem-context">
+      <p>Uma tempestade de radiação se aproxima. Calcule suas rotas com precisão — erros de vetorização custam vidas na wasteland.</p>
+    </div>
+  </section>
+
+</section>
+
+</div>
+</div>
+<script src="https://unpkg.com/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(','\\)')],
+      displayMath: [['\\[','\\]']]
+    }
+  };
+  Reveal.initialize({ hash: true, slideNumber: true });
+</script>
+</body>
+</html>
