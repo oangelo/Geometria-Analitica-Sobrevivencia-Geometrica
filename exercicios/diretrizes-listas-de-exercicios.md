@@ -27,7 +27,29 @@ Sempre começar pelo conceito e pela interpretação (geométrica, física, visu
 Trabalhar explicitamente a notação em exercícios dedicados. Alunos se perdem em símbolos ($\vec{v}$ vs. $\overrightarrow{AB}$, coordenadas de ponto vs. componente de vetor), e isso raramente é tratado como conteúdo. Dedicar exercícios para: converter entre notações, interpretar o que cada símbolo significa, praticar a escrita correta.
 
 ### 7. Desenhar e esquematizar
-Os exercícios devem pedir que o aluno faça esboços e diagramas, conectando equações com geometria. "Esboce o triângulo e localize o baricentro" é tão importante quanto calcular suas coordenadas. A matemática analítica nasceu da geometria — os exercícios devem manter essa conexão viva.
+Os exercícios devem pedir que o aluno faça esboços e diagramas, conectando equações com geometria. A matemática analítica nasceu da geometria — os exercícios devem manter essa conexão viva.
+
+**Regras operacionais:**
+
+1. **NUNCA** pedir "desenhe mentalmente", "visualize", "construa mentalmente" ou "imagine" para operações geométricas. O ser humano é péssimo em visualização mental — usamos papel e rascunhamos, ilustramos. Os exercícios devem refletir isso.
+
+2. **Como pedir esboço:** usar frases como:
+   - "No papel, esboce os vetores..."
+   - "Desenhe no papel os pontos e os vetores entre eles..."
+   - "Rascunhe o triângulo e marque os lados com as distâncias calculadas..."
+   - "Desenhe no papel os pontos $A$, $B$ e $C$, construa os vetores $\overrightarrow{AB}$ e $\overrightarrow{AC}$, e..."
+   - "Faça um esboço no papel da situação: marque os pontos, trace os vetores..."
+
+3. **Em quais exercícios pedir esboço:**
+   - **FASE 1 (caso simples):** SEMPRE pedir esboço — o aluno precisa ver a geometria antes de calcular
+   - **FASE 2 (nova ferramenta):** pedir esboço quando a ferramenta tem interpretação geométrica (ortogonalidade, ângulo, área, perpendicularidade)
+   - **FASE 3 (combinar):** opcional — pedir quando o problema envolve classificação (tipo de triângulo, alinhamento, forma geométrica)
+   - **FASE 4 (aplicar):** SEMPRE pedir esboço — o aluno precisa montar o problema visualmente antes de traduzir em equações
+
+4. **Como integrar ao texto:** o pedido de esboço deve estar integrado ao enunciado, não como instrução separada ou parêntese:
+   - ✅ "Desenhe no papel os pontos $A(1,2)$ e $B(4,5)$, construa o triângulo retângulo e calcule a distância."
+   - ❌ "Calcule a distância. (Dica: desenhe.)"
+   - ❌ "Desenhe mentalmente o triângulo retângulo formado pelas coordenadas."
 
 ### 8. Autonomia sobre decoreba
 O objetivo é que, com as definições básicas, o aluno consiga derivar resultados sozinho, sem depender de fórmulas memorizadas. Em vez de "aplique a fórmula da distância", prefira "use a definição de produto escalar para encontrar a distância". A fórmula é consequência, não ponto de partida.

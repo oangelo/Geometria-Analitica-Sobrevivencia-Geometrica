@@ -1,0 +1,34 @@
+<div class="exercise">
+<h3>BARICENTRO E ORTOGONALIDADE — CONEXÃO COM O CAPÍTULO I</h3>
+
+<p>No Capítulo I, vimos que o baricentro (centro de gravidade) de um triângulo com vértices $A$, $B$, $C$ é o ponto $G = \frac{A + B + C}{3}$. Agora vamos conectar esse conceito com a ortogonalidade deste capítulo. O objetivo é verificar se as medianas de um triângulo específico são ortogonais — e descobrir que a resposta nem sempre é "sim".</p>
+
+<p>Considere o triângulo com vértices $A(0, 0)$, $B(6, 0)$ e $C(0, 8)$, que delimita uma zona de radiação detectada pelos sensores do Refúgio-TEC.</p>
+
+<p>(a) Calcule o baricentro $G$.</p>
+<p>(b) A mediana que parte de $A$ passa por $G$ e vai até o ponto médio de $BC$. Construa o vetor $\overrightarrow{AG}$. Construa também $\overrightarrow{BG}$ (mediana que parte de $B$).</p>
+<p>(c) Verifique se as medianas $\overrightarrow{AG}$ e $\overrightarrow{BG}$ são ortogonais. O que isso significa geometricamente?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para (a), use $G = \frac{A + B + C}{3}$, onde a soma é componente a componente. Para (b), calcule $\overrightarrow{AG} = G - A$ e $\overrightarrow{BG} = G - B$. Para (c), calcule o produto escalar — se for zero, são ortogonais.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>(a) Baricentro: $G = \frac{(0,0) + (6,0) + (0,8)}{3} = \frac{(6, 8)}{3} = \left(2, \frac{8}{3}\right)$.</li>
+<li>(b) Mediana por $A$: $\overrightarrow{AG} = G - A = \left(2, \frac{8}{3}\right) - (0, 0) = \left(2, \frac{8}{3}\right)$.</li>
+<li>Mediana por $B$: $\overrightarrow{BG} = G - B = \left(2, \frac{8}{3}\right) - (6, 0) = \left(-4, \frac{8}{3}\right)$.</li>
+<li>(c) Produto escalar: $\overrightarrow{AG} \cdot \overrightarrow{BG} = 2 \cdot (-4) + \frac{8}{3} \cdot \frac{8}{3} = -8 + \frac{64}{9} = \frac{-72 + 64}{9} = -\frac{8}{9} \neq 0$.</li>
+<li>Como o produto escalar é $-\frac{8}{9} \neq 0$, as medianas <strong>não são ortogonais</strong>. Neste triângulo específico, as medianas formam um ângulo obtuso.</li>
+</ol>
+<div class="formula">
+$$G = \left(2, \frac{8}{3}\right), \quad \overrightarrow{AG} = \left(2, \frac{8}{3}\right), \quad \overrightarrow{BG} = \left(-4, \frac{8}{3}\right)$$
+$$\overrightarrow{AG} \cdot \overrightarrow{BG} = -8 + \frac{64}{9} = -\frac{8}{9} \neq 0 \quad \Longrightarrow \quad \text{não ortogonais}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Este exercício conecta dois capítulos: o baricentro do Capítulo I e a ortogonalidade do Capítulo II. O resultado negativo ($-\frac{8}{9}$) é tão informativo quanto um resultado zero — ele diz que as medianas formam um ângulo obtuso. Na prática, nem toda pergunta matemática tem resposta "sim". Saber provar que algo <strong>não</strong> é ortogonal é tão importante quanto confirmar ortogonalidade. O sobrevivente que espera sempre "sim" será pego de surpresa pelo "não".</p>
+</details>
+</div>

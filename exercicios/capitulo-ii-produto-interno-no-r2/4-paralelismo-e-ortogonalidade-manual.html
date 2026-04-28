@@ -1,21 +1,32 @@
 <section class="manual-contexto" data-context="manual-sobrevivencia">
     <div class="terminal-border">
     <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: PARALELISMO E ORTOGONALIDADE</h2>
-<p>No mundo hostil pós-apocalíptico, entender as relações entre vetores pode significar a diferença entre a vida e a morte. O paralelismo e a ortogonalidade são propriedades fundamentais que permitem aos sobreviventes otimizar rotas de exploração, reforçar estruturas de abrigos e mapear zonas de radiação com precisão.</p>
-<p>Dois vetores $\vec{u}$ e $\vec{v}$ são <strong>paralelos</strong> quando um pode ser obtido multiplicando o outro por um escalar $\lambda$, ou seja, $\vec{u} = \lambda\vec{v}$. Na prática, isso significa que eles apontam para a mesma direção (ou direções opostas se $\lambda &lt; 0$). Para sobreviventes navegando em terrenos perigosos, identificar vetores paralelos permite economizar recursos seguindo a mesma direção geral.</p>
-<p>Dois vetores $\vec{u}$ e $\vec{v}$ são <strong>ortogonais</strong> (perpendiculares) quando seu produto escalar é zero: $\vec{u} \cdot \vec{v} = 0$. Durante a construção de abrigos, estruturas ortogonais oferecem máxima estabilidade e resistência, fundamentais para sobreviver às tempestades radioativas.</p>
-<p>Para vetores no plano $\mathbb{R}^2$, representados como $\vec{u} = (u_1, u_2)$ e $\vec{v} = (v_1, v_2)$, podemos verificar estas propriedades usando operações algébricas simples mas essenciais para a navegação precisa entre zonas devastadas.</p>
+
+<p>Nos tópicos anteriores, vimos que o produto escalar pode ser positivo, negativo ou zero. O caso positivo indica cooperação entre direções; o negativo indica competição. Mas o caso zero tem significado especial: quando $\vec{u} \cdot \vec{v} = 0$, os vetores são <strong>ortogonais</strong> (perpendiculares). No ensino médio, não há método algébrico direto para testar perpendicularidade — você precisava "ver" o ângulo reto. Agora temos uma ferramenta que detecta perpendicularidade e paralelismo com contas simples.</p>
+
+<p>O produto escalar é essa ferramenta. Duas relações fundamentais, uma mesma operação.</p>
+
+<p>Dois vetores $\vec{u}$ e $\vec{v}$ são <strong>ortogonais</strong> quando seu produto escalar é zero:</p>
+
 <div class="formula">
-<p>Para verificar <strong>paralelismo</strong> entre $\vec{u} = (u_1, u_2)$ e $\vec{v} = (v_1, v_2)$:</p>
-    $$\vec{u} \parallel \vec{v} \iff \frac{u_1}{v_1} = \frac{u_2}{v_2} \textrm{ (quando } v_1, v_2 \neq 0 \textrm{)}$$
-    <p>Ou alternativamente verificar se existe $\lambda$ tal que:</p>
-    $$\vec{u} = \lambda\vec{v}$$
-    </div>
+$$\vec{u} \perp \vec{v} \iff \vec{u} \cdot \vec{v} = u_1 v_1 + u_2 v_2 = 0$$
+</div>
+
+<p>Dois vetores $\vec{u}$ e $\vec{v}$ são <strong>paralelos</strong> quando um é múltiplo escalar do outro:</p>
+
 <div class="formula">
-<p>Para verificar <strong>ortogonalidade</strong> entre $\vec{u} = (u_1, u_2)$ e $\vec{v} = (v_1, v_2)$:</p>
-    $$\vec{u} \perp \vec{v} \iff \vec{u} \cdot \vec{v} = 0 \iff u_1v_1 + u_2v_2 = 0$$
-    </div>
-<p>A capacidade de identificar rápida e corretamente estas relações vetoriais será crucial para sua sobrevivência nas missões a seguir. Prepare seu equipamento e mantenha sua calculadora carregada — a geometria está do nosso lado.</p>
+$$\vec{u} \parallel \vec{v} \iff \exists \, \lambda \in \mathbb{R} \text{ tal que } \vec{u} = \lambda \vec{v}$$
+</div>
+
+<p>Na prática, para vetores $\vec{u} = (u_1, u_2)$ e $\vec{v} = (v_1, v_2)$ com componentes não nulas, o paralelismo equivale à proporcionalidade das componentes:</p>
+
+<div class="formula">
+$$\vec{u} \parallel \vec{v} \iff \frac{u_1}{v_1} = \frac{u_2}{v_2}$$
+</div>
+
+<p><strong>Atalho para ortogonalidade no $\mathbb{R}^2$:</strong> dado $\vec{u} = (a, b)$, os vetores $(b, -a)$ e $(-b, a)$ são automaticamente ortogonais a $\vec{u}$. Basta trocar as componentes e inverter o sinal de uma delas. Verificação: $(a, b) \cdot (b, -a) = ab - ab = 0$.</p>
+
+<p>Estas relações serão suas ferramentas nas missões a seguir. Prepare o Traje de Proteção e mantenha a calculadora carregada.</p>
 
     </div>
 </section>

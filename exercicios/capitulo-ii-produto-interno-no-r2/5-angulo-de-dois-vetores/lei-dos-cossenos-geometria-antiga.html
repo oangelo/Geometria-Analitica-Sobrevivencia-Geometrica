@@ -1,0 +1,34 @@
+<div class="exercise">
+<h3>LEI DOS COSSENOS — A GEOMETRIA ANTIGA</h3>
+<p>O módulo de produto escalar do Refúgio-TEC foi danificado por um surto de radiação. Sem acesso a essa ferramenta, um técnico recorda a Lei dos Cossenos do Capítulo 0 e propõe um método alternativo: montar um triângulo com os vetores $\vec{u} = (4,2)$ e $\vec{v} = (1,3)$ como dois lados consecutivos, e o terceiro lado sendo $\vec{u} - \vec{v}$. Se $a = |\vec{u}|$, $b = |\vec{v}|$ e $c = |\vec{u} - \vec{v}|$ são os lados do triângulo, a Lei dos Cossenos permite encontrar o ângulo $\theta$ entre $\vec{u}$ e $\vec{v}$ pela relação $c^2 = a^2 + b^2 - 2ab\cos\theta$. Determine $\theta$ usando apenas essa relação geométrica.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Calcule os três lados do triângulo: $|\vec{u}|$, $|\vec{v}|$ e $|\vec{u} - \vec{v}|$. Depois isole $\cos\theta$ na Lei dos Cossenos.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Calculamos os três lados do triângulo:
+$$a = |\vec{u}| = \sqrt{4^2 + 2^2} = \sqrt{20} = 2\sqrt{5}$$
+$$b = |\vec{v}| = \sqrt{1^2 + 3^2} = \sqrt{10}$$
+$$c = |\vec{u} - \vec{v}| = |(3,-1)| = \sqrt{9 + 1} = \sqrt{10}$$</li>
+<li>Aplicamos a Lei dos Cossenos e isolamos $\cos\theta$:
+$$c^2 = a^2 + b^2 - 2ab\cos\theta$$
+$$10 = 20 + 10 - 2 \cdot 2\sqrt{5} \cdot \sqrt{10} \cdot \cos\theta$$</li>
+<li>Simplificamos:
+$$10 = 30 - 4\sqrt{50}\cos\theta$$
+$$4\sqrt{50}\cos\theta = 20$$
+Como $\sqrt{50} = 5\sqrt{2}$:
+$$20\sqrt{2}\cos\theta = 20$$
+$$\cos\theta = \frac{1}{\sqrt{2}} = \frac{\sqrt{2}}{2}$$</li>
+<li>Reconhecemos o valor notável:
+$$\theta = 45°$$</li>
+</ol>
+<div class="formula">
+$$\cos\theta = \frac{1}{\sqrt{2}} = \frac{\sqrt{2}}{2} \implies \theta = 45°$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A Lei dos Cossenos funciona — é geometria sólida do Capítulo 0. Mas quantos passos foram necessários? Três lados, substituição, isolamento, simplificação com raiz... E se houvesse um caminho mais direto?</p>
+</details>
+</div>

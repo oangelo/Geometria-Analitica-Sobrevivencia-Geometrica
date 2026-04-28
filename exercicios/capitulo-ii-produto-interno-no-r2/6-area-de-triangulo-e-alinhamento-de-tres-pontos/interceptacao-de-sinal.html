@@ -1,0 +1,22 @@
+<div class="exercise">
+<h3>INTERCEPTAÇÃO DE SINAL</h3>
+<p>No exercício anterior, verificamos que três pontos colineares têm determinante zero. Agora o problema se inverte: o sistema de comunicação do Refúgio-TEC detectou sinais em três pontos $A(1, 2)$, $B(3, 6)$ e $C(k, 10)$. Para que uma antena direcional cubra todos os três pontos, eles precisam estar alinhados. A ferramenta é a mesma — o determinante 2×2 — mas agora uma coordenada é desconhecida. Determine o valor de $k$ que torna $A$, $B$ e $C$ colineares.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint"><p>Construa $\overrightarrow{AB}$ e $\overrightarrow{AC}$. Imponha a condição de colinearidade: $u_1 v_2 - u_2 v_1 = 0$. Resolva a equação para $k$.</p></div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Calculamos os vetores: $\overrightarrow{AB} = (3 - 1, 6 - 2) = (2, 4)$ e $\overrightarrow{AC} = (k - 1, 10 - 2) = (k - 1, 8)$</li>
+<li>Impomos colinearidade: $u_1 v_2 - u_2 v_1 = 0$</li>
+<li>Substituímos: $2 \cdot 8 - 4 \cdot (k - 1) = 0$</li>
+<li>Desenvolvemos: $16 - 4(k - 1) = 0$, ou seja, $16 - 4k + 4 = 0$</li>
+<li>Resolvemos: $20 = 4k$, portanto $k = 5$</li>
+<li>Verificação: com $k = 5$, o ponto $C$ é $(5, 10)$ e $\overrightarrow{AC} = (4, 8) = 2 \cdot \overrightarrow{AB}$. Confirmado: paralelos, logo colineares.</li>
+</ol>
+<div class="formula">$$\overrightarrow{AB} = (2, 4), \quad \overrightarrow{AC} = (k - 1, 8)$$
+$$2 \cdot 8 - 4 \cdot (k - 1) = 0 \implies 16 - 4k + 4 = 0 \implies k = 5$$</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A verificação final mostra que $\overrightarrow{AC} = 2\overrightarrow{AB}$ — os vetores são paralelos, confirmando o alinhamento. Quando o determinante é zero, os vetores $\overrightarrow{AB}$ e $\overrightarrow{AC}$ são proporcionais, o que é outra forma de dizer que $A$, $B$ e $C$ estão sobre a mesma reta.</p>
+</details>
+</div>

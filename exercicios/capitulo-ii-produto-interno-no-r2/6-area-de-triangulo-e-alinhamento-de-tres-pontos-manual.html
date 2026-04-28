@@ -1,28 +1,60 @@
 <section class="manual-contexto" data-context="manual-sobrevivencia">
     <div class="terminal-border">
     <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: ÁREA E ALINHAMENTO</h2>
-<p>Na reconstrução pós-colapso, a capacidade de calcular áreas precisamente pode significar a diferença entre um abrigo seguro e uma armadilha mortal. O cálculo de áreas usando vetores permite mapear zonas de recursos, delimitar perímetros defensivos e otimizar o uso de terrenos escassos sem a necessidade de instrumentos de medição sofisticados. Similarmente, determinar o alinhamento de pontos é crucial para verificar se estruturas estão em risco de colapso ou se três locais distintos podem ser conectados por uma única rota de patrulha.</p>
-<p>Os vetores, já estabelecidos como ferramentas essenciais de sobrevivência, agora serão utilizados para calcular áreas e verificar alinhamentos. Antes das equações de reta (tecnologia ainda não recuperada), estes métodos representam nossa melhor defesa contra estruturas instáveis e uso ineficiente de recursos.</p>
-<p>Para três pontos no plano, podemos verificar seu alinhamento (colinearidade) ou calcular a área do triângulo formado por eles. Dois vetores com origem em um mesmo ponto determinam um paralelogramo, cuja área pode ser calculada através de operações vetoriais.</p>
+
+<p>O produto escalar mede a <em>cooperação</em> entre dois vetores. Mas a cooperação não conta toda a história. Dois vetores também delimitam uma <strong>área</strong> no plano — e medir essa área é essencial para demarcar zonas seguras, dimensionar plantações e verificar se pontos de patrulha estão alinhados.</p>
+
+<p>Neste tópico, vamos aprender duas coisas: (1) calcular a área de um triângulo dados três pontos, e (2) verificar se três pontos são colineares (estão sobre a mesma reta). A surpresa: a <strong>mesma fórmula</strong> resolve os dois problemas.</p>
+
+<h3 class="terminal-line">&gt; GEOMETRIA ANTIGA: BASE × ALTURA</h3>
+
+<p>Se dois vetores $\vec{u}$ e $\vec{v}$ formam um paralelogramo com ângulo $\theta$ entre eles, a área pode ser obtida pelo método do ensino médio:</p>
+
 <div class="formula">
-    $$\text{Área do paralelogramo} = |\vec{u} \times \vec{v}| = |u_1v_2 - u_2v_1|$$
-    </div>
+$$\text{Área do paralelogramo} = \text{base} \times \text{altura} = |\vec{u}| \cdot |\vec{v}| \sin\theta$$
+</div>
 <div class="formula">
-    $$\text{Área do triângulo} = \frac{1}{2}|\vec{u} \times \vec{v}| = \frac{1}{2}|u_1v_2 - u_2v_1|$$
-    </div>
+$$\text{Área do triângulo} = \frac{1}{2}|\vec{u}| \cdot |\vec{v}| \cdot \sin\theta$$
+</div>
+
+<p>Funciona. Mas exige calcular o ângulo $\theta$ (usando o produto escalar e a fórmula do tópico anterior), depois obter $\sin\theta$, depois a altura, e finalmente a área. São vários passos.</p>
+
+<h3 class="terminal-line">&gt; FERRAMENTA NOVA: O DETERMINANTE 2×2</h3>
+
+<p>Para vetores $\vec{u} = (u_1, u_2)$ e $\vec{v} = (v_1, v_2)$ no $\mathbb{R}^2$, definimos o <strong>determinante 2×2</strong>:</p>
+
 <div class="formula">
-    $$\text{Teste de colinearidade:}$$
-    $$\text{Pontos } A, B, C \text{ são colineares se e somente se } \overrightarrow{AB} \times \overrightarrow{AC} = 0$$
-    </div>
-<p>Dados três pontos $A(x_A, y_A)$, $B(x_B, y_B)$ e $C(x_C, y_C)$, podemos verificar sua colinearidade através do cálculo do determinante:</p>
+$$\det(\vec{u}, \vec{v}) = u_1 v_2 - u_2 v_1 = \begin{vmatrix} u_1 &amp; u_2 \\ v_1 &amp; v_2 \end{vmatrix}$$
+</div>
+
+<p>Com essa ferramenta, a área fica direta — sem calcular ângulo:</p>
+
 <div class="formula">
-    $$\begin{vmatrix} 
-    x_A &amp; y_A &amp; 1 \\
-    x_B &amp; y_B &amp; 1 \\
-    x_C &amp; y_C &amp; 1
-    \end{vmatrix} = 0 \text{ se os pontos são colineares}$$
-    </div>
-<p>Ou através da comparação da razão das coordenadas dos vetores formados por esses pontos.</p>
+$$\text{Área do paralelogramo} = |u_1 v_2 - u_2 v_1|$$
+</div>
+<div class="formula">
+$$\text{Área do triângulo} = \frac{1}{2}|u_1 v_2 - u_2 v_1|$$
+</div>
+
+<p>Dados três pontos $A(x_A, y_A)$, $B(x_B, y_B)$ e $C(x_C, y_C)$, construímos dois vetores com origem em $A$:</p>
+
+<div class="formula">
+$$\overrightarrow{AB} = (x_B - x_A,\; y_B - y_A) \quad \text{e} \quad \overrightarrow{AC} = (x_C - x_A,\; y_C - y_A)$$
+</div>
+
+<p>e aplicamos a fórmula da área.</p>
+
+<h3 class="terminal-line">&gt; TESTE DE COLINEARIDADE</h3>
+
+<p>Se três pontos estão alinhados, o triângulo que formam <em>desaparece</em> — a área é zero. Inversamente, se a área é zero, os pontos são colineares:</p>
+
+<div class="formula">
+$$A, B, C \text{ são colineares} \iff u_1 v_2 - u_2 v_1 = 0$$
+</div>
+
+<p>onde $\vec{u} = \overrightarrow{AB}$ e $\vec{v} = \overrightarrow{AC}$. Um determinante nulo é o sinal de que os vetores são <strong>paralelos</strong> — e portanto os três pontos compartilham a mesma direção.</p>
+
+<p><strong>Resumo:</strong> Uma única expressão — $u_1 v_2 - u_2 v_1$ — resolve tanto o cálculo de área quanto o teste de alinhamento. Quanto vale? Se é zero: pontos alinhados. Se não é zero: a área do triângulo é a metade do valor absoluto.</p>
 
     </div>
 </section>

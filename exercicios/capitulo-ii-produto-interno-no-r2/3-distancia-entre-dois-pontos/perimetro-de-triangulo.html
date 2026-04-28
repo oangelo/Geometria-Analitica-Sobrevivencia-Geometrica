@@ -1,0 +1,23 @@
+<div class="exercise">
+<h3>PERÍMETRO DO TRIÂNGULO — CERCANDO O ASSENTAMENTO</h3>
+<p>Três torres de comunicação foram erguidas nos pontos $A(1{,}1)$, $B(7{,}1)$ e $C(4{,}6)$ para delimitar um assentamento na Zona Devastada. No papel, esboce o triângulo $ABC$ e marque cada lado com a distância que você calcular. O comando do Refúgio-TEC precisa saber o comprimento total do perímetro para dimensionar a cerca eletrificada. Calcule todas as distâncias entre os vértices e determine o perímetro do triângulo.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Calcule $d(A,B)$, $d(B,C)$ e $d(C,A)$ separadamente, usando o módulo do vetor diferença em cada caso. O perímetro é a soma das três distâncias.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>$\overrightarrow{AB} = (6{,}0)$, logo $d(A,B) = \sqrt{36+0} = 6$.</li>
+<li>$\overrightarrow{BC} = (-3{,}5)$, logo $d(B,C) = \sqrt{9+25} = \sqrt{34}$.</li>
+<li>$\overrightarrow{CA} = (-3{,}-5)$, logo $d(C,A) = \sqrt{9+25} = \sqrt{34}$.</li>
+<li>Perímetro: $P = 6 + \sqrt{34} + \sqrt{34} = 6 + 2\sqrt{34} \approx 6 + 11{,}66 = 17{,}66$ unidades.</li>
+</ol>
+<div class="formula">
+$$P = d(A,B) + d(B,C) + d(C,A) = 6 + \sqrt{34} + \sqrt{34} = 6 + 2\sqrt{34}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Note que $d(B,C) = d(C,A) = \sqrt{34}$: dois lados têm o mesmo comprimento. Isso já nos dá informação sobre a forma do triângulo — informação que exploraremos no próximo exercício.</p>
+</details>
+</div>

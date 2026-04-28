@@ -1,0 +1,31 @@
+<div class="exercise">
+<h3>OS TRÊS CASOS ESPECIAIS</h3>
+<p>Agora que a fórmula $\cos\theta = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}| \cdot |\vec{v}|}$ está operacional, o sistema do Refúgio-TEC precisa calibrar os extremos. Verifique o que a fórmula produz em três situações limite que já conhecemos dos tópicos anteriores:</p>
+<p><strong>(a)</strong> $\vec{u} = (2,3)$ e $\vec{v} = (4,6)$ — vetores paralelos com mesma direção e sentido. Qual é $\cos\theta$? Qual é $\theta$?</p>
+<p><strong>(b)</strong> $\vec{u} = (3,0)$ e $\vec{v} = (0,5)$ — vetores ortogonais. Qual é $\cos\theta$? Qual é $\theta$?</p>
+<p><strong>(c)</strong> $\vec{u} = (2,3)$ e $\vec{v} = (-4,-6)$ — vetores paralelos com sentidos opostos. Qual é $\cos\theta$? Qual é $\theta$?</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Em cada caso, calcule o produto escalar e os módulos. Note que no item (a), $\vec{v} = 2\vec{u}$; no item (c), $\vec{v} = -2\vec{u}$. Essa relação simplifica a conta.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li><strong>Caso (a) — paralelos, mesmo sentido:</strong>
+$$\vec{u} \cdot \vec{v} = 8 + 18 = 26, \quad |\vec{u}| = \sqrt{13}, \quad |\vec{v}| = 2\sqrt{13}$$
+$$\cos\theta = \frac{26}{\sqrt{13} \cdot 2\sqrt{13}} = \frac{26}{2 \cdot 13} = 1 \implies \theta = 0°$$</li>
+<li><strong>Caso (b) — ortogonais:</strong>
+$$\vec{u} \cdot \vec{v} = 0 + 0 = 0$$
+$$\cos\theta = \frac{0}{3 \cdot 5} = 0 \implies \theta = 90°$$</li>
+<li><strong>Caso (c) — paralelos, sentidos opostos:</strong>
+$$\vec{u} \cdot \vec{v} = -8 - 18 = -26, \quad |\vec{v}| = 2\sqrt{13}$$
+$$\cos\theta = \frac{-26}{\sqrt{13} \cdot 2\sqrt{13}} = \frac{-26}{2 \cdot 13} = -1 \implies \theta = 180°$$</li>
+</ol>
+<div class="formula">
+$$\cos\theta = 1 \implies \theta = 0° \quad | \quad \cos\theta = 0 \implies \theta = 90° \quad | \quad \cos\theta = -1 \implies \theta = 180°$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Os três casos extremos confirmam tudo que vimos nos tópicos anteriores: paralelismo ($\theta = 0°$ ou $180°$) e ortogonalidade ($\theta = 90°$) são os casos particulares da fórmula geral. O produto escalar não inventou nada novo — ele unificou o que já sabíamos numa única equação.</p>
+</details>
+</div>

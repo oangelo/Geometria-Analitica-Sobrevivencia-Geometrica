@@ -1,0 +1,30 @@
+<div class="exercise">
+<h3>PARÂMETRO PARA PARALELISMO</h3>
+
+<p>Da mesma forma que impusemos ortogonalidade no exercício anterior, agora vamos impor paralelismo. O objetivo é comparar os dois procedimentos e perceber que paralelismo e ortogonalidade são condições distintas, com métodos distintos.</p>
+
+<p>O sistema de dutos de ventilação do Refúgio-TEC precisa que dois trechos sejam paralelos. Os trechos seguem as direções $\vec{u} = (4, 6)$ e $\vec{v} = (2, k)$. Determine o valor de $k$ que garante $\vec{u} \parallel \vec{v}$. Depois, com esse valor de $k$, verifique se os vetores são também ortogonais ou apenas paralelos.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Paralelismo exige componentes proporcionais: $\frac{u_1}{v_1} = \frac{u_2}{v_2}$. Substitua e resolva para $k$. Depois calcule o produto escalar para verificar ortogonalidade.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Imponha a condição de paralelismo: $\frac{4}{2} = \frac{6}{k}$.</li>
+<li>Resolva: $2 = \frac{6}{k} \Longrightarrow 2k = 6 \Longrightarrow k = 3$.</li>
+<li>Com $k = 3$: $\vec{u} = (4, 6)$ e $\vec{v} = (2, 3)$. Confirmação: $\vec{u} = 2\vec{v}$ ✓.</li>
+<li>Teste de ortogonalidade: $\vec{u} \cdot \vec{v} = 4 \cdot 2 + 6 \cdot 3 = 8 + 18 = 26 \neq 0$. Não são ortogonais — são apenas paralelos.</li>
+<li>Observação: vetores não nulos <strong>não podem</strong> ser simultaneamente paralelos e ortogonais. São condições mutuamente exclusivas.</li>
+</ol>
+<div class="formula">
+$$\frac{4}{2} = \frac{6}{k} \quad \Longrightarrow \quad 2k = 6 \quad \Longrightarrow \quad k = 3$$
+$$\vec{u} \cdot \vec{v} = 4 \cdot 2 + 6 \cdot 3 = 26 \neq 0 \quad \Longrightarrow \quad \text{não ortogonais}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Assim como no exercício de ortogonalidade, aqui o paralelismo vira ferramenta de projeto. Mas a pergunta final — "são também ortogonais?" — revela uma verdade fundamental: no $\mathbb{R}^2$, vetores não nulos <strong>não podem</strong> ser simultaneamente paralelos e ortogonais. São condições mutuamente exclusivas. O explorador que entende isso nunca confunde as duas relações.</p>
+</details>
+</div>

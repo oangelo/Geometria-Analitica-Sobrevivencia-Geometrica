@@ -1,0 +1,30 @@
+<div class="exercise">
+<h3>VETOR ORTOGONAL COM MÓDULO ESPECÍFICO</h3>
+
+<p>Nos tópicos anteriores deste capítulo, vimos que o módulo de um vetor é $|\vec{v}| = \sqrt{\vec{v} \cdot \vec{v}}$. Agora vamos combinar ortogonalidade (Tópico 4) com módulo (Tópico 2) para encontrar um vetor que satisfaça duas condições simultaneamente.</p>
+
+<p>O engenheiro do Refúgio-TEC precisa de um vetor $\vec{v}$ que seja ortogonal a $\vec{u} = (3, 4)$ e que tenha módulo $|\vec{v}| = 10$. Encontre $\vec{v}$.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Use o atalho para encontrar um vetor ortogonal a $(3, 4)$. Depois ajuste o módulo: se $\vec{w}$ é ortogonal a $\vec{u}$ mas $|\vec{w}| \neq 10$, multiplique por um fator $\alpha$ para ajustar. Lembre que $|\alpha \vec{w}| = |\alpha| \cdot |\vec{w}|$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Pelo atalho, um vetor ortogonal a $\vec{u} = (3, 4)$ é $\vec{w} = (4, -3)$ (trocar e trocar sinal).</li>
+<li>Calcule o módulo de $\vec{w}$: $|\vec{w}| = \sqrt{4^2 + (-3)^2} = \sqrt{16 + 9} = \sqrt{25} = 5$.</li>
+<li>Precisamos $|\vec{v}| = 10$, mas $|\vec{w}| = 5$. A razão é $\frac{10}{5} = 2$.</li>
+<li>Multiplique $\vec{w}$ por $2$: $\vec{v} = 2\vec{w} = 2 \cdot (4, -3) = (8, -6)$.</li>
+<li>Confirmação: ortogonalidade — $\vec{u} \cdot \vec{v} = 3 \cdot 8 + 4 \cdot (-6) = 24 - 24 = 0$ ✓. Módulo — $|\vec{v}| = \sqrt{64 + 36} = \sqrt{100} = 10$ ✓.</li>
+</ol>
+<div class="formula">
+$$\vec{w} = (4, -3), \quad |\vec{w}| = 5, \quad \vec{v} = 2\vec{w} = (8, -6)$$
+$$\vec{u} \cdot \vec{v} = 0 \quad \text{e} \quad |\vec{v}| = 10 \quad \checkmark$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Este exercício combina dois tópicos: ortogonalidade (Tópico 4) e módulo (Tópico 2). Na prática, engenheiros frequentemente precisam de vetores com direção e tamanho específicos. O procedimento é: (1) encontrar a direção correta via atalho ortogonal, (2) ajustar o tamanho via multiplicação escalar. A multiplicação escalar preserva a direção, então a ortogonalidade é mantida.</p>
+</details>
+</div>
