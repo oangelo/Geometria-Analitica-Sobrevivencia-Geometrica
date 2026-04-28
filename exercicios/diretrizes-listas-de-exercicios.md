@@ -213,6 +213,23 @@ Os exemplos abaixo mostram como aplicar os princípios acima no formato **texto 
 **Q13** — Problema combinando porcentagem + fração
 > Do suprimento total do abrigo, 40% é combustível. Do combustível, $\frac{2}{3}$ é destinado à expedição. Qual fração do suprimento total vai para a expedição? Converta, opere e interprete.
 
+### 10. Conectar com o que o aluno já sabe
+Quando fizer sentido pedagogicamente, a lista deve retomar métodos do ensino médio e mostrar como a ferramenta vetorial unifica ou simplifica aquilo que o aluno já fazia. O aluno pode descobrir que a "fórmula da distância" decorada é o módulo do vetor diferença, que Pitágoras é um caso particular do produto escalar, que a Lei dos Cossenos e a fórmula do ângulo entre vetores dão o mesmo resultado, ou que a área por base×altura×$\sin\theta$ se resume a um determinante.
+
+Isso **não é obrigatório** — aplica-se quando a conexão for natural e esclarecedora. Se o tópico não tem método equivalente no ensino médio (ex: ortogonalidade de vetores), não force a comparação.
+
+**Quando funciona bem:**
+- O aluno resolve pelo método antigo (que já domina) e depois resolve pela ferramenta nova, comparando os resultados
+- O aluno descobre que a "fórmula decorada" tem origem unificada em um conceito mais fundamental
+- A comparação mostra que a ferramenta nova é mais eficiente ou mais geral
+
+**Quando NÃO funciona:**
+- O tópico é conceitualmente novo (ex: vetores no Cap I, cônicas no Cap V)
+- Forçar a comparação seria artificial ou confuso
+- O método antigo é tão diferente que a comparação não esclarece
+
+**Como integrar ao texto:** geralmente como dois exercícios consecutivos na FASE 1 — o primeiro pede o método antigo, o segundo mostra a ferramenta nova aplicada ao mesmo problema. Não precisa ser explícito ("compare os métodos") — basta que o aluno resolva duas vezes e veja a simplificação.
+
 ---
 
 ## Fundamentação Teórica (manual)
@@ -253,6 +270,7 @@ O enunciado deve ser **texto corrido** — parágrafos `<p>` puros.
 - `<ul><li>` — usar `<p><strong>(a)</strong>...</p>` para sub-itens
 - `<strong>Solicitação:</strong>` ou labels extras antes dos sub-itens
 - Qualquer tag estrutural além de `<p>`, `<strong>`, `<em>`
+- Frases meta-descritivas como "O objetivo deste exercício é..." — o texto integrado já motiva o problema; não quebre a quarta parede
 
 **Referências a outros exercícios:**
 - Sempre pelo **conceito**, nunca pelo número/nome do exercício
@@ -282,16 +300,23 @@ Se encontrar barras duplas acidentais (que não sejam dentro de comandos LaTeX v
 
 ## Exemplos por Conteúdo
 
-### Produto Escalar (Cap II)
+### Produto Interno no R² (Cap II)
 
-A lista não deve começar com "calcule $\vec{u} \cdot \vec{v}$". A progressão deve ser:
+A lista não deve começar com "calcule $\vec{u} \cdot \vec{v}$". A progressão por tópico deve ser:
 
-1. **Significado do produto escalar** — o que o número resultante representa? Quando é positivo, negativo, zero?
-2. **Propriedades** — comutatividade, distributividade, verificadas numericamente
-3. **Módulo via produto escalar** — $|\vec{v}| = \sqrt{\vec{v} \cdot \vec{v}}$, conexão com o que o aluno já sabe (Teorema de Pitágoras)
-4. **Ângulo entre vetores** — a fórmula $\cos\theta = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}||\vec{v}|}$ aparece naturalmente
-5. **Perpendicularidade** — quando $\vec{u} \cdot \vec{v} = 0$
-6. **Aplicações combinadas** — problemas que usam múltiplos conceitos
+**Tópico 1 — Produto escalar:** Começar pelo significado do resultado (positivo, negativo, zero), não pelo cálculo. Depois cálculo direto, vetores de pontos, propriedades (comutatividade, distributividade, associatividade escalar), equações com produto escalar, identidade do quadrado do binômio vetorial, aplicações.
+
+**Tópico 2 — Módulo:** Geometria antiga → ferramenta nova. Primeiro Pitágoras puro (que o aluno já domina), depois revelar que $\sqrt{\vec{v}\cdot\vec{v}}$ é Pitágoras disfarçado. Propriedades, vetor unitário, equações com módulo.
+
+**Tópico 3 — Distância:** Geometria antiga → ferramenta nova. Primeiro a fórmula decorada $\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$, depois revelar que é $|\overrightarrow{AB}|$. Propriedades, coordenadas com incógnita, perímetro, classificação de triângulos.
+
+**Tópico 4 — Paralelismo e ortogonalidade:** O caso zero do produto escalar significa perpendicularidade. Proporcionalidade para paralelismo. Encontrar parâmetros, construir retângulos.
+
+**Tópico 5 — Ângulo:** Geometria antiga → ferramenta nova. Primeiro Lei dos Cossenos (Cap 0), depois $\cos\theta = \frac{\vec{u}\cdot\vec{v}}{|\vec{u}||\vec{v}|}$ — mesmo resultado em menos passos. Casos especiais, ângulo a partir de pontos, encontrar parâmetro, classificar triângulos.
+
+**Tópico 6 — Área e alinhamento:** Geometria antiga → ferramenta nova. Primeiro base×altura×$\sin\theta$ (8 passos: ângulo, seno, altura, área), depois determinante 2×2 (1 passo). Mesma fórmula testa colinearidade (det = 0). APENAS determinante 2×2 (estamos no R²).
+
+**Narrativa transversal:** quando possível, mostrar que "tudo que o aluno fez no EM com fórmulas decoradas tem origem unificada" no conceito novo. Aplicar quando a conexão for natural, não forçar quando não for.
 
 ### Cônicas (Cap V)
 

@@ -94,6 +94,7 @@ $$fórmula principal$$
 - **Dica:** omitir completamente nos exercícios OMEGA (desafiador, sem dica)
 - **Reflexão de Sobrevivência:** obrigatória em todos os exercícios, dentro do `<details>` da solução
 - **Esboço geométrico:** SEMPRE pedir esboço no papel em FASE 1 e FASE 4; NUNCA usar "mentalmente", "visualize" ou "imagine" — integrado ao texto: "No papel, esboce..." ou "Desenhe no papel..."
+- **Sem meta-descrição:** NUNCA começar com "O objetivo deste exercício é..." ou "Este exercício visa..." — o texto integrado já motiva o problema; quebra a quarta parede e interrompe o fluxo narrativo
 
 ---
 
