@@ -175,7 +175,9 @@ No automated test suite exists. Manual verification required:
 
 6. **Coherence with exercises:** Each horizontal section should correspond to a topic in the exercise list for that chapter. See `slide-decks/AGENTS.md` §3.
 
-7. **Visual verification required:** See `slide-decks/AGENTS.md` §7 — mandatory screenshot verification after any change.
+7. **Review pipeline (3 agents):** See `slide-decks/AGENTS.md` §5 — Revisor (RTC) → Planejador (fino detalhado) → Implementador. Each step requires professor approval before proceeding.
+
+8. **Visual verification required:** See `slide-decks/AGENTS.md` §7 — mandatory screenshot verification after any change.
 
 ### Exams (`provas/`)
 

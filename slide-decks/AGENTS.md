@@ -284,9 +284,21 @@ Padrão IIFE obrigatório:
 
 ---
 
-## 5. Pipeline de Revisão (2 Agentes)
+## 5. Pipeline de Revisão (3 Agentes)
+
+O pipeline tem 3 etapas com 3 agentes distintos. Entre cada etapa, o professor revisa e aprova antes de prosseguir.
+
+```
+Agente 1 — Revisor (diagnóstico → RTC)
+         ↓ Revisão humana (professor comenta aprovação/ajustes)
+Agente 2 — Planejador (planejamento fino detalhado)
+         ↓ Revisão humana (professor comenta aprovação/ajustes)
+Agente 3 — Implementador (executa o planejamento)
+```
 
 ### Agente 1 — Revisor (gera RTC)
+
+**Propósito:** Diagnóstico. Identificar o que está errado e o que falta. NÃO é plano de ação — é levantamento de problemas.
 
 **Entrada:** Slide atual + exercícios do mesmo capítulo
 
@@ -302,14 +314,14 @@ Padrão IIFE obrigatório:
 - **Erros críticos:** inline styles, LaTeX quebrado, notação incorreta, conceitos fora de escopo
 - **Correspondência slides↔exercícios:** mapear tópicos e identificar lacunas
 - **Análise narrativa:** cada stack vertical tem motivação? Conceitos constroem sobre anteriores?
-- **Sugestões:** reordenação, adições, remoções
+- **Sugestões:** reordenação, adições, remoções (direções gerais, não plano detalhado)
 
 **Como invocar:**
 
 > Execute o Agente Revisor no issue #N (NOME DO CAPÍTULO).
 >
 > ANTES de começar:
-> 1. Leia `slide-decks/AGENTS.md` — regras de localStorage, LaTeX, notação, narrativa
+> 1. Leia `slide-decks/AGENTS.md` — regras críticas, LaTeX, notação, narrativa
 > 2. Leia `slide-decks/prompt.md` — referência de classes CSS e estrutura
 > 3. Leia os slides em `slide-decks/capitulo-N/`
 > 4. Leia os exercícios em `exercicios/capitulo-N/`
@@ -353,24 +365,127 @@ Padrão IIFE obrigatório:
 3. Adicionar slide de projeção vetorial (exercício 5 pressupõe conhecimento)
 ```
 
-### Agente 2 — Implementador
+### Agente 2 — Planejador (gera planejamento fino detalhado)
 
-**Entrada:** RTC dos comentários do issue
+**Propósito:** Transformar o diagnóstico (RTC + aprovação do professor) em plano executável detalhado. O implementador deve conseguir seguir o planejamento sem voltar aos arquivos originais para entender o que fazer.
+
+**Entrada:** RTC + comentários de aprovação do professor no issue
 
 **Processo:**
 1. Ler o RTC nos comentários do issue
+2. Ler a aprovação/ajustes do professor
+3. Ler os slides atuais e exercícios para referência
+4. Gerar planejamento slide a slide
+
+**Como invocar:**
+
+> Execute o Agente Planejador no issue #N.
+>
+> ANTES de começar:
+> 1. Leia `slide-decks/AGENTS.md` — especialmente §2 (narrativa) e §9 (classes CSS)
+> 2. Leia `slide-decks/prompt.md` — referência de classes CSS
+> 3. Leia o RTC nos comentários da issue (`gh issue view N --comments`)
+> 4. Leia a aprovação/ajustes do professor nos comentários
+> 5. Leia os slides atuais em `slide-decks/capitulo-N/`
+> 6. Leia os exercícios em `exercicios/capitulo-N/`
+>
+> Gere um planejamento fino detalhado como comentário no issue, seguindo o formato abaixo.
+
+**Formato do Planejamento Fino Detalhado:**
+
+```markdown
+## PLANEJAMENTO FINO DETALHADO — CAPÍTULO N: [NOME]
+
+### Estrutura Geral
+
+Tabela com visão geral de todas as seções (horizontal) e seus slides verticais:
+
+| Seção | Arquivo | Tópico | Slides Verticais | Classe Principal |
+|-------|---------|--------|------------------|------------------|
+| 0 | capitulo-N.html | Loader principal | — | — |
+| 1 | 1-topico.html | ... | N | ... |
+| ... | ... | ... | ... | ... |
+
+**Total: N slides verticais em M seções horizontais**
+
+---
+
+### SEÇÃO 0: LOADER PRINCIPAL (`capitulo-N.html`)
+
+**Alterações necessárias:**
+- Atualizar array `SECTIONS` para nova ordem
+- Listar outras mudanças necessárias no loader
+
+---
+
+### SEÇÃO K: [NOME DO TÓPICO] (`k-topico.html`) — N slides
+
+Para CADA seção, detalhar slide a slide:
+
+**Slide K.1 — [Título] (Motivação)**
+- **Classe:** `field-report` (ou outra)
+- **Conteúdo:** O que aparece no slide
+- **Objetivo didático:** O que o aluno deve entender
+- **Elementos:** `narrative-text`, `survival-tip`, etc.
+- **Narrativa:** Texto-chave da motivação (se aplicável)
+- **Alterações:** O que mudar em relação ao slide atual (se revisão)
+
+**Slide K.2 — [Título] (Definição)**
+- (mesma estrutura)
+...
+
+---
+
+### ALTERAÇÕES NECESSÁRIAS NO `styles.css`
+
+Listar novas classes necessárias (se houver), com CSS sugerido.
+
+---
+
+### CHECKLIST DE IMPLEMENTAÇÃO
+
+| Ordem | Tarefa | Arquivo(s) | Prioridade |
+|-------|--------|------------|------------|
+| 1 | ... | ... | Alta |
+| 2 | ... | ... | Alta |
+| ... | ... | ... | ... |
+
+---
+
+### CORRESPONDÊNCIA FINAL SLIDES ↔ EXERCÍCIOS
+
+| Tópico Exercícios | Slides Correspondentes | Status |
+|-------------------|----------------------|--------|
+| 1-topico | 1-topico.html (N slides) | ✓ Completo |
+| 2-topico | 2-topico.html (N slides) | ✓ Completo |
+```
+
+**Referência:** O planejamento do Capítulo I na issue #18 é o modelo de referência. Leia `gh issue view 18 --comments` para ver o formato completo aplicado na prática.
+
+### Agente 3 — Implementador
+
+**Propósito:** Executar o planejamento fino detalhado. Seguir o checklist de implementação na ordem definida.
+
+**Entrada:** Planejamento fino detalhado + aprovação do professor no issue
+
+**Processo:**
+1. Ler o planejamento nos comentários do issue
 2. Ler `slide-decks/AGENTS.md` e `slide-decks/prompt.md`
-3. Implementar as correções
-4. Executar verificações obrigatórias (grep)
-5. Subir servidor e verificar visualmente (screenshot)
+3. Seguir o checklist de implementação na ordem definida
+4. Após cada arquivo: executar verificações obrigatórias (grep)
+5. Após todos os arquivos: subir servidor e verificar visualmente (screenshot)
 6. Se correto, oferecer URL + screenshot ao usuário
 
 **Como invocar:**
 
 > Execute o Agente Implementador no issue #N.
-> Leia o RTC nos comentários da issue (usar `gh issue view N --comments`).
-> Implemente as correções nos arquivos de slide.
-> Execute as verificações obrigatórias (grep para style=, grep para LaTeX quebrado).
+>
+> Leia o planejamento nos comentários da issue (`gh issue view N --comments`).
+> Leia `slide-decks/AGENTS.md` e `slide-decks/prompt.md`.
+> Siga o checklist de implementação na ordem definida pelo planejamento.
+> Após cada arquivo, execute as verificações obrigatórias:
+> - `grep -n 'style=' slide-decks/capitulo-N/*.html` (zero inline styles)
+> - `grep -n '\\\\(' slide-decks/capitulo-N/*.html | grep -v script` (zero LaTeX quebrado)
 > Suba servidor web e tire screenshot dos slides alterados.
 
 ---
@@ -476,6 +591,15 @@ ANALISAR: elementos corretos? fórmulas renderizam? layout OK?
 | `exercicios/capitulo-N/` | Exercícios do capítulo N — referência para coerência |
 | `AGENTS.md` (raiz) | Regras gerais do repositório, notação, paleta de cores |
 | `ESTILO.md` | Guia completo de notação matemática |
+
+### Exemplo de referência (pipeline completo aplicado)
+
+O Capítulo I é o modelo de referência para todo o pipeline. Para ver como ficou na prática:
+
+- **RTC (diagnóstico):** `gh issue view 18 --comments` — primeiro comentário
+- **Aprovação do professor:** segundo comentário
+- **Planejamento fino detalhado:** terceiro comentário
+- **Arquivos implementados:** `slide-decks/capitulo-i/`
 
 ### Classes CSS principais
 
