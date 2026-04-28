@@ -1,13 +1,30 @@
 <section class="manual-contexto" data-context="manual-sobrevivencia">
     <div class="terminal-border">
-    <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: ÂNGULOS ENTRE VETORES</h2>
-<p>Sobreviventes, em um mundo onde cada movimento pode significar a diferença entre vida e morte, compreender a direção e orientação é crucial. Os ângulos entre vetores nos permitem calcular com precisão as relações direcionais no plano, essenciais para navegação, planejamento de rotas de fuga e otimização de recursos em expedições.</p>
-<p>Na Zona Devastada, calcular o ângulo entre suas possíveis rotas de fuga pode determinar não apenas a eficiência energética de seu deslocamento, mas também suas chances de evitar áreas de alta radiação ou territórios de mutantes. A matemática vetorial é uma ferramenta de sobrevivência, não apenas uma curiosidade acadêmica.</p>
-<p>Quando dois vetores $\vec{u}$ e $\vec{v}$ são dados no plano, o ângulo $\theta$ entre eles pode ser determinado através do produto escalar. Lembre-se que esse ângulo é sempre o menor ângulo formado entre os vetores, sempre medido no sentido anti-horário, e varia de $0°$ a $180°$ (ou $0$ a $\pi$ radianos).</p>
+    <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: ÂNGULO ENTRE DOIS VETORES</h2>
+<p>CONEXÃO COM O TÓPICO ANTERIOR: No Tópico 4, vimos que $\vec{u} \cdot \vec{v} = 0$ significava ortogonalidade — o ângulo entre os vetores era $90°$. Mas o que acontece quando o produto escalar é positivo? E quando é negativo? A resposta: o produto escalar não apenas detecta o caso particular de $90°$ — ele revela o ângulo exato entre quaisquer dois vetores.</p>
+<p>Na Zona Devastada, conhecer o ângulo exato entre duas rotas pode determinar se uma expedição consegue evitar uma área de radiação ou se cairá numa emboscada de mutantes. O produto escalar, que até agora usávamos para detectar paralelismo e ortogonalidade, torna-se a ferramenta completa para navegação direcional.</p>
+<p>A FÓRMULA FUNDAMENTAL: Dados dois vetores não nulos $\vec{u}$ e $\vec{v}$ no plano, o ângulo $\theta$ entre eles satisfaz:</p>
 <div class="formula">
-    $$\cos(\theta) = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}| \cdot |\vec{v}|}$$
+    $$\cos\theta = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}| \cdot |\vec{v}|}$$
     </div>
-<p>Onde $\vec{u} \cdot \vec{v}$ é o produto escalar calculado como $u_1v_1 + u_2v_2$ para vetores bidimensionais, e $|\vec{u}|$ e $|\vec{v}|$ são os módulos dos vetores calculados como $|\vec{u}| = \sqrt{u_1^2 + u_2^2}$ e $|\vec{v}| = \sqrt{v_1^2 + v_2^2}$. É importante observar que dois vetores são perpendiculares quando $\vec{u} \cdot \vec{v} = 0$, e são paralelos quando o ângulo entre eles é $0°$ ou $180°$.</p>
-
+<p>onde $\vec{u} \cdot \vec{v} = u_1v_1 + u_2v_2$ é o produto escalar (Tópico 1), e $|\vec{u}| = \sqrt{\vec{u} \cdot \vec{u}}$ e $|\vec{v}| = \sqrt{\vec{v} \cdot \vec{v}}$ são os módulos (Tópico 2). O ângulo $\theta$ é sempre o menor ângulo entre os dois vetores, variando de $0°$ a $180°$.</p>
+<p>DE ONDE VEIO ESTA FÓRMULA? A Lei dos Cossenos, estudada no Capítulo 0, diz que num triângulo com lados $a$, $b$ e $c$ opostos ao ângulo $\theta$:</p>
+<div class="formula">
+    $$c^2 = a^2 + b^2 - 2ab\cos\theta$$
+    </div>
+<p>Se montamos um triângulo com lados $\vec{u}$, $\vec{v}$ e $\vec{u} - \vec{v}$, temos $a = |\vec{u}|$, $b = |\vec{v}|$, $c = |\vec{u} - \vec{v}|$. Expandindo $|\vec{u} - \vec{v}|^2$ pelo produto escalar:</p>
+<div class="formula">
+    $$|\vec{u} - \vec{v}|^2 = (\vec{u} - \vec{v}) \cdot (\vec{u} - \vec{v}) = |\vec{u}|^2 - 2\vec{u} \cdot \vec{v} + |\vec{v}|^2$$
+    </div>
+<p>Substituindo na Lei dos Cossenos e simplificando, os termos $|\vec{u}|^2$ e $|\vec{v}|^2$ se cancelam, restando:</p>
+<div class="formula">
+    $$-2\vec{u} \cdot \vec{v} = -2|\vec{u}||\vec{v}|\cos\theta \implies \cos\theta = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}||\vec{v}|}$$
+    </div>
+<p>A Lei dos Cossenos é o produto escalar disfarçada.</p>
+<p>O SINAL DO PRODUTO ESCALAR: Como $\cos\theta$ varia entre $-1$ e $1$, o sinal do produto escalar $\vec{u} \cdot \vec{v}$ antecipa a natureza do ângulo:</p>
+<p><strong>$\vec{u} \cdot \vec{v} > 0$:</strong> $\cos\theta > 0$, ângulo agudo ($0° < \theta < 90°$) — os vetores "convergam".</p>
+<p><strong>$\vec{u} \cdot \vec{v} = 0$:</strong> $\cos\theta = 0$, $\theta = 90°$ — ortogonalidade (Tópico 4).</p>
+<p><strong>$\vec{u} \cdot \vec{v} < 0$:</strong> $\cos\theta < 0$, ângulo obtuso ($90° < \theta < 180°$) — os vetores "divergem".</p>
+<p>CASOS EXTREMOS: Quando $\vec{u} = k\vec{v}$ com $k > 0$ (paralelismo, mesmo sentido), $\cos\theta = 1$ e $\theta = 0°$. Quando $k < 0$ (paralelismo, sentidos opostos), $\cos\theta = -1$ e $\theta = 180°$. Isso confirma o que vimos no Tópico 4: paralelismo e ortogonalidade são casos particulares desta fórmula geral.</p>
     </div>
 </section>

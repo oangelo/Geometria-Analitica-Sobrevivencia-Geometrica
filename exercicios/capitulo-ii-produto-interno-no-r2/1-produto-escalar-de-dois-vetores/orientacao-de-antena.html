@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>ORIENTAÇÃO DE ANTENA</h3>
+
+<p>Nos exercícios anteriores, você aprendeu a calcular produtos escalares, verificou propriedades e resolveu equações. Agora o SUPERVISOR precisa de você para um problema real. O Refúgio-29 opera dois sensores de radiação. O primeiro está fixo na posição $\vec{s}_1 = (4, 3)$. O segundo pode ser ajustado e está em $\vec{s}_2 = (x, 2)$. Para que a cobertura dos sensores seja maximizada, o produto escalar entre eles deve ser exatamente $20$. Encontre o valor de $x$ e, depois, interprete: dado o valor encontrado, os sensores cooperam ou competem? Há mais de um valor possível?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Monte a equação $\vec{s}_1 \cdot \vec{s}_2 = 20$ usando a definição. É uma equação linear em $x$ — só há uma solução. Depois de encontrar $x$, calcule o produto escalar e verifique o sinal.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Monte a equação: $(4, 3) \cdot (x, 2) = 20$.</li>
+<li>Desenvolva: $4x + 3 \times 2 = 20$, ou seja, $4x + 6 = 20$.</li>
+<li>Isole $x$: $4x = 14$, logo $x = \frac{14}{4} = \frac{7}{2} = 3{,}5$.</li>
+<li>Verifique: $\vec{s}_1 \cdot \vec{s}_2 = 4 \times 3{,}5 + 3 \times 2 = 14 + 6 = 20$ ✓.</li>
+<li>Interpretação: o produto escalar é $20 > 0$, então os sensores cooperam — apontam aproximadamente na mesma direção. Há apenas um valor de $x$ que satisfaz a condição, pois é uma equação linear.</li>
+</ol>
+<div class="formula">
+$$4x + 6 = 20 \implies x = 3{,}5 \implies \vec{s}_1 \cdot \vec{s}_2 = 20 > 0$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Este exercício junta tudo que construímos: o significado do produto escalar (medidor de cooperação), a definição (cálculo direto), a resolução de equações e a interpretação do resultado. Na Zona Devastada, configurar sensores de radiação com precisão pode ser a diferença entre detectar uma zona perigosa a tempo ou ser pego de surpresa.</p>
+</details>
+</div>

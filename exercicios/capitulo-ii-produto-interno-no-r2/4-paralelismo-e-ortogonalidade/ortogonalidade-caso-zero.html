@@ -1,0 +1,30 @@
+<div class="exercise">
+<h3>ORTOGONALIDADE — O CASO ZERO DO PRODUTO ESCALAR</h3>
+
+<p>Nos tópicos anteriores deste capítulo, vimos que o produto escalar pode ser positivo, negativo ou zero. O caso zero tem significado especial: quando $\vec{u} \cdot \vec{v} = 0$, dizemos que os vetores são <strong>ortogonais</strong> (perpendiculares). Vamos investigar esse caso na prática.</p>
+
+<p>Considere os vetores $\vec{u} = (4, 3)$ e $\vec{v} = (3, -4)$, que representam as rotas de duas equipes de reconhecimento na Zona Devastada. Calcule $\vec{u} \cdot \vec{v}$ e verifique se as rotas são ortogonais. Depois, construa outro vetor $\vec{w}$ (diferente de $\vec{v}$) que também seja ortogonal a $\vec{u}$ e confirme com o produto escalar.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Aplique a definição: $\vec{u} \cdot \vec{v} = u_1 v_1 + u_2 v_2$. Se o resultado for zero, os vetores são ortogonais. Para construir $\vec{w}$ ortogonal a $\vec{u} = (4, 3)$, pense em valores que zerem a soma $4w_1 + 3w_2 = 0$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Calcule o produto escalar: $\vec{u} \cdot \vec{v} = 4 \cdot 3 + 3 \cdot (-4) = 12 - 12 = 0$.</li>
+<li>Como $\vec{u} \cdot \vec{v} = 0$, os vetores são ortogonais — as rotas são perpendiculares.</li>
+<li>Para construir $\vec{w}$ ortogonal a $\vec{u} = (4, 3)$, precisamos $4w_1 + 3w_2 = 0$, ou seja, $4w_1 = -3w_2$.</li>
+<li>Escolhendo $w_1 = -3$ e $w_2 = 4$, temos $\vec{w} = (-3, 4)$.</li>
+<li>Confirmação: $\vec{u} \cdot \vec{w} = 4 \cdot (-3) + 3 \cdot 4 = -12 + 12 = 0$ ✓.</li>
+</ol>
+<div class="formula">
+$$\vec{u} \cdot \vec{v} = 4 \cdot 3 + 3 \cdot (-4) = 0 \quad \Longrightarrow \quad \vec{u} \perp \vec{v}$$
+$$\vec{w} = (-3, 4): \quad \vec{u} \cdot \vec{w} = 4 \cdot (-3) + 3 \cdot 4 = 0 \quad \Longrightarrow \quad \vec{u} \perp \vec{w}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> No ensino médio, perpendicularidade era visual — você "via" que duas direções formavam 90°. Na geometria analítica, o produto escalar substitui o olho: basta uma conta para confirmar ortogonalidade. Para equipes na Zona Devastada, saber que duas rotas são perpendiculares significa que elas cobrem direções independentes — máximo de território explorado com mínimo de sobreposição.</p>
+</details>
+</div>

@@ -1,0 +1,29 @@
+<div class="exercise">
+<h3>PARALELISMO VIA PROPORCIONALIDADE</h3>
+
+<p>Se ortogonalidade é detectada pelo produto escalar zero, o paralelismo tem seu próprio teste: dois vetores são paralelos quando suas componentes são proporcionais. Vamos aplicar esse teste na prática.</p>
+
+<p>O Refúgio-TEC precisa planejar dutos de ventilação paralelos. Os dutos seguem as direções dos vetores $\vec{u} = (2, 4)$ e $\vec{v} = (1, 2)$. Verifique se estes vetores são paralelos e, em caso afirmativo, determine o fator $\lambda$ tal que $\vec{u} = \lambda \vec{v}$. Depois, considere o vetor $\vec{w} = (-3, -6)$. Ele também é paralelo a $\vec{v}$? O que o sinal negativo de $\lambda$ indica sobre a direção?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Vetores paralelos têm componentes proporcionais. Compare $\frac{u_1}{v_1}$ com $\frac{u_2}{v_2}$. Se forem iguais, existe um $\lambda$ que transforma $\vec{v}$ em $\vec{u}$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Compare as razões: $\frac{u_1}{v_1} = \frac{2}{1} = 2$ e $\frac{u_2}{v_2} = \frac{4}{2} = 2$. Como são iguais, $\vec{u} \parallel \vec{v}$ com $\lambda = 2$.</li>
+<li>Confirmação: $\vec{u} = 2 \cdot \vec{v} = 2 \cdot (1, 2) = (2, 4)$ ✓.</li>
+<li>Para $\vec{w} = (-3, -6)$: $\frac{w_1}{v_1} = \frac{-3}{1} = -3$ e $\frac{w_2}{v_2} = \frac{-6}{2} = -3$. São iguais, logo $\vec{w} \parallel \vec{v}$ com $\lambda = -3$.</li>
+<li>O fator $\lambda = -3 < 0$ indica que $\vec{w}$ aponta na direção <strong>oposta</strong> a $\vec{v}$ — mesmo eixo, sentidos contrários.</li>
+</ol>
+<div class="formula">
+$$\frac{2}{1} = \frac{4}{2} = 2 \quad \Longrightarrow \quad \vec{u} = 2\vec{v}$$
+$$\frac{-3}{1} = \frac{-6}{2} = -3 \quad \Longrightarrow \quad \vec{w} = -3\vec{v} \quad (\text{direção oposta})$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Vetores paralelos com $\lambda > 0$ apontam no mesmo sentido — como dois dutos que levam ar na mesma direção. Com $\lambda < 0$, apontam em sentidos opostos — como entrada e saída de ventilação. A proporcionalidade das componentes é o teste algébrico: sem desenhar, sem régua, sem subjetividade.</p>
+</details>
+</div>

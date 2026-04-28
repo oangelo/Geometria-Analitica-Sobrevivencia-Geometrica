@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>ASSOCIATIVIDADE ESCALAR — ESCALAR DENTRO OU FORA?</h3>
+
+<p>Nos dois exercícios anteriores, verificamos a comutatividade e a distributividade. Falta uma propriedade: se multiplico um vetor por um escalar antes de fazer o produto escalar, o resultado muda? O engenheiro do abrigo precisa ajustar a força de um propulsor $\vec{u} = (2, -3)$ multiplicando-o por $k = 4$, e depois comparar com o vetor de referência $\vec{v} = (1, 5)$. Verifique se $(k\vec{u}) \cdot \vec{v}$ é igual a $k(\vec{u} \cdot \vec{v})$ — ou seja, posso "tirar o $k$ do produto escalar" e multiplicar no final?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Lado esquerdo: calcule $k\vec{u} = 4(2, -3) = (8, -12)$ e depois faça o produto escalar com $\vec{v}$. Lado direito: calcule $\vec{u} \cdot \vec{v}$ normalmente e depois multiplique o resultado por $4$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Calcule $k\vec{u} = 4 \times (2, -3) = (8, -12)$.</li>
+<li>Lado esquerdo: $(k\vec{u}) \cdot \vec{v} = (8, -12) \cdot (1, 5) = 8 \times 1 + (-12) \times 5 = 8 - 60 = -52$.</li>
+<li>Calcule $\vec{u} \cdot \vec{v} = (2, -3) \cdot (1, 5) = 2 \times 1 + (-3) \times 5 = 2 - 15 = -13$.</li>
+<li>Lado direito: $k(\vec{u} \cdot \vec{v}) = 4 \times (-13) = -52$.</li>
+<li>Compare: ambos dão $-52$. A associatividade escalar é válida.</li>
+</ol>
+<div class="formula">
+$$(k\vec{u}) \cdot \vec{v} = (8, -12) \cdot (1, 5) = -52 = 4 \times (-13) = k(\vec{u} \cdot \vec{v})$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A associatividade escalar nos permite "puxar o escalar para fora" do produto escalar. Na prática, se você já calculou $\vec{u} \cdot \vec{v}$ e depois descobriu que a força foi multiplicada por $k$, não precisa recalcular tudo — basta multiplicar o resultado por $k$. Economia de cálculo é economia de energia, e energia é vida na Zona Devastada.</p>
+</details>
+</div>

@@ -1,0 +1,30 @@
+<div class="exercise">
+<h3>O QUARTO VÉRTICE DO RETÂNGULO</h3>
+
+<p>Retângulos são as estruturas mais comuns na Zona Devastada: abrigos, barricadas, depósitos. Um retângulo tem lados adjacentes ortogonais e lados opostos paralelos — exatamente as duas relações que estudamos neste tópico. No papel, desenhe os pontos $A(0,0)$, $B(4,0)$ e $C(0,3)$ e tente localizar visualmente onde deveria ficar o quarto vértice $D$ para formar um retângulo. Depois, encontre $D$ usando as condições de ortogonalidade e paralelismo.</p>
+
+<p>Uma estrutura defensiva em forma de retângulo está sendo montada. Três de seus vértices foram posicionados em $A(1, 2)$, $B(5, 2)$ e $C(5, 5)$. Determine as coordenadas do quarto vértice $D$ usando as propriedades de ortogonalidade dos lados adjacentes e paralelismo dos lados opostos.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Construa os vetores entre os pontos dados. Verifique quais lados já são ortogonais — isso identifica o vértice do ângulo reto. Depois use paralelismo (lados opostos paralelos) para encontrar $D$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Construa os vetores: $\overrightarrow{AB} = B - A = (5, 2) - (1, 2) = (4, 0)$ e $\overrightarrow{BC} = C - B = (5, 5) - (5, 2) = (0, 3)$.</li>
+<li>Verifique ortogonalidade: $\overrightarrow{AB} \cdot \overrightarrow{BC} = 4 \cdot 0 + 0 \cdot 3 = 0$ ✓. Os lados em $B$ são perpendiculares — $B$ é o vértice do ângulo reto.</li>
+<li>No retângulo, $\overrightarrow{AD}$ deve ser paralelo a $\overrightarrow{BC}$ e $\overrightarrow{DC}$ deve ser paralelo a $\overrightarrow{AB}$.</li>
+<li>Como $\overrightarrow{AD} \parallel \overrightarrow{BC} = (0, 3)$, o ponto $D$ tem a mesma coordenada $x$ que $A$: $D = (1, y_D)$. E como $\overrightarrow{DC} \parallel \overrightarrow{AB} = (4, 0)$, $D$ tem a mesma coordenada $y$ que $C$: $D = (1, 5)$.</li>
+<li>Confirmação final: $\overrightarrow{AD} = D - A = (0, 3) \parallel \overrightarrow{BC}$ ✓ e $\overrightarrow{DC} = C - D = (4, 0) \parallel \overrightarrow{AB}$ ✓.</li>
+</ol>
+<div class="formula">
+$$D = (1, 5)$$
+$$\overrightarrow{AD} = (0, 3) \parallel \overrightarrow{BC} \quad \text{e} \quad \overrightarrow{DC} = (4, 0) \parallel \overrightarrow{AB}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Encontrar o quarto vértice de um retângulo é um problema clássico de ortogonalidade + paralelismo. A geometria analítica transforma o que seria "visualmente óbvio" num procedimento algébrico rigoroso. Na Zona Devastada, onde medições são feitas por coordenadas de GPS, saber encontrar $D$ sem desenhar é essencial para posicionar corretamente as esquinas de qualquer estrutura retangular.</p>
+</details>
+</div>

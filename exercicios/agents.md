@@ -46,6 +46,7 @@ capitulo-N/
 4. Para cada exercício, escreva o **parágrafo narrativo** que conecta ao anterior (princípio 9)
 5. Use APENAS conceitos já abordados até aquele ponto na progressão
 6. Escreva o enunciado como texto corrido (ver seção de formato abaixo)
+   6.5. Incluir pedido de esboço no papel — obrigatório em FASE 1 e FASE 4, recomendado em FASE 2 quando há interpretação geométrica (ver princípio 7 em `diretrizes-listas-de-exercicios.md`)
 7. Inclua dica (níveis básico/intermediário) e solução completa
 8. Termine com "Reflexão de Sobrevivência"
 9. Adicione o arquivo ao array `EXERCICIOS` no loader (`topico.html`)
@@ -92,6 +93,8 @@ $$fórmula principal$$
 - **Referências:** pelo conceito ("no exercício anterior sobre produto escalar"), nunca pelo número
 - **Dica:** omitir completamente nos exercícios OMEGA (desafiador, sem dica)
 - **Reflexão de Sobrevivência:** obrigatória em todos os exercícios, dentro do `<details>` da solução
+- **Esboço geométrico:** SEMPRE pedir esboço no papel em FASE 1 e FASE 4; NUNCA usar "mentalmente", "visualize" ou "imagine" — integrado ao texto: "No papel, esboce..." ou "Desenhe no papel..."
+- **Sem meta-descrição:** NUNCA começar com "O objetivo deste exercício é..." ou "Este exercício visa..." — o texto integrado já motiva o problema; quebra a quarta parede e interrompe o fluxo narrativo
 
 ---
 
@@ -163,6 +166,14 @@ Sério com humor sutil e sarcástico. Sem piadas forçadas. O cenário é o pano
 - Separador decimal: vírgula — `$0{,}6$`
 - Focos de cônicas: sempre LaTeX `$F_1$`, nunca Unicode "F₁"
 - Canônicos: `$\vec{e}_1, \vec{e}_2$` ou `$\vec{i}, \vec{j}$` — nunca reutilizar essas letras como variáveis
+
+### Esboço geométrico
+
+- **NUNCA** usar "mentalmente", "visualize", "imagina" ou "construa mentalmente" para operações geométricas
+- **SEMPRE** pedir esboço no papel em exercícios de FASE 1 e FASE 4
+- Recomendado em FASE 2 quando a ferramenta tem interpretação geométrica visível
+- Integrar o pedido ao texto: "No papel, esboce..." / "Desenhe no papel..."
+- Ver princípio 7 em `diretrizes-listas-de-exercicios.md` para regras completas
 
 ---
 
