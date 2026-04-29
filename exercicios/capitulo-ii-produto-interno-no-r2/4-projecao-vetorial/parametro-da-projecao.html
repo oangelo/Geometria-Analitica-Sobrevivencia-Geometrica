@@ -1,0 +1,29 @@
+<div class="exercise">
+<h3>PARÂMETRO DA PROJEÇÃO</h3>
+
+<p>O sistema de defesa do abrigo precisa ajustar um campo de força. O vetor de energia disponível é $\vec{a} = (2, k)$ e a direção do escudo é $\vec{b} = (3, 1)$. Para que o escudo funcione com eficiência máxima, a projeção escalar de $\vec{a}$ sobre $\vec{b}$ deve ser exatamente $4$. Encontre o valor de $k$ que satisfaz essa condição e calcule a projeção vetorial resultante. Existem mais valores de $k$ possíveis, ou apenas um?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVÊNCIA</summary>
+<div class="hint">
+<p>Monte a equação: $\frac{\vec{a} \cdot \vec{b}}{|\vec{b}|} = 4$. Calcule $\vec{a} \cdot \vec{b}$ em função de $k$ e $|\vec{b}|$. É uma equação linear em $k$ — portanto, há apenas uma solução.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Produto escalar em função de $k$: $\vec{a} \cdot \vec{b} = 2 \times 3 + k \times 1 = 6 + k$.</li>
+<li>Módulo de $\vec{b}$: $|\vec{b}| = \sqrt{9 + 1} = \sqrt{10}$.</li>
+<li>Equação: $\frac{6 + k}{\sqrt{10}} = 4$, logo $6 + k = 4\sqrt{10}$.</li>
+<li>Isole $k$: $k = 4\sqrt{10} - 6 \approx 4 \times 3{,}162 - 6 = 12{,}649 - 6 = 6{,}649$.</li>
+<li>Projeção vetorial: $\text{proj}_{\vec{b}}\,\vec{a} = \frac{6 + k}{10}(3, 1) = \frac{4\sqrt{10}}{10}(3, 1) = \frac{2\sqrt{10}}{5}(3, 1) = \left(\frac{6\sqrt{10}}{5}, \frac{2\sqrt{10}}{5}\right)$.</li>
+<li>Aproximadamente: $\approx (3{,}795,\; 1{,}265)$.</li>
+<li>Há apenas um valor de $k$, pois a equação é linear.</li>
+</ol>
+<div class="formula">
+$$k = 4\sqrt{10} - 6, \quad \text{proj}_{\vec{b}}\,\vec{a} = \frac{2\sqrt{10}}{5}(3, 1)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Ajustar parâmetros para obter uma projeção desejada é um problema de otimização que aparece em toda engenharia. No caso do escudo, estamos dizendo "quero que exatamente 4 unidades de energia sejam canalizadas na direção de defesa" e resolvemos para a incógnita que controla o sistema. É equação linear — uma única solução, uma única configuração correta.</p>
+</details>
+</div>

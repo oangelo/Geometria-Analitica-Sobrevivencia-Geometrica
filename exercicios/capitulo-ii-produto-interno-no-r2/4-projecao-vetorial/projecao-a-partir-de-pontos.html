@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>PONTOS, VETORES E PROJEÇÃO</h3>
+
+<p>No exercício anterior, os vetores eram dados diretamente. Na prática, costumamos ter pontos e precisamos construir os vetores primeiro. O radar do abrigo registrou três posições: o depósito em $A(1, 1)$, o transmissor em $B(5, 3)$ e o ponto de acesso em $C(4, 0)$. Construa os vetores $\vec{u} = \overrightarrow{AB}$ e $\vec{v} = \overrightarrow{AC}$ e, usando a mesma ferramenta de projeção vetorial, calcule a projeção de $\vec{u}$ sobre $\vec{v}$. No papel, desenhe os pontos $A$, $B$ e $C$, trace os vetores $\vec{u}$ e $\vec{v}$ a partir de $A$, e rascunhe a "sombra" de $\vec{u}$ sobre a linha de $\vec{v}$.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Construa $\vec{u} = B - A$ e $\vec{v} = C - A$ (coordenada a coordenada). Depois aplique a mesma fórmula de projeção: $\text{proj}_{\vec{v}}\,\vec{u} = \left(\frac{\vec{u} \cdot \vec{v}}{\vec{v} \cdot \vec{v}}\right)\vec{v}$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Construa os vetores: $\vec{u} = \overrightarrow{AB} = (5-1, 3-1) = (4, 2)$ e $\vec{v} = \overrightarrow{AC} = (4-1, 0-1) = (3, -1)$.</li>
+<li>Produto escalar: $\vec{u} \cdot \vec{v} = 4 \times 3 + 2 \times (-1) = 12 - 2 = 10$.</li>
+<li>Auto-produto de $\vec{v}$: $\vec{v} \cdot \vec{v} = 3^2 + (-1)^2 = 9 + 1 = 10$.</li>
+<li>Projeção vetorial: $\text{proj}_{\vec{v}}\,\vec{u} = \frac{10}{10}(3, -1) = (3, -1) = \vec{v}$.</li>
+<li>Interpretação: a projeção de $\vec{u}$ sobre $\vec{v}$ é o próprio $\vec{v}$. Isso significa que toda a componente de $\vec{u}$ na direção de $\vec{v}$ está "contida" em $\vec{v}$.</li>
+</ol>
+<div class="formula">
+$$\vec{u} = (4, 2), \quad \vec{v} = (3, -1), \quad \text{proj}_{\vec{v}}\,\vec{u} = (3, -1) = \vec{v}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Construir vetores a partir de pontos é o primeiro passo em qualquer problema real de navegação na Zona Devastada. O radar dá posições, não vetores — a tradução é com você. Note que, neste caso, a projeção resultou no próprio $\vec{v}$: isso acontece porque $\vec{u} \cdot \vec{v} = \vec{v} \cdot \vec{v}$, o que significa que $\vec{u}$ "cobre" exatamente uma vez o comprimento de $\vec{v}$ naquela direção.</p>
+</details>
+</div>
