@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>FORÇA NA RAMPA</h3>
+
+<p>A decomposição que você fez no exercício anterior não é apenas teoria — ela descreve situações reais. Um traje de proteção precisa ser arrastado por uma rampa inclinada. O peso do traje é representado pelo vetor $\vec{P} = (0, -10)$ (direção vertical, 10 unidades de força para baixo). A rampa sobe na direção do vetor $\vec{r} = (4, 3)$ (4 unidades horizontalmente para cada 3 unidades na vertical). A componente do peso paralela à rampa é o que faz o traje escorregar; a componente perpendicular é o que o mantém pressionado à superfície. Decomponha $\vec{P}$ nas componentes paralela e perpendicular à rampa e identifique qual componente é mais perigosa para a equipe de resgate.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVÊNCIA</summary>
+<div class="hint">
+<p>Procedimento idêntico ao exercício anterior: projete $\vec{P}$ sobre $\vec{r}$ para obter $\vec{P}_{\parallel}$, depois calcule $\vec{P}_{\perp} = \vec{P} - \vec{P}_{\parallel}$. A componente paralela à rampa é a que causa escorregamento.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Produto escalar: $\vec{P} \cdot \vec{r} = 0 \times 4 + (-10) \times 3 = -30$.</li>
+<li>Auto-produto de $\vec{r}$: $\vec{r} \cdot \vec{r} = 16 + 9 = 25$.</li>
+<li>Componente paralela à rampa: $\vec{P}_{\parallel} = \frac{-30}{25}(4, 3) = (-4{,}8, -3{,}6)$.</li>
+<li>Componente perpendicular: $\vec{P}_{\perp} = \vec{P} - \vec{P}_{\parallel} = (0 - (-4{,}8), -10 - (-3{,}6)) = (4{,}8, -6{,}4)$.</li>
+<li>Verificação: $\vec{P}_{\perp} \cdot \vec{r} = 4{,}8 \times 4 + (-6{,}4) \times 3 = 19{,}2 - 19{,}2 = 0$ ✓.</li>
+<li>A componente mais perigosa é $\vec{P}_{\parallel} = (-4{,}8, -3{,}6)$: ela aponta na direção descendente da rampa, causando escorregamento. Seu módulo é $\sqrt{4{,}8^2 + 3{,}6^2} = \sqrt{23{,}04 + 12{,}96} = \sqrt{36} = 6$.</li>
+</ol>
+<div class="formula">
+$$\vec{P}_{\parallel} = (-4{,}8,\; -3{,}6), \quad \vec{P}_{\perp} = (4{,}8,\; -6{,}4), \quad |\vec{P}_{\parallel}| = 6$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Na Zona Devastada, rampas estão por toda parte — destroços, crateras, túneis colapsados. Entender como o peso se decompõe na superfície é literalmente uma questão de vida ou morte. A componente paralela diz o quanto você escorrega; a perpendicular diz o quanto você gruda na superfície. Se a rampa for muito íngreme, a componente paralela supera a capacidade de tração do traje — e a descida se torna incontrolável.</p>
+</details>
+</div>

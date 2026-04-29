@@ -1,0 +1,37 @@
+<div class="exercise">
+<h3>TODAS AS FORMAS DE UMA RETA</h3>
+
+<p>Nos exercícios anteriores você aprendeu a converter entre formas isoladamente. Agora o SUPERVISOR precisa do relatório completo. Dados os pontos $A(2, -1)$ e $B(4, 3)$, determine <strong>todas</strong> as formas da equação da reta que passa por eles: paramétrica, geral, reduzida e segmentária (quando existir). No papel, esboce a reta marcando os pontos $A$ e $B$, o vetor diretor e os interceptos nos eixos. Verifique se o ponto $P(6, 7)$ pertence a essa reta.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Siga a cadeia de conversões: dois pontos $\rightarrow$ vetor diretor $\rightarrow$ paramétrica $\rightarrow$ geral (elimine $t$) $\rightarrow$ reduzida (isole $y$) $\rightarrow$ segmentária (coloque $1$ no lado direito). Para a segmentária, verifique se a reta passa pela origem — se sim, ela não tem forma segmentária.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Vetor diretor: $\overrightarrow{AB} = B - A = (4-2, 3-(-1)) = (2, 4)$.</li>
+<li><strong>Paramétrica:</strong> usando $A(2, -1)$: $x = 2 + 2t$, $y = -1 + 4t$.</li>
+<li><strong>Geral:</strong> de $x = 2 + 2t$, temos $t = \frac{x-2}{2}$. Substituindo em $y$:
+   $y = -1 + 4 \cdot \frac{x-2}{2} = -1 + 2(x-2) = -1 + 2x - 4 = 2x - 5$.
+   Reorganizando: $2x - y - 5 = 0$.</li>
+<li><strong>Reduzida:</strong> isolando $y$: $y = 2x - 5$. Coeficiente angular $m = 2$, coeficiente linear $n = -5$.</li>
+<li><strong>Segmentária:</strong> de $y = 2x - 5$, façamos $y = 0$ para achar $p$: $0 = 2p - 5 \Rightarrow p = 2{,}5$.
+   Façamos $x = 0$ para achar $q$: $q = -5$.
+   Equação segmentária: $\frac{x}{2{,}5} + \frac{y}{-5} = 1$, ou $\frac{x}{5/2} + \frac{y}{-5} = 1$.
+   Multiplicando por $5/2$ para simplificar: $\frac{2x}{5} - \frac{y}{5} = 1$ não é a forma padrão. Melhor manter $\frac{x}{5/2} + \frac{y}{-5} = 1$ ou escrever $\frac{2x}{5} + \frac{y}{-5} = 1$.
+   Forma equivalente: $2x - y = 5$, dividindo por $5$: $\frac{2x}{5} - \frac{y}{5} = 1$, ou seja, $\frac{x}{5/2} + \frac{y}{-5} = 1$.</li>
+<li>Verificação de $P(6, 7)$: usando a geral, $2(6) - 7 - 5 = 12 - 7 - 5 = 0$ ✓. O ponto pertence à reta.</li>
+</ol>
+<div class="formula">
+$$\text{Paramétrica: } x = 2 + 2t, \; y = -1 + 4t$$
+$$\text{Geral: } 2x - y - 5 = 0$$
+$$\text{Reduzida: } y = 2x - 5$$
+$$\text{Segmentária: } \frac{x}{5/2} + \frac{y}{-5} = 1$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Cada forma da equação da reta é uma ferramenta diferente para a mesma realidade. A paramétrica gera pontos, a geral verifica pertinência, a reduzida mostra inclinação e a segmentária revela fronteiras. Um sobrevivente que domina todas as formas escolhe a ferramenta certa para cada situação — e na Zona Devastada, a ferramenta certa é a diferença entre voltar ou não.</p>
+</details>
+</div>

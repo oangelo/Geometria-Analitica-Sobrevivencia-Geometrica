@@ -1,0 +1,38 @@
+<section class="manual-contexto" data-context="manual-sobrevivencia">
+    <div class="terminal-border">
+    <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: PROJEÇÃO VETORIAL</h2>
+
+<p>Nos tópicos anteriores, vimos que o produto escalar $\vec{a} \cdot \vec{b}$ mede a "cooperação" entre dois vetores e que o ângulo $\theta$ revela se eles apontam na mesma direção ou não. Mas imagine que uma expedição precisa cruzar um rio com correnteza: a componente do deslocamento na direção da margem oposta é o que importa, não o deslocamento total. A <strong>projeção vetorial</strong> é a ferramenta que extrai exatamente essa componente útil — a parte de um vetor que "aponta na direção" de outro.</p>
+
+<p>Dados $\vec{a}$ e $\vec{b} \neq \vec{0}$, a <strong>projeção escalar</strong> (ou componente escalar) de $\vec{a}$ sobre $\vec{b}$ é o comprimento com sinal da projeção:</p>
+
+<div class="formula">
+$$\text{comp}_{\vec{b}}\,\vec{a} = \frac{\vec{a} \cdot \vec{b}}{|\vec{b}|}$$
+</div>
+
+<p>Esse valor é positivo se $\vec{a}$ e $\vec{b}$ formam ângulo agudo, negativo se formam ângulo obtuso, e zero se são perpendiculares. Para obter o <strong>vetor projeção</strong> (a projeção vetorial de $\vec{a}$ sobre $\vec{b}$), multiplicamos a projeção escalar pelo versor de $\vec{b}$:</p>
+
+<div class="formula">
+$$\text{proj}_{\vec{b}}\,\vec{a} = \left(\frac{\vec{a} \cdot \vec{b}}{\vec{b} \cdot \vec{b}}\right) \vec{b}$$
+</div>
+
+<p>Esse vetor é paralelo a $\vec{b}$ e representa a "sombra" de $\vec{a}$ sobre a direção de $\vec{b}$. O fator $\frac{\vec{a} \cdot \vec{b}}{\vec{b} \cdot \vec{b}}$ é um escalar que diz quanto de $\vec{b}$ está "contido" em $\vec{a}$.</p>
+
+<p><strong>Decomposição ortogonal:</strong> uma vez que sabemos projetar $\vec{a}$ sobre $\vec{b}$, podemos decompor $\vec{a}$ em duas partes — uma paralela a $\vec{b}$ e outra perpendicular a $\vec{b}$:</p>
+
+<div class="formula">
+$$\vec{a} = \underbrace{\text{proj}_{\vec{b}}\,\vec{a}}_{\vec{a}_{\parallel}} + \underbrace{\left(\vec{a} - \text{proj}_{\vec{b}}\,\vec{a}\right)}_{\vec{a}_{\perp}}$$
+</div>
+
+<p>A componente perpendicular $\vec{a}_{\perp}$ satisfaz $\vec{a}_{\perp} \cdot \vec{b} = 0$, confirmando ortogonalidade. Essa decomposição é a base para resolver problemas de força em rampas, navegação com vento e qualquer situação onde precisamos separar o que é útil do que é desperdiçado.</p>
+
+<p><strong>Técnicas principais:</strong></p>
+<p>• Projeção escalar: $\frac{\vec{a} \cdot \vec{b}}{|\vec{b}|}$ — comprimento com sinal.</p>
+<p>• Projeção vetorial: $\left(\frac{\vec{a} \cdot \vec{b}}{\vec{b} \cdot \vec{b}}\right)\vec{b}$ — vetor resultado.</p>
+<p>• Decomposição: $\vec{a}_{\parallel} = \text{proj}_{\vec{b}}\,\vec{a}$ e $\vec{a}_{\perp} = \vec{a} - \vec{a}_{\parallel}$.</p>
+<p>• Verificação: confirme que $\vec{a}_{\parallel} + \vec{a}_{\perp} = \vec{a}$ e que $\vec{a}_{\perp} \cdot \vec{b} = 0$.</p>
+
+<p>Com a projeção vetorial dominada, estamos prontos para investigar casos especiais: quando a projeção é zero (ortogonalidade pura) e quando ela é o próprio vetor (paralelismo perfeito) — temas do próximo tópico.</p>
+
+    </div>
+</section>
