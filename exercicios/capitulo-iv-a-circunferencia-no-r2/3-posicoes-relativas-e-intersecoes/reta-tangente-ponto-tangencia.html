@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>CONTATO NO LIMITE DA ZONA</h3>
+
+<p>Nos dois exercícios anteriores, vimos retas externa e secante. Existe um caso intermediário, de equilíbrio crítico: a reta que toca a circunferência em exatamente um ponto. Uma zona de exclusão é descrita por $x^2 + y^2 = 25$ — centro na origem, raio $r = 5$. Um explorador relata que sua rota segue a reta $3x + 4y - 25 = 0$. No papel, esboce a circunferência com raio 5 e a reta. Calcule a distância do centro à reta e verifique se a rota é tangente à zona. Se for, encontre o <strong>ponto de tangência</strong> — o único ponto de contato entre a rota e o limite da zona. Lembre-se: o ponto de tangência é o pé da perpendicular do centro sobre a reta.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Calcule $d$ do centro $C(0,0)$ à reta $3x + 4y - 25 = 0$. Se $d = r = 5$, a reta é tangente. Para encontrar o ponto de tangência, trace a perpendicular do centro à reta: a direção perpendicular é o vetor normal $(3, 4)$. Use $x = 3t$, $y = 4t$ e substitua na equação da reta para encontrar $t$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Dados: centro $C(0,0)$, raio $r = 5$, reta $3x + 4y - 25 = 0$.</li>
+<li>Distância: $d = \frac{|3 \cdot 0 + 4 \cdot 0 - 25|}{\sqrt{9 + 16}} = \frac{25}{5} = 5 = r$. A reta é <strong>tangente</strong>.</li>
+<li>Ponto de tangência: a perpendicular do centro $C(0,0)$ à reta segue a direção do vetor normal $\vec{n} = (3, 4)$. Parametricamente: $x = 3t$, $y = 4t$.</li>
+<li>Substitua na equação da reta: $3(3t) + 4(4t) - 25 = 0 \Rightarrow 9t + 16t = 25 \Rightarrow 25t = 25 \Rightarrow t = 1$.</li>
+<li>Ponto de tangência: $T(3, 4)$. Verifique: $3^2 + 4^2 = 9 + 16 = 25$ ✓. O ponto está na circunferência.</li>
+</ol>
+<div class="formula">
+$$d = \frac{25}{5} = 5 = r \quad \Rightarrow \quad \text{reta tangente}$$
+$$T(3, 4): \quad 3^2 + 4^2 = 25 \quad \checkmark$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A tangência é o "caso limite" — a rota toca a zona de perigo sem penetrá-la. No ponto de tangência, a reta é perpendicular ao raio, formando um ângulo de $90°$. Isso significa que, localmente, a rota "desliza" ao longo da borda da zona. Para o explorador, estar no ponto de tangência é estar exatamente no limite — nem dentro, nem longe.</p>
+</details>
+</div>

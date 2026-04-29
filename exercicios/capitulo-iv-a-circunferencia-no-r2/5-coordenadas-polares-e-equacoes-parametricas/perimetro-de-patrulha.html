@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>PERÍMETRO DE PATRULHA</h3>
+
+<p>As coordenadas polares localizam um ponto individual. Quando queremos descrever <strong>todos</strong> os pontos de uma circunferência simultaneamente, usamos a <strong>equação paramétrica</strong>. O abrigo principal é circundado por uma zona de segurança circular descrita por $x^2 + y^2 = 9$. A posição de uma sentinela ao longo desse perímetro pode ser rastreada pelo parâmetro $t$ (ângulo de referência) através das equações $x = 3\cos t$ e $y = 3\sin t$. Calcule as posições da sentinela para $t = 0°$, $t = 90°$, $t = 180°$ e $t = 270°$. No papel, desenhe a circunferência de raio $3$ centrada na origem e marque os quatro pontos, verificando que cada um está a distância $3$ de $O$.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Substitua cada valor de $t$ nas duas equações. Use os valores notáveis: $\cos 0° = 1$, $\sin 0° = 0$, $\cos 90° = 0$, $\sin 90° = 1$, $\cos 180° = -1$, $\sin 180° = 0$, $\cos 270° = 0$, $\sin 270° = -1$. Depois, confirme: a distância de cada ponto à origem é $3$?</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>$t = 0°$: $x = 3\cos 0° = 3$, $y = 3\sin 0° = 0$. Ponto: $(3, 0)$.</li>
+<li>$t = 90°$: $x = 3\cos 90° = 0$, $y = 3\sin 90° = 3$. Ponto: $(0, 3)$.</li>
+<li>$t = 180°$: $x = 3\cos 180° = -3$, $y = 3\sin 180° = 0$. Ponto: $(-3, 0)$.</li>
+<li>$t = 270°$: $x = 3\cos 270° = 0$, $y = 3\sin 270° = -3$. Ponto: $(0, -3)$.</li>
+<li>Verificação: todos satisfazem $x^2 + y^2 = 9$, pois $3^2 + 0^2 = 9$ ou $0^2 + 3^2 = 9$.</li>
+</ol>
+<div class="formula">
+$$t = 0° \to (3, 0), \quad t = 90° \to (0, 3), \quad t = 180° \to (-3, 0), \quad t = 270° \to (0, -3)$$
+$$\text{Todos satisfazem } x^2 + y^2 = 9 \;\checkmark$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A equação paramétrica transforma a circunferência estática ($x^2+y^2=9$) em um rastreador de posição: cada valor de $t$ dá a localização exata da sentinela no perímetro. É a diferença entre ter um mapa da zona segura e saber onde o patrulheiro está agora.</p>
+</details>
+</div>

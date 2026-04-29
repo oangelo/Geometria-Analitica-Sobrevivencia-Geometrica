@@ -1,25 +1,26 @@
 <div class="exercise">
 <h3>ZONA CONTAMINADA</h3>
-<p>Uma área circular contaminada por radiação tem centro no ponto $R(1, 2)$ e raio de $3$ unidades. Um grupo de sobreviventes encontra-se no ponto $S(4, 5)$. Determine se os sobreviventes estão em zona de perigo e calcule a distância mais curta até um ponto seguro fora da área contaminada.</p>
+
+<p>Agora que classificamos pontos em relação ao perímetro de proteção do Abrigo Alfa, o SUPERVISOR transfere o esquadrão para uma nova zona de operações. Um campo de contaminantes forma uma região circular com centro em $C(-1,3)$ e raio $r = 4$, descrita pela equação $(x + 1)^2 + (y - 3)^2 = 16$. Três batedores foram destacados para posições $P(2,3)$, $Q(-1,7)$ e $R(-3,1)$. No papel, esboce o centro $C(-1,3)$, trace a circunferência com raio 4 e marque os três pontos. Calcule a distância de cada batedor ao centro e classifique cada posição como interna, sobre ou externa à zona contaminada.</p>
+
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
 <div class="hint">
-<p>Primeiro determine se o ponto está dentro, sobre ou fora da circunferência. Se estiver dentro, a distância mais curta até um ponto seguro será a distância do ponto até a borda da circunferência (ou seja, $r - d(S, R)$ se $d(S, R) &lt; r$).</p>
+<p>Para cada ponto, calcule $d = \sqrt{(x_P - (-1))^2 + (y_P - 3)^2}$ e compare com $r = 4$. Observe que $P(2,3)$ tem a mesma coordenada $y$ do centro, e $Q(-1,7)$ tem a mesma coordenada $x$ — isso simplifica os cálculos.</p>
 </div>
 </details>
+
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>O centro da área contaminada é $R(1, 2)$ com raio $r = 3$.</li>
-<li>Os sobreviventes estão no ponto $S(4, 5)$.</li>
-<li>Calculamos a distância entre $S$ e $R$:
-                    $d(S, R) = \sqrt{(4 - 1)^2 + (5 - 2)^2} = \sqrt{9 + 9} = \sqrt{18} = 3\sqrt{2} \approx 4,24$</li>
-<li>Como $d(S, R) \approx 4,24 &gt; 3 = r$, o ponto $S$ está fora da circunferência.</li>
-<li>Como os sobreviventes já estão fora da zona contaminada, a distância mais curta até um ponto seguro é $0$.</li>
+<li>Ponto $P(2,3)$: $d(P,C) = \sqrt{(2-(-1))^2 + (3-3)^2} = \sqrt{9 + 0} = 3$. Como $3 < 4$, $P$ está <strong>interno</strong> — o batedor está dentro da zona contaminada.</li>
+<li>Ponto $Q(-1,7)$: $d(Q,C) = \sqrt{(-1-(-1))^2 + (7-3)^2} = \sqrt{0 + 16} = 4$. Como $4 = 4$, $Q$ está <strong>sobre</strong> a circunferência — exatamente no bordo da contaminação.</li>
+<li>Ponto $R(-3,1)$: $d(R,C) = \sqrt{(-3-(-1))^2 + (1-3)^2} = \sqrt{4 + 4} = \sqrt{8} = 2\sqrt{2} \approx 2{,}83$. Como $2\sqrt{2} < 4$, $R$ está <strong>interno</strong> — também contaminado.</li>
+<li>Conclusão: todos os três batedores estão dentro ou sobre a zona contaminada. O esquadrão precisa ser retirado imediatamente.</li>
 </ol>
 <div class="formula">
-                    $d(S, R) = \sqrt{(4 - 1)^2 + (5 - 2)^2} = \sqrt{18} = 3\sqrt{2} &gt; 3 = r$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> Boas notícias para os sobreviventes - eles já estão em uma zona segura. No entanto, saber exatamente onde estão as fronteiras das zonas perigosas é essencial para o planejamento de rotas e a definição de perímetros seguros para acampamentos.</p>
+$$P(2,3):\; d = 3 &lt; 4 \;\Rightarrow\; \text{interno} \qquad Q(-1,7):\; d = 4 = 4 \;\Rightarrow\; \text{sobre} \qquad R(-3,1):\; d = 2\sqrt{2} \approx 2{,}83 &lt; 4 \;\Rightarrow\; \text{interno}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A distância de $R$ ao centro é $2\sqrt{2}$, um número irracional — a contaminação não respeita números inteiros. O método funciona independentemente da simplicidade dos dados: a comparação entre $d$ e $r$ é universal. Na Zona Devastada, a radiação não arredonda.</p>
 </details>
 </div>

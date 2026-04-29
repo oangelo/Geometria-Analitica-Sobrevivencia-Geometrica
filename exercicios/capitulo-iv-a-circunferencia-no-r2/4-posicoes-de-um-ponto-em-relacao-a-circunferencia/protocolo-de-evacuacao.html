@@ -1,38 +1,21 @@
 <div class="exercise">
 <h3>PROTOCOLO DE EVACUAÇÃO</h3>
-<p>Após um incidente com radiação, três zonas circulares contaminadas surgiram, descritas pelas circunferências $C_1: (x-2)^2 + (y-3)^2 = 4$, $C_2: (x+1)^2 + (y-1)^2 = 9$ e $C_3: (x-4)^2 + (y+2)^2 = 16$. Quatro assentamentos estão localizados nos pontos $A_1(0, 0)$, $A_2(3, 0)$, $A_3(1, 4)$ e $A_4(5, -3)$. Determine quais assentamentos precisam ser evacuados por estarem dentro de pelo menos uma das zonas contaminadas e identifique quais assentamentos estão em zonas de sobreposição de contaminação (dentro de mais de uma circunferência simultaneamente).</p>
+
+<p>O conhecimento acumulado — classificação de pontos, substituição na equação, inequações — se une num cenário de evacuação. Uma zona de radiação ativa é descrita por $(x-4)^2 + (y-5)^2 = 9$ (centro $(4,5)$, raio $3$), e uma zona de proteção é descrita por $(x-1)^2 + (y-2)^2 = 25$ (centro $(1,2)$, raio $5$). Um abrigo é considerado <strong>seguro</strong> se está dentro da zona de proteção <strong>e</strong> fora da zona de radiação. Quatro abrigos foram registrados: $A(3,4)$, $B(-3,2)$, $C(1,-3)$ e $D(4,5)$. No papel, esboce as duas circunferências com seus centros e marque os quatro abrigos. Para cada abrigo, verifique as duas condições e determine qual é o único seguro para evacuação.</p>
+
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Identificamos os centros e raios de cada circunferência:
-                    $C_1: $ centro $(2, 3)$ e raio $r_1 = 2$
-                    $C_2: $ centro $(-1, 1)$ e raio $r_2 = 3$
-                    $C_3: $ centro $(4, -2)$ e raio $r_3 = 4$</li>
-<li>Para o assentamento $A_1(0, 0)$:
-                    $d(A_1, C_1) = \sqrt{(0 - 2)^2 + (0 - 3)^2} = \sqrt{4 + 9} = \sqrt{13} \approx 3,61 &gt; 2 = r_1$, logo está fora de $C_1$.
-                    $d(A_1, C_2) = \sqrt{(0 - (-1))^2 + (0 - 1)^2} = \sqrt{1 + 1} = \sqrt{2} \approx 1,41 &lt; 3 = r_2$, logo está dentro de $C_2$.
-                    $d(A_1, C_3) = \sqrt{(0 - 4)^2 + (0 - (-2))^2} = \sqrt{16 + 4} = \sqrt{20} \approx 4,47 &gt; 4 = r_3$, logo está fora de $C_3$.</li>
-<li>Para o assentamento $A_2(3, 0)$:
-                    $d(A_2, C_1) = \sqrt{(3 - 2)^2 + (0 - 3)^2} = \sqrt{1 + 9} = \sqrt{10} \approx 3,16 &gt; 2 = r_1$, logo está fora de $C_1$.
-                    $d(A_2, C_2) = \sqrt{(3 - (-1))^2 + (0 - 1)^2} = \sqrt{16 + 1} = \sqrt{17} \approx 4,12 &gt; 3 = r_2$, logo está fora de $C_2$.
-                    $d(A_2, C_3) = \sqrt{(3 - 4)^2 + (0 - (-2))^2} = \sqrt{1 + 4} = \sqrt{5} \approx 2,24 &lt; 4 = r_3$, logo está dentro de $C_3$.</li>
-<li>Para o assentamento $A_3(1, 4)$:
-                    $d(A_3, C_1) = \sqrt{(1 - 2)^2 + (4 - 3)^2} = \sqrt{1 + 1} = \sqrt{2} \approx 1,41 &lt; 2 = r_1$, logo está dentro de $C_1$.
-                    $d(A_3, C_2) = \sqrt{(1 - (-1))^2 + (4 - 1)^2} = \sqrt{4 + 9} = \sqrt{13} \approx 3,61 &gt; 3 = r_2$, logo está fora de $C_2$.
-                    $d(A_3, C_3) = \sqrt{(1 - 4)^2 + (4 - (-2))^2} = \sqrt{9 + 36} = \sqrt{45} \approx 6,71 &gt; 4 = r_3$, logo está fora de $C_3$.</li>
-<li>Para o assentamento $A_4(5, -3)$:
-                    $d(A_4, C_1) = \sqrt{(5 - 2)^2 + (-3 - 3)^2} = \sqrt{9 + 36} = \sqrt{45} \approx 6,71 &gt; 2 = r_1$, logo está fora de $C_1$.
-                    $d(A_4, C_2) = \sqrt{(5 - (-1))^2 + (-3 - 1)^2} = \sqrt{36 + 16} = \sqrt{52} \approx 7,21 &gt; 3 = r_2$, logo está fora de $C_2$.
-                    $d(A_4, C_3) = \sqrt{(5 - 4)^2 + (-3 - (-2))^2} = \sqrt{1 + 1} = \sqrt{2} \approx 1,41 &lt; 4 = r_3$, logo está dentro de $C_3$.</li>
-<li>Os assentamentos $A_1$, $A_2$, $A_3$ e $A_4$ precisam ser evacuados, pois cada um está dentro de pelo menos uma zona contaminada.</li>
-<li>Nenhum assentamento está em uma zona de sobreposição de contaminação (nenhum está dentro de mais de uma circunferência simultaneamente).</li>
+<li>Abrigo $A(3,4)$: Proteção: $(3-1)^2 + (4-2)^2 = 4 + 4 = 8 &lt; 25$ ✓ (dentro). Radiação: $(3-4)^2 + (4-5)^2 = 1 + 1 = 2 &lt; 9$ (dentro da radiação). <strong>Não seguro</strong>.</li>
+<li>Abrigo $B(-3,2)$: Proteção: $(-3-1)^2 + (2-2)^2 = 16 + 0 = 16 &lt; 25$ ✓ (dentro). Radiação: $(-3-4)^2 + (2-5)^2 = 49 + 9 = 58 &gt; 9$ ✓ (fora). <strong>Seguro</strong>.</li>
+<li>Abrigo $C(1,-3)$: Proteção: $(1-1)^2 + (-3-2)^2 = 0 + 25 = 25 = 25$ (sobre o perímetro). <strong>Não seguro</strong> — está no bordo da proteção, sem margem.</li>
+<li>Abrigo $D(4,5)$: Proteção: $(4-1)^2 + (5-2)^2 = 9 + 9 = 18 &lt; 25$ ✓ (dentro). Radiação: $(4-4)^2 + (5-5)^2 = 0 + 0 = 0 &lt; 9$ (no centro da radiação!). <strong>Não seguro</strong>.</li>
+<li>Conclusão: o único abrigo seguro é $B(-3,2)$. $A$ e $D$ estão dentro da radiação, e $C$ está sobre o perímetro de proteção.</li>
 </ol>
 <div class="formula">
-                    Assentamento $A_1$: dentro de $C_2$
-                    Assentamento $A_2$: dentro de $C_3$
-                    Assentamento $A_3$: dentro de $C_1$
-                    Assentamento $A_4$: dentro de $C_3$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> Todos os assentamentos estão em perigo e precisam ser evacuados. Curiosamente, cada um está em uma zona de contaminação diferente (ou no caso de $A_2$ e $A_4$, na mesma zona $C_3$), e nenhum está em uma área de contaminação dupla ou tripla. Isso pode facilitar o planejamento da evacuação, pois as equipes podem focar em rotas específicas para cada assentamento que evitem suas respectivas zonas contaminadas.</p>
+$$A(3,4):\; \text{Prot } 8 &lt; 25\;\checkmark \;\text{ Rad } 2 &lt; 9\;\times \qquad B(-3,2):\; \text{Prot } 16 &lt; 25\;\checkmark \;\text{ Rad } 58 &gt; 9\;\checkmark$$
+$$C(1,-3):\; \text{Prot } 25 = 25\;\times \qquad D(4,5):\; \text{Prot } 18 &lt; 25\;\checkmark \;\text{ Rad } 0 &lt; 9\;\times$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Cada abrigo falha por um motivo diferente: $A$ e $D$ estão dentro da radiação (um na borda, outro no centro), $C$ está sobre o perímetro de proteção (sem margem), e apenas $B$ satisfaz ambas as condições. Na Zona Devastada, uma evacuação bem-sucedida exige verificar <strong>todas</strong> as restrições — estar dentro da proteção não basta se estiver dentro da radiação.</p>
 </details>
 </div>
