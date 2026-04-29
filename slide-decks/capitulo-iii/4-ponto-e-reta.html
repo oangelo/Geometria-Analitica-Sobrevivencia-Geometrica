@@ -1,30 +1,5 @@
-<!-- Tópico 4: Ponto e Reta: Distância e Inequações (Horizontal 6) -->
-        <section>
-          <!-- 4{,}1 Conceito Principal -->
-          <section class="mission-briefing">
-            <h2>Tópico 4: Ponto e Reta - Proximidade e Região</h2>
-            <h3 class="mission-subtitle">
-              Medindo Distâncias, Definindo Territórios
-            </h3>
-            <div class="definition-box">
-              <p>
-                <strong>Distância Ponto-Reta:</strong> A menor distância
-                (segmento perpendicular) entre um ponto e uma reta.
-              </p>
-              <p>
-                <strong>Inequação Linear:</strong> Uma expressão (ex: \(Ax+By+C
-                > 0\)) que divide o plano em dois semiplanos (regiões).
-              </p>
-              <p>
-                <strong>Interpretação Espacial:</strong> Quantifica a
-                proximidade de um local a uma rota/fronteira e determina de que
-                lado dessa fronteira o local se encontra.
-              </p>
-            </div>
-          </section>
-
-          <!-- 4{,}2 Visualização (Simulador Distância) -->
-          <section class="simulator">
+<section>
+  <section class="simulator">
             <h3>Visualização: Distância Ponto-Reta</h3>
             <div class="canvas-container">
               <canvas
@@ -56,7 +31,7 @@
                   /><span id="distancia-ponto-y-value">4{,}0</span>
                 </div>
                 <div class="control-panel">
-                  <!-- Controles da reta ocultos -->
+                  
                   <label>A:</label
                   ><input type="number" id="distancia-reta-a" value="1" /><label
                     >B:</label
@@ -83,12 +58,10 @@
               </div>
             </div>
           </section>
-
-          <!-- NOVO Slide: Exemplo de Inequação -->
-          <section class="field-report level-intermediate">
+  <section class="field-report level-intermediate">
             <h3>Visualização: Região Definida por Inequação</h3>
             <div class="info-panel">
-              <!-- Aumentado para caber melhor -->
+              
               <div class="info-screen">
                 <h4>Exemplo: Zona Segura \( x - 2y + 4 \ge 0 \)</h4>
                 <svg
@@ -217,13 +190,11 @@
               </div>
             </div>
           </section>
-
-          <!-- 4{,}3 Teorema Relacionado (Fórmula da Distância) -->
-          <section class="field-report level-intermediate">
+  <section class="field-report level-intermediate">
             <h3>Teoria: A Fórmula da Distância Ponto-Reta</h3>
             <p>Derivada usando projeção vetorial:</p>
             <div class="info-panel">
-              <!-- Ajustado -->
+              
               <div class="info-screen crt-effect">
                 <p class="formula">
                   \( d = \frac{|Ax_0 + By_0 + C|}{\sqrt{A^2 + B^2}} \)
@@ -242,9 +213,7 @@
               </div>
             </div>
           </section>
-
-          <!-- 4{,}4 Problema (Distância e Inequação) -->
-          <section class="survival-training">
+  <section class="survival-training">
             <h3>Problema: Zona de Risco e Ponto Seguro</h3>
             <div class="training-problem">
               <h4>Situação:</h4>
@@ -260,9 +229,7 @@
               <p>Construir na zona de risco é perigoso.</p>
             </div>
           </section>
-
-          <!-- 4{,}5 Solução: Sub-problema 1 (Distâncias) -->
-          <section>
+  <section>
             <h3>Solução: Passo 1 - Cálculo das Distâncias</h3>
             <div class="case-solution">
               <div class="case-solution-title">Distância de A(4, 5) a L</div>
@@ -285,9 +252,7 @@
               </div>
             </div>
           </section>
-
-          <!-- 4{,}6 Solução: Sub-problema 2 (Inequação Zona Segura) -->
-          <section>
+  <section>
             <h3>Solução: Passo 2 e 3 - Inequação e Verificação</h3>
             <div class="case-solution">
               <div class="case-solution-title">
@@ -318,9 +283,7 @@
               </div>
             </div>
           </section>
-
-          <!-- 4{,}7 Conclusão -->
-          <section class="debriefing">
+  <section class="debriefing">
             <h3>Conclusão: Ponto vs. Reta</h3>
             <div class="summary-box">
               <p>A relação entre um ponto e uma reta é definida por:</p>
@@ -341,616 +304,4 @@
               </p>
             </div>
           </section>
-        </section>
-
-<!-- Scripts dos simuladores -->
-<script>
-// IIFE para visualização de distância ponto-reta
-      (function () {
-        let canvases = {};
-        let ponto = { x: 3, y: 4 };
-        let retaCoefs = { A: 1, B: 1, C: -1 };
-        let isDragging = null;
-        let activeCanvasId = null;
-        const axisColor = "#ADFF2F",
-          gridColor = "rgba(173, 255, 47, 0.2)",
-          pointColor = "#FF6347",
-          lineColor = "#FFD700",
-          distanceColor = "#00FFFF",
-          textColor = "#E0E0E0",
-          dangerColor = "#FF6347",
-          safeColor = "#ADFF2F";
-        const baseId = "distancia-ponto-reta-canvas";
-
-        function mathToCanvas(ctxInfo, x, y) {
-          return {
-            x: ctxInfo.centerX + x * ctxInfo.gridSize,
-            y: ctxInfo.centerY - y * ctxInfo.gridSize,
-          };
-        }
-        function canvasToMath(ctxInfo, x, y) {
-          return {
-            x: (x - ctxInfo.centerX) / ctxInfo.gridSize,
-            y: (ctxInfo.centerY - y) / ctxInfo.gridSize,
-          };
-        }
-        function calcularDistanciaPontoReta() {
-          const { A, B, C } = retaCoefs;
-          const den = Math.sqrt(A * A + B * B);
-          if (den < 1e-9 || !isFinite(den)) return Infinity;
-          const num = Math.abs(A * ponto.x + B * ponto.y + C);
-          return num / den;
-        }
-        function encontrarPontoMaisProximo(ctxInfo) {
-          const { A, B, C } = retaCoefs;
-          const den = A * A + B * B;
-          if (den < 1e-9) return { x: NaN, y: NaN };
-          const x = (B * (B * ponto.x - A * ponto.y) - A * C) / den;
-          const y = (A * (-B * ponto.x + A * ponto.y) - B * C) / den;
-          return { x, y };
-        }
-        function drawGrid(ctxInfo) {
-          const { ctx, width, height, centerX, centerY, gridSize } = ctxInfo;
-          ctx.clearRect(0, 0, width, height);
-          const grad = ctx.createRadialGradient(
-            centerX,
-            centerY,
-            50,
-            centerX,
-            centerY,
-            Math.max(width, height) / 1.5,
-          );
-          grad.addColorStop(0, "rgba(0,0,0,0)");
-          grad.addColorStop(1, "rgba(0,0,0,0.5)");
-          ctx.fillStyle = grad;
-          ctx.fillRect(0, 0, width, height);
-          ctx.strokeStyle = gridColor;
-          ctx.lineWidth = 1;
-          for (let x = centerX % gridSize; x < width; x += gridSize) {
-            ctx.beginPath();
-            ctx.moveTo(x, 0);
-            ctx.lineTo(x, height);
-            ctx.stroke();
-          }
-          for (let y = centerY % gridSize; y < height; y += gridSize) {
-            ctx.beginPath();
-            ctx.moveTo(0, y);
-            ctx.lineTo(width, y);
-            ctx.stroke();
-          }
-          ctx.strokeStyle = axisColor;
-          ctx.lineWidth = 2;
-          ctx.beginPath();
-          ctx.moveTo(0, centerY);
-          ctx.lineTo(width, centerY);
-          ctx.stroke();
-          ctx.beginPath();
-          ctx.moveTo(centerX, 0);
-          ctx.lineTo(centerX, height);
-          ctx.stroke();
-          ctx.fillStyle = axisColor;
-          ctx.font = '12px "Courier New", monospace';
-          ctx.textAlign = "center";
-          ctx.textBaseline = "middle";
-          for (
-            let x = -Math.floor(centerX / gridSize);
-            x <= Math.floor((width - centerX) / gridSize);
-            x += 2
-          ) {
-            if (x === 0) continue;
-            const cX = centerX + x * gridSize;
-            ctx.beginPath();
-            ctx.moveTo(cX, centerY - 5);
-            ctx.lineTo(cX, centerY + 5);
-            ctx.stroke();
-            ctx.fillText(x.toString(), cX, centerY + 15);
-          }
-          for (
-            let y = -Math.floor(centerY / gridSize);
-            y <= Math.floor((height - centerY) / gridSize);
-            y += 2
-          ) {
-            if (y === 0) continue;
-            const cY = centerY - y * gridSize;
-            ctx.beginPath();
-            ctx.moveTo(centerX - 5, cY);
-            ctx.lineTo(centerX + 5, cY);
-            ctx.stroke();
-            ctx.fillText(y.toString(), centerX - 15, cY);
-          }
-          ctx.fillText("0", centerX - 15, centerY + 15);
-          ctx.fillStyle = "rgba(0,0,0,0.1)";
-          for (let y = 0; y < height; y += 4) ctx.fillRect(0, y, width, 2);
-        }
-        function drawLine(ctxInfo) {
-          const { ctx, width, height, gridSize } = ctxInfo;
-          const { A, B, C } = retaCoefs;
-          if (Math.abs(A) < 1e-9 && Math.abs(B) < 1e-9) return;
-          let x1_c, y1_c, x2_c, y2_c;
-          const minX_m = -width / (2 * gridSize),
-            maxX_m = width / (2 * gridSize);
-          const minY_m = -height / (2 * gridSize),
-            maxY_m = height / (2 * gridSize);
-          const pts = [];
-          if (Math.abs(B) > 1e-9) {
-            let yMinX = (-C - A * minX_m) / B;
-            if (yMinX >= minY_m && yMinX <= maxY_m)
-              pts.push(mathToCanvas(ctxInfo, minX_m, yMinX));
-            let yMaxX = (-C - A * maxX_m) / B;
-            if (yMaxX >= minY_m && yMaxX <= maxY_m)
-              pts.push(mathToCanvas(ctxInfo, maxX_m, yMaxX));
-          }
-          if (Math.abs(A) > 1e-9) {
-            let xMinY = (-C - B * minY_m) / A;
-            if (xMinY >= minX_m && xMinY <= maxX_m)
-              pts.push(mathToCanvas(ctxInfo, xMinY, minY_m));
-            let xMaxY = (-C - B * maxY_m) / A;
-            if (xMaxY >= minX_m && xMaxY <= maxX_m)
-              pts.push(mathToCanvas(ctxInfo, xMaxY, maxY_m));
-          }
-          if (pts.length < 2) {
-            if (Math.abs(B) < 1e-9 && Math.abs(A) > 1e-9) {
-              let x_v = -C / A;
-              if (x_v >= minX_m && x_v <= maxX_m) {
-                pts.push(mathToCanvas(ctxInfo, x_v, minY_m));
-                pts.push(mathToCanvas(ctxInfo, x_v, maxY_m));
-              }
-            } else if (Math.abs(A) < 1e-9 && Math.abs(B) > 1e-9) {
-              let y_h = -C / B;
-              if (y_h >= minY_m && y_h <= maxY_m) {
-                pts.push(mathToCanvas(ctxInfo, minX_m, y_h));
-                pts.push(mathToCanvas(ctxInfo, maxX_m, y_h));
-              }
-            }
-          }
-          const uPts = pts.filter(
-            (p, i, s) =>
-              i ===
-              s.findIndex(
-                (t) => Math.abs(t.x - p.x) < 0.1 && Math.abs(t.y - p.y) < 0.1,
-              ),
-          );
-          if (uPts.length >= 2) {
-            uPts.sort((p1, p2) => (p1.x !== p2.x ? p1.x - p2.x : p1.y - p2.y));
-            x1_c = uPts[0].x;
-            y1_c = uPts[0].y;
-            x2_c = uPts[uPts.length - 1].x;
-            y2_c = uPts[uPts.length - 1].y;
-          } else return;
-          ctx.beginPath();
-          ctx.moveTo(x1_c, y1_c);
-          ctx.lineTo(x2_c, y2_c);
-          ctx.strokeStyle = lineColor;
-          ctx.lineWidth = 2;
-          ctx.stroke();
-          ctx.beginPath();
-          ctx.moveTo(x1_c, y1_c);
-          ctx.lineTo(x2_c, y2_c);
-          ctx.strokeStyle = "rgba(255,215,0,0.3)";
-          ctx.lineWidth = 6;
-          ctx.stroke();
-        }
-        function formatCoef(
-          n,
-          showSign = false,
-          isFirst = false,
-          isParam = false,
-        ) {
-          if (Math.abs(n) < 1e-6) return "";
-          let sign = n < 0 ? "-" : showSign ? "+" : "";
-          let val = Math.abs(n);
-          let numStr = val.toFixed(2).replace(/\.?0+$/, "");
-          if (numStr.endsWith(".")) numStr = numStr.slice(0, -1);
-          let omitOne = !isFirst && !isParam;
-          if (Math.abs(val - 1) < 1e-6) numStr = omitOne ? "" : "1";
-          if (isFirst && !showSign) {
-            if (Math.abs(val - 1) < 1e-6) numStr = "";
-            else if (n < 0 && Math.abs(val - 1) < 1e-6) {
-              sign = "-";
-              numStr = "";
-            } else if (n < 0) sign = "-";
-            else sign = "";
-          }
-          if (sign === "+" && numStr.startsWith("-")) sign = "";
-          else if (sign === "+" && n < 0) {
-            sign = "-";
-            numStr = Math.abs(n)
-              .toFixed(2)
-              .replace(/\.?0+$/, "");
-            if (numStr.endsWith(".")) numStr = numStr.slice(0, -1);
-            if (Math.abs(Math.abs(n) - 1) < 1e-6 && omitOne) numStr = "";
-          }
-          return `${sign} ${numStr}`;
-        }
-        function drawPointAndDistance(ctxInfo) {
-          const { ctx, gridSize } = ctxInfo;
-          const cPto = mathToCanvas(ctxInfo, ponto.x, ponto.y);
-          const ptoProx = encontrarPontoMaisProximo(ctxInfo);
-          if (!isFinite(ptoProx.x) || !isFinite(ptoProx.y)) return;
-          const cPtoProx = mathToCanvas(ctxInfo, ptoProx.x, ptoProx.y);
-          const dist = calcularDistanciaPontoReta();
-          if (!isFinite(dist)) return;
-          const maxDist = 5;
-          const rExt = Math.max(10, Math.min(150, dist * gridSize * 1.5));
-          const perigo = Math.max(0, Math.min(1, (maxDist - dist) / maxDist));
-          const corGrad = `rgba(${Math.round(255 * perigo)}, ${Math.round(173 * (1 - perigo))}, ${Math.round(47 * (1 - perigo))}, 0.3)`;
-          const gradRad = ctx.createRadialGradient(
-            cPto.x,
-            cPto.y,
-            0,
-            cPto.x,
-            cPto.y,
-            rExt,
-          );
-          gradRad.addColorStop(0, corGrad);
-          gradRad.addColorStop(1, "rgba(0,0,0,0)");
-          ctx.fillStyle = gradRad;
-          ctx.beginPath();
-          ctx.arc(cPto.x, cPto.y, rExt, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.beginPath();
-          ctx.moveTo(cPto.x, cPto.y);
-          ctx.lineTo(cPtoProx.x, cPtoProx.y);
-          ctx.setLineDash([5, 3]);
-          ctx.strokeStyle = distanceColor;
-          ctx.lineWidth = 2;
-          ctx.stroke();
-          ctx.setLineDash([]);
-          ctx.beginPath();
-          ctx.arc(cPto.x, cPto.y, 8, 0, 2 * Math.PI);
-          ctx.fillStyle = "rgba(255,99,71,0.3)";
-          ctx.fill();
-          ctx.beginPath();
-          ctx.arc(cPto.x, cPto.y, 5, 0, 2 * Math.PI);
-          ctx.fillStyle = pointColor;
-          ctx.fill();
-          ctx.strokeStyle = "#FFF";
-          ctx.lineWidth = 1;
-          ctx.stroke();
-          ctx.beginPath();
-          ctx.arc(cPtoProx.x, cPtoProx.y, 4, 0, 2 * Math.PI);
-          ctx.fillStyle = distanceColor;
-          ctx.fill();
-          const dTxt = `d = ${dist.toFixed(2)}`;
-          const tX = (cPto.x + cPtoProx.x) / 2;
-          const tY = (cPto.y + cPtoProx.y) / 2;
-          const tAng = Math.atan2(cPtoProx.y - cPto.y, cPtoProx.x - cPto.x);
-          ctx.save();
-          ctx.translate(tX, tY);
-          ctx.rotate(tAng + Math.PI / 2);
-          ctx.font = '12px "Courier New", monospace';
-          ctx.fillStyle = distanceColor;
-          ctx.textAlign = "center";
-          ctx.textBaseline = "bottom";
-          ctx.fillText(dTxt, 0, -5);
-          ctx.restore();
-          ctx.fillStyle = "#FFF";
-          ctx.textAlign = "left";
-          ctx.font = '14px "Courier New", monospace';
-          ctx.fillText(
-            `P(${ponto.x.toFixed(1)}, ${ponto.y.toFixed(1)})`,
-            cPto.x + 10,
-            cPto.y - 10,
-          );
-          ctx.fillStyle = "rgba(0,0,0,0.7)";
-          ctx.fillRect(10, 10, 380, 50);
-          ctx.strokeStyle = perigo > 0.6 ? dangerColor : safeColor;
-          ctx.lineWidth = 2;
-          ctx.strokeRect(10, 10, 380, 50);
-          ctx.fillStyle = textColor;
-          ctx.textAlign = "left";
-          ctx.textBaseline = "top";
-          ctx.font = '14px "Courier New", monospace';
-          let sTxt;
-          if (perigo > 0.8) sTxt = "ALERTA: Zona Crítica!";
-          else if (perigo > 0.6) sTxt = "AVISO: Perigo Próximo";
-          else if (perigo > 0.3) sTxt = "CUIDADO: Radiação Moderada";
-          else sTxt = "STATUS: Seguro";
-          let eq = "";
-          let first = true;
-          if (Math.abs(retaCoefs.A) > 1e-6) {
-            eq += `${formatCoef(retaCoefs.A, false, true)}x`;
-            first = false;
-          }
-          if (Math.abs(retaCoefs.B) > 1e-6) {
-            eq += ` ${formatCoef(retaCoefs.B, !first, first)}y`;
-            first = false;
-          }
-          if (Math.abs(retaCoefs.C) > 1e-6) {
-            eq += ` ${formatCoef(retaCoefs.C, !first, first)}`;
-            first = false;
-          }
-          if (first && Math.abs(retaCoefs.C) < 1e-6) eq = "0 = 0";
-          else if (first) eq = `${formatCoef(retaCoefs.C, false, true)} = 0`;
-          else eq += " = 0";
-          eq = eq
-            .replace(/\s+/g, " ")
-            .replace(" + -", " - ")
-            .replace(" - -", " + ")
-            .trim();
-          if (eq.startsWith("+ ")) eq = eq.substring(2);
-          ctx.fillText(sTxt, 20, 20);
-          ctx.fillText(`Reta: ${eq}`, 20, 40);
-        }
-        function draw(canvasId) {
-          if (!canvases[canvasId]) return;
-          drawGrid(canvases[canvasId]);
-          drawLine(canvases[canvasId]);
-          drawPointAndDistance(canvases[canvasId]);
-        }
-        function updateUI(instanceSuffix = "") {
-          const pXI = document.getElementById(
-              `distancia-ponto-x${instanceSuffix}`,
-            ),
-            pYI = document.getElementById(`distancia-ponto-y${instanceSuffix}`);
-          const rAI = document.getElementById(
-              `distancia-reta-a${instanceSuffix}`,
-            ),
-            rBI = document.getElementById(`distancia-reta-b${instanceSuffix}`),
-            rCI = document.getElementById(`distancia-reta-c${instanceSuffix}`);
-          const pXV = document.getElementById(
-              `distancia-ponto-x-value${instanceSuffix}`,
-            ),
-            pYV = document.getElementById(
-              `distancia-ponto-y-value${instanceSuffix}`,
-            );
-          const dV = document.getElementById(
-            `distancia-value${instanceSuffix}`,
-          );
-          if (pXI && pYI && pXV && pYV && dV) {
-            pXI.value = ponto.x;
-            pYI.value = ponto.y;
-            pXV.textContent = ponto.x.toFixed(1);
-            pYV.textContent = ponto.y.toFixed(1);
-            const dist = calcularDistanciaPontoReta();
-            if (isFinite(dist)) {
-              dV.textContent = dist.toFixed(2);
-              const maxDist = 5,
-                perigo = Math.max(0, Math.min(1, (maxDist - dist) / maxDist));
-              dV.style.color = perigo > 0.6 ? dangerColor : safeColor;
-            } else {
-              dV.textContent = "---";
-              dV.style.color = textColor;
-            }
-          }
-          if (rAI && rBI && rCI) {
-            if (document.activeElement !== rAI)
-              rAI.value = retaCoefs.A.toFixed(1);
-            if (document.activeElement !== rBI)
-              rBI.value = retaCoefs.B.toFixed(1);
-            if (document.activeElement !== rCI)
-              rCI.value = retaCoefs.C.toFixed(1);
-          }
-        }
-        function handleMouseDown(e) {
-          activeCanvasId = e.target.id;
-          if (!canvases[activeCanvasId]) return;
-          const rect = e.target.getBoundingClientRect();
-          const mX = e.clientX - rect.left,
-            mY = e.clientY - rect.top;
-          const cP = mathToCanvas(canvases[activeCanvasId], ponto.x, ponto.y);
-          const dx = cP.x - mX,
-            dy = cP.y - mY;
-          if (Math.sqrt(dx * dx + dy * dy) < 15) isDragging = "ponto";
-          else isDragging = null;
-        }
-        function handleMouseMove(e) {
-          if (
-            isDragging !== "ponto" ||
-            !activeCanvasId ||
-            !canvases[activeCanvasId]
-          )
-            return;
-          const rect = canvases[activeCanvasId].canvas.getBoundingClientRect();
-          const mX = e.clientX - rect.left,
-            mY = e.clientY - rect.top;
-          const mathC = canvasToMath(canvases[activeCanvasId], mX, mY);
-          ponto.x = Math.max(-10, Math.min(10, Math.round(mathC.x * 2) / 2));
-          ponto.y = Math.max(-10, Math.min(10, Math.round(mathC.y * 2) / 2));
-          updateUI();
-          updateUI("-2");
-          draw(baseId);
-          draw(baseId + "-2");
-        }
-        function handleMouseUp() {
-          isDragging = null;
-          activeCanvasId = null;
-        }
-        function handleTouchStart(e) {
-          if (e.touches.length === 1) {
-            e.preventDefault();
-            const t = e.touches[0];
-            e.target.dispatchEvent(
-              new MouseEvent("mousedown", {
-                clientX: t.clientX,
-                clientY: t.clientY,
-                bubbles: true,
-              }),
-            );
-          }
-        }
-        function handleTouchMove(e) {
-          if (e.touches.length === 1) {
-            e.preventDefault();
-            const t = e.touches[0];
-            document.dispatchEvent(
-              new MouseEvent("mousemove", {
-                clientX: t.clientX,
-                clientY: t.clientY,
-              }),
-            );
-          }
-        }
-        function handleTouchEnd(e) {
-          document.dispatchEvent(new MouseEvent("mouseup", {}));
-        }
-        function handlePointControlChange(event) {
-          const instanceSuffix = event.target.id.includes("-2") ? "-2" : "";
-          const otherSuffix = instanceSuffix === "-2" ? "" : "-2";
-          const pXI = document.getElementById(
-              `distancia-ponto-x${instanceSuffix}`,
-            ),
-            pYI = document.getElementById(`distancia-ponto-y${instanceSuffix}`);
-          if (pXI && pYI) {
-            ponto.x = parseFloat(pXI.value);
-            ponto.y = parseFloat(pYI.value);
-            draw(baseId);
-            draw(baseId + "-2");
-            updateUI(instanceSuffix);
-            updateUI(otherSuffix);
-          }
-        }
-        function handleRetaUpdate(event) {
-          const instanceSuffix = event.target.id.includes("-2") ? "-2" : "";
-          const otherSuffix = instanceSuffix === "-2" ? "" : "-2";
-          const rAI = document.getElementById(
-              `distancia-reta-a${instanceSuffix}`,
-            ),
-            rBI = document.getElementById(`distancia-reta-b${instanceSuffix}`),
-            rCI = document.getElementById(`distancia-reta-c${instanceSuffix}`);
-          if (rAI && rBI && rCI) {
-            const A_val = parseFloat(rAI.value);
-            const B_val = parseFloat(rBI.value);
-            const C_val = parseFloat(rCI.value);
-            if (
-              isNaN(A_val) ||
-              isNaN(B_val) ||
-              isNaN(C_val) ||
-              (Math.abs(A_val) < 1e-9 && Math.abs(B_val) < 1e-9)
-            ) {
-              updateUI(instanceSuffix);
-              return;
-            }
-            retaCoefs = { A: A_val, B: B_val, C: C_val };
-            draw(baseId);
-            draw(baseId + "-2");
-            updateUI(instanceSuffix);
-            updateUI(otherSuffix);
-          }
-        }
-        function init(forceRedraw = false) {
-          const idsToInit = [baseId, baseId + "-2"];
-          let primaryInitialized = false;
-          idsToInit.forEach((canvasId) => {
-            const canvas = document.getElementById(canvasId);
-            if (!canvas) return;
-            if (!canvases[canvasId] || forceRedraw) {
-              if (
-                canvas.getAttribute("data-initialized") !== "true" ||
-                forceRedraw
-              ) {
-                const ctx = canvas.getContext("2d");
-                const width = canvas.width;
-                const height = canvas.height;
-                const centerX = Math.floor(width / 2);
-                const centerY = Math.floor(height / 2);
-                const gridSize = 30;
-                canvases[canvasId] = {
-                  canvas,
-                  ctx,
-                  width,
-                  height,
-                  centerX,
-                  centerY,
-                  gridSize,
-                };
-                if (canvas.getAttribute("data-listeners-set") !== "true") {
-                  canvas.addEventListener("mousedown", handleMouseDown);
-                  canvas.addEventListener("touchstart", handleTouchStart, {
-                    passive: false,
-                  });
-                  const pXI = document.getElementById(
-                      `distancia-ponto-x${canvasId.replace(baseId, "")}`,
-                    ),
-                    pYI = document.getElementById(
-                      `distancia-ponto-y${canvasId.replace(baseId, "")}`,
-                    );
-                  if (pXI && !pXI.hasAttribute("data-listener-set")) {
-                    pXI.addEventListener("input", handlePointControlChange);
-                    pXI.setAttribute("data-listener-set", "true");
-                  }
-                  if (pYI && !pYI.hasAttribute("data-listener-set")) {
-                    pYI.addEventListener("input", handlePointControlChange);
-                    pYI.setAttribute("data-listener-set", "true");
-                  }
-                  const rAI = document.getElementById(
-                      `distancia-reta-a${canvasId.replace(baseId, "")}`,
-                    ),
-                    rBI = document.getElementById(
-                      `distancia-reta-b${canvasId.replace(baseId, "")}`,
-                    ),
-                    rCI = document.getElementById(
-                      `distancia-reta-c${canvasId.replace(baseId, "")}`,
-                    ),
-                    rUB = document.getElementById(
-                      `distancia-reta-update${canvasId.replace(baseId, "")}`,
-                    );
-                  if (rUB && !rUB.hasAttribute("data-listener-set")) {
-                    rUB.addEventListener("click", handleRetaUpdate);
-                    rUB.setAttribute("data-listener-set", "true");
-                  }
-                  if (rAI && !rAI.hasAttribute("data-listener-set")) {
-                    rAI.addEventListener("change", handleRetaUpdate);
-                    rAI.setAttribute("data-listener-set", "true");
-                  }
-                  if (rBI && !rBI.hasAttribute("data-listener-set")) {
-                    rBI.addEventListener("change", handleRetaUpdate);
-                    rBI.setAttribute("data-listener-set", "true");
-                  }
-                  if (rCI && !rCI.hasAttribute("data-listener-set")) {
-                    rCI.addEventListener("change", handleRetaUpdate);
-                    rCI.setAttribute("data-listener-set", "true");
-                  }
-                  canvas.setAttribute("data-listeners-set", "true");
-                }
-                canvas.setAttribute("data-initialized", "true");
-                if (canvasId === baseId) primaryInitialized = true;
-              }
-            }
-          });
-          // Add global listeners once
-          if (!document.body.hasAttribute("data-global-distancia-listeners")) {
-            document.addEventListener("mousemove", handleMouseMove);
-            document.addEventListener("mouseup", handleMouseUp);
-            document.addEventListener("touchmove", handleTouchMove, {
-              passive: false,
-            });
-            document.addEventListener("touchend", handleTouchEnd);
-            document.body.setAttribute(
-              "data-global-distancia-listeners",
-              "true",
-            );
-          }
-          if (primaryInitialized || forceRedraw) {
-            draw(baseId);
-            draw(baseId + "-2");
-            updateUI();
-            updateUI("-2");
-          }
-        }
-        if (
-          document.readyState === "complete" ||
-          document.readyState === "interactive"
-        ) {
-          setTimeout(init, 50);
-        } else {
-          document.addEventListener("DOMContentLoaded", init);
-        }
-        if (typeof Reveal !== "undefined") {
-          Reveal.addEventListener("slidechanged", (event) => {
-            const currentCanvas = event.currentSlide.querySelector(
-              `canvas[id^="${baseId}"]`,
-            );
-            if (currentCanvas) {
-              init(true);
-            }
-          });
-          Reveal.on("ready", (event) => {
-            init();
-          });
-        } else {
-          init();
-        }
-        window.distanciaPontoRetaVisualization = { init: () => init(true) }; // Expose for re-init
-      })();
-</script>
+</section>

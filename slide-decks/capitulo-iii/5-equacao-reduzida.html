@@ -1,30 +1,5 @@
-<!-- Tópico 5: Equação Reduzida e Inclinação (Horizontal 7) -->
-        <section>
-          <!-- 5{,}1 Conceito Principal -->
-          <section class="mission-briefing">
-            <h2>Tópico 5: Equação Reduzida \(y=mx+b\)</h2>
-            <h3 class="mission-subtitle">Relatório Rápido de Rota</h3>
-            <div class="definition-box">
-              <p>
-                <strong>Definição Formal:</strong> A forma \(y=mx+b\) expressa
-                \(y\) como função linear de \(x\) (exceto para retas verticais).
-              </p>
-              <p><strong>Interpretação Espacial:</strong></p>
-              <ul>
-                <li>
-                  \(m\): Coeficiente angular (inclinação, \(m = \tan(\theta)\)).
-                </li>
-                <li>\(b\): Coeficiente linear (intercepto Y, onde \(x=0\)).</li>
-              </ul>
-            </div>
-            <p>
-              É a forma mais intuitiva para visualização rápida da orientação de
-              uma rota.
-            </p>
-          </section>
-
-          <!-- 5{,}2 Visualização (Foco nos coeficientes) -->
-          <section class="simulator">
+<section>
+  <section class="simulator">
             <h3>Visualização: O Significado de \(m\) e \(b\)</h3>
             <div class="canvas-container">
               <canvas
@@ -74,9 +49,7 @@
               </div>
             </div>
           </section>
-
-          <!-- 5{,}3 Teorema/Propriedade (Relação m e ângulo) -->
-          <section class="field-report level-basic">
+  <section class="field-report level-basic">
             <h3>Teoria: Inclinação e Ângulo</h3>
             <p>
               A relação fundamental entre o coeficiente angular \(m\) e o ângulo
@@ -99,9 +72,7 @@
               </div>
             </div>
           </section>
-
-          <!-- 5{,}4/5/6 Problema/Solução (Simplificado: Achar m e b) -->
-          <section class="survival-training">
+  <section class="survival-training">
             <h3>Treinamento: Extraindo Dados da Rota</h3>
             <div class="training-problem">
               <h4>Tarefa:</h4>
@@ -130,9 +101,7 @@
               </div>
             </div>
           </section>
-
-          <!-- 5{,}7 Conclusão -->
-          <section class="debriefing">
+  <section class="debriefing">
             <h3>Conclusão: Equação Reduzida</h3>
             <div class="summary-box">
               <p>A forma \(y=mx+b\) oferece diagnóstico rápido:</p>
@@ -150,46 +119,7 @@
               </p>
             </div>
           </section>
-        </section>
-
-        <!-- Slides Finais de Aplicação (Horizontal 8) -->
-        <section>
-          <!-- A.1 Aplicação Histórica -->
-          <section class="field-report level-intermediate">
-            <h2>Aplicação Histórica: Navegação e Cartografia</h2>
-            <h3 class="mission-subtitle">Mapeando Mundos e Estrelas</h3>
-            <div class="info-panel">
-              <div class="info-screen crt-effect">
-                <p>
-                  A Geometria Analítica revolucionou a cartografia e a
-                  navegação:
-                </p>
-                <ul>
-                  <li>
-                    <strong>Projeções Cartográficas:</strong> Descrever curvas
-                    da Terra como retas em mapas.
-                  </li>
-                  <li>
-                    <strong>Navegação:</strong> Métodos como triangulação
-                    baseados em geometria.
-                  </li>
-                  <li>
-                    <strong>Astronomia:</strong> Leis de Kepler e Newton usam
-                    equações de cônicas (elipses, etc.).
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="survival-tip">
-              <p>
-                As mesmas ferramentas que mapearam a Terra e os céus mapeiam a
-                wasteland.
-              </p>
-            </div>
-          </section>
-
-          <!-- A.2 Aplicação Prática Moderna -->
-          <section class="field-report level-advanced">
+  <section class="field-report level-advanced">
             <h2>Aplicação Moderna: GPS e Gráficos Computacionais</h2>
             <h3 class="mission-subtitle">Do Satélite à Tela do Dispositivo</h3>
             <div class="two-column">
@@ -233,9 +163,7 @@
               </p>
             </div>
           </section>
-
-          <!-- A.3 Debriefing Final (Movido para cá) -->
-          <section class="debriefing">
+  <section class="debriefing">
             <h2>Debriefing Final: Dominando as Rotas</h2>
             <div class="summary-box">
               <p>
@@ -265,240 +193,4 @@
               </p>
             </div>
           </section>
-        </section>
-
-<!-- Scripts dos simuladores -->
-<script>
-// IIFE para visualização da equação reduzida
-      (function () {
-        let canvas, ctx;
-        let width,
-          height,
-          centerX,
-          centerY,
-          gridSize = 30;
-        let m = 1,
-          b = 1;
-        const axisColor = "#ADFF2F",
-          gridColor = "rgba(173, 255, 47, 0.2)",
-          lineColor = "#FFD700",
-          textColor = "#E0E0E0",
-          interceptColor = "#00FFFF";
-        const canvasId = "reduzida-canvas";
-
-        function mathToCanvas(x, y) {
-          if (!centerX) return {};
-          return { x: centerX + x * gridSize, y: centerY - y * gridSize };
-        }
-        function drawGrid() {
-          if (!ctx) return;
-          ctx.clearRect(0, 0, width, height);
-          const grad = ctx.createRadialGradient(
-            centerX,
-            centerY,
-            50,
-            centerX,
-            centerY,
-            Math.max(width, height) / 1.5,
-          );
-          grad.addColorStop(0, "rgba(0,0,0,0)");
-          grad.addColorStop(1, "rgba(0,0,0,0.5)");
-          ctx.fillStyle = grad;
-          ctx.fillRect(0, 0, width, height);
-          ctx.strokeStyle = gridColor;
-          ctx.lineWidth = 1;
-          for (let x = centerX % gridSize; x < width; x += gridSize) {
-            ctx.beginPath();
-            ctx.moveTo(x, 0);
-            ctx.lineTo(x, height);
-            ctx.stroke();
-          }
-          for (let y = centerY % gridSize; y < height; y += gridSize) {
-            ctx.beginPath();
-            ctx.moveTo(0, y);
-            ctx.lineTo(width, y);
-            ctx.stroke();
-          }
-          ctx.strokeStyle = axisColor;
-          ctx.lineWidth = 2;
-          ctx.beginPath();
-          ctx.moveTo(0, centerY);
-          ctx.lineTo(width, centerY);
-          ctx.stroke();
-          ctx.beginPath();
-          ctx.moveTo(centerX, 0);
-          ctx.lineTo(centerX, height);
-          ctx.stroke();
-          ctx.fillStyle = axisColor;
-          ctx.font = '12px "Courier New", monospace';
-          ctx.textAlign = "center";
-          ctx.textBaseline = "middle";
-          for (
-            let x = -Math.floor(centerX / gridSize);
-            x <= Math.floor((width - centerX) / gridSize);
-            x += 2
-          ) {
-            if (x === 0) continue;
-            const cX = centerX + x * gridSize;
-            ctx.beginPath();
-            ctx.moveTo(cX, centerY - 5);
-            ctx.lineTo(cX, centerY + 5);
-            ctx.stroke();
-            ctx.fillText(x.toString(), cX, centerY + 15);
-          }
-          for (
-            let y = -Math.floor(centerY / gridSize);
-            y <= Math.floor((height - centerY) / gridSize);
-            y += 2
-          ) {
-            if (y === 0) continue;
-            const cY = centerY - y * gridSize;
-            ctx.beginPath();
-            ctx.moveTo(centerX - 5, cY);
-            ctx.lineTo(centerX + 5, cY);
-            ctx.stroke();
-            ctx.fillText(y.toString(), centerX - 15, cY);
-          }
-          ctx.fillText("0", centerX - 15, centerY + 15);
-          ctx.fillStyle = "rgba(0,0,0,0.1)";
-          for (let y = 0; y < height; y += 4) ctx.fillRect(0, y, width, 2);
-        }
-        function drawLineAndInfo() {
-          if (!ctx) return;
-          const minX_m = -width / (2 * gridSize);
-          const maxX_m = width / (2 * gridSize);
-          const y1 = m * minX_m + b;
-          const y2 = m * maxX_m + b;
-          const p1 = mathToCanvas(minX_m, y1);
-          const p2 = mathToCanvas(maxX_m, y2);
-          ctx.beginPath();
-          ctx.moveTo(p1.x, p1.y);
-          ctx.lineTo(p2.x, p2.y);
-          ctx.strokeStyle = lineColor;
-          ctx.lineWidth = 2;
-          ctx.stroke();
-          ctx.beginPath();
-          ctx.moveTo(p1.x, p1.y);
-          ctx.lineTo(p2.x, p2.y);
-          ctx.strokeStyle = `${lineColor}33`;
-          ctx.lineWidth = 6;
-          ctx.stroke();
-          const interceptY = mathToCanvas(0, b);
-          ctx.beginPath();
-          ctx.arc(interceptY.x, interceptY.y, 6, 0, 2 * Math.PI);
-          ctx.fillStyle = `${interceptColor}55`;
-          ctx.fill();
-          ctx.beginPath();
-          ctx.arc(interceptY.x, interceptY.y, 4, 0, 2 * Math.PI);
-          ctx.fillStyle = interceptColor;
-          ctx.fill();
-          ctx.fillStyle = interceptColor;
-          ctx.font = '12px "Courier New", monospace';
-          ctx.textAlign = "left";
-          ctx.fillText(`b=${b.toFixed(1)}`, interceptY.x + 8, interceptY.y - 8);
-          let angle = (Math.atan(m) * 180) / Math.PI;
-          ctx.fillStyle = textColor;
-          ctx.font = '14px "Courier New", monospace';
-          ctx.textAlign = "center"; // Position text near the middle, avoiding the intercept point if possible
-          const textX = centerX + (m > 0 ? -gridSize * 1.5 : gridSize * 1.5); // Adjusted positioning
-          const textY =
-            centerY - (m * (m > 0 ? -1.5 : 1.5) + b) * gridSize - 15; // Adjusted positioning
-          ctx.save();
-          ctx.translate(textX, textY);
-          ctx.rotate(Math.atan(m));
-          ctx.fillText(`m=${m.toFixed(1)} (θ=${angle.toFixed(0)}°)`, 0, 0);
-          ctx.restore();
-        }
-        function draw() {
-          if (!ctx) return;
-          drawGrid();
-          drawLineAndInfo();
-        }
-        function updateUI() {
-          const mIn = document.getElementById("reduzida-m"),
-            bIn = document.getElementById("reduzida-b");
-          const mV = document.getElementById("reduzida-m-value"),
-            bV = document.getElementById("reduzida-b-value");
-          const info = document.getElementById("reduzida-info");
-          if (mIn && bIn && mV && bV && info) {
-            mIn.value = m;
-            bIn.value = b;
-            mV.textContent = m.toFixed(1);
-            bV.textContent = b.toFixed(1);
-            info.textContent =
-              `Equação: y = ${m.toFixed(1)}x ${b >= 0 ? "+" : "-"} ${Math.abs(b).toFixed(1)}`.replace(
-                "+ -",
-                "- ",
-              );
-          }
-        }
-        function handleControlChange() {
-          const mIn = document.getElementById("reduzida-m"),
-            bIn = document.getElementById("reduzida-b");
-          if (mIn && bIn) {
-            m = parseFloat(mIn.value);
-            b = parseFloat(bIn.value);
-            draw();
-            updateUI();
-          }
-        }
-        function init(forceRedraw = false) {
-          canvas = document.getElementById(canvasId);
-          if (
-            !canvas ||
-            (canvas.getAttribute("data-initialized") === "true" && !forceRedraw)
-          )
-            return;
-          ctx = canvas.getContext("2d");
-          width = canvas.width;
-          height = canvas.height;
-          centerX = Math.floor(width / 2);
-          centerY = Math.floor(height / 2);
-          if (canvas.getAttribute("data-listeners-set") !== "true") {
-            const mIn = document.getElementById("reduzida-m"),
-              bIn = document.getElementById("reduzida-b");
-            if (mIn && !mIn.hasAttribute("data-listener-set")) {
-              mIn.addEventListener("input", handleControlChange);
-              mIn.setAttribute("data-listener-set", "true");
-            }
-            if (bIn && !bIn.hasAttribute("data-listener-set")) {
-              bIn.addEventListener("input", handleControlChange);
-              bIn.setAttribute("data-listener-set", "true");
-            }
-            canvas.setAttribute("data-listeners-set", "true");
-          }
-          draw();
-          updateUI();
-          canvas.setAttribute("data-initialized", "true");
-        }
-        if (
-          document.readyState === "complete" ||
-          document.readyState === "interactive"
-        ) {
-          setTimeout(init, 50);
-        } else {
-          document.addEventListener("DOMContentLoaded", init);
-        }
-        if (typeof Reveal !== "undefined") {
-          Reveal.addEventListener("slidechanged", (event) => {
-            const currentCanvas = event.currentSlide.querySelector(
-              `#${canvasId}`,
-            );
-            if (currentCanvas) {
-              init(true);
-            }
-          });
-          Reveal.on("ready", (event) => {
-            const currentCanvas = document.getElementById(canvasId);
-            if (
-              currentCanvas &&
-              Reveal.getCurrentSlide().contains(currentCanvas)
-            )
-              init();
-          });
-        } else {
-          init();
-        }
-        window.reduzidaVisualization = { init: () => init(true) }; // Expose for re-init
-      })();
-</script>
+</section>
