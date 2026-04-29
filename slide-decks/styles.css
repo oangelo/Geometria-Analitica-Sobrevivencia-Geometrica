@@ -846,3 +846,342 @@
   color: #ffeb3b;
   font-weight: bold;
 }
+
+/* ========== CLASSES DO CAPÍTULO III ========== */
+
+/* Layout de duas colunas */
+.two-column {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.column {
+  flex: 1;
+  min-width: 300px;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.column-title {
+  color: #ffd700;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+  padding-bottom: 5px;
+}
+
+/* Painel de conversão */
+.conversion-panel {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  border-radius: 5px;
+  margin: 20px 0;
+  border-left: 3px solid #adff2f;
+}
+
+.conversion-title {
+  color: #adff2f;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.conversion-step {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: rgba(50, 50, 50, 0.3);
+  border-radius: 3px;
+}
+
+.conversion-step p:first-child {
+  font-weight: bold;
+  color: #ffd700;
+  margin-bottom: 0.3em;
+}
+
+/* Container de tabela */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+/* Painel de posições */
+.positions-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.position-card {
+  flex: 1;
+  min-width: 200px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  padding: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.position-card.perpendicular {
+  border-left: 3px solid #00ffff;
+}
+
+.position-card.concurrent {
+  border-left: 3px solid #ff6347;
+}
+
+.position-card.parallel {
+  border-left: 3px solid #ffd700;
+}
+
+.position-card.coincident {
+  border-left: 3px solid #adff2f;
+}
+
+.position-title {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.position-card.perpendicular .position-title {
+  color: #00ffff;
+}
+
+.position-card.concurrent .position-title {
+  color: #ff6347;
+}
+
+.position-card.parallel .position-title {
+  color: #ffd700;
+}
+
+.position-card.coincident .position-title {
+  color: #adff2f;
+}
+
+.position-desc {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.position-condition {
+  font-family: "Courier New", monospace;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+/* Diagramas visuais */
+.visual-diagram {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 20px 0;
+  gap: 20px;
+}
+
+.diagram-container {
+  flex: 1;
+  min-width: 300px;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.diagram-container svg {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  max-height: 200px;
+  display: block;
+  margin: 10px auto;
+}
+
+.diagram-container p {
+  font-size: 1.1rem !important;
+  line-height: 1.2;
+}
+
+.diagram-title {
+  color: #ffd700;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+/* Estudo de caso */
+.case-study {
+  margin: 20px 0;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.case-title {
+  color: #ffd700;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.case-description {
+  margin-bottom: 15px;
+}
+
+.case-solution {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  border-radius: 3px;
+  margin-top: 10px;
+}
+
+.case-solution-title {
+  color: #adff2f;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.case-step {
+  margin-bottom: 0.8em;
+  padding-left: 1em;
+  border-left: 2px solid rgba(173, 255, 47, 0.3);
+}
+
+.case-step strong {
+  color: #ffd700;
+}
+
+/* Botões de preset */
+.preset-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.preset-button {
+  background-color: #2f2f2f;
+  color: #adff2f;
+  border: 1px solid #adff2f;
+  padding: 3px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin: 0 3px;
+}
+
+.preset-button:hover {
+  background-color: #3f3f3f;
+  box-shadow: 0 0 5px #adff2f;
+}
+
+.preset-button.perpendicular {
+  color: #00ffff;
+  border: 1px solid #00ffff;
+}
+
+.preset-button.perpendicular:hover {
+  background-color: rgba(0, 255, 255, 0.2);
+}
+
+.preset-button.concurrent {
+  color: #ff6347;
+  border: 1px solid #ff6347;
+}
+
+.preset-button.concurrent:hover {
+  background-color: rgba(255, 99, 71, 0.2);
+}
+
+.preset-button.parallel {
+  color: #ffd700;
+  border: 1px solid #ffd700;
+}
+
+.preset-button.parallel:hover {
+  background-color: rgba(255, 215, 0, 0.2);
+}
+
+.preset-button.coincident {
+  color: #adff2f;
+  border: 1px solid #adff2f;
+}
+
+.preset-button.coincident:hover {
+  background-color: rgba(173, 255, 47, 0.2);
+}
+
+/* Info de interseção */
+.intersecao-info {
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 15px 0;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  font-family: "Courier New", monospace;
+}
+
+/* Destaques SPD/SI/SPI */
+.highlight-spd {
+  background-color: rgba(0, 255, 255, 0.1);
+  border-left: 2px solid #00ffff;
+  padding: 0.1em 0.3em;
+}
+
+.highlight-si {
+  background-color: rgba(255, 215, 0, 0.1);
+  border-left: 2px solid #ffd700;
+  padding: 0.1em 0.3em;
+}
+
+.highlight-spi {
+  background-color: rgba(173, 255, 47, 0.1);
+  border-left: 2px solid #adff2f;
+  padding: 0.1em 0.3em;
+}
+
+/* Efeitos CRT e glow */
+.crt-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.crt-effect::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.1) 50%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.radiation-glow {
+  text-shadow:
+    0 0 5px #adff2f,
+    0 0 10px #adff2f;
+  transition: text-shadow 0.3s ease;
+}
+
+.radiation-glow:hover {
+  text-shadow:
+    0 0 10px #adff2f,
+    0 0 15px #adff2f,
+    0 0 20px #adff2f;
+}

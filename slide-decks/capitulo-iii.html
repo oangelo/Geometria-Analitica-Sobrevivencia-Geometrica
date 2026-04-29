@@ -944,19 +944,14 @@
           const text = await res.text();
           const doc  = new DOMParser().parseFromString(text, 'text/html');
 
-          doc.querySelectorAll('head style').forEach(s =>
-            document.head.appendChild(document.adoptNode(s))
+          // Como os fragmentos não têm mais head/body, procuramos sections diretamente
+          const sections = doc.querySelectorAll('section');
+          sections.forEach(child =>
+            container.appendChild(document.adoptNode(child))
           );
 
-          const slides = doc.querySelector('.slides');
-          if (slides) {
-            [...slides.children].forEach(child =>
-              container.appendChild(document.adoptNode(child))
-            );
-          }
-
           // Collect inline scripts (skip Reveal.initialize and MathJax config)
-          doc.querySelectorAll('body script:not([src])').forEach(s => {
+          doc.querySelectorAll('script:not([src])').forEach(s => {
             const content = s.textContent.trim();
             if (content &&
                 !content.includes('Reveal.initialize') &&
