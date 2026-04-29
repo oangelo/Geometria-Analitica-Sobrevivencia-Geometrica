@@ -1,210 +1,146 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <title>Cap. II — Ângulo entre Vetores</title>
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Cap. II — Ângulo entre Vetores</title>
+  <link href="https://unpkg.com/reveal.js@5.1.0/dist/reveal.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/reveal.js@5.1.0/dist/theme/black.css" id="theme" rel="stylesheet"/>
+  <link href="../styles.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
 
-    <!-- Reveal.js Styles -->
-    <link rel="stylesheet" href="https://unpkg.com/reveal.js@5.1.0/dist/reveal.css" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/reveal.js@5.1.0/dist/theme/black.css"
-      id="theme"
-    />
+  <!-- SEÇÃO 6: ÂNGULO ENTRE VETORES -->
+  <section>
 
-    <!-- For syntax highlighting -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/reveal.js@5.1.0/plugin/highlight/monokai.css"
-    />
-
-    <!-- Custom styles (if needed) -->
-    <link rel="stylesheet" href="../styles.css" />
-  </head>
-
-  <body>
-    <div class="reveal">
-      <div class="slides">
-        <section>
-          <!-- Slide Vertical: Mission Briefing -->
-          <section>
-            <div class="mission-briefing">
-              <h2>Ângulo entre Vetores</h2>
-              <h3 class="mission-subtitle">A Bússola do Produto Escalar</h3>
-              <p>
-                Na Zona Devastada, saber a direção de uma ameaça é tão importante
-                quanto saber sua distância. O produto escalar, junto com o módulo,
-                nos permite calcular exatamente o ângulo entre duas direções.
-              </p>
-              <div class="mnemonic">
-                "O produto escalar revela o ângulo; o módulo dá a escala."
-              </div>
-            </div>
-          </section>
-
-          <!-- Slide Vertical: Fórmula do Ângulo -->
-          <section>
-            <h2>Calculando o Ângulo</h2>
-            <p>
-              O produto escalar revela o ângulo \(\theta\) entre dois vetores.
-              A partir de \(\vec{u} \cdot \vec{v} = |\vec{u}||\vec{v}|\cos(\theta)\), isolamos:
-            </p>
-            <p class="formula">
-              \[ \cos(\theta) = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}||\vec{v}|}, \qquad
-              \theta = \arccos\!\left(\frac{\vec{u} \cdot \vec{v}}{|\vec{u}||\vec{v}|}\right) \]
-            </p>
-            <div class="survival-tip">
-              <span class="emoji-icon">🧭</span>
-              <strong>Regra do Sobrevivente:</strong> o sinal do produto escalar basta para saber se o ângulo
-              é agudo (\(> 0\)), reto (\(= 0\)) ou obtuso (\(< 0\)). O \(\arccos\) só é necessário
-              quando o valor exato do ângulo importa.
-            </div>
-          </section>
-
-          <!-- Slide Vertical: Casos Especiais -->
-          <section>
-            <h2>Casos Especiais</h2>
-            <div class="flex-container">
-              <div class="flex-item">
-                <strong>\(\theta = 0^\circ\)</strong><br/>
-                vetores paralelos, mesmo sentido<br/>
-                \(\vec{u} \cdot \vec{v} = |\vec{u}||\vec{v}| > 0\)
-              </div>
-              <div class="flex-item">
-                <strong>\(\theta = 90^\circ\)</strong><br/>
-                vetores ortogonais<br/>
-                \(\vec{u} \cdot \vec{v} = 0\)
-              </div>
-              <div class="flex-item">
-                <strong>\(\theta = 180^\circ\)</strong><br/>
-                vetores anti-paralelos<br/>
-                \(\vec{u} \cdot \vec{v} = -|\vec{u}||\vec{v}| < 0\)
-              </div>
-            </div>
-            <div class="info-panel">
-              <h4>Interpretação na Zona Devastada</h4>
-              <p>
-                Ângulo 0°: ameaça vindo de frente — impacto máximo.<br/>
-                Ângulo 90°: ameaça lateral — sem risco de colisão direta.<br/>
-                Ângulo 180°: ameaça se afastando — perigo zero.
-              </p>
-            </div>
-          </section>
-
-          <!-- Slide Vertical: Exemplo Resolvido -->
-          <section>
-            <h2>Exemplo: Interceptação de Sinal</h2>
-            <p>
-              Dois postos de vigilância captam sinais com direções
-              \(\vec{u} = (1, 1)\) e \(\vec{v} = (1, 0)\). Qual o ângulo entre as direções?
-            </p>
-            <ol>
-              <li>Produto escalar: \(\vec{u} \cdot \vec{v} = 1 \cdot 1 + 1 \cdot 0 = 1\)</li>
-              <li>Módulos: \(|\vec{u}| = \sqrt{2}\), \(|\vec{v}| = 1\)</li>
-              <li>\(\cos(\theta) = \dfrac{1}{\sqrt{2} \cdot 1} = \dfrac{\sqrt{2}}{2}\)</li>
-              <li>\(\theta = \arccos\!\left(\dfrac{\sqrt{2}}{2}\right) = 45^\circ\)</li>
-            </ol>
-            <div class="definition-box">
-              <p>
-                Os sinais chegam com 45° de diferença. Se um vem de leste, o outro
-                vem de nordeste — informação vital para triangulação.
-              </p>
-            </div>
-          </section>
-
-          <!-- Slide Vertical: Exercícios -->
-          <section>
-            <h2>Exercícios: Ângulo na Zona Devastada</h2>
-            <div class="survival-training">
-              <div class="training-problem">
-                <h4>Problema 1: Rota de Fuga</h4>
-                <p>
-                  Uma rota de fuga tem direção \(\vec{r} = (3, 4)\) e uma rota de
-                  suprimentos tem direção \(\vec{s} = (1, -2)\). Calcule o ângulo
-                  entre as rotas.
-                </p>
-              </div>
-              <div class="training-problem">
-                <h4>Problema 2: Ameaça Frontal</h4>
-                <p>
-                  Um Mutante se aproxima na direção \(\vec{m} = (-2, 1)\). Seu
-                  campo de visão cobre a direção \(\vec{v} = (1, 0)\). O Mutante
-                  está dentro do seu campo de visão (ângulo menor que 90°)?
-                </p>
-              </div>
-              <div class="training-problem">
-                <h4>Problema 3: Patrulhas Complementares</h4>
-                <p>
-                  Duas patrulhas seguem direções \(\vec{p}_1 = (2, 1)\) e
-                  \(\vec{p}_2 = (-1, 2)\). Calcule o ângulo entre elas e
-                  determine se são complementares para cobrir a área.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <!-- Slide Vertical: Debriefing -->
-          <section>
-            <div class="debriefing">
-              <h2>Debriefing: Lições Aprendidas</h2>
-              <div class="summary-box">
-                <h3>Pontos-Chave</h3>
-                <ul>
-                  <li>Fórmula: \(\cos(\theta) = \dfrac{\vec{u} \cdot \vec{v}}{|\vec{u}||\vec{v}|}\)</li>
-                  <li>\(\theta = \arccos(\cos(\theta))\) para o valor exato</li>
-                  <li>Sinal do produto escalar indica tipo de ângulo (agudo/reto/obtuso)</li>
-                  <li>Casos especiais: 0° (paralelos), 90° (ortogonais), 180° (opostos)</li>
-                </ul>
-              </div>
-              <div class="next-mission">
-                <p>
-                  <strong>Próxima Missão:</strong> Projeção Vetorial —
-                  Como extrair a componente de um vetor na direção de outro.
-                </p>
-              </div>
-              <div class="instructor-note">
-                <p>
-                  <em>Nota do SUPERVISOR:</em> O ângulo entre vetores é a
-                  ferramenta final para análise de direções. Combine com projeção
-                  para calcular "quanto" de um vetor aponta na direção de outro.
-                </p>
-              </div>
-            </div>
-          </section>
-        </section>
-
+    <!-- Slide 6.1 — A Bússola do Produto Escalar (Motivação) -->
+    <section class="mission-briefing">
+      <h2>Ângulo entre Vetores</h2>
+      <h3 class="mission-subtitle">A Bússola do Produto Escalar</h3>
+      <p>Na Zona Devastada, saber a direção de uma ameaça é tão importante quanto saber sua distância. O produto escalar, junto com o módulo, nos permite calcular exatamente o ângulo entre duas direções.</p>
+      <div class="mnemonic">
+        "O produto escalar revela o ângulo; o módulo dá a escala."
       </div>
-      <!-- .slides -->
-    </div>
-    <!-- .reveal -->
+    </section>
 
-    <!-- Reveal.js -->
-    <script src="https://unpkg.com/reveal.js@5.1.0/dist/reveal.js"></script>
-    <script src="https://unpkg.com/reveal.js@5.1.0/plugin/notes/notes.js"></script>
-    <script src="https://unpkg.com/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+    <!-- Slide 6.2 — Calculando o Ângulo -->
+    <section class="mission-briefing">
+      <h2>Calculando o Ângulo</h2>
+      <p>O produto escalar revela o ângulo \(\theta\) entre dois vetores. A partir de \(\vec{u} \cdot \vec{v} = |\vec{u}||\vec{v}|\cos(\theta)\), isolamos:</p>
+      <p class="formula">\[ \cos(\theta) = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}||\vec{v}|}, \qquad \theta = \arccos\!\left(\frac{\vec{u} \cdot \vec{v}}{|\vec{u}||\vec{v}|}\right) \]</p>
+      <div class="survival-tip">
+        <p><span class="emoji-icon">🧭</span><strong>Regra do Sobrevivente:</strong> o sinal do produto escalar basta para saber se o ângulo é agudo (\(> 0\)), reto (\(= 0\)) ou obtuso (\(< 0\)). O \(\arccos\) só é necessário quando o valor exato do ângulo importa.</p>
+      </div>
+    </section>
 
-    <!-- MathJax -->
-    <script>
-      window.MathJax = {
-        tex: {
-          inlineMath: [["\\(", "\\)"]],
-          displayMath: [["\\[", "\\]"]],
-        },
-        svg: { fontCache: "global" },
-      };
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <!-- Slide 6.3 — Casos Especiais -->
+    <section class="field-report level-basic">
+      <h2>Casos Especiais</h2>
+      <div class="flex-container">
+        <div class="flex-item">
+          <strong>\(\theta = 0°\)</strong><br/>
+          vetores paralelos, mesmo sentido<br/>
+          \(\vec{u} \cdot \vec{v} = |\vec{u}||\vec{v}| > 0\)
+        </div>
+        <div class="flex-item">
+          <strong>\(\theta = 90°\)</strong><br/>
+          vetores ortogonais<br/>
+          \(\vec{u} \cdot \vec{v} = 0\)
+        </div>
+        <div class="flex-item">
+          <strong>\(\theta = 180°\)</strong><br/>
+          vetores anti-paralelos<br/>
+          \(\vec{u} \cdot \vec{v} = -|\vec{u}||\vec{v}| < 0\)
+        </div>
+      </div>
+      <div class="info-panel">
+        <h4>Interpretação na Zona Devastada</h4>
+        <p>Ângulo 0°: ameaça vindo de frente — impacto máximo.<br/>
+        Ângulo 90°: ameaça lateral — sem risco de colisão direta.<br/>
+        Ângulo 180°: ameaça se afastando — perigo zero.</p>
+      </div>
+    </section>
 
-    <script>
-      Reveal.initialize({
-        hash: true,
-        slideNumber: true,
-        plugins: [RevealNotes, RevealHighlight],
-      });
-    </script>
-  </body>
+    <!-- Slide 6.4 — Exemplo: Interceptação de Sinal -->
+    <section class="field-report level-intermediate">
+      <h2>Exemplo: Interceptação de Sinal</h2>
+      <p>Dois postos de vigilância captam sinais com direções \(\vec{u} = (1, 1)\) e \(\vec{v} = (1, 0)\). Qual o ângulo entre as direções?</p>
+      <ol>
+        <li>Produto escalar: \(\vec{u} \cdot \vec{v} = 1 \cdot 1 + 1 \cdot 0 = 1\)</li>
+        <li>Módulos: \(|\vec{u}| = \sqrt{2}\), \(|\vec{v}| = 1\)</li>
+        <li>\(\cos(\theta) = \dfrac{1}{\sqrt{2} \cdot 1} = \dfrac{\sqrt{2}}{2}\)</li>
+        <li>\(\theta = \arccos\!\left(\dfrac{\sqrt{2}}{2}\right) = 45°\)</li>
+      </ol>
+      <div class="definition-box">
+        <p>Os sinais chegam com 45° de diferença. Se um vem de leste, o outro vem de nordeste — informação vital para triangulação.</p>
+      </div>
+    </section>
+
+    <!-- Slide 6.5 — Treinamento: Ângulo -->
+    <section class="survival-training level-intermediate">
+      <h2>Exercícios: Ângulo na Zona Devastada</h2>
+      <div class="training-problem">
+        <h4>Problema 1: Rota de Fuga</h4>
+        <p>Uma rota de fuga tem direção \(\vec{r} = (3, 4)\) e uma rota de suprimentos tem direção \(\vec{s} = (1, -2)\). Calcule o ângulo entre as rotas.</p>
+      </div>
+      <div class="training-problem">
+        <h4>Problema 2: Ameaça Frontal</h4>
+        <p>Um Mutante se aproxima na direção \(\vec{m} = (-2, 1)\). Seu campo de visão cobre a direção \(\vec{v} = (1, 0)\). O Mutante está dentro do seu campo de visão (ângulo menor que 90°)?</p>
+      </div>
+      <div class="training-problem">
+        <h4>Problema 3: Patrulhas Complementares</h4>
+        <p>Duas patrulhas seguem direções \(\vec{p}_1 = (2, 1)\) e \(\vec{p}_2 = (-1, 2)\). Calcule o ângulo entre elas e determine se são complementares para cobrir a área.</p>
+      </div>
+    </section>
+
+    <!-- Slide 6.6 — Debriefing: Ângulo -->
+    <section class="debriefing">
+      <h2>Debriefing: Lições Aprendidas</h2>
+      <div class="summary-box">
+        <h3>Pontos-Chave</h3>
+        <ul>
+          <li>Fórmula: \(\cos(\theta) = \dfrac{\vec{u} \cdot \vec{v}}{|\vec{u}||\vec{v}|}\)</li>
+          <li>\(\theta = \arccos(\cos(\theta))\) para o valor exato</li>
+          <li>Sinal do produto escalar indica tipo de ângulo (agudo/reto/obtuso)</li>
+          <li>Casos especiais: 0° (paralelos), 90° (ortogonais), 180° (opostos)</li>
+        </ul>
+      </div>
+      <div class="next-mission">
+        <p><strong>Próxima Missão:</strong> Área e Alinhamento — Sabemos medir ângulos. Mas e se quisermos saber <em>quanto</em> de espaço dois vetores delimitam? A área nos dá outra medida da "abertura" entre eles.</p>
+      </div>
+      <div class="instructor-note">
+        <p><em>Nota do SUPERVISOR:</em> O ângulo entre vetores é a ferramenta final para análise de direções. Combine com área para calcular o espaço territorial entre patrulhas.</p>
+      </div>
+    </section>
+
+  </section>
+
+</div>
+</div>
+
+<script src="https://unpkg.com/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://unpkg.com/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script src="https://unpkg.com/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['\\[', '\\]']]
+    },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    plugins: [RevealNotes, RevealHighlight]
+  });
+</script>
+
+</body>
 </html>

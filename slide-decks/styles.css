@@ -836,3 +836,13 @@
   color: #FFD700 !important;
   font-size: 1.4rem !important;
 }
+
+/* Classes auxiliares para ícones e destaques */
+.emoji-icon {
+  margin-right: 6px;
+}
+
+.reveal section .highlight {
+  color: #ffeb3b;
+  font-weight: bold;
+}
