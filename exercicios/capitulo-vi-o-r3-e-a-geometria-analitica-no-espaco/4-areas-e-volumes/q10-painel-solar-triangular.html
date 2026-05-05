@@ -1,0 +1,72 @@
+<div class="exercise">
+<h3>PAINEL SOLAR TRIANGULAR</h3>
+<p>O objetivo deste exercício é aplicar o cálculo de área de triângulo a um problema prático de engenharia: dimensionar um painel solar a partir de três pontos de fixação no espaço.</p>
+<p>Um painel solar de emergência deve ser instalado em três pontos de fixação sobre uma estrutura inclinada: $A(0, 0, 2)$, $B(4, 0, 3)$ e $C(2, 3, 1)$. O painel tem formato triangular, com vértices exatamente nesses três pontos.</p>
+<p><strong>(a)</strong> Determine os vetores $\overrightarrow{AB}$ e $\overrightarrow{AC}$.</p>
+<p><strong>(b)</strong> Calcule $\overrightarrow{AB} \times \overrightarrow{AC}$.</p>
+<p><strong>(c)</strong> Calcule a área do painel solar.</p>
+<p><strong>(d)</strong> Sabendo que cada unidade de área do painel gera $50$ watts de energia, qual a potência total gerada pelo painel?</p>
+<p><strong>(e)</strong> O vetor $\overrightarrow{AB} \times \overrightarrow{AC}$ aponta em uma direção perpendicular ao painel. Se o sol incide na direção $\vec{s} = (0, 0, 1)$ (vertical), calcule o ângulo entre a normal do painel e a direção do sol. Isso afeta a eficiência do painel?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para o item (e), use o produto escalar entre a normal do painel ($\overrightarrow{AB} \times \overrightarrow{AC}$) e a direção do sol ($\vec{s}$) para encontrar o ângulo. A eficiência de um painel solar é máxima quando a luz incide perpendicularmente (ângulo de $0°$ com a normal).</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>Item (a):</strong></p>
+<ol class="solution-steps">
+<li>$\overrightarrow{AB} = B - A = (4-0, 0-0, 3-2) = (4, 0, 1)$</li>
+<li>$\overrightarrow{AC} = C - A = (2-0, 3-0, 1-2) = (2, 3, -1)$</li>
+</ol>
+
+<p><strong>Item (b):</strong></p>
+<ol class="solution-steps">
+<li>$\overrightarrow{AB} \times \overrightarrow{AC} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 4 & 0 & 1 \\ 2 & 3 & -1 \end{vmatrix}$</li>
+<li>Componente $\vec{i}$: $(0)(-1) - (1)(3) = 0 - 3 = -3$</li>
+<li>Componente $\vec{j}$: $-[(4)(-1) - (1)(2)] = -[-4 - 2] = -(-6) = 6$</li>
+<li>Componente $\vec{k}$: $(4)(3) - (0)(2) = 12 - 0 = 12$</li>
+</ol>
+<div class="formula">
+$$\overrightarrow{AB} \times \overrightarrow{AC} = (-3, 6, 12)$$
+</div>
+
+<p><strong>Item (c):</strong></p>
+<ol class="solution-steps">
+<li>$|\overrightarrow{AB} \times \overrightarrow{AC}| = \sqrt{(-3)^2 + 6^2 + 12^2}$</li>
+<li>$= \sqrt{9 + 36 + 144} = \sqrt{189} = \sqrt{9 \cdot 21} = 3\sqrt{21}$</li>
+<li>Área do painel: $\dfrac{1}{2} \cdot 3\sqrt{21} = \dfrac{3\sqrt{21}}{2}$</li>
+</ol>
+<div class="formula">
+$$\text{Área do painel} = \frac{3\sqrt{21}}{2} \approx 6{,}87 \text{ unidades}^2$$
+</div>
+
+<p><strong>Item (d):</strong></p>
+<ol class="solution-steps">
+<li>Potência = Área $\times$ 50 watts/unidade²</li>
+<li>$= \dfrac{3\sqrt{21}}{2} \times 50 = 75\sqrt{21} \approx 343{,}7$ watts</li>
+</ol>
+<div class="formula">
+$$\text{Potência total} \approx 344 \text{ watts}$$
+</div>
+
+<p><strong>Item (e):</strong></p>
+<ol class="solution-steps">
+<li>Normal do painel: $\vec{n} = \overrightarrow{AB} \times \overrightarrow{AC} = (-3, 6, 12)$</li>
+<li>$|\vec{n}| = 3\sqrt{21}$</li>
+<li>$|\vec{s}| = 1$</li>
+<li>$\vec{n} \cdot \vec{s} = (-3)(0) + (6)(0) + (12)(1) = 12$</li>
+<li>$\cos\theta = \dfrac{\vec{n} \cdot \vec{s}}{|\vec{n}||\vec{s}|} = \dfrac{12}{3\sqrt{21}} = \dfrac{4}{\sqrt{21}}$</li>
+<li>$\theta = \arccos\left(\dfrac{4}{\sqrt{21}}\right) \approx \arccos(0{,}873) \approx 29{,}2°$</li>
+</ol>
+<div class="formula">
+$$\theta \approx 29{,}2°$$
+</div>
+<p>Sim, isso afeta a eficiência. O painel não está perfeitamente alinhado com a direção do sol (que seria $\theta = 0°$). A eficiência relativa é proporcional a $\cos\theta \approx 0{,}873$, ou seja, o painel opera a aproximadamente $87{,}3\%$ da capacidade máxima. Para maximizar a geração, o painel deveria ser reorientado para que sua normal apontasse mais na direção vertical.</p>
+
+<p><strong>Reflexão de Sobrevivência:</strong> Na Zona Devastada, energia é vida. Calcular a área real de um painel solar inclinado (não sua projeção no chão) e a orientação relativa ao sol permite estimar com precisão a potência gerada. Um erro de cálculo de área pode significar a diferença entre ter energia suficiente para o inverno ou ficar no escuro.</p>
+</details>
+</div>

@@ -1,0 +1,61 @@
+<div class="exercise">
+<h3>Túnel entre Abrigos e Plano de Falha Geológica</h3>
+<p><strong>Objetivo:</strong> Combinar múltiplos conceitos: construção da equação da reta por dois pontos, interseção com plano, e análise de pertinência em um problema de engenharia de sobrevivência.</p>
+<p>Dois abrigos subterrâneos estão localizados em $A(2, 1, -5)$ e $B(8, 4, -2)$ (coordenadas em km, com $z$ representando profundidade negativa). Um plano de falha geológica é modelado por:</p>
+<div class="formula">
+        $$\pi: x - 2y + 2z + 8 = 0$$
+    </div>
+<ol>
+    <li>Determine a equação paramétrica do túnel que conecta os dois abrigos.</li>
+    <li>Verifique se o túnel intersecta o plano de falha. Se sim, encontre o ponto de interseção.</li>
+    <li>Calcule a distância do ponto de entrada $A$ ao plano de falha, medida perpendicularmente.</li>
+    <li>O túnel é seguro? Justifique com base na posição relativa entre o túnel e o plano de falha.</li>
+</ol>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+            O vetor diretor do túnel é $\vec{AB} = B - A$. Para a interseção, substitua as paramétricas no plano. A distância de ponto a plano é $d = \frac{|ax_0 + by_0 + cz_0 + d|}{\sqrt{a^2 + b^2 + c^2}}$. Verifique se o parâmetro $t$ da interseção está entre 0 e 1 (segmento entre $A$ e $B$).
+        </div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Vetor diretor do túnel: $\vec{v} = \vec{AB} = (8-2, 4-1, -2-(-5)) = (6, 3, 3)$.</li>
+<li>Simplificar o vetor diretor: $\vec{v} = 3(2, 1, 1)$. Podemos usar $\vec{v} = (2, 1, 1)$ para simplificar cálculos.</li>
+<li>Equação paramétrica usando ponto $A$:
+            $$\begin{cases} x = 2 + 2t \\ y = 1 + t \\ z = -5 + t \end{cases}$$
+            (Note: com este vetor simplificado, $t = 0$ em $A$ e $t = 3$ em $B$)
+        </li>
+<li>Substituir no plano de falha:
+            $$(2 + 2t) - 2(1 + t) + 2(-5 + t) + 8 = 0$$
+            $$2 + 2t - 2 - 2t - 10 + 2t + 8 = 0$$
+            $$-2 + 2t = 0 \Rightarrow t = 1$$
+        </li>
+<li>Como $t = 1$ está entre $0$ e $3$, a interseção ocorre no segmento $AB$.</li>
+<li>Ponto de interseção: $x = 2 + 2(1) = 4$, $y = 1 + 1 = 2$, $z = -5 + 1 = -4$.
+            $$P_{\text{interseção}} = (4, 2, -4)$$
+        </li>
+</ol>
+
+<p><strong>Item (c) — Distância de $A$ ao plano:</strong></p>
+<ol class="solution-steps">
+<li>Fórmula: $d = \frac{|ax_0 + by_0 + cz_0 + d|}{\sqrt{a^2 + b^2 + c^2}}$.</li>
+<li>Substituir $A(2, 1, -5)$ no plano $x - 2y + 2z + 8 = 0$:
+            $$d = \frac{|2 - 2(1) + 2(-5) + 8|}{\sqrt{1 + 4 + 4}} = \frac{|2 - 2 - 10 + 8|}{\sqrt{9}} = \frac{|-2|}{3} = \frac{2}{3} \text{ km}$$
+        </li>
+</ol>
+
+<p><strong>Item (d) — Análise de segurança:</strong></p>
+<p class="danger">⚠ O túnel NÃO é seguro! O plano de falha intersecta o segmento $AB$ no ponto $(4, 2, -4)$, correspondente a $t = 1$ (um terço do caminho entre $A$ e $B$). A falha geológica corta o túnel em um ponto interno, criando risco de colapso estrutural.</p>
+
+<div class="formula">
+            $$\vec{v} = (2, 1, 1) \text{ (simplificado)}$$
+            $$r: \begin{cases} x = 2 + 2t \\ y = 1 + t \\ z = -5 + t \end{cases}$$
+            $$P_{\text{interseção}} = (4, 2, -4) \quad (t = 1 \in [0, 3])$$
+            $$d(A, \pi) = \frac{2}{3} \text{ km} \approx 667 \text{ m}$$
+        </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Este exercício combina três conceitos em sequência: construção da reta, interseção com plano, e distância ponto-plano. A análise de segurança depende crucialmente de verificar se o parâmetro $t$ da interseção está no intervalo $[0, 3]$ — se $t$ estivesse fora deste intervalo, a reta infinita intersectaria o plano, mas o segmento de túnel (a parte construída) não seria afetado. A distância de $A$ ao plano ($\frac{2}{3}$ km) é a distância perpendicular mínima; o túnel, porém, não segue perpendicularmente ao plano, então o ponto de interseção está a uma distância maior ao longo do túnel. Para reforço estrutural, o ponto crítico é $(4, 2, -4)$.</p>
+</details>
+</div>

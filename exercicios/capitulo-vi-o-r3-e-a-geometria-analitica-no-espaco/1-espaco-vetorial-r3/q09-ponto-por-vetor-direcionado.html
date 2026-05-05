@@ -1,0 +1,34 @@
+<div class="exercise">
+<h3>PONTO DEFINIDO POR VETOR DIRECIONADO</h3>
+<p>O objetivo deste exercício é encontrar um ponto no espaço a partir de um ponto inicial e um vetor direcionado escalado. Esta é a operação inversa do cálculo de vetor deslocamento: em vez de extrair o vetor de dois pontos, construímos o ponto final a partir do inicial e do vetor.</p>
+<p>Uma patrulha parte do Posto Base $A(3, -1, 2)$ seguindo a direção do vetor $\vec{v} = (2, 4, -3)$. O comandante ordena que a patrulha pare quando tiver percorrido exatamente o dobro do vetor $\vec{v}$ a partir de $A$.</p>
+<p><strong>(a)</strong> Determine as coordenadas do ponto $B$ onde a patrulha deve parar.</p>
+<p><strong>(b)</strong> Calcule a distância total percorrida pela patrulha (distância de $A$ a $B$).</p>
+<p><strong>(c)</strong> Se a patrulha devesse parar a meio caminho entre $A$ e $B$, qual seria o ponto de parada intermediário?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>O ponto final é obtido por $B = A + k\vec{v}$, onde $k$ é o fator de escala. A distância percorrida é $|k| \cdot |\vec{v}|$. O ponto intermediário entre $A$ e $B$ é o ponto médio, ou equivalentemente $A + \dfrac{k}{2}\vec{v}$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Dados: $A = (3, -1, 2)$, $\vec{v} = (2, 4, -3)$, $k = 2$</li>
+<li><strong>Item (a)</strong> — $B = A + 2\vec{v} = (3, -1, 2) + 2(2, 4, -3)$</li>
+<li>$B = (3 + 4, \; -1 + 8, \; 2 + (-6)) = (7, 7, -4)$</li>
+<li><strong>Item (b)</strong> — $|\vec{v}| = \sqrt{2^2 + 4^2 + (-3)^2} = \sqrt{4 + 16 + 9} = \sqrt{29}$</li>
+<li>Distância percorrida: $d(A, B) = |2| \cdot |\vec{v}| = 2\sqrt{29} \approx 10{,}77$ unidades</li>
+<li><strong>Item (c)</strong> — Ponto intermediário: $M = A + \vec{v} = (3 + 2, \; -1 + 4, \; 2 + (-3)) = (5, 3, -1)$</li>
+<li>Verificação: ponto médio de $A$ e $B$ é $\left(\dfrac{3 + 7}{2}, \; \dfrac{-1 + 7}{2}, \; \dfrac{2 + (-4)}{2}\right) = (5, 3, -1)$ ✓</li>
+</ol>
+<div class="formula">
+$$B = A + 2\vec{v} = (7, 7, -4)$$
+$$d(A, B) = 2\sqrt{29} \approx 10{,}77$$
+$$M = (5, 3, -1)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A operação $B = A + k\vec{v}$ é a essência da equação vetorial da reta. Aqui, $k = 2$ é um valor específico do parâmetro. Quando $k$ varia livremente, obtemos todos os pontos da reta que passa por $A$ na direção de $\vec{v}$. O ponto intermediário $M$ corresponde a $k = 1$, exatamente o ponto médio quando $k_{total} = 2$.</p>
+</details>
+</div>

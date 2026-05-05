@@ -1,0 +1,42 @@
+<div class="exercise">
+<h3>INTERSEÇÃO ESFERA–PLANO: O CÍRCULO DE CORTE</h3>
+<p>O objetivo deste exercício é aprofundar a análise da interseção entre uma superfície esférica e um plano, determinando não apenas o raio do círculo de interseção, mas também seu centro. Esta é uma habilidade essencial para mapear seções de estruturas esféricas.</p>
+<p>Um domo de proteção é modelado pela esfera de equação:</p>
+<div class="formula">
+$$(x-2)^2 + (y-1)^2 + (z+3)^2 = 25$$
+</div>
+<p>Um plano de corte horizontal passa por $z = 1$, ou seja, $\pi: z - 1 = 0$.</p>
+<p><strong>(a)</strong> Verifique que o plano intersecta a esfera calculando a distância do centro ao plano.</p>
+<p><strong>(b)</strong> Determine o raio $\rho$ do círculo de interseção.</p>
+<p><strong>(c)</strong> Encontre o centro do círculo de interseção. <em>Dica:</em> é a projeção ortogonal do centro da esfera sobre o plano.</p>
+<p><strong>(d)</strong> Escreva a equação do círculo de interseção no plano $\pi$ (equação da esfera + equação do plano).</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>O centro do círculo de interseção é a projeção ortogonal do centro da esfera sobre o plano. Para um plano horizontal $z = k$, essa projeção mantém as coordenadas $x$ e $y$ do centro e fixa $z = k$. O raio do círculo vem do teorema de Pitágoras: $\rho^2 + d^2 = r^2$, onde $d$ é a distância do centro ao plano.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Esfera: centro $C = (2, 1, -3)$, raio $r = 5$</li>
+<li>Plano: $\pi: z - 1 = 0$ (ou $0x + 0y + 1z - 1 = 0$)</li>
+<li><strong>Item (a)</strong> — Distância de $C$ a $\pi$: $d = \frac{|0(2) + 0(1) + 1(-3) - 1|}{\sqrt{0+0+1}} = \frac{|-4|}{1} = 4$</li>
+<li>Como $d = 4 < 5 = r$, o plano \u003cspan class="success">intersecta a esfera em um círculo</span>.</li>
+<li><strong>Item (b)</strong> — Raio do círculo: $\rho = \sqrt{r^2 - d^2} = \sqrt{25 - 16} = \sqrt{9} = 3$</li>
+<li><strong>Item (c)</strong> — Projeção de $C(2, 1, -3)$ sobre $z = 1$: mantém $x = 2$, $y = 1$, força $z = 1$</li>
+<li>Centro do círculo: $C' = (2, 1, 1)$</li>
+<li><strong>Item (d)</strong> — O círculo é dado pelo sistema:</li>
+<li>$\begin{cases} (x-2)^2 + (y-1)^2 + (z+3)^2 = 25 \\ z = 1 \end{cases}$</li>
+<li>Substituindo $z = 1$: $(x-2)^2 + (y-1)^2 + 16 = 25$</li>
+<li>$(x-2)^2 + (y-1)^2 = 9$, com $z = 1$</li>
+</ol>
+<div class="formula">
+$$d = 4, \quad \rho = 3, \quad C' = (2, 1, 1)$$
+$$\text{Círculo: } \begin{cases} (x-2)^2 + (y-1)^2 = 9 \\ z = 1 \end{cases}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O corte horizontal a $z = 1$ produz um círculo de raio $3$ centrado em $(2, 1, 1)$. Geometricamente, isso faz sentido: o centro da esfera está em $z = -3$ e o plano está $4$ unidades acima, a $z = 1$. A seção transversal é um círculo bem definido — a base de uma estrutura que poderia abrigar equipamentos no nível $z = 1$.</p>
+</details>
+</div>
