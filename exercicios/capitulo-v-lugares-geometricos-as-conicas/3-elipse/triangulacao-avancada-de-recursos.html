@@ -1,21 +1,41 @@
 <div class="exercise">
-<h3>Triangulação Avançada de Recursos</h3>
-<p>Três depósitos de recursos foram encontrados nos pontos A(0, 4), B(-3, 0) e C(3, 0). Você precisa estabelecer uma rota de coleta elíptica que passe pelos três pontos. Sabendo que dois destes pontos devem ser os focos da elipse, determine qual configuração é possível e encontre a equação da rota ótima.</p>
+<h3>TRIANGULAÇÃO AVANÇADA DE RECURSOS</h3>
+
+<p>O objetivo deste exercício é construir a equação de uma elipse a partir de um foco e um ponto conhecido, e interpretar sua excentricidade. Um campo de detecção tem focos em $F_1(-4, 0)$ e $F_2(4, 0)$, e passa pelo ponto $P(5, 0)$.</p>
+
+<p><strong>(a)</strong> Use a definição da elipse no ponto $P(5, 0)$: $d(P, F_1) + d(P, F_2) = 2a$. Calcule as duas distâncias e encontre $a$.</p>
+
+<p><strong>(b)</strong> Identifique $c$ a partir dos focos. Calcule $b$ pela relação $b^2 = a^2 - c^2$.</p>
+
+<p><strong>(c)</strong> Escreva a equação canônica da elipse.</p>
+
+<p><strong>(d)</strong> Calcule a excentricidade $e = \frac{c}{a}$. Interprete: se $e$ estiver próximo de 0, a elipse é quase circular; se estiver próximo de 1, é muito achatada. Onde se situa esta elipse?</p>
+
+<p><strong>(e)</strong> No papel, esboce a elipse. Note que $P(5, 0)$ é um vértice da elipse — confirme isso geometricamente.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>$d(P, F_1) = |5 - (-4)| = 9$ (pois ambos estão no eixo $x$). $d(P, F_2) = |5 - 4| = 1$. A soma é $2a = 10$, logo $a = 5$. O ponto $P(5, 0)$ está à direita de $F_2(4, 0)$, e $a = 5$ é exatamente a coordenada $x$ de $P$ — isso confirma que $P$ é o vértice $A_2$.</p>
+</div>
+</details>
+
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Analisar as possibilidades: B(-3, 0) e C(3, 0) são simétricos em relação à origem</li>
-<li>Configuração possível: focos em B(-3, 0) e C(3, 0), passando por A(0, 4)</li>
-<li>Distância focal: c = 3</li>
-<li>Para encontrar 'a': soma das distâncias de A aos focos = $d(A,B) + d(A,C)$</li>
-<li>$d(A,B) = \sqrt{(-3-0)^2 + (0-4)^2} = \sqrt{9+16} = 5$</li>
-<li>$d(A,C) = \sqrt{(3-0)^2 + (0-4)^2} = \sqrt{9+16} = 5$</li>
-<li>Soma = 10 = 2a, logo a = 5</li>
-<li>Calcular: $b^2 = a^2 - c^2 = 25 - 9 = 16$, logo $b = 4$</li>
+<li>Dados: $F_1(-4, 0)$, $F_2(4, 0)$, logo $c = 4$. Ponto $P(5, 0)$ na elipse.</li>
+<li>$d(P, F_1) = |5 - (-4)| = 9$.</li>
+<li>$d(P, F_2) = |5 - 4| = 1$.</li>
+<li>Pela definição: $2a = 9 + 1 = 10$, logo $a = 5$.</li>
+<li>Calcule $b$: $b^2 = a^2 - c^2 = 25 - 16 = 9$, logo $b = 3$.</li>
+<li>Equação canônica: $\frac{x^2}{25} + \frac{y^2}{9} = 1$.</li>
+<li>Excentricidade: $e = \frac{c}{a} = \frac{4}{5} = 0{,}8$.</li>
+<li>Como $e = 0{,}8$ está próximo de 1, a elipse é bastante achatada.</li>
+<li>Verificação: $P(5, 0)$ é o vértice $A_2$ pois $a = 5$. De fato, $\frac{25}{25} + \frac{0}{9} = 1$ ✓.</li>
 </ol>
 <div class="formula">
-                    $$\frac{x^2}{25} + \frac{y^2}{16} = 1$$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> Esta configuração otimiza a coleta de recursos, garantindo que a rota passe pelos três depósitos com eficiência máxima. A simetria dos focos simplifica o planejamento logístico.</p>
+$$\frac{x^2}{25} + \frac{y^2}{9} = 1, \quad a = 5, \quad b = 3, \quad c = 4, \quad e = 0{,}8$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A excentricidade $e = 0{,}8$ indica uma elipse bastante achatada. Os focos $F_1(-4,0)$ e $F_2(4,0)$ estão muito próximos dos vértices $A_1(-5,0)$ e $A_2(5,0)$ — a distância é apenas $a - c = 1$. Na Zona Devastada, um campo de detecção assim significa que a área de maior sensibilidade (próxima aos focos) está concentrada nas extremidades, enquanto a região central (próximo ao eixo $y$) tem cobertura mais fraca. Posicione seus sensores adicionais no eixo menor para compensar.</p>
 </details>
 </div>

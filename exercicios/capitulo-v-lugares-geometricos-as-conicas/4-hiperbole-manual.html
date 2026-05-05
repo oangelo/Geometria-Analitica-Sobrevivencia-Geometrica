@@ -1,16 +1,105 @@
 <section class="manual-contexto" data-context="manual-sobrevivencia">
     <div class="terminal-border">
-    <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: A HIPÉRBOLE</h2>
-<p>A hipérbole é uma cônica fascinante que surge quando interceptamos um cone duplo com um plano que corta ambas as napas. Na Zona Devastada, ela aparece frequentemente em trajetórias de projéteis, ondas de radiação e padrões de dispersão de explosões. Conhecer suas propriedades pode significar a diferença entre um abrigo seguro e uma armadilha mortal.</p>
-<p>Uma hipérbole é o lugar geométrico dos pontos P no plano tais que o valor absoluto da diferença das distâncias de P a dois pontos fixos F₁ e F₂ (chamados focos) é constante e igual a 2a. Esta propriedade é fundamental para entender sistemas de navegação por diferença de tempo e detectores de radiação.</p>
-<div class="formula">
-        $$|d(P,F_1) - d(P,F_2)| = 2a$$
-    </div>
-<p>A equação canônica da hipérbole com centro na origem possui duas formas principais. Quando o eixo real é horizontal, temos a equação $\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1$, onde os focos estão em $(\pm c, 0)$. Quando o eixo real é vertical, a equação torna-se $\frac{y^2}{a^2} - \frac{x^2}{b^2} = 1$, com focos em $(0, \pm c)$. A relação fundamental entre os parâmetros é $c^2 = a^2 + b^2$, e a excentricidade $e = \frac{c}{a}$ é sempre maior que 1.</p>
-<div class="formula">
-        $$\text{Horizontal: } \frac{x^2}{a^2} - \frac{y^2}{b^2} = 1 \qquad \text{Vertical: } \frac{y^2}{a^2} - \frac{x^2}{b^2} = 1$$
-    </div>
-<p>As assíntotas da hipérbole são retas que se aproximam da curva no infinito. Para a hipérbole horizontal, as assíntotas são $y = \pm\frac{b}{a}x$, enquanto para a vertical são $y = \pm\frac{a}{b}x$. Estas linhas são cruciais para determinar zonas de segurança e calcular alcances máximos de equipamentos de detecção.</p>
+        <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: A HIPÉRBOLE</h2>
 
+        <p><strong>Contexto operacional:</strong> Na Zona Devastada, sinais de rádio de duas torres de comunicação chegam com tempos diferentes. Os pontos onde a diferença desses tempos é constante formam uma hipérbole — essa curva guia navegação, detecção de explosões e triangulação de ameaças.</p>
+
+        <h3>&gt; DEFINIÇÃO: DIFERENÇA CONSTANTE</h3>
+        <p>A elipse (Tópico 3) tinha <strong>SOMA</strong> constante das distâncias aos focos. A hipérbole tem <strong>DIFERENÇA</strong> constante.</p>
+        <p>Sejam $F_1$ e $F_2$ dois pontos fixos (focos). A hipérbole é o lugar geométrico dos pontos $P$ tais que o valor absoluto da diferença das distâncias a $F_1$ e $F_2$ é uma constante $2a$:</p>
+        <div class="formula">$$|d(P,F_1) - d(P,F_2)| = 2a$$</div>
+        <p>Note que usamos valor absoluto porque não sabemos qual foco está mais próximo. A diferença pode ser $d(P,F_1) - d(P,F_2) = 2a$ ou $d(P,F_2) - d(P,F_1) = 2a$ — isso gera <strong>dois ramos</strong> da hipérbole.</p>
+
+        <h3>&gt; CONSTRUÇÃO ALGÉBRICA: DA DEFINIÇÃO À EQUAÇÃO</h3>
+        <p>Coloquemos os focos no eixo $x$, simétricos em relação à origem: $F_1(-c, 0)$ e $F_2(c, 0)$, com $c > 0$. Seja $P(x,y)$ um ponto qualquer da hipérbole.</p>
+        <p>Pela definição:</p>
+        <div class="formula">$$\sqrt{(x+c)^2 + y^2} - \sqrt{(x-c)^2 + y^2} = \pm 2a$$</div>
+        <p>Isolamos a primeira raiz:</p>
+        <div class="formula">$$\sqrt{(x+c)^2 + y^2} = \pm 2a + \sqrt{(x-c)^2 + y^2}$$</div>
+        <p>Elevamos ao quadrado (os dois lados são positivos):</p>
+        <div class="formula">$$(x+c)^2 + y^2 = 4a^2 \pm 4a\sqrt{(x-c)^2 + y^2} + (x-c)^2 + y^2$$</div>
+        <p>Expandindo $(x+c)^2 = x^2 + 2cx + c^2$ e $(x-c)^2 = x^2 - 2cx + c^2$:</p>
+        <div class="formula">$$x^2 + 2cx + c^2 + y^2 = 4a^2 \pm 4a\sqrt{(x-c)^2 + y^2} + x^2 - 2cx + c^2 + y^2$$</div>
+        <p>Simplificando (cortamos $x^2$, $c^2$, $y^2$ dos dois lados):</p>
+        <div class="formula">$$2cx = 4a^2 \pm 4a\sqrt{(x-c)^2 + y^2} - 2cx$$</div>
+        <div class="formula">$$4cx - 4a^2 = \pm 4a\sqrt{(x-c)^2 + y^2}$$</div>
+        <div class="formula">$$cx - a^2 = \pm a\sqrt{(x-c)^2 + y^2}$$</div>
+        <p>Elevamos ao quadrado novamente:</p>
+        <div class="formula">$$(cx - a^2)^2 = a^2\left[(x-c)^2 + y^2\right]$$</div>
+        <div class="formula">$$c^2x^2 - 2a^2cx + a^4 = a^2(x^2 - 2cx + c^2 + y^2)$$</div>
+        <div class="formula">$$c^2x^2 - 2a^2cx + a^4 = a^2x^2 - 2a^2cx + a^2c^2 + a^2y^2$$</div>
+        <p>O termo $-2a^2cx$ cancela dos dois lados. Agrupando:</p>
+        <div class="formula">$$c^2x^2 - a^2x^2 - a^2y^2 = a^2c^2 - a^4$$</div>
+        <div class="formula">$$(c^2 - a^2)x^2 - a^2y^2 = a^2(c^2 - a^2)$$</div>
+        <p>Como $c > a$ (a diferença de dois lados de um triângulo é menor que o terceiro lado, então $2a < 2c$), definimos $b^2 = c^2 - a^2$, ou seja:</p>
+        <div class="formula">$$\boxed{c^2 = a^2 + b^2}$$</div>
+        <p class="warning">ATENÇÃO: Na elipse era $c^2 = a^2 - b^2$. Na hipérbole é $c^2 = a^2 + b^2$ — o sinal muda tudo!</p>
+        <p>Substituindo $c^2 - a^2 = b^2$:</p>
+        <div class="formula">$$b^2x^2 - a^2y^2 = a^2b^2$$</div>
+        <p>Dividindo por $a^2b^2$:</p>
+        <div class="formula">$$\boxed{\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1}$$</div>
+        <p><strong>Esta é a equação canônica da hipérbole horizontal.</strong> Não decoramos — <strong>construímos</strong> a partir da definição.</p>
+
+        <h3>&gt; DESCOBRINDO OS ELEMENTOS PELA EQUAÇÃO</h3>
+        <p>Partindo de $\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1$, vamos descobrir cada elemento <strong>sem fórmulas decoradas</strong>.</p>
+
+        <p><strong>Vértices (fazendo $y = 0$):</strong></p>
+        <p>Se $y = 0$, então $\frac{x^2}{a^2} = 1$, logo $x^2 = a^2$, ou seja, $x = \pm a$.</p>
+        <p>Os vértices são $A_1(-a, 0)$ e $A_2(a, 0)$. A distância entre eles é $2a$ — exatamente a diferença constante da definição.</p>
+
+        <p><strong>Interseção com o eixo $y$ (fazendo $x = 0$):</strong></p>
+        <p>Se $x = 0$, então $-\frac{y^2}{b^2} = 1$, ou seja, $y^2 = -b^2$.</p>
+        <p class="danger">IMPOSSÍVEL! Não há ponto real com $y^2 = -b^2$. A hipérbole <strong>nunca cruza</strong> o eixo $y$.</p>
+        <p>Geometricamente, isso significa que a curva tem <strong>dois ramos separados</strong>, um à direita de $x = a$ e outro à esquerda de $x = -a$.</p>
+
+        <p><strong>Focos:</strong></p>
+        <p>Usamos a relação $c^2 = a^2 + b^2$. Os focos estão no eixo $x$ (o eixo que contém os vértices): $F_1(-c, 0)$ e $F_2(c, 0)$.</p>
+
+        <h3>&gt; ASSÍNTOTAS: RETAS QUE A CURVA "SEGUE" NO INFINITO</h3>
+        <p>Quando $|x|$ cresce muito, o termo constante $1$ na equação $\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1$ se torna desprezível em comparação com os termos quadráticos. A equação se aproxima de:</p>
+        <div class="formula">$$\frac{x^2}{a^2} - \frac{y^2}{b^2} \approx 0$$</div>
+        <p>Rearranjando:</p>
+        <div class="formula">$$\frac{y^2}{b^2} \approx \frac{x^2}{a^2}$$</div>
+        <div class="formula">$$y^2 \approx \frac{b^2}{a^2}x^2$$</div>
+        <div class="formula">$$y \approx \pm \frac{b}{a}x$$</div>
+        <p>Essas duas retas são as <strong>assíntotas</strong> da hipérbole. Elas passam pela origem e formam um "X" que a curva se aproxima cada vez mais conforme nos afastamos do centro, mas <strong>nunca toca</strong>.</p>
+        <p>As assíntotas são cruciais para esboçar a hipérbole: primeiro desenhamos o retângulo de vértices $(\pm a, \pm b)$, traçamos as diagonais (as assíntotas), e a hipérbole "sai" dos vértices $(\pm a, 0)$ se aproximando dessas diagonais.</p>
+
+        <h3>&gt; CASO VERTICAL: O EIXO REAL É O $y$</h3>
+        <p>Se os focos estiverem em $(0, \pm c)$, a mesma construção algébrica leva a:</p>
+        <div class="formula">$$\boxed{\frac{y^2}{a^2} - \frac{x^2}{b^2} = 1}$$</div>
+        <p>Agora os vértices estão em $(0, \pm a)$ (fazendo $x = 0$). A relação $c^2 = a^2 + b^2$ continua a mesma.</p>
+        <p>As assíntotas vêm de $\frac{y^2}{a^2} \approx \frac{x^2}{b^2}$, ou seja:</p>
+        <div class="formula">$$y \approx \pm \frac{a}{b}x$$</div>
+        <p class="warning">Cuidado com a troca: na horizontal as assíntotas são $y = \pm \frac{b}{a}x$; na vertical são $y = \pm \frac{a}{b}x$.</p>
+
+        <h3>&gt; RESUMO DE SOBREVIVÊNCIA</h3>
+        <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+            <tr style="border-bottom: 1px solid #4caf50;">
+                <th style="text-align:left; padding:8px; color:#4caf50;">Elemento</th>
+                <th style="text-align:left; padding:8px; color:#4caf50;">Horizontal: $\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1$</th>
+                <th style="text-align:left; padding:8px; color:#4caf50;">Vertical: $\frac{y^2}{a^2} - \frac{x^2}{b^2} = 1$</th>
+            </tr>
+            <tr>
+                <td style="padding:8px;">Vértices</td>
+                <td style="padding:8px;">$(\pm a, 0)$</td>
+                <td style="padding:8px;">$(0, \pm a)$</td>
+            </tr>
+            <tr>
+                <td style="padding:8px;">Focos</td>
+                <td style="padding:8px;">$(\pm c, 0)$</td>
+                <td style="padding:8px;">$(0, \pm c)$</td>
+            </tr>
+            <tr>
+                <td style="padding:8px;">Relação</td>
+                <td colspan="2" style="padding:8px; text-align:center;">$c^2 = a^2 + b^2$</td>
+            </tr>
+            <tr>
+                <td style="padding:8px;">Assíntotas</td>
+                <td style="padding:8px;">$y = \pm \frac{b}{a}x$</td>
+                <td style="padding:8px;">$y = \pm \frac{a}{b}x$</td>
+            </tr>
+        </table>
+        <p class="success">Lembre-se: na hipérbole, $c > a$ sempre, e a excentricidade $e = \frac{c}{a} > 1$.</p>
     </div>
 </section>

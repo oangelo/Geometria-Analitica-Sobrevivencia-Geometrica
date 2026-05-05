@@ -1,25 +1,42 @@
 <div class="exercise">
-<h3>Conversão de Coordenadas de Emergência</h3>
-<p>Durante uma tempestade radioativa, você recebeu as coordenadas de uma zona segura através da equação geral $4x^2 + 9y^2 = 36$. Converta para a forma canônica e identifique os elementos essenciais desta zona de proteção.</p>
+<h3>CONVERSÃO DE COORDENADAS DE EMERGÊNCIA</h3>
+
+<p>O objetivo deste exercício é converter uma equação geral da elipse para a forma canônica, e depois extrair seus elementos. Um sistema de navegação legado transmite a fronteira de uma zona segura na forma $9x^2 + 4y^2 = 36$.</p>
+
+<p><strong>(a)</strong> Divida ambos os lados da equação por 36 para obter a forma canônica $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$. Identifique $a^2$ e $b^2$.</p>
+
+<p><strong>(b)</strong> Determine se a elipse é horizontal ou vertical. Faça $y = 0$ e $x = 0$ para encontrar os vértices nos dois eixos.</p>
+
+<p><strong>(c)</strong> Calcule $c$ pela relação $c^2 = a^2 - b^2$ e encontre as coordenadas dos focos.</p>
+
+<p><strong>(d)</strong> Calcule a excentricidade $e = \frac{c}{a}$.</p>
+
+<p><strong>(e)</strong> No papel, esboce a elipse com todos os elementos.</p>
+
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
 <div class="hint">
-<p>Divida toda a equação por 36 para obter a forma canônica. Depois compare com o padrão para identificar a² e b².</p>
+<p>Dividir $9x^2 + 4y^2 = 36$ por 36 dá $\frac{9x^2}{36} + \frac{4y^2}{36} = 1$, que simplifica para $\frac{x^2}{4} + \frac{y^2}{9} = 1$. O maior denominador é 9, que está sob $y^2$ — portanto a elipse é vertical.</p>
 </div>
 </details>
+
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Dividir a equação por 36: $\frac{4x^2}{36} + \frac{9y^2}{36} = 1$</li>
-<li>Simplificar: $\frac{x^2}{9} + \frac{y^2}{4} = 1$</li>
-<li>Identificar: $a^2 = 9$ (maior denominador), logo $a = 3$</li>
-<li>Identificar: $b^2 = 4$, logo $b = 2$</li>
-<li>Calcular: $c^2 = a^2 - b^2 = 9 - 4 = 5$, logo $c = \sqrt{5}$</li>
+<li>Equação geral: $9x^2 + 4y^2 = 36$.</li>
+<li>Divida por 36: $\frac{9x^2}{36} + \frac{4y^2}{36} = 1$.</li>
+<li>Simplifique: $\frac{x^2}{4} + \frac{y^2}{9} = 1$.</li>
+<li>Identifique: $a^2 = 9$ (maior denominador, sob $y^2$), $b^2 = 4$ (sob $x^2$).</li>
+<li>Logo $a = 3$, $b = 2$. A elipse é <strong>vertical</strong>.</li>
+<li>Faça $y = 0$: $\frac{x^2}{4} = 1 \Rightarrow x = \pm 2$. Vértices: $(\pm 2, 0)$.</li>
+<li>Faça $x = 0$: $\frac{y^2}{9} = 1 \Rightarrow y = \pm 3$. Vértices: $(0, \pm 3)$.</li>
+<li>Calcule $c$: $c^2 = a^2 - b^2 = 9 - 4 = 5$, logo $c = \sqrt{5}$.</li>
+<li>Focos: $F_1(0, -\sqrt{5})$ e $F_2(0, \sqrt{5})$ (aproximadamente $(0, \pm 2{,}24)$).</li>
+<li>Excentricidade: $e = \frac{c}{a} = \frac{\sqrt{5}}{3} \approx 0{,}745$.</li>
 </ol>
 <div class="formula">
-                    $$\frac{x^2}{9} + \frac{y^2}{4} = 1$$
-                    $$a = 3, \quad b = 2, \quad c = \sqrt{5}$$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> A conversão rápida de equações é vital em emergências. Esta zona tem formato elíptico horizontal com focos em $(\pm\sqrt{5}, 0)$, oferecendo proteção máxima na direção horizontal.</p>
+$$\frac{x^2}{4} + \frac{y^2}{9} = 1, \quad a = 3, \quad b = 2, \quad c = \sqrt{5}, \quad e = \frac{\sqrt{5}}{3}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Sistemas legados frequentemente usam a forma geral $Ax^2 + By^2 = C$. A conversão para a forma canônica é apenas uma divisão — mas é essencial para identificar os elementos geométricos. Na Zona Devastada, saber ler diferentes formatos de dados pode ser a diferença entre encontrar ou não a zona segura.</p>
 </details>
 </div>

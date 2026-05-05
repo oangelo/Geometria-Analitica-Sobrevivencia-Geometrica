@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<!-- Include MathJax -->
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
     MathJax = {
       tex: {
         inlineMath: [['$', '$'], ['\\(', '\\)']],
@@ -19,17 +18,11 @@
       }
     };
     </script>
-<title>REFÚGIO-TEC | Lugares Geométricos</title>
-<style>
-        /* Estilo inspirado no tema pós-apocalíptico */
+    <title>REFÚGIO-TEC | Lugares Geométricos</title>
+    <style>
         @keyframes blink {
             0%, 49% { opacity: 1; }
             50%, 100% { opacity: 0; }
-        }
-
-        @keyframes scanline {
-            0% { background-position: 0 0; }
-            100% { background-position: 0 100px; }
         }
 
         body {
@@ -169,6 +162,11 @@
             box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
         }
 
+        .manual-contexto,
+        .enunciados-exercicios {
+            margin-bottom: 20px;
+        }
+
         .mission-counter {
             counter-reset: mission;
         }
@@ -204,39 +202,38 @@
     </style>
 </head>
 <body>
-    <!-- TÍTULO E INTRODUÇÃO -->
     <div class="terminal-frame">
-<div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
-<div class="terminal-content">
+        <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
+        <div class="terminal-content">
 ┌───────────────────────────────────────────────────┐
 │ MÓDULO: LUGARES GEOMÉTRICOS                       │
+│ CAPÍTULO V — TÓPICO 1                             │
 └───────────────────────────────────────────────────┘
 
-&gt; INICIANDO TRANSMISSÃO...
-&gt; CARREGANDO MÓDULO DE TREINAMENTO...
-&gt; ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
-</div>
-</div>
+> INICIANDO TRANSMISSÃO...
+> CARREGANDO MÓDULO DE TREINAMENTO...
+> ACESSO CONCEDIDO: PROTOCOLOS DE SOBREVIVÊNCIA MATEMÁTICA ATIVADOS<span class="cursor"></span>
+        </div>
+    </div>
 
-        <div id="manual-container"></div>
-
+    <div id="manual-container"></div>
     <div id="exercicios-container"></div>
 
     <script>
     const MANUAL = "1-lugares-geometricos-manual.html";
     const EXERCICIOS = [
-        "1-lugares-geometricos/mapeamento-da-mediatriz.html",
-        "1-lugares-geometricos/perimetro-de-seguranca-circular.html",
-        "1-lugares-geometricos/rota-de-equidistancia.html",
-        "1-lugares-geometricos/zona-de-contaminacao-eliptica.html",
-        "1-lugares-geometricos/campo-de-deteccao-parabolico.html",
-        "1-lugares-geometricos/zona-de-interferencia-hiperbolica.html",
-        "1-lugares-geometricos/triangulo-de-navegacao.html",
-        "1-lugares-geometricos/sistema-de-defesa-concentrico.html",
-        "1-lugares-geometricos/corredor-de-comunicacao-segura.html",
-        "1-lugares-geometricos/campo-de-forca-parabolico-deslocado.html",
-        "1-lugares-geometricos/rede-de-vigilancia-integrada.html",
-        "1-lugares-geometricos/protocolo-de-evacuacao-otimizada.html"
+        "1-lugares-geometricos/q01-fronteira-entre-abrigos.html",
+        "1-lugares-geometricos/q02-linha-de-demarcacao.html",
+        "1-lugares-geometricos/q03-perimetro-de-alerta.html",
+        "1-lugares-geometricos/q04-corredores-de-equidistancia.html",
+        "1-lugares-geometricos/q05-fronteiras-alinhadas.html",
+        "1-lugares-geometricos/q06-teste-de-pertinencia.html",
+        "1-lugares-geometricos/q07-eixo-de-simetria.html",
+        "1-lugares-geometricos/q08-interseccao-tatica.html",
+        "1-lugares-geometricos/q09-zona-neutra.html",
+        "1-lugares-geometricos/q10-mapa-de-abrigos.html",
+        "1-lugares-geometricos/q11-centro-de-comando.html",
+        "1-lugares-geometricos/q12-corredor-seguro.html"
     ];
 
     async function carregarManual(arquivo) {
@@ -288,10 +285,8 @@
     });
     </script>
 
-
-    <!-- RODAPÉ DO DOCUMENTO -->
     <div class="footer">
-        REFÚGIO-TEC | LUGARES GEOMÉTRICOS: Sobrevivência Matemática - "Na geometria encontramos os caminhos, na álgebra deciframos os destinos"
+        REFÚGIO-TEC | Lugares Geométricos: Sobrevivência Matemática — O princípio que gera todas as curvas
     </div>
 </body>
 </html>
