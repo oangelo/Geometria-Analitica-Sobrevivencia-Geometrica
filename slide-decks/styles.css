@@ -1185,3 +1185,58 @@
     0 0 15px #adff2f,
     0 0 20px #adff2f;
 }
+
+/* ========== CAPÍTULO III — AJUSTES ESPECÍFICOS ========== */
+
+/* Info-screen: texto e listas mais compactos */
+.info-screen ul li {
+  font-size: 1.2rem !important;
+  line-height: 1.2;
+  margin-bottom: 0.3em;
+}
+
+.info-screen ul li::before {
+  font-size: 1.2rem !important;
+  line-height: 1.2;
+  left: -2rem;
+}
+
+.info-screen p {
+  font-size: 1.2rem !important;
+  line-height: 1.2;
+  font-family: 'Courier New', monospace !important;
+  color: #adff2f !important;
+}
+
+/* Summary-box: listas mais compactas */
+.summary-box ul li {
+  font-size: 1.2rem !important;
+  line-height: 1.2;
+}
+
+.summary-box ul li::before {
+  font-size: 1.2rem !important;
+  line-height: 1.2;
+  left: -2rem;
+}
+
+/* Number inputs nos simuladores */
+.control-panel input[type="number"] {
+  width: 60px;
+  background-color: #2f2f2f;
+  color: #adff2f;
+  border: 1px solid #adff2f;
+  padding: 3px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+}
+
+/* Position-desc: fórmulas inline menores */
+.position-desc .formula {
+  font-size: 1rem;
+  display: inline;
+  margin: 0;
+  padding: 0 0.2em;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}

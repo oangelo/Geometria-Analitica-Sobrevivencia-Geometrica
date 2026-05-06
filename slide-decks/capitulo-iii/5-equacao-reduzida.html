@@ -1,196 +1,306 @@
 <section>
+
+  <section class="field-report">
+    <h3>Leitura Rápida: A Equação Reduzida</h3>
+    <div class="narrative-text">
+      <p>A radiação sobe. O timer não para. Você precisa saber <strong>imediatamente</strong> a inclinação e o ponto de partida de uma rota — sem cálculos, sem derivadas.</p>
+      <p>Na Seção 1 vimos a forma geral \(Ax + By + C = 0\), robusta e universal. Mas quando o tempo é curto e cada segundo conta, precisamos de uma equação que entregue <strong>declive e intercepto na leitura direta</strong>.</p>
+    </div>
+    <div class="survival-tip">
+      <p>LIÇÃO DE SOBREVIVÊNCIA: "A forma geral é o canivete suíço — resolve tudo. A forma reduzida é a faca de combate — rápida, precisa, feita para leitura instantânea."</p>
+    </div>
+  </section>
+
+  <section class="mission-briefing">
+    <h3>Coeficiente Angular: O Declive da Rota</h3>
+    <p>Dados dois pontos \(P_1(x_1, y_1)\) e \(P_2(x_2, y_2)\) na reta, o <strong>coeficiente angular</strong> \(m\) mede a inclinação:</p>
+    <div class="concept-definition">
+      <p class="formula">\( m = \frac{y_2 - y_1}{x_2 - x_1} \)</p>
+      <p>Geometricamente, \(m\) é a tangente do ângulo \(\theta\) que a reta forma com o eixo \(x\) positivo (medido no sentido anti-horário):</p>
+      <p class="formula">\( m = \tan(\theta) \)</p>
+    </div>
+    <div class="info-panel">
+      <div class="info-screen">
+        <h4>Casos Notáveis:</h4>
+        <ul>
+          <li>\(\theta = 0^\circ \implies m = 0\) (reta horizontal)</li>
+          <li>\(\theta = 45^\circ \implies m = 1\) (subida de 45°)</li>
+          <li>\(\theta = 90^\circ \implies m\) indefinido (reta vertical)</li>
+          <li>\(\theta = 135^\circ \implies m = -1\) (descida de 45°)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <section class="simulator">
-            <h3>Visualização: O Significado de \(m\) e \(b\)</h3>
-            <div class="canvas-container">
-              <canvas
-                id="reduzida-canvas"
-                width="800"
-                height="400"
-                aria-label="Simulador da equação reduzida"
-                role="img"
-              ></canvas>
-              <div class="simulator-controls">
-                <div class="control-panel">
-                  <label for="reduzida-m">Inclinação (m):</label>
-                  <input
-                    type="range"
-                    id="reduzida-m"
-                    min="-5"
-                    max="5"
-                    value="1"
-                    step="0{,}1"
-                  />
-                  <span id="reduzida-m-value">1{,}0</span>
-                </div>
-                <div class="control-panel">
-                  <label for="reduzida-b">Intercepto Y (b):</label>
-                  <input
-                    type="range"
-                    id="reduzida-b"
-                    min="-8"
-                    max="8"
-                    value="1"
-                    step="0{,}2"
-                  />
-                  <span id="reduzida-b-value">1{,}0</span>
-                </div>
-              </div>
-              <div
-                class="intersecao-info"
-                id="reduzida-info"
-              >
-                Equação: y = 1{,}0x + 1{,}0
-              </div>
-              <div class="hint-message">
-                <p>
-                  Ajuste \(m\) para mudar a inclinação e \(b\) para mover a reta
-                  verticalmente.
-                </p>
-              </div>
-            </div>
-          </section>
-  <section class="field-report level-basic">
-            <h3>Teoria: Inclinação e Ângulo</h3>
-            <p>
-              A relação fundamental entre o coeficiente angular \(m\) e o ângulo
-              \(\theta\) que a reta faz com o eixo X (positivo, anti-horário) é:
-            </p>
-            <div class="definition-box">
-              <p class="formula">\( m = \tan(\theta) \)</p>
-            </div>
-            <div class="info-panel">
-              <div class="info-screen crt-effect">
-                <h4>Casos Notáveis:</h4>
-                <ul>
-                  <li>\(\theta = 0^\circ \implies m = 0\) (Horizontal)</li>
-                  <li>\(\theta = 45^\circ \implies m = 1\)</li>
-                  <li>
-                    \(\theta = 90^\circ \implies m\) Indefinido (Vertical)
-                  </li>
-                  <li>\(\theta = 135^\circ \implies m = -1\)</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-  <section class="survival-training">
-            <h3>Treinamento: Extraindo Dados da Rota</h3>
-            <div class="training-problem">
-              <h4>Tarefa:</h4>
-              <p>Rota definida por \(A(-2, 1)\) e \(B(4, 4)\).</p>
-              <ol>
-                <li>Determine \(m\).</li>
-                <li>Encontre \(b\).</li>
-                <li>Escreva a equação \(y=mx+b\).</li>
-              </ol>
-            </div>
-            <div class="case-solution">
-              <div class="case-solution-title">Solução Rápida</div>
-              <div class="case-step">
-                <p>
-                  1. \(m = \frac{4 - 1}{4 - (-2)} = \frac{3}{6} = \boxed{0{,}5}\)
-                </p>
-              </div>
-              <div class="case-step">
-                <p>
-                  2. Usar A: \(1 = 0{,}5(-2) + b \implies 1 = -1 + b \implies
-                  \boxed{b=2}\)
-                </p>
-              </div>
-              <div class="case-step">
-                <p>3. Equação: \( \boxed{y = 0{,}5x + 2} \)</p>
-              </div>
-            </div>
-          </section>
-  <section class="debriefing">
-            <h3>Conclusão: Equação Reduzida</h3>
-            <div class="summary-box">
-              <p>A forma \(y=mx+b\) oferece diagnóstico rápido:</p>
-              <ul>
-                <li>\(m\) revela a inclinação.</li>
-                <li>\(b\) mostra o ponto de partida no eixo Y.</li>
-                <li>Excelente para visualização e tendências.</li>
-              </ul>
-              <p>Limitação: não representa retas verticais.</p>
-            </div>
-            <div class="instructor-note">
-              <p>
-                Use \(y=mx+b\) para briefings rápidos, mas use a Forma Geral
-                para robustez.
-              </p>
-            </div>
-          </section>
+    <h3>Simulador: Equação Reduzida \(y = mx + n\)</h3>
+    <div class="canvas-container">
+      <canvas
+        id="reduzida-canvas"
+        width="800"
+        height="400"
+        aria-label="Simulador interativo da equação reduzida"
+        role="img"
+      ></canvas>
+      <div class="simulator-controls">
+        <div class="control-panel">
+          <label for="reduzida-m">Inclinação (m):</label>
+          <input
+            type="range"
+            id="reduzida-m"
+            min="-5"
+            max="5"
+            value="1"
+            step="0.1"
+          />
+          <span id="reduzida-m-value">1.0</span>
+        </div>
+        <div class="control-panel">
+          <label for="reduzida-n">Intercepto Y (n):</label>
+          <input
+            type="range"
+            id="reduzida-n"
+            min="-8"
+            max="8"
+            value="1"
+            step="0.2"
+          />
+          <span id="reduzida-n-value">1.0</span>
+        </div>
+        <div class="control-panel">
+          <label>Equação:</label>
+          <span id="reduzida-info">y = 1.0x + 1.0</span>
+        </div>
+      </div>
+      <div class="hint-message">
+        <p>
+          Ajuste \(m\) para mudar a inclinação e \(n\) para mover a reta
+          verticalmente. Observe o arco do ângulo \(\theta\) próximo à origem.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="field-report level-intermediate">
+    <h3>Conversão: Geral ↔ Reduzida</h3>
+    <div class="conversion-panel">
+      <div class="conversion-step">
+        <p><strong>Geral → Reduzida</strong> (quando \(B \neq 0\)):</p>
+        <p>Isolar \(y\) em \(Ax + By + C = 0\):</p>
+        <p class="formula">\( y = -\frac{A}{B}x - \frac{C}{B} \)</p>
+        <p>Onde \(m = -\frac{A}{B}\) e \(n = -\frac{C}{B}\).</p>
+      </div>
+      <div class="conversion-step">
+        <p><strong>Exemplo:</strong> \(2x + 4y - 8 = 0\)</p>
+        <p>\(4y = -2x + 8 \implies y = -\frac{2}{4}x + \frac{8}{4} = -0{,}5x + 2\)</p>
+        <p>Leitura direta: declive \(m = -0{,}5\), intercepto \(n = 2\).</p>
+      </div>
+      <div class="conversion-step">
+        <p><strong>Reduzida → Geral:</strong></p>
+        <p class="formula">\( y = mx + n \implies mx - y + n = 0 \)</p>
+      </div>
+    </div>
+    <div class="survival-tip">
+      <p>ATENÇÃO: Retas <strong>verticais</strong> (\(B = 0\)) não possuem forma reduzida. Para elas, só a forma geral funciona. A equação reduzida é uma ferramenta poderosa, mas não universal.</p>
+    </div>
+  </section>
+
   <section class="field-report level-advanced">
-            <h2>Aplicação Moderna: GPS e Gráficos Computacionais</h2>
-            <h3 class="mission-subtitle">Do Satélite à Tela do Dispositivo</h3>
-            <div class="two-column">
-              <div class="column">
-                <div class="column-title">GPS e Localização</div>
-                <p>GPS usa G.A. extensivamente:</p>
-                <ul>
-                  <li>
-                    <strong>Trilateração:</strong> Posição pela interseção de
-                    esferas (distâncias a satélites).
-                  </li>
-                  <li>
-                    <strong>Correções:</strong> Equações modelam trajetórias e
-                    efeitos.
-                  </li>
-                </ul>
-              </div>
-              <div class="column">
-                <div class="column-title">Gráficos Computacionais</div>
-                <p>Renderizar mapas depende da G.A.:</p>
-                <ul>
-                  <li>
-                    <strong>Modelagem 3D:</strong> Vértices, arestas (retas),
-                    faces (planos).
-                  </li>
-                  <li>
-                    <strong>Transformações:</strong> Rotação, translação,
-                    escala.
-                  </li>
-                  <li>
-                    <strong>Visibilidade:</strong> Interseções determinam o que
-                    é visto.
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="instructor-note">
-              <p>
-                Seja navegando por satélite ou visualizando um mapa digital, a
-                G.A. está operando nos bastidores.
-              </p>
-            </div>
-          </section>
+    <h3>Ângulo de Inclinação e Linha de Visada</h3>
+    <p>A relação \(m = \tan(\theta)\) conecta a álgebra à geometria de forma direta. No campo, isso significa converter entre <strong>declive</strong> e <strong>ângulo</strong> instantaneamente.</p>
+    <div class="info-panel">
+      <div class="info-screen">
+        <h4>Exemplo: Torre de Vigia</h4>
+        <p>Do alto de uma torre no ponto \(T(0, 8)\), um sentinela avista um alvo no vale em \(A(6, 0)\). A linha de visada forma uma reta com coeficiente angular:</p>
+        <p class="formula">\( m = \frac{0 - 8}{6 - 0} = -\frac{4}{3} \approx -1{,}33 \)</p>
+        <p>Ângulo de depressão: \(\theta = \arctan(-1{,}33) \approx -53{,}1^\circ\) (ou \(126{,}9^\circ\) medido anti-horário).</p>
+        <p>Isso significa que o sentinela precisa apontar seu equipamento \(53{,}1^\circ\) abaixo da horizontal para atingir o alvo.</p>
+      </div>
+    </div>
+    <div class="survival-tip">
+      <p>PROTOCOLO: Ângulo de elevação (subida) → \(m > 0\). Ângulo de depressão (descida) → \(m < 0\). Retas horizontais → \(m = 0\). Retas verticais → sem \(m\).</p>
+    </div>
+  </section>
+
+  <section class="survival-training">
+    <h3>Treinamento: Extraindo Dados da Rota</h3>
+    <div class="training-problem">
+      <h4>Tarefa:</h4>
+      <p>Rota definida por \(A(-2, 1)\) e \(B(4, 4)\).</p>
+      <ol>
+        <li>Determine o coeficiente angular \(m\).</li>
+        <li>Encontre o intercepto \(n\).</li>
+        <li>Escreva a equação reduzida \(y = mx + n\).</li>
+      </ol>
+    </div>
+    <div class="case-solution">
+      <div class="case-solution-title">Solução Passo a Passo</div>
+      <div class="case-step">
+        <p>
+          <strong>1. Coeficiente angular:</strong>
+        </p>
+        <p class="formula">
+          \( m = \frac{4 - 1}{4 - (-2)} = \frac{3}{6} = 0{,}5 \)
+        </p>
+      </div>
+      <div class="case-step">
+        <p>
+          <strong>2. Intercepto</strong> (usando o ponto \(A(-2, 1)\)):
+        </p>
+        <p class="formula">
+          \( 1 = 0{,}5 \cdot (-2) + n \implies 1 = -1 + n \implies n = 2 \)
+        </p>
+      </div>
+      <div class="case-step">
+        <p>
+          <strong>3. Equação reduzida:</strong>
+        </p>
+        <p class="formula">\( \boxed{y = 0{,}5x + 2} \)</p>
+      </div>
+    </div>
+  </section>
+
   <section class="debriefing">
-            <h2>Debriefing Final: Dominando as Rotas</h2>
-            <div class="summary-box">
-              <p>
-                Missão Concluída! Você agora está equipado para analisar e
-                utilizar retas:
-              </p>
-              <ul>
-                <li>Manipular e converter entre as equações da reta.</li>
-                <li>Determinar posições relativas e pontos de interseção.</li>
-                <li>Aplicar conceitos de paralelismo e perpendicularidade.</li>
-                <li>Calcular distâncias e definir regiões com inequações.</li>
-                <li>
-                  Interpretar a inclinação e o intercepto da forma reduzida.
-                </li>
-              </ul>
-            </div>
-            <div class="next-mission">
-              <p>
-                Próxima missão: Geometria Analítica no Espaço 3D - Planos e
-                Estruturas!
-              </p>
-            </div>
-            <div class="instructor-note">
-              <p>
-                "A matemática é sua melhor bússola e escudo. Mantenha-os
-                afiados."
-              </p>
-            </div>
-          </section>
+    <h3>Debriefing: Equação Reduzida</h3>
+    <div class="summary-box">
+      <ul>
+        <li><strong>\(m\)</strong> é o coeficiente angular: declive da reta, \(m = \tan(\theta)\).</li>
+        <li><strong>\(n\)</strong> é o intercepto: onde a reta cruza o eixo \(y\), no ponto \((0, n)\).</li>
+        <li><strong>Conversão Geral → Reduzida:</strong> isolar \(y\) quando \(B \neq 0\).</li>
+        <li><strong>Limitação:</strong> não representa retas verticais.</li>
+      </ul>
+    </div>
+    <div class="next-mission">
+      <p>Conexão com a Seção 3: paralelismo exige \(m_1 = m_2\); perpendicularidade exige \(m_1 \cdot m_2 = -1\). A forma reduzida torna essas condições <strong>transparentes</strong>.</p>
+    </div>
+    <div class="instructor-note">
+      <p>Missão completa? Quase. Vamos ao debriefing final.</p>
+    </div>
+  </section>
+
 </section>
+<script>
+(function() {
+  function init() {
+    var canvas = document.getElementById('reduzida-canvas');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var W = canvas.width;
+    var H = canvas.height;
+    var scale = Math.min(W, H) / 22;
+    var cx = W / 2;
+    var cy = H / 2;
+
+    function toCanvas(x, y) {
+      return [cx + x * scale, cy - y * scale];
+    }
+
+    function draw() {
+      var m = parseFloat(document.getElementById('reduzida-m').value);
+      var n = parseFloat(document.getElementById('reduzida-n').value);
+
+      ctx.clearRect(0, 0, W, H);
+
+      ctx.strokeStyle = '#444';
+      ctx.lineWidth = 0.5;
+      for (var i = -10; i <= 10; i++) {
+        var gx = toCanvas(i, 0);
+        var gy = toCanvas(0, i);
+        ctx.beginPath();
+        ctx.moveTo(gx[0], 0);
+        ctx.lineTo(gx[0], H);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(0, gy[1]);
+        ctx.lineTo(W, gy[1]);
+        ctx.stroke();
+      }
+
+      ctx.strokeStyle = '#888';
+      ctx.lineWidth = 1.5;
+      var ox = toCanvas(0, 0);
+      var ex = toCanvas(10, 0);
+      ctx.beginPath();
+      ctx.moveTo(toCanvas(-10, 0)[0], ox[1]);
+      ctx.lineTo(ex[0], ox[1]);
+      ctx.stroke();
+      var ey = toCanvas(0, 10);
+      ctx.beginPath();
+      ctx.moveTo(ox[0], toCanvas(0, -10)[1]);
+      ctx.lineTo(ox[0], ey[1]);
+      ctx.stroke();
+
+      ctx.strokeStyle = '#ADFF2F';
+      ctx.lineWidth = 2.5;
+      var xLeft = -15;
+      var xRight = 15;
+      var p1 = toCanvas(xLeft, m * xLeft + n);
+      var p2 = toCanvas(xRight, m * xRight + n);
+      ctx.beginPath();
+      ctx.moveTo(p1[0], p1[1]);
+      ctx.lineTo(p2[0], p2[1]);
+      ctx.stroke();
+
+      var intPt = toCanvas(0, n);
+      ctx.fillStyle = '#FFD700';
+      ctx.beginPath();
+      ctx.arc(intPt[0], intPt[1], 6, 0, 2 * Math.PI);
+      ctx.fill();
+      ctx.fillStyle = '#FFD700';
+      ctx.font = 'bold 13px Courier New';
+      ctx.fillText('(0, ' + n.toFixed(1) + ')', intPt[0] + 10, intPt[1] - 10);
+
+      if (Math.abs(m) > 0.001 && Math.abs(m) < 100) {
+        var theta = Math.atan(m);
+        if (theta < 0) theta += Math.PI;
+        var arcR = 25;
+        var startAngle = 0;
+        var endAngle = -theta;
+        var origin = toCanvas(0, 0);
+        ctx.strokeStyle = '#00FFFF';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(origin[0], origin[1], arcR, startAngle, endAngle, true);
+        ctx.stroke();
+
+        var midAngle = (startAngle + endAngle) / 2;
+        var labelR = arcR + 14;
+        var lx = origin[0] + labelR * Math.cos(midAngle);
+        var ly = origin[1] + labelR * Math.sin(midAngle);
+        ctx.fillStyle = '#00FFFF';
+        ctx.font = 'bold 12px Courier New';
+        var degVal = (theta * 180 / Math.PI).toFixed(1);
+        ctx.fillText('\u03B8=' + degVal + '\u00B0', lx, ly);
+      }
+
+      var mStr = m.toFixed(1);
+      var nStr = n.toFixed(1);
+      var nSign = n >= 0 ? '+ ' : '- ';
+      var nAbs = Math.abs(n).toFixed(1);
+      document.getElementById('reduzida-info').textContent =
+        'y = ' + mStr + 'x ' + nSign + nAbs;
+      document.getElementById('reduzida-m-value').textContent = m.toFixed(1);
+      document.getElementById('reduzida-n-value').textContent = n.toFixed(1);
+    }
+
+    var sliderM = document.getElementById('reduzida-m');
+    var sliderN = document.getElementById('reduzida-n');
+    if (sliderM) {
+      sliderM.addEventListener('input', draw);
+    }
+    if (sliderN) {
+      sliderN.addEventListener('input', draw);
+    }
+
+    draw();
+  }
+
+  window.reduzidaVisualization = { init: init };
+  document.addEventListener('DOMContentLoaded', init);
+  if (window.Reveal) {
+    Reveal.on('slidechanged', function() {
+      if (document.getElementById('reduzida-canvas')) init();
+    });
+  }
+})();
+</script>

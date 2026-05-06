@@ -1,307 +1,379 @@
 <section>
+  <section class="field-report">
+    <h3>A Fronteira Invisível</h3>
+    <div class="narrative-text">
+      <p>Uma zona de contaminação não é uma área — é uma <strong>LINHA</strong>. Uma reta que separa o mundo em dois lados: habitável e letal. O sobrevivente precisa de duas respostas rápidas: <strong>(1)</strong> quão longe estou da fronteira? <strong>(2)</strong> de que lado dela estou?</p>
+    </div>
+    <p>Na Seção 2 medimos distância entre retas paralelas. Agora o problema é mais fundamental: <strong>distância entre um PONTO e uma RETA</strong>.</p>
+    <div class="survival-tip">
+      <p>DICA: A distância ponto-reta é a MENOR distância possível — ao longo da perpendicular. Saber qual lado da reta você está é tão importante quanto saber a distância.</p>
+    </div>
+  </section>
+
+  <section class="mission-briefing">
+    <h3>Fórmula da Distância Ponto-Reta</h3>
+    <p>Derivada usando <strong>projeção escalar</strong> (Cap II): dado \(Q \in r\) e \(P(x_0, y_0)\) fora de \(r\):</p>
+    <div class="info-panel">
+      <div class="info-screen crt-effect">
+        <p class="formula">\( d = \frac{|Ax_0 + By_0 + C|}{\sqrt{A^2 + B^2}} \)</p>
+        <h4>Derivação:</h4>
+        <p>1. Seja \(Q(x_1, y_1) \in r\). Então \(\vec{QP} = (x_0 - x_1, y_0 - y_1)\).</p>
+        <p>2. Vetor normal de \(r\): \(\vec{n} = (A, B)\).</p>
+        <p class="formula">\( d = \frac{|\vec{QP} \cdot \vec{n}|}{\|\vec{n}\|} \)</p>
+        <p>3. Expandindo: \(\vec{QP} \cdot \vec{n} = A(x_0 - x_1) + B(y_0 - y_1)\)</p>
+        <p>4. Como \(Ax_1 + By_1 = -C\): \(\vec{QP} \cdot \vec{n} = Ax_0 + By_0 + C\).</p>
+      </div>
+    </div>
+  </section>
+
   <section class="simulator">
-            <h3>Visualização: Distância Ponto-Reta</h3>
-            <div class="canvas-container">
-              <canvas
-                id="distancia-ponto-reta-canvas"
-                width="800"
-                height="400"
-                aria-label="Simulador interativo de distância ponto-reta"
-                role="img"
-              ></canvas>
-              <div class="simulator-controls">
-                <div class="control-panel">
-                  <label>P(x):</label
-                  ><input
-                    type="range"
-                    id="distancia-ponto-x"
-                    min="-10"
-                    max="10"
-                    value="3"
-                    step="0{,}5"
-                  /><span id="distancia-ponto-x-value">3{,}0</span
-                  ><label>P(y):</label
-                  ><input
-                    type="range"
-                    id="distancia-ponto-y"
-                    min="-10"
-                    max="10"
-                    value="4"
-                    step="0{,}5"
-                  /><span id="distancia-ponto-y-value">4{,}0</span>
-                </div>
-                <div class="control-panel">
-                  
-                  <label>A:</label
-                  ><input type="number" id="distancia-reta-a" value="1" /><label
-                    >B:</label
-                  ><input type="number" id="distancia-reta-b" value="1" /><label
-                    >C:</label
-                  ><input
-                    type="number"
-                    id="distancia-reta-c"
-                    value="-1"
-                  /><button id="distancia-reta-update" class="operation-btn">
-                    Upd
-                  </button>
-                </div>
-                <div class="control-panel">
-                  <label>Distância:</label
-                  ><span id="distancia-value">3{,}54</span>
-                </div>
-              </div>
-              <div class="hint-message">
-                <p>
-                  Arraste P. Observe a distância mudar. A cor indica a
-                  "proximidade" da zona de risco (a reta).
-                </p>
-              </div>
-            </div>
-          </section>
+    <h3>Simulador: Distância Ponto-Reta</h3>
+    <div class="canvas-container">
+      <canvas id="distancia-ponto-reta-canvas" width="800" height="400" aria-label="Simulador interativo de distância ponto-reta" role="img"></canvas>
+      <div class="simulator-controls">
+        <div class="control-panel">
+          <label>P(x):</label><input type="range" id="distancia-ponto-x" min="-10" max="10" value="3" step="0.5"/><span id="distancia-ponto-x-value">3.0</span>
+          <label>P(y):</label><input type="range" id="distancia-ponto-y" min="-10" max="10" value="4" step="0.5"/><span id="distancia-ponto-y-value">4.0</span>
+        </div>
+        <div class="control-panel">
+          <label>A:</label><input type="number" id="distancia-reta-a" value="1"/>
+          <label>B:</label><input type="number" id="distancia-reta-b" value="1"/>
+          <label>C:</label><input type="number" id="distancia-reta-c" value="-1"/>
+          <button id="distancia-reta-update" class="operation-btn">Upd</button>
+        </div>
+        <div class="intersecao-info" id="distancia-ponto-reta-info">Distância: 3.54</div>
+      </div>
+      <div class="hint-message">
+        <p>Arraste P com os sliders. A reta muda ao atualizar A, B, C. A linha tracejada é a perpendicular — a distância mínima.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="field-report level-intermediate">
-            <h3>Visualização: Região Definida por Inequação</h3>
-            <div class="info-panel">
-              
-              <div class="info-screen">
-                <h4>Exemplo: Zona Segura \( x - 2y + 4 \ge 0 \)</h4>
-                <svg
-                  viewBox="-5 -5 10 10"
-                  width="250"
-                  height="180"
-                  version="1{,}1"
-                  id="svg4"
-                  sodipodi:docname="aux.svg"
-                  inkscape:version="1{,}4 (e7c3feb100, 2024-10-09)"
-                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:svg="http://www.w3.org/2000/svg"
-                >
-                  <sodipodi:namedview
-                    id="namedview4"
-                    pagecolor="#000000"
-                    bordercolor="#000000"
-                    borderopacity="0{,}25"
-                    inkscape:showpageshadow="2"
-                    inkscape:pageopacity="0{,}0"
-                    inkscape:pagecheckerboard="0"
-                    inkscape:deskcolor="#d1d1d1"
-                    inkscape:zoom="4{,}4388889"
-                    inkscape:cx="125{,}03129"
-                    inkscape:cy="93{,}153942"
-                    inkscape:window-width="1920"
-                    inkscape:window-height="1008"
-                    inkscape:window-x="0"
-                    inkscape:window-y="0"
-                    inkscape:window-maximized="1"
-                    inkscape:current-layer="svg4"
-                  />
-                  <defs id="defs1">
-                    <linearGradient
-                      id="linearGradient5"
-                      inkscape:collect="always"
-                    >
-                      <stop
-                        offset="0"
-                        id="stop5"
-                      />
-                      <stop
-                        offset="1"
-                        id="stop6"
-                      />
-                    </linearGradient>
-                    <pattern
-                      id="hatch2"
-                      patternUnits="userSpaceOnUse"
-                      width="4"
-                      height="4"
-                    >
-                      <path
-                        d="M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2"
-                        id="path1"
-                      />
-                    </pattern>
-                    <linearGradient
-                      inkscape:collect="always"
-                      xlink:href="#linearGradient5"
-                      id="linearGradient6"
-                      x1="1{,}8601984"
-                      y1="0{,}85687971"
-                      x2="1{,}9509586"
-                      y2="-4{,}4612494"
-                      gradientUnits="userSpaceOnUse"
-                      gradientTransform="matrix(1{,}0570478,0,0,1{,}0570478,0{,}02673635,-0{,}27554776)"
-                    />
-                  </defs>
-                  <rect
-                    id="rect4"
-                    width="10{,}993827"
-                    height="8{,}0833073"
-                    x="-4{,}6245413"
-                    y="-6{,}3689327"
-                    transform="rotate(26{,}622717)"
-                  />
-                  <line
-                    x1="-5"
-                    y1="-0{,}5"
-                    x2="5"
-                    y2="4{,}5"
-                    stroke="#FFD700"
-                    stroke-width="0{,}2"
-                    id="line1"
-                  />
-                  <line
-                    x1="-5"
-                    y1="0"
-                    x2="5"
-                    y2="0"
-                    stroke="#555"
-                    stroke-width="0{,}1"
-                    id="line2"
-                  />
-                  <line
-                    x1="0"
-                    y1="-5"
-                    x2="0"
-                    y2="5"
-                    stroke="#555"
-                    stroke-width="0{,}1"
-                    id="line3"
-                  />
-                  <circle cx="0" cy="0" r="0{,}2" fill="red" id="circle3" />
-                  <text x="-0{,}5" y="0{,}5" font-size="0{,}5" fill="red" id="text3">
-                    (0,0)
-                  </text>
-                  <text
-                    x="-4"
-                    y="-1"
-                    font-size="0{,}5"
-                    fill="#00FFFF"
-                    id="text4"
-                  >
-                    \(x - 2y + 4 \ge 0\)
-                  </text>
-                </svg>
-                <p>
-                  Teste (0,0): \(0 - 2(0) + 4 = 4 \ge 0\). Região (hachurada)
-                  inclui origem e a reta.
-                </p>
-              </div>
-            </div>
-          </section>
-  <section class="field-report level-intermediate">
-            <h3>Teoria: A Fórmula da Distância Ponto-Reta</h3>
-            <p>Derivada usando projeção vetorial:</p>
-            <div class="info-panel">
-              
-              <div class="info-screen crt-effect">
-                <p class="formula">
-                  \( d = \frac{|Ax_0 + By_0 + C|}{\sqrt{A^2 + B^2}} \)
-                </p>
-                <p>
-                  \( \vec{QP} = (x_0-x_1, y_0-y_1) \), \( \vec{n} = (A, B) \)
-                </p>
-                <p class="formula">
-                  \( d = \frac{|\vec{QP} \cdot \vec{n}|}{||\vec{n}||} =
-                  \frac{|A(x_0-x_1) + B(y_0-y_1)|}{\sqrt{A^2+B^2}} \)
-                </p>
-                <p>
-                  Como \(Ax_1+By_1 = -C\): \( d = \frac{|Ax_0 + By_0 +
-                  C|}{\sqrt{A^2+B^2}} \).
-                </p>
-              </div>
-            </div>
-          </section>
+    <h3>Semiplanos: O Lado Certo da Fronteira</h3>
+    <p>A fórmula da distância usa <strong>valor absoluto</strong>. Mas sem o módulo, \(Ax_0 + By_0 + C\) revela algo crucial: o <strong>sinal</strong> indica de que lado da reta o ponto está.</p>
+    <div class="concept-definition">
+      <h4>Teste do Ponto</h4>
+      <p>Para a reta \(r: Ax + By + C = 0\) e um ponto \(P(x_0, y_0)\):</p>
+      <ul>
+        <li>\(Ax_0 + By_0 + C > 0\) → \(P\) está no semiplano positivo.</li>
+        <li>\(Ax_0 + By_0 + C < 0\) → \(P\) está no semiplano negativo.</li>
+        <li>\(Ax_0 + By_0 + C = 0\) → \(P\) está sobre a reta.</li>
+      </ul>
+      <p>Para saber qual semiplano satisfaz \(Ax + By + C > 0\), <strong>teste a origem</strong>: calcule \(A(0) + B(0) + C = C\). Se \(C > 0\), a origem está no semiplano positivo.</p>
+    </div>
+    <svg viewBox="-5 -5 10 10" width="280" height="200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="hatch-halfplane" patternUnits="userSpaceOnUse" width="0.6" height="0.6" patternTransform="rotate(45)">
+          <line x1="0" y1="0" x2="0" y2="0.6" stroke="#ADFF2F" stroke-width="0.15" stroke-opacity="0.4"/>
+        </pattern>
+      </defs>
+      <rect x="-5" y="-5" width="5" height="10" fill="url(#hatch-halfplane)"/>
+      <line x1="0" y1="-5" x2="0" y2="5" stroke="#FFD700" stroke-width="0.2"/>
+      <line x1="-5" y1="0" x2="5" y2="0" stroke="#555" stroke-width="0.1"/>
+      <line x1="0" y1="-5" x2="0" y2="0" stroke="#555" stroke-width="0.1"/>
+      <circle cx="0" cy="0" r="0.15" fill="#FF6347"/>
+      <text x="0.15" y="0.15" font-size="0.5" fill="#FF6347" font-family="monospace">(0,0)</text>
+      <text x="-4.5" y="3.5" font-size="0.6" fill="#ADFF2F" font-family="monospace">ax+by+c &lt; 0</text>
+      <text x="1" y="-3.5" font-size="0.6" fill="#E0E0E0" font-family="monospace">ax+by+c &gt; 0</text>
+      <text x="0.2" y="4.5" font-size="0.5" fill="#FFD700" font-family="monospace">r</text>
+    </svg>
+    <div class="survival-tip">
+      <p>DICA: A reta divide o plano em dois semiplanos. Teste UM ponto (a origem serve!) para identificar qual região corresponde a cada desigualdade.</p>
+    </div>
+  </section>
+
+  <section class="field-report level-advanced">
+    <h3>Região Viável: Múltiplas Fronteiras</h3>
+    <p>No campo, uma única fronteira raramente basta. Um abrigo seguro precisa respeitar <strong>várias</strong> restrições simultaneamente. Cada inequação é um muro — a região viável é o espaço <strong>dentro de todos eles</strong>.</p>
+    <div class="info-panel">
+      <div class="info-screen">
+        <h4>Exemplo: Zona com 3 Restrições</h4>
+        <p>\( \begin{cases} x + y \le 6 \\ x \ge 1 \\ y \ge 1 \end{cases} \)</p>
+        <p>Cada inequação define um semiplano. A interseção dos três semiplanos é a <strong>região viável</strong> — um polígono (triângulo, neste caso).</p>
+        <p>O ponto \(P(2, 3)\): \(2 + 3 = 5 \le 6\), \(2 \ge 1\), \(3 \ge 1\). <strong>Seguro!</strong></p>
+        <p>O ponto \(Q(5, 5)\): \(5 + 5 = 10 > 6\). <strong>Fora da zona!</strong></p>
+      </div>
+    </div>
+    <div class="survival-tip">
+      <p>DICA: Cada inequação é um muro. A região viável é o espaço dentro de TODOS eles. Se um ponto viola qualquer inequação, está fora.</p>
+    </div>
+  </section>
+
   <section class="survival-training">
-            <h3>Problema: Zona de Risco e Ponto Seguro</h3>
-            <div class="training-problem">
-              <h4>Situação:</h4>
-              <p>Falha geológica: \(L: x - 3y + 6 = 0\). Risco < 2 unidades.</p>
-              <p>Locais: \(A(4, 5)\) e \(B(-1, 1)\).</p>
-              <ol>
-                <li>Distância de A e B a L?</li>
-                <li>Inequação da ZONA SEGURA (distância \(\ge 2\))?</li>
-                <li>A e B estão seguros (verificar com inequação)?</li>
-              </ol>
-            </div>
-            <div class="problem-context">
-              <p>Construir na zona de risco é perigoso.</p>
-            </div>
-          </section>
-  <section>
-            <h3>Solução: Passo 1 - Cálculo das Distâncias</h3>
-            <div class="case-solution">
-              <div class="case-solution-title">Distância de A(4, 5) a L</div>
-              <div class="case-step">
-                <p class="formula">
-                  \( d_A = \frac{|1(4) + (-3)(5) + 6|}{\sqrt{1^2 + (-3)^2}} =
-                  \frac{|-5|}{\sqrt{10}} \approx 1{,}58 \) un.
-                </p>
-                <p><strong>Conclusão: A está na ZONA DE RISCO.</strong></p>
-              </div>
-              <div class="case-solution-title">
-                Distância de B(-1, 1) a L
-              </div>
-              <div class="case-step">
-                <p class="formula">
-                  \( d_B = \frac{|1(-1) + (-3)(1) + 6|}{\sqrt{1^2 + (-3)^2}} =
-                  \frac{|2|}{\sqrt{10}} \approx 0{,}63 \) un.
-                </p>
-                <p><strong>Conclusão: B está na ZONA DE RISCO.</strong></p>
-              </div>
-            </div>
-          </section>
-  <section>
-            <h3>Solução: Passo 2 e 3 - Inequação e Verificação</h3>
-            <div class="case-solution">
-              <div class="case-solution-title">
-                Inequação da Zona Segura (\(d \ge 2\))
-              </div>
-              <div class="case-step">
-                <p class="formula">
-                  \( \frac{|x - 3y + 6|}{\sqrt{10}} \ge 2 \implies |x - 3y + 6|
-                  \ge 2\sqrt{10} \)
-                </p>
-                <p>
-                  Regiões: \( x - 3y + 6 \ge 2\sqrt{10} \) OU \( x - 3y + 6 \le
-                  -2\sqrt{10} \)
-                </p>
-              </div>
-              <div class="case-solution-title">
-                Verificação com Pontos
-              </div>
-              <div class="case-step">
-                <p>
-                  <strong>A(4, 5):</strong> \( 1(4) - 3(5) + 6 = -5 \). \( |-5|
-                  \not\ge 2\sqrt{10} \). <strong>Inseguro.</strong>
-                </p>
-                <p>
-                  <strong>B(-1, 1):</strong> \( 1(-1) - 3(1) + 6 = 2 \). \( |2|
-                  \not\ge 2\sqrt{10} \). <strong>Inseguro.</strong>
-                </p>
-              </div>
-            </div>
-          </section>
+    <h3>Problema: Falha Geológica e Zona de Risco</h3>
+    <div class="training-problem">
+      <h4>Situação:</h4>
+      <p>Falha geológica: \(L: x - 3y + 6 = 0\). Zona de risco: distância < 2 unidades.</p>
+      <p>Locais: \(A(4, 5)\) e \(B(-1, 1)\).</p>
+      <ol>
+        <li>Calcule a distância de \(A\) e \(B\) à reta \(L\).</li>
+        <li>Determine a inequação da <strong>ZONA SEGURA</strong> (distância \(\ge 2\)).</li>
+        <li>Verifique: \(A\) e \(B\) estão seguros?</li>
+      </ol>
+    </div>
+    <div class="problem-context">
+      <p>Construir na zona de risco é fatal. A matemática decide quem sobrevive.</p>
+    </div>
+  </section>
+
+  <section class="survival-training">
+    <h3>Solução: Falha Geológica</h3>
+    <div class="case-solution">
+      <div class="case-solution-title">Distância de \(A(4, 5)\) a \(L\)</div>
+      <div class="case-step">
+        <p class="formula">
+          \( d_A = \frac{|1(4) + (-3)(5) + 6|}{\sqrt{1^2 + (-3)^2}} = \frac{|-5|}{\sqrt{10}} \approx 1{,}58 \) un.
+        </p>
+        <p><strong>Conclusão: \(A\) está na ZONA DE RISCO</strong> (\(1{,}58 < 2\)).</p>
+      </div>
+      <div class="case-solution-title">Distância de \(B(-1, 1)\) a \(L\)</div>
+      <div class="case-step">
+        <p class="formula">
+          \( d_B = \frac{|1(-1) + (-3)(1) + 6|}{\sqrt{1^2 + (-3)^2}} = \frac{|2|}{\sqrt{10}} \approx 0{,}63 \) un.
+        </p>
+        <p><strong>Conclusão: \(B\) está na ZONA DE RISCO</strong> (\(0{,}63 < 2\)).</p>
+      </div>
+      <div class="case-solution-title">Inequação da Zona Segura (\(d \ge 2\))</div>
+      <div class="case-step">
+        <p class="formula">
+          \( \frac{|x - 3y + 6|}{\sqrt{10}} \ge 2 \implies |x - 3y + 6| \ge 2\sqrt{10} \)
+        </p>
+        <p>Regiões: \( x - 3y + 6 \ge 2\sqrt{10} \) <strong>OU</strong> \( x - 3y + 6 \le -2\sqrt{10} \).</p>
+      </div>
+      <div class="case-solution-title">Verificação com os Pontos</div>
+      <div class="case-step">
+        <p><strong>\(A(4, 5)\):</strong> \( 1(4) - 3(5) + 6 = -5 \). \( |-5| \not\ge 2\sqrt{10} \approx 6{,}32 \). <strong>Inseguro.</strong></p>
+        <p><strong>\(B(-1, 1)\):</strong> \( 1(-1) - 3(1) + 6 = 2 \). \( |2| \not\ge 2\sqrt{10} \approx 6{,}32 \). <strong>Inseguro.</strong></p>
+      </div>
+    </div>
+  </section>
+
   <section class="debriefing">
-            <h3>Conclusão: Ponto vs. Reta</h3>
-            <div class="summary-box">
-              <p>A relação entre um ponto e uma reta é definida por:</p>
-              <ul>
-                <li>
-                  <strong>Distância:</strong> Quantifica a separação mínima.
-                </li>
-                <li>
-                  <strong>Posição Relativa (Lado):</strong> Determinada pelo
-                  sinal de \(Ax_0+By_0+C\), define regiões via inequações.
-                </li>
-              </ul>
-            </div>
-            <div class="instructor-note">
-              <p>
-                Saber sua distância e seu 'lado' em relação a uma referência
-                linear é metade da batalha pela orientação.
-              </p>
-            </div>
-          </section>
+    <h3>Conclusão: Ponto vs. Reta</h3>
+    <div class="summary-box">
+      <p>A relação entre um ponto e uma reta se resume a três ferramentas:</p>
+      <ul>
+        <li><strong>Distância:</strong> \( d = \frac{|Ax_0 + By_0 + C|}{\sqrt{A^2 + B^2}} \) — quão longe.</li>
+        <li><strong>Semiplanos:</strong> O sinal de \(Ax_0 + By_0 + C\) (sem módulo) indica de que lado.</li>
+        <li><strong>Região viável:</strong> Interseção de semiplanos — zona segura com múltiplas fronteiras.</li>
+      </ul>
+    </div>
+    <div class="next-mission">
+      <p>Existe uma forma de equação que facilita a leitura rápida da <strong>inclinação</strong> de uma reta... Essa é a missão da Seção 5.</p>
+    </div>
+    <div class="instructor-note">
+      <p>Saber sua distância e seu "lado" em relação a uma fronteira linear é metade da batalha pela orientação no campo.</p>
+    </div>
+  </section>
 </section>
+<script>
+(function() {
+  var canvas, ctx;
+  var W = 800, H = 400;
+  var xMin = -10, xMax = 10, yMin = -10, yMax = 10;
+  var initialized = false;
+
+  var state = {
+    px: 3, py: 4,
+    A: 1, B: 1, C: -1
+  };
+
+  function mapX(x) { return (x - xMin) / (xMax - xMin) * W; }
+  function mapY(y) { return (yMax - y) / (yMax - yMin) * H; }
+
+  function drawGrid() {
+    ctx.strokeStyle = 'rgba(50, 50, 50, 0.5)';
+    ctx.lineWidth = 0.5;
+    var i;
+    for (i = xMin; i <= xMax; i++) {
+      ctx.beginPath();
+      ctx.moveTo(mapX(i), 0);
+      ctx.lineTo(mapX(i), H);
+      ctx.stroke();
+    }
+    for (i = yMin; i <= yMax; i++) {
+      ctx.beginPath();
+      ctx.moveTo(0, mapY(i));
+      ctx.lineTo(W, mapY(i));
+      ctx.stroke();
+    }
+    ctx.strokeStyle = 'rgba(150, 150, 150, 0.6)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(mapX(0), 0);
+    ctx.lineTo(mapX(0), H);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(0, mapY(0));
+    ctx.lineTo(W, mapY(0));
+    ctx.stroke();
+    ctx.fillStyle = 'rgba(150, 150, 150, 0.6)';
+    ctx.font = '10px monospace';
+    for (i = xMin; i <= xMax; i += 2) {
+      if (i === 0) continue;
+      ctx.fillText(i, mapX(i) - 5, mapY(0) + 12);
+    }
+    for (i = yMin; i <= yMax; i += 2) {
+      if (i === 0) continue;
+      ctx.fillText(i, mapX(0) + 4, mapY(i) + 4);
+    }
+  }
+
+  function drawLine(A, B, C, color, lw) {
+    var p1x, p1y, p2x, p2y;
+    if (Math.abs(B) > 0.001) {
+      p1x = -15; p1y = -(A * p1x + C) / B;
+      p2x = 15;  p2y = -(A * p2x + C) / B;
+    } else if (Math.abs(A) > 0.001) {
+      var xv = -C / A;
+      p1x = xv; p1y = -15;
+      p2x = xv; p2y = 15;
+    } else {
+      return;
+    }
+    ctx.strokeStyle = color;
+    ctx.lineWidth = lw || 2;
+    ctx.beginPath();
+    ctx.moveTo(mapX(p1x), mapY(p1y));
+    ctx.lineTo(mapX(p2x), mapY(p2y));
+    ctx.stroke();
+  }
+
+  function drawPoint(wx, wy, color, r) {
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.arc(mapX(wx), mapY(wy), r || 5, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  function computeFoot() {
+    var A = state.A, B = state.B, C = state.C;
+    var px = state.px, py = state.py;
+    var denom = A * A + B * B;
+    if (denom < 0.0001) return null;
+    var t = -(A * px + B * py + C) / denom;
+    return { x: px + A * t, y: py + B * t };
+  }
+
+  function computeDistance() {
+    var A = state.A, B = state.B, C = state.C;
+    var px = state.px, py = state.py;
+    var denom = Math.sqrt(A * A + B * B);
+    if (denom < 0.0001) return 0;
+    return Math.abs(A * px + B * py + C) / denom;
+  }
+
+  function draw() {
+    if (!ctx) return;
+    ctx.clearRect(0, 0, W, H);
+    drawGrid();
+
+    var A = state.A, B = state.B, C = state.C;
+
+    drawLine(A, B, C, '#FFD700', 2);
+
+    var foot = computeFoot();
+    if (foot) {
+      ctx.setLineDash([6, 4]);
+      ctx.strokeStyle = '#00FFFF';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(mapX(state.px), mapY(state.py));
+      ctx.lineTo(mapX(foot.x), mapY(foot.y));
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      drawPoint(foot.x, foot.y, '#00FFFF', 4);
+
+      var mx = (state.px + foot.x) / 2;
+      var my = (state.py + foot.y) / 2;
+      var d = computeDistance();
+      ctx.fillStyle = '#00FFFF';
+      ctx.font = 'bold 11px monospace';
+      ctx.fillText('d=' + d.toFixed(2), mapX(mx) + 8, mapY(my) - 6);
+    }
+
+    drawPoint(state.px, state.py, '#FF6347', 6);
+    ctx.fillStyle = '#FF6347';
+    ctx.font = 'bold 12px monospace';
+    ctx.fillText('P', mapX(state.px) + 8, mapY(state.py) - 6);
+
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = '#FFD700';
+    ctx.beginPath();
+    ctx.moveTo(W - 90, 12);
+    ctx.lineTo(W - 65, 12);
+    ctx.stroke();
+    ctx.font = 'bold 12px monospace';
+    ctx.fillStyle = '#FFD700';
+    ctx.fillText('r', W - 58, 16);
+
+    ctx.setLineDash([4, 3]);
+    ctx.strokeStyle = '#00FFFF';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(W - 90, 28);
+    ctx.lineTo(W - 65, 28);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = '#00FFFF';
+    ctx.fillText('perp', W - 58, 32);
+
+    var info = document.getElementById('distancia-ponto-reta-info');
+    if (info) {
+      var dist = computeDistance();
+      info.textContent = 'Dist\u00e2ncia: ' + dist.toFixed(2);
+    }
+  }
+
+  function init() {
+    canvas = document.getElementById('distancia-ponto-reta-canvas');
+    if (!canvas) return;
+    ctx = canvas.getContext('2d');
+
+    if (!initialized) {
+      var sliderMap = [
+        { id: 'distancia-ponto-x', key: 'px' },
+        { id: 'distancia-ponto-y', key: 'py' }
+      ];
+      sliderMap.forEach(function(s) {
+        var el = document.getElementById(s.id);
+        var sp = document.getElementById(s.id + '-value');
+        if (el) {
+          el.addEventListener('input', function() {
+            state[s.key] = parseFloat(this.value);
+            if (sp) sp.textContent = parseFloat(this.value).toFixed(1);
+            draw();
+          });
+        }
+      });
+
+      var updateBtn = document.getElementById('distancia-reta-update');
+      if (updateBtn) {
+        updateBtn.addEventListener('click', function() {
+          var aEl = document.getElementById('distancia-reta-a');
+          var bEl = document.getElementById('distancia-reta-b');
+          var cEl = document.getElementById('distancia-reta-c');
+          if (aEl) state.A = parseFloat(aEl.value) || 0;
+          if (bEl) state.B = parseFloat(bEl.value) || 0;
+          if (cEl) state.C = parseFloat(cEl.value) || 0;
+          draw();
+        });
+      }
+      initialized = true;
+    }
+
+    draw();
+  }
+
+  window.distanciaPontoRetaVisualization = { init: init };
+
+  document.addEventListener('DOMContentLoaded', init);
+  if (window.Reveal) {
+    Reveal.on('slidechanged', function() {
+      if (document.getElementById('distancia-ponto-reta-canvas')) init();
+    });
+  }
+})();
+</script>

@@ -1,214 +1,330 @@
 <section>
+
   <section>
-          <div class="title-screen">
-            <h1>Capítulo III: O Estudo da Reta</h1>
-            <h2 class="subtitle">Traçando Rotas no Espaço Conhecido</h2>
-            <div class="emblem-number">GA-103</div>
-            <p class="subtitle-warning">PROTOCOLO DE NAVEGAÇÃO ESSENCIAL</p>
-          </div>
-        </section>
+    <div class="title-screen">
+      <h1>Equação da Reta</h1>
+      <h2 class="subtitle">Linhas de Suprimento no Deserto</h2>
+      <div class="emblem-number">GA-103</div>
+      <p class="subtitle-warning">PROTOCOLO DE NAVEGAÇÃO ESSENCIAL</p>
+    </div>
+  </section>
+
+  <section class="field-report">
+    <h2>Por Que Precisamos de Retas?</h2>
+    <div class="narrative-text">
+      <p>No Capítulo I, localizamos pontos no plano. No Capítulo II, aprendemos a medir distâncias e ângulos entre vetores. Mas mapas de sobrevivência não mostram apenas pontos isolados — eles mostram <strong>rotas</strong>, <strong>linhas de suprimento</strong>, <strong>fronteiras</strong>.</p>
+    </div>
+    <p>Como descrever <strong>todos os pontos</strong> que pertencem ao caminho entre dois abrigos? Precisamos de uma ferramenta que transforme dois pontos numa <strong>linha inteira</strong>.</p>
+    <div class="survival-tip">
+      <p>LIÇÃO DE SOBREVIVÊNCIA: "Conhecer dois pontos não basta. Quem sabe a ROTA completa sobrevive; quem só sabe os extremos se perde no caminho."</p>
+    </div>
+  </section>
+
   <section class="mission-briefing">
-          <h2>Contexto: A Conquista do Espaço (e da Sobrevivência)</h2>
-          <h3 class="mission-subtitle">Da Antiguidade às Estrelas</h3>
-          <p>
-            Desde os primeiros mapas terrestres até as complexas trajetórias
-            interplanetárias, a Geometria Analítica, formalizada por Descartes e
-            Fermat, foi a chave para descrever o espaço matematicamente.
-          </p>
-          <div class="info-panel">
-            <div class="info-screen crt-effect">
-              <p>Entender retas, planos e curvas permitiu:</p>
-              <ul>
-                <li>Navegação precisa nos oceanos.</li>
-                <li>Desenho de fortificações e cidades.</li>
-                <li>Cálculo de órbitas de planetas e satélites.</li>
-                <li>
-                  Mapeamento de terrenos (essencial para reconstrução ou
-                  exploração).
-                </li>
-              </ul>
-            </div>
-          </div>
-          <p>
-            Dominar estas ferramentas é dominar a capacidade de se localizar,
-            planejar e prever em qualquer ambiente, seja ele a Terra devastada
-            ou a vastidão do espaço.
-          </p>
-        </section>
-  <section>
-            <h3>As Três Representações Principais</h3>
-            <div class="two-column">
-              <div class="column">
-                <div class="column-title">Forma Reduzida</div>
-                <p class="formula">\( y = mx + b \)</p>
-                <p>\(m\): inclinação, \(b\): intercepto Y.</p>
-                <p>Ideal para visualização rápida.</p>
-              </div>
-              <div class="column">
-                <div class="column-title">Forma Geral</div>
-                <p class="formula">\( Ax + By + C = 0 \)</p>
-                <p>\(A, B, C\): coeficientes.</p>
-                <p>Representa todas as retas.</p>
-              </div>
-            </div>
-            <div class="definition-box">
-              <p class="formula">
-                \( \begin{cases} x = x_0 + at \\ y = y_0 + bt \end{cases} \)
-                (Forma Paramétrica)
-              </p>
-              <p>
-                \( (x_0, y_0) \): ponto inicial, \( (a, b) \): vetor diretor,
-                \(t\): parâmetro (tempo/distância).
-              </p>
-            </div>
-          </section>
+    <h2>Equação Paramétrica da Reta</h2>
+    <h3 class="mission-subtitle">Caminhando ao longo do vetor diretor</h3>
+    <p>Dado um ponto \(P_0(x_0, y_0)\) e um vetor diretor \(\vec{d} = (d_1, d_2)\), cada ponto da reta é obtido caminhando \(t\) passos na direção de \(\vec{d}\):</p>
+    <div class="definition-box">
+      <p class="formula">\[ \begin{cases} x = x_0 + td_1 \\ y = y_0 + td_2 \end{cases} \]</p>
+      <p>O parâmetro \(t \in \mathbb{R}\) controla a posição ao longo da reta. Para \(t = 0\), estamos em \(P_0\); para \(t = 1\), deslocamos um \(\vec{d}\).</p>
+    </div>
+    <div class="narrative-text">
+      <p>O vetor \(\vec{d}\) é exatamente o vetor \(\overrightarrow{AB}\) que estudamos no Capítulo I — o deslocamento do ponto \(A\) ao ponto \(B\). Aqui, ele guia toda a linha.</p>
+    </div>
+  </section>
+
+  <section class="mission-briefing">
+    <h2>Equação Geral da Reta</h2>
+    <h3 class="mission-subtitle">Eliminando o parâmetro</h3>
+    <p>Ao eliminar o parâmetro \(t\) das equações paramétricas, obtemos uma única equação:</p>
+    <div class="concept-definition">
+      <p class="formula">\[ Ax + By + C = 0 \]</p>
+      <p>Onde \(\vec{n} = (A, B)\) é o <strong>vetor normal</strong> à reta, perpendicular ao vetor diretor: \(\vec{n} \cdot \vec{d} = 0\).</p>
+      <p>Esta forma representa <strong>todas as retas</strong> do plano, incluindo as verticais.</p>
+    </div>
+    <div class="survival-tip">
+      <p>PROTOCOLO: O vetor normal \(\vec{n}\) é ortogonal à reta. Se \(\vec{d} = (d_1, d_2)\), então \(\vec{n} = (-d_2, d_1)\) ou \((d_2, -d_1)\).</p>
+    </div>
+  </section>
+
   <section class="field-report level-basic">
-            <h3>Teoria: Equivalência das Formas</h3>
-            <p>
-              Embora pareçam diferentes, as formas (Geral, Reduzida,
-              Paramétrica) podem descrever a *mesma* reta (com exceção das
-              verticais para a Reduzida).
-            </p>
-            <div class="info-panel">
-              <div class="info-screen crt-effect">
-                <h4>Conversibilidade:</h4>
-                <ul>
-                  <li>Geral ⇔ Reduzida (se \(B \neq 0\)).</li>
-                  <li>Geral ⇔ Paramétrica (usando vetores normal/diretor).</li>
-                  <li>Paramétrica ⇒ Geral (eliminando o parâmetro \(t\)).</li>
-                </ul>
-                <p>
-                  A capacidade de converter entre formas é essencial para
-                  escolher a ferramenta certa para cada problema de navegação ou
-                  análise.
-                </p>
-              </div>
-            </div>
-          </section>
+    <h2>Equação Segmentária da Reta</h2>
+    <h3 class="mission-subtitle">Quando a reta corta ambos os eixos</h3>
+    <p>Quando a reta intercepta o eixo \(x\) em \(x = p\) e o eixo \(y\) em \(y = q\), podemos escrever:</p>
+    <div class="concept-definition">
+      <p class="formula">\[ \frac{x}{p} + \frac{y}{q} = 1 \]</p>
+      <p>Onde \(p\) é a interseção com o eixo \(x\) e \(q\) é a interseção com o eixo \(y\).</p>
+    </div>
+    <div class="survival-tip">
+      <p>Esta forma é particularmente útil para traçar rapidamente a reta no mapa: basta marcar os dois interceptos e ligá-los.</p>
+    </div>
+  </section>
+
   <section class="field-report level-basic">
-            <h3>Exemplo de Conversão: Geral para Reduzida</h3>
-            <div class="conversion-panel">
-              <div class="conversion-step">
-                <p>Reta (Geral): \( 2x + 4y - 8 = 0 \)</p>
-              </div>
-              <div class="conversion-step">
-                <p>Passo 1: Isolar \(y\): \( 4y = -2x + 8 \)</p>
-              </div>
-              <div class="conversion-step">
-                <p>
-                  Passo 2: Dividir por 4: \( y = -\frac{2}{4}x + \frac{8}{4} \)
-                </p>
-                <p class="formula">\( y = -0{,}5x + 2 \)</p>
-                <p>(\(m = -0{,}5\), \(b = 2\))</p>
-              </div>
-            </div>
-            <div class="survival-tip">
-              <p>
-                DICA: Pratique as conversões! Ser ágil na mudança de forma é
-                útil sob pressão.
-              </p>
-            </div>
-          </section>
+    <h2>Exemplo: Convertendo entre Formas</h2>
+    <div class="conversion-panel">
+      <div class="conversion-step">
+        <p>Reta dada (forma geral): \(2x + 4y - 8 = 0\)</p>
+      </div>
+      <div class="conversion-step">
+        <p><strong>Passo 1 — Vetor normal:</strong> \(\vec{n} = (2, 4)\). Logo o vetor diretor é \(\vec{d} = (-4, 2)\) (ou simplificado: \(\vec{d} = (-2, 1)\)).</p>
+      </div>
+      <div class="conversion-step">
+        <p><strong>Passo 2 — Ponto da reta:</strong> Fazendo \(x = 0\): \(4y = 8 \Rightarrow y = 2\). Ponto \(P_0(0, 2)\).</p>
+      </div>
+      <div class="conversion-step">
+        <p><strong>Passo 3 — Forma paramétrica:</strong></p>
+        <p class="formula">\[ \begin{cases} x = 0 + t(-2) = -2t \\ y = 2 + t(1) = 2 + t \end{cases} \]</p>
+      </div>
+      <div class="conversion-step">
+        <p><strong>Passo 4 — Forma segmentária:</strong> Interseções: \(x = 4\) (fazendo \(y = 0\)) e \(y = 2\). Logo:</p>
+        <p class="formula">\[ \frac{x}{4} + \frac{y}{2} = 1 \]</p>
+      </div>
+    </div>
+    <div class="survival-tip">
+      <p>DICA: Verifique que \(m = -\frac{A}{B} = -\frac{2}{4} = -0{,}5\). A inclinação é \(-0{,}5\) — para cada 2 unidades em \(x\), a reta desce 1 em \(y\).</p>
+    </div>
+  </section>
+
   <section class="simulator">
-            <h3>Visualização Interativa: As Três Formas</h3>
-            
-            <div class="canvas-container">
-              <canvas
-                id="tres-formas-canvas"
-                width="800"
-                height="400"
-                aria-label="Simulador interativo das três formas da reta"
-                role="img"
-              ></canvas>
-              <div class="simulator-controls">
-                <div class="control-panel">
-                  <label
-                    for="tres-formas-a-x"
-                    aria-label="Coordenada x do ponto A"
-                    >A (x):</label
-                  ><input
-                    type="range"
-                    id="tres-formas-a-x"
-                    min="-10"
-                    max="10"
-                    value="-5"
-                    step="0{,}5"
-                  /><span id="tres-formas-a-x-value">-5{,}0</span
-                  ><label
-                    for="tres-formas-a-y"
-                    aria-label="Coordenada y do ponto A"
-                    >A (y):</label
-                  ><input
-                    type="range"
-                    id="tres-formas-a-y"
-                    min="-10"
-                    max="10"
-                    value="2"
-                    step="0{,}5"
-                  /><span id="tres-formas-a-y-value">2{,}0</span>
-                </div>
-                <div class="control-panel">
-                  <label
-                    for="tres-formas-b-x"
-                    aria-label="Coordenada x do ponto B"
-                    >B (x):</label
-                  ><input
-                    type="range"
-                    id="tres-formas-b-x"
-                    min="-10"
-                    max="10"
-                    value="5"
-                    step="0{,}5"
-                  /><span id="tres-formas-b-x-value">5{,}0</span
-                  ><label
-                    for="tres-formas-b-y"
-                    aria-label="Coordenada y do ponto B"
-                    >B (y):</label
-                  ><input
-                    type="range"
-                    id="tres-formas-b-y"
-                    min="-10"
-                    max="10"
-                    value="-3"
-                    step="0{,}5"
-                  /><span id="tres-formas-b-y-value">-3{,}0</span>
-                </div>
-              </div>
-              <div class="hint-message">
-                <p>
-                  Arraste A e B. Observe como as três equações se atualizam
-                  simultaneamente.
-                </p>
-              </div>
-            </div>
-          </section>
+    <h3>Simulador: As Três Formas da Reta</h3>
+    <div class="canvas-container">
+      <canvas
+        id="tres-formas-canvas"
+        width="800"
+        height="400"
+        aria-label="Simulador interativo das três formas da equação da reta"
+        role="img"
+      ></canvas>
+      <div class="simulator-controls">
+        <div class="control-panel">
+          <label for="tres-formas-a-x">A(x):</label>
+          <input type="range" id="tres-formas-a-x" min="-10" max="10" value="-5.0" step="0.5" />
+          <span id="tres-formas-a-x-value">-5.0</span>
+          <label for="tres-formas-a-y">A(y):</label>
+          <input type="range" id="tres-formas-a-y" min="-10" max="10" value="2.0" step="0.5" />
+          <span id="tres-formas-a-y-value">2.0</span>
+        </div>
+        <div class="control-panel">
+          <label for="tres-formas-b-x">B(x):</label>
+          <input type="range" id="tres-formas-b-x" min="-10" max="10" value="5.0" step="0.5" />
+          <span id="tres-formas-b-x-value">5.0</span>
+          <label for="tres-formas-b-y">B(y):</label>
+          <input type="range" id="tres-formas-b-y" min="-10" max="10" value="-3.0" step="0.5" />
+          <span id="tres-formas-b-y-value">-3.0</span>
+        </div>
+        <div class="control-panel">
+          <label>Geral:</label>
+          <span id="eq-geral">...</span>
+        </div>
+        <div class="control-panel">
+          <label>Param.:</label>
+          <span id="eq-param">...</span>
+        </div>
+        <div class="control-panel">
+          <label>Segm.:</label>
+          <span id="eq-segm">...</span>
+        </div>
+      </div>
+      <div class="hint-message">
+        <p>Arraste os pontos A e B. Observe como as três equações se atualizam em tempo real.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="survival-training level-basic">
+    <h3>Treinamento: Equações da Reta</h3>
+    <span class="level-indicator">NÍVEL BÁSICO</span>
+    <div class="training-problem">
+      <h4>Missão 1: Equação Geral</h4>
+      <p>Dados \(A(1, 2)\) e \(B(4, 5)\), encontre a equação geral da reta que passa por esses pontos.</p>
+    </div>
+    <div class="training-problem">
+      <h4>Missão 2: Vetores Diretor e Normal</h4>
+      <p>Dada a reta \(3x - 2y + 6 = 0\), determine o vetor diretor \(\vec{d}\) e o vetor normal \(\vec{n}\).</p>
+    </div>
+    <div class="training-problem">
+      <h4>Missão 3: Equação Segmentária</h4>
+      <p>Escreva a equação segmentária da reta que passa por \((4, 0)\) e \((0, -3)\).</p>
+    </div>
+    <div class="problem-context">
+      <p>Estas conversões são essenciais para mapear rotas de suprimento no deserto. Domine as três formas antes de avançar.</p>
+    </div>
+  </section>
+
   <section class="debriefing">
-            <h3>Conclusão: Equações da Reta</h3>
-            <div class="summary-box">
-              <p>
-                Dominar as diferentes formas da equação da reta permite escolher
-                a representação mais eficiente para cada tarefa:
-              </p>
-              <ul>
-                <li>
-                  <strong>Reduzida:</strong> Para entendimento visual rápido de
-                  inclinação e intercepto.
-                </li>
-                <li>
-                  <strong>Geral:</strong> Para cálculos robustos, distâncias e
-                  compatibilidade universal (incluindo retas verticais).
-                </li>
-                <li>
-                  <strong>Paramétrica:</strong> Para descrever movimento,
-                  trajetórias e usar o poder dos vetores.
-                </li>
-              </ul>
-            </div>
-            <div class="instructor-note">
-              <p>
-                A flexibilidade de converter entre essas formas é uma habilidade
-                tática crucial no mapeamento e navegação.
-              </p>
-            </div>
-          </section>
+    <h3>Debriefing: Equação da Reta</h3>
+    <div class="summary-box">
+      <ul>
+        <li><strong>Paramétrica:</strong> \(x = x_0 + td_1\), \(y = y_0 + td_2\) — descreve movimento ao longo da reta.</li>
+        <li><strong>Geral:</strong> \(Ax + By + C = 0\) — forma universal, vetor normal \(\vec{n} = (A, B)\).</li>
+        <li><strong>Segmentária:</strong> \(\frac{x}{p} + \frac{y}{q} = 1\) — rápida visualização pelos interceptos.</li>
+      </ul>
+    </div>
+    <div class="next-mission">
+      <p>Próxima Missão: Agora que sabemos descrever uma reta, o que acontece quando temos DUAS retas? Posições relativas e interseções nos esperam.</p>
+    </div>
+    <div class="instructor-note">
+      <p>A capacidade de converter entre as três formas é a base para todo o restante do capítulo. Pratique até ser natural.</p>
+    </div>
+  </section>
+
 </section>
+<script>
+(function() {
+  function init() {
+    var canvas = document.getElementById('tres-formas-canvas');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var W = canvas.width;
+    var H = canvas.height;
+    var scale = Math.min(W, H) / 22;
+    var cx = W / 2;
+    var cy = H / 2;
+
+    function toCanvas(x, y) {
+      return [cx + x * scale, cy - y * scale];
+    }
+
+    function draw() {
+      var ax = parseFloat(document.getElementById('tres-formas-a-x').value);
+      var ay = parseFloat(document.getElementById('tres-formas-a-y').value);
+      var bx = parseFloat(document.getElementById('tres-formas-b-x').value);
+      var by = parseFloat(document.getElementById('tres-formas-b-y').value);
+
+      ctx.clearRect(0, 0, W, H);
+
+      ctx.strokeStyle = '#444';
+      ctx.lineWidth = 0.5;
+      for (var i = -10; i <= 10; i++) {
+        var px = toCanvas(i, 0);
+        var py = toCanvas(0, i);
+        ctx.beginPath();
+        ctx.moveTo(px[0], 0);
+        ctx.lineTo(px[0], H);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(0, py[1]);
+        ctx.lineTo(W, py[1]);
+        ctx.stroke();
+      }
+
+      ctx.strokeStyle = '#888';
+      ctx.lineWidth = 1.5;
+      var ox = toCanvas(0, 0);
+      var ex = toCanvas(10, 0);
+      ctx.beginPath();
+      ctx.moveTo(toCanvas(-10, 0)[0], ox[1]);
+      ctx.lineTo(ex[0], ox[1]);
+      ctx.stroke();
+      var ey = toCanvas(0, 10);
+      ctx.beginPath();
+      ctx.moveTo(ox[0], toCanvas(0, -10)[1]);
+      ctx.lineTo(ox[0], ey[1]);
+      ctx.stroke();
+
+      var dx = bx - ax;
+      var dy = by - ay;
+
+      if (Math.abs(dx) < 0.001 && Math.abs(dy) < 0.001) {
+        document.getElementById('eq-geral').textContent = 'Pontos coincidentes';
+        document.getElementById('eq-param').textContent = 'Pontos coincidentes';
+        document.getElementById('eq-segm').textContent = 'Pontos coincidentes';
+        return;
+      }
+
+      var Acoeff = dy;
+      var Bcoeff = -dx;
+      var Ccoeff = dx * ay - dy * ax;
+
+      ctx.strokeStyle = '#ADFF2F';
+      ctx.lineWidth = 2.5;
+      var tMin = -20;
+      var tMax = 20;
+      var p1 = toCanvas(ax + tMin * dx, ay + tMin * dy);
+      var p2 = toCanvas(ax + tMax * dx, ay + tMax * dy);
+      ctx.beginPath();
+      ctx.moveTo(p1[0], p1[1]);
+      ctx.lineTo(p2[0], p2[1]);
+      ctx.stroke();
+
+      function drawPoint(x, y, color, label) {
+        var cp = toCanvas(x, y);
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        ctx.arc(cp[0], cp[1], 6, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.fillStyle = color;
+        ctx.font = 'bold 14px Courier New';
+        ctx.fillText(label + '(' + x.toFixed(1) + ', ' + y.toFixed(1) + ')', cp[0] + 10, cp[1] - 10);
+      }
+
+      drawPoint(ax, ay, '#FFD700', 'A');
+      drawPoint(bx, by, '#FF6347', 'B');
+
+      var gA = Acoeff.toFixed(1);
+      var gB = Bcoeff.toFixed(1);
+      var gC = Ccoeff.toFixed(1);
+      var gSign = Ccoeff >= 0 ? '+ ' : '- ';
+      var gCstr = Math.abs(Ccoeff).toFixed(1);
+      document.getElementById('eq-geral').textContent = gA + 'x + (' + gB + ')y ' + gSign + gCstr + ' = 0';
+
+      document.getElementById('eq-param').textContent =
+        'x = ' + ax.toFixed(1) + ' + t(' + dx.toFixed(1) + '),  y = ' + ay.toFixed(1) + ' + t(' + dy.toFixed(1) + ')';
+
+      var interceptX = null;
+      var interceptY = null;
+      if (Math.abs(Acoeff) > 0.001) {
+        interceptX = -Ccoeff / Acoeff;
+      }
+      if (Math.abs(Bcoeff) > 0.001) {
+        interceptY = -Ccoeff / Bcoeff;
+      }
+
+      if (interceptX !== null && interceptY !== null &&
+          Math.abs(interceptX) < 100 && Math.abs(interceptY) < 100) {
+        var ix = interceptX.toFixed(1);
+        var iy = interceptY.toFixed(1);
+        document.getElementById('eq-segm').textContent = 'x/' + ix + ' + y/' + iy + ' = 1';
+
+        var piX = toCanvas(interceptX, 0);
+        var piY = toCanvas(0, interceptY);
+        ctx.fillStyle = '#00CED1';
+        ctx.beginPath();
+        ctx.arc(piX[0], piX[1], 4, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(piY[0], piY[1], 4, 0, 2 * Math.PI);
+        ctx.fill();
+      } else {
+        document.getElementById('eq-segm').textContent = 'Nao definida (reta nao intercepta ambos os eixos)';
+      }
+    }
+
+    var sliders = [
+      'tres-formas-a-x', 'tres-formas-a-y',
+      'tres-formas-b-x', 'tres-formas-b-y'
+    ];
+    sliders.forEach(function(id) {
+      var el = document.getElementById(id);
+      var valEl = document.getElementById(id + '-value');
+      if (el && valEl) {
+        el.addEventListener('input', function() {
+          valEl.textContent = parseFloat(el.value).toFixed(1);
+          draw();
+        });
+      }
+    });
+
+    draw();
+  }
+
+  window.tresFormasVisualization = { init: init };
+  document.addEventListener('DOMContentLoaded', init);
+  if (window.Reveal) {
+    Reveal.on('slidechanged', function() {
+      if (document.getElementById('tres-formas-canvas')) init();
+    });
+  }
+})();
+</script>

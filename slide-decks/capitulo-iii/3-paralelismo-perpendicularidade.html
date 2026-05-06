@@ -1,178 +1,188 @@
 <section>
-  <section>
-            <h3>Visualizando as Condições</h3>
-            <div class="positions-panel">
-              <div class="position-card parallel">
-                <div class="position-title">Paralelas</div>
-                <svg viewBox="0 0 200 100">
-                  <line
-                    x1="20"
-                    y1="30"
-                    x2="180"
-                    y2="30"
-                    stroke="#FFD700"
-                    stroke-width="2"
-                  />
-                  <line
-                    x1="20"
-                    y1="70"
-                    x2="180"
-                    y2="70"
-                    stroke="#FF6347"
-                    stroke-width="2"
-                  />
-                </svg>
-                <div class="position-desc">
-                  Mesma inclinação. Condição:
-                  <span class="formula">\(m_1 = m_2\)</span>
-                </div>
-              </div>
-              <div class="position-card perpendicular">
-                <div class="position-title">Perpendiculares</div>
-                <svg viewBox="0 0 200 100">
-                  <line
-                    x1="20"
-                    y1="50"
-                    x2="180"
-                    y2="50"
-                    stroke="#FFD700"
-                    stroke-width="2"
-                  />
-                  <line
-                    x1="100"
-                    y1="10"
-                    x2="100"
-                    y2="90"
-                    stroke="#FF6347"
-                    stroke-width="2"
-                  />
-                  <path
-                    d="M100 60 L 110 60 L 110 50"
-                    stroke="#00FFFF"
-                    stroke-width="1"
-                    fill="none"
-                  />
-                </svg>
-                <div class="position-desc">
-                  Inclinações opostas e inversas. Condição:
-                  <span class="formula">\(m_1 \cdot m_2 = -1\)</span>
-                </div>
-              </div>
-            </div>
-          </section>
-  <section class="field-report level-intermediate">
-            <h3>Teoria: Condições Algébricas</h3>
-            <div class="info-panel">
-              <div class="info-screen crt-effect">
-                <h4>
-                  Condições para \(L_1: A_1x+B_1y+C_1=0\) e \(L_2:
-                  A_2x+B_2y+C_2=0\):
-                </h4>
-                <p><strong>Paralelismo ( \(L_1 // L_2\) ):</strong></p>
-                <p class="formula">
-                  \( \frac{A_1}{A_2} = \frac{B_1}{B_2} \) (se \(A_2, B_2 \neq
-                  0\))
-                </p>
-                <p>
-                  Vetorialmente: \( \vec{n}_1 = k \vec{n}_2 \) ou \( \vec{v}_1 =
-                  k \vec{v}_2 \).
-                </p>
+  <section class="field-report">
+    <h3>Da Detecção à Construção</h3>
+    <div class="narrative-text">
+      <p>Na Seção 2 aprendemos a <strong>IDENTIFICAR</strong> se duas retas são paralelas, concorrentes ou coincidentes. Mas no campo, não basta detectar — é preciso <strong>CONSTRUIR</strong> rotas paralelas para evitar colisões e muralhas perpendiculares para ângulos ótimos de defesa.</p>
+    </div>
+    <p>"Saber reconhecer é sobrevivência. Saber construir é domínio."</p>
+    <div class="survival-tip">
+      <p><strong>Progressão:</strong> Passamos de <em>"as retas são paralelas?"</em> para <em>"construa uma reta paralela (ou perpendicular) a esta, passando por aquele ponto"</em>.</p>
+    </div>
+  </section>
 
-                <p>
-                  <strong>Perpendicularidade ( \(L_1 \perp L_2\) ):</strong>
-                </p>
-                <p class="formula">\( A_1A_2 + B_1B_2 = 0 \)</p>
-                <p>
-                  Vetorialmente: \( \vec{n}_1 \cdot \vec{n}_2 = 0 \) ou \(
-                  \vec{v}_1 \cdot \vec{v}_2 = 0 \).
-                </p>
-              </div>
-            </div>
-          </section>
+  <section class="field-report level-basic">
+    <h3>Visualizando as Condições</h3>
+    <div class="positions-panel">
+      <div class="position-card parallel">
+        <div class="position-title">Paralelas</div>
+        <svg viewBox="0 0 200 100">
+          <line
+            x1="20"
+            y1="30"
+            x2="180"
+            y2="30"
+            stroke="#FFD700"
+            stroke-width="2"
+          />
+          <line
+            x1="20"
+            y1="70"
+            x2="180"
+            y2="70"
+            stroke="#FF6347"
+            stroke-width="2"
+          />
+        </svg>
+        <div class="position-desc">
+          Mesma inclinação. Condição:
+          <span class="formula">\(m_1 = m_2\)</span>
+        </div>
+      </div>
+      <div class="position-card perpendicular">
+        <div class="position-title">Perpendiculares</div>
+        <svg viewBox="0 0 200 100">
+          <line
+            x1="20"
+            y1="50"
+            x2="180"
+            y2="50"
+            stroke="#FFD700"
+            stroke-width="2"
+          />
+          <line
+            x1="100"
+            y1="10"
+            x2="100"
+            y2="90"
+            stroke="#FF6347"
+            stroke-width="2"
+          />
+          <path
+            d="M100 60 L 110 60 L 110 50"
+            stroke="#00FFFF"
+            stroke-width="1"
+            fill="none"
+          />
+        </svg>
+        <div class="position-desc">
+          Inclinações opostas e inversas. Condição:
+          <span class="formula">\(m_1 \cdot m_2 = -1\)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="field-report level-intermediate">
+    <h3>Condições Algébricas e Vetoriais</h3>
+    <div class="info-panel">
+      <div class="info-screen crt-effect">
+        <h4>
+          Para \(r_1: A_1x+B_1y+C_1=0\) e \(r_2: A_2x+B_2y+C_2=0\):
+        </h4>
+        <p><strong>Paralelismo (\(r_1 \parallel r_2\)):</strong></p>
+        <p class="formula">
+          \(\frac{A_1}{A_2} = \frac{B_1}{B_2}\) (se \(A_2, B_2 \neq 0\))
+        </p>
+        <p>
+          Vetorialmente: \(\vec{n}_1 = k\vec{n}_2\) ou \(\vec{v}_1 = k\vec{v}_2\).
+        </p>
+
+        <p>
+          <strong>Perpendicularidade (\(r_1 \perp r_2\)):</strong>
+        </p>
+        <p class="formula">\(A_1A_2 + B_1B_2 = 0\)</p>
+        <p>
+          Vetorialmente: \(\vec{n}_1 \cdot \vec{n}_2 = 0\) ou \(\vec{v}_1 \cdot \vec{v}_2 = 0\).
+        </p>
+      </div>
+    </div>
+  </section>
+
   <section class="survival-training">
-            <h3>Problema: Construção de Perímetro</h3>
-            <div class="training-problem">
-              <h4>Tarefa:</h4>
-              <p>
-                Um muro de defesa segue a rota \( r: 2x - y - 5 = 0 \). Construa
-                um portão perpendicular a este muro, passando por \( P(1, 1) \).
-              </p>
-              <p>Qual a equação da reta \( s \) do portão?</p>
-            </div>
-            <div class="problem-context">
-              <p>Alinhamento preciso é crucial.</p>
-            </div>
-          </section>
-  <section>
-            <h3>Solução: Passo 1 - Direção Perpendicular</h3>
-            <div class="case-solution">
-              <div class="case-solution-title">
-                Determinando a Direção de \(s\)
-              </div>
-              <div class="case-step">
-                <p><strong>Método 1: Coeficientes Angulares</strong></p>
-                <p>Reta \(r: y = 2x - 5 \implies m_r = 2 \).</p>
-                <p>Reta \(s \perp r \implies m_s \cdot m_r = -1\).</p>
-                <p class="formula">
-                  \( m_s \cdot 2 = -1 \implies m_s = -\frac{1}{2} \)
-                </p>
-              </div>
-              <div class="case-step">
-                <p><strong>Método 2: Vetores</strong></p>
-                <p>Vetor normal de \(r\): \( \vec{n}_r = (2, -1) \).</p>
-                <p>
-                  \(s \perp r \implies \vec{n}_r\) é
-                  <strong>vetor diretor</strong> de \(s\).
-                </p>
-                <p class="formula">\( \vec{v}_s = (2, -1) \)</p>
-              </div>
-            </div>
-          </section>
-  <section>
-            <h3>Solução: Passo 2 - Equação da Reta \(s\)</h3>
-            <div class="case-solution">
-              <div class="case-solution-title">
-                Encontrando a Equação de \(s\) passando por \(P(1,1)\)
-              </div>
-              <div class="case-step">
-                <p>
-                  <strong
-                    >Usando \(m_s = -1/2\) (Eq. Reduzida \(y - y_0 = m(x -
-                    x_0)\))</strong
-                  >
-                </p>
-                <p class="formula">\( y - 1 = -\frac{1}{2}(x - 1) \)</p>
-                <p>\( 2(y - 1) = -1(x - 1) \implies 2y - 2 = -x + 1 \)</p>
-                <p>Forma Geral: \( \boxed{x + 2y - 3 = 0} \)</p>
-              </div>
-            </div>
-          </section>
+    <h3>Problema: Construção de Perímetro</h3>
+    <div class="training-problem">
+      <h4>Tarefa:</h4>
+      <p>
+        Um muro de defesa segue a rota \(r: 2x - y - 5 = 0\). Construa
+        um portão perpendicular a este muro, passando por \(P(1, 1)\).
+      </p>
+      <p>Qual a equação da reta \(s\) do portão?</p>
+    </div>
+    <div class="problem-context">
+      <p>Alinhamento preciso é crucial para maximizar a cobertura defensiva.</p>
+    </div>
+  </section>
+
+  <section class="survival-training">
+    <h3>Solução: Passo 1 — Direção Perpendicular</h3>
+    <div class="case-solution">
+      <div class="case-solution-title">
+        Determinando a Direção de \(s\)
+      </div>
+      <div class="case-step">
+        <p><strong>Método 1: Coeficientes Angulares</strong></p>
+        <p>Reta \(r: y = 2x - 5 \implies m_r = 2\).</p>
+        <p>\(s \perp r \implies m_s \cdot m_r = -1\).</p>
+        <p class="formula">
+          \(m_s \cdot 2 = -1 \implies m_s = -\frac{1}{2}\)
+        </p>
+      </div>
+      <div class="case-step">
+        <p><strong>Método 2: Vetores</strong></p>
+        <p>Vetor normal de \(r\): \(\vec{n}_r = (2, -1)\).</p>
+        <p>
+          \(s \perp r \implies \vec{n}_r\) é
+          <strong>vetor diretor</strong> de \(s\).
+        </p>
+        <p class="formula">\(\vec{v}_s = (2, -1)\)</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="survival-training">
+    <h3>Solução: Passo 2 — Equação da Reta \(s\)</h3>
+    <div class="case-solution">
+      <div class="case-solution-title">
+        Encontrando a Equação de \(s\) passando por \(P(1,1)\)
+      </div>
+      <div class="case-step">
+        <p>
+          <strong>Usando \(m_s = -\frac{1}{2}\) e a equação reduzida \(y - y_0 = m(x - x_0)\):</strong>
+        </p>
+        <p class="formula">\(y - 1 = -\frac{1}{2}(x - 1)\)</p>
+        <p>\(2(y - 1) = -1(x - 1) \implies 2y - 2 = -x + 1\)</p>
+        <p>Forma Geral: \(\boxed{x + 2y - 3 = 0}\)</p>
+      </div>
+    </div>
+  </section>
+
   <section class="debriefing">
-            <h3>Conclusão: Paralelismo e Perpendicularidade</h3>
-            <div class="summary-box">
-              <p>
-                As condições de paralelismo e perpendicularidade são ferramentas
-                geométricas e algébricas poderosas:
-              </p>
-              <ul>
-                <li>
-                  Permitem verificar alinhamentos e ângulos retos rapidamente.
-                </li>
-                <li>
-                  São essenciais para construir retas com relações específicas a
-                  outras.
-                </li>
-                <li>
-                  Baseiam-se nos coeficientes angulares ou no produto escalar de
-                  vetores.
-                </li>
-              </ul>
-            </div>
-            <div class="instructor-note">
-              <p>
-                Alinhar estruturas corretamente economiza recursos e aumenta a
-                segurança.
-              </p>
-            </div>
-          </section>
+    <h3>Conclusão: Paralelismo e Perpendicularidade</h3>
+    <div class="summary-box">
+      <p>
+        As condições de paralelismo e perpendicularidade são ferramentas
+        geométricas e algébricas poderosas:
+      </p>
+      <ul>
+        <li>
+          <strong>Paralelismo:</strong> \(\frac{A_1}{A_2} = \frac{B_1}{B_2}\) ou \(\vec{n}_1 = k\vec{n}_2\).
+        </li>
+        <li>
+          <strong>Perpendicularidade:</strong> \(A_1A_2 + B_1B_2 = 0\) ou \(\vec{n}_1 \cdot \vec{n}_2 = 0\).
+        </li>
+        <li>
+          Para <strong>construir</strong>, invertemos: impomos a condição e resolvemos para os coeficientes da nova reta.
+        </li>
+      </ul>
+    </div>
+    <div class="next-mission">
+      <p>Sabemos construir retas com relações específicas. Mas quão <strong>DISTANTE</strong> um ponto está de uma reta? E de que <strong>LADO</strong>?</p>
+    </div>
+    <div class="instructor-note">
+      <p>
+        Alinhar estruturas corretamente economiza recursos e aumenta a
+        segurança do perímetro.
+      </p>
+    </div>
+  </section>
 </section>

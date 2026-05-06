@@ -1,240 +1,420 @@
 <section>
-  <section>
-            <h3>Visualização: Tipos de Relação</h3>
-            <div class="positions-panel">
-              <div class="position-card concurrent">
-                <div class="position-title">Concorrentes</div>
-                <svg viewBox="0 0 200 100">
-                  <line
-                    x1="20"
-                    y1="80"
-                    x2="180"
-                    y2="20"
-                    stroke="#FFD700"
-                    stroke-width="2"
-                  />
-                  <line
-                    x1="20"
-                    y1="20"
-                    x2="180"
-                    y2="80"
-                    stroke="#FF6347"
-                    stroke-width="2"
-                  />
-                  <circle cx="100" cy="50" r="4" fill="#FF6347" />
-                </svg>
-              </div>
-              <div class="position-card parallel">
-                <div class="position-title">Paralelas</div>
-                <svg viewBox="0 0 200 100">
-                  <line
-                    x1="20"
-                    y1="30"
-                    x2="180"
-                    y2="30"
-                    stroke="#FFD700"
-                    stroke-width="2"
-                  />
-                  <line
-                    x1="20"
-                    y1="70"
-                    x2="180"
-                    y2="70"
-                    stroke="#FF6347"
-                    stroke-width="2"
-                  />
-                </svg>
-              </div>
-              <div class="position-card coincident">
-                <div class="position-title">Coincidentes</div>
-                <svg viewBox="0 0 200 100">
-                  <line
-                    x1="20"
-                    y1="50"
-                    x2="180"
-                    y2="50"
-                    stroke="#FFD700"
-                    stroke-width="4"
-                  />
-                  <line
-                    x1="20"
-                    y1="50"
-                    x2="180"
-                    y2="50"
-                    stroke="#FF6347"
-                    stroke-width="2"
-                    stroke-dasharray="5, 5"
-                  />
-                </svg>
-              </div>
-              <div class="position-card perpendicular">
-                <div class="position-title">Perpendiculares</div>
-                <svg viewBox="0 0 200 100">
-                  <line
-                    x1="20"
-                    y1="50"
-                    x2="180"
-                    y2="50"
-                    stroke="#FFD700"
-                    stroke-width="2"
-                  />
-                  <line
-                    x1="100"
-                    y1="10"
-                    x2="100"
-                    y2="90"
-                    stroke="#FF6347"
-                    stroke-width="2"
-                  />
-                  <circle cx="100" cy="50" r="4" fill="#00FFFF" />
-                  <path
-                    d="M100 60 L 110 60 L 110 50"
-                    stroke="#00FFFF"
-                    stroke-width="1"
-                    fill="none"
-                  />
-                </svg>
-              </div>
-            </div>
-          </section>
-  <section class="simulator">
-            <h3>Simulador: Interseção de Retas</h3>
-            <div class="canvas-container">
-              <canvas
-                id="intersecao-retas-canvas"
-                width="800"
-                height="400"
-                aria-label="Simulador interativo de interseção de retas"
-                role="img"
-              ></canvas>
-              <div class="simulator-controls">
-                <div class="preset-buttons">
-                  <button
-                    id="intersecao-preset-perpendicular"
-                    class="preset-button perpendicular"
-                  >
-                    Perp.</button
-                  ><button
-                    id="intersecao-preset-concorrente"
-                    class="preset-button concurrent"
-                  >
-                    Conc.</button
-                  ><button
-                    id="intersecao-preset-paralela"
-                    class="preset-button parallel"
-                  >
-                    Paral.</button
-                  ><button
-                    id="intersecao-preset-coincidente"
-                    class="preset-button coincident"
-                  >
-                    Coin.
-                  </button>
-                </div>
-                <div class="intersecao-info" id="intersecao-info">
-                  Status: CONCORRENTES(67{,}4°) em (0{,}0,0{,}0)
-                </div>
-                
-                <div class="control-panel">
-                  
-                  <label>R1 A:</label
-                  ><input
-                    type="range"
-                    id="intersecao-r1a-x"
-                    min="-10"
-                    max="10"
-                    value="-5"
-                    step="0{,}5"
-                  /><span id="intersecao-r1a-x-value">-5{,}0</span
-                  ><input
-                    type="range"
-                    id="intersecao-r1a-y"
-                    min="-10"
-                    max="10"
-                    value="2"
-                    step="0{,}5"
-                  /><span id="intersecao-r1a-y-value">2{,}0</span>
-                  <label>R1 B:</label
-                  ><input
-                    type="range"
-                    id="intersecao-r1b-x"
-                    min="-10"
-                    max="10"
-                    value="5"
-                    step="0{,}5"
-                  /><span id="intersecao-r1b-x-value">5{,}0</span
-                  ><input
-                    type="range"
-                    id="intersecao-r1b-y"
-                    min="-10"
-                    max="10"
-                    value="-2"
-                    step="0{,}5"
-                  /><span id="intersecao-r1b-y-value">-2{,}0</span>
-                </div>
-              </div>
-              <div class="hint-message">
-                <p>
-                  Clique nos presets para ver as posições. Arraste os pontos (se
-                  visíveis) para explorar.
-                </p>
-              </div>
-            </div>
-          </section>
+  <section class="field-report">
+    <h3>Posições Relativas: Por Que Importa?</h3>
+    <div class="narrative-text">
+      <p>No planejamento tático, saber se duas rotas se cruzam é questão de segurança. A rota da patrulha atravessa a zona contaminada? Duas expedições vão se encontrar em campo aberto? Conhecer a <strong>posição relativa</strong> entre duas retas pode evitar emboscadas — ou planejar encontros estratégicos.</p>
+    </div>
+    <p>Já sabemos criar equações de retas (Seção 1). Agora, com duas retas no plano, surge a pergunta fundamental: <strong>como elas se relacionam geometricamente?</strong></p>
+    <div class="survival-tip">
+      <p>DICA: Identificar a posição relativa de duas retas é o primeiro passo para prever interseções, calcular ângulos e garantir alinhamentos seguros no terreno.</p>
+    </div>
+  </section>
+
+  <section class="field-report level-basic">
+    <h3>Os Três Casos Possíveis</h3>
+    <p>Dadas duas retas \(r_1\) e \(r_2\) no plano, existem exatamente três possibilidades:</p>
+    <div class="positions-panel">
+      <div class="position-card concurrent">
+        <div class="position-title">Concorrentes</div>
+        <svg viewBox="0 0 200 100">
+          <line x1="20" y1="80" x2="180" y2="20" stroke="#FFD700" stroke-width="2"/>
+          <line x1="20" y1="20" x2="180" y2="80" stroke="#FF6347" stroke-width="2"/>
+          <circle cx="100" cy="50" r="4" fill="#FF6347"/>
+        </svg>
+        <div class="position-desc">Exatamente <strong>um ponto</strong> em comum.</div>
+      </div>
+      <div class="position-card parallel">
+        <div class="position-title">Paralelas</div>
+        <svg viewBox="0 0 200 100">
+          <line x1="20" y1="30" x2="180" y2="30" stroke="#FFD700" stroke-width="2"/>
+          <line x1="20" y1="70" x2="180" y2="70" stroke="#FF6347" stroke-width="2"/>
+        </svg>
+        <div class="position-desc"><strong>Nenhum</strong> ponto em comum.</div>
+      </div>
+      <div class="position-card coincident">
+        <div class="position-title">Coincidentes</div>
+        <svg viewBox="0 0 200 100">
+          <line x1="20" y1="50" x2="180" y2="50" stroke="#FFD700" stroke-width="4"/>
+          <line x1="20" y1="50" x2="180" y2="50" stroke="#FF6347" stroke-width="2" stroke-dasharray="5,5"/>
+        </svg>
+        <div class="position-desc"><strong>Todos</strong> os pontos em comum.</div>
+      </div>
+    </div>
+  </section>
+
   <section class="field-report level-intermediate">
-            <h3>Teoria: Sistemas Lineares e Geometria</h3>
-            <p>
-              A relação entre duas retas \(L_1\) e \(L_2\) é diretamente
-              determinada pela solução do sistema formado por suas equações.
-            </p>
-            <div class="info-panel">
-              <div class="info-screen crt-effect">
-                <h4>
-                  Sistema 2x2: \( \begin{cases} A_1x + B_1y = -C_1 \\ A_2x +
-                  B_2y = -C_2 \end{cases} \)
-                </h4>
-                <p>Determinante: \( D = A_1B_2 - A_2B_1 \)</p>
-                <ul>
-                  <li>
-                    <span class="highlight-spd">\( D \neq 0 \):</span> SPD ⇔
-                    Retas Concorrentes (Solução única = ponto de interseção).
-                  </li>
-                  <li>
-                    <span class="highlight-si">\( D = 0 \):</span> Se Sistema
-                    Impossível (SI) ⇔ Retas Paralelas Distintas (Sem solução).
-                  </li>
-                  <li>
-                    <span class="highlight-spi">\( D = 0 \):</span> Se Sistema
-                    Possível Indeterminado (SPI) ⇔ Retas Coincidentes (Infinitas
-                    soluções).
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <p>
-              A análise do determinante e da compatibilidade do sistema revela a
-              geometria!
-            </p>
-          </section>
+    <h3>Sistemas Lineares 2×2 e Posições</h3>
+    <p>Dadas duas retas na forma geral \(r_1: A_1x + B_1y + C_1 = 0\) e \(r_2: A_2x + B_2y + C_2 = 0\), a posição relativa é determinada pelo <strong>sistema linear</strong> formado por suas equações — conexão direta com o Capítulo 0.</p>
+    <div class="info-panel">
+      <div class="info-screen crt-effect">
+        <h4>Sistema: \( \begin{cases} A_1x + B_1y = -C_1 \\ A_2x + B_2y = -C_2 \end{cases} \)</h4>
+        <p>Determinante principal: \( D = A_1B_2 - A_2B_1 \)</p>
+        <ul>
+          <li><span class="highlight-spd">\( D \neq 0 \)</span> — SPD (Sistema Possível Determinado) ⇔ Retas <strong>concorrentes</strong>. Solução única = ponto de interseção.</li>
+          <li><span class="highlight-si">\( D = 0 \)</span> — SI (Sistema Impossível) ⇔ Retas <strong>paralelas</strong> distintas. Nenhuma solução.</li>
+          <li><span class="highlight-spi">\( D = 0 \)</span> — SPI (Sistema Possível Indeterminado) ⇔ Retas <strong>coincidentes</strong>. Infinitas soluções.</li>
+        </ul>
+      </div>
+    </div>
+    <p>A natureza do sistema espelha a geometria. Resolver o sistema é encontrar a interseção!</p>
+  </section>
+
+  <section class="simulator">
+    <h3>Simulador: Interseção de Retas</h3>
+    <div class="canvas-container">
+      <canvas id="intersecao-retas-canvas" width="800" height="400" aria-label="Simulador interativo de interseção de retas" role="img"></canvas>
+      <div class="simulator-controls">
+        <div class="preset-buttons">
+          <button id="intersecao-preset-concorrente" class="preset-button concurrent">Concorrentes</button>
+          <button id="intersecao-preset-paralela" class="preset-button parallel">Paralelas</button>
+          <button id="intersecao-preset-coincidente" class="preset-button coincident">Coincidentes</button>
+        </div>
+        <div class="intersecao-info" id="intersecao-info">Status: CONCORRENTES (90.0 graus) em (0.0, 0.0)</div>
+        <div class="control-panel">
+          <label>R1 A(x):</label><input type="range" id="intersecao-r1a-x" min="-10" max="10" value="-5" step="0.5"/><span id="intersecao-r1a-x-value">-5.0</span>
+          <label>A(y):</label><input type="range" id="intersecao-r1a-y" min="-10" max="10" value="2" step="0.5"/><span id="intersecao-r1a-y-value">2.0</span>
+        </div>
+        <div class="control-panel">
+          <label>R1 B(x):</label><input type="range" id="intersecao-r1b-x" min="-10" max="10" value="5" step="0.5"/><span id="intersecao-r1b-x-value">5.0</span>
+          <label>B(y):</label><input type="range" id="intersecao-r1b-y" min="-10" max="10" value="-2" step="0.5"/><span id="intersecao-r1b-y-value">-2.0</span>
+        </div>
+      </div>
+      <div class="hint-message">
+        <p>Clique nos presets para alternar entre os três casos. Arraste os sliders de A e B para modificar a reta R1. A reta R2 se ajusta automaticamente.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="field-report level-intermediate">
+    <h3>Classificação Rápida sem Resolver</h3>
+    <p>Não precisamos resolver o sistema inteiro para classificar a posição relativa. Basta comparar as <strong>razões dos coeficientes</strong>:</p>
+    <div class="info-panel">
+      <div class="info-screen">
+        <h4>Teste das Razões</h4>
+        <p>Se \(\frac{A_1}{A_2} = \frac{B_1}{B_2}\): retas são paralelas ou coincidentes.</p>
+        <p>Nesse caso, verifique \(\frac{C_1}{C_2}\):</p>
+        <ul>
+          <li>Se \(\frac{A_1}{A_2} = \frac{B_1}{B_2} = \frac{C_1}{C_2}\) → <strong>coincidentes</strong>.</li>
+          <li>Se \(\frac{A_1}{A_2} = \frac{B_1}{B_2} \neq \frac{C_1}{C_2}\) → <strong>paralelas</strong>.</li>
+        </ul>
+        <p>Caso contrário (\(\frac{A_1}{A_2} \neq \frac{B_1}{B_2}\)) → <strong>concorrentes</strong>.</p>
+      </div>
+    </div>
+    <div class="survival-tip">
+      <p>DICA: Este teste é equivalente a verificar o determinante \(D = A_1B_2 - A_2B_1\). Se \(D \neq 0\), as retas são concorrentes — não precisa calcular razão nenhuma!</p>
+    </div>
+  </section>
+
+  <section class="field-report level-advanced">
+    <h3>Distância entre Retas Paralelas</h3>
+    <p>Se \(r_1 \parallel r_2\), a distância entre elas é <strong>constante</strong> em qualquer ponto. O método: escolha um ponto \(P\) qualquer sobre \(r_1\) e calcule a distância de \(P\) a \(r_2\).</p>
+    <div class="concept-definition">
+      <h4>Fórmula (coeficientes proporcionais)</h4>
+      <p>Se \(r_1: Ax + By + C_1 = 0\) e \(r_2: Ax + By + C_2 = 0\) (mesmos \(A\) e \(B\)):</p>
+      <p class="formula">\( d = \frac{|C_2 - C_1|}{\sqrt{A^2 + B^2}} \)</p>
+      <p><strong>Exemplo:</strong> \(r_1: 3x + 4y - 12 = 0\) e \(r_2: 3x + 4y + 8 = 0\).</p>
+      <p>\( d = \frac{|8 - (-12)|}{\sqrt{9 + 16}} = \frac{20}{5} = 4 \) unidades.</p>
+    </div>
+    <div class="survival-tip">
+      <p>DICA: Se os coeficientes são apenas proporcionais (não iguais), normalize primeiro. Por exemplo, se \(r_2: 6x + 8y + 16 = 0\), divida por 2 para obter \(3x + 4y + 8 = 0\) antes de aplicar a fórmula.</p>
+    </div>
+  </section>
+
   <section class="debriefing">
-            <h3>Conclusão: Posições e Interseções</h3>
-            <div class="summary-box">
-              <p>Analisar a posição relativa de retas é essencial para:</p>
-              <ul>
-                <li>Prever pontos de encontro ou cruzamentos perigosos.</li>
-                <li>Identificar rotas paralelas para escolta ou evasão.</li>
-                <li>Detectar informações redundantes (retas coincidentes).</li>
-              </ul>
-              <p>
-                A ferramenta fundamental é a resolução de sistemas lineares,
-                cuja natureza (SPD, SI, SPI) espelha a geometria.
-              </p>
-            </div>
-            <div class="instructor-note">
-              <p>
-                Antes de seguir uma rota, sempre verifique como ela se relaciona
-                com outras rotas conhecidas no seu mapa tático.
-              </p>
-            </div>
-          </section>
+    <h3>Síntese: Posições Relativas</h3>
+    <div class="summary-box">
+      <p>Três posições, uma ferramenta central: o <strong>sistema linear 2×2</strong>.</p>
+      <ul>
+        <li><strong>Concorrentes</strong> (\(D \neq 0\)): interseção única — resolvemos o sistema.</li>
+        <li><strong>Paralelas</strong> (\(D = 0\), SI): sem interseção — distância constante.</li>
+        <li><strong>Coincidentes</strong> (\(D = 0\), SPI): mesma reta — infinitos pontos comuns.</li>
+      </ul>
+    </div>
+    <div class="next-mission">
+      <p>Sabemos identificar se retas são paralelas. Mas e se precisarmos <strong>construir</strong> uma reta paralela ou perpendicular a uma reta dada? Essa é a missão da Seção 3.</p>
+    </div>
+    <div class="instructor-note">
+      <p>Antes de seguir, pratique a classificação rápida no simulador. A intuição geométrica é tão importante quanto a técnica algébrica.</p>
+    </div>
+  </section>
 </section>
+<script>
+(function() {
+  var canvas, ctx;
+  var W = 800, H = 400;
+  var xMin = -10, xMax = 10, yMin = -10, yMax = 10;
+  var initialized = false;
+
+  var state = {
+    r1ax: -5, r1ay: 2, r1bx: 5, r1by: -2,
+    r2A: 0, r2B: 0, r2C: 0,
+    preset: 'concurrent'
+  };
+
+  function mapX(x) { return (x - xMin) / (xMax - xMin) * W; }
+  function mapY(y) { return (yMax - y) / (yMax - yMin) * H; }
+
+  function getR1() {
+    var dx = state.r1bx - state.r1ax;
+    var dy = state.r1by - state.r1ay;
+    return { A: dy, B: -dx, C: dx * state.r1ay - dy * state.r1ax };
+  }
+
+  function setPreset(type) {
+    var r1 = getR1();
+    var n = Math.sqrt(r1.A * r1.A + r1.B * r1.B);
+    if (n < 0.0001) n = 0.0001;
+    state.preset = type;
+
+    if (type === 'concurrent') {
+      state.r2A = -r1.B;
+      state.r2B = r1.A;
+      var mx = (state.r1ax + state.r1bx) / 2;
+      var my = (state.r1ay + state.r1by) / 2;
+      state.r2C = -(state.r2A * mx + state.r2B * my);
+    } else if (type === 'parallel') {
+      state.r2A = r1.A;
+      state.r2B = r1.B;
+      state.r2C = r1.C + 3 * n;
+    } else {
+      state.r2A = 2 * r1.A;
+      state.r2B = 2 * r1.B;
+      state.r2C = 2 * r1.C;
+    }
+    draw();
+  }
+
+  function drawGrid() {
+    ctx.strokeStyle = 'rgba(50, 50, 50, 0.5)';
+    ctx.lineWidth = 0.5;
+    var i;
+    for (i = xMin; i <= xMax; i++) {
+      ctx.beginPath();
+      ctx.moveTo(mapX(i), 0);
+      ctx.lineTo(mapX(i), H);
+      ctx.stroke();
+    }
+    for (i = yMin; i <= yMax; i++) {
+      ctx.beginPath();
+      ctx.moveTo(0, mapY(i));
+      ctx.lineTo(W, mapY(i));
+      ctx.stroke();
+    }
+    ctx.strokeStyle = 'rgba(150, 150, 150, 0.6)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(mapX(0), 0);
+    ctx.lineTo(mapX(0), H);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(0, mapY(0));
+    ctx.lineTo(W, mapY(0));
+    ctx.stroke();
+    ctx.fillStyle = 'rgba(150, 150, 150, 0.6)';
+    ctx.font = '10px monospace';
+    for (i = xMin; i <= xMax; i += 2) {
+      if (i === 0) continue;
+      ctx.fillText(i, mapX(i) - 5, mapY(0) + 12);
+    }
+    for (i = yMin; i <= yMax; i += 2) {
+      if (i === 0) continue;
+      ctx.fillText(i, mapX(0) + 4, mapY(i) + 4);
+    }
+  }
+
+  function drawLineFromCoeffs(A, B, C, color, lw) {
+    var p1x, p1y, p2x, p2y;
+    if (Math.abs(B) > 0.001) {
+      p1x = -15; p1y = -(A * p1x + C) / B;
+      p2x = 15;  p2y = -(A * p2x + C) / B;
+    } else if (Math.abs(A) > 0.001) {
+      var xv = -C / A;
+      p1x = xv; p1y = -15;
+      p2x = xv; p2y = 15;
+    } else {
+      return;
+    }
+    ctx.strokeStyle = color;
+    ctx.lineWidth = lw || 2;
+    ctx.beginPath();
+    ctx.moveTo(mapX(p1x), mapY(p1y));
+    ctx.lineTo(mapX(p2x), mapY(p2y));
+    ctx.stroke();
+  }
+
+  function drawPoint(wx, wy, color, r) {
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.arc(mapX(wx), mapY(wy), r || 5, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  function classifyAndDisplay() {
+    var r1 = getR1();
+    var D = r1.A * state.r2B - state.r2A * r1.B;
+    var info = document.getElementById('intersecao-info');
+    if (!info) return;
+
+    if (Math.abs(D) > 0.01) {
+      var ix = (-r1.C * state.r2B + state.r2C * r1.B) / D;
+      var iy = (-r1.A * state.r2C + state.r2A * r1.C) / D;
+
+      var d1x = state.r1bx - state.r1ax;
+      var d1y = state.r1by - state.r1ay;
+      var d2x = -state.r2B;
+      var d2y = state.r2A;
+      var dot = d1x * d2x + d1y * d2y;
+      var m1 = Math.sqrt(d1x * d1x + d1y * d1y);
+      var m2 = Math.sqrt(d2x * d2x + d2y * d2y);
+      var angle = 0;
+      if (m1 > 0.001 && m2 > 0.001) {
+        var cosT = Math.min(1, Math.abs(dot) / (m1 * m2));
+        angle = Math.acos(cosT) * 180 / Math.PI;
+      }
+
+      drawPoint(ix, iy, '#00FFFF', 6);
+      ctx.fillStyle = '#00FFFF';
+      ctx.font = '11px monospace';
+      ctx.fillText('(' + ix.toFixed(1) + ', ' + iy.toFixed(1) + ')', mapX(ix) + 10, mapY(iy) - 6);
+
+      var arcR = 25;
+      var ca1 = Math.atan2(-d1y, d1x);
+      var ca2 = Math.atan2(-d2y, d2x);
+      var diff = ca2 - ca1;
+      while (diff < -Math.PI) diff += 2 * Math.PI;
+      while (diff > Math.PI) diff -= 2 * Math.PI;
+      var sa, ea;
+      if (diff > 0) { sa = ca1; ea = ca1 + diff; }
+      else { sa = ca1 + diff; ea = ca1; }
+
+      ctx.strokeStyle = '#00FFFF';
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([3, 3]);
+      ctx.beginPath();
+      ctx.arc(mapX(ix), mapY(iy), arcR, sa, ea);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      var midA = (sa + ea) / 2;
+      var lx = mapX(ix) + (arcR + 14) * Math.cos(midA);
+      var ly = mapY(iy) + (arcR + 14) * Math.sin(midA);
+      ctx.font = '11px monospace';
+      ctx.fillText(angle.toFixed(1) + '\u00B0', lx - 12, ly + 4);
+
+      info.textContent = 'CONCORRENTES \u2014 Angulo: ' + angle.toFixed(1) + '\u00B0 \u2014 Intersecao: (' + ix.toFixed(1) + ', ' + iy.toFixed(1) + ')';
+    } else {
+      var ax = state.r1ax, ay = state.r1ay;
+      var test = state.r2A * ax + state.r2B * ay + state.r2C;
+      var rn = Math.sqrt(state.r2A * state.r2A + state.r2B * state.r2B);
+      if (rn > 0.001 && Math.abs(test) < 0.1 * rn) {
+        info.textContent = 'COINCIDENTES \u2014 Infinitos pontos em comum';
+      } else {
+        var dist = 0;
+        if (rn > 0.001) {
+          dist = Math.abs(test) / rn;
+        }
+        info.textContent = 'PARALELAS \u2014 Distancia: ' + dist.toFixed(2) + ' unidades';
+      }
+    }
+  }
+
+  function draw() {
+    if (!ctx) return;
+    ctx.clearRect(0, 0, W, H);
+    drawGrid();
+
+    var r1 = getR1();
+    var dx = state.r1bx - state.r1ax;
+    var dy = state.r1by - state.r1ay;
+    var dirNorm = Math.sqrt(dx * dx + dy * dy);
+
+    if (dirNorm < 0.01) {
+      var info = document.getElementById('intersecao-info');
+      if (info) info.textContent = 'ERRO: Pontos A e B coincidem!';
+      return;
+    }
+
+    drawLineFromCoeffs(state.r2A, state.r2B, state.r2C, '#FF6347', 2);
+    drawLineFromCoeffs(r1.A, r1.B, r1.C, '#FFD700', 2);
+
+    drawPoint(state.r1ax, state.r1ay, '#FFD700', 5);
+    drawPoint(state.r1bx, state.r1by, '#FFD700', 5);
+    ctx.fillStyle = '#FFD700';
+    ctx.font = 'bold 11px monospace';
+    ctx.fillText('A', mapX(state.r1ax) - 14, mapY(state.r1ay) - 6);
+    ctx.fillText('B', mapX(state.r1bx) + 8, mapY(state.r1by) - 6);
+
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = '#FFD700';
+    ctx.beginPath();
+    ctx.moveTo(W - 90, 12);
+    ctx.lineTo(W - 65, 12);
+    ctx.stroke();
+    ctx.font = 'bold 12px monospace';
+    ctx.fillStyle = '#FFD700';
+    ctx.fillText('R1', W - 58, 16);
+
+    ctx.strokeStyle = '#FF6347';
+    ctx.beginPath();
+    ctx.moveTo(W - 90, 28);
+    ctx.lineTo(W - 65, 28);
+    ctx.stroke();
+    ctx.fillStyle = '#FF6347';
+    ctx.fillText('R2', W - 58, 32);
+
+    classifyAndDisplay();
+  }
+
+  function init() {
+    canvas = document.getElementById('intersecao-retas-canvas');
+    if (!canvas) return;
+    ctx = canvas.getContext('2d');
+
+    if (!initialized) {
+      var sliderMap = [
+        { id: 'intersecao-r1a-x', key: 'r1ax' },
+        { id: 'intersecao-r1a-y', key: 'r1ay' },
+        { id: 'intersecao-r1b-x', key: 'r1bx' },
+        { id: 'intersecao-r1b-y', key: 'r1by' }
+      ];
+      sliderMap.forEach(function(s) {
+        var el = document.getElementById(s.id);
+        var sp = document.getElementById(s.id + '-value');
+        if (el) {
+          el.addEventListener('input', function() {
+            state[s.key] = parseFloat(this.value);
+            if (sp) sp.textContent = parseFloat(this.value).toFixed(1);
+            setPreset(state.preset);
+          });
+        }
+      });
+
+      var presets = [
+        { id: 'intersecao-preset-concorrente', type: 'concurrent' },
+        { id: 'intersecao-preset-paralela', type: 'parallel' },
+        { id: 'intersecao-preset-coincidente', type: 'coincident' }
+      ];
+      presets.forEach(function(p) {
+        var btn = document.getElementById(p.id);
+        if (btn) {
+          btn.addEventListener('click', function() {
+            setPreset(p.type);
+          });
+        }
+      });
+      initialized = true;
+    }
+
+    setPreset(state.preset);
+  }
+
+  window.intersecaoRetasVisualization = { init: init };
+
+  document.addEventListener('DOMContentLoaded', init);
+  if (window.Reveal) {
+    Reveal.on('slidechanged', function() {
+      if (document.getElementById('intersecao-retas-canvas')) init();
+    });
+  }
+})();
+</script>
