@@ -1,0 +1,56 @@
+<div class="exercise">
+<h3>VETOR PERPENDICULAR A DOIS VETORES DADOS</h3>
+<p>O objetivo deste exercício é usar o produto vetorial como ferramenta para encontrar um vetor perpendicular a dois vetores dados simultaneamente — uma das aplicações mais diretas e úteis do produto vetorial.</p>
+<p>Uma antena de transmissão precisa ser instalada perpendicularmente ao plano formado por dois cabos de sustentação. Os cabos são representados pelos vetores $\vec{u} = (1, -2, 3)$ e $\vec{v} = (4, 0, -1)$.</p>
+<p><strong>(a)</strong> Calcule um vetor $\vec{n}$ perpendicular a ambos $\vec{u}$ e $\vec{v}$ usando o produto vetorial.</p>
+<p><strong>(b)</strong> Verifique que $\vec{n} \cdot \vec{u} = 0$ e $\vec{n} \cdot \vec{v} = 0$.</p>
+<p><strong>(c)</strong> Encontre o <strong>versor</strong> (vetor unitário) na direção de $\vec{n}$. Este versor representa a direção exata de instalação da antena.</p>
+<p><strong>(d)</strong> O vetor $-\vec{n}$ também é perpendicular a $\vec{u}$ e $\vec{v}$? Qual a diferença entre usar $\vec{n}$ e $-\vec{n}$ como direção da antena?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>O produto vetorial $\vec{u} \times \vec{v}$ é, por definição, perpendicular a ambos os vetores. Para obter o versor, divida o vetor pelo seu módulo: $\hat{n} = \frac{\vec{n}}{|\vec{n}|}$. O sinal do vetor determina o sentido — ambos os sentidos ao longo da mesma reta são perpendiculares ao plano.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>Item (a):</strong></p>
+<ol class="solution-steps">
+<li>$\vec{n} = \vec{u} \times \vec{v} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 1 & -2 & 3 \\ 4 & 0 & -1 \end{vmatrix}$</li>
+<li>Componente $\vec{i}$: $(-2)(-1) - (3)(0) = 2 - 0 = 2$</li>
+<li>Componente $\vec{j}$: $-[(1)(-1) - (3)(4)] = -[-1 - 12] = -(-13) = 13$</li>
+<li>Componente $\vec{k}$: $(1)(0) - (-2)(4) = 0 + 8 = 8$</li>
+</ol>
+<div class="formula">
+$$\vec{n} = (2, 13, 8)$$
+</div>
+
+<p><strong>Item (b):</strong></p>
+<ol class="solution-steps">
+<li>$\vec{n} \cdot \vec{u} = (2)(1) + (13)(-2) + (8)(3) = 2 - 26 + 24 = 0$ ✓</li>
+<li>$\vec{n} \cdot \vec{v} = (2)(4) + (13)(0) + (8)(-1) = 8 + 0 - 8 = 0$ ✓</li>
+</ol>
+<p>Ambos os produtos escalares são zero, confirmando que $\vec{n}$ é perpendicular a $\vec{u}$ e a $\vec{v}$.</p>
+
+<p><strong>Item (c):</strong></p>
+<ol class="solution-steps">
+<li>$|\vec{n}| = \sqrt{2^2 + 13^2 + 8^2} = \sqrt{4 + 169 + 64} = \sqrt{237}$</li>
+<li>Versor: $\hat{n} = \dfrac{\vec{n}}{|\vec{n}|} = \left(\dfrac{2}{\sqrt{237}}, \dfrac{13}{\sqrt{237}}, \dfrac{8}{\sqrt{237}}\right)$</li>
+</ol>
+<div class="formula">
+$$\hat{n} = \frac{1}{\sqrt{237}}(2, 13, 8)$$
+</div>
+
+<p><strong>Item (d):</strong></p>
+<p>Sim, $-\vec{n} = (-2, -13, -8)$ também é perpendicular a $\vec{u}$ e $\vec{v}$ porque:</p>
+<ul>
+<li>$(-\vec{n}) \cdot \vec{u} = -(\vec{n} \cdot \vec{u}) = -0 = 0$</li>
+<li>$(-\vec{n}) \cdot \vec{v} = -(\vec{n} \cdot \vec{v}) = -0 = 0$</li>
+</ul>
+<p>A diferença entre $\vec{n}$ e $-\vec{n}$ é apenas o <strong>sentido</strong>. Ambos apontam na mesma direção (a reta perpendicular ao plano de $\vec{u}$ e $\vec{v}$), mas em lados opostos. Na instalação da antena, isso corresponde a apontar para "cima" ou "baixo" em relação ao plano. A escolha depende de fatores práticos (obstruções, direção do sinal desejada), mas matematicamente ambos são igualmente válidos como vetores normais.</p>
+
+<p><strong>Reflexão de Sobrevivência:</strong> O produto vetorial resolve um problema que no $\mathbb{R}^2$ era trivial (girar 90°), mas no $\mathbb{R}^3$ requer uma ferramenta sofisticada. A antena perpendicular maximiza a área de cobertura do sinal. O versor normaliza essa direção para cálculos de potência de transmissão — a potência por unidade de área depende da direção exata do vetor unitário.</p>
+</details>
+</div>

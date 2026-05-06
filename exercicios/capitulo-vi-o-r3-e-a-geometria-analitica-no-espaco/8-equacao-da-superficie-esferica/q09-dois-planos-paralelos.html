@@ -1,0 +1,45 @@
+<div class="exercise">
+<h3>DOIS PLANOS PARALELOS E A ESFERA</h3>
+<p>O objetivo deste exercício é analisar a interseção de uma superfície esférica com dois planos paralelos, comparando suas posições relativas. Este cenário modela, por exemplo, dois níveis de corte em uma estrutura esférica ou duas barreiras paralelas em torno de uma zona de contenção.</p>
+<p>Uma esfera de proteção tem centro $C(2, -1, 3)$ e raio $r = 6$. Dois planos paralelos são definidos por:</p>
+<div class="formula">
+$$\pi_1: 2x - y + 2z - 5 = 0, \quad \pi_2: 2x - y + 2z + 16 = 0$$
+</div>
+<p><strong>(a)</strong> Verifique que $\pi_1$ e $\pi_2$ são de fato paralelos comparando seus vetores normais.</p>
+<p><strong>(b)</strong> Calcule a distância do centro $C$ a cada plano.</p>
+<p><strong>(c)</strong> Classifique a interseção de cada plano com a esfera (círculo, tangente ou externo).</p>
+<p><strong>(d)</strong> Para cada plano que intersecta a esfera em um círculo, calcule o raio do círculo de interseção.</p>
+<p><strong>(e)</strong> Calcule a distância entre os dois planos paralelos. O que isso significa geometricamente em relação à esfera?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Dois planos são paralelos quando seus vetores normais são múltiplos escalares um do outro. A distância entre planos paralelos $ax+by+cz+d_1=0$ e $ax+by+cz+d_2=0$ é $\frac{|d_1-d_2|}{\sqrt{a^2+b^2+c^2}}$ (usando os mesmos coeficientes $a,b,c$). Compare cada distância ao centro com o raio $r = 6$ para classificar.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Esfera: $C = (2, -1, 3)$, $r = 6$</li>
+<li><strong>Item (a)</strong> — Vetores normais: $\vec{n_1} = (2, -1, 2)$, $\vec{n_2} = (2, -1, 2)$</li>
+<li>Como $\vec{n_1} = \vec{n_2}$, os planos são \u003cspan class="success">paralelos</span>.</li>
+<li><strong>Item (b)</strong> — Distâncias do centro:</li>
+<li>$\pi_1$: $d_1 = \frac{|2(2) - 1(-1) + 2(3) - 5|}{\sqrt{4+1+4}} = \frac{|4 + 1 + 6 - 5|}{3} = \frac{6}{3} = 2$</li>
+<li>$\pi_2$: $d_2 = \frac{|2(2) - 1(-1) + 2(3) + 16|}{3} = \frac{|4 + 1 + 6 + 16|}{3} = \frac{27}{3} = 9$</li>
+<li><strong>Item (c)</strong> — Classificação:</li>
+<li>$\pi_1$: $d_1 = 2 < 6$ → \u003cspan class="success">interseção é um círculo</span></li>
+<li>$\pi_2$: $d_2 = 9 > 6$ → \u003cspan class="warning">plano externo à esfera</span> (sem interseção)</li>
+<li><strong>Item (d)</strong> — Raio do círculo em $\pi_1$: $\rho = \sqrt{36 - 4} = \sqrt{32} = 4\sqrt{2} \approx 5{,}66$</li>
+<li>Para $\pi_2$, não há círculo de interseção.</li>
+<li><strong>Item (e)</strong> — Distância entre os planos: $h = \frac{|-5 - 16|}{3} = \frac{21}{3} = 7$</li>
+<li>Alternativamente: $h = d_2 - d_1 = 9 - 2 = 7$ (os planos estão em lados opostos do centro? Verifiquemos: $2(2)-(-1)+2(3)-5 = 6 > 0$ e $2(2)-(-1)+2(3)+16 = 27 > 0$. Ambos do mesmo lado, então $h = |9-2| = 7$) ✓</li>
+</ol>
+<div class="formula">
+$$d_1 = 2 \Rightarrow \text{círculo de raio } \rho = 4\sqrt{2} \approx 5{,}66$$
+$$d_2 = 9 > 6 \Rightarrow \text{plano externo}$$
+$$\text{Distância entre planos: } h = 7$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O plano $\pi_1$ corta a esfera produzindo um círculo grande (raio $\approx 5{,}66$), quase tão largo quanto a própria esfera. O plano $\pi_2$, por outro lado, está completamente fora da esfera — a $9$ unidades do centro, quando o raio é apenas $6$. Os dois planos estão separados por $7$ unidades, o que significa que $\pi_2$ está $5$ unidades além da fronteira da esfera em relação a $\pi_1$. Em termos práticos, $\pi_1$ delimita uma seção interna da estrutura, enquanto $\pi_2$ está em território externo.</p>
+</details>
+</div>

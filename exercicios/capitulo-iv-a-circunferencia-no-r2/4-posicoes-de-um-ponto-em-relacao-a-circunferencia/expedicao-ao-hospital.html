@@ -1,24 +1,27 @@
 <div class="exercise">
 <h3>EXPEDIÇÃO AO HOSPITAL</h3>
-<p>A base central de operações está localizada no ponto $B(2, 3)$. Um escudo de proteção contra radiação é descrito pela circunferência de equação $(x-5)^2 + (y-5)^2 = 16$. A equipe médica precisa saber se a base está protegida pelo escudo ou se precisarão de Trajes de Proteção para suas operações diárias.</p>
+
+<p>No exercício anterior, o ponto de recursos estava exatamente sobre o perímetro — sem margem de segurança. O mesmo Abrigo Alfa, com centro $C(2,1)$ e raio $r = 5$, precisa saber se dois novos alvos estão dentro da zona protegida. O primeiro é um hospital de campanha no ponto $B(-1,1)$; o segundo é um depósito de suprimentos no ponto $D(2,8)$. No papel, esboce a mesma circunferência do exercício anterior e marque os pontos $B$ e $D$. Calcule as distâncias de cada ponto ao centro e classifique cada um como interno, sobre ou externo à zona de proteção.</p>
+
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
 <div class="hint">
-<p>A equação da circunferência está na forma $(x-a)^2 + (y-b)^2 = r^2$, onde $(a,b)$ é o centro e $r$ é o raio. Identifique esses elementos e depois verifique a posição do ponto em relação à circunferência.</p>
+<p>Calcule $d(B,C)$ e $d(D,C)$ separadamente. Para $B(-1,1)$: as coordenadas $y$ de $B$ e $C$ são iguais, o que simplifica o cálculo. Para $D(2,8)$: as coordenadas $x$ são iguais ao centro. Compare cada distância com $r = 5$.</p>
 </div>
 </details>
+
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Identificamos a partir da equação $(x-5)^2 + (y-5)^2 = 16$ que o centro da circunferência é $C(5, 5)$ e o raio é $r = \sqrt{16} = 4$.</li>
-<li>O ponto que representa a base é $B(2, 3)$.</li>
-<li>Calculamos a distância entre $B$ e $C$:
-                    $d(B, C) = \sqrt{(2 - 5)^2 + (3 - 5)^2} = \sqrt{(-3)^2 + (-2)^2} = \sqrt{9 + 4} = \sqrt{13} \approx 3,61$</li>
-<li>Como $d(B, C) \approx 3,61 &lt; 4 = r$, o ponto $B$ está dentro da circunferência.</li>
+<li>Distância de $B(-1,1)$ ao centro $C(2,1)$: $d(B,C) = \sqrt{(-1-2)^2 + (1-1)^2} = \sqrt{9 + 0} = 3$.</li>
+<li>Como $3 < 5$, o ponto $B$ está <strong>interno</strong> à zona de proteção. O hospital está seguro, com folga.</li>
+<li>Distância de $D(2,8)$ ao centro $C(2,1)$: $d(D,C) = \sqrt{(2-2)^2 + (8-1)^2} = \sqrt{0 + 49} = 7$.</li>
+<li>Como $7 > 5$, o ponto $D$ está <strong>externo</strong> à zona de proteção. O depósito está exposto.</li>
+<li>Conclusão: o hospital está dentro da zona segura, mas o depósito de suprimentos está fora — uma expedição até $D$ requer traje de proteção.</li>
 </ol>
 <div class="formula">
-                    $d(B, C) = \sqrt{(2 - 5)^2 + (3 - 5)^2} = \sqrt{9 + 4} = \sqrt{13} &lt; 4 = r$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> A base está segura dentro do perímetro do escudo, o que significa que a equipe médica não precisa de Trajes de Proteção para suas operações diárias. Economizar equipamentos de proteção é crucial em um mundo onde os recursos são escassos.</p>
+$$B(-1,1):\; d = 3 &lt; 5 \;\Rightarrow\; \text{interno} \qquad D(2,8):\; d = 7 &gt; 5 \;\Rightarrow\; \text{externo}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Três pontos, três destinos: $B$ está a salvo dentro da zona, $A$ (do exercício anterior) está no limite, e $D$ está fora, exposto. A mesma circunferência, o mesmo raio — apenas a distância ao centro muda. Na Zona Devastada, a geometria dita a sobrevivência.</p>
 </details>
 </div>

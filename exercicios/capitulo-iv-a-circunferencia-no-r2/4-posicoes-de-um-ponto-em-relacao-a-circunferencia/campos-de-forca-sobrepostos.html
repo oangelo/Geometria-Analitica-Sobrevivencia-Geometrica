@@ -1,34 +1,28 @@
 <div class="exercise">
 <h3>CAMPOS DE FORÇA SOBREPOSTOS</h3>
-<p>Dois geradores de campo de força criam zonas circulares de proteção descritas pelas circunferências $C_1: (x-2)^2 + (y-1)^2 = 16$ e $C_2: (x+1)^2 + (y-3)^2 = 9$. Um depósito de suprimentos está no ponto $S(0, 0)$. Determine se o depósito está protegido por algum dos campos de força, por ambos ou por nenhum. Calcule também a potência do ponto $S$ em relação a cada circunferência.</p>
+
+<p>Quando os centros são diferentes, a região segura é definida por duas condições independentes. O acampamento principal está protegido por dois geradores de campo de força: o Gerador Alfa produz um campo circular descrito por $(x-2)^2 + (y-3)^2 = 16$ (centro $(2,3)$, raio $4$), e o Gerador Beta produz $(x+1)^2 + (y-1)^2 = 25$ (centro $(-1,1)$, raio $5$). Um ponto é considerado <strong>protegido</strong> se está dentro de <strong>ambos</strong> os campos simultaneamente. No papel, esboce as duas circunferências com centros $(2,3)$ e $(-1,1)$, e marque os pontos $P(1,3)$, $Q(3,6)$ e $R(0,2)$. Para cada ponto, verifique se está dentro de ambas as circunferências e determine quais estão protegidos.</p>
+
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
 <div class="hint">
-<p>Calcule separadamente a posição do ponto em relação a cada circunferência. O sinal da potência indicará a posição: negativa para dentro, zero para sobre, positiva para fora.</p>
+<p>Para cada ponto, faça dois testes separados: (1) substitua na equação do Gerador Alfa e verifique se o resultado é menor que 16; (2) substitua na equação do Gerador Beta e verifique se é menor que 25. Só está protegido quem passa nos dois testes.</p>
 </div>
 </details>
+
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Para a circunferência $C_1$:
-                    Centro $C_1(2, 1)$ e raio $r_1 = 4$</li>
-<li>Calculamos a distância de $S(0, 0)$ até $C_1(2, 1)$:
-                    $d(S, C_1) = \sqrt{(0 - 2)^2 + (0 - 1)^2} = \sqrt{4 + 1} = \sqrt{5} \approx 2,24$</li>
-<li>Como $d(S, C_1) \approx 2,24 &lt; 4 = r_1$, o ponto $S$ está dentro do campo de força 1.</li>
-<li>A potência de $S$ em relação a $C_1$ é:
-                    $Pot_1(S) = d(S, C_1)^2 - r_1^2 = 5 - 16 = -11 &lt; 0$</li>
-<li>Para a circunferência $C_2$:
-                    Centro $C_2(-1, 3)$ e raio $r_2 = 3$</li>
-<li>Calculamos a distância de $S(0, 0)$ até $C_2(-1, 3)$:
-                    $d(S, C_2) = \sqrt{(0 - (-1))^2 + (0 - 3)^2} = \sqrt{1 + 9} = \sqrt{10} \approx 3,16$</li>
-<li>Como $d(S, C_2) \approx 3,16 &gt; 3 = r_2$, o ponto $S$ está fora do campo de força 2.</li>
-<li>A potência de $S$ em relação a $C_2$ é:
-                    $Pot_2(S) = d(S, C_2)^2 - r_2^2 = 10 - 9 = 1 &gt; 0$</li>
+<li>Ponto $P(1,3)$: Alfa: $(1-2)^2 + (3-3)^2 = 1 + 0 = 1 &lt; 16$ ✓. Beta: $(1+1)^2 + (3-1)^2 = 4 + 4 = 8 &lt; 25$ ✓. <strong>Protegido</strong>.</li>
+<li>Ponto $Q(3,6)$: Alfa: $(3-2)^2 + (6-3)^2 = 1 + 9 = 10 &lt; 16$ ✓. Beta: $(3+1)^2 + (6-1)^2 = 16 + 25 = 41 > 25$ ✗. <strong>Não protegido</strong> — fora do campo Beta.</li>
+<li>Ponto $R(0,2)$: Alfa: $(0-2)^2 + (2-3)^2 = 4 + 1 = 5 &lt; 16$ ✓. Beta: $(0+1)^2 + (2-1)^2 = 1 + 1 = 2 &lt; 25$ ✓. <strong>Protegido</strong>.</li>
+<li>Conclusão: $P(1,3)$ e $R(0,2)$ estão na região de proteção dupla. $Q(3,6)$ está dentro do campo Alfa, mas fora do campo Beta — parcialmente exposto.</li>
 </ol>
 <div class="formula">
-                    $Pot_1(S) = 5 - 16 = -11 &lt; 0$ (dentro de $C_1$)
-                    $Pot_2(S) = 10 - 9 = 1 &gt; 0$ (fora de $C_2$)
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> O depósito está protegido apenas pelo primeiro campo de força, não pelo segundo. O valor fortemente negativo da potência em relação a $C_1$ (-11) indica que o depósito está bem no interior da zona de proteção, proporcionando uma boa margem de segurança. Em um mundo pós-apocalíptico, ter redundância nos sistemas de proteção é ideal, mas pelo menos um campo de força já garante segurança básica para os suprimentos vitais.</p>
+$$P(1,3):\; \text{Alfa: } 1 &lt; 16\;\checkmark \quad \text{Beta: } 8 &lt; 25\;\checkmark \quad \Rightarrow \text{protegido}$$
+$$Q(3,6):\; \text{Alfa: } 10 &lt; 16\;\checkmark \quad \text{Beta: } 41 &gt; 25\;\times \quad \Rightarrow \text{exposto}$$
+$$R(0,2):\; \text{Alfa: } 5 &lt; 16\;\checkmark \quad \text{Beta: } 2 &lt; 25\;\checkmark \quad \Rightarrow \text{protegido}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Com centros diferentes, cada campo de força é independente — estar dentro de um não garante estar dentro do outro. A região de proteção dupla é a <strong>interseção</strong> dos dois discos, que pode ser bem menor que cada disco individualmente. Na Zona Devastada, redundantcia tem custo: dois geradores, dois testes, uma região de segurança restrita.</p>
 </details>
 </div>

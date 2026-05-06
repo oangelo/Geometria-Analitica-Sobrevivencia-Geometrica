@@ -1,25 +1,45 @@
 <div class="exercise">
-<h3>Otimização de Rota de Abastecimento</h3>
-<p>Duas bases de suprimentos estão localizadas em A(-6, 0) e B(6, 0). Você precisa estabelecer postos de abastecimento ao longo de uma rota elíptica onde a soma das distâncias a ambas as bases seja sempre 20 unidades. Determine a excentricidade desta rota e classifique o formato da elipse.</p>
+<h3>OTIMIZAÇÃO DE ROTA DE ABASTECIMENTO</h3>
+
+<p>O objetivo deste exercício é demonstrar, de forma geral, que os vértices do eixo maior são os pontos mais distantes do centro, e os vértices do eixo menor são os mais próximos. Considere a elipse $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$ com $a > b > 0$.</p>
+
+<p><strong>(a)</strong> Considere uma reta qualquer passando pelo centro com equação $y = mx$. Substitua na elipse e mostre que os pontos de interseção satisfazem $x^2 = \frac{a^2b^2}{b^2 + a^2m^2}$.</p>
+
+<p><strong>(b)</strong> A distância ao centro de um ponto $(x, mx)$ na reta é $d = \sqrt{x^2 + m^2x^2} = |x|\sqrt{1+m^2}$. Substitua $x^2$ da parte (a) e mostre que:</p>
+<div class="formula">
+$$d^2 = \frac{a^2b^2(1+m^2)}{b^2 + a^2m^2}$$
+</div>
+
+<p><strong>(c)</strong> Mostre que quando $m = 0$ (reta horizontal, eixo $x$), $d^2 = a^2$, logo $d = a$ (máximo). Quando $m \to \infty$ (reta vertical, eixo $y$), $d^2 = b^2$, logo $d = b$ (mínimo).</p>
+
+<p><strong>(d)</strong> Para um valor intermediário, como $m = 1$, verifique que $b < d < a$. Use $a = 5$ e $b = 3$ como exemplo numérico.</p>
+
+<p><strong>(e)</strong> No papel, esboce a elipse com $a = 5$, $b = 3$ e desenhe retas passando pelo centro com diferentes inclinações, marcando os pontos de interseção.</p>
+
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
 <div class="hint">
-<p>As bases A e B são os focos da elipse. Use a soma constante para encontrar 'a', depois calcule a excentricidade.</p>
+<p>Para a parte (a), substitua $y = mx$ em $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$ e isole $x^2$. Para a parte (c), quando $m = 0$, a fração simplifica diretamente. Quando $m \to \infty$, divida numerador e denominador por $m^2$. Para $m = 1$ com $a = 5$, $b = 3$: $d^2 = \frac{25 \cdot 9 \cdot 2}{9 + 25} = \frac{450}{34} = \frac{225}{17} \approx 13{,}24$, logo $d \approx 3{,}64$.</p>
 </div>
 </details>
+
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Identificar que 2a = 20, logo a = 10</li>
-<li>A distância focal é c = 6 (distância do centro ao foco)</li>
-<li>Calcular: $b^2 = a^2 - c^2 = 100 - 36 = 64$, logo $b = 8$</li>
-<li>Calcular a excentricidade: $e = \frac{c}{a} = \frac{6}{10} = 0,6$</li>
-<li>Como 0 &lt; e &lt; 1 e e = 0,6, a elipse é moderadamente achatada</li>
+<li>Substitua $y = mx$ na elipse: $\frac{x^2}{a^2} + \frac{m^2x^2}{b^2} = 1$.</li>
+<li>Fatore $x^2$: $x^2\left(\frac{1}{a^2} + \frac{m^2}{b^2}\right) = 1$.</li>
+<li>Denominador comum $a^2b^2$: $x^2\left(\frac{b^2 + a^2m^2}{a^2b^2}\right) = 1$.</li>
+<li>Logo $x^2 = \frac{a^2b^2}{b^2 + a^2m^2}$. ✓</li>
+<li>Distância ao centro: $d^2 = x^2 + y^2 = x^2 + m^2x^2 = x^2(1+m^2) = \frac{a^2b^2(1+m^2)}{b^2 + a^2m^2}$. ✓</li>
+<li>Para $m = 0$: $d^2 = \frac{a^2b^2 \cdot 1}{b^2 + 0} = a^2$, logo $d = a$ (máximo, pois $a > b$).</li>
+<li>Para $m \to \infty$: divida por $m^2$: $d^2 = \frac{a^2b^2(m^{-2}+1)}{b^2m^{-2} + a^2} \to \frac{a^2b^2}{a^2} = b^2$, logo $d = b$ (mínimo).</li>
+<li>Para $m = 1$, $a = 5$, $b = 3$: $d^2 = \frac{25 \cdot 9 \cdot 2}{9 + 25} = \frac{450}{34} = \frac{225}{17} \approx 13{,}24$.</li>
+<li>$d = \sqrt{\frac{225}{17}} = \frac{15}{\sqrt{17}} = \frac{15\sqrt{17}}{17} \approx 3{,}64$.</li>
+<li>Verifique: $b = 3 < 3{,}64 < 5 = a$ ✓.</li>
 </ol>
 <div class="formula">
-                    $$e = 0,6 \quad \text{(elipse moderadamente achatada)}$$
-                    $$\frac{x^2}{100} + \frac{y^2}{64} = 1$$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> Uma excentricidade de 0,6 indica uma rota eficiente que balanceia acessibilidade às duas bases. Rotas com baixa excentricidade são mais previsíveis, enquanto alta excentricidade pode oferecer vantagens táticas.</p>
+$$d_{\max} = a \text{ (eixo } x), \quad d_{\min} = b \text{ (eixo } y), \quad d_{m=1} = \frac{15\sqrt{17}}{17} \approx 3{,}64$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Esta demonstração mostra que, para qualquer reta passando pelo centro, a distância da interseção ao centro varia continuamente entre $b$ (mínimo, eixo menor) e $a$ (máximo, eixo maior). Na Zona Devastada, isso significa que se você precisa patrulhar a fronteira elíptica partindo do centro, a rota pelo eixo maior é a mais longa, e pelo eixo menor é a mais curta. Planeje seu combustível e tempo de patrulha de acordo.</p>
 </details>
 </div>

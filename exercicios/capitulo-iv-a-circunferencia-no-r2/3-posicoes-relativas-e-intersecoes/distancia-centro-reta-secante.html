@@ -1,0 +1,26 @@
+<div class="exercise">
+<h3>CABO QUE ATRAVESSA A ZONA DE COBERTURA</h3>
+
+<p>No exercício anterior, a rota de patrulha ficava inteiramente fora da zona circular. Agora considere uma antena de comunicação posicionada em $C(1,2)$, com zona de cobertura de raio $r = 5$, descrita por $(x - 1)^2 + (y - 2)^2 = 25$. Um cabo de fibra óptica segue a reta $3x + 4y - 7 = 0$. No papel, esboce o centro $C$, a circunferência com raio 5 e a reta. Calcule a distância do centro à reta e classifique a posição relativa — o cabo atravessa a zona de cobertura, toca o limite ou fica inteiramente fora?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para a reta $3x + 4y - 7 = 0$, os coeficientes são $a = 3$, $b = 4$, $c = -7$. Lembre-se: $\sqrt{a^2 + b^2} = \sqrt{9 + 16} = 5$. Compare o resultado com $r = 5$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Dados: centro $C(1,2)$, raio $r = 5$, reta $3x + 4y - 7 = 0$.</li>
+<li>Distância do centro à reta: $d = \frac{|3 \cdot 1 + 4 \cdot 2 - 7|}{\sqrt{9 + 16}} = \frac{|3 + 8 - 7|}{5} = \frac{4}{5} = 0{,}8$.</li>
+<li>Comparação: $d = 0{,}8 < 5 = r$. A reta é <strong>secante</strong> à circunferência.</li>
+<li>Conclusão: o cabo de fibra óptica <strong>atravessa</strong> a zona de cobertura, entrando por um ponto e saindo por outro. A menor distância entre a reta e o centro da zona é apenas $0{,}8$ unidades — o cabo passa muito perto da antena.</li>
+</ol>
+<div class="formula">
+$$d = \frac{4}{5} = 0{,}8 \quad &lt; \quad r = 5 \quad \Rightarrow \quad \text{reta secante}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Quando $d < r$, a reta "penetra" a circunferência — há dois pontos de entrada e saída na zona de cobertura. Quanto menor $d$ em relação a $r$, mais profundamente a rota corta a zona. No caso extremo $d = 0$, a reta passa pelo centro e é um diâmetro.</p>
+</details>
+</div>

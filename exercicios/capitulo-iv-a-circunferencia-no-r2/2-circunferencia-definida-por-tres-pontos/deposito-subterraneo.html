@@ -1,46 +1,33 @@
 <div class="exercise">
 <h3>DEPÓSITO SUBTERRÂNEO</h3>
-<p>Exploradores descobriram três entradas para um antigo depósito subterrâneo nas coordenadas A(1, 3), B(5, 3) e C(3, 7). Registros históricos indicam que o depósito foi construído em formato circular, com seu centro exatamente equidistante das três entradas. Determine a localização do centro do depósito e qual seria o perímetro total da estrutura.</p>
+
+<p>Uma rede de túneis abandonados possui três entradas mapeadas nas coordenadas $A(7,3)$, $B(-1,7)$ e $C(2,8)$. O engenheiro do abrigo precisa instalar uma central de ventilação no centro da circunferência que passa pelas três entradas — ela garantirá fluxo de ar equidistante a todas elas. A coordenada negativa em $B$ exige atenção redobrada aos sinais durante a substituição. No papel, esboce os três pontos (note que $B$ está à esquerda do eixo $y$) e trace a circunferência aproximada, depois determine a equação, o centro e o raio.</p>
+
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
 <div class="hint">
-<p>Trabalhe com as equações na forma $(x-h)^2 + (y-k)^2 = r^2$ para cada ponto e elimine o $r^2$ subtraindo as equações. O perímetro é $2\pi r$.</p>
+<p>Ao substituir $B(-1,7)$, lembre-se: $x^2 + y^2 = 1 + 49 = 50$ e $Dx = D(-1) = -D$. Cuidado com o sinal de $-D$ — ele inverte o coeficiente $D$ na equação.</p>
 </div>
 </details>
+
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Escrevemos as equações para cada ponto:
-                    $(1-h)^2 + (3-k)^2 = r^2$
-                    $(5-h)^2 + (3-k)^2 = r^2$
-                    $(3-h)^2 + (7-k)^2 = r^2$</li>
-<li>Subtraindo a primeira da segunda:
-                    $(5-h)^2 - (1-h)^2 = 0$
-                    $25 - 10h + h^2 - (1 - 2h + h^2) = 0$
-                    $25 - 10h + h^2 - 1 + 2h - h^2 = 0$
-                    $24 - 8h = 0$
-                    $h = 3$</li>
-<li>Subtraindo a primeira da terceira:
-                    $(3-h)^2 + (7-k)^2 - [(1-h)^2 + (3-k)^2] = 0$
-                    $(3-h)^2 - (1-h)^2 + (7-k)^2 - (3-k)^2 = 0$
-                    $9 - 6h + h^2 - (1 - 2h + h^2) + 49 - 14k + k^2 - (9 - 6k + k^2) = 0$
-                    $9 - 6h + h^2 - 1 + 2h - h^2 + 49 - 14k + k^2 - 9 + 6k - k^2 = 0$
-                    $8 - 4h + 40 - 8k = 0$
-                    $48 - 4h - 8k = 0$</li>
-<li>Substituindo $h = 3$:
-                    $48 - 4(3) - 8k = 0$
-                    $48 - 12 - 8k = 0$
-                    $36 - 8k = 0$
-                    $k = \frac{36}{8} = 4.5$</li>
-<li>Calculamos o raio usando o primeiro ponto:
-                    $r^2 = (1-3)^2 + (3-4.5)^2 = 4 + 2.25 = 6.25$
-                    $r = 2.5$
-                    O perímetro é $2\pi r = 2\pi \cdot 2.5 = 5\pi \approx 15.71$ unidades</li>
+<li>Substituindo $A(7,3)$: $49 + 9 + 7D + 3E + F = 0 \Rightarrow 7D + 3E + F = -58$ &nbsp; ...(1)</li>
+<li>Substituindo $B(-1,7)$: $1 + 49 - D + 7E + F = 0 \Rightarrow -D + 7E + F = -50$ &nbsp; ...(2)</li>
+<li>Substituindo $C(2,8)$: $4 + 64 + 2D + 8E + F = 0 \Rightarrow 2D + 8E + F = -68$ &nbsp; ...(3)</li>
+<li>(2) $-$ (1): $-8D + 4E = 8 \Rightarrow -2D + E = 2$ &nbsp; ...(4)</li>
+<li>(3) $-$ (1): $-5D + 5E = -10 \Rightarrow -D + E = -2$ &nbsp; ...(5)</li>
+<li>De (5): $E = D - 2$. Substituindo em (4): $-2D + D - 2 = 2 \Rightarrow -D = 4 \Rightarrow D = -4$.</li>
+<li>$E = -4 - 2 = -6$.</li>
+<li>De (1): $7(-4) + 3(-6) + F = -58 \Rightarrow -28 - 18 + F = -58 \Rightarrow F = -12$.</li>
+<li>Equação: $x^2 + y^2 - 4x - 6y - 12 = 0$.</li>
+<li>Centro: $(2, 3)$.</li>
+<li>Raio: $r = \sqrt{4 + 9 + 12} = \sqrt{25} = 5$.</li>
 </ol>
 <div class="formula">
-                    $$(x - 3)^2 + (y - 4.5)^2 = 6.25$$
-                    $$\text{Perímetro} = 2\pi r = 5\pi \approx 15.71$$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> As antigas estruturas pré-apocalipse frequentemente seguiam padrões geométricos precisos. Ao mapear estruturas circulares a partir de pontos de entrada conhecidos, você pode localizar centros ocultos que frequentemente contêm sistemas de controle ou recursos valiosos. A compreensão da geometria analítica não apenas revela segredos do passado, mas também permite estimar a quantidade de recursos necessários para segurar ou fortificar todo o perímetro.</p>
+$$x^2 + y^2 - 4x - 6y - 12 = 0 \qquad \text{Centro } (2,3), \quad r = 5$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A coordenada negativa em $B$ poderia ter causado erros de sinal, mas o método é robusto — cada equação é apenas uma substituição cuidadosa. O raio $5$ confirma que as três entradas estão a uma distância considerável do centro, indicando um depósito subterrâneo extenso.</p>
 </details>
 </div>

@@ -1,0 +1,53 @@
+<div class="exercise">
+<h3>ÁREA DO PARALELOGRAMO</h3>
+<p>O objetivo deste exercício é aplicar diretamente o produto vetorial para calcular a área de um paralelogramo no espaço, e verificar que o módulo do produto vetorial coincide com a fórmula $|\vec{u}||\vec{v}|\sin\theta$.</p>
+<p>Duas vigas de sustentação de uma plataforma de observação são representadas pelos vetores $\vec{u} = (3, 0, 4)$ e $\vec{v} = (1, 2, -1)$. Elas definem um paralelogramo no plano de ancoragem.</p>
+<p><strong>(a)</strong> Calcule $\vec{u} \times \vec{v}$.</p>
+<p><strong>(b)</strong> Calcule $|\vec{u} \times \vec{v}|$, que representa a área do paralelogramo formado por $\vec{u}$ e $\vec{v}$.</p>
+<p><strong>(c)</strong> Verifique que a fórmula $|\vec{u}||\vec{v}|\sin\theta$ dá o mesmo resultado. Para isso, calcule $\cos\theta$ pelo produto escalar, obtenha $\sin\theta$ pela identidade $\sin^2\theta + \cos^2\theta = 1$, e compare.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para o item (c), use $\vec{u} \cdot \vec{v} = |\vec{u}||\vec{v}|\cos\theta$ para encontrar $\cos\theta$. Depois $\sin\theta = \sqrt{1 - \cos^2\theta}$ (use a raiz positiva pois $0° \leq \theta \leq 180°$). Finalmente, multiplique $|\vec{u}||\vec{v}|\sin\theta$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>Item (a):</strong></p>
+<ol class="solution-steps">
+<li>$\vec{u} \times \vec{v} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 3 & 0 & 4 \\ 1 & 2 & -1 \end{vmatrix}$</li>
+<li>Componente $\vec{i}$: $(0)(-1) - (4)(2) = 0 - 8 = -8$</li>
+<li>Componente $\vec{j}$: $-[(3)(-1) - (4)(1)] = -[-3 - 4] = -(-7) = 7$</li>
+<li>Componente $\vec{k}$: $(3)(2) - (0)(1) = 6 - 0 = 6$</li>
+</ol>
+<div class="formula">
+$$\vec{u} \times \vec{v} = (-8, 7, 6)$$
+</div>
+
+<p><strong>Item (b):</strong></p>
+<ol class="solution-steps">
+<li>$|\vec{u} \times \vec{v}| = \sqrt{(-8)^2 + 7^2 + 6^2}$</li>
+<li>$= \sqrt{64 + 49 + 36} = \sqrt{149}$</li>
+</ol>
+<div class="formula">
+$$\text{Área do paralelogramo} = \sqrt{149} \approx 12{,}21 \text{ unidades}^2$$
+</div>
+
+<p><strong>Item (c):</strong></p>
+<ol class="solution-steps">
+<li>$|\vec{u}| = \sqrt{3^2 + 0^2 + 4^2} = \sqrt{9 + 0 + 16} = \sqrt{25} = 5$</li>
+<li>$|\vec{v}| = \sqrt{1^2 + 2^2 + (-1)^2} = \sqrt{1 + 4 + 1} = \sqrt{6}$</li>
+<li>$\vec{u} \cdot \vec{v} = (3)(1) + (0)(2) + (4)(-1) = 3 + 0 - 4 = -1$</li>
+<li>$\cos\theta = \dfrac{\vec{u} \cdot \vec{v}}{|\vec{u}||\vec{v}|} = \dfrac{-1}{5\sqrt{6}}$</li>
+<li>$\cos^2\theta = \dfrac{1}{25 \cdot 6} = \dfrac{1}{150}$</li>
+<li>$\sin^2\theta = 1 - \dfrac{1}{150} = \dfrac{149}{150}$</li>
+<li>$\sin\theta = \dfrac{\sqrt{149}}{\sqrt{150}}$ (raiz positiva)</li>
+<li>$|\vec{u}||\vec{v}|\sin\theta = 5 \cdot \sqrt{6} \cdot \dfrac{\sqrt{149}}{\sqrt{150}} = 5\sqrt{6} \cdot \dfrac{\sqrt{149}}{\sqrt{25 \cdot 6}} = 5\sqrt{6} \cdot \dfrac{\sqrt{149}}{5\sqrt{6}} = \sqrt{149}$</li>
+</ol>
+<p>Os dois métodos coincidem: $|\vec{u} \times \vec{v}| = |\vec{u}||\vec{v}|\sin\theta = \sqrt{149}$.</p>
+
+<p><strong>Reflexão de Sobrevivência:</strong> O produto vetorial encapsula em uma única operação o cálculo de área que, pela trigonometria direta, exige múltiplos passos (produto escalar para $\cos\theta$, identidade para $\sin\theta$, depois multiplicação). Na Zona Devastada, eficiência de cálculo é eficiência de recursos — menos passos significam menos chance de erro sob pressão.</p>
+</details>
+</div>

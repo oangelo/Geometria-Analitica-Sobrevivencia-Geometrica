@@ -1,16 +1,103 @@
 <section class="manual-contexto" data-context="manual-sobrevivencia">
     <div class="terminal-border">
-    <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: SISTEMAS LINEARES TRIDIMENSIONAIS</h2>
-<p>Na Zona Devastada, sobreviventes frequentemente enfrentam situações que envolvem múltiplas variáveis interdependentes: distribuição de recursos entre abrigos, coordenação de rotas de fuga tridimensionais, ou balanceamento de componentes para síntese de RemoveRad. Estes cenários exigem a resolução de sistemas de equações lineares a três incógnitas.</p>
-<p>Um sistema linear 3×3 representa a interseção geométrica de três planos no espaço R³. Dependendo de suas posições relativas, podem ter: solução única (os três planos se encontram em um ponto), infinitas soluções (os planos se intersectam em uma reta ou são coincidentes), ou nenhuma solução (planos paralelos ou configuração inconsistente).</p>
-<div class="formula">
-    $$\begin{cases}
-    a_1x + b_1y + c_1z = d_1 \\
-    a_2x + b_2y + c_2z = d_2 \\
-    a_3x + b_3y + c_3z = d_3
-    \end{cases}$$
-    </div>
-<p>As principais técnicas de resolução incluem: método da substituição (isolar uma variável e substituir nas demais equações), método da eliminação (eliminar variáveis através de operações elementares), e escalonamento de matrizes. Para sistemas homogêneos ($d_1 = d_2 = d_3 = 0$), sempre existe pelo menos a solução trivial $(0,0,0)$.</p>
+        <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA: SISTEMAS LINEARES 3&times;3</h2>
 
+        <p>No território pós-colapso, toda decisão envolve múltiplas restrições simultâneas. Três abrigos precisam de água, comida e munição; três torres de vigilância cobrem regiões sobrepostas; três reagentes são necessários para sintetizar RemoveRad. Cada restrição é uma equação. Cada recurso é uma incógnita. O conjunto forma um <strong>sistema de equações lineares a três incógnitas</strong>.</p>
+
+        <h3>1. A Forma Geral</h3>
+        <p>Um sistema 3&times;3 tem a forma:</p>
+        <div class="formula">
+            $$\begin{cases}
+            a_1x + b_1y + c_1z = d_1 \\
+            a_2x + b_2y + c_2z = d_2 \\
+            a_3x + b_3y + c_3z = d_3
+            \end{cases}$$
+        </div>
+        <p>Cada equação representa um <strong>plano</strong> no espaço $\mathbb{R}^3$. Resolver o sistema significa encontrar o ponto (ou pontos) que pertencem simultaneamente aos três planos.</p>
+
+        <h3>2. Interpretação Geométrica</h3>
+        <p>A interseção de três planos pode resultar em três cenários distintos:</p>
+
+        <p><span class="success">SPD &mdash; Sistema Possível e Determinado:</span> Os três planos se encontram em um <strong>único ponto</strong>. Solução única: $(x_0, y_0, z_0)$. Geometricamente, é a situação genérica: três planos "em posição geral".</p>
+
+        <p><span class="warning">SPI &mdash; Sistema Possível e Indeterminado:</span> Os três planos contêm uma <strong>reta comum</strong> (ou são coincidentes). Infinitas soluções, expressas com um parâmetro livre. Exemplo: dois planos distintos se intersectam numa reta, e o terceiro plano contém essa mesma reta.</p>
+
+        <p><span class="danger">SI &mdash; Sistema Impossível:</span> Não há ponto comum aos três planos. Duas subcategorias:
+        <ul>
+            <li><strong>Dois planos paralelos distintos</strong> &mdash; nunca se encontram, logo não há interseção comum.</li>
+            <li><strong>Os três formam um prisma triangular</strong> &mdash; cada par de planos se intersecta numa reta, mas as três retas são paralelas distintas (como as arestas de um prisma).</li>
+        </ul>
+        </p>
+
+        <h3>3. Método de Eliminação (Escalonamento)</h3>
+        <p>A estratégia é reduzir o sistema 3&times;3 a um sistema 2&times;2, que já sabemos resolver do Capítulo 0.</p>
+
+        <p><strong>Passo 1:</strong> Elimine uma mesma variável (por exemplo, $x$) de duas equações diferentes, usando a primeira equação como "pivô".</p>
+
+        <p><strong>Passo 2:</strong> Você obtém duas novas equações com apenas $y$ e $z$. Resolva esse sistema 2&times;2.</p>
+
+        <p><strong>Passo 3:</strong> Substitua os valores encontrados em uma das equações originais para obter a terceira variável.</p>
+
+        <p><strong>Exemplo ilustrativo:</strong></p>
+        <div class="formula">
+            $$\begin{cases}
+            x + y + z = 6 \\
+            2x - y + z = 3 \\
+            x + 2y - z = 2
+            \end{cases}$$
+        </div>
+        <p>Multiplicando a primeira equação por $-2$ e somando à segunda, eliminamos $x$:</p>
+        <div class="formula">
+            $$-3y - z = -9 \quad \text{(Eq. 2')}$$
+        </div>
+        <p>Multiplicando a primeira por $-1$ e somando à terceira:</p>
+        <div class="formula">
+            $$y - 2z = -4 \quad \text{(Eq. 3')}$$
+        </div>
+        <p>Agora resolvemos o sistema 2&times;2 nas variáveis $y$ e $z$:</p>
+        <div class="formula">
+            $$\begin{cases} -3y - z = -9 \\ y - 2z = -4 \end{cases}$$
+        </div>
+        <p>Da segunda: $y = 2z - 4$. Substituindo na primeira: $-3(2z-4) - z = -9 \Rightarrow -7z + 12 = -9 \Rightarrow z = 3$. Logo $y = 2$. Voltando à primeira equação original: $x + 2 + 3 = 6 \Rightarrow x = 1$. Solução: $(1, 2, 3)$.</p>
+
+        <h3>4. Classificação via Determinante</h3>
+        <p>Seja $A$ a matriz dos coeficientes:</p>
+        <div class="formula">
+            $$A = \begin{pmatrix} a_1 & b_1 & c_1 \\ a_2 & b_2 & c_2 \\ a_3 & b_3 & c_3 \end{pmatrix}$$
+        </div>
+        <p>Calcule $\det A$ pela <strong>regra de Sarrus</strong>:</p>
+        <div class="formula">
+            $$\det A = a_1b_2c_3 + b_1c_2a_3 + c_1a_2b_3 - c_1b_2a_3 - a_1c_2b_3 - b_1a_2c_3$$
+        </div>
+
+        <p><span class="success">Se $\det A \neq 0$:</span> O sistema é <strong>SPD</strong> &mdash; solução única. Os três planos se encontram num único ponto.</p>
+
+        <p><span class="warning">Se $\det A = 0$:</span> O sistema pode ser <strong>SPI</strong> ou <strong>SI</strong>. É necessário analisar caso a caso. Escalone o sistema: se chegar a uma identidade ($0 = 0$), é SPI; se chegar a uma contradição ($0 = k$ com $k \neq 0$), é SI.</p>
+
+        <h3>5. Resumo da Classificação Geométrica</h3>
+        <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+            <tr style="border-bottom: 1px solid #4caf50;">
+                <th style="text-align:left; padding:8px; color:#4caf50;">Tipo</th>
+                <th style="text-align:left; padding:8px; color:#4caf50;">Determinante</th>
+                <th style="text-align:left; padding:8px; color:#4caf50;">Interseção dos 3 planos</th>
+            </tr>
+            <tr style="border-bottom: 1px solid #333;">
+                <td style="padding:8px;"><span class="success">SPD</span></td>
+                <td style="padding:8px;">$\det A \neq 0$</td>
+                <td style="padding:8px;">Um único ponto</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #333;">
+                <td style="padding:8px;"><span class="warning">SPI</span></td>
+                <td style="padding:8px;">$\det A = 0$</td>
+                <td style="padding:8px;">Uma reta comum (infinitos pontos)</td>
+            </tr>
+            <tr>
+                <td style="padding:8px;"><span class="danger">SI</span></td>
+                <td style="padding:8px;">$\det A = 0$</td>
+                <td style="padding:8px;">Vazia (planos paralelos ou prisma)</td>
+            </tr>
+        </table>
+
+        <p class="hint">Quando o determinante é nulo, não existe fórmula mágica: você deve escalonar e observar o que acontece. A geometria dos planos revela a resposta.</p>
     </div>
 </section>

@@ -1,24 +1,42 @@
 <div class="exercise">
-<h3>Sistema de Defesa Multicamadas</h3>
-<p>Você está projetando um sistema de defesa com múltiplas elipses concêntricas. A elipse externa tem equação $\frac{x^2}{100} + \frac{y^2}{64} = 1$. A elipse interna deve ter os mesmos focos, mas metade da área da externa. Considerando que a área de uma elipse é $A = \pi ab$, determine a equação da elipse interna e calcule a diferença entre as excentricidades das duas elipses.</p>
+<h3>SISTEMA DE DEFESA MULTICAMADAS</h3>
+
+<p>O objetivo deste exercício é trabalhar com uma elipse cujo centro não está na origem. Um sistema de defesa em anel tem centro em $C(2, -1)$ e equação $\frac{(x-2)^2}{9} + \frac{(y+1)^2}{4} = 1$.</p>
+
+<p><strong>(a)</strong> Identifique o centro $C(h, k)$ diretamente da equação. Identifique $a^2$ e $b^2$, determinando a orientação da elipse.</p>
+
+<p><strong>(b)</strong> Os vértices no eixo maior são encontrados partindo do centro e andando $\pm a$ na direção do eixo maior. Encontre esses vértices. Faça o mesmo para os vértices no eixo menor (andando $\pm b$).</p>
+
+<p><strong>(c)</strong> Calcule $c$ pela relação $c^2 = a^2 - b^2$ e encontre as coordenadas dos focos (a partir do centro, ande $\pm c$ na direção do eixo maior).</p>
+
+<p><strong>(d)</strong> Calcule a excentricidade $e = \frac{c}{a}$.</p>
+
+<p><strong>(e)</strong> No papel, esboce a elipse transladada. Marque o centro, vértices e focos.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>A forma $(x-h)^2$ com $h = 2$ significa que o centro tem $x = 2$. A forma $(y-k)^2$ com $k = -1$ (cuidado: é $y - (-1) = y + 1$) significa que o centro tem $y = -1$. O maior denominador é 9, sob $(x-2)^2$, então o eixo maior é horizontal. Os vértices do eixo maior são $(2 \pm 3, -1) = (-1, -1)$ e $(5, -1)$.</p>
+</div>
+</details>
+
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Para a elipse externa: $a_1 = 10$, $b_1 = 8$, $c_1^2 = 100 - 64 = 36$, logo $c_1 = 6$</li>
-<li>Área externa: $A_1 = \pi \cdot 10 \cdot 8 = 80\pi$</li>
-<li>Área interna: $A_2 = \frac{A_1}{2} = 40\pi = \pi a_2 b_2$, logo $a_2 b_2 = 40$</li>
-<li>Para mesmos focos: $c_2 = c_1 = 6$, então $c_2^2 = a_2^2 - b_2^2 = 36$</li>
-<li>Sistema: $a_2 b_2 = 40$ e $a_2^2 - b_2^2 = 36$</li>
-<li>De $b_2 = \frac{40}{a_2}$: $a_2^2 - \frac{1600}{a_2^2} = 36$</li>
-<li>$a_2^4 - 36a_2^2 - 1600 = 0$. Seja $u = a_2^2$: $u^2 - 36u - 1600 = 0$</li>
-<li>$u = \frac{36 \pm \sqrt{1296 + 6400}}{2} = \frac{36 \pm \sqrt{7696}}{2} = \frac{36 \pm 4\sqrt{481}}{2}$</li>
-<li>Como $\sqrt{481} \approx 21.9$: $u \approx 50$, logo $a_2 \approx \sqrt{50} = 5\sqrt{2}$</li>
-<li>$b_2 = \frac{40}{5\sqrt{2}} = 4\sqrt{2}$</li>
+<li>Equação: $\frac{(x-2)^2}{9} + \frac{(y+1)^2}{4} = 1$.</li>
+<li>Centro: $C(2, -1)$ (pois $(x-2)$ indica $h = 2$ e $(y+1) = (y-(-1))$ indica $k = -1$).</li>
+<li>$a^2 = 9$ (maior denominador, sob $(x-2)^2$), logo $a = 3$. Eixo maior é horizontal.</li>
+<li>$b^2 = 4$ (sob $(y+1)^2$), logo $b = 2$.</li>
+<li>Vértices do eixo maior (horizontal, a partir do centro): $(2 \pm 3, -1) = (-1, -1)$ e $(5, -1)$.</li>
+<li>Vértices do eixo menor (vertical, a partir do centro): $(2, -1 \pm 2) = (2, -3)$ e $(2, 1)$.</li>
+<li>Calcule $c$: $c^2 = a^2 - b^2 = 9 - 4 = 5$, logo $c = \sqrt{5} \approx 2{,}24$.</li>
+<li>Focos (na direção horizontal, a partir do centro): $(2 \pm \sqrt{5}, -1)$.</li>
+<li>Aproximadamente: $F_1(2 - 2{,}24, -1) = (-0{,}24, -1)$ e $F_2(2 + 2{,}24, -1) = (4{,}24, -1)$.</li>
+<li>Excentricidade: $e = \frac{\sqrt{5}}{3} \approx 0{,}745$.</li>
 </ol>
 <div class="formula">
-                    $$\text{Elipse interna: } \frac{x^2}{50} + \frac{y^2}{32} = 1$$
-                    $$e_1 = \frac{6}{10} = 0.6, \quad e_2 = \frac{6}{5\sqrt{2}} = \frac{3\sqrt{2}}{5} \approx 0.849$$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> Sistemas de defesa multicamadas com diferentes excentricidades criam zonas de proteção complementares. A elipse interna mais "alongada" oferece cobertura direcionada, enquanto a externa fornece proteção mais uniforme.</p>
+$$C(2, -1), \quad a = 3, \quad b = 2, \quad c = \sqrt{5}, \quad e = \frac{\sqrt{5}}{3}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A elipse transladada segue exatamente a mesma lógica da elipse com centro na origem — apenas todos os elementos são deslocados pelo vetor $(h, k) = (2, -1)$. Na Zona Devastada, sistemas de defesa raramente têm seu centro na origem do sistema de coordenadas. Saber "ler" a equação transladada é essencial para posicionar corretamente os recursos defensivos.</p>
 </details>
 </div>

@@ -1,16 +1,40 @@
 <section class="manual-contexto" data-context="manual-sobrevivencia">
     <div class="terminal-border">
-    <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: O ESPAÇO VETORIAL R³</h2>
-<p>Sobrevivente, bem-vindo à terceira dimensão! Enquanto no R² navegávamos apenas no plano (norte-sul, leste-oeste), agora incluímos a altura. No mundo pós-apocalíptico, isso significa bunkers subterrâneos (z negativo) e torres de vigilância (z positivo). Cada ponto no espaço é uma tríade ordenada (x, y, z).</p>
-<p>Um vetor no R³ é representado por três componentes: $\vec{v} = (v_1, v_2, v_3)$. As operações básicas funcionam componente a componente, exatamente como no R², mas agora com três coordenadas. A soma de vetores representa deslocamentos combinados, e a multiplicação por escalar altera a magnitude mantendo a direção.</p>
-<div class="formula">
-    $$\text{Ponto: } P = (x, y, z)$$
-    $$\text{Vetor: } \vec{v} = (v_1, v_2, v_3)$$
-    $$\text{Soma: } \vec{u} + \vec{v} = (u_1 + v_1, u_2 + v_2, u_3 + v_3)$$
-    $$\text{Multiplicação por escalar: } k\vec{v} = (kv_1, kv_2, kv_3)$$
-    $$\text{Módulo: } |\vec{v}| = \sqrt{v_1^2 + v_2^2 + v_3^2}$$
-    </div>
-<p>A distância entre pontos e o módulo de vetores usam a extensão tridimensional do teorema de Pitágoras. Equações vetoriais descrevem trajetórias: um ponto inicial mais um vetor direção multiplicado por um parâmetro tempo.</p>
+        <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: O ESPAÇO VETORIAL R³</h2>
 
+        <p><strong>Contextualização:</strong> No Cap I, navegávamos no plano — apenas norte-sul e leste-oeste bastavam para mapear a Zona Devastada. Mas a realidade é tridimensional. Bunkers subterrâneos exigem coordenadas com <code>z</code> negativo. Torres de vigilância operam com <code>z</code> positivo. Drones sobrevoam em altitudes variáveis. A terceira dimensão não é luxo — é sobrevivência.</p>
+
+        <p>Um ponto no espaço é uma tríade ordenada $P(x, y, z)$. Um vetor no R³ tem três componentes: $\vec{v} = (v_1, v_2, v_3)$. As operações básicas — soma, subtração e multiplicação por escalar — funcionam <strong>componente a componente</strong>, exatamente como no R². Não há mistério: generalizamos o que já dominamos.</p>
+
+        <div class="formula">
+            $$\text{Ponto: } P = (x, y, z)$$
+            $$\text{Vetor: } \vec{v} = (v_1, v_2, v_3)$$
+            $$\text{Soma: } \vec{u} + \vec{v} = (u_1 + v_1, \; u_2 + v_2, \; u_3 + v_3)$$
+            $$\text{Multiplicação por escalar: } k\vec{v} = (kv_1, \; kv_2, \; kv_3)$$
+        </div>
+
+        <p><strong>Módulo e distância:</strong> Estas são extensões diretas do Teorema de Pitágoras, agora com a terceira componente. Consulte o Cap II para a construção no plano — aqui apenas generalizamos:</p>
+
+        <div class="formula">
+            $$|\vec{v}| = \sqrt{v_1^2 + v_2^2 + v_3^2}$$
+            $$d(A, B) = |\overrightarrow{AB}| = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2 + (z_B - z_A)^2}$$
+        </div>
+
+        <p><strong>Vetor diretor e equação vetorial da reta no espaço:</strong> Esta é a mesma ferramenta que usamos no Cap III para retas no R², agora com uma componente a mais. Dado um ponto inicial $A$ e um vetor diretor $\vec{v}$, todo ponto da reta é obtido percorrendo múltiplos escalares de $\vec{v}$ a partir de $A$:</p>
+
+        <div class="formula">
+            $$\vec{r}(t) = \vec{r}_0 + t\vec{v} \quad \text{ou} \quad (x, y, z) = (x_0, y_0, z_0) + t(v_1, v_2, v_3)$$
+        </div>
+
+        <p>O parâmetro $t \in \mathbb{R}$ varia livremente. Quando $t = 0$, estamos no ponto inicial; quando $t = 1$, percorremos exatamente o vetor $\vec{v}$; valores negativos de $t$ percorrem a direção oposta.</p>
+
+        <p><strong>Vetores canônicos:</strong> No R³, a base canônica é formada por três vetores unitários, um para cada eixo coordenado:</p>
+
+        <div class="formula">
+            $$\vec{i} = (1, 0, 0), \quad \vec{j} = (0, 1, 0), \quad \vec{k} = (0, 0, 1)$$
+            $$\vec{v} = v_1\vec{i} + v_2\vec{j} + v_3\vec{k} = (v_1, v_2, v_3)$$
+        </div>
+
+        <p>Qualquer vetor do R³ se decompõe unicamente como combinação linear de $\vec{i}$, $\vec{j}$ e $\vec{k}$. Esta decomposição será fundamental quando introduzirmos o produto vetorial nos próximos tópicos.</p>
     </div>
 </section>

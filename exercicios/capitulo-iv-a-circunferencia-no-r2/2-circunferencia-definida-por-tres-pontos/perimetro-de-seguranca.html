@@ -1,30 +1,28 @@
 <div class="exercise">
 <h3>PERÍMETRO DE SEGURANÇA</h3>
-<p>Sua equipe de sobrevivência estabeleceu três marcos de vigilância nos pontos A(0, 0), B(4, 0) e C(2, 2). Para otimizar o uso de sensores de movimento, você precisa determinar a equação da circunferência que passa exatamente por estes três pontos, criando assim um perímetro de segurança eficiente.</p>
+
+<p>Uma expedição de reconhecimento marcou três postos de vigilância nas posições $A(0,0)$, $B(6,0)$ e $C(3,3)$. O SUPERVISOR ordenou que o perímetro de segurança seja a circunferência que passa exatamente por esses três marcos — todo ponto sobre ela estará na fronteira da zona protegida. No papel, esboce os três pontos e trace uma curva que os una, depois use a equação geral da circunferência $x^2 + y^2 + Dx + Ey + F = 0$ para determinar os coeficientes $D$, $E$ e $F$, e identifique o centro e o raio desse perímetro. Observe que um dos pontos é a origem — isso simplifica o sistema.</p>
+
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
 <div class="hint">
-<p>Substitua as coordenadas dos três pontos na equação geral da circunferência $x^2 + y^2 + Dx + Ey + F = 0$ para gerar um sistema de três equações lineares com três incógnitas (D, E e F).</p>
+<p>Se $A(0,0)$ pertence à circunferência, substituir $x = 0$ e $y = 0$ na equação geral fornece $F$ imediatamente. Com $F$ conhecido, restam apenas duas equações e duas incógnitas ($D$ e $E$).</p>
 </div>
 </details>
+
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Substitua cada ponto na equação geral da circunferência $x^2 + y^2 + Dx + Ey + F = 0$:
-                    Para A(0, 0): $0^2 + 0^2 + D·0 + E·0 + F = 0 \implies F = 0$
-                    Para B(4, 0): $4^2 + 0^2 + D·4 + E·0 + F = 0 \implies 16 + 4D + F = 0$
-                    Para C(2, 2): $2^2 + 2^2 + D·2 + E·2 + F = 0 \implies 8 + 2D + 2E + F = 0$</li>
-<li>Já sabemos que $F = 0$, substituindo nas outras equações:
-                    $16 + 4D = 0 \implies D = -4$
-                    $8 + 2D + 2E = 0 \implies 8 + 2(-4) + 2E = 0 \implies 8 - 8 + 2E = 0 \implies E = 0$</li>
-<li>Então temos $D = -4$, $E = 0$ e $F = 0$.
-                    A equação da circunferência é $x^2 + y^2 - 4x = 0$</li>
-<li>Completando quadrados: $x^2 - 4x + y^2 = 0 \implies (x^2 - 4x + 4) + y^2 - 4 = 0 \implies (x - 2)^2 + y^2 = 4$</li>
-<li>Portanto, o centro da circunferência é $(2, 0)$ e o raio é $r = 2$</li>
+<li>Substituindo $A(0,0)$ na equação geral: $0 + 0 + 0 + 0 + F = 0 \Rightarrow F = 0$. O atalho da origem elimina $F$ de uma só vez.</li>
+<li>Substituindo $B(6,0)$: $36 + 0 + 6D + 0 + 0 = 0 \Rightarrow 6D = -36 \Rightarrow D = -6$.</li>
+<li>Substituindo $C(3,3)$: $9 + 9 + 3(-6) + 3E + 0 = 0 \Rightarrow 18 - 18 + 3E = 0 \Rightarrow E = 0$.</li>
+<li>Equação da circunferência: $x^2 + y^2 - 6x = 0$.</li>
+<li>Centro: $\left(-\dfrac{D}{2},\; -\dfrac{E}{2}\right) = \left(-\dfrac{-6}{2},\; 0\right) = (3, 0)$.</li>
+<li>Raio: $r = \sqrt{\left(\dfrac{D}{2}\right)^2 + \left(\dfrac{E}{2}\right)^2 - F} = \sqrt{9 + 0 - 0} = 3$.</li>
 </ol>
 <div class="formula">
-                    $$(x - 2)^2 + y^2 = 4$$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> Assim como uma circunferência é definida por três pontos estratégicos, seu perímetro de segurança depende de marcos bem posicionados. Não basta ter sensores aleatórios; é preciso um padrão matemático que maximize a cobertura com recursos mínimos. Os pontos colineares são como sentinelas alinhadas - deixam lacunas vulneráveis assim como pontos colineares não formam uma circunferência.</p>
+$$x^2 + y^2 - 6x = 0 \qquad \text{Centro } (3,0), \quad r = 3$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Quando um dos marcos é a origem, o coeficiente $F$ vale zero por substituição direta — nenhum cálculo é necessário. Na Zona Devastada, reconhecer atalhos economiza tempo e reduz erros. Três pontos e um sistema $3 \times 3$ se reduzem a duas equações lineares simples.</p>
 </details>
 </div>

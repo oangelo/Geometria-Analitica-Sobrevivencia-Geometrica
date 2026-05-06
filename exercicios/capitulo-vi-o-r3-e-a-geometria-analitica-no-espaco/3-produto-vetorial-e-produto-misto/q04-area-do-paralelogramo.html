@@ -1,0 +1,52 @@
+<div class="exercise">
+<h3>ÁREA DO PARALELOGRAMO</h3>
+<p>O objetivo deste exercício é usar o produto vetorial para calcular a área de um paralelogramo no espaço tridimensional, conectando a fórmula algébrica com a interpretação geométrica.</p>
+<p>Dois vetores de sustentação de uma antena de comunicação são dados por $\vec{u} = (4, 1, -1)$ e $\vec{v} = (2, 3, 2)$. Eles definem um paralelogramo no plano de ancoragem da torre.</p>
+<p><strong>(a)</strong> Calcule $\vec{u} \times \vec{v}$.</p>
+<p><strong>(b)</strong> Calcule $|\vec{u} \times \vec{v}|$, que representa a área do paralelogramo formado por $\vec{u}$ e $\vec{v}$.</p>
+<p><strong>(c)</strong> Verifique que a fórmula $|\vec{u}||\vec{v}|\sin\theta$ dá o mesmo resultado. Para isso, primeiro calcule $\cos\theta$ pelo produto escalar, depois obtenha $\sin\theta$ pela identidade $\sin^2\theta + \cos^2\theta = 1$.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para o item (c), use $\vec{u} \cdot \vec{v} = |\vec{u}||\vec{v}|\cos\theta$ para encontrar $\cos\theta$. Depois $\sin\theta = \sqrt{1 - \cos^2\theta}$ (use a raiz positiva pois $0° \leq \theta \leq 180°$). Finalmente, multiplique $|\vec{u}||\vec{v}|\sin\theta$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>Item (a):</strong></p>
+<ol class="solution-steps">
+<li>$\vec{u} \times \vec{v} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 4 & 1 & -1 \\ 2 & 3 & 2 \end{vmatrix}$</li>
+<li>Componente $\vec{i}$: $(1)(2) - (-1)(3) = 2 + 3 = 5$</li>
+<li>Componente $\vec{j}$: $-[(4)(2) - (-1)(2)] = -[8 + 2] = -10$</li>
+<li>Componente $\vec{k}$: $(4)(3) - (1)(2) = 12 - 2 = 10$</li>
+</ol>
+<div class="formula">
+$$\vec{u} \times \vec{v} = (5, -10, 10)$$
+</div>
+
+<p><strong>Item (b):</strong></p>
+<ol class="solution-steps">
+<li>$|\vec{u} \times \vec{v}| = \sqrt{5^2 + (-10)^2 + 10^2}$</li>
+<li>$= \sqrt{25 + 100 + 100} = \sqrt{225} = 15$</li>
+</ol>
+<div class="formula">
+$$\text{Área do paralelogramo} = 15 \text{ unidades}^2$$
+</div>
+
+<p><strong>Item (c):</strong></p>
+<ol class="solution-steps">
+<li>$|\vec{u}| = \sqrt{4^2 + 1^2 + (-1)^2} = \sqrt{16 + 1 + 1} = \sqrt{18} = 3\sqrt{2}$</li>
+<li>$|\vec{v}| = \sqrt{2^2 + 3^2 + 2^2} = \sqrt{4 + 9 + 4} = \sqrt{17}$</li>
+<li>$\vec{u} \cdot \vec{v} = (4)(2) + (1)(3) + (-1)(2) = 8 + 3 - 2 = 9$</li>
+<li>$\cos\theta = \dfrac{\vec{u} \cdot \vec{v}}{|\vec{u}||\vec{v}|} = \dfrac{9}{3\sqrt{2} \cdot \sqrt{17}} = \dfrac{9}{3\sqrt{34}} = \dfrac{3}{\sqrt{34}}$</li>
+<li>$\cos^2\theta = \dfrac{9}{34}$, logo $\sin^2\theta = 1 - \dfrac{9}{34} = \dfrac{25}{34}$</li>
+<li>$\sin\theta = \dfrac{5}{\sqrt{34}}$ (raiz positiva)</li>
+<li>$|\vec{u}||\vec{v}|\sin\theta = 3\sqrt{2} \cdot \sqrt{17} \cdot \dfrac{5}{\sqrt{34}} = 3\sqrt{34} \cdot \dfrac{5}{\sqrt{34}} = 15$</li>
+</ol>
+<p>Os dois métodos coincidem: $|\vec{u} \times \vec{v}| = |\vec{u}||\vec{v}|\sin\theta = 15$.</p>
+
+<p><strong>Reflexão de Sobrevivência:</strong> O produto vetorial encapsula duas informações em uma só operação: a direção perpendicular (útil para construir estruturas estáveis) e a área do paralelogramo (útil para calcular materiais necessários). Na Zona Devastada, eficiência de cálculo é eficiência de recursos.</p>
+</details>
+</div>

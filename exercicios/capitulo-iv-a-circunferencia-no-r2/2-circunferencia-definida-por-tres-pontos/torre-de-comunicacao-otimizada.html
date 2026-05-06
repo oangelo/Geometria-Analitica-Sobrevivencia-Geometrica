@@ -1,67 +1,31 @@
 <div class="exercise">
 <h3>TORRE DE COMUNICAÇÃO OTIMIZADA</h3>
-<p>Três assentamentos estão localizados nos pontos A(2, 7), B(4, -1) e C(-6, 3). Para estabelecer um sistema de comunicação eficiente, você precisa construir uma torre no centro da circunferência que passa pelos três assentamentos. Além disso, é necessário instalar três repetidores nas interseções da circunferência com os eixos coordenados. Determine a equação da circunferência, as coordenadas do centro e as posições dos repetidores.</p>
+
+<p>Três antenas de comunicação foram instaladas em $A(3,4)$, $B(-3,4)$ e $C(3,-4)$. O engenheiro do REFÚGIO-TEC precisa determinar a circunferência que passa pelas três antenas — ela definirá a zona de cobertura ótima do sistema. Ao montar e resolver o sistema, observe se algum padrão especial aparece nos coeficientes $D$ e $E$. Isso revela algo sobre a posição do centro em relação à origem?</p>
+
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
 <div class="hint">
-<p>Use a forma geral e a expanda para encontrar o centro e o raio. Os repetidores estarão nos pontos onde $x = 0$ ou $y = 0$.</p>
+<p>Calcule $x^2 + y^2$ para cada ponto. Se os três valores forem iguais, os pontos são equidistantes da origem — pense no que isso significa geometricamente para o centro da circunferência.</p>
 </div>
 </details>
+
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Vamos substituir os três pontos na equação geral $x^2 + y^2 + Dx + Ey + F = 0$:
-                    Para A(2, 7): $2^2 + 7^2 + 2D + 7E + F = 0 \implies 4 + 49 + 2D + 7E + F = 0 \implies 53 + 2D + 7E + F = 0$
-                    Para B(4, -1): $4^2 + (-1)^2 + 4D + (-1)E + F = 0 \implies 16 + 1 + 4D - E + F = 0 \implies 17 + 4D - E + F = 0$
-                    Para C(-6, 3): $(-6)^2 + 3^2 + (-6)D + 3E + F = 0 \implies 36 + 9 - 6D + 3E + F = 0 \implies 45 - 6D + 3E + F = 0$</li>
-<li>Usando o método de eliminação de Gauss, podemos resolver este sistema de equações lineares:
-                    $53 + 2D + 7E + F = 0$ ... (1)
-                    $17 + 4D - E + F = 0$ ... (2)
-                    $45 - 6D + 3E + F = 0$ ... (3)
-                    
-                    Subtraindo (2) de (1):
-                    $36 - 2D + 8E = 0$ ... (4)
-                    
-                    Subtraindo (3) de (1):
-                    $8 + 8D + 4E = 0$ ... (5)
-                    
-                    De (4): $2D = 36 + 8E \implies D = 18 + 4E$ ... (6)
-                    
-                    Substituindo (6) em (5):
-                    $8 + 8(18 + 4E) + 4E = 0$
-                    $8 + 144 + 32E + 4E = 0$
-                    $152 + 36E = 0$
-                    $E = -\frac{152}{36} = -\frac{38}{9}$</li>
-<li>Substituindo $E = -\frac{38}{9}$ em (6):
-                    $D = 18 + 4(-\frac{38}{9}) = 18 - \frac{152}{9} = \frac{162 - 152}{9} = \frac{10}{9}$</li>
-<li>Substituindo $D = \frac{10}{9}$ e $E = -\frac{38}{9}$ em (1):
-                    $53 + 2(\frac{10}{9}) + 7(-\frac{38}{9}) + F = 0$
-                    $53 + \frac{20}{9} - \frac{266}{9} + F = 0$
-                    $53 + \frac{20 - 266}{9} + F = 0$
-                    $53 - \frac{246}{9} + F = 0$
-                    $F = -53 + \frac{246}{9} = \frac{-477 + 246}{9} = -\frac{231}{9}$</li>
-<li>A equação da circunferência é:
-                    $x^2 + y^2 + \frac{10}{9}x - \frac{38}{9}y - \frac{231}{9} = 0$
-                    Multiplicando por 9:
-                    $9x^2 + 9y^2 + 10x - 38y - 231 = 0$</li>
-<li>Para encontrar o centro, completamos os quadrados:
-                    $9(x^2 + \frac{10}{9}x) + 9(y^2 - \frac{38}{9}y) = 231$
-                    $9(x^2 + \frac{10}{9}x + \frac{25}{81}) + 9(y^2 - \frac{38}{9}y + \frac{361}{81}) = 231 + 9(\frac{25}{81}) + 9(\frac{361}{81})$
-                    $9(x + \frac{5}{9})^2 + 9(y - \frac{19}{9})^2 = 231 + \frac{225}{81} + \frac{3249}{81}$
-                    $9(x + \frac{5}{9})^2 + 9(y - \frac{19}{9})^2 = \frac{18711 + 225 + 3249}{81} = \frac{22185}{81}$
-                    $(x + \frac{5}{9})^2 + (y - \frac{19}{9})^2 = \frac{22185}{729}$</li>
-<li>O centro é $(-\frac{5}{9}, \frac{19}{9})$ e o raio é $r = \sqrt{\frac{22185}{729}} = \frac{\sqrt{22185}}{\sqrt{729}} = \frac{\sqrt{22185}}{27}$</li>
-<li>Para encontrar os repetidores nas interseções com os eixos:
-                    - No eixo x: $y = 0$, substituindo na equação:
-                    $x^2 + \frac{10}{9}x - \frac{231}{9} = 0$
-                    - No eixo y: $x = 0$, substituindo na equação:
-                    $y^2 - \frac{38}{9}y - \frac{231}{9} = 0$
-                    (esses são polinômios quadráticos que podem ser resolvidos pela fórmula quadrática)</li>
+<li>$A(3,4)$: $9 + 16 + 3D + 4E + F = 0 \Rightarrow 3D + 4E + F = -25$ &nbsp; ...(1)</li>
+<li>$B(-3,4)$: $9 + 16 - 3D + 4E + F = 0 \Rightarrow -3D + 4E + F = -25$ &nbsp; ...(2)</li>
+<li>$C(3,-4)$: $9 + 16 + 3D - 4E + F = 0 \Rightarrow 3D - 4E + F = -25$ &nbsp; ...(3)</li>
+<li>(1) $-$ (2): $6D = 0 \Rightarrow D = 0$.</li>
+<li>(1) $-$ (3): $8E = 0 \Rightarrow E = 0$.</li>
+<li>De (1): $0 + 0 + F = -25 \Rightarrow F = -25$.</li>
+<li>Equação: $x^2 + y^2 - 25 = 0$, ou seja, $x^2 + y^2 = 25$.</li>
+<li>Centro: $(0, 0)$ — a própria origem. Raio: $r = 5$.</li>
+<li>Observação: os três pontos satisfazem $x^2 + y^2 = 25$, ou seja, estão todos a distância 5 da origem. Isso já indicava que a origem seria o centro.</li>
 </ol>
 <div class="formula">
-                    $$x^2 + y^2 + \frac{10}{9}x - \frac{38}{9}y - \frac{231}{9} = 0$$
-                    $$\text{Centro} = (-\frac{5}{9}, \frac{19}{9}), \text{ Raio} = \frac{\sqrt{22185}}{27}$$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> Um sistema de comunicação eficiente é vital para coordenar recursos e alertas em uma sociedade pós-apocalíptica. A posição da torre central, determinada pela circunferência que passa pelos três assentamentos, otimiza a distância e potência de sinal necessária. Os repetidores posicionados estrategicamente nas interseções com os eixos coordenados criam um sistema de backup resiliente. Este projeto geométrico maximiza a cobertura com o mínimo de equipamentos - um exemplo perfeito de como a geometria analítica pode ajudar a reconstruir a infraestrutura de forma eficiente em um mundo com recursos limitados.</p>
+$$x^2 + y^2 = 25 \qquad \text{Centro } (0,0), \quad r = 5$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Quando os três pontos são equidistantes da origem, a circunferência que os contém é centrada na origem — $D = 0$ e $E = 0$ confirmam isso algebricamente. O sistema $3 \times 3$ resolve qualquer caso, mas reconhecer padrões geométricos poupa trabalho. Na Zona Devastada, a antena mais eficiente é aquela que opera a partir do centro exato da rede.</p>
 </details>
 </div>

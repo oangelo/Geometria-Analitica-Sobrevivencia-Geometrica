@@ -1,0 +1,68 @@
+<div class="exercise">
+<h3>Classificação por Determinante</h3>
+<p><strong>Objetivo:</strong> Usar o determinante da matriz de coeficientes para classificar um sistema 3&times;3 antes de resolvê-lo.</p>
+
+<p>Antes de despachar uma equipe de resgate, o operador do Refúgio-TEC precisa classificar rapidamente o seguinte sistema de coordenadas:</p>
+
+<div class="formula">
+$$\begin{cases}
+2x + y - z = 5 \\
+x - 2y + 3z = -2 \\
+3x + y + z = 6
+\end{cases}$$
+</div>
+
+<p><strong>a)</strong> Escreva a matriz de coeficientes $A$ do sistema.</p>
+
+<p><strong>b)</strong> Calcule $\det A$ pela regra de Sarrus. Mostre todos os termos.</p>
+
+<p><strong>c)</strong> Com base no valor do determinante, classifique o sistema (SPD, SPI ou SI) <em>antes</em> de resolvê-lo.</p>
+
+<p><strong>d)</strong> Resolva o sistema por eliminação e confirme a classificação.</p>
+
+<p><strong>e)</strong> Se $\det A = 0$, o sistema seria SPI ou SI? Explique como você decidiria sem calcular toda a solução.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>Regra de Sarrus: para matriz $3 \times 3$, copie as duas primeiras colunas à direita, some os produtos das diagonais descendentes e subtraia os produtos das diagonais ascendentes. Se $\det A \neq 0$, o sistema é SPD (solução única). Se $\det A = 0$, você precisa escalonar para distinguir SPI de SI.</p>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+
+<p><strong>a)</strong> Matriz de coeficientes:</p>
+<div class="formula">
+$$A = \begin{pmatrix} 2 & 1 & -1 \\ 1 & -2 & 3 \\ 3 & 1 & 1 \end{pmatrix}$$
+</div>
+
+<p><strong>b)</strong> Regra de Sarrus:</p>
+<div class="formula">
+$$\det A = 2(-2)(1) + 1(3)(3) + (-1)(1)(1) - (-1)(-2)(3) - 2(3)(1) - 1(1)(1)$$
+$$= -4 + 9 - 1 - 6 - 6 - 1 = -9$$
+</div>
+
+<p><strong>c)</strong> Como $\det A = -9 \neq 0$, o sistema é <span class="success">SPD</span> &mdash; há solução única, garantida.</p>
+
+<p><strong>d)</strong> Resolução por eliminação:</p>
+<p>Eq. (II) &times; $(-2)$ + Eq. (I): $(2x + y - z) + (-2x + 4y - 6z) = 5 + 4$</p>
+<div class="formula">$$5y - 7z = 9 \quad \text{(I')}$$</div>
+
+<p>Eq. (II) &times; $(-3)$ + Eq. (III): $(3x + y + z) + (-3x + 6y - 9z) = 6 + 6$</p>
+<div class="formula">$$7y - 8z = 12 \quad \text{(III')}$$</div>
+
+<p>Sistema 2&times;2:</p>
+<div class="formula">$$\begin{cases} 5y - 7z = 9 \\ 7y - 8z = 12 \end{cases}$$</div>
+
+<p>Da primeira: $y = \dfrac{9 + 7z}{5}$. Substituindo na segunda:</p>
+<div class="formula">$$7\left(\dfrac{9 + 7z}{5}\right) - 8z = 12 \Rightarrow \dfrac{63 + 49z - 40z}{5} = 12 \Rightarrow 63 + 9z = 60 \Rightarrow z = -\dfrac{1}{3}$$
+</div>
+
+<p>Logo: $y = \dfrac{9 + 7(-\frac{1}{3})}{5} = \dfrac{9 - \frac{7}{3}}{5} = \dfrac{\frac{20}{3}}{5} = \dfrac{4}{3}$.</p>
+
+<p>Da equação (II): $x - 2\left(\frac{4}{3}\right) + 3\left(-\frac{1}{3}\right) = -2 \Rightarrow x - \frac{8}{3} - 1 = -2 \Rightarrow x = -2 + \frac{11}{3} = \frac{5}{3}$.</p>
+
+<p>Solução: $\left(\dfrac{5}{3}, \dfrac{4}{3}, -\dfrac{1}{3}\right)$. Confirmação: SPD com solução única.</p>
+
+<p><strong>e)</strong> Se $\det A = 0$, o sistema poderia ser SPI ou SI. Para decidir sem resolver completamente, escalonamos: se chegarmos a uma identidade ($0 = 0$), é SPI; se chegarmos a uma contradição ($0 = k$ com $k \neq 0$), é SI. O determinante nulo apenas garante que a matriz não é invertível &mdash; a classificação final depende da análise do escalonamento.</p>
+</details>
+</div>

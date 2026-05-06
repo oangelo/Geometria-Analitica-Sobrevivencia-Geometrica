@@ -1,46 +1,32 @@
 <div class="exercise">
 <h3>DEFESA TRIANGULAR</h3>
-<p>Sua comunidade construiu um sistema de defesa triangular com torres nos pontos A(-2, 0), B(2, 0) e C(0, 4). Para maximizar a cobertura dos canhões de defesa, você propõe instalar um canhão giratório no centro da circunferência que passa pelas três torres. Determine a posição exata onde o canhão deve ser instalado e seu alcance máximo (raio) para cobrir todas as torres.</p>
+
+<p>Três torres de defesa perimétrica estão posicionadas em $A(0,0)$, $B(3,1)$ e $C(-1,3)$. O sistema de defesa opera em modo circular: o campo de proteção é a circunferência que passa pelas três torres. Determine a equação dessa circunferência, identifique o centro e o raio, e depois verifique se um quarto posto de observação em $D(2,3)$ está dentro, sobre ou fora do campo de proteção — use a ferramenta de pertencimento estudada no Tópico 1: calcule a distância de $D$ ao centro e compare com o raio.</p>
+
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
 <div class="hint">
-<p>Este é um caso especial onde as três torres formam um triângulo retângulo. O centro da circunferência circunscrita está na metade da hipotenusa. Verifique se o teorema de Pitágoras é satisfeito e use as propriedades geométricas para encontrar o centro.</p>
+<p>Novamente $A$ é a origem, portanto $F = 0$. Após encontrar o centro e o raio, calcule $d(D, \text{centro})$ e compare com $r^2$ — se for menor, $D$ está dentro; se igual, está sobre; se maior, está fora.</p>
 </div>
 </details>
+
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Primeiro identifiquemos o triângulo: A(-2, 0), B(2, 0) e C(0, 4).
-                    Note que o ângulo em C é de 90° (triângulo retângulo), pois:
-                    $\overrightarrow{CA} \cdot \overrightarrow{CB} = (-2-0)·(2-0) + (0-4)·(0-4) = -4 + (-4)·(-4) = -4 + 16 = 12$
-                    Mas $|\overrightarrow{CA}|·|\overrightarrow{CB}| = \sqrt{(-2)^2 + (-4)^2}·\sqrt{2^2 + (-4)^2} = \sqrt{4+16}·\sqrt{4+16} = \sqrt{20}·\sqrt{20} = 20$
-                    Como $\overrightarrow{CA} \cdot \overrightarrow{CB} \neq |\overrightarrow{CA}|·|\overrightarrow{CB}|$, os vetores não são perpendiculares.</li>
-<li>Vamos corrigir o cálculo:
-                    $\overrightarrow{CA} = (-2-0, 0-4) = (-2, -4)$
-                    $\overrightarrow{CB} = (2-0, 0-4) = (2, -4)$
-                    $\overrightarrow{CA} \cdot \overrightarrow{CB} = (-2)(2) + (-4)(-4) = -4 + 16 = 12$
-                    Usando o teorema de Pitágoras nas distâncias:
-                    $|AB|^2 = (2-(-2))^2 + (0-0)^2 = 16$
-                    $|AC|^2 = (0-(-2))^2 + (4-0)^2 = 4 + 16 = 20$
-                    $|BC|^2 = (0-2)^2 + (4-0)^2 = 4 + 16 = 20$
-                    Como $|AB|^2 + |BC|^2 \neq |AC|^2$, o triângulo não é retângulo.</li>
-<li>Na verdade, precisamos usar o método geral. Vamos substituir os pontos na equação da circunferência:
-                    Para A(-2, 0): $(-2)^2 + 0^2 + D(-2) + E(0) + F = 0 \implies 4 - 2D + F = 0$
-                    Para B(2, 0): $(2)^2 + 0^2 + D(2) + E(0) + F = 0 \implies 4 + 2D + F = 0$
-                    Para C(0, 4): $(0)^2 + 4^2 + D(0) + E(4) + F = 0 \implies 16 + 4E + F = 0$</li>
-<li>Das duas primeiras equações:
-                    $4 - 2D + F = 0$ e $4 + 2D + F = 0$
-                    Subtraindo: $-4D = 0 \implies D = 0$
-                    Substituindo: $4 + F = 0 \implies F = -4$
-                    Da terceira equação: $16 + 4E - 4 = 0 \implies 4E = -12 \implies E = -3$</li>
-<li>A equação da circunferência é: $x^2 + y^2 - 3y - 4 = 0$
-                    Completando quadrados: $x^2 + (y^2 - 3y + \frac{9}{4}) - 4 - \frac{9}{4} = 0$
-                    $x^2 + (y - \frac{3}{2})^2 = 4 + \frac{9}{4} = \frac{16 + 9}{4} = \frac{25}{4}$
-                    $x^2 + (y - \frac{3}{2})^2 = (\frac{5}{2})^2$</li>
+<li>$A(0,0)$ é a origem $\Rightarrow F = 0$.</li>
+<li>$B(3,1)$: $9 + 1 + 3D + E = 0 \Rightarrow 3D + E = -10$ &nbsp; ...(1)</li>
+<li>$C(-1,3)$: $1 + 9 - D + 3E = 0 \Rightarrow -D + 3E = -10$ &nbsp; ...(2)</li>
+<li>De (1): $E = -10 - 3D$. Substituindo em (2): $-D + 3(-10 - 3D) = -10 \Rightarrow -D - 30 - 9D = -10 \Rightarrow -10D = 20 \Rightarrow D = -2$.</li>
+<li>$E = -10 - 3(-2) = -10 + 6 = -4$.</li>
+<li>Equação: $x^2 + y^2 - 2x - 4y = 0$.</li>
+<li>Centro: $(1, 2)$ e $r = \sqrt{1 + 4 - 0} = \sqrt{5}$.</li>
+<li>Verificação de $D(2,3)$: distância ao centro $= \sqrt{(2-1)^2 + (3-2)^2} = \sqrt{1 + 1} = \sqrt{2}$.</li>
+<li>Comparação: $(\sqrt{2})^2 = 2 < 5 = r^2$. Portanto $D$ está <strong>dentro</strong> do campo de proteção.</li>
 </ol>
 <div class="formula">
-                    $$x^2 + (y - \frac{3}{2})^2 = \frac{25}{4}$$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> A defesa eficiente de recursos em um mundo hostil frequentemente exige cobrir vários pontos estratégicos com um esforço mínimo. O canhão centralizado funciona como o centro de uma circunferência matemática - garantindo cobertura equidistante de todas as torres. Esta abordagem geométrica otimiza os recursos limitados e maximiza a proteção. Mesmo nas condições mais adversas, a precisão matemática pode ser a diferença entre manter ou perder seu território.</p>
+$$x^2 + y^2 - 2x - 4y = 0 \qquad \text{Centro } (1,2), \quad r = \sqrt{5}$$
+$$D(2,3):\; d^2 = 2 < 5 = r^2 \quad(\text{interno})$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Construir a circunferência por três pontos e depois testar a posição de um quarto ponto é o ciclo completo de operação tática: primeiro mapear o perímetro, depois avaliar se uma posição está segura. Oposto ao Tópico 1, onde a equação era dada — aqui o explorador a constrói a partir da realidade do terreno.</p>
 </details>
 </div>

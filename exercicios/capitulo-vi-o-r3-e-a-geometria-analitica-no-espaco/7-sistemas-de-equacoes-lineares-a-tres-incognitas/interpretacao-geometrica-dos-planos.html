@@ -1,35 +1,51 @@
 <div class="exercise">
 <h3>Interpretação Geométrica dos Planos</h3>
-<p>Três barreiras de força protetoras formam planos no espaço. Determine onde elas se intersectam e classifique geometricamente o sistema:</p>
-<div class="formula">
-            $$\begin{cases}
-            2x + y - z = 4 \\
-            x - y + 2z = 1 \\
-            3x + 2y - 4z = 7
-            \end{cases}$$
-            </div>
+<p><strong>Objetivo:</strong> Associar a descrição geométrica de três planos à classificação do sistema correspondente.</p>
+
+<p>Para cada configuração geométrica abaixo, esboce mentalmente (ou descreva por escrito) a disposição dos planos e determine se o sistema resultante é SPD, SPI ou SI.</p>
+
+<p><strong>a)</strong> Três planos se intersectam dois a dois em retas distintas, e as três retas de interseção se encontram num único ponto.</p>
+
+<p><strong>b)</strong> Dois planos são paralelos distintos; o terceiro plano intersecta ambos.</p>
+
+<p><strong>c)</strong> Os três planos contêm uma mesma reta comum.</p>
+
+<p><strong>d)</strong> Os três planos são coincidentes (a mesma equação multiplicada por constantes não nulas).</p>
+
+<p><strong>e)</strong> Cada par de planos se intersecta numa reta, mas as três retas de interseção são paralelas distintas (configuração de prisma triangular).</p>
+
+<p><strong>f)</strong> Dois planos são coincidentes; o terceiro os intersecta numa reta.</p>
+
+<p><strong>g)</strong> Para o item (a), escreva um exemplo numérico de sistema 3&times;3 que tenha essa configuração (dica: use o sistema do Q1).</p>
+
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
-<div class="hint">
-                Após resolver o sistema, interprete o resultado: uma solução única representa um ponto de interseção, infinitas soluções indicam interseção em uma reta, e nenhuma solução significa planos que não se encontram.
-            </div>
+<p>Pense no que acontece com o número de soluções em cada caso. SPD = 1 ponto, SPI = infinitos pontos (reta ou plano), SI = nenhum ponto. Para o item (g), lembre-se de que três planos em posição geral (normais linearmente independentes) se intersectam num ponto.</p>
 </details>
+
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-<ol class="solution-steps">
-<li>Somando as duas primeiras equações: $(2x + y - z) + (x - y + 2z) = 4 + 1 \Rightarrow 3x + z = 5$ ... (4)</li>
-<li>Multiplicando a segunda equação por 2: $2x - 2y + 4z = 2$</li>
-<li>Somando com a primeira: $(2x + y - z) + (2x - 2y + 4z) = 4 + 2 \Rightarrow 4x - y + 3z = 6$ ... (5)</li>
-<li>Da equação (4): $z = 5 - 3x$</li>
-<li>Substituindo na equação (5): $4x - y + 3(5 - 3x) = 6 \Rightarrow 4x - y + 15 - 9x = 6 \Rightarrow -5x - y = -9 \Rightarrow y = 9 - 5x$</li>
-<li>Verificando na terceira equação: $3x + 2(9 - 5x) - 4(5 - 3x) = 3x + 18 - 10x - 20 + 12x = 5x - 2$</li>
-<li>Para que seja igual a 7: $5x - 2 = 7 \Rightarrow x = \frac{9}{5}$</li>
-<li>$y = 9 - 5 \cdot \frac{9}{5} = 9 - 9 = 0$</li>
-<li>$z = 5 - 3 \cdot \frac{9}{5} = 5 - \frac{27}{5} = -\frac{2}{5}$</li>
-</ol>
+
+<p><strong>a)</strong> <span class="success">SPD</span>. Os três planos se encontram num único ponto. É a configuração genérica: os vetores normais são linearmente independentes.</p>
+
+<p><strong>b)</strong> <span class="danger">SI</span>. Dois planos paralelos distintos nunca se intersectam, logo não há ponto comum aos três. O terceiro plano intersecta cada um dos paralelos em retas paralelas distintas.</p>
+
+<p><strong>c)</strong> <span class="warning">SPI</span>. Infinitas soluções: todos os pontos da reta comum. Os três planos são distintos mas compartilham uma reta.</p>
+
+<p><strong>d)</strong> <span class="warning">SPI</span>. Todos os pontos do plano são solução. Geometricamente, os três planos são o mesmo plano. O sistema tem duas variáveis livres.</p>
+
+<p><strong>e)</strong> <span class="danger">SI</span>. Cada par de planos se intersecta, mas não há ponto comum aos três. As três retas de interseção são paralelas distintas, como as arestas de um prisma triangular.</p>
+
+<p><strong>f)</strong> <span class="warning">SPI</span>. Dois planos coincidentes formam um único plano; o terceiro o intersecta numa reta. Infinitas soluções (pontos dessa reta).</p>
+
+<p><strong>g)</strong> Exemplo (sistema do Q1):</p>
 <div class="formula">
-                    Solução: $(x, y, z) = \left(\frac{9}{5}, 0, -\frac{2}{5}\right)$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> Os três planos de força se intersectam em um único ponto crítico. Este ponto representa a única vulnerabilidade no sistema de defesa - deve ser protegido a todo custo, pois sua falha comprometeria todas as três barreiras simultaneamente.</p>
+$$\begin{cases}
+x + y + z = 6 \\
+2x - y + z = 3 \\
+x + 2y - z = 2
+\end{cases}$$
+</div>
+<p>Vetores normais: $\vec{n}_1 = (1,1,1)$, $\vec{n}_2 = (2,-1,1)$, $\vec{n}_3 = (1,2,-1)$. Como $\det A = -9 \neq 0$, os vetores são linearmente independentes e os planos se intersectam num único ponto: $P(1, 2, 3)$.</p>
 </details>
 </div>

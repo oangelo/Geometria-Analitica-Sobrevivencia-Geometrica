@@ -1,0 +1,38 @@
+<div class="exercise">
+<h3>CÁLCULO DO PRODUTO VETORIAL</h3>
+<p>O objetivo deste exercício é aplicar a fórmula do determinante para calcular o produto vetorial e, em seguida, verificar que o resultado é de fato perpendicular aos vetores originais.</p>
+<p>Dados os vetores $\vec{u} = (2, -1, 3)$ e $\vec{v} = (1, 4, -2)$:</p>
+<p><strong>(a)</strong> Calcule $\vec{u} \times \vec{v}$ usando a fórmula do determinante 3×3.</p>
+<p><strong>(b)</strong> Verifique que $(\vec{u} \times \vec{v}) \cdot \vec{u} = 0$ e $(\vec{u} \times \vec{v}) \cdot \vec{v} = 0$. O que isso confirma geometricamente?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Monte o determinante com $\vec{i}$, $\vec{j}$, $\vec{k}$ na primeira linha, as coordenadas de $\vec{u}$ na segunda e as de $\vec{v}$ na terceira. Expanda pela primeira linha. Para a verificação, lembre-se: o produto escalar de vetores perpendiculares é zero.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>Item (a):</strong></p>
+<ol class="solution-steps">
+<li>Montamos o determinante: $\vec{u} \times \vec{v} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 2 & -1 & 3 \\ 1 & 4 & -2 \end{vmatrix}$</li>
+<li>Expandindo pela primeira linha (regra de Sarrus ou Laplace):</li>
+<li>Componente $\vec{i}$: $(-1)(-2) - (3)(4) = 2 - 12 = -10$</li>
+<li>Componente $\vec{j}$: $-[(2)(-2) - (3)(1)] = -[-4 - 3] = -(-7) = 7$</li>
+<li>Componente $\vec{k}$: $(2)(4) - (-1)(1) = 8 + 1 = 9$</li>
+</ol>
+<div class="formula">
+$$\vec{u} \times \vec{v} = (-10, 7, 9)$$
+</div>
+
+<p><strong>Item (b):</strong></p>
+<ol class="solution-steps">
+<li>$(\vec{u} \times \vec{v}) \cdot \vec{u} = (-10)(2) + (7)(-1) + (9)(3) = -20 - 7 + 27 = 0$</li>
+<li>$(\vec{u} \times \vec{v}) \cdot \vec{v} = (-10)(1) + (7)(4) + (9)(-2) = -10 + 28 - 18 = 0$</li>
+</ol>
+<p>Ambos os produtos escalares são zero, o que confirma que $\vec{u} \times \vec{v}$ é perpendicular a $\vec{u}$ e a $\vec{v}$ simultaneamente. Geometricamente, isso significa que o vetor resultante aponta na direção da reta perpendicular ao plano determinado por $\vec{u}$ e $\vec{v}$.</p>
+
+<p><strong>Reflexão de Sobrevivência:</strong> A verificação por produto escalar é sua "prova de sanidade" — sempre que calcular um produto vetorial, confirme que ele é de fato perpendicular aos vetores de entrada. Na Zona Devastada, um erro de cálculo na direção de uma antena de comunicação pode significar perda de sinal em momento crítico.</p>
+</details>
+</div>

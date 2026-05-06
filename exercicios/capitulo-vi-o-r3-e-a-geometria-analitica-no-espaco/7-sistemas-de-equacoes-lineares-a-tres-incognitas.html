@@ -169,6 +169,11 @@
             box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
         }
 
+        .manual-contexto,
+        .enunciados-exercicios {
+            margin-bottom: 20px;
+        }
+
         .mission-counter {
             counter-reset: mission;
         }
@@ -226,18 +231,18 @@
     <script>
     const MANUAL = "7-sistemas-de-equacoes-lineares-a-tres-incognitas-manual.html";
     const EXERCICIOS = [
-        "7-sistemas-de-equacoes-lineares-a-tres-incognitas/distribuicao-de-suprimentos-basicos.html",
-        "7-sistemas-de-equacoes-lineares-a-tres-incognitas/sintese-de-removerad-triplo.html",
-        "7-sistemas-de-equacoes-lineares-a-tres-incognitas/coordenadas-do-bunker-perdido.html",
-        "7-sistemas-de-equacoes-lineares-a-tres-incognitas/balanceamento-de-energia-nuclear.html",
-        "7-sistemas-de-equacoes-lineares-a-tres-incognitas/rota-de-fuga-tridimensional.html",
-        "7-sistemas-de-equacoes-lineares-a-tres-incognitas/sistema-de-defesa-automatizado.html",
-        "7-sistemas-de-equacoes-lineares-a-tres-incognitas/analise-de-sistema-impossivel.html",
+        "7-sistemas-de-equacoes-lineares-a-tres-incognitas/resolucao-por-eliminacao.html",
         "7-sistemas-de-equacoes-lineares-a-tres-incognitas/sistema-com-infinitas-solucoes.html",
+        "7-sistemas-de-equacoes-lineares-a-tres-incognitas/sistema-impossivel-planos-paralelos.html",
+        "7-sistemas-de-equacoes-lineares-a-tres-incognitas/classificacao-por-determinante.html",
+        "7-sistemas-de-equacoes-lineares-a-tres-incognitas/sistema-com-parametro-k.html",
         "7-sistemas-de-equacoes-lineares-a-tres-incognitas/interpretacao-geometrica-dos-planos.html",
-        "7-sistemas-de-equacoes-lineares-a-tres-incognitas/otimizacao-de-recursos-criticos.html",
-        "7-sistemas-de-equacoes-lineares-a-tres-incognitas/triangulacao-de-fonte-de-interferencia.html",
-        "7-sistemas-de-equacoes-lineares-a-tres-incognitas/protocolo-de-evacuacao-complexa.html"
+        "7-sistemas-de-equacoes-lineares-a-tres-incognitas/intersecao-e-ponto-extra.html",
+        "7-sistemas-de-equacoes-lineares-a-tres-incognitas/mistura-de-recursos.html",
+        "7-sistemas-de-equacoes-lineares-a-tres-incognitas/variaveis-livres-parametricas.html",
+        "7-sistemas-de-equacoes-lineares-a-tres-incognitas/torres-de-vigilancia.html",
+        "7-sistemas-de-equacoes-lineares-a-tres-incognitas/sintese-de-removerad.html",
+        "7-sistemas-de-equacoes-lineares-a-tres-incognitas/intersecao-e-reta-contida.html"
     ];
 
     async function carregarManual(arquivo) {
@@ -260,7 +265,7 @@
         container.innerHTML = `
             <section class="enunciados-exercicios" data-context="exercicios-enunciados">
                 <div class="terminal-border">
-                    <h2 class="terminal-line">> MISSÕES E ENUNCIADOS</h2>
+                    <h2 class="terminal-line">&gt; MISSÕES E ENUNCIADOS</h2>
                     <div class="mission-counter" id="mission-container"></div>
                 </div>
             </section>`;
@@ -292,7 +297,7 @@
 
     <!-- RODAPÉ DO DOCUMENTO -->
     <div class="footer">
-        REFÚGIO-TEC | Sistemas de Equações Lineares 3x3: Sobrevivência Matemática - "Na Zona Devastada, cada equação resolvida é uma vida salva"
+        REFÚGIO-TEC | Sistemas de Equações Lineares 3&times;3: Sobrevivência Matemática &mdash; "Três planos, uma interseção, nenhuma incerteza"
     </div>
 </body>
 </html>

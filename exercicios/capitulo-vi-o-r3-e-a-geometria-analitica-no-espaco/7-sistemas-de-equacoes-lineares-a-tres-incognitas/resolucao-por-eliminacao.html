@@ -1,0 +1,61 @@
+<div class="exercise">
+<h3>Resolução por Eliminação Passo a Passo</h3>
+<p><strong>Objetivo:</strong> Dominar o método de eliminação (escalonamento) para resolver um sistema 3&times;3 com solução única.</p>
+
+<p>O setor de logística do Refúgio-TEC precisa determinar a quantidade de três tipos de suprimentos &mdash; água ($x$), rações ($y$) e munição ($z$) &mdash; a serem distribuídos entre três abrigos. As restrições de transporte impõem o seguinte sistema:</p>
+
+<div class="formula">
+$$\begin{cases}
+x + y + z = 6 \\
+2x - y + z = 3 \\
+x + 2y - z = 2
+\end{cases}$$
+</div>
+
+<p><strong>a)</strong> Elimine a variável $x$ das equações (II) e (III) usando a equação (I) como pivô. Escreva o sistema 2&times;2 resultante em $y$ e $z$.</p>
+
+<p><strong>b)</strong> Resolva o sistema 2&times;2 obtido no item anterior.</p>
+
+<p><strong>c)</strong> Substitua os valores de $y$ e $z$ na equação (I) para encontrar $x$.</p>
+
+<p><strong>d)</strong> Verifique a solução substituindo $x$, $y$ e $z$ nas três equações originais.</p>
+
+<p><strong>e)</strong> Classifique o sistema (SPD, SPI ou SI) e interprete geometricamente: o que representa a solução encontrada em termos dos três planos?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>Para eliminar $x$ da equação (II), multiplique a equação (I) por $-2$ e some à (II). Para eliminar $x$ da equação (III), multiplique a (I) por $-1$ e some à (III). Mantenha a organização: escreva cada operação explicitamente.</p>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+
+<p><strong>a)</strong> Operações de eliminação:</p>
+<p>Eq. (I) &times; $(-2)$: $-2x - 2y - 2z = -12$</p>
+<p>Somando à Eq. (II): $(2x - y + z) + (-2x - 2y - 2z) = 3 + (-12)$</p>
+<div class="formula">$$-3y - z = -9 \quad \text{(II')}$$</div>
+
+<p>Eq. (I) &times; $(-1)$: $-x - y - z = -6$</p>
+<p>Somando à Eq. (III): $(x + 2y - z) + (-x - y - z) = 2 + (-6)$</p>
+<div class="formula">$$y - 2z = -4 \quad \text{(III')}$$</div>
+
+<p>Sistema 2&times;2:</p>
+<div class="formula">$$\begin{cases} -3y - z = -9 \\ y - 2z = -4 \end{cases}$$</div>
+
+<p><strong>b)</strong> Da equação (III'): $y = 2z - 4$. Substituindo em (II'):</p>
+<div class="formula">$$-3(2z - 4) - z = -9 \Rightarrow -6z + 12 - z = -9 \Rightarrow -7z = -21 \Rightarrow z = 3$$</div>
+<p>Logo: $y = 2(3) - 4 = 2$.</p>
+
+<p><strong>c)</strong> Substituindo $y = 2$ e $z = 3$ na equação (I):</p>
+<div class="formula">$$x + 2 + 3 = 6 \Rightarrow x = 1$$</div>
+
+<p><strong>d)</strong> Verificação:</p>
+<ul>
+<li>Eq. (I): $1 + 2 + 3 = 6$ &check;</li>
+<li>Eq. (II): $2(1) - 2 + 3 = 2 - 2 + 3 = 3$ &check;</li>
+<li>Eq. (III): $1 + 2(2) - 3 = 1 + 4 - 3 = 2$ &check;</li>
+</ul>
+
+<p><strong>e)</strong> O sistema é <span class="success">SPD</span> (Sistema Possível e Determinado). Geometricamente, os três planos se intersectam num <strong>único ponto</strong>: $P(1, 2, 3)$. Este ponto representa a distribuição exata de recursos: 1 unidade de água, 2 de rações e 3 de munição.</p>
+</details>
+</div>

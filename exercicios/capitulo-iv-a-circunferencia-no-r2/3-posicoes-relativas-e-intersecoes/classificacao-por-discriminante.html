@@ -1,0 +1,31 @@
+<div class="exercise">
+<h3>O DISCRIMINANTE COMO SENTINELA</h3>
+
+<p>Na classificação por distância, comparamos $d$ com $r$. Existe um método puramente algébrico equivalente: ao substituir a equação da reta na circunferência, obtemos uma equação do 2° grau cujo discriminante $\Delta$ repete exatamente a classificação geométrica. Considere a circunferência $x^2 + y^2 = 16$ (centro na origem, $r = 4$) e a família de retas $y = kx + 5$, onde $k$ é um parâmetro que controla a inclinação. Substitua $y$ na equação da circunferência e analise o discriminante da equação resultante. Determine os valores de $k$ para os quais a reta é tangente, secante e externa à circunferência.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Após a substituição, a equação em $x$ terá a forma $(1 + k^2)x^2 + 10kx + 9 = 0$. O discriminante é $\Delta = (10k)^2 - 4(1 + k^2)(9)$. Simplifique e analise o sinal de $\Delta$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Substituição: $x^2 + (kx + 5)^2 = 16 \Rightarrow x^2 + k^2x^2 + 10kx + 25 = 16 \Rightarrow (1 + k^2)x^2 + 10kx + 9 = 0$.</li>
+<li>Discriminante: $\Delta = (10k)^2 - 4(1 + k^2)(9) = 100k^2 - 36 - 36k^2 = 64k^2 - 36$.</li>
+<li>Fatore: $\Delta = 4(16k^2 - 9) = 4(4k - 3)(4k + 3)$.</li>
+<li><strong>Tangente</strong> ($\Delta = 0$): $16k^2 = 9 \Rightarrow k^2 = \frac{9}{16} \Rightarrow k = \pm\frac{3}{4}$.</li>
+<li><strong>Secante</strong> ($\Delta > 0$): $16k^2 > 9 \Rightarrow |k| > \frac{3}{4}$. A reta cruza a circunferência em dois pontos.</li>
+<li><strong>Externa</strong> ($\Delta < 0$): $16k^2 < 9 \Rightarrow |k| < \frac{3}{4}$. A reta não toca a circunferência.</li>
+<li>Verificação para $k = 0$: reta $y = 5$, $d = \frac{5}{1} = 5 > 4$. Externa ✓ (consistente com $|0| < 3/4$).</li>
+<li>Verificação para $k = 1$: $\Delta = 64 - 36 = 28 > 0$. Secante ✓ (consistente com $|1| > 3/4$).</li>
+</ol>
+<div class="formula">
+$$\Delta = 64k^2 - 36 = 4(4k - 3)(4k + 3)$$
+$$|k| = \frac{3}{4}: \text{tangente} \quad |k| > \frac{3}{4}: \text{secante} \quad |k| &lt; \frac{3}{4}: \text{externa}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O discriminante é um "sentinela algébrico": sem precisar calcular a distância centro-reta ou esboçar a figura, ele classifica a posição relativa apenas pelo sinal. $\Delta > 0$, $\Delta = 0$ e $\Delta < 0$ são os três estados de alerta — verde (externa), amarelo (tangente) e vermelho (secante). Na Zona Devastada, automatizar a detecção de perigo é questão de sobrevivência.</p>
+</details>
+</div>

@@ -1,40 +1,21 @@
 <div class="exercise">
 <h3>REABASTECIMENTO DE EMERGÊNCIA</h3>
-<p>Um veículo explorador quebrou no ponto $V(2, -1)$ e precisa ser reabastecido. Três depósitos de combustível estão localizados nos pontos $D_1(5, 3)$, $D_2(-2, 4)$ e $D_3(0, -5)$. Uma zona de radiação intensa é modelada pela circunferência $x^2 + y^2 - 4x + 6y + 4 = 0$. Determine qual depósito de combustível deve ser escolhido para o resgate, de forma que a rota entre o veículo e o depósito não atravesse a zona de radiação. Se mais de um depósito for viável, escolha o mais próximo do veículo.</p>
+
+<p>Uma expedição de reabastecimento precisa posicionar um depósito temporário ao longo da reta horizontal $y = 2$. A zona de proteção mais próxima é descrita por $(x-1)^2 + (y-2)^2 = 9$ (centro $(1,2)$, raio $3$), e uma fonte de radiação ativa está em $(x-4)^2 + (y-2)^2 = 16$ (centro $(4,2)$, raio $4$). O depósito deve ficar dentro da zona de proteção e fora da zona de radiação, na posição $P(k, 2)$. No papel, esboce as duas circunferências sobre a reta $y = 2$, marcando seus centros e pontos de interseção com essa reta. Substitua $P(k,2)$ em ambas as equações e determine o intervalo de valores de $k$ para o qual o depósito está em posição segura.</p>
+
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Reescrevemos a equação da circunferência:
-                    $x^2 + y^2 - 4x + 6y + 4 = 0$</li>
-<li>Completando os quadrados:
-                    $x^2 - 4x + 4 + y^2 + 6y + 9 + 4 - 4 - 9 = 0$
-                    $(x - 2)^2 + (y + 3)^2 = 9$</li>
-<li>Identificamos o centro $C(2, -3)$ e o raio $r = 3$.</li>
-<li>Verificamos se o veículo está dentro da zona de radiação:
-                    $d(V, C) = \sqrt{(2 - 2)^2 + (-1 - (-3))^2} = \sqrt{0 + 4} = 2 &lt; 3 = r$, logo o veículo está dentro da zona de radiação.</li>
-<li>Verificamos se os depósitos estão dentro da zona de radiação:
-                    $d(D_1, C) = \sqrt{(5 - 2)^2 + (3 - (-3))^2} = \sqrt{9 + 36} = \sqrt{45} \approx 6,71 &gt; 3 = r$, logo $D_1$ está fora.
-                    $d(D_2, C) = \sqrt{(-2 - 2)^2 + (4 - (-3))^2} = \sqrt{16 + 49} = \sqrt{65} \approx 8,06 &gt; 3 = r$, logo $D_2$ está fora.
-                    $d(D_3, C) = \sqrt{(0 - 2)^2 + (-5 - (-3))^2} = \sqrt{4 + 4} = \sqrt{8} \approx 2,83 &lt; 3 = r$, logo $D_3$ está dentro.</li>
-<li>Como o veículo está dentro da zona de radiação, qualquer rota para fora da zona atravessará a circunferência. No entanto, precisamos verificar se algum depósito também está dentro da zona, pois nesse caso a rota entre o veículo e esse depósito pode não atravessar a circunferência.</li>
-<li>Apenas o depósito $D_3$ está dentro da zona de radiação junto com o veículo.</li>
-<li>Para determinar se a rota do veículo ao depósito $D_3$ atravessa a circunferência, verificamos se o segmento de reta entre eles cruza a fronteira da zona. Isso pode ser feito analisando se existe algum ponto no segmento $V$-$D_3$ que está a uma distância exatamente $r$ do centro $C$.</li>
-<li>Parametrizando o segmento de reta: $P(t) = (1-t)V + tD_3 = (1-t)(2, -1) + t(0, -5) = (2(1-t), -1(1-t) - 5t) = (2-2t, -1-4t)$ para $0 \leq t \leq 1$.</li>
-<li>A distância ao centro é:
-                    $d(P(t), C)^2 = ((2-2t) - 2)^2 + ((-1-4t) - (-3))^2 = (-2t)^2 + (2-4t)^2 = 4t^2 + 4 - 16t + 16t^2 = 20t^2 - 16t + 4$</li>
-<li>Para verificar se cruza a circunferência, igualamos a $r^2 = 9$:
-                    $20t^2 - 16t + 4 = 9$
-                    $20t^2 - 16t - 5 = 0$</li>
-<li>Usando a fórmula quadrática: $t = \frac{16 \pm \sqrt{16^2 - 4 \cdot 20 \cdot (-5)}}{2 \cdot 20} = \frac{16 \pm \sqrt{256 + 400}}{40} = \frac{16 \pm \sqrt{656}}{40}$</li>
-<li>$t \approx \frac{16 \pm 25,61}{40} \approx \{1,04, -0,24\}$</li>
-<li>Como nenhum valor de $t$ está no intervalo $[0, 1]$ (o valor 1,04 está ligeiramente fora), o segmento de reta não cruza a circunferência.</li>
-<li>Portanto, apenas o depósito $D_3$ permite uma rota que não atravessa a zona de radiação.</li>
+<li>Substituição em ambas as equações com $y = 2$: Proteção: $(k-1)^2 + 0 = (k-1)^2$. Radiação: $(k-4)^2 + 0 = (k-4)^2$.</li>
+<li>Condição de proteção (interno): $(k-1)^2 &lt; 9 \Rightarrow |k-1| &lt; 3 \Rightarrow -2 &lt; k &lt; 4$.</li>
+<li>Condição de radiação (externo): $(k-4)^2 &gt; 16 \Rightarrow |k-4| &gt; 4 \Rightarrow k &lt; 0$ ou $k &gt; 8$.</li>
+<li>Interseção: protegido E fora da radiação. De $-2 &lt; k &lt; 4$ junto com $k &lt; 0$ ou $k &gt; 8$, a única parte que satisfaz ambas é $-2 &lt; k &lt; 0$.</li>
+<li>Conclusão: o depósito pode ser instalado em qualquer posição $P(k,2)$ com $-2 &lt; k &lt; 0$. Esse intervalo está dentro da proteção e completamente fora da zona de radiação.</li>
 </ol>
 <div class="formula">
-                    $(x - 2)^2 + (y + 3)^2 = 9$
-                    
-                    $d(V, D_3) = \sqrt{(2 - 0)^2 + (-1 - (-5))^2} = \sqrt{4 + 16} = \sqrt{20} \approx 4,47$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> Embora contra-intuitivo, às vezes a melhor rota é através de uma área que parece perigosa. Neste caso, o veículo e o depósito $D_3$ estão ambos dentro da zona de radiação, mas a rota entre eles não cruza o perímetro da zona, minimizando a exposição total à radiação. Esta é uma lição importante sobre como a geometria analítica pode revelar soluções não óbvias para problemas de sobrevivência.</p>
+$$\text{Proteção: } {-2} &lt; k &lt; 4 \qquad \text{Radiação: } k &lt; 0 \text{ ou } k &gt; 8$$
+$$\text{Interseção: } {-2} &lt; k &lt; 0$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O intervalo $-2 &lt; k &lt; 0$ tem comprimento 2 — duas unidades de margem para posicionar o depósito. As duas circunferências compartilham a reta $y = 2$ como diâmetro horizontal, mas se sobrepõem parcialmente: a região protegida e não irradiada é uma fatia estreita à esquerda do centro de proteção. Na Zona Devastada, a interseção de condições raramente é generosa — quanto mais restrições, menor o espaço útil.</p>
 </details>
 </div>

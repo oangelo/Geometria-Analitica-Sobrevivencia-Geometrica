@@ -1,90 +1,27 @@
 <div class="exercise">
 <h3>TRIANGULAÇÃO DE SINAIS</h3>
-<p>Três torres de comunicação foram estabelecidas nos pontos A(1, 5), B(9, 3) e C(5, -3) para triangular a origem de um sinal misterioso. Cada torre mede o tempo que leva para o sinal atingir sua posição, sendo que a torre A recebeu o sinal 3 microssegundos depois da torre B, e a torre C recebeu o sinal 2 microssegundos depois da torre B. Se o sinal viaja a uma velocidade constante de 300 metros por microssegundo, determine as coordenadas da fonte do sinal. A fonte está dentro ou fora da circunferência que passa pelas três torres? Qual seria a equação de uma circunferência alternativa que passa pelos pontos A e B, e tem seu centro exatamente na fonte do sinal? Poderia essa fonte ser um observador tentando localizar seu alvo usando a posição das três torres?</p>
+
+<p>Três torres de rádio captaram um sinal de socorro. As torres estão em $A(2,1)$, $B(6,3)$ e $C(4,7)$. A origem do sinal está no centro da circunferência que passa pelas três torres. Determine a equação dessa circunferência, identifique o centro e o raio. Um quarto sinal fraco foi detectado em $D(4,3)$ — esse ponto está dentro, sobre ou fora da circunferência? No papel, esboce os quatro pontos, a circunferência e a posição de $D$ em relação a ela.</p>
+
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Primeiro vamos encontrar a circunferência que passa pelas três torres:
-                    Para A(1, 5): $1^2 + 5^2 + D(1) + E(5) + F = 0 \implies 1 + 25 + D + 5E + F = 0 \implies 26 + D + 5E + F = 0$ ... (1)
-                    Para B(9, 3): $9^2 + 3^2 + D(9) + E(3) + F = 0 \implies 81 + 9 + 9D + 3E + F = 0 \implies 90 + 9D + 3E + F = 0$ ... (2)
-                    Para C(5, -3): $5^2 + (-3)^2 + D(5) + E(-3) + F = 0 \implies 25 + 9 + 5D - 3E + F = 0 \implies 34 + 5D - 3E + F = 0$ ... (3)</li>
-<li>Subtraindo (1) de (2):
-                    $90 + 9D + 3E + F - (26 + D + 5E + F) = 0$
-                    $90 + 9D + 3E - 26 - D - 5E = 0$
-                    $64 + 8D - 2E = 0$ ... (4)
-                    
-                    Subtraindo (1) de (3):
-                    $34 + 5D - 3E + F - (26 + D + 5E + F) = 0$
-                    $34 + 5D - 3E - 26 - D - 5E = 0$
-                    $8 + 4D - 8E = 0$ ... (5)</li>
-<li>Dividindo (5) por 4:
-                    $2 + D - 2E = 0$ ... (6)
-                    
-                    Dividindo (4) por 2:
-                    $32 + 4D - E = 0$ ... (7)
-                    
-                    Multiplicando (6) por 2:
-                    $4 + 2D - 4E = 0$ ... (8)
-                    
-                    Subtraindo (8) de (7):
-                    $32 + 4D - E - (4 + 2D - 4E) = 0$
-                    $32 + 4D - E - 4 - 2D + 4E = 0$
-                    $28 + 2D + 3E = 0$ ... (9)</li>
-<li>Da equação (6), temos:
-                    $D = 2E - 2$ ... (10)
-                    
-                    Substituindo (10) em (9):
-                    $28 + 2(2E - 2) + 3E = 0$
-                    $28 + 4E - 4 + 3E = 0$
-                    $24 + 7E = 0$
-                    $E = -\frac{24}{7}$</li>
-<li>Substituindo $E = -\frac{24}{7}$ em (10):
-                    $D = 2 \cdot (-\frac{24}{7}) - 2 = -\frac{48}{7} - 2 = -\frac{48}{7} - \frac{14}{7} = -\frac{62}{7}$</li>
-<li>Substituindo $D = -\frac{62}{7}$ e $E = -\frac{24}{7}$ em (1):
-                    $26 + (-\frac{62}{7}) + 5(-\frac{24}{7}) + F = 0$
-                    $26 - \frac{62}{7} - \frac{120}{7} + F = 0$
-                    $26 - \frac{182}{7} + F = 0$
-                    $F = -26 + \frac{182}{7} = \frac{-182 + 182}{7} = 0$</li>
-<li>A equação da circunferência que passa pelas três torres é:
-                    $x^2 + y^2 - \frac{62}{7}x - \frac{24}{7}y = 0$
-                    Multiplicando por 7:
-                    $7x^2 + 7y^2 - 62x - 24y = 0$</li>
-<li>Completando os quadrados:
-                    $7(x^2 - \frac{62}{7}x) + 7(y^2 - \frac{24}{7}y) = 0$
-                    $7(x^2 - \frac{62}{7}x + \frac{961}{98}) + 7(y^2 - \frac{24}{7}y + \frac{144}{98}) - 7(\frac{961}{98}) - 7(\frac{144}{98}) = 0$
-                    $7(x - \frac{31}{7})^2 + 7(y - \frac{12}{7})^2 = 7(\frac{961 + 144}{98}) = 7 \cdot \frac{1105}{98} = \frac{7735}{98}$
-                    $(x - \frac{31}{7})^2 + (y - \frac{12}{7})^2 = \frac{1105}{98}$</li>
-<li>O centro da circunferência que passa pelas três torres é $(\frac{31}{7}, \frac{12}{7})$ e o raio é $r = \sqrt{\frac{1105}{98}}$.</li>
-<li>Agora, vamos determinar a localização da fonte do sinal usando as diferenças de tempo:
-                    Se chamarmos a fonte de sinal de $S(x_S, y_S)$, então temos:
-                    $|SB| - |SA| = 3 \cdot 300 = 900$ metros
-                    $|SB| - |SC| = -2 \cdot 300 = -600$ metros
-                    
-                    Em termos de distâncias:
-                    $\sqrt{(x_S-9)^2 + (y_S-3)^2} - \sqrt{(x_S-1)^2 + (y_S-5)^2} = 900$
-                    $\sqrt{(x_S-9)^2 + (y_S-3)^2} - \sqrt{(x_S-5)^2 + (y_S+3)^2} = -600$
-                    
-                    Estas são equações de hipérboles. A fonte do sinal estará na interseção dessas duas hipérboles.
-                    
-                    Para resolver este sistema, podemos usar uma abordagem numérica ou algébrica avançada, mas uma análise detalhada mostra que a fonte está em aproximadamente $S(13.1, 7.2)$.</li>
-<li>Para verificar se a fonte está dentro ou fora da circunferência que passa pelas três torres, calculamos:
-                    $(13.1 - \frac{31}{7})^2 + (7.2 - \frac{12}{7})^2 \approx (13.1 - 4.4)^2 + (7.2 - 1.7)^2 \approx 8.7^2 + 5.5^2 \approx 75.7 + 30.3 \approx 106$
-                    
-                    Como este valor é muito maior que $\frac{1105}{98} \approx 11.3$, a fonte está fora da circunferência.</li>
-<li>Para determinar a equação da circunferência alternativa que passa pelos pontos A e B e tem seu centro na fonte do sinal:
-                    O centro seria $(x_S, y_S) \approx (13.1, 7.2)$
-                    O raio seria a distância de S a A:
-                    $r = |SA| = \sqrt{(13.1-1)^2 + (7.2-5)^2} \approx \sqrt{12.1^2 + 2.2^2} \approx \sqrt{146.4 + 4.8} \approx \sqrt{151.2} \approx 12.3$
-                    
-                    A equação da circunferência seria:
-                    $(x - 13.1)^2 + (y - 7.2)^2 = 151.2$</li>
-<li>Esta disposição poderia sugerir que a fonte do sinal é um observador tentando triangular sua posição usando as três torres. As diferenças de tempo representariam atrasos deliberados no sistema, permitindo ao observador permanecer oculto enquanto obtém informações sobre as torres. A localização fora da circunferência que passa pelas três torres é estrategicamente vantajosa, dando ao observador uma perspectiva externa de todo o sistema de comunicação.</li>
+<li>$A(2,1)$: $4 + 1 + 2D + E + F = 0 \Rightarrow 2D + E + F = -5$ &nbsp; ...(1)</li>
+<li>$B(6,3)$: $36 + 9 + 6D + 3E + F = 0 \Rightarrow 6D + 3E + F = -45$ &nbsp; ...(2)</li>
+<li>$C(4,7)$: $16 + 49 + 4D + 7E + F = 0 \Rightarrow 4D + 7E + F = -65$ &nbsp; ...(3)</li>
+<li>(2) $-$ (1): $4D + 2E = -40 \Rightarrow 2D + E = -20$ &nbsp; ...(4)</li>
+<li>(3) $-$ (1): $2D + 6E = -60 \Rightarrow D + 3E = -30$ &nbsp; ...(5)</li>
+<li>De (4): $E = -20 - 2D$. Substituindo em (5): $D + 3(-20 - 2D) = -30 \Rightarrow D - 60 - 6D = -30 \Rightarrow -5D = 30 \Rightarrow D = -6$.</li>
+<li>$E = -20 - 2(-6) = -20 + 12 = -8$.</li>
+<li>De (1): $2(-6) + (-8) + F = -5 \Rightarrow -12 - 8 + F = -5 \Rightarrow F = 15$.</li>
+<li>Equação: $x^2 + y^2 - 6x - 8y + 15 = 0$.</li>
+<li>Centro: $(3, 4)$ e $r = \sqrt{9 + 16 - 15} = \sqrt{10}$.</li>
+<li>Verificação de $D(4,3)$: $(4-3)^2 + (3-4)^2 = 1 + 1 = 2$. Como $2 < 10 = r^2$, o ponto $D(4,3)$ está <strong>dentro</strong> da circunferência.</li>
 </ol>
 <div class="formula">
-                    $(x - \frac{31}{7})^2 + (y - \frac{12}{7})^2 = \frac{1105}{98}$
-                    $\text{Coordenadas da fonte do sinal} \approx (13.1, 7.2)$
-                    $\text{Circunferência alternativa}: (x - 13.1)^2 + (y - 7.2)^2 = 151.2$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> A triangulação precisa de sinais é uma habilidade crítica tanto para localizar recursos quanto para identificar ameaças potenciais na Zona Devastada. A análise matemática da origem de um sinal revela não apenas sua localização, mas também potenciais intenções estratégicas. Um observador posicionado fora da circunferência que passa pelas três torres de comunicação pode monitorar todo o sistema, assim como o centro de uma circunferência matemática "enxerga" todos os pontos da circunferência de maneira equidistante. Neste novo mundo, quem domina a geometria analítica domina o fluxo de informações - e informação é poder.</p>
+$$x^2 + y^2 - 6x - 8y + 15 = 0 \qquad \text{Centro } (3,4), \quad r = \sqrt{10}$$
+$$D(4,3):\; 1 + 1 = 2 < 10 = r^2 \quad(\text{interno})$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Sem dicas, sem atalhos — apenas o método sistemático: substituir, subtrair, resolver. A triangulação converteu três sinais isolados em uma zona circular completa. O quarto sinal em $D$ ficou dentro do perímetro, o que significa que a fonte original do socorro pode estar mais próxima do que as torres indicavam.</p>
 </details>
 </div>

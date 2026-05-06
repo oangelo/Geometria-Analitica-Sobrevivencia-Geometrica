@@ -1,31 +1,26 @@
 <div class="exercise">
 <h3>FONTE DE ÁGUA POTÁVEL</h3>
-<p>Uma estação de purificação de água está localizada no centro de uma circunferência protetora descrita pela equação $x^2 + y^2 - 6x - 8y + 16 = 0$. Um repositório de RemoveRad está no ponto $P(4, 6)$. Determine se é possível acessar o repositório sem atravessar áreas com radiação e calcule a potência do ponto $P$ em relação à circunferência.</p>
+
+<p>Até aqui, classificamos pontos calculando a distância ao centro e comparando com o raio. Mas o SUPERVISOR revela um atalho: se a equação da circunferência é $(x-a)^2 + (y-b)^2 = r^2$, basta substituir as coordenadas do ponto no lado esquerdo e comparar o resultado com $r^2$ — sem tirar nenhuma raiz quadrada. Uma fonte de água potável opera no interior de uma zona de descontaminação circular descrita por $x^2 + y^2 = 36$ (centro na origem, $r = 6$). Três coletores de água foram instalados em $A(4,4)$, $B(6,0)$ e $C(-5,5)$. Substitua as coordenadas de cada ponto na expressão $x^2 + y^2$ e compare o resultado com $36$ para classificar cada coletor como interno, sobre ou externo à zona de descontaminação.</p>
+
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
 <div class="hint">
-<p>Primeiro coloque a equação da circunferência na forma canônica $(x-a)^2 + (y-b)^2 = r^2$ completando os quadrados. Em seguida, calcule a potência do ponto usando a fórmula $Pot(P) = d(P,C)^2 - r^2$.</p>
+<p>Para o ponto $A(4,4)$: calcule $4^2 + 4^2$ e compare com $36$. Se o resultado for menor que $36$, o ponto é interno; se igual, está sobre; se maior, é externo. Repita para $B$ e $C$.</p>
 </div>
 </details>
+
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Reescrevemos a equação da circunferência:
-                    $x^2 + y^2 - 6x - 8y + 16 = 0$</li>
-<li>Completando os quadrados:
-                    $x^2 - 6x + 9 + y^2 - 8y + 16 + 16 - 9 - 16 = 0$
-                    $(x - 3)^2 + (y - 4)^2 = 9$</li>
-<li>Identificamos o centro $C(3, 4)$ e o raio $r = 3$.</li>
-<li>Calculamos a distância do ponto $P(4, 6)$ ao centro:
-                    $d(P, C) = \sqrt{(4 - 3)^2 + (6 - 4)^2} = \sqrt{1 + 4} = \sqrt{5}$</li>
-<li>Como $d(P, C) = \sqrt{5} \approx 2,24 &lt; 3 = r$, o ponto $P$ está dentro da circunferência.</li>
-<li>Calculamos a potência do ponto $P$:
-                    $Pot(P) = d(P, C)^2 - r^2 = 5 - 9 = -4$</li>
+<li>Ponto $A(4,4)$: $4^2 + 4^2 = 16 + 16 = 32$. Como $32 < 36$, $A$ é <strong>interno</strong> — o coletor está dentro da zona de descontaminação.</li>
+<li>Ponto $B(6,0)$: $6^2 + 0^2 = 36 + 0 = 36$. Como $36 = 36$, $B$ está <strong>sobre</strong> a circunferência — no limite exato da zona.</li>
+<li>Ponto $C(-5,5)$: $(-5)^2 + 5^2 = 25 + 25 = 50$. Como $50 > 36$, $C$ é <strong>externo</strong> — o coletor está fora da zona de descontaminação.</li>
+<li>Conclusão: $A$ está seguro, $B$ está no limite e $C$ precisa ser realocado para dentro da zona.</li>
 </ol>
 <div class="formula">
-                    $(x - 3)^2 + (y - 4)^2 = 9$
-                    $Pot(P) = d(P, C)^2 - r^2 = 5 - 9 = -4$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> O valor negativo da potência confirma que o repositório de RemoveRad está dentro da zona segura. Localizar recursos em zonas protegidas é uma vantagem estratégica, permitindo acesso frequente sem a necessidade de Trajes de Proteção, economizando recursos valiosos e reduzindo a exposição à radiação da equipe.</p>
+$$A(4,4):\; 32 &lt; 36 \;\Rightarrow\; \text{interno} \qquad B(6,0):\; 36 = 36 \;\Rightarrow\; \text{sobre} \qquad C(-5,5):\; 50 &gt; 36 \;\Rightarrow\; \text{externo}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O método de substituição elimina a raiz quadrada — e com ela, a chance de erro em números irracionais. Cada comparação é direta: o resultado numérico contra $r^2$. Na Zona Devastada, eficiência é sobrevivência: menos passos, menos erros, mais água coletada.</p>
 </details>
 </div>
