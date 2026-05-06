@@ -1,0 +1,125 @@
+<section class="manual-contexto" data-context="manual-sobrevivencia">
+    <div class="terminal-border">
+        <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: ELIPSE</h2>
+
+        <p>Na Zona Devastada, algumas rotas de patrulha não seguem uma circunferência perfeita. Um sobrevivente que parte de um posto avançado, circunda uma área contaminada e retorna ao mesmo posto percorre um caminho fechado — mas se os dois postos de comando estiverem em posições diferentes, a rota de patrulha que mantém a soma das distâncias a esses dois postos constante forma uma <strong>elipse</strong>.</p>
+
+        <p>Conecte com o que aprendeu na Parábola: lá, um único foco e uma diretriz governavam o lugar geométrico. A parábola tinha UM foco e UMA diretriz. A elipse tem DOIS focos e uma SOMA constante. Essa mudança — de uma condição de equidistância para uma condição de soma fixa — é o que transforma a trajetória aberta da parábola numa trajetória fechada, ovalada, perfeita para cercar áreas de interesse.</p>
+
+        <h3>1. A Definição: Elipse como Lugar Geométrico</h3>
+        <p>Uma elipse é o conjunto de todos os pontos $P$ do plano tais que a soma das distâncias a dois pontos fixos, chamados <strong>focos</strong> $F_1$ e $F_2$, é constante e igual a $2a$:</p>
+
+        <div class="formula">
+            $$d(P, F_1) + d(P, F_2) = 2a$$
+        </div>
+
+        <p>O número $2a$ representa a soma constante. O parâmetro $a$ é o <strong>semi-eixo maior</strong> — metade da maior distância possível entre dois pontos da elipse. Os focos são simétricos em relação à origem: $F_1(-c, 0)$ e $F_2(c, 0)$, onde $c$ é a distância do centro a cada foco.</p>
+
+        <h3>2. Construção da Equação Canônica (NÃO DECORE — CONSTRUA!)</h3>
+        <p>Parta da definição com focos no eixo $x$: $F_1(-c, 0)$ e $F_2(c, 0)$. Para um ponto $P(x,y)$ qualquer da elipse:</p>
+
+        <div class="formula">
+            $$\sqrt{(x+c)^2 + y^2} + \sqrt{(x-c)^2 + y^2} = 2a$$
+        </div>
+
+        <p><strong>Passo 1 — Isole uma raiz:</strong></p>
+        <div class="formula">
+            $$\sqrt{(x+c)^2 + y^2} = 2a - \sqrt{(x-c)^2 + y^2}$$
+        </div>
+
+        <p><strong>Passo 2 — Eleve ao quadrado:</strong></p>
+        <div class="formula">
+            $$(x+c)^2 + y^2 = 4a^2 - 4a\sqrt{(x-c)^2 + y^2} + (x-c)^2 + y^2$$
+        </div>
+
+        <p><strong>Passo 3 — Simplifique:</strong> Expandindo $(x+c)^2 = x^2 + 2cx + c^2$ e $(x-c)^2 = x^2 - 2cx + c^2$, os termos $x^2$, $y^2$ e $c^2$ se cancelam. Resta:</p>
+        <div class="formula">
+            $$4cx = 4a^2 - 4a\sqrt{(x-c)^2 + y^2}$$
+        </div>
+        <p>Dividindo por 4: $cx = a^2 - a\sqrt{(x-c)^2 + y^2}$, ou seja:</p>
+        <div class="formula">
+            $$a\sqrt{(x-c)^2 + y^2} = a^2 - cx$$
+        </div>
+
+        <p><strong>Passo 4 — Eleve ao quadrado novamente:</strong></p>
+        <div class="formula">
+            $$a^2[(x-c)^2 + y^2] = (a^2 - cx)^2$$
+        </div>
+
+        <p>Expandido: $a^2x^2 - 2a^2cx + a^2c^2 + a^2y^2 = a^4 - 2a^2cx + c^2x^2$</p>
+        <p>Os termos $-2a^2cx$ se cancelam. Reagrupando:</p>
+        <div class="formula">
+            $$a^2x^2 - c^2x^2 + a^2y^2 = a^4 - a^2c^2$$
+        </div>
+        <div class="formula">
+            $$(a^2 - c^2)x^2 + a^2y^2 = a^2(a^2 - c^2)$$
+        </div>
+
+        <p><strong>Passo 5 — Defina $b^2 = a^2 - c^2$:</strong> Como $a > c$ (a soma das distâncias deve ser maior que a distância entre os focos), $a^2 - c^2 > 0$. Chamamos esse valor de $b^2$. Substituindo:</p>
+        <div class="formula">
+            $$b^2x^2 + a^2y^2 = a^2b^2$$
+        </div>
+
+        <p><strong>Passo 6 — Divida por $a^2b^2$:</strong></p>
+        <div class="formula">
+            $$\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$$
+        </div>
+
+        <p class="success">Esta é a <strong>equação canônica da elipse</strong> com centro na origem e eixo maior horizontal. Você a construiu, não decorou!</p>
+
+        <h3>3. Descobrir Elementos Pela Equação (MANIPULE, NÃO DECORE)</h3>
+        <p>Dada $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$, como encontrar vértices, focos e eixos <strong>sem fórmulas decoradas</strong>?</p>
+
+        <p><strong>Vértices no eixo $x$ — faça $y = 0$:</strong></p>
+        <div class="formula">
+            $$\frac{x^2}{a^2} = 1 \Rightarrow x^2 = a^2 \Rightarrow x = \pm a$$
+        </div>
+        <p>Os vértices são $A_1(-a, 0)$ e $A_2(a, 0)$. A distância entre eles é $2a$ — o <strong>eixo maior</strong>.</p>
+
+        <p><strong>Vértices no eixo $y$ — faça $x = 0$:</strong></p>
+        <div class="formula">
+            $$\frac{y^2}{b^2} = 1 \Rightarrow y^2 = b^2 \Rightarrow y = \pm b$$
+        </div>
+        <p>Os vértices são $B_1(0, -b)$ e $B_2(0, b)$. A distância entre eles é $2b$ — o <strong>eixo menor</strong>.</p>
+
+        <p><strong>Focos — use a relação $c^2 = a^2 - b^2$:</strong></p>
+        <p>Da construção acima, definimos $b^2 = a^2 - c^2$, logo $c^2 = a^2 - b^2$. Portanto:</p>
+        <div class="formula">
+            $$c = \sqrt{a^2 - b^2}$$
+        </div>
+        <p>Os focos são $F_1(-c, 0)$ e $F_2(c, 0)$.</p>
+
+        <p class="warning">Atenção: sempre verifique qual denominador é maior! Se $\frac{x^2}{9} + \frac{y^2}{25} = 1$, o maior denominador é 25, que está sob $y^2$. Isso significa que $a^2 = 25$ e $b^2 = 9$ — a elipse é <strong>vertical</strong>, com eixo maior no eixo $y$.</p>
+
+        <h3>4. Excentricidade: Quão "Achatada" está a Elipse?</h3>
+        <p>A <strong>excentricidade</strong> $e$ mede o quão "achatada" ou "esticada" está a elipse:</p>
+        <div class="formula">
+            $$e = \frac{c}{a}$$
+        </div>
+        <p>Como $0 < c < a$, temos $0 < e < 1$.</p>
+        <ul>
+            <li>$e \approx 0$: elipse quase circular ($c \approx 0$, focos próximos ao centro)</li>
+            <li>$e \approx 1$: elipse muito achatada ($c \approx a$, focos próximos aos vértices)</li>
+        </ul>
+        <p>Uma circunferência é um caso limite da elipse com $e = 0$ (focos coincidentes no centro).</p>
+
+        <h3>5. Caso Vertical: Eixo Maior no Eixo $y$</h3>
+        <p>Quando os focos estão no eixo $y$, em $F_1(0, -c)$ e $F_2(0, c)$, o mesmo processo de construção leva a:</p>
+        <div class="formula">
+            $$\frac{x^2}{b^2} + \frac{y^2}{a^2} = 1$$
+        </div>
+        <p>Aqui, $a^2$ está sob $y^2$ porque o eixo maior é vertical. A regra é simples: <strong>o maior denominador sempre corresponde a $a^2$</strong> (semi-eixo maior), e indica a direção do eixo maior.</p>
+
+        <p>Os vértices no eixo $y$ são $(0, \pm a)$, e no eixo $x$ são $(\pm b, 0)$. A relação $c^2 = a^2 - b^2$ continua válida, com focos em $(0, \pm c)$.</p>
+
+        <h3>6. Elipse com Centro Fora da Origem</h3>
+        <p>Se o centro da elipse está em $C(h, k)$, as equações tornam-se:</p>
+        <div class="formula">
+            $$\frac{(x-h)^2}{a^2} + \frac{(y-k)^2}{b^2} = 1 \quad \text{(eixo maior horizontal)}$$
+        </div>
+        <div class="formula">
+            $$\frac{(x-h)^2}{b^2} + \frac{(y-k)^2}{a^2} = 1 \quad \text{(eixo maior vertical)}$$
+        </div>
+        <p>Todos os elementos (vértices, focos) são transladados pelo vetor $(h, k)$. Para encontrá-los, primeiro identifique $a$, $b$, $c$ a partir da equação, depois some $(h, k)$ a cada coordenada.</p>
+    </div>
+</section>

@@ -1,0 +1,26 @@
+<section class="manual-contexto" data-context="manual-sobrevivencia">
+    <div class="terminal-border">
+        <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: POSIÇÕES RELATIVAS E INTERSEÇÕES DE RETAS</h2>
+
+        <p>Na Zona Devastada, toda rota é uma reta no plano — e saber se duas rotas se cruzam, correm paralelas ou são a mesma trilha é tão vital quanto saber ler um mapa. Duas retas no plano só podem estar em uma de três situações: <strong>concorrentes</strong> (se cruzam num único ponto), <strong>paralelas</strong> (nunca se encontram) ou <strong>coincidentes</strong> (são a mesma reta). Cada caso traduz uma realidade tática diferente: um ponto de encontro, um corredor seguro de largura constante, ou a redundância de dois relatórios sobre o mesmo caminho.</p>
+
+        <p>O instrumento para decidir qual é qual é o <strong>sistema de equações lineares 2×2</strong> que já dominamos no Capítulo 0. Dadas duas retas em forma geral, $r: a_1x + b_1y + c_1 = 0$ e $s: a_2x + b_2y + c_2 = 0$, montamos o sistema e observamos o que acontece:</p>
+
+        <div class="formula">
+            $$\begin{cases} a_1x + b_1y + c_1 = 0 \\ a_2x + b_2y + c_2 = 0 \end{cases}$$
+        </div>
+
+        <p><strong>Solução única</strong> — o sistema é possível e determinado: as retas são <strong>concorrentes</strong> e o par $(x, y)$ é o ponto de interseção. <strong>Solução impossível</strong> — o sistema é impossível: as retas são <strong>paralelas</strong> distintas. <strong>Infinitas soluções</strong> — o sistema é possível e indeterminado: as retas são <strong>coincidentes</strong>.</p>
+
+        <p>Sem resolver o sistema inteiro, podemos usar uma inspeção rápida pelos coeficientes. Se $\frac{a_1}{a_2} = \frac{b_1}{b_2}$, as retas têm a mesma inclinação. Aí basta olhar o termo independente: se $\frac{c_1}{c_2}$ for igual também, são coincidentes; se for diferente, são paralelas. Se $\frac{a_1}{a_2} \neq \frac{b_1}{b_2}$, as retas são concorrentes. Essa comparação é o "scanner rápido" que um sobrevivente usa antes de gastar tempo com cálculos completos.</p>
+
+        <p>Outra abordagem é pela <strong>forma reduzida</strong> $y = mx + n$. Duas retas com o mesmo coeficiente angular $m$ são paralelas ou coincidentes; se os $n$ também coincidirem, são a mesma reta. Se os $m$ forem diferentes, as retas se cruzam em exatamente um ponto — e encontrar esse ponto é apenas resolver a equação $m_1x + n_1 = m_2x + n_2$.</p>
+
+        <div class="formula">
+            $$\text{Interseção de } y = m_1x + n_1 \text{ e } y = m_2x + n_2 \text{ (com } m_1 \neq m_2\text{):}$$
+            $$x = \frac{n_2 - n_1}{m_1 - m_2}, \quad y = m_1x + n_1$$
+        </div>
+
+        <p>A conexão com o próximo tópico é direta: uma vez que sabemos encontrar onde duas retas se cruzam, podemos medir a <strong>distância de um ponto a uma reta</strong> — essencial para saber quão perto uma expedição está de uma zona contaminada, ou quão distante um abrigo fica de uma rota de patrulha inimiga. A interseção é o ponto de partida; a distância é a medida de segurança.</p>
+    </div>
+</section>

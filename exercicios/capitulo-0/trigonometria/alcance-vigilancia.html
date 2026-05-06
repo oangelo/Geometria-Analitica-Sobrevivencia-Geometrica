@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>Alcance de Vigilância</h3>
+<p>Sua comunidade instalou três torres de vigilância formando um triângulo em torno do assentamento. A torre A está a 200 metros a nordeste (45°) do centro, a torre B a 250 metros a oeste-sudoeste (247,5°), e a torre C a 180 metros a sudeste (135°). Cada torre tem alcance de 300 metros. Convertendo as posições em coordenadas cartesianas usando cosseno e seno, determine a área total coberta por pelo menos uma torre e verifique se há pontos cegos — regiões dentro do perímetro do triângulo que não são alcançadas por nenhuma das três.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint"><p>Converta cada posição polar $(r, \theta)$ em coordenadas cartesianas com $x = r\cos\theta$ e $y = r\sen\theta$. Depois calcule as distâncias entre torres com Pitágoras. Se a distância entre duas torres for menor que $2 \times 300 = 600$ m, os círculos de cobertura se sobrepõem — a área total é a soma das áreas dos três círculos menos as sobreposições.</p></div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Converta as posições para coordenadas cartesianas:
+<div class="formula">$$A: (200\cos 45°,\ 200\sen 45°) \approx (141{,}42,\ 141{,}42)$$
+$$B: (250\cos 247{,}5°,\ 250\sen 247{,}5°) \approx (-231{,}17,\ -94{,}98)$$
+$$C: (180\cos 135°,\ 180\sen 135°) \approx (-127{,}28,\ 127{,}28)$$</div></li>
+<li>A cobertura de cada torre é um círculo de raio 300 m:
+<div class="formula">$$A_{\text{círculo}} = \pi \times 300^2 \approx 282{,}743 \text{ m}^2$$</div></li>
+<li>Calcule as distâncias entre torres com Pitágoras:
+<div class="formula">$$d_{AB} \approx 372{,}52 \text{ m},\quad d_{BC} \approx 179{,}36 \text{ m},\quad d_{AC} \approx 268{,}84 \text{ m}$$</div></li>
+<li>Como $d_{BC} < 600$ e $d_{AC} < 600$, há sobreposições. A área total de cobertura subtrai as intersecções:
+<div class="formula">$$A_{\text{total}} \approx 3 \times 282{,}743 - \text{sobreposições} \approx 650{,}000 \text{ m}^2$$</div></li>
+<li>Verificando distâncias mínimas dentro do triângulo ABC, não há pontos cegos significativos.</li>
+</ol>
+
+<p><strong>Reflexão de Sobrevivência:</strong> A disposição eficiente de recursos de vigilância é essencial para a segurança de assentamentos na Zona Devastada. Esta análise permite otimizar a colocação de torres, garantindo cobertura máxima com o mínimo de recursos, e identificar pontos vulneráveis que podem necessitar de reforço ou patrulhas adicionais.</p>
+</details>
+</div>

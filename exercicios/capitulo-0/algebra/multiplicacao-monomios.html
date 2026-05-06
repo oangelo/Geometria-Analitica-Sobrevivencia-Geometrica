@@ -1,0 +1,28 @@
+        <div class="exercise">
+            <h3>POTÊNCIAS NÃO SOMAM</h3>
+
+            <p>Os níveis de radiação em uma Zona Devastada são medidos em potências de 2. O fator de contaminação acumulado é $2^3 \times 2^4$ e o fator de proteção do abrigo é $2^5$. Potências representam multiplicações repetidas — $2^3$ é $2 \cdot 2 \cdot 2$, e $2^4$ é $2 \cdot 2 \cdot 2 \cdot 2$. Quando multiplicamos, juntamos as multiplicações; quando dividimos, separamos. Calcule a radiação efetiva: $(2^3 \times 2^4) \div 2^5$, simplificando usando as propriedades das potências — some os expoentes na multiplicação e subtraia na divisão.</p>
+
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Para multiplicar potências de mesma base, some os expoentes. Para dividir, subtraia. Não calcule os valores: trabalhe com os expoentes.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Primeiro, multiplique: $2^3 \times 2^4 = 2^{3+4} = 2^7$</li>
+                    <li>Depois, divida: $2^7 \div 2^5 = 2^{7-5} = 2^2$</li>
+                    <li>Calcule o resultado: $2^2 = 4$</li>
+                    <li>Verificação explícita: $2^3 = 8$, $2^4 = 16$, $2^5 = 32$. Então $(8 \times 16) \div 32 = 128 \div 32 = 4$ ✓</li>
+                </ol>
+
+                <div class="formula">
+                    $$a^m \times a^n = a^{m+n}, \qquad a^m \div a^n = a^{m-n}$$
+                </div>
+
+                <p><strong>Reflexão de Sobrevivência:</strong> As propriedades de potências não são regras decoradas — são consequências diretas do significado de potência como multiplicação repetida. Compreender isso permite calcular rapidamente níveis de radiação. Um erro pode levar um grupo a entrar em uma zona letal acreditando estar segura.</p>
+            </details>
+        </div>

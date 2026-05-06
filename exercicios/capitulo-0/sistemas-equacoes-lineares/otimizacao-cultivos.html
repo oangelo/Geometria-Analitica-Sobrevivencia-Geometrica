@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>OTIMIZAÇÃO DE CULTIVOS</h3>
+
+<p>O jardim hidropônico do abrigo tem restrições semanais: 60 litros de água e 48 unidades de fertilizante. Cada m² de tomates consome 4 litros de água e 2 unidades de fertilizante, alimentando 3 pessoas; cada m² de ervas medicinais consome 3 litros de água e 3 unidades de fertilizante, medicando 2 pessoas. Para que cada habitante receba alimentação e medicamentos na mesma proporção, a produção de ambos deve atender ao mesmo número de pessoas: $3x = 2y$, onde $x$ e $y$ são as áreas em m². Combine essa equação de equilíbrio com as inequações de recursos ($4x + 3y \leq 60$ e $2x + 3y \leq 48$) para descobrir a distribuição que atende ao máximo de pessoas com o que há disponível.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>A condição $3x = 2y$ permite expressar $x$ em função de $y$. Substitua nas duas inequações de recursos e descubra qual restrição é mais limitante — ela determinará o valor máximo de $y$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Definimos: $x$ = m² de tomates, $y$ = m² de ervas</li>
+<li>Equilíbrio: $3x = 2y \Rightarrow x = \frac{2y}{3}$</li>
+<li>Água: $4(\frac{2y}{3}) + 3y = \frac{17y}{3} \leq 60 \Rightarrow y \leq 10{,}59$</li>
+<li>Fertilizante: $2(\frac{2y}{3}) + 3y = \frac{13y}{3} \leq 48 \Rightarrow y \leq 11{,}08$</li>
+<li>A água é mais restritiva: $y = 10{,}5$ m², $x = 7$ m²</li>
+<li>Pessoas atendidas: $3 \cdot 7 = 21$ alimentadas, $2 \cdot 10{,}5 = 21$ medicadas — 42% da população</li>
+</ol>
+<div class="formula">
+$$3x = 2y \quad \text{com} \quad \begin{cases} 4x + 3y \leq 60 \\ 2x + 3y \leq 48 \end{cases}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Apenas 42% da população pode ser atendida — uma realidade que a matemática revela com frieza. Mas essa frieza é uma vantagem: saber o limite antes da crise permite buscar recursos adicionais enquanto ainda há tempo, em vez de descobrir a escassez quando a fome já bate à porta.</p>
+</details>
+</div>

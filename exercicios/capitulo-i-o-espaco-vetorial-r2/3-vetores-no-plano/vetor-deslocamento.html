@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>VETOR DESLOCAMENTO</h3>
+
+<p>Dois pontos estão marcados no mapa da Zona Devastada: o abrigo $A(1, 1)$ e um depósito de RemoveRad em $B(4, 5)$. Para que o rádio transmita a localização do depósito, precisamos expressar o "passo a passo" para ir de $A$ até $B$ — ou seja, o vetor deslocamento $\overrightarrow{AB}$. Como cada componente do deslocamento é a diferença entre a coordenada de chegada e a de partida, calcule $\overrightarrow{AB} = B - A$ componente a componente. Depois, verifique: se aplicarmos esse vetor a partir de $A$, chegamos exatamente em $B$?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>O vetor deslocamento de $A$ até $B$ é $\overrightarrow{AB} = (x_B - x_A,\ y_B - y_A)$. Subtraia coordenada por coordenada. Para verificar, some o vetor ao ponto de partida.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Calculamos o deslocamento componente a componente: $\overrightarrow{AB} = B - A = (4 - 1,\ 5 - 1) = (3, 4)$.</li>
+<li>Verificação: $A + \overrightarrow{AB} = (1, 1) + (3, 4) = (4, 5) = B$. Confere.</li>
+<li>Note que o vetor $(3, 4)$ é o mesmo, independentemente de onde estão $A$ e $B$. Se desenharmos a seta de $A$ para $B$ no mapa, e também a seta $(3, 4)$ saindo da origem, são dois desenhos com o mesmo comprimento e mesma direção — o mesmo vetor em posições diferentes.</li>
+</ol>
+<div class="formula">
+$$\overrightarrow{AB} = B - A = (x_B - x_A,\ y_B - y_A)$$
+$$\overrightarrow{AB} = (4, 5) - (1, 1) = (3, 4)$$
+$$A + \overrightarrow{AB} = (1, 1) + (3, 4) = (4, 5) = B$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O vetor deslocamento compacta toda a informação de navegação em dois números. Em vez de descrever "ande 3 para leste e 4 para norte" por rádio, basta transmitir $(3, 4)$ — eficiente e menos sujeito a erros quando os mutantes estão por perto.</p>
+</details>
+</div>

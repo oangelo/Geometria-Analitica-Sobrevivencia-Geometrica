@@ -1,0 +1,118 @@
+<section class="manual-contexto" data-context="manual-sobrevivencia">
+    <div class="terminal-border">
+        <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: PARÁBOLAS</h2>
+
+        <p>Agora que dominamos o conceito de lugar geométrico, vamos aplicá-lo a uma curva nova. Na Zona Devastada, antenas parabólicas captam sinais de resgate, canhões de água purificada traçam arcos precisos, e torres de vigilância projetam campos de detecção com formato característico. Todas essas estruturas compartilham a mesma base matemática: a <strong>parábola</strong>.</p>
+
+        <p>Uma parábola é o lugar geométrico dos pontos $P$ do plano que são <strong>equidistantes</strong> de um ponto fixo $F$ (o <strong>foco</strong>) e de uma reta fixa $d$ (a <strong>diretriz</strong>). Essa definição é o nosso ponto de partida — não vamos decorar fórmulas, vamos <strong>construí-las</strong>.</p>
+
+        <div class="formula">
+            $$\text{Parábola} = \{P(x,y) \mid d(P,F) = d(P,d)\}$$
+        </div>
+
+        <h3>&gt; CONSTRUÇÃO DA EQUAÇÃO CANÔNICA (EIXO VERTICAL)</h3>
+
+        <p>Vamos construir a equação passo a passo, escolhendo posições convenientes para o foco e a diretriz. Coloquemos o foco em $F(0,p)$ e a diretriz na reta horizontal $y = -p$, onde $p \neq 0$.</p>
+
+        <p>Seja $P(x,y)$ um ponto qualquer da parábola. Pela definição:</p>
+
+        <div class="formula">
+            $$d(P,F) = d(P,d)$$
+        </div>
+
+        <p>A distância de $P$ ao foco $F(0,p)$ é:</p>
+
+        <div class="formula">
+            $$d(P,F) = \sqrt{(x-0)^2 + (y-p)^2} = \sqrt{x^2 + (y-p)^2}$$
+        </div>
+
+        <p>A distância de $P$ à diretriz $y = -p$ é a distância vertical até a reta:</p>
+
+        <div class="formula">
+            $$d(P,d) = |y - (-p)| = |y + p|$$
+        </div>
+
+        <p>Igualando as distâncias e elevando ao quadrado para eliminar as raízes:</p>
+
+        <div class="formula">
+            $$\sqrt{x^2 + (y-p)^2} = |y + p|$$
+            $$x^2 + (y-p)^2 = (y+p)^2$$
+        </div>
+
+        <p>Expandindo os quadrados:</p>
+
+        <div class="formula">
+            $$x^2 + y^2 - 2py + p^2 = y^2 + 2py + p^2$$
+        </div>
+
+        <p>Simplificando — $y^2$ e $p^2$ cancelam dos dois lados:</p>
+
+        <div class="formula">
+            $$x^2 - 2py = 2py$$
+            $$x^2 = 4py$$
+        </div>
+
+        <p>Esta é a <strong>equação canônica da parábola com vértice na origem e eixo vertical</strong>. O vértice $V$ é o ponto $(0,0)$, que é o ponto da parábola mais próximo da diretriz. Observe que:</p>
+
+        <ul>
+            <li>Se $p &gt; 0$, a parábola abre para <strong>cima</strong> (foco acima do vértice)</li>
+            <li>Se $p &lt; 0$, a parábola abre para <strong>baixo</strong> (foco abaixo do vértice)</li>
+        </ul>
+
+        <h3>&gt; ELEMENTOS DA PARÁBOLA</h3>
+
+        <p>A partir da equação $x^2 = 4py$, podemos <strong>descobrir</strong> cada elemento manipulando a equação, sem decorar fórmulas:</p>
+
+        <p><strong>Vértice:</strong> O ponto mais próximo da diretriz. Na equação canônica, é a origem $V(0,0)$. É onde a parábola "vira".</p>
+
+        <p><strong>Foco:</strong> Comparando $x^2 = 4py$ com a construção, o foco está em $F(0,p)$. Para encontrar $p$, basta isolar: $p = \frac{x^2}{4y}$ avaliado em qualquer ponto, ou mais simplesmente, identificar o coeficiente: se $x^2 = 4py$, então $p$ é o valor que satisfaz $4p = \text{coeficiente de } y$.</p>
+
+        <p><strong>Diretriz:</strong> A reta $y = -p$, perpendicular ao eixo de simetria.</p>
+
+        <p><strong>Eixo de simetria:</strong> A reta que passa pelo foco e pelo vértice, perpendicular à diretriz. No caso vertical, é o eixo $y$ (reta $x = 0$).</p>
+
+        <h3>&gt; CASO HORIZONTAL: MESMA CONSTRUÇÃO, NOVA ORIENTAÇÃO</h3>
+
+        <p>Agora coloquemos o foco em $F(p,0)$ e a diretriz na reta vertical $x = -p$. Repetindo a construção:</p>
+
+        <div class="formula">
+            $$d(P,F) = \sqrt{(x-p)^2 + y^2}$$
+            $$d(P,d) = |x - (-p)| = |x + p|$$
+        </div>
+
+        <p>Igualando e elevando ao quadrado:</p>
+
+        <div class="formula">
+            $$(x-p)^2 + y^2 = (x+p)^2$$
+            $$x^2 - 2px + p^2 + y^2 = x^2 + 2px + p^2$$
+            $$y^2 = 4px$$
+        </div>
+
+        <p>Esta é a <strong>equação canônica da parábola com vértice na origem e eixo horizontal</strong>. Observe que:</p>
+
+        <ul>
+            <li>Se $p &gt; 0$, a parábola abre para a <strong>direita</strong></li>
+            <li>Se $p &lt; 0$, a parábola abre para a <strong>esquerda</strong></li>
+        </ul>
+
+        <h3>&gt; TRANSLAÇÃO: QUANDO O VÉRTICE SAI DA ORIGEM</h3>
+
+        <p>Quando o vértice não está na origem, mas em um ponto $V(h,k)$, a equação muda de forma. A técnica é a mesma que você usou no Capítulo IV: <strong>completar quadrados</strong>.</p>
+
+        <p>Se uma parábola tem vértice em $V(h,k)$ e eixo vertical, sua equação pode ser escrita como:</p>
+
+        <div class="formula">
+            $$(x-h)^2 = 4p(y-k)$$
+        </div>
+
+        <p>Se o eixo é horizontal:</p>
+
+        <div class="formula">
+            $$(y-k)^2 = 4p(x-h)$$
+        </div>
+
+        <p>Mas não memorize — na prática, você partirá da definição $d(P,F) = d(P,d)$ com o foco e a diretriz dados, e a equação surgirá naturalmente. Se necessário, completar quadrados revelará o vértice.</p>
+
+        <p class="warning">Atenção: Não existe "fórmula do vértice" ou "fórmula da diretriz" para decorar. Cada elemento é descoberto manipulando a equação e comparando com a construção pela definição.</p>
+    </div>
+</section>

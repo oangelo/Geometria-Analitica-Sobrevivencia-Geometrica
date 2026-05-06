@@ -1,0 +1,36 @@
+<div class="exercise">
+<h3>Construção da Hipérbole Horizontal</h3>
+<p>O objetivo deste exercício é construir a equação de uma hipérbole a partir da definição, sem usar fórmulas decoradas. Dois postos de monitoramento estão localizados em $F_1(-5,0)$ e $F_2(5,0)$. Um sinal de rádio é detectado em todos os pontos cuja diferença absoluta das distâncias aos dois postos é $2a = 6$.</p>
+<p><strong>(a)</strong> Escreva a equação da definição para um ponto genérico $P(x,y)$: $|d(P,F_1) - d(P,F_2)| = 6$. Substitua as coordenadas dos focos e escreva explicitamente com raízes quadradas.</p>
+<p><strong>(b)</strong> Isole uma das raízes, eleve ao quadrado, simplifique e isole a raiz restante. Eleve ao quadrado novamente e simplifique até obter uma equação da forma $Ax^2 - By^2 = C$.</p>
+<p><strong>(c)</strong> Divida por $C$ para obter a forma canônica $\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1$. Identifique os valores de $a$, $b$ e $c$ e verifique que $c^2 = a^2 + b^2$.</p>
+<p><strong>(d)</strong> Faça um esboço no papel: marque os focos, os vértices, desenhe o retângulo de vértices $(\pm a, \pm b)$, trace as assíntotas como as diagonais desse retângulo, e esboce os dois ramos da hipérbole.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>No item (b), depois de elevar ao quadrado pela primeira vez, você terá algo como $\sqrt{(x-c)^2 + y^2}$ isolado. Antes de elevar ao quadrado de novo, simplifique o máximo possível. Lembre-se: $(cx - a^2)^2$ expande para $c^2x^2 - 2a^2cx + a^4$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Definição com $F_1(-5,0)$, $F_2(5,0)$, $c = 5$, $2a = 6$:
+$$\left|\sqrt{(x+5)^2 + y^2} - \sqrt{(x-5)^2 + y^2}\right| = 6$$</li>
+<li>Isolando a primeira raiz e elevando ao quadrado:
+$$(x+5)^2 + y^2 = 36 \pm 12\sqrt{(x-5)^2 + y^2} + (x-5)^2 + y^2$$</li>
+<li>Expandindo: $x^2 + 10x + 25 + y^2 = 36 \pm 12\sqrt{\dots} + x^2 - 10x + 25 + y^2$</li>
+<li>Simplificando: $20x - 36 = \pm 12\sqrt{(x-5)^2 + y^2}$, ou $5x - 9 = \pm 3\sqrt{(x-5)^2 + y^2}$</li>
+<li>Elevando ao quadrado: $(5x - 9)^2 = 9[(x-5)^2 + y^2]$
+$$25x^2 - 90x + 81 = 9(x^2 - 10x + 25 + y^2) = 9x^2 - 90x + 225 + 9y^2$$</li>
+<li>O termo $-90x$ cancela! Resta: $25x^2 + 81 = 9x^2 + 225 + 9y^2$</li>
+<li>$16x^2 - 9y^2 = 144$</li>
+<li>Dividindo por 144: $\frac{x^2}{9} - \frac{y^2}{16} = 1$</li>
+<li>Identificando: $a^2 = 9 \Rightarrow a = 3$, $b^2 = 16 \Rightarrow b = 4$</li>
+<li>Verificando: $c^2 = a^2 + b^2 = 9 + 16 = 25$, logo $c = 5$ ✓ (coincide com os focos dados)</li>
+</ol>
+<div class="formula">$$\text{Equação: } \frac{x^2}{9} - \frac{y^2}{16} = 1 \quad \text{com } a = 3,\; b = 4,\; c = 5$$</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A verificação $c = 5$ é crucial — se não batesse com os focos dados, haveria erro de cálculo. Sempre confira seus resultados contra os dados originais.</p>
+</details>
+</div>

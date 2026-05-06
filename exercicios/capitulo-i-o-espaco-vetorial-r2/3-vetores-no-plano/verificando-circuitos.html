@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>VERIFICANDO CIRCUITOS</h3>
+
+<p>Um pelotão executa uma patrulha com quatro deslocamentos consecutivos: $\vec{p}_1 = (3, 1)$, $\vec{p}_2 = (-2, 4)$, $\vec{p}_3 = (5, -3)$ e $\vec{p}_4 = (-4, -5)$. O comandante precisa saber se a patrulha retorna ao ponto de partida. Antes de calcular, olhe para os componentes: no desenho, os quatro vetores parecem formar um circuito fechado? Para ter certeza, some todos os deslocamentos e verifique se o resultado é o vetor nulo.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Some as componentes $x$ de todos os vetores e as componentes $y$ de todos os vetores, separadamente. Se ambos os resultados forem zero, a patrulha retorna ao abrigo. Se não, calcule o vetor de "erro" — ele indica para onde a patrulha terminou.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Componente $x$ total: $3 + (-2) + 5 + (-4) = 2$.</li>
+<li>Componente $y$ total: $1 + 4 + (-3) + (-5) = -3$.</li>
+<li>A soma é $(2, -3) \neq \vec{0}$. O circuito <strong>não</strong> é fechado.</li>
+<li>O pelotão terminou 2 unidades a leste e 3 unidades ao sul do abrigo. Para voltar, precisaria percorrer o vetor oposto $(-2, 3)$.</li>
+</ol>
+<div class="formula">
+$$\vec{p}_1 + \vec{p}_2 + \vec{p}_3 + \vec{p}_4 = (3, 1) + (-2, 4) + (5, -3) + (-4, -5) = (2, -3) \neq \vec{0}$$
+$$\text{Vetor de retorno: } (-2, 3)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> No desenho, os quatro vetores podem parecer que "dão a volta" — mas a percepção visual engana. Apenas o cálculo algébrico garante se o circuito é realmente fechado. Na Zona Devastada, "parece que voltei" não é suficiente — confirme com a matemática.</p>
+</details>
+</div>

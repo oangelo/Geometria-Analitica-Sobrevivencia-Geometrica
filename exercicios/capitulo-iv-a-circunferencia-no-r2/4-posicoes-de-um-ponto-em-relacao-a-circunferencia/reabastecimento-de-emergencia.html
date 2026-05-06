@@ -1,0 +1,21 @@
+<div class="exercise">
+<h3>REABASTECIMENTO DE EMERGÊNCIA</h3>
+
+<p>Uma expedição de reabastecimento precisa posicionar um depósito temporário ao longo da reta horizontal $y = 2$. A zona de proteção mais próxima é descrita por $(x-1)^2 + (y-2)^2 = 9$ (centro $(1,2)$, raio $3$), e uma fonte de radiação ativa está em $(x-4)^2 + (y-2)^2 = 16$ (centro $(4,2)$, raio $4$). O depósito deve ficar dentro da zona de proteção e fora da zona de radiação, na posição $P(k, 2)$. No papel, esboce as duas circunferências sobre a reta $y = 2$, marcando seus centros e pontos de interseção com essa reta. Substitua $P(k,2)$ em ambas as equações e determine o intervalo de valores de $k$ para o qual o depósito está em posição segura.</p>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Substituição em ambas as equações com $y = 2$: Proteção: $(k-1)^2 + 0 = (k-1)^2$. Radiação: $(k-4)^2 + 0 = (k-4)^2$.</li>
+<li>Condição de proteção (interno): $(k-1)^2 &lt; 9 \Rightarrow |k-1| &lt; 3 \Rightarrow -2 &lt; k &lt; 4$.</li>
+<li>Condição de radiação (externo): $(k-4)^2 &gt; 16 \Rightarrow |k-4| &gt; 4 \Rightarrow k &lt; 0$ ou $k &gt; 8$.</li>
+<li>Interseção: protegido E fora da radiação. De $-2 &lt; k &lt; 4$ junto com $k &lt; 0$ ou $k &gt; 8$, a única parte que satisfaz ambas é $-2 &lt; k &lt; 0$.</li>
+<li>Conclusão: o depósito pode ser instalado em qualquer posição $P(k,2)$ com $-2 &lt; k &lt; 0$. Esse intervalo está dentro da proteção e completamente fora da zona de radiação.</li>
+</ol>
+<div class="formula">
+$$\text{Proteção: } {-2} &lt; k &lt; 4 \qquad \text{Radiação: } k &lt; 0 \text{ ou } k &gt; 8$$
+$$\text{Interseção: } {-2} &lt; k &lt; 0$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O intervalo $-2 &lt; k &lt; 0$ tem comprimento 2 — duas unidades de margem para posicionar o depósito. As duas circunferências compartilham a reta $y = 2$ como diâmetro horizontal, mas se sobrepõem parcialmente: a região protegida e não irradiada é uma fatia estreita à esquerda do centro de proteção. Na Zona Devastada, a interseção de condições raramente é generosa — quanto mais restrições, menor o espaço útil.</p>
+</details>
+</div>

@@ -1,0 +1,32 @@
+<div class="exercise">
+<h3>Tetraedro de Sobrevivência: Plano e Volume</h3>
+<p><strong>Objetivo:</strong> Problema aberto combinando equação do plano, produto vetorial, produto misto e volume de tetraedro.</p>
+<p>Um abrigo de emergência tem sua cobertura definida pelo plano que passa pelos pontos $A(1, 0, 0)$, $B(0, 2, 0)$ e $C(0, 0, 3)$. O piso do abrigo é o plano $z = 0$ (plano $xOy$). Determine:</p>
+<p>(a) A equação geral do plano da cobertura.</p>
+<p>(b) Os pontos onde a cobertura intercepta os eixos coordenados (verifique que são $A$, $B$ e $C$).</p>
+<p>(c) O volume do tetraedro formado pela cobertura e o plano do piso (ou seja, o tetraedro $OABC$ onde $O$ é a origem).</p>
+<p>(d) Se um sobrevivente está em $P(1, 1, 1)$, ele está dentro ou fora do tetraedro? Justifique.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+                Para (a): três pontos → produto vetorial → normal → equação. Para (c): o volume de um tetraedro com vértices $O, A, B, C$ é $V = \frac{1}{6}|(\overrightarrow{OA} \times \overrightarrow{OB}) \cdot \overrightarrow{OC}| = \frac{1}{6}|\det(\overrightarrow{OA}, \overrightarrow{OB}, \overrightarrow{OC})|$. Para (d): verifique se $P$ está abaixo do plano da cobertura e acima do piso, e se suas projeções estão dentro do triângulo da base.
+            </div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Item (a) — $\overrightarrow{AB} = (-1, 2, 0)$, $\overrightarrow{AC} = (-1, 0, 3)$.</li>
+<li>$\vec{n} = \overrightarrow{AB} \times \overrightarrow{AC} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ -1 & 2 & 0 \\ -1 & 0 & 3 \end{vmatrix} = (6, 3, 2)$.</li>
+<li>Equação com $A(1, 0, 0)$: $6(x - 1) + 3(y - 0) + 2(z - 0) = 0 \Rightarrow 6x + 3y + 2z - 6 = 0$.</li>
+<li>Item (b) — Interceptos: $Ox$: $y = z = 0 \Rightarrow 6x = 6 \Rightarrow x = 1$ → $A(1, 0, 0)$ ✓. $Oy$: $x = z = 0 \Rightarrow 3y = 6 \Rightarrow y = 2$ → $B(0, 2, 0)$ ✓. $Oz$: $x = y = 0 \Rightarrow 2z = 6 \Rightarrow z = 3$ → $C(0, 0, 3)$ ✓.</li>
+<li>Item (c) — Vetores da origem: $\overrightarrow{OA} = (1, 0, 0)$, $\overrightarrow{OB} = (0, 2, 0)$, $\overrightarrow{OC} = (0, 0, 3)$.</li>
+<li>Produto misto: $(\overrightarrow{OA} \times \overrightarrow{OB}) \cdot \overrightarrow{OC} = (0, 0, 2) \cdot (0, 0, 3) = 6$. Ou pelo determinante: $\begin{vmatrix} 1 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 3 \end{vmatrix} = 6$.</li>
+<li>Volume: $V = \frac{1}{6}|6| = 1$.</li>
+<li>Item (d) — Verificar $P(1, 1, 1)$ no plano da cobertura: $6(1) + 3(1) + 2(1) - 6 = 6 + 3 + 2 - 6 = 5 > 0$. O plano em $A$ dá $6(1) - 6 = 0$. O sinal positivo indica que $P$ está do mesmo lado que a origem em relação ao plano $6x + 3y + 2z - 6 = 0$? Não — precisamos verificar melhor. Na verdade, $O(0,0,0)$ dá $-6 < 0$, e $P$ dá $5 > 0$, logo $P$ está do lado oposto à origem em relação ao plano da cobertura. Como o tetraedro está no lado da origem (abaixo do plano), $P$ está <strong>fora do tetraedro</strong> (acima da cobertura).</li>
+</ol>
+<div class="formula">
+                    $$\text{(a) } 6x + 3y + 2z - 6 = 0 \qquad \text{(c) } V = 1 \text{ u.v.} \qquad \text{(d) } P \text{ está fora do tetraedro}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Um tetraedro é a forma mais simples de volume no espaço tridimensional — quatro faces triangulares, seis arestas. A equação do plano da cobertura, combinada com os três planos coordenados (que formam as paredes laterais), define completamente o espaço interno do abrigo. O produto misto conecta geometria vetorial com cálculo de volumes, uma ferramenta indispensável para estimar capacidade de armazenamento.</p>
+</details>
+</div>

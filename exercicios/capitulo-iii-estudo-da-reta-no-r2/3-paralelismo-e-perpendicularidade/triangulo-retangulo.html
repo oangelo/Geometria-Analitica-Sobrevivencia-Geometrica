@@ -1,0 +1,30 @@
+<div class="exercise">
+<h3>TRIÂNGULO RETÂNGULO NA ZONA DEVASTADA</h3>
+
+<p>Nos exercícios anteriores, você aprendeu a verificar paralelismo e perpendicularidade separadamente. Agora vamos combinar as duas ferramentas. Três torres de comunicação foram instaladas nos pontos $A(1, 2)$, $B(4, 6)$ e $C(7, 2)$. No papel, esboce os três pontos e o triângulo $ABC$. O SUPERVISOR precisa saber: esse triângulo é retângulo? Para descobrir, construa os vetores dos três lados — $\overrightarrow{AB}$, $\overrightarrow{AC}$ e $\overrightarrow{BC}$ — e calcule os três produtos escalares possíveis. Se algum produto for zero, o triângulo é retângulo no vértice correspondente. Verifique e identifique o ângulo reto.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Construa os vetores usando diferença de pontos: $\overrightarrow{AB} = B - A$, $\overrightarrow{AC} = C - A$, $\overrightarrow{BC} = C - B$. Depois teste os três produtos escalares: $\overrightarrow{AB} \cdot \overrightarrow{AC}$, $\overrightarrow{AB} \cdot \overrightarrow{BC}$ e $\overrightarrow{AC} \cdot \overrightarrow{BC}$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Construa os vetores: $\overrightarrow{AB} = (4-1, 6-2) = (3, 4)$, $\overrightarrow{AC} = (7-1, 2-2) = (6, 0)$, $\overrightarrow{BC} = (7-4, 2-6) = (3, -4)$.</li>
+<li>Teste $\overrightarrow{AB} \cdot \overrightarrow{AC} = 3 \times 6 + 4 \times 0 = 18 \neq 0$.</li>
+<li>Teste $\overrightarrow{AB} \cdot \overrightarrow{BC} = 3 \times 3 + 4 \times (-4) = 9 - 16 = -7 \neq 0$.</li>
+<li>Teste $\overrightarrow{AC} \cdot \overrightarrow{BC} = 6 \times 3 + 0 \times (-4) = 18 + 0 = 18 \neq 0$.</li>
+<li>Nenhum produto escalar é zero, então o triângulo $ABC$ não é retângulo.</li>
+<li>Observação adicional: note que $\overrightarrow{AB} = (3, 4)$ e $\overrightarrow{BC} = (3, -4)$ têm a mesma primeira componente — o lado $AB$ e $BC$ são simétricos em relação ao eixo horizontal.</li>
+</ol>
+<div class="formula">
+$$\overrightarrow{AB} = (3, 4), \quad \overrightarrow{AC} = (6, 0), \quad \overrightarrow{BC} = (3, -4)$$
+$$\overrightarrow{AB} \cdot \overrightarrow{AC} = 18, \quad \overrightarrow{AB} \cdot \overrightarrow{BC} = -7, \quad \overrightarrow{AC} \cdot \overrightarrow{BC} = 18$$
+$$<strong>Resultado:</strong> \text{ Nenhum produto é zero} \implies \text{ triângulo não é retângulo}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Um triângulo retângulo de torres permite cobertura máxima com três pontos — cada par de torres adjacentes forma um ângulo reto, eliminando cegos. Neste caso, como o triângulo não é retângulo, o SUPERVISOR deve ajustar a posição de uma torre ou adicionar uma quarta para cobertura completa. A matemática detecta a falha antes que os mutantes a explorem.</p>
+</details>
+</div>

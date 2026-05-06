@@ -1,0 +1,55 @@
+<div class="exercise">
+<h3>PARALELEPÍPEDO DEGENERADO</h3>
+<p>O objetivo deste exercício é usar o produto misto para detectar quando três vetores são coplanares, o que implica em um paralelepípedo com volume zero (degenerado).</p>
+<p>Três vetores candidatos a arestas de um depósito são dados: $\vec{u} = (2, 1, 3)$, $\vec{v} = (1, -1, 2)$ e $\vec{w} = (4, 5, 1)$.</p>
+<p><strong>(a)</strong> Calcule o produto misto $[\vec{u}, \vec{v}, \vec{w}]$ usando o determinante 3×3.</p>
+<p><strong>(b)</strong> Os três vetores são coplanares? Justifique sua resposta.</p>
+<p><strong>(c)</strong> Se os vetores são coplanares, encontre escalares $\alpha$ e $\beta$ tais que $\vec{w} = \alpha\vec{u} + \beta\vec{v}$. Isso confirma que os três vetores estão no mesmo plano.</p>
+<p><strong>(d)</strong> Interprete geometricamente: o que significa, em termos de engenharia, que três vetores de ancoragem de uma estrutura sejam coplanares?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Três vetores são coplanares se e somente se seu produto misto é zero. Para o item (c), resolva o sistema $\vec{w} = \alpha\vec{u} + \beta\vec{v}$ componente a componente. Se o sistema tiver solução, $\vec{w}$ é combinação linear de $\vec{u}$ e $\vec{v}$, confirmando a coplanaridade.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>Item (a):</strong></p>
+<ol class="solution-steps">
+<li>$[\vec{u}, \vec{v}, \vec{w}] = \begin{vmatrix} 2 & 1 & 3 \\ 1 & -1 & 2 \\ 4 & 5 & 1 \end{vmatrix}$</li>
+<li>$= 2 \cdot \begin{vmatrix} -1 & 2 \\ 5 & 1 \end{vmatrix} - 1 \cdot \begin{vmatrix} 1 & 2 \\ 4 & 1 \end{vmatrix} + 3 \cdot \begin{vmatrix} 1 & -1 \\ 4 & 5 \end{vmatrix}$</li>
+<li>$= 2[(-1)(1) - (2)(5)] - 1[(1)(1) - (2)(4)] + 3[(1)(5) - (-1)(4)]$</li>
+<li>$= 2(-1 - 10) - 1(1 - 8) + 3(5 + 4)$</li>
+<li>$= 2(-11) - 1(-7) + 3(9) = -22 + 7 + 27 = 12$</li>
+</ol>
+<div class="formula">
+$$[\vec{u}, \vec{v}, \vec{w}] = 12$$
+</div>
+
+<p><strong>Item (b):</strong></p>
+<p>Não, os três vetores <strong>não são coplanares</strong>. Como o produto misto $[\vec{u}, \vec{v}, \vec{w}] = 12 \neq 0$, os vetores são linearmente independentes e definem um paralelepípedo de volume não-nulo.</p>
+
+<p><strong>Item (c):</strong></p>
+<p>Como os vetores não são coplanares, não existem escalares $\alpha$ e $\beta$ tais que $\vec{w} = \alpha\vec{u} + \beta\vec{v}$. Vamos verificar tentando resolver o sistema:</p>
+<ol class="solution-steps">
+<li>$\vec{w} = \alpha\vec{u} + \beta\vec{v} \Rightarrow (4, 5, 1) = \alpha(2, 1, 3) + \beta(1, -1, 2)$</li>
+<li>Sistema: $\begin{cases} 2\alpha + \beta = 4 \\ \alpha - \beta = 5 \\ 3\alpha + 2\beta = 1 \end{cases}$</li>
+<li>Das duas primeiras equações: somando, $3\alpha = 9 \Rightarrow \alpha = 3$, logo $\beta = \alpha - 5 = -2$</li>
+<li>Verificação na terceira equação: $3(3) + 2(-2) = 9 - 4 = 5 \neq 1$</li>
+</ol>
+<p>O sistema é inconsistente — não há solução. Isso confirma que $\vec{w}$ não está no plano gerado por $\vec{u}$ e $\vec{v}$.</p>
+
+<p><strong>Item (d):</strong></p>
+<p>Geometricamente, vetores coplanares significam que todas as forças ou direções de ancoragem estão contidas em um único plano. Em engenharia:</p>
+<ul>
+<li><strong>Estrutura plana:</strong> A construção não tem "profundidade" efetiva — é uma laje, não um volume.</li>
+<li><strong>Instabilidade:</strong> Forças fora do plano não são resistidas, pois não há componente vetorial na direção perpendicular.</li>
+<li><strong>Volume zero:</strong> Um depósito com arestas coplanares não armazena nada — é uma figura plana.</li>
+</ul>
+<p>Na Zona Devastada, detectar coplanaridade antes da construção evita o colapso de estruturas tridimensionais que, na verdade, são planas.</p>
+
+<p><strong>Reflexão de Sobrevivência:</strong> O produto misto funciona como um "detector de planaridade" instantâneo. Um único cálculo — o determinante 3×3 — revela se uma estrutura tridimensional proposta é genuinamente 3D ou apenas uma ilusão plana. Na engenharia de sobrevivência, isso economiza materiais e vidas.</p>
+</details>
+</div>

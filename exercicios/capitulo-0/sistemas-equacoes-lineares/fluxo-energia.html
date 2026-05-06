@@ -1,0 +1,29 @@
+<div class="exercise">
+<h3>FLUXO DE ENERGIA NO ABRIGO</h3>
+
+<p>O abrigo possui dois geradores elétricos. Em um teste, com o gerador A a 100% e o B desligado, a produção foi de 24 kW; em outro, com o gerador A a 50% e o B a 100%, a produção foi de 30 kW. O sistema de refrigeração precisa de exatamente 18 kW para funcionar — nem mais (desperdício de combustível), nem menos (alimento estraga). Encontrar a potência máxima de cada gerador a partir dos dois testes é o primeiro passo: duas equações, duas incógnitas. Depois, combinar frações das potências para totalizar 18 kW é uma equação adicional que pode ter mais de uma solução — cabe a você encontrar a que minimiza o consumo de combustível.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Primeiro resolva o sistema dos dois testes para achar a potência de cada gerador. Depois, a equação $p_A \cdot P_A + p_B \cdot P_B = 18$ (onde $p_A$ e $p_B$ são frações entre 0 e 1) pode ser satisfeita de várias formas — qual combinação usa menos combustível?</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Definimos: $x$ = potência do gerador A (kW a 100%), $y$ = potência do gerador B (kW a 100%)</li>
+<li>Teste 1: $x = 24$ kW</li>
+<li>Teste 2: $0{,}5x + y = 30 \Rightarrow 12 + y = 30 \Rightarrow y = 18$ kW</li>
+<li>Para gerar 18 kW: $p_A \cdot 24 + p_B \cdot 18 = 18$, ou $4p_A + 3p_B = 3$</li>
+<li>Para minimizar consumo, minimizamos $p_A + p_B$ sujeito a $4p_A + 3p_B = 3$ e $0 \leq p_A, p_B \leq 1$</li>
+<li>Testando $p_B = 1$: $p_A = 0$ → funciona! Gerador B a 100%, A desligado.</li>
+<li>Verificação: $0 \cdot 24 + 1 \cdot 18 = 18$ kW ✓</li>
+</ol>
+<div class="formula">
+$$\begin{cases} x = 24 \\ 0{,}5x + y = 30 \end{cases} \Rightarrow x = 24,\; y = 18$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A solução contra-intuitiva — desligar o gerador maior e usar apenas o menor a plena carga — mostra que a matemática frequentemente revela eficiências ocultas que o instinto ignora. Em um mundo de escassez, "fazer mais com menos" não é um clichê, é uma equação.</p>
+</details>
+</div>

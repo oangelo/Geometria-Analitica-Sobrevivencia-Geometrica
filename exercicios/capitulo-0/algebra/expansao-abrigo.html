@@ -1,0 +1,31 @@
+        <div class="exercise">
+            <h3>PRODUTO NOTÁVEL COM INCÓGNITA</h3>
+
+            <p>Quando o SUPERVISOR diz que a área de cultivo deve ser 25 unidades quadradas e o formato é um quadrado de lado $(x+3)$, a equação é $(x + 3)^2 = 25$. Agora o produto notável que descobrimos com números aparece com incógnita: expanda o quadrado do binômio usando o padrão que verificamos e depois isole $x$. A equação resultante será resolvível com o método que já dominamos.</p>
+
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Use $(a+b)^2 = a^2 + 2ab + b^2$ para expandir $(x+3)^2$. Depois, resolva a equação resultante como uma equação quadrática: primeiro tire a raiz quadrada dos dois lados.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Expanda $(x+3)^2$ usando o produto notável: $(x+3)^2 = x^2 + 2(x)(3) + 3^2 = x^2 + 6x + 9$</li>
+                    <li>A equação fica: $x^2 + 6x + 9 = 25$</li>
+                    <li>Subtraia 25 dos dois lados: $x^2 + 6x - 16 = 0$</li>
+                    <li>Ou, mais elegante: perceba que $(x+3)^2 = 25$ implica $x + 3 = \pm 5$</li>
+                    <li>Se $x + 3 = 5$: $x = 2$</li>
+                    <li>Se $x + 3 = -5$: $x = -8$</li>
+                    <li>Verificação: $(2+3)^2 = 25$ ✓ e $(-8+3)^2 = (-5)^2 = 25$ ✓</li>
+                </ol>
+
+                <div class="formula">
+                    $$(x+3)^2 = 25 \implies x + 3 = \pm 5 \implies x = 2 \text{ ou } x = -8$$
+                </div>
+
+                <p><strong>Reflexão de Sobrevivência:</strong> Quando o SUPERVISOR diz que a área de cultivo deve ser 25 unidades quadradas e o formato é um quadrado com lado $(x+3)$, existem dois valores possíveis para $x$. Na Zona Devastada, interpretar corretamente ambas as soluções pode significar descobrir uma área extra de cultivo que outros sobreviventes ignoraram.</p>
+            </details>
+        </div>

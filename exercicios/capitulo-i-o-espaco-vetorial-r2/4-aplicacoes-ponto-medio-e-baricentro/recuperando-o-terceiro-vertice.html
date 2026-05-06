@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>RECUPERANDO O TERCEIRO VÉRTICE</h3>
+<p>Dois vértices de um território triangular são conhecidos: $A(0, 0)$ e $B(3, 0)$. O centro de comando (baricentro) está localizado em $G(2, 1)$. Um terceiro abrigo $C$ existe, mas suas coordenadas foram perdidas nos registros. Sabendo que o baricentro de um triângulo é $G = \left(\frac{x_A + x_B + x_C}{3}, \frac{y_A + y_B + y_C}{3}\right)$, determine as coordenadas de $C$.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Da fórmula do baricentro, isole $C$. Se $G = \frac{A + B + C}{3}$, então $C = 3G - A - B$. Basta calcular componente a componente.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Partindo da fórmula do baricentro: $G = \left(\frac{x_A + x_B + x_C}{3}, \frac{y_A + y_B + y_C}{3}\right)$.</li>
+<li>Isolando $C$: multiplicando ambos os lados por 3: $3G = A + B + C$. Portanto: $C = 3G - A - B$.</li>
+<li>Calculando componente a componente:
+$x_C = 3x_G - x_A - x_B = 3(2) - 0 - 3 = 6 - 3 = 3$
+$y_C = 3y_G - y_A - y_B = 3(1) - 0 - 0 = 3$</li>
+<li>Portanto: $C(3, 3)$.</li>
+<li>Verificação: $G = \left(\frac{0 + 3 + 3}{3}, \frac{0 + 0 + 3}{3}\right) = \left(\frac{6}{3}, \frac{3}{3}\right) = (2, 1)$. Confirmado!</li>
+</ol>
+<div class="formula">
+$$C = 3G - A - B = 3(2, 1) - (0, 0) - (3, 0) = (3, 3)$$
+$$G = \left(\frac{0 + 3 + 3}{3}, \frac{0 + 0 + 3}{3}\right) = (2, 1) \checkmark$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Recuperar o vértice faltante a partir do baricentro e de dois vértices conhecidos é uma operação inversa essencial. Na Zona Devastada, quando dois pontos de referência e o centro de equilíbrio são conhecidos, o terceiro pode ser deduzido algebricamente. A fórmula $C = 3G - A - B$ é uma ferramenta de reconstrução geométrica poderosa, usando apenas pares ordenados.</p>
+</details>
+</div>

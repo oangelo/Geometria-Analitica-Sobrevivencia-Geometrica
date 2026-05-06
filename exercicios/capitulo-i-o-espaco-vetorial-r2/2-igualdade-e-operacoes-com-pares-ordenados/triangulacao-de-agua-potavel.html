@@ -1,0 +1,23 @@
+<div class="exercise">
+<h3>CIRCUITO DE PATRULHA</h3>
+<p>A patrulha do Refúgio-TEC executa um circuito diário: parte do abrigo em $(0, 0)$, aplica um primeiro deslocamento de $(2, 1)$ para chegar ao posto avançado, depois desloca $(3, -1)$ até a torre de vigia, e finalmente se move $(-5, 0)$ até o depósito de água. A soma de todos os deslocamentos revela onde a patrulha termina em relação ao abrigo. Some os três deslocamentos e determine a posição final. Em seguida, desenhe os três passos ponta-cauda no plano e verifique se a resultante leva de volta à origem.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>A soma de pares ordenados é associativa: some os dois primeiros, depois some o terceiro ao resultado. Ou some todos de uma vez, componente a componente.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Some os três deslocamentos componente a componente: $(2, 1) + (3, -1) + (-5, 0)$.</li>
+<li>Coordenada horizontal: $2 + 3 + (-5) = 0$.</li>
+<li>Coordenada vertical: $1 + (-1) + 0 = 0$.</li>
+<li>A soma total é $(0, 0)$: a patrulha volta exatamente ao abrigo. O circuito é fechado.</li>
+</ol>
+<div class="formula">
+$$(2, 1) + (3, -1) + (-5, 0) = (2+3-5,\; 1-1+0) = (0, 0)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Um circuito de patrulha que soma $(0, 0)$ significa que a equipe retorna ao ponto de partida — exatamente o que se espera de uma rota de segurança. Se a soma resultasse em algo diferente de $(0, 0)$, alguém ficaria perdido na Zona Devastada ao final do turno. Verificar o fechamento do circuito é uma medida de segurança simples, mas que pode salvar vidas.</p>
+</details>
+</div>

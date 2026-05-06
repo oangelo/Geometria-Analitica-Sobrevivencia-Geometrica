@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>ROTAS DE EVACUAÇÃO</h3>
+
+<p>Duas rotas ligam o abrigo a um bunker seguro. A rota A tem 3 km de terreno montanhoso e 6 km de planície contaminada; a rota B tem 4 km de floresta densa e 2 km de rio radioativo. Sabendo que cada km em terreno montanhoso consome 50% mais tempo que em planície, e que cada km em floresta consome o dobro do tempo de rio, e que ambas as rotas levam o mesmo tempo total (5,25 horas pela rota A), determine o tempo por km em cada tipo de terreno. As relações entre os tempos reduzem o número de incógnitas: o tempo na montanha depende do tempo na planície, e o tempo na floresta depende do tempo no rio — restando apenas duas variáveis independentes, resolvíveis pelas duas equações de tempo total.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Use as relações dadas ($t_m = 1{,}5 \cdot t_p$ e $t_f = 2 \cdot t_r$) para expressar tudo em duas variáveis. A rota A fornece a primeira equação; a igualdade $T_A = T_B$ fornece a segunda.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Definimos: $t_p$ = tempo/km planície, $t_m = 1{,}5 \cdot t_p$, $t_r$ = tempo/km rio, $t_f = 2 \cdot t_r$</li>
+<li>Rota A: $3t_m + 6t_p = 3(1{,}5 t_p) + 6t_p = 10{,}5 t_p = 5{,}25$</li>
+<li>Resolvemos: $t_p = 0{,}5$ h/km, logo $t_m = 0{,}75$ h/km</li>
+<li>Rota B: $4t_f + 2t_r = 4(2t_r) + 2t_r = 10t_r = 5{,}25$</li>
+<li>Resolvemos: $t_r = 0{,}525$ h/km, logo $t_f = 1{,}05$ h/km</li>
+</ol>
+<div class="formula">
+$$\begin{cases} 10{,}5\, t_p = 5{,}25 \\ 10\, t_r = 5{,}25 \end{cases}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Na evacuação, o tempo é o recurso mais irrecuperável. Um grupo com crianças evita a floresta densa; quem tem pouco RemoveRad evita o rio radioativo. A matemática aqui não é um exercício — é uma ferramenta de decisão que pode salvar vidas quando cada minuto conta.</p>
+</details>
+</div>

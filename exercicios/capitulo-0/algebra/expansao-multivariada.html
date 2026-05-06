@@ -1,0 +1,29 @@
+        <div class="exercise">
+            <h3>PRODUTO NOTÁVEL COM NÚMEROS</h3>
+
+            <p>Ao calcular uma área de plantio, um colega afirmou que $(3 + 4)^2 = 3^2 + 4^2$, subestimando a área real. O erro é comum e perigoso: na Zona Devastada, subestimar uma área de plantio ou uma seção de parede com esse erro significa não ter material suficiente. O que acontece quando multiplicamos $(a + b)$ por ele mesmo? Antes de usar incógnitas, vamos descobrir com números. Calcule $(3 + 4)^2$ diretamente e depois calcule $3^2 + 2 \cdot 3 \cdot 4 + 4^2$. Os dois resultados são iguais? O que o termo extra $2 \cdot 3 \cdot 4 = 24$ representa — geometricamente, são dois retângulos de área $3 \times 4$ que ficam "de fora" de $a^2$ e $b^2$.</p>
+
+            <details class="hint-details">
+                <summary>DICA DE SOBREVIVÊNCIA</summary>
+            <div class="hint">
+                <p>Calcule $(3+4)^2$ primeiro: $7^2 = 49$. Depois calcule $3^2 + 4^2 = 9 + 16 = 25$. Compare os dois resultados. A diferença de $24$ é o termo $2ab$.</p>
+            </div>
+            </details>
+
+            <details>
+                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+                <ol class="solution-steps">
+                    <li>Calcule $(3 + 4)^2 = 7^2 = 49$</li>
+                    <li>Calcule $3^2 + 4^2 = 9 + 16 = 25$</li>
+                    <li>Compare: $49 \neq 25$. O erro comum $(a+b)^2 = a^2 + b^2$ ignora o termo cruzado.</li>
+                    <li>Agora calcule com o termo completo: $3^2 + 2 \cdot 3 \cdot 4 + 4^2 = 9 + 24 + 16 = 49$ ✓</li>
+                    <li>O termo extra $2ab = 24$ são dois retângulos de área $3 \times 4$ que ficam "de fora" do quadrado.</li>
+                </ol>
+
+                <div class="formula">
+                    $$(a + b)^2 = a^2 + 2ab + b^2$$
+                </div>
+
+                <p><strong>Reflexão de Sobrevivência:</strong> Esquecer o termo $2ab$ é um dos erros algébricos mais comuns. Na Zona Devastada, calcular uma área de plantio ou uma seção de parede com esse erro significa subestimar a necessidade de material em até 50%. Não cometa esse erro.</p>
+            </details>
+        </div>

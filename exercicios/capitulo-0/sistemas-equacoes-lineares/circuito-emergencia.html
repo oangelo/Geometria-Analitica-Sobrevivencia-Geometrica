@@ -1,0 +1,26 @@
+<div class="exercise">
+<h3>CIRCUITO ELÉTRICO DE EMERGÊNCIA</h3>
+
+<p>O sistema de comunicação de emergência requer uma corrente estável de 2 amperes através de um circuito com duas resistências em paralelo, alimentado por 12 volts. A potência dissipada pela primeira resistência é de 16 watts e pela segunda, 8 watts. Em um circuito paralelo, a voltagem é a mesma nos dois ramos, então a relação $P = VI$ (potência igual a voltagem vezes corrente) permite calcular a corrente em cada resistência a partir da potência conhecida. Como a corrente total é a soma das correntes individuais ($I_1 + I_2 = 2$ A), o sistema formado pelas duas equações de potência revela as correntes, e a Lei de Ohm ($R = V/I$) fornece os valores das resistências. Verifique se os dados são consistentes.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Use $P = VI$ para encontrar $I_1$ e $I_2$ diretamente (voltagem é 12V nos dois ramos). Depois verifique se $I_1 + I_2 = 2$ A e use $R = V/I$ para cada resistência.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Da fórmula $P = VI$: $I_1 = \frac{16}{12} = \frac{4}{3}$ A e $I_2 = \frac{8}{12} = \frac{2}{3}$ A</li>
+<li>Verificação: $I_1 + I_2 = \frac{4}{3} + \frac{2}{3} = 2$ A ✓</li>
+<li>Pela Lei de Ohm: $R_1 = \frac{12}{4/3} = 9\;\Omega$ e $R_2 = \frac{12}{2/3} = 18\;\Omega$</li>
+<li>Verificação de potência: $I_1^2 R_1 = \frac{16}{9} \cdot 9 = 16$ W ✓ e $I_2^2 R_2 = \frac{4}{9} \cdot 18 = 8$ W ✓</li>
+</ol>
+<div class="formula">
+$$P = VI \quad \Rightarrow \quad I_1 = \frac{P_1}{V},\; I_2 = \frac{P_2}{V}, \quad R = \frac{V}{I}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Na Zona Devastada, circuitos são improvisados com componentes de equipamentos diversos. Compreender as relações entre resistência, corrente, voltagem e potência permite construir sistemas funcionais mesmo sem instrumentos de medição precisos. Um sistema de comunicação confiável pode significar a diferença entre receber socorro ou permanecer isolado para sempre.</p>
+</details>
+</div>

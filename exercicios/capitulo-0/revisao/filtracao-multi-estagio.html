@@ -1,0 +1,20 @@
+<div class="exercise">
+<h3>MISSÃO 8: Sistema de Filtração Multi-estágio</h3>
+<p>Seu abrigo utiliza um sistema de filtração de água com três estágios. O primeiro remove $\frac{2}{3}$ das partículas, o segundo remove $\frac{3}{4}$ das partículas restantes, e o terceiro remove $\frac{4}{5}$ das que ainda permanecem. A água é segura para consumo quando tem no máximo $10$ partículas por litro. Se a água coletada da Zona Devastada tem $x$ partículas por litro, calcule a fração de partículas que sobrevive a cada estágio e determine o maior valor de $x$ que resulta em água segura após as três filtragens.</p>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Rastreamos a fração de partículas que permanece após cada estágio:
+<div class="formula">$$\text{1º: } 1 - \frac{2}{3} = \frac{1}{3} \qquad \text{2º: } 1 - \frac{3}{4} = \frac{1}{4} \qquad \text{3º: } 1 - \frac{4}{5} = \frac{1}{5}$$</div>
+</li>
+<li>A fração total que sobrevive é o produto:
+<div class="formula">$$\frac{1}{3} \times \frac{1}{4} \times \frac{1}{5} = \frac{1}{60}$$</div>
+</li>
+<li>Após a filtração, restam $\frac{1}{60}x$ partículas. Para ser seguro:
+<div class="formula">$$\frac{1}{60}x \leq 10 \implies x \leq 600 \text{ partículas por litro}$$</div>
+</li>
+</ol>
+<p><strong>Reflexão de Sobrevivência:</strong> A água da Zona Devastada pode conter até $600$ partículas por litro para ser adequadamente filtrada. Se encontrar fontes com contaminação maior, precisará aumentar a eficiência dos filtros ou realizar múltiplas filtragens. Mantenha um contador Geiger-Müller calibrado para verificar tanto a entrada quanto a saída do sistema.</p>
+</details>
+</div>

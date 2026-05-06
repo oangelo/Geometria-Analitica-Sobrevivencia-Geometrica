@@ -1,0 +1,25 @@
+<div class="exercise">
+<h3>MISSÃO 6: Travessia do Rio Tóxico</h3>
+<p>Você precisa atravessar um rio contaminado cuja largura varia linearmente: no ponto inicial, a largura é $x + 2y$ metros; $500$ metros rio abaixo, é $2x - y$ metros. Com $x = 8$ e $y = 3$, calcule as larguras nos dois pontos, determine a equação linear $L(d) = ad + b$ que descreve a largura em função da distância $d$ rio abaixo, e avalie se sua ponte portátil de $25$ metros é suficiente para cruzar em qualquer ponto ao longo dos primeiros $500$ metros.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint"><p>Substitua os valores de $x$ e $y$ para achar as duas larguras. A taxa de variação $a$ é a diferença entre as larguras dividida pela distância entre os pontos. A largura inicial $b$ é o valor quando $d = 0$.</p></div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Calculamos as larguras nos dois pontos:
+<div class="formula">$$L(0) = 8 + 2(3) = 14 \text{ metros}$$</div>
+<div class="formula">$$L(500) = 2(8) - 3 = 13 \text{ metros}$$</div>
+</li>
+<li>A taxa de variação é:
+<div class="formula">$$a = \frac{13 - 14}{500 - 0} = \frac{-1}{500} = -0{,}002 \text{ m/m}$$</div>
+</li>
+<li>A equação da largura é $L(d) = -0{,}002d + 14$.</li>
+<li>Como a largura diminui de $14$m para $13$m ao longo de $500$m, e ambos os valores são menores que $25$m, a ponte é suficiente em qualquer ponto.</li>
+</ol>
+<p><strong>Reflexão de Sobrevivência:</strong> A largura do rio está diminuindo gradualmente rio abaixo. Como a largura inicial já é de $14$ metros e sua ponte cobre até $25$ metros, você pode atravessar em qualquer ponto. A decisão mais estratégica seria construir próximo ao início, minimizando o deslocamento total e a exposição à radiação.</p>
+</details>
+</div>

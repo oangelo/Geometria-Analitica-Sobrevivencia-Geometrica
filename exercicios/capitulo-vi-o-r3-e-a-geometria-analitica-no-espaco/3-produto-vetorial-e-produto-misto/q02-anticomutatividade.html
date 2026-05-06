@@ -1,0 +1,49 @@
+<div class="exercise">
+<h3>ANTICOMUTATIVIDADE DO PRODUTO VETORIAL</h3>
+<p>O objetivo deste exercício é verificar experimentalmente uma das propriedades fundamentais do produto vetorial: a ordem dos fatores altera o produto — não apenas em módulo, mas em sentido.</p>
+<p>Dados os vetores $\vec{u} = (3, 0, -1)$ e $\vec{v} = (2, 4, 1)$:</p>
+<p><strong>(a)</strong> Calcule $\vec{u} \times \vec{v}$.</p>
+<p><strong>(b)</strong> Calcule $\vec{v} \times \vec{u}$.</p>
+<p><strong>(c)</strong> Compare os resultados. Qual a relação entre $\vec{u} \times \vec{v}$ e $\vec{v} \times \vec{u}$? Isso está de acordo com a regra da mão direita?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Calcule cada produto vetorial separadamente usando o determinante. Depois compare as coordenadas. A regra da mão direita diz que inverter a ordem dos vetores inverte o sentido do polegar.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>Item (a) — $\vec{u} \times \vec{v}$:</strong></p>
+<ol class="solution-steps">
+<li>$\vec{u} \times \vec{v} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 3 & 0 & -1 \\ 2 & 4 & 1 \end{vmatrix}$</li>
+<li>Componente $\vec{i}$: $(0)(1) - (-1)(4) = 0 + 4 = 4$</li>
+<li>Componente $\vec{j}$: $-[(3)(1) - (-1)(2)] = -[3 + 2] = -5$</li>
+<li>Componente $\vec{k}$: $(3)(4) - (0)(2) = 12 - 0 = 12$</li>
+</ol>
+<div class="formula">
+$$\vec{u} \times \vec{v} = (4, -5, 12)$$
+</div>
+
+<p><strong>Item (b) — $\vec{v} \times \vec{u}$:</strong></p>
+<ol class="solution-steps">
+<li>$\vec{v} \times \vec{u} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 2 & 4 & 1 \\ 3 & 0 & -1 \end{vmatrix}$</li>
+<li>Componente $\vec{i}$: $(4)(-1) - (1)(0) = -4 - 0 = -4$</li>
+<li>Componente $\vec{j}$: $-[(2)(-1) - (1)(3)] = -[-2 - 3] = -(-5) = 5$</li>
+<li>Componente $\vec{k}$: $(2)(0) - (4)(3) = 0 - 12 = -12$</li>
+</ol>
+<div class="formula">
+$$\vec{v} \times \vec{u} = (-4, 5, -12)$$
+</div>
+
+<p><strong>Item (c):</strong></p>
+<ol class="solution-steps">
+<li>Observamos que $\vec{v} \times \vec{u} = (-4, 5, -12) = -(4, -5, 12) = -(\vec{u} \times \vec{v})$</li>
+<li>Portanto: $\vec{u} \times \vec{v} = -(\vec{v} \times \vec{u})$</li>
+</ol>
+<p>Isso confirma a propriedade da <strong>anticomutatividade</strong>. A regra da mão direita explica perfeitamente: ao inverter a ordem dos vetores (curvar os dedos de $\vec{v}$ para $\vec{u}$ em vez de $\vec{u}$ para $\vec{v}$), o polegar aponta no sentido oposto. Os dois vetores resultantes têm o mesmo módulo e direção, mas sentidos contrários.</p>
+
+<p><strong>Reflexão de Sobrevivência:</strong> A anticomutatividade não é um "defeito" — é uma característica. Na prática de engenharia, a ordem dos vetores importa. Se você calcula a força magnética sobre uma carga ($\vec{F} = q\vec{v} \times \vec{B}$), inverter $\vec{v}$ e $\vec{B}$ inverte a força. A regra da mão direita traduz essa propriedade algébrica em intuição espacial.</p>
+</details>
+</div>

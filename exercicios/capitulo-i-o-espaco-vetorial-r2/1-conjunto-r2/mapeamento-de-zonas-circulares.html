@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>MAPEAMENTO DE ZONAS CIRCULARES</h3>
+<p>O Refúgio-Tec possui um mapa com nove postos de observação dispostos em uma grade $3 \times 3$, com coordenadas $(1, 1)$, $(1, 2)$, $(1, 3)$, $(2, 1)$, $(2, 2)$, $(2, 3)$, $(3, 1)$, $(3, 2)$ e $(3, 3)$. Classifique cada posto por quadrante e identifique quais postos estão mais próximos de cada eixo coordenado (ou seja, têm pelo menos uma coordenada igual a 1, que é o valor mais próximo da origem nesta grade).</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Todos os nove pontos têm coordenadas positivas, então todos estão no mesmo quadrante. Para identificar proximidade dos eixos, verifique quais pontos têm $x = 1$ (próximos do eixo $y$) ou $y = 1$ (próximos do eixo $x$).</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Como todas as coordenadas são positivas ($x \geq 1 > 0$ e $y \geq 1 > 0$), todos os nove postos estão no Quadrante I.</li>
+<li>Postos com $x = 1$ (mais próximos do eixo $y$): $(1, 1)$, $(1, 2)$, $(1, 3)$.</li>
+<li>Postos com $y = 1$ (mais próximos do eixo $x$): $(1, 1)$, $(2, 1)$, $(3, 1)$.</li>
+<li>O posto $(1, 1)$ aparece em ambas as listas — é o mais próximo tanto do eixo $x$ quanto do eixo $y$, e portanto o mais próximo da origem.</li>
+<li>O posto $(2, 2)$ está no centro da grade, equidistante das bordas.</li>
+</ol>
+<div class="formula">
+$$\text{Todos os 9 postos} \in \text{Quadrante I}$$
+$$\text{Mais próximos do eixo } y\text{: } x = 1 \quad \Rightarrow \quad (1, 1), (1, 2), (1, 3)$$
+$$\text{Mais próximos do eixo } x\text{: } y = 1 \quad \Rightarrow \quad (1, 1), (2, 1), (3, 1)$$
+$$\text{Centro da grade: } (2, 2)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Dispor postos em grade regular permite cobertura uniforme do território. Identificar quais postos estão na "borda" da grade (próximos dos eixos) ajuda a priorizar reforços — estes são os primeiros a encontrar ameaças vindas de outras direções. O centro $(2, 2)$ é o ponto de comando ideal, com acesso equilibrado a todos os postos.</p>
+</details>
+</div>

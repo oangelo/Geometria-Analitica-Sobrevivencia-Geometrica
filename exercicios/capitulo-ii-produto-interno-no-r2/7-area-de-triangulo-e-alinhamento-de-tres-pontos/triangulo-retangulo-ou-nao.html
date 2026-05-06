@@ -1,0 +1,33 @@
+<div class="exercise">
+<h3>TRIÂNGULO RETÂNGULO OU NÃO?</h3>
+
+<p>Nos exercícios anteriores, usamos o determinante 2×2 para calcular áreas e testar alinhamento. Agora vamos combinar essa ferramenta com outra que já dominamos: o produto escalar. Três postos de observação foram instalados nos pontos $A(1, 1)$, $B(5, 1)$ e $C(1, 5)$. Primeiro, calcule a área do triângulo $ABC$ usando o determinante 2×2. Depois, verifique se algum dos ângulos é reto — para isso, construa os vetores $\overrightarrow{AB}$, $\overrightarrow{BC}$ e $\overrightarrow{CA}$ e teste se algum par tem produto escalar zero (como vimos no tópico sobre ortogonalidade). O triângulo é retângulo? Se sim, qual é o ângulo reto?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Construa os três vetores que formam os lados do triângulo: $\overrightarrow{AB}$, $\overrightarrow{BC}$ e $\overrightarrow{CA}$. Depois calcule os três produtos escalares possíveis: $\overrightarrow{AB}\cdot\overrightarrow{BC}$, $\overrightarrow{BC}\cdot\overrightarrow{CA}$ e $\overrightarrow{CA}\cdot\overrightarrow{AB}$. Se algum for zero, o triângulo é retângulo naquele vértice.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Construa os vetores: $\overrightarrow{AB} = (4, 0)$, $\overrightarrow{BC} = (-4, 4)$, $\overrightarrow{CA} = (0, -4)$.</li>
+<li>Área via determinante: $\overrightarrow{AB} = (4, 0)$ e $\overrightarrow{AC} = (0, 4)$. Área $= \frac{1}{2}|4 \times 4 - 0 \times 0| = \frac{1}{2} \times 16 = 8$.</li>
+<li>Teste de ortogonalidade nos vértices:
+<ul>
+<li>Em $B$: $\overrightarrow{BA} = (-4, 0)$ e $\overrightarrow{BC} = (-4, 4)$. Produto: $(-4)(-4) + 0 \times 4 = 16 \neq 0$.</li>
+<li>Em $A$: $\overrightarrow{AB} = (4, 0)$ e $\overrightarrow{AC} = (0, 4)$. Produto: $4 \times 0 + 0 \times 4 = 0$ ✓</li>
+<li>Em $C$: $\overrightarrow{CA} = (0, -4)$ e $\overrightarrow{CB} = (4, -4)$. Produto: $0 \times 4 + (-4)(-4) = 16 \neq 0$.</li>
+</ul>
+</li>
+<li>O produto escalar $\overrightarrow{AB} \cdot \overrightarrow{AC} = 0$, logo o ângulo reto está no vértice $A$. O triângulo é retângulo em $A$.</li>
+</ol>
+<div class="formula">
+$$\overrightarrow{AB} \cdot \overrightarrow{AC} = 4 \times 0 + 0 \times 4 = 0 \implies \text{ângulo reto em } A$$
+$$\text{Área} = 8$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Este exercício combina duas ferramentas do Capítulo II: o determinante (para área) e o produto escalar (para ortogonalidade). Na Zona Devastada, saber se um perímetro defensivo forma um ângulo reto é crucial — cantos retos são mais fáceis de defender que ângulos oblíquos. Quem domina as ferramentas certas constrói defesas melhores.</p>
+</details>
+</div>

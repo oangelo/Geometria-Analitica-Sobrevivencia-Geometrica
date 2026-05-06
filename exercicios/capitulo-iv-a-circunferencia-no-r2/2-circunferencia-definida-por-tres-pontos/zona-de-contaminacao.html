@@ -1,0 +1,31 @@
+<div class="exercise">
+<h3>ZONA DE CONTAMINAÇÃO</h3>
+
+<p>Três detectores de radiação registraram picos simultâneos nas posições $A(1,1)$, $B(5,1)$ e $C(3,5)$. A hipótese do SUPERVISOR é que uma fonte de contaminação está no centro da circunferência que passa pelos três pontos de detecção — o raio representaria a distância da fonte a cada detector. Diferentemente do perímetro anterior, nenhum dos detectores está na origem, portanto o atalho $F = 0$ não está disponível. A técnica é montar o sistema $3 \times 3$ e, por subtração de equações, eliminar $F$ para obter um sistema $2 \times 2$ em $D$ e $E$. No papel, esboce os três pontos e a circunferência que os contém, e determine a equação, o centro e o raio da zona de contaminação.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Substitua cada ponto na equação geral $x^2 + y^2 + Dx + Ey + F = 0$, obtendo três equações. Subtraia a primeira da segunda e a primeira da terceira — o termo $F$ desaparece em ambas, deixando apenas $D$ e $E$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Substituindo $A(1,1)$: $1 + 1 + D + E + F = 0 \Rightarrow D + E + F = -2$ &nbsp; ...(1)</li>
+<li>Substituindo $B(5,1)$: $25 + 1 + 5D + E + F = 0 \Rightarrow 5D + E + F = -26$ &nbsp; ...(2)</li>
+<li>Substituindo $C(3,5)$: $9 + 25 + 3D + 5E + F = 0 \Rightarrow 3D + 5E + F = -34$ &nbsp; ...(3)</li>
+<li>(2) $-$ (1): $4D = -24 \Rightarrow D = -6$.</li>
+<li>(3) $-$ (1): $2D + 4E = -32 \Rightarrow 2(-6) + 4E = -32 \Rightarrow 4E = -20 \Rightarrow E = -5$.</li>
+<li>De (1): $-6 - 5 + F = -2 \Rightarrow F = 9$.</li>
+<li>Equação da circunferência: $x^2 + y^2 - 6x - 5y + 9 = 0$.</li>
+<li>Centro: $\left(\dfrac{6}{2},\; \dfrac{5}{2}\right) = (3,\; 2{,}5)$.</li>
+<li>Raio: $r = \sqrt{9 + 6{,}25 - 9} = \sqrt{6{,}25} = 2{,}5$.</li>
+</ol>
+<div class="formula">
+$$x^2 + y^2 - 6x - 5y + 9 = 0 \qquad \text{Centro } (3;\, 2{,}5), \quad r = 2{,}5$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Sem o atalho da origem, a subtração de equações é a ferramenta essencial — elimina $F$ e reduz o sistema $3 \times 3$ a um $2 \times 2$. Na Zona Devastada, nem sempre o terreno oferece caminhos fáceis, mas o método sistemático funciona independente das coordenadas dos pontos.</p>
+</details>
+</div>

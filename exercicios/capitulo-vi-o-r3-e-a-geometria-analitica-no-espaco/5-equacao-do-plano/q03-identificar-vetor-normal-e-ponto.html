@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>Identificação de Vetor Normal e Ponto do Plano</h3>
+<p><strong>Objetivo:</strong> Extrair informações geométricas (vetor normal e ponto) a partir da equação geral do plano.</p>
+<p>Um sensor de proximidade detectou uma superfície plana descrita pela equação $2x - 3y + z - 6 = 0$. A equipe técnica precisa identificar: (a) o vetor normal ao plano; (b) um ponto que pertença ao plano; (c) verifique se o ponto $P(1, -1, 1)$ pertence ao plano.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+                Os coeficientes $(a, b, c)$ da equação geral $ax + by + cz + d = 0$ são as componentes do vetor normal $\vec{n} = (a, b, c)$. Para encontrar um ponto do plano, escolha valores convenientes para duas variáveis e resolva para a terceira — por exemplo, faça $y = z = 0$ e resolva para $x$.
+            </div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Identificar coeficientes: $a = 2$, $b = -3$, $c = 1$, $d = -6$.</li>
+<li>Vetor normal: $\vec{n} = (2, -3, 1)$.</li>
+<li>Para encontrar um ponto do plano, faça $y = 0$ e $z = 0$: $2x - 6 = 0 \Rightarrow x = 3$. Ponto: $A(3, 0, 0)$.</li>
+<li>Alternativamente, faça $x = 0$ e $z = 0$: $-3y - 6 = 0 \Rightarrow y = -2$. Ponto: $B(0, -2, 0)$.</li>
+<li>Alternativamente, faça $x = 0$ e $y = 0$: $z - 6 = 0 \Rightarrow z = 6$. Ponto: $C(0, 0, 6)$.</li>
+<li>Verificar $P(1, -1, 1)$: substituir na equação: $2(1) - 3(-1) + (1) - 6 = 2 + 3 + 1 - 6 = 0$.</li>
+<li>Como o resultado é zero, $P$ <strong>pertence</strong> ao plano.</li>
+</ol>
+<div class="formula">
+                    $$\vec{n} = (2, -3, 1), \quad A(3, 0, 0) \in \text{plano}, \quad P(1, -1, 1) \in \text{plano}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> A equação geral do plano é uma "ficha técnica" compacta. Os coeficientes $(a, b, c)$ são o vetor normal, e qualquer ponto que satisfaça a equação está na superfície. Saber extrair essas informações rapidamente é crucial em campo.</p>
+</details>
+</div>

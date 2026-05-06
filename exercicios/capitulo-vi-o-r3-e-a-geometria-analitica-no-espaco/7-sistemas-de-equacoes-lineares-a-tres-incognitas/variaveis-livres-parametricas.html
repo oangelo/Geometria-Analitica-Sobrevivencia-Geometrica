@@ -1,0 +1,73 @@
+<div class="exercise">
+<h3>Variáveis Livres e Forma Paramétrica</h3>
+<p><strong>Objetivo:</strong> Expressar a solução geral de um sistema SPI usando parâmetros livres e interpretar geometricamente.</p>
+
+<p>O sistema de comunicação do Refúgio-TEC opera com três frequências $x$, $y$, $z$ que satisfazem:</p>
+
+<div class="formula">
+$$\begin{cases}
+x + 2y - z = 5 \\
+2x + 4y - 2z = 10 \\
+x - y + 2z = 2
+\end{cases}$$
+</div>
+
+<p><strong>a)</strong> Observe as equações (I) e (II). Qual a relação entre elas? O que isso indica sobre o sistema?</p>
+
+<p><strong>b)</strong> Escalone o sistema, eliminando $x$ das equações (II) e (III) usando a (I) como pivô.</p>
+
+<p><strong>c)</strong> Quantas variáveis livres existem? Identifique-as.</p>
+
+<p><strong>d)</strong> Escolha $z = t$ como parâmetro livre e expresse $x$ e $y$ em função de $t$. Escreva a solução geral na forma paramétrica.</p>
+
+<p><strong>e)</strong> Escreva a solução na forma vetorial: $(x, y, z) = P_0 + t\vec{v}$, identificando o ponto particular $P_0$ e o vetor diretor $\vec{v}$ da reta solução.</p>
+
+<p><strong>f)</strong> Dê duas soluções particulares e verifique que ambas satisfazem as três equações originais.</p>
+
+<p><strong>g)</strong> Interprete geometricamente: os três planos se intersectam em que tipo de objeto geométrico? Escreva as equações paramétricas dessa reta.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>Quando duas equações são múltiplas uma da outra, elas representam o mesmo plano. O sistema efetivamente tem apenas duas equações independentes para três incógnitas, deixando uma variável livre. A solução é uma reta no espaço.</p>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+
+<p><strong>a)</strong> A equação (II) é exatamente $2$ vezes a equação (I): $2(x + 2y - z) = 2(5) \Rightarrow 2x + 4y - 2z = 10$. Logo, (I) e (II) representam o <strong>mesmo plano</strong>. O sistema tem apenas duas equações independentes.</p>
+
+<p><strong>b)</strong> Escalonamento:</p>
+<p>Eq. (I) &times; $(-2)$ + Eq. (II): $0 = 0$ (II') &mdash; identidade, como esperado.</p>
+<p>Eq. (I) &times; $(-1)$ + Eq. (III): $(x - y + 2z) + (-x - 2y + z) = 2 + (-5)$</p>
+<div class="formula">$$-3y + 3z = -3 \quad \text{(III')}$$</div>
+<p>Simplificando (III'): $-y + z = -1 \Rightarrow y = z + 1$.</p>
+
+<p><strong>c)</strong> Uma variável livre: $z$ (ou $y$, à escolha).</p>
+
+<p><strong>d)</strong> Fazendo $z = t$:</p>
+<p>$y = t + 1$.</p>
+<p>Da equação (I): $x = 5 - 2y + z = 5 - 2(t+1) + t = 5 - 2t - 2 + t = 3 - t$.</p>
+
+<p>Solução geral:</p>
+<div class="formula">
+$$\begin{cases} x = 3 - t \\ y = 1 + t \\ z = t \end{cases}, \quad t \in \mathbb{R}$$
+</div>
+
+<p><strong>e)</strong> Forma vetorial:</p>
+<div class="formula">
+$$(x, y, z) = (3, 1, 0) + t(-1, 1, 1)$$
+</div>
+<p>Ponto particular: $P_0(3, 1, 0)$. Vetor diretor: $\vec{v} = (-1, 1, 1)$.</p>
+
+<p><strong>f)</strong> Duas soluções particulares:</p>
+<ul>
+<li>$t = 0$: $(3, 1, 0)$. Verificação: $3 + 2(1) - 0 = 5$ &check;, $2(3) + 4(1) - 0 = 10$ &check;, $3 - 1 + 0 = 2$ &check;.</li>
+<li>$t = 1$: $(2, 2, 1)$. Verificação: $2 + 4 - 1 = 5$ &check;, $4 + 8 - 2 = 10$ &check;, $2 - 2 + 2 = 2$ &check;.</li>
+</ul>
+
+<p><strong>g)</strong> Geometricamente, os três planos se intersectam em uma <strong>reta</strong>. Como (I) e (II) representam o mesmo plano, a interseção dos três planos é na verdade a interseção do plano (I) com o plano (III), que é uma reta. Equações paramétricas da reta:</p>
+<div class="formula">
+$$r: \begin{cases} x = 3 - t \\ y = 1 + t \\ z = t \end{cases}, \quad t \in \mathbb{R}$$
+</div>
+</details>
+</div>

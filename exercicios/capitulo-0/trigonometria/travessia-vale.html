@@ -1,0 +1,25 @@
+<div class="exercise">
+<h3>Travessia do Vale</h3>
+<p>Você precisa atravessar um vale profundo infestado de predadores. Da borda onde você está (ponto A), o destino B na borda oposta aparece a um ângulo de depressão de 25°. Caminhando 80 metros ao longo da borda até um ponto C, o destino B passa a estar a um ângulo de depressão de 40°. Cada observação fornece uma equação ligando a altura relativa e a distância horizontal por meio da tangente. Usando o Teorema de Pitágoras para relacionar as distâncias nos dois triângulos, determine a largura do vale.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint"><p>Seja $h$ a diferença de altura entre A e B, e $d$ a largura horizontal do vale. Do ponto A: $\tan(25°) = \frac{h}{d}$. Do ponto C, a distância horizontal até B é $\sqrt{d^2 + 80^2}$ (Pitágoras, já que AC é perpendicular a AB). Substitua $h = d \cdot \tan(25°)$ na equação de C e resolva para $d$.</p></div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Seja $d$ a largura horizontal do vale e $h$ a diferença de altura entre A e B:
+<div class="formula">$$\tan(25°) = \frac{h}{d} \implies h = d \cdot \tan(25°)$$</div></li>
+<li>Do ponto C, a distância horizontal até B é (Pitágoras, com AC perpendicular a AB):
+<div class="formula">$$CB = \sqrt{d^2 + 80^2}$$</div></li>
+<li>Usando o ângulo de depressão de 40° no ponto C:
+<div class="formula">$$\tan(40°) = \frac{h}{CB} = \frac{d \cdot \tan(25°)}{\sqrt{d^2 + 80^2}}$$</div></li>
+<li>Eleve ambos os lados ao quadrado e resolva:
+<div class="formula">$$[\tan(40°)]^2 \cdot (d^2 + 80^2) = [d \cdot \tan(25°)]^2 \implies d \approx 120 \text{ m}$$</div></li>
+</ol>
+
+<p><strong>Reflexão de Sobrevivência:</strong> Conhecer distâncias inacessíveis permite planejar rotas e expedições com precisão, economizando recursos vitais como água e alimentos. Na travessia de um vale, este cálculo revela se é necessário construir uma ponte ou se cordas e métodos alternativos bastam.</p>
+</details>
+</div>

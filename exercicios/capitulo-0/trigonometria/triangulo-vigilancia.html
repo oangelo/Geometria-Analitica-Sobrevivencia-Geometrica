@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>Triângulo de Vigilância Ótimo</h3>
+<p>Sua comunidade precisa estabelecer um novo perímetro defensivo com três torres de vigilância. O assentamento ocupa uma área circular de raio 300 metros, e as torres devem formar um triângulo equilátero circunscrito a esse perímetro para maximizar a cobertura com recursos mínimos. Em um triângulo equilátero circunscrito, o raio do círculo circunscrito é $R = \frac{2r}{\sqrt{3}}$ e os vértices espaçam-se a 120°. Determine as coordenadas das três torres (com centro na origem), o lado do triângulo e a área total sob vigilância se cada torre tem alcance visual de 600 metros.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint"><p>Calcule o raio circunscrito com $R = \frac{2 \times 300}{\sqrt{3}}$. Cada torre fica a distância $R$ do centro, nos ângulos 0°, 120° e 240° — converta em coordenadas com $x = R\cos\theta$, $y = R\sen\theta$. O lado do triângulo é $l = 2R\sen 60°$. A área dos círculos de vigilância menos as sobreposições fornece a cobertura total.</p></div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Raio do círculo circunscrito:
+<div class="formula">$$R = \frac{2r}{\sqrt{3}} = \frac{2 \times 300}{\sqrt{3}} \approx 346{,}41 \text{ m}$$</div></li>
+<li>Coordenadas das torres (ângulos 0°, 120°, 240°):
+<div class="formula">$$T_1 = (346{,}41,\ 0),\quad T_2 \approx (-173{,}21,\ 300),\quad T_3 \approx (-173{,}21,\ -300)$$</div></li>
+<li>Lado do triângulo equilátero:
+<div class="formula">$$l = 2R\sen 60° = 2 \times 346{,}41 \times 0{,}866 = 600 \text{ m}$$</div></li>
+<li>Área do triângulo:
+<div class="formula">$$A_{\triangle} = \frac{\sqrt{3}}{4}l^2 = \frac{\sqrt{3}}{4} \times 600^2 \approx 155{,}885 \text{ m}^2$$</div></li>
+<li>Área total sob vigilância (união dos três círculos de raio 600 m):
+<div class="formula">$$A_{\text{total}} \approx 3 \times \pi \times 600^2 - \text{sobreposições} \approx 2{,}400{,}000 \text{ m}^2$$</div></li>
+</ol>
+
+<p><strong>Reflexão de Sobrevivência:</strong> O posicionamento estratégico de estruturas defensivas é fundamental para a sobrevivência a longo prazo na Zona Devastada. O arranjo equilátero maximiza a cobertura com recursos mínimos, cria um perímetro equilibrado de fácil reforço e facilita logística e resposta rápida a qualquer setor.</p>
+</details>
+</div>

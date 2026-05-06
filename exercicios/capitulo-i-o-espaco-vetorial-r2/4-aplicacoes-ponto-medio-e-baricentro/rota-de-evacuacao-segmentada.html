@@ -1,0 +1,30 @@
+<div class="exercise">
+<h3>ROTA DE EVACUAÇÃO SEGMENTADA</h3>
+<p>Três pontos de controle estão situados em $A(0, 0)$, $B(10, 0)$ e $C(5, 8)$. Uma rota de evacuação deve ser planejada saindo do ponto $A$, passando pelo ponto médio $M_1$ entre $A$ e $B$, depois pelo baricentro $G$ do triângulo $ABC$, em seguida pelo ponto médio $M_2$ entre $B$ e $C$, e finalmente chegando em $C$. Determine as coordenadas de todos os pontos da rota e liste os vetores de deslocamento de cada trecho.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Calcule cada ponto intermediário usando as fórmulas de ponto médio e baricentro. Depois calcule o vetor de deslocamento de cada trecho subtraindo a origem do destino. A soma dos vetores deve dar o vetor total de $A$ até $C$.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Ponto médio $M_1$ de $A(0, 0)$ e $B(10, 0)$: $M_1 = \left(\frac{0 + 10}{2}, \frac{0 + 0}{2}\right) = (5, 0)$.</li>
+<li>Baricentro $G$ do triângulo: $G = \left(\frac{0 + 10 + 5}{3}, \frac{0 + 0 + 8}{3}\right) = \left(5, \frac{8}{3}\right) \approx (5, 2{,}67)$.</li>
+<li>Ponto médio $M_2$ de $B(10, 0)$ e $C(5, 8)$: $M_2 = \left(\frac{10 + 5}{2}, \frac{0 + 8}{2}\right) = (7{,}5, 4)$.</li>
+<li>Vetores de deslocamento de cada trecho:
+$\vec{AM_1} = M_1 - A = (5, 0) - (0, 0) = (5, 0)$
+$\vec{M_1G} = G - M_1 = \left(5, \frac{8}{3}\right) - (5, 0) = \left(0, \frac{8}{3}\right)$
+$\vec{GM_2} = M_2 - G = (7{,}5, 4) - \left(5, \frac{8}{3}\right) = \left(2{,}5, \frac{4}{3}\right)$
+$\vec{M_2C} = C - M_2 = (5, 8) - (7{,}5, 4) = (-2{,}5, 4)$</li>
+<li>Verificação: a soma dos vetores deve dar $\vec{AC} = (5, 8)$.
+$(5, 0) + \left(0, \frac{8}{3}\right) + \left(2{,}5, \frac{4}{3}\right) + (-2{,}5, 4) = (5, 0 + \frac{8}{3} + \frac{4}{3} + 4) = (5, 8) = \vec{AC}$. Confirmado!</li>
+</ol>
+<div class="formula">
+$$M_1 = (5, 0), \quad G = \left(5, \frac{8}{3}\right), \quad M_2 = (7{,}5, 4)$$
+$$\vec{AM_1} + \vec{M_1G} + \vec{GM_2} + \vec{M_2C} = \vec{AC} = (5, 8)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Decompor uma rota em trechos intermediários usando ponto médio e baricentro permite planejar pontos de controle estratégicos. A verificação de que a soma dos vetores intermediários iguala o vetor total é um teste simples — usando apenas operações com pares ordenados — que garante que nenhum trecho foi esquecido no planejamento.</p>
+</details>
+</div>

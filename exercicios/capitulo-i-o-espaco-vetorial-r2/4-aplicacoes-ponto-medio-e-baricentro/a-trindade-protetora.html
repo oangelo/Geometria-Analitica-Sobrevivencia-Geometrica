@@ -1,0 +1,26 @@
+<div class="exercise">
+<h3>A TRINDADE PROTETORA</h3>
+<p>Três torres de vigia formam um triângulo nas coordenadas $A(1, 1)$, $B(7, 1)$ e $C(4, 4)$. Um novo sistema de triagem deve ser posicionado no baricentro. As três torres transmitem sinais com intensidades $3$, $1$ e $2$ respectivamente. O ponto ótimo de recepção é aquele onde a soma ponderada dos vetores de posição das torres, usando as intensidades como pesos, é máxima. Calcule este ponto e compare com o baricentro.</p>
+<p><strong>(a)</strong> Calcule o baricentro $G$ do triângulo $ABC$.</p>
+<p><strong>(b)</strong> Calcule o ponto ponderado $P = \frac{3A + 1B + 2C}{3 + 1 + 2}$ usando as intensidades como pesos.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>O baricentro usa pesos iguais (cada vértice vale 1/3). O ponto ponderado usa pesos diferentes. Multiplique as coordenadas de cada vértice pelo seu peso, some tudo e divida pela soma dos pesos.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Baricentro $G$: $G = \left(\frac{1 + 7 + 4}{3}, \frac{1 + 1 + 4}{3}\right) = \left(\frac{12}{3}, \frac{6}{3}\right) = (4, 2)$.</li>
+<li>Ponto ponderado $P$ com pesos $3$, $1$, $2$: soma dos pesos = $3 + 1 + 2 = 6$.</li>
+<li>$P = \frac{3(1, 1) + 1(7, 1) + 2(4, 4)}{6} = \frac{(3, 3) + (7, 1) + (8, 8)}{6} = \frac{(18, 12)}{6} = (3, 2)$.</li>
+<li>Comparação: $G = (4, 2)$ e $P = (3, 2)$. Os pontos diferem na coordenada $x$: o ponto ponderado é "puxado" em direção à torre $A$ (que tem maior intensidade), enquanto o baricentro trata todas as torres igualmente.</li>
+</ol>
+<div class="formula">
+$$G = \left(\frac{1 + 7 + 4}{3}, \frac{1 + 1 + 4}{3}\right) = (4, 2)$$
+$$P = \frac{3A + 1B + 2C}{6} = (3, 2)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O baricentro assume que todas as torres contribuem igualmente, mas na prática, torres com maior potência de sinal "atraem" o ponto ótimo. Compreender a diferença entre centro geométrico (baricentro) e centro ponderado permite posicionar equipamentos de recepção onde o sinal é maximizado, usando apenas operações com pares ordenados.</p>
+</details>
+</div>

@@ -1,0 +1,36 @@
+<div class="exercise">
+    <h3>Infinitas Perpendiculares no Espaço</h3>
+    <p><strong>Objetivo:</strong> Explorar a novidade do R³: dado um vetor, existem infinitas direções perpendiculares a ele — não apenas duas como no R².</p>
+    <p>Dado $\vec{v} = (2, -1, 3)$:</p>
+    <ol>
+        <li>Encontre <em>duas</em> direções diferentes de vetores perpendiculares a $\vec{v}$ (ou seja, encontre $\vec{w}_1$ e $\vec{w}_2$ tais que $\vec{v} \cdot \vec{w}_1 = 0$, $\vec{v} \cdot \vec{w}_2 = 0$, e $\vec{w}_1$ não é múltiplo de $\vec{w}_2$).</li>
+        <li>Verifique que $\vec{w}_1$ e $\vec{w}_2$ não são paralelos calculando seu produto interno e seus módulos.</li>
+        <li>Mostre que qualquer combinação $\vec{w} = \alpha \vec{w}_1 + \beta \vec{w}_2$ também é perpendicular a $\vec{v}$, para quaisquer $\alpha, \beta \in \mathbb{R}$.</li>
+    </ol>
+
+    <details class="hint-details">
+        <summary>DICA DE SOBREVIVÊNCIA</summary>
+        <p>A equação $2x - y + 3z = 0$ tem infinitas soluções. Para encontrar duas: fixe valores convenientes para duas variáveis e resolva a terceira. Por exemplo, faça $x = 1, z = 0$ e encontre $y$. Depois faça $x = 0, z = 1$.</p>
+    </details>
+
+    <details>
+        <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+        <ol class="solution-steps">
+            <li>A condição $\vec{v} \cdot \vec{w} = 0$ dá:
+                $$2w_1 - w_2 + 3w_3 = 0$$
+                <p>Fixando $w_1 = 1, w_3 = 0$: $2(1) - w_2 + 0 = 0 \Rightarrow w_2 = 2$. Então $\vec{w}_1 = (1, 2, 0)$.</p>
+                <p>Fixando $w_1 = 0, w_3 = 1$: $0 - w_2 + 3(1) = 0 \Rightarrow w_2 = 3$. Então $\vec{w}_2 = (0, 3, 1)$.</p>
+                <p>Verificação:
+                    $$\vec{v} \cdot \vec{w}_1 = 2(1) + (-1)(2) + 3(0) = 2 - 2 = 0 \; \checkmark$$
+                    $$\vec{v} \cdot \vec{w}_2 = 2(0) + (-1)(3) + 3(1) = 0 - 3 + 3 = 0 \; \checkmark$$
+                </p>
+            </li>
+            <li>Para verificar que não são paralelos, basta observar que não existe $\lambda$ tal que $(1, 2, 0) = \lambda(0, 3, 1)$ (a primeira componente daria $\lambda$ indefinido, já que $1 = \lambda \cdot 0$ é impossível). Alternativamente, $\vec{w}_1 \cdot \vec{w}_2 = (1)(0) + (2)(3) + (0)(1) = 6 \neq \pm |\vec{w}_1||\vec{w}_2|$, confirmando que não são paralelos.</li>
+            <li>Para $\vec{w} = \alpha \vec{w}_1 + \beta \vec{w}_2$:
+                $$\vec{v} \cdot \vec{w} = \vec{v} \cdot (\alpha \vec{w}_1 + \beta \vec{w}_2) = \alpha(\vec{v} \cdot \vec{w}_1) + \beta(\vec{v} \cdot \vec{w}_2) = \alpha \cdot 0 + \beta \cdot 0 = 0$$
+                <p>Portanto, $\vec{w} \perp \vec{v}$ para quaisquer $\alpha, \beta$. O conjunto de todos os vetores perpendiculares a $\vec{v}$ forma um <em>plano</em> bidimensional passando pela origem.</p>
+            </li>
+        </ol>
+        <p><strong>Reflexão:</strong> Esta é a diferença qualitativa entre R² e R³. No plano, a equação $ax + by = 0$ define uma reta (1 dimensão), dando apenas duas direções perpendiculares (sentidos opostos). No espaço, $ax + by + cz = 0$ define um plano (2 dimensões), com infinitas direções perpendiculares. Esta "folga" dimensional é o que permite construir bases ortogonais com três vetores no R³.</p>
+    </details>
+</div>

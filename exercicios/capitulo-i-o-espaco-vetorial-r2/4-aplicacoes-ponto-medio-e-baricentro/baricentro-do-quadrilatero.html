@@ -1,0 +1,25 @@
+<div class="exercise">
+<h3>O BARICENTRO DO QUADRILÁTERO</h3>
+<p>Quatro comunidades formam um quadrilátero com vértices $A(0, 0)$, $B(8, 0)$, $C(8, 6)$ e $D(0, 6)$. O líder de uma comunidade sugere calcular o baricentro usando a mesma fórmula do triângulo: $G = \left(\frac{x_A + x_B + x_C + x_D}{4}, \frac{y_A + y_B + y_C + y_D}{4}\right)$. Outro líder discorda, afirmando que a fórmula do baricentro só vale para triângulos. Quem está correto? Calcule o ponto usando a fórmula estendida para 4 pontos e analise sua interpretação geométrica.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para 4 pontos, a fórmula é uma generalização natural: divida a soma das coordenadas por 4 (não por 3). Calcule o resultado e interprete o que ele significa geometricamente.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Aplicando a fórmula generalizada para 4 pontos: $G = \left(\frac{0 + 8 + 8 + 0}{4}, \frac{0 + 0 + 6 + 6}{4}\right) = \left(\frac{16}{4}, \frac{12}{4}\right) = (4, 3)$.</li>
+<li>Análise geométrica: o ponto $(4, 3)$ está no centro do retângulo. Note que o quadrado com $A(0,0)$, $B(8,0)$, $C(8,6)$, $D(0,6)$ é um retângulo de centro $(4, 3)$.</li>
+<li>Interpretação: o ponto $G$ é o centro geométrico do quadrilátero, onde o sistema estaria em equilíbrio se os quatro vértices tivessem pesos iguais.</li>
+<li>Verificação: os pontos médios dos lados são $M_{AB} = (4, 0)$, $M_{BC} = (8, 3)$, $M_{CD} = (4, 6)$, $M_{DA} = (0, 3)$. O baricentro destes quatro pontos médios também é $(4, 3)$.</li>
+<li>Conclusão: a fórmula generalizada $\frac{1}{n}\sum P_i$ para $n$ pontos é válida e produz o centro de equilíbrio geométrico, mas deve-se notar que ela assume pesos iguais para todos os pontos.</li>
+</ol>
+<div class="formula">
+$$G_{4\text{ pts}} = \left(\frac{0 + 8 + 8 + 0}{4}, \frac{0 + 0 + 6 + 6}{4}\right) = (4, 3)$$
+$$\text{Fórmula geral: } G = \frac{1}{n}\sum_{i=1}^{n} P_i$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A generalização do baricentro para $n$ pontos é natural: basta somar as coordenadas e dividir por $n$. Na Zona Devastada, isso permite calcular o centro de equilíbrio de qualquer conjunto de pontos — abrigos, rotas de patrulha, pontos de recursos. A fórmula é simples e poderosa, usando apenas pares ordenados e operações básicas.</p>
+</details>
+</div>

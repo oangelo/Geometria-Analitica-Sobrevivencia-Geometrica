@@ -1,0 +1,41 @@
+<div class="exercise">
+<h3>INTERCEPTAÇÃO DE SINAL HOSTIL</h3>
+
+<p>O objetivo deste exercício é encontrar a interseção de uma elipse com uma reta que passa pelo centro, e usar isso para determinar os pontos mais distantes e mais próximos do centro naquela direção. Uma antiga rede de comunicação inimiga opera ao longo da elipse $\frac{x^2}{25} + \frac{y^2}{9} = 1$. Um sinal hostil é detectado vindo da direção da reta $y = x$ (bissetriz do primeiro quadrante).</p>
+
+<p><strong>(a)</strong> Substitua $y = x$ na equação da elipse e resolva para encontrar os pontos de interseção $P_1$ e $P_2$.</p>
+
+<p><strong>(b)</strong> Calcule a distância de cada ponto de interseção ao centro $O(0,0)$. Use $d = \sqrt{x^2 + y^2}$.</p>
+
+<p><strong>(c)</strong> Compare essas distâncias com as distâncias dos vértices ao centro: $A_2(5,0)$ tem distância $5$, e $B_2(0,3)$ tem distância $3$. O ponto de interseção na direção $y = x$ está mais próximo de qual vértice?</p>
+
+<p><strong>(d)</strong> No papel, esboce a elipse, a reta $y = x$, e marque os pontos de interseção.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Substituir $y = x$ dá $\frac{x^2}{25} + \frac{x^2}{9} = 1$. Encontre o denominador comum (225) e some as frações: $\frac{9x^2 + 25x^2}{225} = 1$. Isso dá $34x^2 = 225$. Para a distância, note que se $y = x$, então $d = \sqrt{x^2 + x^2} = \sqrt{2x^2} = |x|\sqrt{2}$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Equação da elipse: $\frac{x^2}{25} + \frac{y^2}{9} = 1$.</li>
+<li>Substitua $y = x$: $\frac{x^2}{25} + \frac{x^2}{9} = 1$.</li>
+<li>Denominador comum 225: $\frac{9x^2}{225} + \frac{25x^2}{225} = 1$.</li>
+<li>$\frac{34x^2}{225} = 1 \Rightarrow 34x^2 = 225$.</li>
+<li>$x^2 = \frac{225}{34}$.</li>
+<li>$x = \pm \sqrt{\frac{225}{34}} = \pm \frac{15}{\sqrt{34}} = \pm \frac{15\sqrt{34}}{34}$.</li>
+<li>Como $y = x$, os pontos de interseção são $P_1\left(\frac{15\sqrt{34}}{34}, \frac{15\sqrt{34}}{34}\right)$ e $P_2\left(-\frac{15\sqrt{34}}{34}, -\frac{15\sqrt{34}}{34}\right)$.</li>
+<li>Distância ao centro: $d = \sqrt{x^2 + y^2} = \sqrt{2x^2} = |x|\sqrt{2} = \frac{15}{\sqrt{34}} \cdot \sqrt{2} = \frac{15\sqrt{2}}{\sqrt{34}} = \frac{15\sqrt{68}}{34} = \frac{15 \cdot 2\sqrt{17}}{34} = \frac{30\sqrt{17}}{34} = \frac{15\sqrt{17}}{17}$.</li>
+<li>Simplificando: $d = \frac{15\sqrt{2}}{\sqrt{34}} = 15\sqrt{\frac{2}{34}} = 15\sqrt{\frac{1}{17}} = \frac{15}{\sqrt{17}} = \frac{15\sqrt{17}}{17} \approx 3{,}64$.</li>
+<li>Compare com os vértices: $A_2(5, 0)$ tem distância $5$; $B_2(0, 3)$ tem distância $3$.</li>
+<li>Como $3 < 3{,}64 < 5$, o ponto de interseção na direção $y = x$ está entre o vértice do eixo menor e o vértice do eixo maior — mais próximo de $B_2$.</li>
+</ol>
+<div class="formula">
+$$P_1\left(\frac{15\sqrt{34}}{34}, \frac{15\sqrt{34}}{34}\right), \quad P_2\left(-\frac{15\sqrt{34}}{34}, -\frac{15\sqrt{34}}{34}\right), \quad d = \frac{15\sqrt{17}}{17} \approx 3{,}64$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A reta $y = x$ passa pelo centro e intersecta a elipse em dois pontos simétricos. A distância desses pontos ao centro ($\approx 3{,}64$) está entre $b = 3$ e $a = 5$. Isso mostra que, em qualquer direção que não seja os eixos coordenados, a elipse tem "raio" intermediário. Na Zona Devastada, isso significa que um sinal vindo de ângulos oblíquos atinge a fronteira elíptica em posições que não são nem os pontos mais próximos nem os mais distantes do centro.</p>
+</details>
+</div>

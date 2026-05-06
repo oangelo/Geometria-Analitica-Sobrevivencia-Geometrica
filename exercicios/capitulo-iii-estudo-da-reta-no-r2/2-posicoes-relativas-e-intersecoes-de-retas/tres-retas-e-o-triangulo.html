@@ -1,0 +1,33 @@
+<div class="exercise">
+<h3>TRÊS RETAS E O TRIÂNGULO</h3>
+
+<p>Três postos de observação na Zona Devastada estão conectados por trilhas retilíneas. As trilhas seguem as retas $r: x + y - 4 = 0$, $s: 2x - y + 2 = 0$ e $t: x - 2y - 1 = 0$. No papel, esboce as três retas encontrando pelo menos dois pontos de cada uma — isso permite visualizar se elas formam um triângulo ou se algumas são paralelas. Depois, analise sistematicamente: as três retas formam um triângulo? Se sim, encontre os vértices. Se não, identifique qual par é paralelo e explique por que não há triângulo.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Um triângulo existe quando três retas são duas a duas concorrentes e nenhum par é paralelo. Compare os coeficientes angulares (ou as razões $\frac{a}{d}, \frac{b}{e}$) de cada par: $r$ e $s$, $r$ e $t$, $s$ e $t$. Se todos os pares tiverem razões diferentes, há triângulo. Depois encontre os pontos de interseção dois a dois.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Análise de paralelismo:
+<ul>
+<li>$r$ e $s$: $\frac{1}{2} \neq \frac{1}{-1}$ → concorrentes.</li>
+<li>$r$ e $t$: $\frac{1}{1} \neq \frac{1}{-2}$ → concorrentes.</li>
+<li>$s$ e $t$: $\frac{2}{1} \neq \frac{-1}{-2} = \frac{1}{2}$ → concorrentes.</li>
+</ul>
+</li>
+<li>Como nenhum par é paralelo, as três retas formam um triângulo.</li>
+<li>Interseção $r \cap s$: resolvendo $\begin{cases} x + y = 4 \\ 2x - y = -2 \end{cases}$. Somando: $3x = 2$, logo $x = \frac{2}{3}$. Então $y = 4 - \frac{2}{3} = \frac{10}{3}$. Vértice $A\left(\frac{2}{3}, \frac{10}{3}\right)$.</li>
+<li>Interseção $r \cap t$: resolvendo $\begin{cases} x + y = 4 \\ x - 2y = 1 \end{cases}$. Subtraindo: $3y = 3$, logo $y = 1$. Então $x = 4 - 1 = 3$. Vértice $B(3, 1)$.</li>
+<li>Interseção $s \cap t$: resolvendo $\begin{cases} 2x - y = -2 \\ x - 2y = 1 \end{cases}$. Da segunda: $x = 2y + 1$. Substituindo: $2(2y + 1) - y = -2$, ou $4y + 2 - y = -2$, logo $3y = -4$, $y = -\frac{4}{3}$. Então $x = 2\left(-\frac{4}{3}\right) + 1 = -\frac{8}{3} + \frac{3}{3} = -\frac{5}{3}$. Vértice $C\left(-\frac{5}{3}, -\frac{4}{3}\right)$.</li>
+</ol>
+<div class="formula">
+$$A\left(\frac{2}{3}, \frac{10}{3}\right), \quad B(3, 1), \quad C\left(-\frac{5}{3}, -\frac{4}{3}\right)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Três rotas que se cruzam formam uma zona triangular — um território delimitado e mensurável. Na Zona Devastada, identificar triângulos de interseção permite estabelecer perímetros defensivos, calcular áreas de patrulhamento e planejar rotas internas seguras. A verificação de que nenhum par é paralelo é o "checklist de segurança" antes de assumir que uma zona fechada existe.</p>
+</details>
+</div>

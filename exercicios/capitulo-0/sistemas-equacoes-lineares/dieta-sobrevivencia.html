@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>PLANEJAMENTO DE DIETA DE SOBREVIVÊNCIA</h3>
+
+<p>No abrigo restam apenas latas de feijão e pacotes de carne seca. Cada lata de feijão fornece 15 g de proteína e 30 g de carboidratos; cada pacote de carne seca, 25 g de proteína e 5 g de carboidratos. O médico exige que cada sobrevivente consuma diariamente pelo menos 200 g de proteína e 180 g de carboidratos. Como as exigências são mínimos (não valores exatos), as relações se tornam inequações em vez de equações: $15x + 25y \geq 200$ para proteínas e $30x + 5y \geq 180$ para carboidratos, onde $x$ e $y$ são o número de latas e pacotes. Encontre a combinação de unidades inteiras que satisfaz ambas as inequações minimizando o consumo total de recursos.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Igualdades seriam equações; mínimos são inequações ($\geq$). Isole $y$ em cada inequação e teste valores inteiros de $x$ até encontrar a combinação que minimiza $x + y$ satisfazendo ambas.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Definimos: $x$ = latas de feijão, $y$ = pacotes de carne seca</li>
+<li>Inequações: $15x + 25y \geq 200$ e $30x + 5y \geq 180$</li>
+<li>Isolando $y$: $y \geq 8 - \frac{3x}{5}$ e $y \geq 36 - 6x$</li>
+<li>Testando $x = 6$: $y \geq 4{,}4$ (→ 5) e $y \geq 0$ → total 11 unidades</li>
+<li>Testando $x = 7$: $y \geq 3{,}8$ (→ 4) e $y \geq -6$ → total 11 unidades</li>
+<li>Ambas dão 11 unidades; verificando $x=6, y=5$: proteína = 215 g ✓, carboidratos = 205 g ✓</li>
+</ol>
+<div class="formula">
+$$\begin{cases} 15x + 25y \geq 200 \\ 30x + 5y \geq 180 \end{cases}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Na Zona Devastada, a matemática não apenas encontra respostas — confronta com realidades duras. Com os recursos disponíveis, apenas parte das necessidades pode ser atendida. Um líder responsável usa estes cálculos para planejar expedições de busca antes que a crise se instale, não depois.</p>
+</details>
+</div>

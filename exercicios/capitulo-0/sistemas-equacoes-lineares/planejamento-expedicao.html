@@ -1,0 +1,30 @@
+<div class="exercise">
+<h3>PLANEJAMENTO DE EXPEDIÇÃO</h3>
+
+<p>Sua equipe planeja uma expedição com dois veículos: uma motocicleta (4 litros por 100 km) e um jipe (12 litros por 100 km). O SUPERVISOR autorizou 36 litros de combustível e exige que o total percorrido — soma das distâncias dos dois veículos — seja equivalente a 500 km-veículo. Cada veículo consome combustível proporcional à distância que percorre, então a restrição de 36 litros gera uma equação, e a exigência de 500 km-veículo gera outra. O sistema revela quanto cada veículo deve percorrer para usar exatamente o combustível disponível sem ultrapassar a meta de distância.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Uma equação para a distância total ($x + y = 500$) e outra para o consumo: cada veículo gasta uma fração dos seus litros por km. A soma dos consumos deve dar exatamente 36 litros.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Definimos: $x$ = km da motocicleta, $y$ = km do jipe</li>
+<li>Distância total: $x + y = 500$</li>
+<li>Consumo: $\frac{4x}{100} + \frac{12y}{100} = 36$, ou $4x + 12y = 3600$</li>
+<li>Da primeira: $y = 500 - x$</li>
+<li>Substituímos: $4x + 12(500 - x) = 3600$</li>
+<li>Desenvolvemos: $4x + 6000 - 12x = 3600 \Rightarrow -8x = -2400$</li>
+<li>Resolvemos: $x = 300$ km (motocicleta), $y = 200$ km (jipe)</li>
+<li>Verificação combustível: $\frac{4 \cdot 300}{100} + \frac{12 \cdot 200}{100} = 12 + 24 = 36$ litros ✓</li>
+</ol>
+<div class="formula">
+$$\begin{cases} x + y = 500 \\ 0{,}04x + 0{,}12y = 36 \end{cases} \Rightarrow x = 300,\; y = 200$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A solução equilibra eficiência do veículo leve com a capacidade de carga do pesado. Na Zona Devastada, isso significa maximizar o alcance mantendo combustível suficiente para o retorno. Expedições mal planejadas não têm segunda chance.</p>
+</details>
+</div>

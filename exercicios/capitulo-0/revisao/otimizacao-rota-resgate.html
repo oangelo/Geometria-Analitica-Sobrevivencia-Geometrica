@@ -1,0 +1,20 @@
+<div class="exercise">
+<h3>MISSÃO 10: Comparação de Rotas de Resgate</h3>
+<p>Uma equipe de resgate sai do abrigo na origem $(0, 0)$ rumo a um sobrevivente no ponto $(12, 8)$. O veículo percorre o eixo x a $5$ km/h em terreno plano, mas fora do eixo a equipe caminha a $3$ km/h em terreno acidentado. Para decidir a melhor rota, calcule o tempo total de duas opções: a Rota A vai direto em linha reta até o sobrevivente (só caminhando), enquanto a Rota B dirige até $(12, 0)$ e depois caminha reto até o destino. Use o Teorema de Pitágoras para as distâncias e a relação tempo $=$ distância $/$ velocidade para comparar qual rota é mais rápida.</p>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li><strong>Rota A (tudo a pé):</strong> distância pela hipotenusa:
+<div class="formula">$$d_A = \sqrt{12^2 + 8^2} = \sqrt{144 + 64} = \sqrt{208} \approx 14{,}42 \text{ km}$$</div>
+<div class="formula">$$t_A = \frac{14{,}42}{3} \approx 4{,}81 \text{ horas}$$</div>
+</li>
+<li><strong>Rota B (veículo + caminhada):</strong>
+<div class="formula">$$t_{\text{veículo}} = \frac{12}{5} = 2{,}40 \text{ h} \qquad t_{\text{caminhada}} = \frac{8}{3} \approx 2{,}67 \text{ h}$$</div>
+<div class="formula">$$t_B = 2{,}40 + 2{,}67 \approx 5{,}07 \text{ horas}$$</div>
+</li>
+<li>Comparação: a Rota A ($4{,}81$h) é mais rápida que a Rota B ($5{,}07$h) por aproximadamente $15$ minutos. O ganho de velocidade do veículo no eixo x não compensa o desvio extra de $8$ km a pé.</li>
+</ol>
+<p><strong>Reflexão de Sobrevivência:</strong> Nem sempre o veículo é a melhor opção. A rota mais curta pode superar uma rota parcialmente rápida. Em missões de resgate, compare sempre a distância total percorrida — o caminho mais reto costuma ser o mais eficiente quando a diferença de velocidade entre terrenos não é muito grande.</p>
+</details>
+</div>

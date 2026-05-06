@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>MISSÃO 9: Triangulação de Artefato Misterioso</h3>
+<p>Três equipes detectaram um artefato emitindo sinais. Do abrigo Alpha na origem $(0, 0)$, o artefato está na direção de $35°$ (nordeste). Do abrigo Beta em $(8, 0)$, está na direção de $245°$ (sudoeste). Do abrigo Gamma em $(0, 6)$, está na direção de $132°$ (noroeste). Converta cada direção em um vetor unitário usando $\cos$ e $\sen$, estabeleça equações paramétricas para cada linha de visada e resolva o sistema de equações para localizar o artefato no plano.</p>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Vetores unitários nas direções dadas:
+<div class="formula">$$\vec{u}_A = (\cos 35°, \sin 35°) \approx (0{,}8192,\ 0{,}5736)$$</div>
+<div class="formula">$$\vec{u}_B = (\cos 245°, \sin 245°) \approx (-0{,}4226,\ -0{,}9063)$$</div>
+<div class="formula">$$\vec{u}_C = (\cos 132°, \sin 132°) \approx (-0{,}6691,\ 0{,}7431)$$</div>
+</li>
+<li>Equações paramétricas a partir de cada abrigo:
+<div class="formula">$$\text{De Alpha: } (x, y) = d_A \cdot (0{,}8192,\ 0{,}5736)$$</div>
+<div class="formula">$$\text{De Beta: } (x, y) = (8, 0) + d_B \cdot (-0{,}4226,\ -0{,}9063)$$</div>
+<div class="formula">$$\text{De Gamma: } (x, y) = (0, 6) + d_C \cdot (-0{,}6691,\ 0{,}7431)$$</div>
+</li>
+<li>Igualando as coordenadas de Alpha e Beta:
+<div class="formula">$$0{,}8192 \cdot d_A = 8 - 0{,}4226 \cdot d_B \qquad 0{,}5736 \cdot d_A = -0{,}9063 \cdot d_B$$</div>
+Da segunda equação: $d_B = -0{,}6329 \cdot d_A$. Substituindo na primeira:
+<div class="formula">$$0{,}8192 \cdot d_A = 8 + 0{,}4226 \times 0{,}6329 \cdot d_A \implies 0{,}5517 \cdot d_A = 8 \implies d_A \approx 14{,}5$$</div>
+</li>
+<li>Coordenadas do artefato: $x \approx 0{,}8192 \times 14{,}5 \approx 11{,}88$, $y \approx 0{,}5736 \times 14{,}5 \approx 8{,}32$.</li>
+</ol>
+<p><strong>Reflexão de Sobrevivência:</strong> A triangulação está sujeita a erros por interferências, especialmente com artefatos desconhecidos. Quando as três linhas não se cruzam em um único ponto, use a área do triângulo formado pelas intersecções como zona de busca. Envie uma equipe pequena e bem equipada, mantendo comunicação constante com os três abrigos para refinamento em tempo real.</p>
+</details>
+</div>

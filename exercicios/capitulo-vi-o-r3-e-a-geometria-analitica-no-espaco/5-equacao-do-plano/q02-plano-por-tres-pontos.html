@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>Plano por Três Pontos de Ancoragem</h3>
+<p><strong>Objetivo:</strong> Construir o vetor normal via produto vetorial e depois obter a equação do plano.</p>
+<p>Três pontos de ancoragem foram instalados para uma plataforma de observação: $A(1, 0, 1)$, $B(2, 1, 0)$ e $C(0, 2, 2)$. A plataforma deve ser plana e passar pelos três pontos. Encontre a equação do plano da plataforma.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+                Primeiro construa dois vetores no plano: $\overrightarrow{AB} = B - A$ e $\overrightarrow{AC} = C - A$. O produto vetorial $\vec{n} = \overrightarrow{AB} \times \overrightarrow{AC}$ dá o vetor normal. Depois use a definição $\vec{n} \cdot (P - A) = 0$.
+            </div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Construir $\overrightarrow{AB} = B - A = (2 - 1, 1 - 0, 0 - 1) = (1, 1, -1)$.</li>
+<li>Construir $\overrightarrow{AC} = C - A = (0 - 1, 2 - 0, 2 - 1) = (-1, 2, 1)$.</li>
+<li>Calcular o produto vetorial $\vec{n} = \overrightarrow{AB} \times \overrightarrow{AC}$: $$\vec{n} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 1 & 1 & -1 \\ -1 & 2 & 1 \end{vmatrix}$$</li>
+<li>Componentes do produto vetorial: $$n_1 = (1)(1) - (-1)(2) = 1 + 2 = 3$$ $$n_2 = -\left[(1)(1) - (-1)(-1)\right] = -(1 - 1) = 0$$ $$n_3 = (1)(2) - (1)(-1) = 2 + 1 = 3$$</li>
+<li>Vetor normal: $\vec{n} = (3, 0, 3)$. Podemos simplificar dividindo por 3: $\vec{n} = (1, 0, 1)$.</li>
+<li>Aplicar a definição com ponto $A(1, 0, 1)$: $1(x - 1) + 0(y - 0) + 1(z - 1) = 0$.</li>
+<li>Simplificar: $x - 1 + z - 1 = 0$, logo $x + z - 2 = 0$.</li>
+</ol>
+<div class="formula">
+                    $$x + z - 2 = 0$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Três pontos definem um plano desde que não sejam colineares. O produto vetorial é a ferramenta que extrai a direção perpendicular a partir de duas direções no plano — uma habilidade essencial para qualquer construção tridimensional.</p>
+</details>
+</div>

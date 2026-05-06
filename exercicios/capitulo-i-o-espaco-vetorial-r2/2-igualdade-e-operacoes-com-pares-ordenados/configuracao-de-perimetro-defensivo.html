@@ -1,0 +1,24 @@
+<div class="exercise">
+<h3>CONFIGURAÇÃO DE PERÍMETRO DEFENSIVO</h3>
+<p>Quatro pontos de defesa avançada estão em $A = (3, 5)$, $B = (-2, 4)$, $C = (-3, -1)$ e $D = (2, -2)$, formando um perímetro ao redor do acampamento em $(0, 0)$. Para garantir cobertura cruzada ideal contra invasores, os lados opostos devem ter o mesmo deslocamento. Calcule os deslocamentos $A \to B$ e $C \to D$ (lados opostos) e verifique se são iguais. Depois faça o mesmo para $B \to C$ e $D \to A$. Se ambos os pares de lados opostos tiverem deslocamentos iguais, o perímetro é um paralelogramo.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para cada lado, subtraia o ponto final menos o inicial. Lados opostos devem resultar no mesmo par ordenado para formar um paralelogramo.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Deslocamentos dos lados: $B - A = (-2,4)-(3,5)=(-5,-1)$ e $D - C=(2,-2)-(-3,-1)=(5,-1)$.</li>
+<li>Verificação do primeiro par de lados opostos: $(-5,-1) \neq (5,-1)$. Eles têm mesma componente vertical mas opostas na horizontal — não são iguais.</li>
+<li>Deslocamentos do outro par: $C - B=(-3,-1)-(-2,4)=(-1,-5)$ e $A - D=(3,5)-(2,-2)=(1,7)$.</li>
+<li>$(-1,-5) \neq (1,7)$. Nenhum par de lados opostos coincide. O perímetro NÃO é um paralelogramo.</li>
+</ol>
+<div class="formula">
+$$B - A = (-5,-1), \quad D - C = (5,-1) \quad \Rightarrow \quad B-A \neq D-C$$
+$$C - B = (-1,-5), \quad A - D = (1,7) \quad \Rightarrow \quad C-B \neq A-D$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Um paralelogramo perfeito garante que cada lado oposto cobre exatamente o mesmo deslocamento — cobertura simétrica. Quando os deslocamentos não coincidem, há pontos cegos. Reconhecer essa falha no perímetro antes de um ataque permite reposicionar vigias nos lados mais longos, onde a cobertura é mais fraca. A subtração de pares ordenados é a ferramenta que revela essas desigualdades.</p>
+</details>
+</div>

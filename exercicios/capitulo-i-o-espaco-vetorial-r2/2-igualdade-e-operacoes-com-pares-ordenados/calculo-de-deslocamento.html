@@ -1,0 +1,23 @@
+<div class="exercise">
+<h3>DECODE DE DESLOCAMENTO</h3>
+<p>Uma equipe de reconhecimento saiu do Abrigo Ponto, localizado em $(4, 8)$, e chegou ao Abrigo Seguro em $(-2, 1)$. Para que futuras equipes repliquem exatamente este trajeto, é preciso calcular o deslocamento realizado — ou seja, quanto avançar em cada coordenada. Desenhe os dois pontos no plano, trace uma seta de Ponto para Seguro e observe: avançar de $(4, 8)$ para $(-2, 1)$ significa mover $-2 - 4 = -6$ na horizontal e $1 - 8 = -7$ na vertical. Calcule o deslocamento usando subtração de pares ordenados.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Subtrair posição final menos posição inicial: o deslocamento é $(x_{\text{final}} - x_{\text{inicial}},\; y_{\text{final}} - y_{\text{inicial}})$.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Posição inicial: $(4, 8)$. Posição final: $(-2, 1)$.</li>
+<li>Aplique a subtração componente a componente: $(-2, 1) - (4, 8) = (-2 - 4,\; 1 - 8)$.</li>
+<li>Calcule: $(-6, -7)$. A equipe deslocou 6 unidades para a esquerda e 7 para baixo.</li>
+</ol>
+<div class="formula">
+$$(a, b) - (c, d) = (a - c,\; b - d)$$
+$$(-2, 1) - (4, 8) = (-6, -7)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Subtrair pares ordenados é o que transforma dois pontos em um deslocamento reutilizável. Equipes de resgate que dominam esta operação podem replicar qualquer trajeto reportado por rádio — mesmo que não conheçam o terreno. O deslocamento $(-6, -7)$ é um mapa compacto e preciso, muito mais confiável do que "vá para oeste e desça um bocado".</p>
+</details>
+</div>
