@@ -1,0 +1,40 @@
+<div class="exercise">
+<h3>O Parâmetro Misterioso</h3>
+
+<p>O objetivo deste exercício é entender como um parâmetro afeta a solução de um sistema. No laboratório do refúgio, estamos testando uma nova solução química. A concentração do reagente $A$ é $k$ gramas por litro e a do reagente $B$ é 2 gramas por litro. Queremos misturar ambos para obter 10 litros de solução com concentração total de 15 gramas por litro. O valor de $k$ é desconhecido e precisa ser determinado.</p>
+
+<p><strong>(a)</strong> Chamando de $x$ os litros do reagente $A$ e de $y$ os litros do reagente $B$, escreva o sistema de equações. A primeira equação representa o volume total e a segunda a massa total de reagentes.</p>
+
+<p><strong>(b)</strong> Resolva o sistema em função de $k$. Encontre expressões para $x$ e $y$ em termos de $k$.</p>
+
+<p><strong>(c)</strong> Para que valores de $k$ o sistema tem solução única? E se $k = 2$, o que acontece com as concentrações? Discuta o significado prático.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>A segunda equação é $kx + 2y = 150$ (15 g/L × 10 L = 150 g). Use eliminação: multiplique a primeira equação por 2 e subtraia da segunda.</p>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>Resolução:</strong></p>
+<p><strong>(a)</strong> O sistema é:</p>
+<div class="formula">
+$$\begin{cases} x + y = 10 \\ kx + 2y = 150 \end{cases}$$
+</div>
+
+<p><strong>(b)</strong> Multiplicando a primeira equação por 2:</p>
+<p>$2x + 2y = 20$ (equação I multiplicada)</p>
+<p>Subtraindo da segunda:</p>
+<p>$(kx + 2y) - (2x + 2y) = 150 - 20$</p>
+<p>$(k - 2)x = 130$</p>
+<p>$x = \frac{130}{k - 2}$</p>
+<p>Substituindo em $x + y = 10$:</p>
+<p>$y = 10 - \frac{130}{k - 2} = \frac{10(k - 2) - 130}{k - 2} = \frac{10k - 20 - 130}{k - 2} = \frac{10k - 150}{k - 2}$</p>
+
+<p><strong>(c)</strong> <span class="warning">Discussão:</span></p>
+<p>- Se $k \neq 2$: o sistema tem solução única (SPI)</p>
+<p>- Se $k = 2$: a equação $(k - 2)x = 130$ vira $0 \cdot x = 130$, que é impossível. O sistema não tem solução.</p>
+<p><strong>Significado prático:</strong> Se $k = 2$, ambos os reagentes têm a mesma concentração (2 g/L). Não é possível obter uma concentração final de 15 g/L misturando dois reagentes idênticos de 2 g/L — seria como tentar obter água mais salgada misturando duas águas com o mesmo sal.</p>
+<p><strong>Resposta:</strong> O sistema tem solução única para qualquer $k \neq 2$. Se $k = 2$, o sistema é impossível.</p>
+</details>
+</div>
