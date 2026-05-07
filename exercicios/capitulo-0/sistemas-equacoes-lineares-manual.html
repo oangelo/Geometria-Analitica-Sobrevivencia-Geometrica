@@ -1,46 +1,48 @@
 <section class="manual-contexto" data-context="manual-sobrevivencia">
     <div class="terminal-border">
-        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: SISTEMAS DE EQUAÇÕES LINEARES</h2>
-    
-    <p>Sobrevivente, os sistemas de equações lineares são ferramentas cruciais para quem deseja perdurar na Zona Devastada. Desde o cálculo de recursos limitados até o planejamento de expedições de resgate, dominar esta técnica matemática pode significar a diferença entre prosperar ou perecer neste mundo hostil.</p>
-    
-    <p>Em essência, um sistema linear com duas variáveis representa duas relações diferentes entre as mesmas duas incógnitas. O objetivo é encontrar valores que satisfaçam simultaneamente ambas as condições - como encontrar o equilíbrio perfeito entre água potável e RemoveRad para uma expedição bem-sucedida.</p>
-    
-    <p>A forma geral de um sistema linear com duas variáveis é:</p>
-    
-    <div class="formula">
-    $$\begin{cases}
-    a_1x + b_1y = c_1 \\
-    a_2x + b_2y = c_2
-    \end{cases}$$
+        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA: SISTEMAS LINEARES</h2>
+        
+        <p><strong>Situação:</strong> Você está na Zona Devastada. Recursos são escassos, decisões precisam ser rápidas e precisas. Muitas vezes, você precisa equilibrar duas restrições simultâneas: água e comida, mão-de-obra e tempo, combustível e distância. Cada par de restrições forma um <strong>sistema de equações lineares</strong>.</p>
+        
+        <h3>O que é um Sistema Linear?</h3>
+        <p>Um sistema de equações lineares com duas variáveis é um conjunto de duas equações que devem ser satisfeitas <strong>simultaneamente</strong>. Cada equação representa uma restrição do mundo real.</p>
+        
+        <div class="formula">
+        $$\begin{cases} a_1x + b_1y = c_1 \\ a_2x + b_2y = c_2 \end{cases}$$
+        </div>
+        
+        <h3>Método da Substituição</h3>
+        <p><strong>Quando usar:</strong> Quando uma das equações já isola uma variável facilmente ou quando os coeficientes são simples.</p>
+        
+        <p><strong>Passos:</strong></p>
+        <p><strong>(1)</strong> Isole uma variável em uma das equações.</p>
+        <p><strong>(2)</strong> Substitua essa expressão na outra equação.</p>
+        <p><strong>(3)</strong> Resolva a equação resultante com uma variável.</p>
+        <p><strong>(4)</strong> Volte à expressão isolada para encontrar a outra variável.</p>
+        <p><strong>(5)</strong> Verifique a solução nas duas equações originais.</p>
+        
+        <h3>Método da Eliminação</h3>
+        <p><strong>Quando usar:</strong> Quando os coeficientes são alinhados ou podem ser facilmente alinhados por multiplicação.</p>
+        
+        <p><strong>Passos:</strong></p>
+        <p><strong>(1)</strong> Alinhe os coeficientes de uma variável (multiplicando as equações se necessário).</p>
+        <p><strong>(2)</strong> Some ou subtraia as equações para eliminar uma variável.</p>
+        <p><strong>(3)</strong> Resolva a equação resultante.</p>
+        <p><strong>(4)</strong> Substitua o valor encontrado em qualquer equação original para achar a outra variável.</p>
+        <p><strong>(5)</strong> Verifique a solução.</p>
+        
+        <h3>Interpretação Geométrica</h3>
+        <p>Cada equação linear com duas variáveis representa uma <strong>reta</strong> no plano cartesiano. A solução do sistema é o ponto onde as retas se encontram:</p>
+        
+        <p><strong>Retas concorrentes:</strong> Se cruzam em um único ponto → <span class="success">Sistema Possível e Determinado (SPD)</span> — solução única.</p>
+        <p><strong>Retas paralelas:</strong> Nunca se cruzam → <span class="danger">Sistema Impossível (SI)</span> — nenhuma solução.</p>
+        <p><strong>Retas coincidentes:</strong> São a mesma reta → <span class="warning">Sistema Possível e Indeterminado (SPI)</span> — infinitas soluções.</p>
+        
+        <h3>Regras de Sobrevivência</h3>
+        <p><span class="warning">⚠ REGRA 1:</span> Sempre verifique sua solução substituindo nas equações originais. Na Zona Devastada, um erro de cálculo pode custar recursos preciosos.</p>
+        <p><span class="warning">⚠ REGRA 2:</span> Quando o contexto envolve pessoas, objetos ou recursos inteiros, a solução deve fazer sentido no mundo real. Frações de pessoas não existem.</p>
+        <p><span class="warning">⚠ REGRA 3:</span> Se você obter uma igualdade absurda (como $0 = 5$), o sistema é impossível. Se obter uma identidade (como $0 = 0$), o sistema tem infinitas soluções.</p>
+        
+        <p><strong>Boa sorte, sobrevivente. A matemática é sua aliada na Zona Devastada.</strong></p>
     </div>
-    
-    <p>No arsenal de sobrevivência matemática, existem três métodos principais para resolver estes sistemas:</p>
-    
-    <p><strong>1. Método da Substituição:</strong> Isole uma variável em uma equação e substitua seu valor na outra equação. Útil quando um dos coeficientes é 1 ou -1.</p>
-    
-    <div class="formula">
-    $$\begin{aligned}
-    \text{De } a_1x + b_1y &= c_1 \text{, isolamos } x = \frac{c_1 - b_1y}{a_1} \\
-    \text{Substituindo na outra equação: } a_2\left(\frac{c_1 - b_1y}{a_1}\right) + b_2y &= c_2
-    \end{aligned}$$
-    </div>
-
-    <p><strong>2. Método da Eliminação:</strong> Combine as equações para eliminar uma das variáveis. Eficiente quando os coeficientes permitem cancelamento.</p>
-    
-    <div class="formula">
-    $$\begin{aligned}
-    \text{Multiplique a primeira equação por } k_1 \text{ e a segunda por } k_2 \text{ de modo que: } \\
-    k_1a_1 &= -k_2a_2 \text{ (para eliminar } x \text{) ou} \\
-    k_1b_1 &= -k_2b_2 \text{ (para eliminar } y \text{)}
-    \end{aligned}$$
-    </div>
-
-    <p><strong>3. Método da Comparação:</strong> Isole a mesma variável em ambas as equações e iguale as expressões resultantes.</p>
-
-    <p>Um sistema pode ter uma única solução (ponto de interseção único), infinitas soluções (equações equivalentes) ou nenhuma solução (equações incompatíveis). Identificar o tipo de solução antes de iniciar os cálculos pode economizar recursos valiosos - tempo e energia mental.</p>
-    
-    <p>Na Zona Devastada, reconhecer a inexistência de solução é tão importante quanto encontrá-la - às vezes, certas combinações de recursos são simplesmente impossíveis, e o verdadeiro sobrevivente deve adaptar seus planos em vez de perseguir o impossível.</p>
-
-    </div>
-    </section>
+</section>

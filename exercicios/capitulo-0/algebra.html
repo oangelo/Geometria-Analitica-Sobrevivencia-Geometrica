@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Include MathJax -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
     MathJax = {
@@ -225,22 +224,22 @@
     <script>
     const MANUAL = "algebra-manual.html";
     const EXERCICIOS = [
-        // Fase 1 — Isolamento de x (equação linear)
-        "algebra/calculo-recursos.html",       // Q1: x + 3 = 7 (subtrair)
-        "algebra/distribuicao-racoes.html",    // Q2: 2x = 10 (dividir)
-        "algebra/fortificacao-perimetro.html", // Q3: 2x + 3 = 11 (duas operações)
-        "algebra/simplificacao-fracao.html",   // Q4: x/4 + 2 = 5 (fração)
+        // Fase 1 — Isolamento de incógnitas
+        "algebra/suprimentos-descontados.html",   // Q1: x + a = b (subtração)
+        "algebra/racionamento-agua.html",         // Q2: ax = b (divisão)
+        "algebra/muralha-defesa.html",            // Q3: ax + b = c (duas operações)
+        "algebra/divisao-terreno.html",           // Q4: x/a + b = c (fração + operação)
         // Fase 2 — Propriedades algébricas
-        "algebra/expansao-multivariada.html",  // Q5: (3+4)² vs 3²+2ab+4²
-        "algebra/produto-soma-diferenca.html", // Q6: (5+2)(5-2) = 5²-2²
-        "algebra/multiplicacao-monomios.html", // Q7: 2³·2⁴ ÷ 2⁵ (potências)
+        "algebra/armazem-quadrado.html",          // Q5: (a+b)² ≠ a²+b²
+        "algebra/diferenca-areas.html",           // Q6: diferença de quadrados
+        "algebra/radiacao-cadeia.html",           // Q7: propriedades de potências
         // Fase 3 — Combinar com incógnitas
-        "algebra/expansao-abrigo.html",        // Q8: (x+3)² = 25
-        "algebra/radiacao-exponencial.html",   // Q9: x⁵/x² e x³ = 27
-        "algebra/quadrado-diferenca.html",     // Q10: (x+1)²-(x-1)² = 8
+        "algebra/expansao-abrigo.html",           // Q8: expandir (x+a)² e resolver
+        "algebra/simplificacao-terreno.html",     // Q9: diferença de quadrados com incógnitas
+        "algebra/decaimento-radioativo.html",     // Q10: equação com potências
         // Fase 4 — Aplicação
-        "algebra/area-cultivo-seguro.html",    // Q11: x(x+5) = 36 (montar equação)
-        "algebra/equacao-bunker.html"          // Q12: (x+2)²-x² = 20 (simplificar e resolver)
+        "algebra/plantacao-sobrevivencia.html",   // Q11: montar equação área/perímetro
+        "algebra/alocacao-suprimentos.html"       // Q12: montar equação recursos
     ];
 
     async function carregarManual(arquivo) {

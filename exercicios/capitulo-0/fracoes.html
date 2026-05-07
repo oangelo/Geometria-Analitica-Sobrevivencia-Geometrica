@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Include MathJax -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
     MathJax = {
@@ -225,23 +224,24 @@
     <script>
     const MANUAL = "fracoes-manual.html";
     const EXERCICIOS = [
-        // Fase 1 — Frações com números
-        "fracoes/racionamento-agua.html",
-        "fracoes/inventario-removerad.html",
-        "fracoes/coleta-baterias.html",
-        "fracoes/eficacia-filtro.html",
-        "fracoes/mistura-combustiveis.html",
-        "fracoes/distribuicao-combustivel.html",
-        // Fase 2 — Frações com incógnitas
-        "fracoes/alocacao-suprimentos.html",
-        "fracoes/eficiencia-traje.html",
-        "fracoes/coleta-alimentos.html",
-        // Fase 3 — Proporções
-        "fracoes/probabilidade-encontro.html",
-        "fracoes/alcance-expedicao.html",
+        // Fase 1 — Operações básicas com frações
+        "fracoes/soma-subtracao-fracoes.html",
+        "fracoes/multiplicacao-fracoes.html",
+        "fracoes/divisao-fracoes.html",
+        "fracoes/operacoes-combinadas.html",
+        // Fase 2 — Simplificação e equivalência
+        "fracoes/simplificacao-fracoes.html",
+        "fracoes/comparacao-fracoes.html",
+        "fracoes/fracoes-equivalentes.html",
+        // Fase 3 — Proporções e regra de três
+        "fracoes/regra-de-tres-direta.html",
+        "fracoes/regra-de-tres-inversa.html",
+        "fracoes/proporcao-mapas-escalas.html",
+        "fracoes/misturas-proporcoes.html",
         // Fase 4 — Porcentagens
-        "fracoes/crescimento-plantas.html",
-        "fracoes/decomposicao-isotopos.html"
+        "fracoes/calculo-porcentagem.html",
+        "fracoes/aumento-desconto-percentual.html",
+        "fracoes/porcentagem-recursos.html"
     ];
 
     async function carregarManual(arquivo) {
