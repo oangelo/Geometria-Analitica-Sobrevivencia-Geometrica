@@ -1236,7 +1236,105 @@
   font-size: 1rem;
   display: inline;
   margin: 0;
-  padding: 0 0.2em;
+  padding: 0.2em;
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 2px;
+}
+
+/* Separador temático dentro de info-screen */
+.info-screen hr {
+  border: none;
+  border-top: 1px solid rgba(173, 255, 47, 0.2);
+  margin: 0.6em 0;
+}
+
+/* Dica de interação centralizada no canvas */
+.interactive-canvas .interaction-hint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ====================
+   ESTILOS PARA SIMULADORES DE CÔNICAS (Cap V)
+   ==================== */
+
+.interactive-canvas {
+  width: 600px;
+  height: 400px;
+  background-color: #111;
+  border: 2px solid #ffd700;
+  margin: 0 auto;
+  position: relative;
+}
+
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slider-label {
+  color: #adff2f;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.value-display {
+  color: #fff;
+  font-family: monospace;
+  font-size: 1.2rem;
+  margin-top: 5px;
+  min-width: 40px;
+  text-align: center;
+}
+
+.pipboy-info {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: #adff2f;
+  font-family: monospace;
+  font-size: 1.2rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 5px 10px;
+  border: 1px solid #adff2f;
+}
+
+.interactive-element {
+  cursor: pointer;
+  transition: filter 0.3s ease;
+}
+
+.interactive-element:hover {
+  filter: brightness(1.5);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(1.5); }
+  100% { filter: brightness(1); }
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+/* Estilo para imagens SVG incorporadas */
+.svg-visualization {
+  width: 90%;
+  max-width: 600px;
+  height: auto;
+  background-color: #111;
+  border: 1px solid #333;
+  margin: 5px auto;
+  display: block;
+}
+
+.slide-title-for-svg {
+  margin-bottom: 5px !important;
 }
