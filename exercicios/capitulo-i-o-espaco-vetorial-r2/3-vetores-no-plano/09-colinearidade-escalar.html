@@ -1,0 +1,34 @@
+<div class="exercise">
+<h3>COLINEARIDADE: QUANDO O ESCALAR REVELA O PADRÃO</h3>
+
+<p>Os dois exercícios anteriores mostraram que multiplicar um vetor por qualquer escalar (positivo ou negativo) produz vetores na mesma reta. Vetores nessa situação são chamados <em>colineares</em> (ou <em>paralelos</em>). O objetivo deste exercício é explorar essa propriedade e usá-la para resolver um problema prático de navegação na Zona Devastada.</p>
+
+<p>Dados $\vec{a} = (2, 4)$ e $\vec{b} = (3, 6)$:</p>
+
+<p><strong>(a)</strong> Existe um escalar $k$ tal que $\vec{b} = k\vec{a}$? Se sim, encontre $k$. Dica: tente $k$ na componente $x$ e verifique se funciona na componente $y$.</p>
+
+<p><strong>(b)</strong> Agora considere $\vec{c} = (2, 5)$. Existe algum escalar $k$ tal que $\vec{c} = k\vec{a}$? Tente com a componente $x$: qual $k$ seria necessário? Funciona na componente $y$?</p>
+
+<p><strong>(c)</strong> Desenhe $\vec{a}$, $\vec{b}$ e $\vec{c}$ partindo da origem. Quais ficam na mesma reta? Por que isso acontece?</p>
+
+<p><strong>(d)</strong> Uma patrulha parte do abrigo $H(0, 0)$ e percorre $3\vec{a}$. Outra parte de $H$ e percorre $\vec{b}$. As duas patrulhas estão na mesma linha de direção? Qual percorreu mais?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVÊNCIA</summary>
+<p>Se $\vec{b} = k\vec{a}$, então $b_1 = k \cdot a_1$ e $b_2 = k \cdot a_2$. Use a componente $x$ para achar $k$ e verifique na componente $y$. Se funcionar em ambas, os vetores são colineares. Se não, não existe tal $k$.</p>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>(a)</strong> Se $\vec{b} = k\vec{a}$, então $3 = k \cdot 2 \implies k = 1{,}5$. Verificação na componente $y$: $k \cdot 4 = 1{,}5 \cdot 4 = 6 = b_2$. Funciona! Portanto $\vec{b} = 1{,}5\vec{a}$ — os vetores são colineares.</p>
+<p><strong>(b)</strong> Se $\vec{c} = k\vec{a}$, então $2 = k \cdot 2 \implies k = 1$. Verificação: $k \cdot 4 = 1 \cdot 4 = 4 \neq 5 = c_2$. Falha! Não existe $k$ que satisfaça ambas as componentes simultaneamente. Logo, $\vec{c}$ <em>não</em> é colinear com $\vec{a}$.</p>
+<p><strong>(c)</strong> No esboço, $\vec{a}$ e $\vec{b}$ ficam na mesma reta (colineares) — $\vec{b}$ é $1{,}5$ vezes $\vec{a}$. Já $\vec{c}$ aponta em outra direção, formando um ângulo com $\vec{a}$.</p>
+<p><strong>(d)</strong> $3\vec{a} = 3(2, 4) = (6, 12)$. $\vec{b} = (3, 6)$. Ambos estão na mesma linha de direção (pois $\vec{b} = 1{,}5\vec{a}$ e $3\vec{a}$ é um múltiplo de $\vec{a}$). A primeira patrulha percorreu mais ($3\vec{a}$ é o dobro de $\vec{b}$).</p>
+<div class="formula">
+$$\vec{b} = 1{,}5\vec{a}: \quad (3, 6) = 1{,}5 \cdot (2, 4) \quad \checkmark$$
+$$\vec{c} \neq k\vec{a}: \quad k = 1 \implies 1 \cdot (2, 4) = (2, 4) \neq (2, 5) \quad \times$$
+$$\text{Colineares: } \vec{b} = k\vec{a} \text{ para algum } k \in \mathbb{R}$$
+</div>
+<p><strong>Reflexão:</strong> Verificar colinearidade é essencial na Zona Devastada. Se dois deslocamentos são colineares, patrulhas na mesma linha podem cobrir o corredor inteiro. Se não são, patrulham direções diferentes — e talvez descubram ameaças em setores distintos.</p>
+</details>
+</div>
