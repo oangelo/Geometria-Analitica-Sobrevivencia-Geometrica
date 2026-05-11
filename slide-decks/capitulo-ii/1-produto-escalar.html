@@ -1,247 +1,185 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <title>Cap. II — Produto Escalar</title>
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Cap. II — Produto Escalar</title>
+  <link href="https://unpkg.com/reveal.js@5.1.0/dist/reveal.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/reveal.js@5.1.0/dist/theme/black.css" id="theme" rel="stylesheet"/>
+  <link href="../styles.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
 
-    <!-- Reveal.js Styles -->
-    <link rel="stylesheet" href="https://unpkg.com/reveal.js@5.1.0/dist/reveal.css" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/reveal.js@5.1.0/dist/theme/black.css"
-      id="theme"
-    />
+  <!-- SEÇÃO 1: PRODUTO ESCALAR -->
+  <section>
 
-    <!-- For syntax highlighting -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/reveal.js@5.1.0/plugin/highlight/monokai.css"
-    />
-
-    <!-- Custom styles (if needed) -->
-    <link rel="stylesheet" href="../styles.css" />
-  </head>
-
-  <body>
-    <div class="reveal">
-      <div class="slides">
-        <section>
-          <h1>Capítulo II – Produto Interno no R²</h1>
-          <p>
-            Em terras arruinadas, às vezes a melhor forma de sobreviver é
-            entender como forças aparentemente opostas podem se alinhar ou
-            coexistir.
-          </p>
-        </section>
-
-        <!-- Slide Horizontal 3: Produto Escalar & Reflexão Rápida -->
-        <section>
-          <section>
-            <h2>Definição do Produto Escalar</h2>
-            <p>
-              O <strong>Produto Interno</strong> (ou escalar) de dois vetores
-              \(\vec{u}\) e \(\vec{v}\) em \(\mathbb{R}^2\) é dado por:
-            </p>
-            <p class="formula">
-              \[ \vec{u} \cdot \vec{v} = x_u\,x_v + y_u\,y_v \]
-            </p>
-            <p>
-              Interpretação: quanto maior o valor, mais “alinhados” (menos
-              atrito) os vetores estão.
-            </p>
-          </section>
-
-          <section>
-            <h3>Exercício</h3>
-            <p>
-              Um exercício simples num mundo difícil: sejam \(\vec{u} = (1,2)\)
-              e \(\vec{v} = (3,-1)\). Calcule o produto escalar.
-            </p>
-          </section>
-          <section>
-            <h2>Propriedades do Produto Escalar</h2>
-            <p>Há certas “leis” que nem mesmo o apocalipse consegue revogar:</p>
-            <ul>
-              <li>
-                <strong>Comutatividade:</strong> \(\vec{u} \cdot \vec{v} =
-                \vec{v} \cdot \vec{u}\)
-              </li>
-              <li>
-                <strong>Distributividade:</strong> \(\vec{u} \cdot (\vec{v} +
-                \vec{w}) = \vec{u} \cdot \vec{v} + \vec{u} \cdot \vec{w}\)
-              </li>
-              <li>
-                <strong>Associatividade com escalar:</strong> \((\alpha \vec{u})
-                \cdot \vec{v} = \alpha (\vec{u} \cdot \vec{v})\)
-              </li>
-              <li>
-                <strong>Auto produto:</strong> \(\vec{v} \cdot \vec{v} =
-                |\vec{v}|^2\), a “potência” ou “força” do vetor medido ao
-                quadrado.
-              </li>
-            </ul>
-            <p>
-              Em termos de ângulo, \(\vec{u} \cdot \vec{v} =
-              |\vec{u}||\vec{v}|\cos(\theta)\). Um valor positivo indica
-              vetores “cooperando”, enquanto um negativo sugere competição
-              intensa.
-            </p>
-          </section>
-
-          <section>
-            <h2>Conexão Fundamental: |v|² = v·v</h2>
-            <p>
-              Uma consequência direta e poderosa do produto escalar: quando
-              calculamos o produto de um vetor consigo mesmo, obtemos o
-              <strong>módulo ao quadrado</strong>.
-            </p>
-            <p class="formula">
-              \[ \vec{v} \cdot \vec{v} = |\vec{v}|^2 \]
-            </p>
-            <p>
-              Para \(\vec{v} = (x, y)\), temos:
-              \(\vec{v} \cdot \vec{v} = x^2 + y^2 = |\vec{v}|^2\)
-            </p>
-            <div class="info-panel">
-              <h4>Implicação Prática</h4>
-              <p>
-                Isso significa que podemos calcular o módulo de um vetor usando
-                apenas o produto escalar: \(|\vec{v}| = \sqrt{\vec{v} \cdot \vec{v}}\).
-                Essa relação será fundamental para calcular distâncias e ângulos
-                na Zona Devastada.
-              </p>
-            </div>
-          </section>
-
-          <section>
-            <h2>Reflexão Rápida</h2>
-            <p>
-              Nesses tempos hostis, aprender a medir "afinidade" ou
-              "desalinhamento" entre vetores é como negociar com facções rivais:
-              às vezes um simples acordo (produto escalar positivo) evita
-              catástrofes nucleares.
-            </p>
-            <p><em>Teoria dos Jogos</em> (versão pós-apocalipse):</p>
-            <ul>
-              <li>
-                Vetores cooperativos (ângulo menor que 90°) tendem a somar
-                forças.
-              </li>
-              <li>
-                Vetores concorrentes (ângulo maior que 90°) podem se anular ou
-                destruir.
-              </li>
-            </ul>
-          </section>
-
-          <section>
-            <h3>Pergunta Filosófica</h3>
-            <p>
-              <em
-                >Em que ponto a competição extrema entre grupos (vetores
-                concorrentes) deixa de ser produtiva e passa a ser
-                destrutiva?</em
-              >
-            </p>
-          </section>
-
-          <section>
-            <h2>Exercícios: Produto Escalar</h2>
-            <ol>
-              <li>
-                <strong>Cálculo direto:</strong>
-                Sejam \(\vec{u} = (3, 4)\) e \(\vec{v} = (1, -2)\).
-                Calcule \(\vec{u} \cdot \vec{v}\).
-              </li>
-              <li>
-                <strong>Ortogonalidade:</strong>
-                O vetor \(\vec{w} = (-4, 3)\) é ortogonal a \(\vec{u} = (3, 4)\)?
-                Justifique usando o produto escalar.
-              </li>
-              <li>
-                <strong>Encontrando coordenadas:</strong>
-                Determine o valor de \(k\) tal que \(\vec{a} = (2, k)\) seja
-                ortogonal a \(\vec{b} = (3, -4)\).
-              </li>
-              <li>
-                <strong>Auto produto e módulo:</strong>
-                Se \(\vec{v} \cdot \vec{v} = 25\), qual é \(|\vec{v}|\)?
-              </li>
-            </ol>
-          </section>
-          <section>
-            <h2>O Produto Escalar e a Física Pós-Apocalíptica</h2>
-            <p>
-              Em um mundo onde cada gota de energia é vital, compreender como o
-              produto escalar funciona na Física é questão de sobrevivência.
-              Afinal, mover entulhos e abrir bunkers exige um planejamento
-              preciso dos esforços.
-            </p>
-            <p>
-              <strong>Trabalho (Work) em Física:</strong><br />
-              \( W = \vec{F} \cdot \vec{d} = |\vec{F}||\vec{d}|\cos(\theta)
-              \)<br />
-              Se a força estiver “alinhada” ao deslocamento, o trabalho é
-              positivo (contribui para o progresso). Se estiver na direção
-              oposta, é como remar contra a maré radioativa.
-            </p>
-            <p>
-              Essa mesma ideia de alinhamento (ou desalinhamento) se aplica em
-              diversas grandezas físicas, pois o produto escalar aparece em
-              contextos como energia, potência e até em eletromagnetismo. Em
-              última análise, você está medindo quão “úteis” (ou não) forças e
-              campos podem ser em relação a um determinado movimento ou direção.
-            </p>
-          </section>
-          <section>
-            <h3>Reflexão Estratégica</h3>
-            <p>
-              Se o seu objetivo é empurrar uma barricada até o abrigo, use a
-              força no mesmo sentido do deslocamento. Forças perpendiculares (ou
-              contrárias) resultam em perda de esforços preciosos — e nenhum
-              sobrevivente quer desperdiçar recursos em tempos tão austeros.
-            </p>
-            <p>
-              <em>Dica de Sobrevivência:</em> ao planejar qualquer movimento,
-              avalie o ângulo entre força e deslocamento. Um simples cálculo de
-              produto escalar pode ser a diferença entre encontrar suprimentos
-              ou ficar à deriva no ermo.
-            </p>
-          </section>
-        </section>
-
+    <!-- Slide 1.1 — Por Que Medir Alinhamento? (Motivação) -->
+    <section class="field-report">
+      <h2>Por Que Medir Alinhamento?</h2>
+      <div class="narrative-text">
+        <p>No Capítulo I, aprendemos a medir distâncias e a representar deslocamentos como vetores. Mas imagine que duas patrulhas partem do Abrigo em direções diferentes.</p>
       </div>
-      <!-- .slides -->
-    </div>
-    <!-- .reveal -->
+      <p>Como saber se elas estão <strong>cooperando</strong> (ângulo agudo) ou <strong>competindo</strong> (ângulo obtuso)?</p>
+      <p>Precisamos de uma ferramenta que meça o <strong>alinhamento</strong> entre direções.</p>
+      <div class="survival-tip">
+        <p>Lição de Sobrevivência: "Aquele que compreende o alinhamento entre forças nunca desperdiça energia em direções inúteis."</p>
+      </div>
+    </section>
 
-    <!-- Reveal.js -->
-    <script src="https://unpkg.com/reveal.js@5.1.0/dist/reveal.js"></script>
-    <script src="https://unpkg.com/reveal.js@5.1.0/plugin/notes/notes.js"></script>
-    <script src="https://unpkg.com/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+    <!-- Slide 1.2 — O Acordo entre Facções (Definição) -->
+    <section class="mission-briefing">
+      <h2>O Acordo entre Facções</h2>
+      <p>O <strong>Produto Escalar</strong> (ou Produto Interno) de dois vetores mede o grau de cooperação entre eles:</p>
+      <p class="formula">\[ \vec{u} \cdot \vec{v} = x_u x_v + y_u y_v \]</p>
+      <div class="definition-box">
+        <p><strong>Interpretação Estratégica:</strong></p>
+        <ul>
+          <li>Positivo → vetores cooperam (ângulo agudo)</li>
+          <li>Zero → vetores são independentes (ângulo reto)</li>
+          <li>Negativo → vetores competem (ângulo obtuso)</li>
+        </ul>
+      </div>
+      <p class="mnemonic">"Produto escalar é como uma negociação: positivo é acordo, zero é neutralidade, negativo é conflito."</p>
+    </section>
 
-    <!-- MathJax -->
-    <script>
-      window.MathJax = {
-        tex: {
-          inlineMath: [["\\(", "\\)"]],
-          displayMath: [["\\[", "\\]"]],
-        },
-        svg: { fontCache: "global" },
-      };
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <!-- Slide 1.3 — Cálculo Direto (Exemplo) -->
+    <section class="field-report level-basic">
+      <h2>Cálculo Direto</h2>
+      <p>Sejam <strong>\(\vec{u} = (1, 2)\)</strong> e <strong>\(\vec{v} = (3, -1)\)</strong>. Calcule o produto escalar.</p>
+      <div class="training-problem">
+        <h4>Resolução Passo a Passo</h4>
+        <ol>
+          <li>Multiplique as coordenadas x: \(1 \times 3 = 3\)</li>
+          <li>Multiplique as coordenadas y: \(2 \times (-1) = -2\)</li>
+          <li>Some os resultados: \(3 + (-2) = 1\)</li>
+        </ol>
+        <p class="formula">\[ \vec{u} \cdot \vec{v} = 1 \]</p>
+        <p>Interpretação: resultado positivo pequeno → as patrulhas cooperam levemente, mas não estão totalmente alinhadas.</p>
+      </div>
+    </section>
 
-    <script>
-      Reveal.initialize({
-        hash: true,
-        slideNumber: true,
-        plugins: [RevealNotes, RevealHighlight],
-      });
-    </script>
-  </body>
+    <!-- Slide 1.4 — As Leis do Wasteland (Propriedades) -->
+    <section class="mission-briefing">
+      <h2>As Leis do Wasteland</h2>
+      <p>Há certas "leis" que nem mesmo o apocalipse consegue revogar:</p>
+      <div class="definition-box">
+        <ul>
+          <li><strong>Comutatividade:</strong> \(\vec{u} \cdot \vec{v} = \vec{v} \cdot \vec{u}\)</li>
+          <li><strong>Distributividade:</strong> \(\vec{u} \cdot (\vec{v} + \vec{w}) = \vec{u} \cdot \vec{v} + \vec{u} \cdot \vec{w}\)</li>
+          <li><strong>Associatividade com escalar:</strong> \((\alpha \vec{u}) \cdot \vec{v} = \alpha (\vec{u} \cdot \vec{v})\)</li>
+          <li><strong>Auto-produto:</strong> \(\vec{v} \cdot \vec{v} = |\vec{v}|^2\)</li>
+        </ul>
+      </div>
+      <div class="survival-tip">
+        <p>A propriedade do auto-produto é especialmente valiosa: ela conecta o produto escalar com o módulo do vetor.</p>
+      </div>
+    </section>
+
+    <!-- Slide 1.5 — Conexão Fundamental -->
+    <section class="field-report">
+      <h2>Conexão Fundamental: \( |\vec{v}|^2 = \vec{v} \cdot \vec{v} \)</h2>
+      <p>Uma consequência direta e poderosa do produto escalar:</p>
+      <p class="formula">\[ \vec{v} \cdot \vec{v} = x^2 + y^2 = |\vec{v}|^2 \]</p>
+      <p>Para <strong>\(\vec{v} = (x, y)\)</strong>, temos:</p>
+      <p class="formula">\[ \vec{v} \cdot \vec{v} = x^2 + y^2 = |\vec{v}|^2 \]</p>
+      <div class="info-panel">
+        <h4>Implicação Prática</h4>
+        <p>Podemos calcular o módulo de um vetor usando apenas o produto escalar:</p>
+        <p class="formula">\[ |\vec{v}| = \sqrt{\vec{v} \cdot \vec{v}} \]</p>
+        <p>Essa relação será fundamental para calcular distâncias e ângulos na Zona Devastada.</p>
+      </div>
+    </section>
+
+    <!-- Slide 1.6 — Sinal do Produto Escalar -->
+    <section class="field-report level-intermediate">
+      <h2>Sinal do Produto Escalar</h2>
+      <p>O sinal do produto escalar já nos diz muito sobre a relação entre dois vetores:</p>
+      <div class="info-panel">
+        <div class="info-screen">
+          <h4>Análise Tática</h4>
+          <ul>
+            <li><strong>\(\vec{u} \cdot \vec{v} > 0\)</strong> → Ângulo agudo (cooperação)</li>
+            <li><strong>\(\vec{u} \cdot \vec{v} = 0\)</strong> → Ângulo reto (independência)</li>
+            <li><strong>\(\vec{u} \cdot \vec{v} < 0\)</strong> → Ângulo obtuso (conflito)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="training-problem">
+        <h4>Exemplos Numéricos</h4>
+        <ul>
+          <li>\(\vec{u}=(1,1)\), \(\vec{v}=(2,3)\): \(1\cdot2 + 1\cdot3 = 5 > 0\) → cooperam</li>
+          <li>\(\vec{u}=(1,0)\), \(\vec{v}=(0,1)\): \(1\cdot0 + 0\cdot1 = 0\) → independentes</li>
+          <li>\(\vec{u}=(1,1)\), \(\vec{v}=(-2,-3)\): \(1\cdot(-2) + 1\cdot(-3) = -5 < 0\) → competem</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Slide 1.7 — Treinamento: Produto Escalar -->
+    <section class="survival-training level-intermediate">
+      <h2>Treinamento: Produto Escalar</h2>
+      <div class="training-problem">
+        <h4>Missão 1: Cálculo Direto</h4>
+        <p>Sejam <strong>\(\vec{u} = (3, 4)\)</strong> e <strong>\(\vec{v} = (1, -2)\)</strong>. Calcule <strong>\(\vec{u} \cdot \vec{v}\)</strong>.</p>
+      </div>
+      <div class="training-problem">
+        <h4>Missão 2: Verificação de Ortogonalidade</h4>
+        <p>O vetor <strong>\(\vec{w} = (-4, 3)\)</strong> é ortogonal a <strong>\(\vec{u} = (3, 4)\)</strong>? Justifique usando o produto escalar.</p>
+      </div>
+      <div class="training-problem">
+        <h4>Missão 3: Encontrando Coordenadas</h4>
+        <p>Determine o valor de <strong>\(k\)</strong> tal que <strong>\(\vec{a} = (2, k)\)</strong> seja ortogonal a <strong>\(\vec{b} = (3, -4)\)</strong>.</p>
+      </div>
+      <div class="training-problem">
+        <h4>Missão 4: Auto-produto</h4>
+        <p>Se <strong>\(\vec{v} \cdot \vec{v} = 25\)</strong>, qual é <strong>\(|\vec{v}|\)</strong>?</p>
+      </div>
+    </section>
+
+    <!-- Slide 1.8 — Debriefing: Produto Escalar -->
+    <section class="debriefing">
+      <h2>Debriefing: Produto Escalar</h2>
+      <div class="summary-box">
+        <h3>Pontos-Chave</h3>
+        <ul>
+          <li>Produto escalar mede <strong>alinhamento</strong> entre vetores</li>
+          <li>Fórmula: <strong>\(\vec{u} \cdot \vec{v} = x_u x_v + y_u y_v\)</strong></li>
+          <li>Conexão fundamental: <strong>\(|\vec{v}|^2 = \vec{v} \cdot \vec{v}\)</strong></li>
+          <li>Sinal indica cooperação (\(>0\)), independência (\(=0\)) ou conflito (\(<0\))</li>
+        </ul>
+      </div>
+      <div class="next-mission">
+        <p><strong>Próxima Missão:</strong> Módulo de um Vetor — Aprofundando a conexão entre produto escalar e intensidade.</p>
+      </div>
+    </section>
+
+  </section>
+
+</div>
+</div>
+
+<script src="https://unpkg.com/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://unpkg.com/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script src="https://unpkg.com/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['\\[', '\\]']]
+    },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    plugins: [RevealNotes, RevealHighlight]
+  });
+</script>
+
+</body>
 </html>
