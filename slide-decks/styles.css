@@ -1338,3 +1338,31 @@
 .slide-title-for-svg {
   margin-bottom: 5px !important;
 }
+
+/* Container para SVGs em slides de sistemas */
+.svg-container {
+  text-align: center;
+  margin-top: 1em;
+}
+
+.svg-container img {
+  max-width: 400px;
+  height: auto;
+}
+
+.svg-image-large {
+  max-width: 400px;
+  height: auto;
+}
+
+.svg-image-medium {
+  max-width: 350px;
+  height: auto;
+  display: inline-block;
+  margin: 5px;
+}
+
+/* Emblema final para slides de conclusão */
+.final-emblem {
+  margin-top: 1em;
+}

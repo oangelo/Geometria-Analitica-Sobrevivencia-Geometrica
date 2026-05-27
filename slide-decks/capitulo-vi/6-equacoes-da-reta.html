@@ -1,0 +1,81 @@
+<!-- SEÇÃO 7: EQUAÇÕES DA RETA NO ESPAÇO -->
+<section>
+  <!-- Slide 7.1: Motivação -->
+  <section class="field-report">
+    <h2>Trajetórias Lineares</h2>
+    <h3 class="mission-subtitle">Como Descrever uma Reta no Espaço?</h3>
+    <p>No \(R^2\): uma equação linear \(ax + by + c = 0\) define uma <strong>reta</strong>.</p>
+    <p>No \(R^3\): uma equação define um <strong>plano</strong>. Para uma reta, precisamos de outra abordagem.</p>
+    <p><strong>Problema:</strong> Traçar rota de drone, tirolesa, míssil — tudo precisa de uma descrição linear em 3D.</p>
+    <p class="mnemonic">"No \(R^3\), uma equação só não faz verão (pra reta). Paramétrica é a salvação!"</p>
+  </section>
+
+  <!-- Slide 7.2: Definição -->
+  <section class="mission-briefing">
+    <h2>Equações da Reta no Espaço</h2>
+    <h3 class="mission-subtitle">Trajetórias Definidas: Diferente do Plano!</h3>
+    <div class="definition-box">
+      <p><strong>Forma Vetorial:</strong> \(\quad \vec{X} = \vec{P_0} + t\vec{v}\)</p>
+      <p><strong>Forma Paramétrica:</strong> \(\quad \begin{cases} x = x_0 + ta \\ y = y_0 + tb \\ z = z_0 + tc \end{cases}\)</p>
+      <p>Onde \(\vec{P_0} = (x_0, y_0, z_0)\) é um ponto na reta e \(\vec{v} = (a,b,c)\) é o vetor diretor.</p>
+    </div>
+    <p><strong>Alternativa:</strong> Reta como interseção de <strong>dois planos</strong> não paralelos.</p>
+  </section>
+
+  <!-- Slide 7.3: Simulador -->
+  <section class="simulator">
+    <h3>Simulador: Desenhando Retas no Espaço</h3>
+    <div class="canvas-container">
+      <canvas id="equacao-reta-espaco-canvas" width="800" height="400"></canvas>
+      <div class="simulator-controls">
+        <p>\(P_0=(x_0,y_0,z_0)\), \(\vec{v}=(a,b,c)\)</p>
+        <div class="control-panel">
+          <label>\(x_0\):</label> <input type="range" id="reta-x0" min="-5" max="5" value="0" step="0.5"> <span id="reta-x0-val">0</span>
+          <label>\(y_0\):</label> <input type="range" id="reta-y0" min="-5" max="5" value="0" step="0.5"> <span id="reta-y0-val">0</span>
+          <label>\(z_0\):</label> <input type="range" id="reta-z0" min="-5" max="5" value="0" step="0.5"> <span id="reta-z0-val">0</span>
+        </div>
+        <div class="control-panel">
+          <label>\(v_a\):</label> <input type="range" id="reta-va" min="-2" max="2" value="1" step="0.1"> <span id="reta-va-val">1</span>
+          <label>\(v_b\):</label> <input type="range" id="reta-vb" min="-2" max="2" value="1" step="0.1"> <span id="reta-vb-val">1</span>
+          <label>\(v_c\):</label> <input type="range" id="reta-vc" min="-2" max="2" value="1" step="0.1"> <span id="reta-vc-val">1</span>
+        </div>
+      </div>
+    </div>
+    <div class="hint-message">
+      <p>Ajuste \(P_0\) e \(\vec{v}\) para ver a reta se orientar no espaço 3D.</p>
+    </div>
+  </section>
+
+  <!-- Slide 7.4: Posições Relativas -->
+  <section class="field-report level-intermediate">
+    <h3>Relatório: Encontros em 3D</h3>
+    <div class="info-panel">
+      <div class="info-screen">
+        <h4>Posições Relativas (Retas em \(R^3\)):</h4>
+        <ul>
+          <li><strong>Paralelas:</strong> Vetores diretores paralelos.</li>
+          <li><strong>Concorrentes:</strong> Se interceptam em um ponto.</li>
+          <li><strong>Coincidentes:</strong> Mesma reta.</li>
+          <li><strong>Reversas:</strong> Não se interceptam e não são paralelas. (NOVIDADE do \(R^3\)!)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="survival-tip">
+      <p>Não assuma que trajetórias que se cruzam em mapas 2D o farão no 3D. A altitude (Z) é tudo!</p>
+    </div>
+  </section>
+
+  <!-- Slide 7.5: Debriefing -->
+  <section class="debriefing">
+    <h3>Debriefing: Dominando as Linhas do Espaço</h3>
+    <div class="summary-box">
+      <p>A reta em \(R^3\): paramétrica reina, reversas adicionam complexidade estratégica.</p>
+    </div>
+    <div class="next-mission">
+      <p>Próximo: Sistemas de Equações Lineares — interseção de planos.</p>
+    </div>
+    <div class="instructor-note">
+      <p>"Vocês têm as ferramentas para redesenhar suas linhas de defesa. Mantenham os cálculos afiados!"</p>
+    </div>
+  </section>
+</section>

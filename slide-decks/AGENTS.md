@@ -530,7 +530,30 @@ sed -i '/inlineMath\|displayMath/!{s/\\\\(/\\(/g; s/\\\\)/\\)/g; s/\\\\\[/\\[/g;
 
 Após fazer qualquer alteração em arquivos HTML/CSS de slides, você DEVE verificar visualmente.
 
-### Workflow
+> ⚠️ **IMPORTANTE — Capacidade de Visão do Modelo:** Nem todos os modelos de LLM conseguem analisar imagens. Antes de prosseguir, teste sua capacidade tentando ler uma imagem qualquer. Se receber um erro como "Cannot read image (this model does not support image input)", siga o protocolo para modelos sem visão abaixo.
+
+### 7.1 Protocolo para Modelos SEM Visão
+
+Se você não consegue ver imagens, siga este protocolo rigorosamente:
+
+1. **AVISE explicitamente o professor:**
+   > ⚠️ **Modelo sem capacidade de visão — verificação visual não realizada.** Screenshots foram capturados e salvos em `/tmp/` para validação manual.
+
+2. **Tire os screenshots mesmo assim** (via Playwright/Firefox local, veja §7.3) e salve em `/tmp/` com nomes descritivos (ex: `/tmp/cap-v-parabola-canvas.png`).
+
+3. **Informe os caminhos dos arquivos** ao professor para que ele possa abrir e verificar manualmente.
+
+4. **Faça verificação indireta via código:**
+   - Verifique se os elementos esperados existem no DOM (canvas, containers, etc.)
+   - Verifique se os scripts de inicialização executam sem erro (console do browser)
+   - Verifique se MathJax foi processado (presença de elementos `.mjx-chtml` ou similar no DOM)
+   - Use `page.evaluate()` para extrair estado do canvas ou verificar propriedades computadas
+
+5. **NUNCA finja que viu a imagem.** Descreva apenas o que pode inferir do código HTML/CSS lido, e deixe claro que é inferência, não observação visual.
+
+### 7.2 Protocolo para Modelos COM Visão
+
+Se você consegue ver imagens, siga o workflow padrão:
 
 ```
 Fazer alteração no código
@@ -547,7 +570,7 @@ ANALISAR: elementos corretos? fórmulas renderizam? layout OK?
    └─ Não → Corrigir → Repetir
 ```
 
-### Casos que exigem verificação visual
+### 7.3 Casos que exigem verificação visual
 
 - [ ] Centralização de elementos (canvas, textos, listas)
 - [ ] Alinhamento de listas
@@ -557,7 +580,42 @@ ANALISAR: elementos corretos? fórmulas renderizam? layout OK?
 - [ ] Quebra de linha em textos longos
 - [ ] Canvas interativos (testar controles)
 
-### Dicas
+### 7.4 Ferramenta Recomendada: Playwright Local
+
+Para tirar screenshots localmente (independente do CamoFox, que roda em outra máquina):
+
+```bash
+# Instalar (só uma vez)
+npm install @playwright/test
+npx playwright install firefox
+
+# Tirar screenshot de um slide
+npx playwright screenshot --browser=firefox --wait-for-timeout=8000 \
+  --viewport-size=1280,720 \
+  "http://localhost:8080/capitulo-N.html" \
+  /tmp/cap-N-slide.png
+
+# Script para múltiplos slides (navegar com ArrowDown/ArrowRight)
+NODE_PATH=./node_modules node script.js
+```
+
+Exemplo de script para navegar entre slides:
+```javascript
+const { firefox } = require('playwright');
+(async () => {
+  const browser = await firefox.launch();
+  const page = await browser.newPage({ viewport: { width: 1280, height: 720 } });
+  await page.goto('http://localhost:8080/capitulo-N.html', { waitUntil: 'networkidle' });
+  await page.waitForTimeout(3000);
+  // Navegar com teclas
+  await page.keyboard.press('ArrowRight'); await page.waitForTimeout(1000);
+  await page.keyboard.press('ArrowDown'); await page.waitForTimeout(1000);
+  await page.screenshot({ path: '/tmp/cap-N-slide.png' });
+  await browser.close();
+})();
+```
+
+### 7.5 Dicas
 
 - **Cache**: O navegador pode cachear CSS. Use `?v=2` ou reinicie o servidor.
 - **Reveal.js**: Slides aninhados usam formato `#/slide/secao` na URL.
@@ -572,7 +630,7 @@ ANALISAR: elementos corretos? fórmulas renderizam? layout OK?
 - [ ] **LaTeX correto**: `grep -n '\\\\(' slide-decks/capitulo-N/*.html | grep -v script` retorna vazio
 - [ ] **Notação**: Pontos maiúsculos, `\vec{}`, vírgula decimal
 - [ ] **Escopo**: Nenhum conceito de capítulo posterior
-- [ ] **Verificação visual**: Screenshot tirado e analisado
+- [ ] **Verificação visual**: Screenshot tirado e analisado (ou ⚠️ aviso de modelo sem visão enviado ao professor com caminhos dos arquivos)
 - [ ] **URL fornecida ao usuário** para validação
 - [ ] **Sem regressões**: Slides adjacentes não quebraram
 
