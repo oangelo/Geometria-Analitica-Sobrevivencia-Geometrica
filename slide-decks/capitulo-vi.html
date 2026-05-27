@@ -48,10 +48,8 @@
           const text = await res.text();
           const doc  = new DOMParser().parseFromString(text, 'text/html');
 
-          const section = doc.body.querySelector('section');
-          if (section) {
-            container.appendChild(document.adoptNode(section));
-          }
+          const wrapper = doc.body.querySelector('section');
+          if (wrapper) container.appendChild(document.importNode(wrapper, true));
 
           // Collect inline scripts (skip Reveal.initialize and MathJax config)
           doc.querySelectorAll('body script:not([src])').forEach(s => {
