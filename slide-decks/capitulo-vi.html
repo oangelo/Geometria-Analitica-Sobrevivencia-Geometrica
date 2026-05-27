@@ -93,9 +93,21 @@
         });
 
         if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
+
+        Reveal.on('slidechanged', function(event) {
+          const slide = event.currentSlide;
+          if (!slide) return;
+          if (slide.querySelector('#r3-vetores-canvas') && window.initR3Vetores) window.initR3Vetores();
+          if (slide.querySelector('#produto-interno-r3-canvas') && window.initProdutoInternoR3) window.initProdutoInternoR3();
+          if (slide.querySelector('#produto-vetorial-canvas') && window.initProdutoVetorial) window.initProdutoVetorial();
+          if (slide.querySelector('#produto-misto-canvas') && window.initProdutoMisto) window.initProdutoMisto();
+          if (slide.querySelector('#equacao-plano-canvas') && window.initEquacaoPlano) window.initEquacaoPlano();
+          if (slide.querySelector('#equacao-reta-espaco-canvas') && window.initEquacaoReta) window.initEquacaoReta();
+        });
       }
 
       loadAndInit();
     </script>
+    <script src="capitulo-vi/simulators.js"></script>
   </body>
 </html>
