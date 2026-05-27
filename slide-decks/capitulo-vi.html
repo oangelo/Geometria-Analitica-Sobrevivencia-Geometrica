@@ -20,13 +20,24 @@
     <script src="https://unpkg.com/reveal.js@5.1.0/plugin/zoom/zoom.js"></script>
     <script>
       window.MathJax = {
-        tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] },
+        tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
         svg: { fontCache: 'global' },
       };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
     <script>
-      const SECTIONS = ["capitulo-vi/1-espaco-vetorial-r3.html", "capitulo-vi/2-determinantes.html", "capitulo-vi/3-produto-vetorial-plano-reta.html", "capitulo-vi/4-sistemas-planos.html"];
+      const SECTIONS = [
+        "capitulo-vi/0-introducao.html",
+        "capitulo-vi/1-espaco-vetorial-r3.html",
+        "capitulo-vi/2-produto-interno-no-r3.html",
+        "capitulo-vi/3-determinantes.html",
+        "capitulo-vi/4-produto-vetorial-e-misto.html",
+        "capitulo-vi/5-equacao-do-plano.html",
+        "capitulo-vi/6-equacoes-da-reta.html",
+        "capitulo-vi/7-sistemas-de-equacoes.html",
+        "capitulo-vi/8-equacao-da-esfera.html",
+        "capitulo-vi/9-conclusao.html"
+      ];
 
       async function loadAndInit() {
         const container = document.getElementById('slides');
@@ -37,15 +48,9 @@
           const text = await res.text();
           const doc  = new DOMParser().parseFromString(text, 'text/html');
 
-          doc.querySelectorAll('head style').forEach(s =>
-            document.head.appendChild(document.adoptNode(s))
-          );
-
-          const slides = doc.querySelector('.slides');
-          if (slides) {
-            [...slides.children].forEach(child =>
-              container.appendChild(document.adoptNode(child))
-            );
+          const section = doc.body.querySelector('section');
+          if (section) {
+            container.appendChild(document.adoptNode(section));
           }
 
           // Collect inline scripts (skip Reveal.initialize and MathJax config)
@@ -74,8 +79,6 @@
           document.body.appendChild(s);
         }
 
-
-
         Reveal.initialize({
           width: 1366,
           height: 768,
@@ -90,8 +93,6 @@
           math: { mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js', config: 'TeX-AMS_HTML-full' },
           plugins: [RevealNotes, RevealHighlight, RevealMath.MathJax3, RevealZoom],
         });
-
-
 
         if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
       }

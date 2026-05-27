@@ -1,0 +1,151 @@
+<!-- SEÇÃO 8: SISTEMAS DE EQUAÇÕES LINEARES -->
+<section>
+  <!-- Slide 8.1: Motivação -->
+  <section class="field-report">
+    <h2>O Encontro de Planos</h2>
+    <h3 class="mission-subtitle">Decifrando Coordenadas e Pontos de Convergência</h3>
+    <p>Cada equação linear \(ax + by + cz = d\) representa um <strong>plano</strong> no espaço \(R^3\).</p>
+    <p>Resolver um sistema de três equações é encontrar o(s) ponto(s) \(P(x,y,z)\) comuns a todos os três planos.</p>
+    <p class="formula">\(\begin{cases} \pi_1: a_{11}x + a_{12}y + a_{13}z = b_1 \\ \pi_2: a_{21}x + a_{22}y + a_{23}z = b_2 \\ \pi_3: a_{31}x + a_{32}y + a_{33}z = b_3 \end{cases}\)</p>
+    <p class="mnemonic">"Três planos no espaço, um enigma a decifrar. Sua interseção, o destino irá mostrar."</p>
+  </section>
+
+  <!-- Slide 8.2: Matriz Aumentada -->
+  <section class="mission-briefing">
+    <h2>Ferramenta: A Matriz Aumentada</h2>
+    <h3 class="mission-subtitle">Organizando os Dados do Sistema</h3>
+    <p>Para resolver o sistema de forma organizada, usamos a Matriz Aumentada \([A|B]\):</p>
+    <p class="formula">\(\left[ \begin{array}{ccc|c} a_{11} & a_{12} & a_{13} & b_1 \\ a_{21} & a_{22} & a_{23} & b_2 \\ a_{31} & a_{32} & a_{33} & b_3 \end{array} \right]\)</p>
+    <p>Esta representação compacta é nosso "painel de controle" para manipular as equações.</p>
+  </section>
+
+  <!-- Slide 8.3: Operações Elementares -->
+  <section class="mission-briefing">
+    <h2>Operações Elementares Sobre Linhas</h2>
+    <h3 class="mission-subtitle">Manipulando Equações Sem Alterar a Solução</h3>
+    <div class="definition-box">
+      <ol>
+        <li><strong>Troca de duas linhas:\u003c/strong> \(L_i \leftrightarrow L_j\)</li>
+        <li><strong>Multiplicação por escalar:\u003c/strong> \(L_i \leftarrow kL_i, k \neq 0\)</li>
+        <li><strong>Substituição:\u003c/strong> \(L_i \leftarrow L_i + kL_j\)</li>
+      </ol>
+    </div>
+    <p class="mnemonic">"Trocar, multiplicar, somar com múltiplo de outra. São as chaves para o sistema desvendar, sem que a solução se perca ou fuja!"</p>
+  </section>
+
+  <!-- Slide 8.4: Escalonamento -->
+  <section class="field-report">
+    <h3>Estratégia: Escalonamento (Método de Gauss)</h3>
+    <div class="info-panel">
+      <div class="info-screen">
+        <h4>O Processo de Simplificação:</h4>
+        <p>Aplicamos operações elementares para zerar elementos abaixo da diagonal principal.</p>
+        <p>Forma Alvo (Triangular Superior):</p>
+        <p class="formula">\(\left[ \begin{array}{ccc|c} \blacksquare & * & * & * \\ 0 & \blacksquare & * & * \\ 0 & 0 & \blacksquare & *' \end{array} \right]\)</p>
+        <p>\(\blacksquare\) = pivô (\(\neq 0\)). Retrosubstituição encontra \(z, y, x\).</p>
+      </div>
+    </div>
+    <div class="survival-tip">
+      <p>O escalonamento é como remover camadas de entulho para revelar a estrutura central de um problema.</p>
+    </div>
+  </section>
+
+  <!-- Slide 8.5: Interseção de Dois Planos -->
+  <section class="field-report">
+    <h3>Análise: Interseção de Dois Planos</h3>
+    <div class="info-panel">
+      <div class="info-screen">
+        <h4>Observando os Vetores Normais (\(\vec{n_1}, \vec{n_2}\)):</h4>
+        <ul>
+          <li><strong>\(\vec{n_1} \parallel \vec{n_2}\) (Paralelos):\u003c/strong>
+            <ul>
+              <li>Coincidentes: Interseção é o próprio plano (SPI)</li>
+              <li>Paralelos distintos: Nenhuma interseção (SI)</li>
+            </ul>
+          </li>
+          <li><strong>\(\vec{n_1} \not\parallel \vec{n_2}\) (Não Paralelos):\u003c/strong> Interseção é uma RETA (SPI)
+            <ul>
+              <li>Vetor diretor: \(\vec{v} = \vec{n_1} \times \vec{n_2}\)</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 8.6: Interseção de Três Planos — SPD -->
+  <section class="mission-briefing">
+    <h2>O Encontro de Três Planos (1/2)</h2>
+    <h3 class="mission-subtitle">Caso 1: Interseção em Ponto Único (SPD)</h3>
+    <div class="definition-box">
+      <p>\(\det(\vec{n_1}, \vec{n_2}, \vec{n_3}) \neq 0\): normais LI (não coplanares)</p>
+      <ul>
+        <li>Geometria: Os três planos <strong>se interceptam em um ÚNICO PONTO</strong>.</li>
+        <li>Sistema: Possível e Determinado (SPD).</li>
+      </ul>
+    </div>
+    <div class="svg-container">
+      <img src="capitulo_vi_imagens_sistemas_py/3planos_intersecao_ponto_py.svg" alt="3 Planos em Ponto" class="svg-image-large">
+    </div>
+  </section>
+
+  <!-- Slide 8.7: Interseção de Três Planos — SPI/SI -->
+  <section class="mission-briefing">
+    <h2>O Encontro de Três Planos (2/2)</h2>
+    <h3 class="mission-subtitle">Caso 2: Normais Coplanares (\(\det = 0\))</h3>
+    <div class="definition-box">
+      <p>\(\det(\vec{n_1}, \vec{n_2}, \vec{n_3}) = 0\): normais LD (coplanares)</p>
+      <ul>
+        <li><strong>SPI (Reta):\u003c/strong> Três planos se cruzam ao longo de uma reta comum.</li>
+        <li><strong>SPI (Plano):\u003c/strong> Três planos coincidentes.</li>
+        <li><strong>SI:\u003c/strong> Sem interseção comum (paralelos, prisma oco).</li>
+      </ul>
+    </div>
+    <div class="svg-container">
+      <img src="capitulo_vi_imagens_sistemas_py/3planos_intersecao_reta_livro_py.svg" alt="3 Planos em Reta" class="svg-image-medium">
+      <img src="capitulo_vi_imagens_sistemas_py/3planos_prisma_oco_py.svg" alt="Prisma Oco" class="svg-image-medium">
+    </div>
+  </section>
+
+  <!-- Slide 8.8: Interpretando a Matriz Escalonada -->
+  <section class="field-report">
+    <h3>Interpretando o Painel Escalonado</h3>
+    <div class="info-panel">
+      <div class="info-screen">
+        <h4>Decifrando a Geometria pela Matriz:</h4>
+        <ul>
+          <li><strong>3 pivôs (\(\neq 0\)):\u003c/strong> SPD — interseção em ponto único.</li>
+          <li><strong>Linha \([0 \ 0 \ 0 \ | \ 0]\):\u003c/strong> SPI — interseção em reta ou plano.</li>
+          <li><strong>Linha \([0 \ 0 \ 0 \ | \ k \neq 0]\):\u003c/strong> SI — equação impossível \(0 = k\).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 8.9: Treinamento -->
+  <section class="survival-training">
+    <h3>Exercício: Ponto de Encontro Secreto</h3>
+    <div class="training-problem">
+      <h4>Problema #VI.B.1:</h4>
+      <p>Encontre o ponto de encontro \(P(x,y,z)\) escalonando:</p>
+      <p class="formula">\(\begin{cases} x + y + z = 6 \\ 2x - y + z = 3 \\ x + 2y - 3z = -4 \end{cases}\)</p>
+    </div>
+    <div class="problem-context">
+      <p>Errar o ponto compromete a operação.</p>
+    </div>
+  </section>
+
+  <!-- Slide 8.10: Debriefing -->
+  <section class="debriefing">
+    <h3>Debriefing: Decifrando Encontros Planares</h3>
+    <div class="summary-box">
+      <p>Sistemas lineares 3×3 = interseção de três planos. Escalonamento e análise dos normais revelam a geometria: ponto, reta, plano, ou nenhuma interseção comum.</p>
+    </div>
+    <div class="next-mission">
+      <p>Próxima transmissão: Delimitando Zonas de Segurança com precisão esférica.</p>
+    </div>
+    <div class="instructor-note">
+      <p>"Entender como as superfícies se encontram é a diferença entre emboscar e ser emboscado. A geometria não mente."</p>
+    </div>
+  </section>
+</section>

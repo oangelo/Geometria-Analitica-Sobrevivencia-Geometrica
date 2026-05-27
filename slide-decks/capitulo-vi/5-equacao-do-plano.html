@@ -1,0 +1,75 @@
+<!-- SEÇÃO 6: EQUAÇÃO DO PLANO -->
+<section>
+  <!-- Slide 6.1: Motivação -->
+  <section class="field-report">
+    <h2>Superfícies no Espaço</h2>
+    <h3 class="mission-subtitle">Por Que Precisamos de Planos?</h3>
+    <p>No \(R^2\): \(ax + by + c = 0\) era uma <strong>reta</strong>.</p>
+    <p>No \(R^3\): \(ax + by + cz + d = 0\) é um <strong>plano</strong>!</p>
+    <p><strong>Aplicações:</strong> Definir superfícies de segurança, paredes, tetos, horizontes de radar.</p>
+    <div class="survival-tip">
+      <p>Uma equação, um novo significado. A mesma fórmula do \(R^2\), agora descrevendo superfícies no espaço.</p>
+    </div>
+  </section>
+
+  <!-- Slide 6.2: Definição -->
+  <section class="mission-briefing">
+    <h2>Equação do Plano</h2>
+    <h3 class="mission-subtitle">As 'Superfícies Retas' do Mundo 3D</h3>
+    <div class="definition-box">
+      <p><strong>Forma Geral:\u003c/strong> \(\quad ax + by + cz + d = 0\)</p>
+      <p><strong>Forma Vetorial:\u003c/strong> \(\quad \vec{n} \cdot (\vec{X} - \vec{P_0}) = 0\)</p>
+      <p>Onde \(\vec{n} = (a,b,c)\) é o <strong>vetor normal</strong> ao plano.</p>
+    </div>
+    <p><strong>Interpretação:\u003c/strong> O vetor normal \(\vec{n}\) é perpendicular a todos os vetores do plano.</p>
+  </section>
+
+  <!-- Slide 6.3: Simulador -->
+  <section class="simulator">
+    <h3>Simulador: Manipulando Planos</h3>
+    <div class="canvas-container">
+      <canvas id="equacao-plano-canvas" width="800" height="400"></canvas>
+      <div class="simulator-controls">
+        <p>\(\vec{n}=(a,b,c)\), Termo \(d\):</p>
+        <div class="control-panel">
+          <label>\(a\):</label> <input type="range" id="plano-a" min="-2" max="2" value="1" step="0.1"> <span id="plano-a-value">1</span>
+          <label>\(b\):</label> <input type="range" id="plano-b" min="-2" max="2" value="1" step="0.1"> <span id="plano-b-value">1</span>
+          <label>\(c\):</label> <input type="range" id="plano-c" min="-2" max="2" value="1" step="0.1"> <span id="plano-c-value">1</span>
+          <label>\(d\):</label> <input type="range" id="plano-d" min="-5" max="5" value="-2" step="0.1"> <span id="plano-d-value">-2</span>
+        </div>
+        <p>Eq: <span id="plano-eq-display" class="formula">1x+1y+1z-2=0</span></p>
+      </div>
+    </div>
+    <div class="hint-message">
+      <p>Altere \(a,b,c\) para ver a orientação mudar. Ajuste \(d\) para deslocar.</p>
+    </div>
+  </section>
+
+  <!-- Slide 6.4: Distância de Ponto a Plano -->
+  <section class="field-report">
+    <h3>Relatório: Distâncias e Segurança</h3>
+    <div class="info-panel">
+      <div class="info-screen">
+        <h4>Distância de Ponto a Plano:</h4>
+        <p class="formula">\(D = \frac{|ax_0+by_0+cz_0+d|}{\sqrt{a^2+b^2+c^2}}\)</p>
+      </div>
+    </div>
+    <div class="survival-tip">
+      <p>Saber a distância do seu abrigo (\(P_0\)) a uma superfície hostil (plano) é vital.</p>
+    </div>
+  </section>
+
+  <!-- Slide 6.5: Debriefing -->
+  <section class="debriefing">
+    <h3>Debriefing: Superfícies Essenciais</h3>
+    <div class="summary-box">
+      <p>Planos são blocos de construção em \(R^3\). Sua equação é adaptação da reta em \(R^2\), mas com novo significado.</p>
+    </div>
+    <div class="next-mission">
+      <p>Alerta: E a RETA em \(R^3\)? Como descrever um caminho linear?</p>
+    </div>
+    <div class="instructor-note">
+      <p>"Um bom plano separa um abrigo seguro de uma armadilha."</p>
+    </div>
+  </section>
+</section>
