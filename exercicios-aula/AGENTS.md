@@ -40,15 +40,15 @@ exercicios-aula/
 
 ### Organização por Capítulo
 
-| Capítulo | Conteúdo | Exercícios |
-|----------|----------|------------|
-| I | O Espaço Vetorial R² | 4-6 |
-| II | Vetores e Operações | 4-6 |
-| III | Produto Escalar | 4-6 |
-| IV | Vetores em R³ e Produto Vetorial | 4-6 |
-| V | Retas no Plano | 4-6 |
-| VI | Circunferências | 4-6 |
-| VII | Cônicas | 4-6 |
+| Capítulo | Conteúdo | Tópicos |
+|----------|----------|---------|
+| 0 | Preparação para a Wasteland | Álgebra, Frações, Sistemas, Trigonometria, Revisão |
+| I | O Espaço Vetorial R² | Conjunto R², Operações, Vetores, Ponto Médio/Baricentro |
+| II | Produto Interno no R² | Produto Escalar, Módulo, Distância, Projeção, Ortogonalidade, Ângulo, Área |
+| III | Estudo da Reta no R² | Equação, Posições Relativas, Perpendicularidade, Distância, Reduzida |
+| IV | A Circunferência no R² | Equação, 3 Pontos, Posições Relativas, Pontos, Polares |
+| V | Cônicas | Lugares Geométricos, Parábola, Elipse, Hipérbole |
+| VI | R³ e Geometria no Espaço | R³, Produto Interno, Produto Vetorial, Plano, Reta, Esfera |
 
 ---
 
@@ -226,10 +226,13 @@ Isso melhora performance e evita problemas com lacunas.
 
 ## Quantidade de Exercícios
 
-- **4-6 exercícios por folha**
-- **2-4 questões por exercício**
-- **2-4 subitens por questão**
-- **Total: ~15-25 interações por folha**
+A quantidade de exercícios por lista depende do conteúdo de cada capítulo. Não há limite fixo — o objetivo é cobrir adequadamente os tópicos com exercícios que guiem o aluno passo a passo.
+
+**Diretrizes:**
+- Cada exercício deve ter 2-4 questões
+- Cada questão deve ter 2-4 subitens com lacunas
+- Incluir checkpoints de verificação
+- Priorizar cobertura completa sobre quantidade
 
 ---
 
