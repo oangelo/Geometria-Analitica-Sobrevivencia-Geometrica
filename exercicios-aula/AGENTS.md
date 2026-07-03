@@ -17,7 +17,7 @@
 - Perguntas que levam o aluno a pensar
 - Checkpoints de verificação
 - Foco em aplicação imediata do conteúdo
-- Não explicar conceitos do zero (aluno já viu em aula)
+- Conceitos são revisitados passo a passo, assumindo mínimo conhecimento prévio
 
 ---
 
@@ -238,13 +238,13 @@ A quantidade de exercícios por lista depende do conteúdo de cada capítulo. N�
 
 ## Nível de Dificuldade
 
-**Reforço:** aluno já viu o conteúdo em aula.
+**Reforço:** conteúdo foi apresentado em aula, mas o aluno pode não ter absorvido.
 
-- ❌ Não explicar conceitos do zero
-- ✅ Focar em aplicação
-- ✅ Fazer perguntas que levam ao raciocínio
-- ✅ Checkpoints para auto-verificação
-- ✅ Baby steps para guiar o pensamento
+- ✅ Assumir mínimo conhecimento prévio — se o aluno não sabe desenhar um triângulo retângulo, guiar esse passo também
+- ✅ Quebrar cada tarefa em micro-decisões — nenhum passo deve ser "óbvio demais"
+- ✅ Focar em aplicação imediata
+- ✅ Checkpoints para auto-verificação a cada subitem
+- ✅ Baby steps extremos: cada subitem é uma única operação mental
 
 ---
 
@@ -266,6 +266,85 @@ A quantidade de exercícios por lista depende do conteúdo de cada capítulo. N�
 2. **Questionar:** "Qual é o vetor diretor que vai de A até B?"
 3. **Guiar:** "Para encontrar o deslocamento em cada direção..."
 4. **Verificar:** "Some os componentes. O resultado faz sentido?"
+
+---
+
+## Micro-passos
+
+Exercícios de sala devem quebrar cada tarefa em **micro-decisões** — passos tão pequenos que o aluno nunca "trava".
+
+### Princípio
+
+Se um subitem exige mais de uma operação mental, divida em dois subitens.
+
+### Ciclo de Confirmação
+
+Quando possível, o exercício deve fechar um ciclo: **calcular → usar o resultado → confirmar**.
+
+Não basta calcular uma razão e verificar que a fórmula "funciona". O aluno precisa usar a razão para fazer uma **previsão** — e depois confirmar que a previsão bate com a realidade. Isso prova que a ferramenta é útil, não só correta.
+
+### Exemplo: Progressão Cognitiva (Exercício de Trigonometria)
+
+Este exemplo mostra como planejar um exercício inteiro pensando primeiro na **lógica da progressão**, sem valores numéricos.
+
+#### O que o aluno precisa aprender
+
+1. Um triângulo retângulo tem três partes nomeadas (hipotenusa, cateto oposto, cateto adjacente)
+2. Os nomes dependem de qual ângulo você escolhe
+3. Existem três razões que relacionam essas partes
+4. As razões funcionam nos dois sentidos: descobrir razão a partir dos lados, OU descobrir lado a partir da razão
+
+#### A progressão
+
+**Fase 1 — Construir a figura**
+- Desenhar um triângulo retângulo
+- Marcar o ângulo reto
+- Colocar os tamanhos dos lados
+
+**Fase 2 — Nomear as partes**
+- Escolher um dos ângulos agudos (θ)
+- Identificar qual cateto está "oposto" a θ
+- Identificar qual cateto está "adjacente" a θ
+- A hipotenusa é sempre a mesma (oposta ao ângulo reto)
+
+**Fase 3 — Construir as razões**
+- Escrever a razão "oposto ÷ hipotenusa" — isso tem nome: seno
+- Escrever a razão "adjacente ÷ hipotenusa" — isso tem nome: cosseno
+- Escrever a razão "oposto ÷ adjacente" — isso tem nome: tangente
+- Verificar que tangente = seno ÷ cosseno
+
+**Fase 4 — Usar as razões no sentido direto**
+- Calcular o valor numérico de cada razão
+
+**Fase 5 — Usar as razões no sentido inverso (ciclo de confirmação)**
+- Agora supor que só conhece a hipotenusa e o ângulo
+- Usar o seno para "prever" o cateto oposto
+- Usar o cosseno para "prever" o cateto adjacente
+- Comparar com os valores que já estavam no desenho — batem?
+
+**Fase 6 — Construir ângulos notáveis**
+- Desenhar um triângulo retângulo isósceles (catetos iguais)
+- Calcular a hipotenusa por Pitágoras
+- Calcular as razões para esse triângulo — isso dá os valores de 45°
+
+**Fase 7 — Construir 30° e 60°**
+- Desenhar um triângulo equilátero
+- Traçar a altura — divide em dois retângulos
+- Identificar os lados de cada metade
+- Calcular as razões para 30° e 60°
+
+**Fase 8 — Verificação cruzada**
+- Comparar sen 30° com cos 60° — são iguais? Por quê?
+- Usar sen 30° para prever um cateto e confirmar
+
+#### O que mudou em relação à versão anterior
+
+| Antes | Agora |
+|-------|-------|
+| Dava os valores e pedia para identificar | Primeiro desenha, depois coloca valores dados |
+| Calculava e verificava | Calcula, USA para prever, e confirma |
+| Ângulos notáveis eram um passo só | São duas fases separadas (45° primeiro, depois 30°/60°) |
+| Verificação era "confere?" | Verificação é "use a ferramenta para prever e compare" |
 
 ---
 
@@ -299,6 +378,169 @@ const EXERCICIOS = [
   // ...
 ];
 ```
+
+---
+
+## Pipeline de Revisão (2 Agentes)
+
+O pipeline tem 2 etapas com 2 agentes distintos. Entre cada etapa, o professor revisa e aprova antes de prosseguir.
+
+```
+Agente 1 — Planejador (gera PDI)
+         ↓ Revisão humana (professor comenta aprovação/ajustes)
+Agente 2 — Implementador (executa o PDI)
+```
+
+### Agente 1 — Planejador (gera PDI)
+
+**Propósito:** Analisar referências (exercícios de casa, slides, checklist de conceitos) e gerar um Plano de Implementação Detalhado (PDI) em linguagem natural, sem código.
+
+**Entrada:** Issue do GitHub com os tópicos a cobrir
+
+**Processo:**
+1. Ler o AGENTS.md (este arquivo) para estrutura e regras
+2. Ler os exercícios de casa do capítulo (`exercicios/capitulo-N/`)
+3. Ler os slides do capítulo (`slide-decks/capitulo-N/`)
+4. Ler o checklist de conceitos permitidos (`exercicios/checklist-conceitos-permitidos.md`)
+5. Ler as diretrizes pedagógicas (`exercicios/diretrizes-listas-de-exercicios.md`)
+6. Gerar PDI como comentário na issue
+
+**Saída (PDI):**
+- **Progressão narrativa:** descrição dos "atos cognitivos" da lista
+- **Cada exercício em detalhe:**
+  - Código (SALA-N-M)
+  - Tópico e dificuldade
+  - Conexão com exercício anterior (texto explícito)
+  - Descrição geral
+  - **Progressão cognitiva** — fases do raciocínio, sem valores numéricos
+  - Checkpoint de verificação
+  - Se tem dica ou não
+- **Resumo:** tabela com todos os exercícios
+- **Arquivos a criar:** lista com marcações NOVO
+
+**ATENÇÃO:** O PDI é um **plano cognitivo**, não um exercício finalizado.
+- ✅ Descreva o que o aluno vai FAZER e PENSAR em cada fase
+- ✅ Use linguagem natural ("calcular", "identificar", "verificar")
+- ❌ NÃO inclua valores numéricos específicos (isso é responsabilidade do Implementador)
+- ❌ NÃO escreva o HTML final (isso é responsabilidade do Implementador)
+
+**Como invocar:**
+
+> Execute o Agente Planejador na issue #N.
+>
+> ANTES de começar:
+> 1. Leia `exercicios-aula/AGENTS.md` — estrutura, classes CSS, template, notação
+> 2. Leia os exercícios de casa em `exercicios/capitulo-N/`
+> 3. Leia os slides em `slide-decks/capitulo-N/`
+> 4. Leia `exercicios/checklist-conceitos-permitidos.md` — seção do capítulo
+> 5. Leia `exercicios/diretrizes-listas-de-exercicios.md` — princípios pedagógicos
+>
+> Gere um PDI como comentário na issue, em linguagem natural, sem código.
+
+**Formato do PDI:**
+
+```markdown
+## PDI — Plano Detalhado de Implementação
+**Tópico:** Exercícios de Sala — Capítulo N: [NOME]
+**Issue:** #N
+**Formato:** A4 coluna dupla, sem tema narrativo, KaTeX
+
+---
+
+### Progressão Narrativa da Lista
+
+[Ato 1, Ato 2, Ato 3... descrevendo a progressão cognitiva]
+
+---
+
+### Exercícios
+
+#### SALA-N-M — [Tópico] — [Dificuldade]
+**Conexão:** [texto conectando com exercício anterior]
+**Descrição:** [descrição geral em linguagem natural]
+
+**Progressão cognitiva:**
+- Fase 1: [o que o aluno faz primeiro — desenhar, identificar, etc.]
+- Fase 2: [o que o aluno faz depois — calcular, comparar, etc.]
+- Fase 3: [ciclo de confirmação — usar resultado para prever e verificar]
+
+**Checkpoint:** [verificação que o aluno pode fazer]
+**Com dica.** / **Sem dica.**
+
+---
+
+### Resumo
+
+| Exercício | Arquivo | Tópico | Dificuldade | Questões |
+|-----------|---------|--------|-------------|----------|
+| SALA-N-1 | `exercicio-1.html` | ... | ... | ... |
+
+### Arquivos a Criar
+
+| Arquivo | Ação |
+|---------|------|
+| `capitulo-N-nome/index.html` | NOVO |
+| `capitulo-N-nome/exercicio-1.html` | NOVO |
+```
+
+**Exemplo de progressão cognitiva (sem valores):**
+
+> **Fase 1 — Construir a figura:** Desenhar um triângulo retângulo, marcar o ângulo reto, colocar os tamanhos dos lados.
+>
+> **Fase 2 — Nomear as partes:** Escolher um ângulo agudo, identificar cateto oposto e adjacente.
+>
+> **Fase 3 — Construir as razões:** Escrever as razões "oposto ÷ hipotenusa", "adjacente ÷ hipotenusa", "oposto ÷ adjacente".
+>
+> **Fase 4 — Usar no sentido direto:** Calcular os valores numéricos das razões.
+>
+> **Fase 5 — Usar no sentido inverso:** Usar as razões para prever catetos e confirmar com os valores do desenho.
+
+### O que o PDI NÃO é
+
+| PDI (Planejador) | Exercício finalizado (Implementador) |
+|------------------|--------------------------------------|
+| "Desenhar um triângulo retângulo" | `<p class="subitem">a) Desenhe um triângulo retângulo. Marque o ângulo reto com um quadrado pequeno.</p>` |
+| "Calcular o seno como fração" | `<p class="subitem">d) O seno de θ é a razão entre qual cateto e qual lado? Escreva a fração: sen θ = <span class="lacuna"></span>/<span class="lacuna"></span></p>` |
+| "Usar o seno para prever o cateto" | `<p class="subitem">f) Agora inverta: suponha que você só conhecesse a hipotenusa e o ângulo. Usando o seno, calcule o cateto oposto: cateto oposto = sen θ × hipotenusa = <span class="lacuna"></span>. Confere com o valor dado? <span class="lacuna"></span></p>` |
+
+O PDI descreve a **lógica cognitiva**. O Implementador transforma em **instruções claras e didáticas** que o aluno segue passo a passo.
+
+### Agente 2 — Implementador
+
+**Propósito:** Executar o PDI. Transformar a progressão cognitiva em exercícios HTML didáticos, com linguagem clara e lacunas nos pontos certos.
+
+**Entrada:** PDI + aprovação do professor na issue
+
+**Processo:**
+1. Ler o PDI nos comentários da issue
+2. Ler o AGENTS.md (este arquivo) para template, classes CSS e princípios pedagógicos
+3. Criar pasta do capítulo
+4. Criar `index.html` seguindo o template
+5. Para cada exercício do PDI:
+   - Ler a progressão cognitiva (fases)
+   - Transformar cada fase em subitens (a, b, c...) com linguagem clara
+   - Adicionar lacunas nos pontos certos (cálculos, resultados)
+   - Adicionar checkpoints de verificação
+   - Adicionar diálogo que guia sem dar a resposta
+6. Após cada arquivo: verificar estrutura HTML
+7. Após todos os arquivos: subir servidor e testar no navegador
+
+**Responsabilidades do Implementador:**
+- **Linguagem clara:** Cada subitem deve ser uma instrução completa que o aluno entende sem contexto adicional
+- **Diálogo guiado:** Usar perguntas, não afirmações. "Qual é o cateto oposto?" e não "O cateto oposto é..."
+- **Conexão entre subitens:** Cada subitem deve construir sobre o anterior. Usar frases como "Usando o resultado anterior..." ou "Agora que você identificou..."
+- **Lacunas nos pontos certos:** Nunca dentro de equações LaTeX. Sempre em pontos de cálculo ou resultado
+- **Checkpoints após cada questão:** Verificação que o aluno pode fazer sozinho
+
+**Como invocar:**
+
+> Execute o Agente Implementador na issue #N.
+>
+> Leia o PDI nos comentários da issue (`gh issue view N --comments`).
+> Leia `exercicios-aula/AGENTS.md` para template, classes CSS e princípios pedagógicos (especialmente "Micro-passos" e "Ciclo de Confirmação").
+> Siga o PDI na ordem definida.
+> Para cada exercício: transforme a progressão cognitiva em subitens claros e didáticos.
+> Após criar todos os arquivos, suba servidor e teste: `python3 -m http.server 8080`
 
 ---
 
