@@ -213,14 +213,22 @@ Atributos opcionais no `<section>`:
 | Produto escalar | `$\vec{u} \cdot \vec{v}$` | u⃗ · v⃗ |
 | Ângulo | `$\theta$` | θ |
 
-### Variáveis Simples
+### Regra Geral
 
-Use `<strong>` em vez de LaTeX para variáveis simples:
+**TODA expressão matemática deve ser LaTeX** — incluindo variáveis isoladas.
 
-- `<strong>x</strong>` em vez de `$x$`
-- `<strong>v⃗</strong>` em vez de `$\vec{v}$`
+- Variáveis: `$x$`, `$\theta$`, `$\vec{v}$`
+- Expressões: `$x^2 + 3x = 5$`
+- Frações: `$\frac{a}{b}$`
+- Expoentes: `$2^{10}$`
 
-Isso melhora performance e evita problemas com lacunas.
+**NUNCA use HTML para expressões matemáticas:**
+- ❌ `<strong>x</strong>` → ✅ `$x$`
+- ❌ `2³` → ✅ `$2^3$`
+- ❌ `x²` → ✅ `$x^2$`
+- ❌ `√(x+1)` → ✅ `$\sqrt{x+1}$`
+
+Use `<strong>` APENAS para ênfase em texto não-matemático.
 
 ---
 
@@ -269,6 +277,39 @@ A quantidade de exercícios por lista depende do conteúdo de cada capítulo. N�
 
 ---
 
+## Grau de Mediação
+
+O grau de "mastigação" depende do objetivo pedagógico:
+
+| Situação | Grau esperado |
+|----------|---------------|
+| Conceito novo, primeira vez | Alto — guiar cada passo |
+| Revisão de conteúdo já visto | Médio — lembrar, não resolver |
+| Exercício de fixação | Baixo — aluno deve pensar sozinho |
+
+**Regra:** Quando o Implementador tiver dúvida se algo é "mastigado demais", deve **sinalizar na issue** para o professor confirmar antes de finalizar.
+
+Sinais de que pode estar excessivo:
+- O formato da pergunta revela a operação (`x = 15 - ___`)
+- A fórmula já tem números substituídos (`x = ___ * 3 / 45`)
+- A resposta é parcialmente dada (`h = ___ √3`)
+
+Nem sempre isso é errado — pode ser intencional para conceitos novos. Mas quando acontecer, **marcar com `[REVISAR]`** no exercício para o professor decidir.
+
+### Exemplos de Equilíbrio
+
+**Conceito novo (seno pela primeira vez):**
+> a) O seno de θ é a razão entre qual cateto e qual lado? Escreva a fração: sen θ = ___/___
+
+✅ Aceitável — guia o aluno a montar a fração
+
+**Revisão (seno já foi apresentado):**
+> a) Calcule sen θ.
+
+❌ Excessivo seria dar a fórmula novamente. O aluno deve lembrar.
+
+---
+
 ## Micro-passos
 
 Exercícios de sala devem quebrar cada tarefa em **micro-decisões** — passos tão pequenos que o aluno nunca "trava".
@@ -276,6 +317,19 @@ Exercícios de sala devem quebrar cada tarefa em **micro-decisões** — passos 
 ### Princípio
 
 Se um subitem exige mais de uma operação mental, divida em dois subitens.
+
+### Trigonometria: desenho obrigatório
+
+TODO exercício de trigonometria DEVE começar com:
+
+1. **Desenhar o triângulo** — aluno esboça a figura
+2. **Marcar os lados** — aluno escreve os comprimentos conhecidos
+3. **Identificar oposto/adjacente/hipotenusa** — em relação ao ângulo dado
+
+Só depois o aluno calcula razões ou resolve equações.
+
+Exemplo de subitem inicial:
+> a) Desenhe o triângulo retângulo. Marque o ângulo $\theta$, a hipotenusa (10), o cateto oposto e o cateto adjacente.
 
 ### Ciclo de Confirmação
 
@@ -531,6 +585,8 @@ O PDI descreve a **lógica cognitiva**. O Implementador transforma em **instruç
 - **Conexão entre subitens:** Cada subitem deve construir sobre o anterior. Usar frases como "Usando o resultado anterior..." ou "Agora que você identificou..."
 - **Lacunas nos pontos certos:** Nunca dentro de equações LaTeX. Sempre em pontos de cálculo ou resultado
 - **Checkpoints após cada questão:** Verificação que o aluno pode fazer sozinho
+- **Sinalizar excesso:** Se um exercício parece "mastigado demais", adicionar comentário `[REVISAR]` no HTML para o professor avaliar
+- **Trigonometria com figura:** Todo exercício de trigonometria deve pedir desenho e identificação dos lados antes de calcular
 
 **Como invocar:**
 
@@ -736,3 +792,8 @@ Antes de criar um exercício, verifique:
 - [ ] 4-6 exercícios por folha
 - [ ] Testado no navegador
 - [ ] Impressão funciona (coluna dupla A4)
+- [ ] Respostas não são reveladas pelo formato da pergunta
+- [ ] Exercícios de trigonometria pedem para desenhar o triângulo primeiro
+- [ ] Todas as expressões matemáticas são LaTeX (nunca HTML)
+- [ ] Lacunas ficam fora de equações LaTeX
+- [ ] Exercícios "mastigados demais" estão marcados com `[REVISAR]`
