@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>A COMPONENTE DESPERDIÇADA</h3>
+
+<p>No exercício anterior, quando $\vec{a}$ era paralelo a $\vec{b}$, a projeção devolvia o vetor inteiro — nada se perdia. Mas quando os vetores não são paralelos, uma parte de $\vec{a}$ escapa pela lateral. Todo vetor $\vec{a}$ pode ser decomposto como $\vec{a} = \vec{a}_{\parallel} + \vec{a}_{\perp}$, onde $\vec{a}_{\parallel} = \text{proj}_{\vec{b}}\,\vec{a}$ é a componente paralela a $\vec{b}$ e $\vec{a}_{\perp} = \vec{a} - \vec{a}_{\parallel}$ é a componente perpendicular. Dado $\vec{v} = (5, 2)$ e a direção $\vec{d} = (3, 4)$, decomponha $\vec{v}$ nas componentes paralela e perpendicular a $\vec{d}$, e verifique que $\vec{v}_{\perp} \cdot \vec{d} = 0$.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVÊNCIA</summary>
+<div class="hint">
+<p>Primeiro calcule a projeção de $\vec{v}$ sobre $\vec{d}$ — esse é $\vec{v}_{\parallel}$. Depois, $\vec{v}_{\perp} = \vec{v} - \vec{v}_{\parallel}$. A verificação final é confirmar que o produto escalar de $\vec{v}_{\perp}$ com $\vec{d}$ dá zero.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Produto escalar: $\vec{v} \cdot \vec{d} = 5 \times 3 + 2 \times 4 = 15 + 8 = 23$.</li>
+<li>Auto-produto de $\vec{d}$: $\vec{d} \cdot \vec{d} = 9 + 16 = 25$.</li>
+<li>Componente paralela: $\vec{v}_{\parallel} = \frac{23}{25}(3, 4) = \left(\frac{69}{25}, \frac{92}{25}\right) = (2{,}76,\; 3{,}68)$.</li>
+<li>Componente perpendicular: $\vec{v}_{\perp} = \vec{v} - \vec{v}_{\parallel} = (5 - 2{,}76,\; 2 - 3{,}68) = (2{,}24,\; -1{,}68)$.</li>
+<li>Verificação: $\vec{v}_{\parallel} + \vec{v}_{\perp} = (2{,}76 + 2{,}24,\; 3{,}68 - 1{,}68) = (5, 2) = \vec{v}$ ✓.</li>
+<li>Ortogonalidade: $\vec{v}_{\perp} \cdot \vec{d} = 2{,}24 \times 3 + (-1{,}68) \times 4 = 6{,}72 - 6{,}72 = 0$ ✓.</li>
+</ol>
+<div class="formula">
+$$\vec{v}_{\parallel} = \frac{23}{25}(3, 4) = (2{,}76,\; 3{,}68), \quad \vec{v}_{\perp} = (2{,}24,\; -1{,}68), \quad \vec{v}_{\perp} \cdot \vec{d} = 0$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A decomposição ortogonal é como separar o suprimento útil do lixo. A componente paralela $\vec{v}_{\parallel}$ é o que contribui para o objetivo; a perpendicular $\vec{v}_{\perp}$ é o esforço lateral, desperdiçado. Na engenharia de fortificações da Zona Devastada, decompor forças é essencial para saber quanto do impacto de um projétil será absorvido pela parede e quanto a desviará.</p>
+</details>
+</div>

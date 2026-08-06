@@ -1,23 +1,38 @@
 <div class="exercise">
-<h3>Análise de Campo de Radiação</h3>
-<p>Um campo de radiação tem formato elíptico com focos em F₁(0, -4) e F₂(0, 4), e qualquer ponto na borda do campo mantém a soma das distâncias aos focos igual a 10. Encontre a equação deste campo perigoso.</p>
+<h3>ANÁLISE DE CAMPO DE RADIAÇÃO</h3>
+
+<p>O objetivo deste exercício é aplicar a construção da elipse a um cenário de patrulha. Dois postos avançados estão em $F_1(-5, 0)$ e $F_2(5, 0)$. Um drone de patrulha deve manter a soma das distâncias aos dois postos igual a $26$.</p>
+
+<p><strong>(a)</strong> Parta da definição $d(P, F_1) + d(P, F_2) = 2a$ e construa a equação canônica da elipse. Identifique $a$, $b$ e $c$.</p>
+
+<p><strong>(b)</strong> No papel, esboce a elipse. Marque os focos, os vértices no eixo $x$ e no eixo $y$.</p>
+
+<p><strong>(c)</strong> A órbita do drone intersecta o eixo $y$ em dois pontos. Encontre esses pontos fazendo $x = 0$ na equação canônica. Esses pontos são mais próximos ou mais distantes do centro que os vértices no eixo $x$?</p>
+
+<p><strong>(d)</strong> Calcule a excentricidade $e = \frac{c}{a}$. A órbita é mais circular ou mais achatada?</p>
+
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
 <div class="hint">
-<p>A soma constante das distâncias aos focos é igual a 2a. Os focos estão no eixo y, então a elipse tem eixo maior vertical.</p>
+<p>Dados: $c = 5$ (distância do centro a cada foco), $2a = 26$ logo $a = 13$. Use $b^2 = a^2 - c^2 = 169 - 25 = 144$, logo $b = 12$. A equação é $\frac{x^2}{169} + \frac{y^2}{144} = 1$. Para encontrar a interseção com o eixo $y$, simplesmente faça $x = 0$.</p>
 </div>
 </details>
+
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>A soma constante é 2a = 10, logo a = 5</li>
-<li>A distância focal é c = 4 (distância do centro ao foco)</li>
-<li>Calcular: $b^2 = a^2 - c^2 = 25 - 16 = 9$, logo $b = 3$</li>
-<li>Como os focos estão no eixo y, a equação é $\frac{x^2}{b^2} + \frac{y^2}{a^2} = 1$</li>
+<li>Dados: $F_1(-5, 0)$, $F_2(5, 0)$, logo $c = 5$. Soma $2a = 26$, logo $a = 13$.</li>
+<li>Calcule $b$: $b^2 = a^2 - c^2 = 169 - 25 = 144$, logo $b = 12$.</li>
+<li>Equação canônica: $\frac{x^2}{169} + \frac{y^2}{144} = 1$.</li>
+<li>Vértices no eixo $x$: $(\pm 13, 0)$. Vértices no eixo $y$: $(0, \pm 12)$.</li>
+<li>Interseção com eixo $y$ (faça $x = 0$): $\frac{y^2}{144} = 1 \Rightarrow y = \pm 12$.</li>
+<li>Os pontos de interseção são $(0, 12)$ e $(0, -12)$ — que são exatamente os vértices $B_2$ e $B_1$.</li>
+<li>Distância ao centro: $12 < 13$, logo esses pontos são mais próximos do centro que os vértices no eixo $x$.</li>
+<li>Excentricidade: $e = \frac{c}{a} = \frac{5}{13} \approx 0{,}385$.</li>
 </ol>
 <div class="formula">
-                    $$\frac{x^2}{9} + \frac{y^2}{25} = 1$$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> Mapear campos de radiação permite calcular rotas seguras. A propriedade da soma constante garante que você sempre saiba sua distância total aos pontos de maior intensidade radioativa.</p>
+$$\frac{x^2}{169} + \frac{y^2}{144} = 1, \quad a = 13, \quad b = 12, \quad c = 5, \quad e = \frac{5}{13} \approx 0{,}385$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A excentricidade $e \approx 0{,}385$ é relativamente baixa, indicando uma elipse quase circular ($a = 13$ e $b = 12$ são muito próximos). Na Zona Devastada, uma órbita quase circular significa que o drone patrulha a área de forma uniforme em todas as direções — não há ângulos preferenciais de cobertura. Os postos em $F_1(-5,0)$ e $F_2(5,0)$ estão relativamente próximos ao centro, o que distribui a carga de comunicação de forma equilibrada.</p>
 </details>
 </div>

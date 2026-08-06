@@ -1,32 +1,28 @@
 <div class="exercise">
 <h3>AMPLIFICADOR DE SINAL</h3>
-<p>Um amplificador de sinal está instalado no ponto $A(4, 3)$ e consegue receber sinais de todos os pontos externos à circunferência $(x-1)^2 + (y-2)^2 = 4$. Uma equipe de reconhecimento deseja estabelecer três postos de comunicação nos pontos $P_1(0, 0)$, $P_2(3, 4)$ e $P_3(0, 4)$. Para cada posto, determine se haverá comunicação com o amplificador e calcule a potência de cada ponto em relação à circunferência.</p>
+
+<p>Na Zona Devastada, nem toda região útil é um disco perfeito. Um amplificador de rádio gera um sinal forte num raio de $r_2 = 4$ a partir de $C(1,2)$, mas próximo ao centro o sinal é tão intenso que queima os receptores — a zona de exclusão tem raio $r_1 = 2$ com o mesmo centro. A região segura para operação é o <strong>anel</strong> entre as duas circunferências: $(x-1)^2 + (y-2)^2 = 4$ (fronteira interna) e $(x-1)^2 + (y-2)^2 = 16$ (fronteira externa). No papel, esboce as duas circunferências concêntricas com centro $C(1,2)$ e raios $2$ e $4$, e marque os pontos $A(4,2)$, $B(1,5)$, $C(1,4)$ e $D(2,2)$. Para cada ponto, substitua na expressão $(x-1)^2 + (y-2)^2$ e verifique se o resultado satisfaz a condição $4 &lt; (x-1)^2 + (y-2)^2 &lt; 16$, isto é, se está na região segura.</p>
+
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
 <div class="hint">
-<p>Um ponto está externo à circunferência quando sua potência é positiva. Lembre-se que a potência de um ponto é $Pot(P) = d(P, C)^2 - r^2$.</p>
+<p>Para cada ponto, calcule $(x-1)^2 + (y-2)^2$. Se o resultado está entre 4 e 16 (excluindo os extremos), o ponto está no anel seguro. Se é menor ou igual a 4, está na zona de exclusão. Se é maior ou igual a 16, está fora do alcance.</p>
 </div>
 </details>
+
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Identificamos o centro da circunferência $C(1, 2)$ e o raio $r = 2$.</li>
-<li>Para $P_1(0, 0)$:
-                    $d(P_1, C) = \sqrt{(0 - 1)^2 + (0 - 2)^2} = \sqrt{1 + 4} = \sqrt{5} \approx 2,24$</li>
-<li>$Pot(P_1) = d(P_1, C)^2 - r^2 = 5 - 4 = 1 &gt; 0$, logo $P_1$ está externo à circunferência.</li>
-<li>Para $P_2(3, 4)$:
-                    $d(P_2, C) = \sqrt{(3 - 1)^2 + (4 - 2)^2} = \sqrt{4 + 4} = \sqrt{8} \approx 2,83$</li>
-<li>$Pot(P_2) = d(P_2, C)^2 - r^2 = 8 - 4 = 4 &gt; 0$, logo $P_2$ está externo à circunferência.</li>
-<li>Para $P_3(0, 4)$:
-                    $d(P_3, C) = \sqrt{(0 - 1)^2 + (4 - 2)^2} = \sqrt{1 + 4} = \sqrt{5} \approx 2,24$</li>
-<li>$Pot(P_3) = d(P_3, C)^2 - r^2 = 5 - 4 = 1 &gt; 0$, logo $P_3$ está externo à circunferência.</li>
-<li>Todos os três postos estão fora da circunferência, portanto todos poderão se comunicar com o amplificador.</li>
+<li>Ponto $A(4,2)$: $(4-1)^2 + (2-2)^2 = 9 + 0 = 9$. Como $4 &lt; 9 &lt; 16$, $A$ está <strong>na região segura</strong>.</li>
+<li>Ponto $B(1,5)$: $(1-1)^2 + (5-2)^2 = 0 + 9 = 9$. Como $4 &lt; 9 &lt; 16$, $B$ está <strong>na região segura</strong>.</li>
+<li>Ponto $C(1,4)$: $(1-1)^2 + (4-2)^2 = 0 + 4 = 4$. Como $4 = 4$, $C$ está <strong>sobre a fronteira interna</strong> — na zona de exclusão, não é seguro.</li>
+<li>Ponto $D(2,2)$: $(2-1)^2 + (2-2)^2 = 1 + 0 = 1$. Como $1 &lt; 4$, $D$ está <strong>dentro da zona de exclusão</strong> — sinal letal.</li>
+<li>Conclusão: apenas $A$ e $B$ estão em posição segura. $C$ está no limite da exclusão e $D$ está na zona perigosa.</li>
 </ol>
 <div class="formula">
-                    $Pot(P_1) = 5 - 4 = 1 &gt; 0$
-                    $Pot(P_2) = 8 - 4 = 4 &gt; 0$
-                    $Pot(P_3) = 5 - 4 = 1 &gt; 0$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> Todos os postos de comunicação poderão se comunicar com o amplificador, com o posto $P_2$ tendo a melhor potência de sinal (4). Em um mundo onde a comunicação pode salvar vidas, entender a geometria dos sinais e das zonas de transmissão é crucial para manter a rede de sobreviventes conectada e coordenar operações de resgate.</p>
+$$A(4,2):\; 9 \;\Rightarrow\; 4 &lt; 9 &lt; 16 \;\checkmark \qquad B(1,5):\; 9 \;\Rightarrow\; 4 &lt; 9 &lt; 16 \;\checkmark$$
+$$C(1,4):\; 4 \;\Rightarrow\; \text{fronteira interna} \qquad D(2,2):\; 1 \;\Rightarrow\; \text{zona de exclusão}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A região entre duas circunferências concêntricas é um anel — nem tão perto do centro (sinal letal), nem tão longe (sem cobertura). O sistema de inequações $4 &lt; (x-1)^2 + (y-2)^2 &lt; 16$ codifica essa região com precisão. Na Zona Devastada, o equilíbrio entre "perto demais" e "longe demais" é uma questão de vida ou morte.</p>
 </details>
 </div>

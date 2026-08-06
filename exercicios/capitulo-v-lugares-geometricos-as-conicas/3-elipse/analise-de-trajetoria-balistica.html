@@ -1,20 +1,40 @@
 <div class="exercise">
-<h3>Análise de Trajetória Balística</h3>
-<p>Um projétil foi disparado seguindo uma trajetória elíptica com equação $\frac{(x-2)^2}{16} + \frac{(y+1)^2}{9} = 1$. Determine o centro da trajetória, os focos e analise se o ponto de impacto I(6, 2) está dentro da zona de alcance.</p>
+<h3>ANÁLISE DE TRAJETÓRIA BALÍSTICA</h3>
+
+<p>O objetivo deste exercício é aprender a extrair todos os elementos de uma elipse a partir de sua equação canônica, manipulando a equação em vez de decorar fórmulas. Uma zona de exclusão aérea tem fronteira descrita por $\frac{x^2}{25} + \frac{y^2}{9} = 1$.</p>
+
+<p><strong>(a)</strong> Faça $y = 0$ na equação e resolva para $x$. Esses são os vértices no eixo $x$. Qual é o valor de $a$?</p>
+
+<p><strong>(b)</strong> Faça $x = 0$ na equação e resolva para $y$. Esses são os vértices no eixo $y$. Qual é o valor de $b$?</p>
+
+<p><strong>(c)</strong> Use a relação $c^2 = a^2 - b^2$ para encontrar $c$ e as coordenadas dos focos $F_1$ e $F_2$.</p>
+
+<p><strong>(d)</strong> Calcule a excentricidade $e = \frac{c}{a}$. Interprete: a elipse é mais circular ou mais achatada?</p>
+
+<p><strong>(e)</strong> No papel, esboce a elipse com todos os elementos encontrados: centro, vértices nos eixos $x$ e $y$, focos.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Não procure fórmulas de vértice ou foco. Simplesmente faça $y = 0$ e veja onde a elipse corta o eixo $x$; faça $x = 0$ e veja onde corta o eixo $y$. O maior valor é $a$, o menor é $b$. A relação $c^2 = a^2 - b^2$ vem da própria construção da elipse — lembre que definimos $b^2 = a^2 - c^2$ no manual.</p>
+</div>
+</details>
+
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Identificar o centro: C(2, -1) (valores que tornam zero os termos entre parênteses)</li>
-<li>Identificar: $a^2 = 16$, logo $a = 4$; $b^2 = 9$, logo $b = 3$</li>
-<li>Calcular: $c^2 = a^2 - b^2 = 16 - 9 = 7$, logo $c = \sqrt{7}$</li>
-<li>Os focos estão em: $(2 \pm \sqrt{7}, -1)$</li>
-<li>Verificar I(6, 2): $\frac{(6-2)^2}{16} + \frac{(2+1)^2}{9} = \frac{16}{16} + \frac{9}{9} = 1 + 1 = 2 &gt; 1$</li>
-<li>Como o resultado é maior que 1, o ponto está fora da zona de alcance</li>
+<li>Equação dada: $\frac{x^2}{25} + \frac{y^2}{9} = 1$.</li>
+<li>Faça $y = 0$: $\frac{x^2}{25} = 1 \Rightarrow x^2 = 25 \Rightarrow x = \pm 5$. Vértices: $A_1(-5, 0)$ e $A_2(5, 0)$.</li>
+<li>Logo $a = 5$ (semi-eixo maior), e o eixo maior mede $2a = 10$.</li>
+<li>Faça $x = 0$: $\frac{y^2}{9} = 1 \Rightarrow y^2 = 9 \Rightarrow y = \pm 3$. Vértices: $B_1(0, -3)$ e $B_2(0, 3)$.</li>
+<li>Logo $b = 3$ (semi-eixo menor), e o eixo menor mede $2b = 6$.</li>
+<li>Calcule $c$: $c^2 = a^2 - b^2 = 25 - 9 = 16$, logo $c = 4$.</li>
+<li>Focos: $F_1(-4, 0)$ e $F_2(4, 0)$.</li>
+<li>Excentricidade: $e = \frac{c}{a} = \frac{4}{5} = 0{,}8$.</li>
 </ol>
 <div class="formula">
-                    $$\text{Centro: } C(2, -1)$$
-                    $$\text{Focos: } F_1(2-\sqrt{7}, -1) \text{ e } F_2(2+\sqrt{7}, -1)$$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> Analisar trajetórias deslocadas é crucial para prever impactos. O ponto I(6, 2) está fora do alcance, indicando que o projétil não atingirá essa posição com a configuração atual.</p>
+$$a = 5, \quad b = 3, \quad c = 4, \quad e = 0{,}8$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A excentricidade $e = 0{,}8$ está próxima de 1, o que significa que a elipse é bastante achatada. Os focos $F_1(-4,0)$ e $F_2(4,0)$ estão quase nos vértices $A_1(-5,0)$ e $A_2(5,0)$ — a distância do foco ao vértice é apenas $a - c = 1$. Na Zona Devastada, uma elipse achatada significa que os dois postos de comando estão próximos da fronteira, exigindo patrulhas mais frequentes nessa região.</p>
 </details>
 </div>

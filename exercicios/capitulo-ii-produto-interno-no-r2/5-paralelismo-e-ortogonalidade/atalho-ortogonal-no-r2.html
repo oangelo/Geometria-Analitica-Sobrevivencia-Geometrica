@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>O ATALHO ORTOGONAL NO $\mathbb{R}^2$</h3>
+
+<p>Existem infinitos vetores ortogonais a um dado vetor, mas no $\mathbb{R}^2$ existe um atalho poderoso: dado $\vec{u} = (a, b)$, os vetores $(b, -a)$ e $(-b, a)$ são automaticamente ortogonais a $\vec{u}$. Vamos dominar esse atalho e entender por que ele funciona.</p>
+
+<p>O técnico de RemoveRad registrou três vetores de contaminação: $\vec{u} = (5, 2)$, $\vec{v} = (3, -7)$ e $\vec{w} = (0, 4)$. Para cada um, construa um vetor ortogonal usando o atalho "trocar componentes e trocar sinal" e confirme com o produto escalar.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>O atalho: dado $(a, b)$, o vetor ortogonal é $(b, -a)$ ou $(-b, a)$. Para $\vec{u} = (5, 2)$, troque para $(2, -5)$ ou $(-2, 5)$. Depois confirme: $5 \cdot 2 + 2 \cdot (-5) = 10 - 10 = 0$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Para $\vec{u} = (5, 2)$: vetor ortogonal $\vec{u}^{\perp} = (2, -5)$. Confirmação: $\vec{u} \cdot \vec{u}^{\perp} = 5 \cdot 2 + 2 \cdot (-5) = 10 - 10 = 0$ ✓.</li>
+<li>Para $\vec{v} = (3, -7)$: vetor ortogonal $\vec{v}^{\perp} = (-7, -3)$. Confirmação: $\vec{v} \cdot \vec{v}^{\perp} = 3 \cdot (-7) + (-7) \cdot (-3) = -21 + 21 = 0$ ✓. (Também funciona $(7, 3)$.)</li>
+<li>Para $\vec{w} = (0, 4)$: vetor ortogonal $\vec{w}^{\perp} = (4, 0)$. Confirmação: $\vec{w} \cdot \vec{w}^{\perp} = 0 \cdot 4 + 4 \cdot 0 = 0$ ✓. (Também funciona $(-4, 0)$.)</li>
+<li>Prova geral: dado $\vec{u} = (a, b)$ e $\vec{u}^{\perp} = (b, -a)$, temos $\vec{u} \cdot \vec{u}^{\perp} = ab + b(-a) = ab - ab = 0$ para quaisquer $a, b$.</li>
+</ol>
+<div class="formula">
+$$\vec{u} = (a, b) \quad \Longrightarrow \quad \vec{u}^{\perp} = (b, -a) \quad \Longrightarrow \quad \vec{u} \cdot \vec{u}^{\perp} = ab - ab = 0$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Este atalho é exclusivo do $\mathbb{R}^2$ — no $\mathbb{R}^3$ há infinitos vetores ortogonais a um dado vetor e não existe correspondente direto. No plano, "trocar e trocar sinal" gera automaticamente um perpendicular. Para o técnico de RemoveRad, isso significa: dado qualquer vetor de contaminação, ele sabe instantaneamente a direção segura (perpendicular) para posicionar as barreiras de proteção.</p>
+</details>
+</div>

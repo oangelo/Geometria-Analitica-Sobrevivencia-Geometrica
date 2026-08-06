@@ -1,0 +1,29 @@
+<div class="exercise">
+<h3>POSIÇÃO DO DRONE</h3>
+
+<p>Com as duas formas dominadas, podemos usar a paramétrica como ferramenta de rastreamento: dado um instante específico, determinar a posição exata. Um drone de reconhecimento descreve a órbita parametrizada por $x = 1 + 6\cos t$ e $y = 2 + 6\sin t$. Determine a posição cartesiana do drone quando $t = 120°$ e, em seguida, verifique que esse ponto satisfaz a equação canônica correspondente.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para $t = 120°$: lembre que $\cos 120° = -\cos 60° = -\frac{1}{2}$ e $\sin 120° = \sin 60° = \frac{\sqrt{3}}{2}$. A canônica é $(x - 1)^2 + (y - 2)^2 = 36$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Da paramétrica: centro $C(1, 2)$, raio $r = 6$. Canônica: $(x - 1)^2 + (y - 2)^2 = 36$.</li>
+<li>Para $t = 120°$: $\cos 120° = -\frac{1}{2}$, $\sin 120° = \frac{\sqrt{3}}{2}$.</li>
+<li>$x = 1 + 6\left(-\frac{1}{2}\right) = 1 - 3 = -2$.</li>
+<li>$y = 2 + 6\left(\frac{\sqrt{3}}{2}\right) = 2 + 3\sqrt{3}$.</li>
+<li>Posição: $(-2,\; 2 + 3\sqrt{3})$.</li>
+<li>Verificação na canônica: $(-2 - 1)^2 + (2 + 3\sqrt{3} - 2)^2 = 9 + 9 \cdot 3 = 9 + 27 = 36$ ✓.</li>
+</ol>
+<div class="formula">
+$$t = 120° \to (-2,\; 2 + 3\sqrt{3})$$
+$$(-2 - 1)^2 + (2 + 3\sqrt{3} - 2)^2 = 9 + 27 = 36 = r^2 \;\checkmark$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Aqui convergem todas as ferramentas: a paramétrica fornece a posição, a canônica confirma a precisão, e as coordenadas polares (presentes nos valores de $\cos$ e $\sin$) fazem a ponte entre o ângulo e o ponto no plano. O drone não precisa de GPS — a matemática é o sistema de navegação.</p>
+</details>
+</div>

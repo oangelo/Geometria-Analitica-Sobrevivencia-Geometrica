@@ -1,25 +1,26 @@
 <div class="exercise">
 <h3>PERÍMETRO DE SEGURANÇA</h3>
-<p>Uma zona livre de radiação é modelada por uma circunferência com centro no antigo depósito de água $C(3, 4)$ e raio de $5$ unidades. Determine se o abrigo localizado no ponto $A(7, 7)$ está dentro, sobre ou fora da zona segura.</p>
+
+<p>O perímetro de proteção do Abrigo Alfa é uma barreira circular com centro em $C(2,1)$ e raio $r = 5$, descrita pela equação $(x - 2)^2 + (y - 1)^2 = 25$. Um explorador avistou um ponto de recursos no local $A(5,5)$. No papel, esboce o centro $C$, trace a circunferência com raio 5 e marque o ponto $A$. Calcule a distância de $A$ ao centro $C$ e compare com o raio para determinar se o ponto de recursos está dentro da zona protegida, sobre o perímetro ou fora dele.</p>
+
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
 <div class="hint">
-<p>Calcule a distância entre o ponto $A$ e o centro $C$ da circunferência, e depois compare com o raio. Lembre-se da fórmula de distância entre dois pontos: $d(A, C) = \sqrt{(x_A - x_C)^2 + (y_A - y_C)^2}$.</p>
+<p>A distância entre dois pontos $P(x_1, y_1)$ e $Q(x_2, y_2)$ é $d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$. Calcule $d(A, C)$ e compare com $r = 5$. Se $d = r$, o ponto está exatamente sobre a circunferência.</p>
 </div>
 </details>
+
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Temos o centro da circunferência $C(3, 4)$ com raio $r = 5$ e o ponto $A(7, 7)$.</li>
-<li>Calculamos a distância de $A$ até $C$:
-                    $d(A, C) = \sqrt{(7 - 3)^2 + (7 - 4)^2} = \sqrt{16 + 9} = \sqrt{25} = 5$</li>
-<li>Comparamos essa distância com o raio da circunferência:
-                    $d(A, C) = 5$ e $r = 5$, logo $d(A, C) = r$</li>
-<li>Como a distância é igual ao raio, o ponto $A$ está sobre a circunferência.</li>
+<li>Dados: centro $C(2,1)$, raio $r = 5$, ponto $A(5,5)$.</li>
+<li>Distância: $d(A,C) = \sqrt{(5-2)^2 + (5-1)^2} = \sqrt{9 + 16} = \sqrt{25} = 5$.</li>
+<li>Comparação: $d(A,C) = 5 = r$. O ponto $A$ está <strong>sobre</strong> a circunferência.</li>
+<li>Conclusão: o ponto de recursos está exatamente no limite do perímetro de proteção — no bordo da zona segura.</li>
 </ol>
 <div class="formula">
-                    $d(A, C) = \sqrt{(7 - 3)^2 + (7 - 4)^2} = \sqrt{16 + 9} = 5 = r$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> Estar exatamente na borda de uma zona segura é uma situação delicada. Um pequeno erro de cálculo ou um passo na direção errada pode colocar você em perigo. Sempre construa seu abrigo com uma margem de segurança para dentro da zona protegida, nunca na borda.</p>
+$$d(A,C) = \sqrt{9 + 16} = \sqrt{25} = 5 = r \quad \Rightarrow \quad A \text{ sobre a circunferência}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O ponto $A(5,5)$ está no limite entre a segurança e a exposição. Na Zona Devastada, estar sobre o perímetro significa estar na fronteira — protegido, mas sem margem. O explorador que calcula essa distância sabe exatamente onde termina a cobertura e começa o perigo.</p>
 </details>
 </div>

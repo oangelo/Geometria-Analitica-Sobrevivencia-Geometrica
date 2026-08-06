@@ -1,0 +1,30 @@
+<div class="exercise">
+<h3>O SINAL QUE ANTECIPA O ÂNGULO</h3>
+<p>O scanner de ameaças do Refúgio-TEC detectou dois vetores de deslocamento de mutantes: $\vec{u} = (5,1)$ e $\vec{v} = (-2,3)$. Antes de calcular qualquer ângulo, o operador nota que o produto escalar $\vec{u} \cdot \vec{v}$ é negativo. No Tópico 4, vimos que produto escalar zero significava ortogonalidade ($90°$). Se o produto escalar é negativo, o que isso sugere sobre o ângulo? Calcule $\theta$ e confirme sua suspeita.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVÊNCIA</summary>
+<div class="hint">
+<p>Produto escalar negativo $\implies \cos\theta < 0 \implies \theta > 90°$. Calcule o valor exato de $\cos\theta$ e depois $\theta$ para confirmar.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Calculamos o produto escalar:
+$$\vec{u} \cdot \vec{v} = 5 \cdot (-2) + 1 \cdot 3 = -10 + 3 = -7$$
+O produto escalar é negativo, logo $\cos\theta < 0$ e o ângulo será obtuso.</li>
+<li>Calculamos os módulos:
+$$|\vec{u}| = \sqrt{25 + 1} = \sqrt{26}$$
+$$|\vec{v}| = \sqrt{4 + 9} = \sqrt{13}$$</li>
+<li>Aplicamos a fórmula:
+$$\cos\theta = \frac{-7}{\sqrt{26} \cdot \sqrt{13}} = \frac{-7}{\sqrt{338}} = \frac{-7}{13\sqrt{2}} = \frac{-7\sqrt{2}}{26} \approx -0{,}381$$</li>
+<li>Determinamos o ângulo:
+$$\theta = \arccos\left(\frac{-7\sqrt{2}}{26}\right) \approx 112{,}4°$$
+Ângulo obtuso, como o sinal do produto escalar já antecipava.</li>
+</ol>
+<div class="formula">
+$$\cos\theta = \frac{-7\sqrt{2}}{26} \approx -0{,}381 \implies \theta \approx 112{,}4°$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O sinal do produto escalar é um diagnóstico rápido: positivo indica ângulo agudo (ameaças convergindo), zero indica $90°$ (ameaças perpendiculares), negativo indica ângulo obtuso (ameaças divergindo). Antes de calcular o valor exato, o operador já sabe se a situação é de convergência ou divergência — informação crucial numa emergência.</p>
+</details>
+</div>

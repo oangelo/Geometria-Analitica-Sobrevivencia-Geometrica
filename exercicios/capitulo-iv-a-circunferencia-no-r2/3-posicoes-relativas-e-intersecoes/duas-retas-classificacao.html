@@ -1,0 +1,30 @@
+<div class="exercise">
+<h3>DUAS ROTAS, DOIS DESTINOS</h3>
+
+<p>O SUPERVISOR precisa avaliar duas rotas alternativas para a mesma missão. A zona de vigilância de mutantes é circular, descrita por $(x - 2)^2 + (y - 1)^2 = 4$ — centro $C(2,1)$, raio $r = 2$. A rota $r_1$ segue a reta $x - y + 1 = 0$ e a rota $r_2$ segue a reta $3x + 4y + 5 = 0$. Classifique a posição relativa de cada reta em relação à circunferência. Para a reta que for secante, encontre os pontos de interseção.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Calcule a distância do centro $C(2,1)$ a cada reta separadamente. Para $r_1$: os coeficientes são $a = 1$, $b = -1$, $c = 1$. Para $r_2$: $a = 3$, $b = 4$, $c = 5$. Compare cada distância com $r = 2$. Para a secante, substitua $y$ da reta na equação da circunferência e resolva.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li><strong>Rota $r_1$: $x - y + 1 = 0$.</strong> Distância: $d_1 = \frac{|1 \cdot 2 + (-1) \cdot 1 + 1|}{\sqrt{1 + 1}} = \frac{|2 - 1 + 1|}{\sqrt{2}} = \frac{2}{\sqrt{2}} = \sqrt{2} \approx 1{,}41$. Como $\sqrt{2} < 2$, $r_1$ é <strong>secante</strong>.</li>
+<li>Pontos de interseção de $r_1$: substitua $y = x + 1$ em $(x - 2)^2 + (y - 1)^2 = 4$:</li>
+<li>$(x - 2)^2 + (x + 1 - 1)^2 = 4 \Rightarrow (x - 2)^2 + x^2 = 4 \Rightarrow x^2 - 4x + 4 + x^2 = 4 \Rightarrow 2x^2 - 4x = 0 \Rightarrow 2x(x - 2) = 0$.</li>
+<li>$x = 0 \Rightarrow y = 1$, ponto $A(0, 1)$. $x = 2 \Rightarrow y = 3$, ponto $B(2, 3)$.</li>
+<li>Verificação: $(0-2)^2 + (1-1)^2 = 4$ ✓, $(2-2)^2 + (3-1)^2 = 4$ ✓.</li>
+<li><strong>Rota $r_2$: $3x + 4y + 5 = 0$.</strong> Distância: $d_2 = \frac{|3 \cdot 2 + 4 \cdot 1 + 5|}{\sqrt{9 + 16}} = \frac{|6 + 4 + 5|}{5} = \frac{15}{5} = 3$. Como $3 > 2$, $r_2$ é <strong>externa</strong>.</li>
+<li>Conclusão: a rota $r_1$ cruza a zona de mutantes nos pontos $A(0, 1)$ e $B(2, 3)$ — perigosa. A rota $r_2$ não penetra a zona — segura. O SUPERVISOR deve escolher $r_2$.</li>
+</ol>
+<div class="formula">
+$$r_1:\; d = \sqrt{2} &lt; 2 \;\Rightarrow\; \text{secante}, \quad A(0,1),\; B(2,3)$$
+$$r_2:\; d = 3 > 2 \;\Rightarrow\; \text{externa}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Na prática, o explorador avalia múltiplas rotas simultaneamente. A distância centro-reta fornece uma triagem rápida: se $d > r$, a rota é segura sem necessidade de cálculos adicionais. Se $d \leq r$, é necessário calcular os pontos de interseção para saber onde a rota entra na zona de perigo.</p>
+</details>
+</div>

@@ -1,12 +1,126 @@
 <section class="manual-contexto" data-context="manual-sobrevivencia">
     <div class="terminal-border">
-    <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: LUGARES GEOMÉTRICOS</h2>
-<p>Na Zona Devastada, sobreviver significa encontrar padrões e localizações estratégicas. Um <strong>lugar geométrico</strong> é o conjunto de todos os pontos do plano que satisfazem uma determinada propriedade geométrica. É como um mapa de coordenadas que identifica onde os recursos estão localizados baseado em condições específicas.</p>
-<p>Os lugares geométricos são fundamentais para estabelecer rotas seguras, delimitar territórios protegidos e calcular distâncias estratégicas. Cada ponto que pertence ao lugar geométrico compartilha a mesma propriedade matemática, criando padrões previsíveis essenciais para navegação pós-apocalíptica.</p>
-<div class="formula">
-    $$\text{Lugar Geométrico} = \{P(x,y) \mid P \text{ satisfaz uma condição geométrica específica}\}$$
+        <h2 class="terminal-line">> MANUAL DE SOBREVIVÊNCIA: LUGARES GEOMÉTRICOS</h2>
     </div>
-<p>Os principais lugares geométricos incluem: <strong>mediatriz</strong> (pontos equidistantes de dois locais), <strong>bissetriz</strong> (pontos equidistantes de duas rotas), <strong>circunferência</strong> (pontos a distância fixa de um centro), e as futuras <strong>cônicas</strong> que definirão zonas de alcance, órbitas de patrulha e campos de detecção.</p>
 
+    <h3>1. CONTEXTO: O MAPA E A TERRA</h3>
+
+    <p>
+    Nos Capítulos anteriores, construímos ferramentas essenciais para navegar pela Zona Devastada. No Capítulo I, aprendemos a descrever pontos e vetores no plano. No Capítulo II, dominamos o produto escalar para medir ângulos e o produto vetorial para calcular áreas. No Capítulo III, traduzimos retas em equações algébricas. No Capítulo IV, estudamos a circunferência como curva de distância constante. Cada uma dessas curvas — reta, circunferência — surgiu como resposta a uma pergunta: "onde estão os pontos que satisfazem esta condição?"</p>
+
+    <p>
+    Agora, no Capítulo V, vamos estudar o <strong>princípio geral</strong> que gera todas essas curvas. Não vamos apenas listar novas figuras. Vamos entender <em>por que</em> uma condição geométrica se transforma em uma equação, e <em>como</em> extrair a figura dessa equação. Este princípio é o <strong>lugar geométrico</strong>.</p>
+
+    <h3>2. DEFINIÇÃO FORMAL</h3>
+
+    <p>
+    Um <strong>lugar geométrico</strong> é o conjunto de todos os pontos do plano (ou do espaço) que satisfazem uma condição geométrica dada. Se a condição envolve coordenadas, o lugar geométrico é descrito por uma equação.</p>
+
+    <div class="formula">
+        $$\mathcal{L} = \{P(x,y) \mid P \text{ satisfaz uma condição geométrica}\}$$
     </div>
+
+    <p>
+    A definição exige <strong>bidirecionalidade</strong>:</p>
+    <ul>
+        <li><strong>Ida:</strong> Todo ponto do lugar satisfaz a condição.</li>
+        <li><strong>Volta:</strong> Todo ponto que satisfaz a condição pertence ao lugar.</li>
+    </ul>
+
+    <p>
+    Sem a volta, poderíamos ter pontos "forasteiros" que satisfazem a equação mas não a condição original. Sem a ida, perderíamos pontos que deveriam estar no lugar. A bidirecionalidade é o escudo que protege nossa dedução.</p>
+
+    <h3>3. MEDIATRIZ: DEDUÇÃO A PARTIR DA DEFINIÇÃO</h3>
+
+    <p>
+    A mediatriz de um segmento $\overline{AB}$ é o lugar geométrico dos pontos equidistantes de $A$ e de $B$. Partimos da definição, não de uma fórmula pronta.</p>
+
+    <p>Seja $P(x,y)$ um ponto genérico do plano. A condição é:</p>
+    <div class="formula">
+        $$d(P,A) = d(P,B)$$
+    </div>
+
+    <p>Elevando ao quadrado para eliminar a raiz quadrada (operação válida pois ambos os lados são não-negativos):</p>
+    <div class="formula">
+        $$[d(P,A)]^2 = [d(P,B)]^2$$
+    </div>
+
+    <p>Se $A(x_A, y_A)$ e $B(x_B, y_B)$, então:</p>
+    <div class="formula">
+        $$(x - x_A)^2 + (y - y_A)^2 = (x - x_B)^2 + (y - y_B)^2$$
+    </div>
+
+    <p>Expandindo e simplificando:</p>
+    <div class="formula">
+        $$x^2 - 2x_A x + x_A^2 + y^2 - 2y_A y + y_A^2 = x^2 - 2x_B x + x_B^2 + y^2 - 2y_B y + y_B^2$$
+    </div>
+
+    <p>Os termos $x^2$ e $y^2$ se cancelam. Agrupando:</p>
+    <div class="formula">
+        $$2(x_B - x_A)x + 2(y_B - y_A)y + (x_A^2 + y_A^2 - x_B^2 - y_B^2) = 0$$
+    </div>
+
+    <p>Esta é a equação de uma <strong>reta</strong>. O coeficiente angular é $m = -\dfrac{x_B - x_A}{y_B - y_A} = \dfrac{x_A - x_B}{y_B - y_A}$, que é o negativo do inverso do coeficiente angular do segmento $\overline{AB}$. Logo, a mediatriz é perpendicular a $\overline{AB}$. Substituindo o ponto médio $M\left(\dfrac{x_A+x_B}{2}, \dfrac{y_A+y_B}{2}\right)$ na equação, verificamos que $M$ a satisfaz. Portanto, a mediatriz passa pelo ponto médio de $\overline{AB}$.</p>
+
+    <p><strong>Conclusão:</strong> A mediatriz é uma reta perpendicular ao segmento pelo seu ponto médio. Não decoramos fórmula — <em>deduzimos</em> a partir da definição.</p>
+
+    <h3>4. BISSETRIZ: DEDUÇÃO A PARTIR DA DISTÂNCIA PONTO-RETA</h3>
+
+    <p>
+    A bissetriz de duas retas concorrentes $r_1$ e $r_2$ é o lugar geométrico dos pontos equidistantes das duas retas. Usamos a fórmula de distância ponto-reta do Capítulo III.</p>
+
+    <p>Se $r_1: a_1x + b_1y + c_1 = 0$ e $r_2: a_2x + b_2y + c_2 = 0$, a condição é:</p>
+    <div class="formula">
+        $$d(P, r_1) = d(P, r_2)$$
+    </div>
+
+    <p>Ou seja:</p>
+    <div class="formula">
+        $$\frac{|a_1x + b_1y + c_1|}{\sqrt{a_1^2 + b_1^2}} = \frac{|a_2x + b_2y + c_2|}{\sqrt{a_2^2 + b_2^2}}$$
+    </div>
+
+    <p>Eliminando os módulos (que geram dois sinais) e elevando ao quadrado, obtemos <strong>duas equações lineares</strong>:</p>
+    <div class="formula">
+        $$\frac{a_1x + b_1y + c_1}{\sqrt{a_1^2 + b_1^2}} = \pm \frac{a_2x + b_2y + c_2}{\sqrt{a_2^2 + b_2^2}}$$
+    </div>
+
+    <p>Cada sinal gera uma reta. As duas retas são <strong>perpendiculares</strong> entre si e passam pelo ponto de interseção de $r_1$ e $r_2$. Uma bissetriz divide o ângulo agudo; a outra, o ângulo obtuso.</p>
+
+    <p><strong>Conclusão:</strong> A bissetriz gera <em>duas retas perpendiculares</em>, não uma só. O módulo na fórmula de distância é a fonte dessa duplicidade.</p>
+
+    <h3>5. CIRCUNFERÊNCIA REVISITADA</h3>
+
+    <p>
+    No Capítulo IV, estudamos a circunferência como o conjunto de pontos a distância $r$ de um centro $C(x_0, y_0)$. Agora, vemos que ela é apenas um <strong>caso particular</strong> de lugar geométrico:</p>
+
+    <div class="formula">
+        $$\mathcal{L} = \{P(x,y) \mid d(P,C) = r\}$$
+    </div>
+
+    <p>Elevando ao quadrado:</p>
+    <div class="formula">
+        $$(x - x_0)^2 + (y - y_0)^2 = r^2$$
+    </div>
+
+    <p>A circunferência é o lugar geométrico da condição "distância constante". A reta é o lugar da condição "equidistância de dois pontos". A bissetriz é o lugar da condição "equidistância de duas retas". Todas seguem o mesmo princípio.</p>
+
+    <h3>6. TÉCNICA GERAL: DOS PONTOS À EQUAÇÃO</h3>
+
+    <p>Todo lugar geométrico segue três passos:</p>
+
+    <p><strong>Passo 1 — Traduzir:</strong> Escreva a condição geométrica em linguagem de distâncias, ângulos ou proporções. Use $d(P,A)$, $d(P,r)$, produto escalar, etc.</p>
+
+    <p><strong>Passo 2 — Manipular:</strong> Substitua as fórmulas de distância pelas coordenadas de $P(x,y)$. Elimine raízes quadradas elevando ao quadrado. Elimine módulos considerando os dois sinais. Simplifique a equação resultante.</p>
+
+    <p><strong>Passo 3 — Interpretar:</strong> Identifique a figura geométrica descrita pela equação final. Verifique se há restrições (por exemplo, pontos que satisfazem a equação mas não a condição original). Desenhe no papel.</p>
+
+    <div class="formula">
+        $$\text{Condição geométrica} \xrightarrow{\text{traduzir}} \text{Equação} \xrightarrow{\text{manipular}} \text{Equação simplificada} \xrightarrow{\text{interpretar}} \text{Figura}$$
+    </div>
+
+    <p>
+    <span class="warning">ATENÇÃO:</span> Elevar ao quadrado pode introduzir soluções espúrias. Sempre verifique se a equação simplificada é equivalente à condição original. Se $d(P,A) = d(P,B)$, elevamos ao quadrado sem problema porque ambos os lados são não-negativos. Mas se tivéssemos $d(P,A) = -3$, elevar ao quadrado geraria uma equação com soluções onde não deveria haver nenhuma.</p>
+
+    <p>
+    <span class="success">PROTOCOLO ATIVADO:</span> Você está pronto para as missões. Cada exercício exige que você aplique os três passos: traduzir, manipular, interpretar. Não há fórmulas decoradas — apenas a definição e a álgebra.</p>
 </section>

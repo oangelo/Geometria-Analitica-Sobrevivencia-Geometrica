@@ -1,26 +1,17 @@
-        <div class="exercise">
-            <h3>Expansão do Abrigo</h3>
-            <p>O abrigo está sendo expandido em formato cúbico. Se a aresta atual mede $x$ unidades, expresse o volume após a expansão para $(x + 2)^3$ unidades cúbicas. Desenvolva esta expressão.</p>
-            
-            <details class="hint-details">
-                <summary>DICA DE SOBREVIVÊNCIA</summary>
-            <div class="hint">
-                <p>Comece calculando $(x + 2)^2$ e depois multiplique o resultado por $(x + 2)$.</p>
-            </div>
-            </details>
+<div class="exercise">
+<h3>Expansão do Abrigo</h3>
 
-            <details>
-                <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-                <ol class="solution-steps">
-                    <li>Aplique a fórmula do cubo de um binômio: $(a + b)^3 = a^3 + 3a^2b + 3ab^2 + b^3$</li>
-                    <li>Substitua $a = x$ e $b = 2$: $(x + 2)^3 = x^3 + 3x^2(2) + 3x(2)^2 + (2)^3$</li>
-                    <li>Simplifique: $(x + 2)^3 = x^3 + 6x^2 + 12x + 8$</li>
-                </ol>
-                
-                <div class="formula">
-                    $$(x + 2)^3 = x^3 + 6x^2 + 12x + 8$$
-                </div>
-                
-                <p><strong>Reflexão de Sobrevivência:</strong> Saber calcular volumes com precisão permite otimizar o espaço para armazenar suprimentos e abrigar sobreviventes. Um erro de cálculo pode significar que não haverá espaço suficiente para o gerador ou para o sistema de filtração de água.</p>
-            </details>
-        </div>
+<p>O objetivo deste exercício é expandir $(x+a)^2$ usando produtos notáveis e resolver a equação resultante. O Refúgio-TEC vai expandir um abrigo quadrado. Se o lado original é $x$ metros e a expansão adiciona $4$ metros a cada lado, a nova área será $(x+4)^2$. Sabe-se que a área após a expansão é $64$ m². <strong>(a)</strong> Expanda $(x+4)^2$ passo a passo, mostrando que $(x+4)^2 = x^2 + 8x + 16$. Não use a fórmula de memória — distribua $(x+4)(x+4)$ termo a termo. <strong>(b)</strong> Montre a equação $x^2 + 8x + 16 = 64$ e simplifique-a para $x^2 + 8x - 48 = 0$. <strong>(c)</strong> Observe que $x^2 + 8x + 16 = (x+4)^2$. Use esse reconhecimento para reescrever a equação como $(x+4)^2 = 64$ e resolva para $x$ extraindo a raiz quadrada de ambos os lados (lembre-se de considerar apenas o valor positivo, pois $x$ representa um comprimento).</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>Quando você expande $(x+4)^2$, pense em $(x+4)(x+4)$ e multiplique cada termo do primeiro parêntesis por cada termo do segundo. Depois, observe que você pode retornar à forma fatorada — às vezes a forma expandida complica e a fatorada simplifica.</p>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>(a)</strong> $(x+4)(x+4) = x \cdot x + x \cdot 4 + 4 \cdot x + 4 \cdot 4 = x^2 + 4x + 4x + 16 = x^2 + 8x + 16$.</p>
+<p><strong>(b)</strong> Como $(x+4)^2 = 64$, temos $x^2 + 8x + 16 = 64$. Subtraindo $64$ de ambos os lados: $x^2 + 8x + 16 - 64 = 0$, ou seja, $x^2 + 8x - 48 = 0$.</p>
+<p><strong>(c)</strong> Reconhecendo que $x^2 + 8x + 16 = (x+4)^2$, a equação $x^2 + 8x + 16 = 64$ se torna $(x+4)^2 = 64$. Extraindo a raiz quadrada: $x+4 = \pm 8$. Como $x$ é um comprimento, $x+4 = 8$, logo $x = 4$. O lado original do abrigo era $4$ metros.</p>
+</details>
+</div>

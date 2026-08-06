@@ -1,23 +1,41 @@
 <div class="exercise">
-<h3>Verificação de Posição Segura</h3>
-<p>Um mutante foi detectado na posição P(3, 2). Sua zona de proteção elíptica tem equação $\frac{x^2}{16} + \frac{y^2}{12} = 1$. Determine se o mutante está dentro, sobre ou fora do perímetro de segurança.</p>
+<h3>VERIFICAÇÃO DE POSIÇÃO SEGURA</h3>
+
+<p>O objetivo deste exercício é reconhecer quando uma elipse tem o eixo maior vertical, e extrair seus elementos manipulando a equação. Uma área de pouso de emergência tem formato elíptico descrito por $\frac{x^2}{16} + \frac{y^2}{25} = 1$.</p>
+
+<p><strong>(a)</strong> Observe a equação: qual denominador é maior? Isso indica que o eixo maior é horizontal ou vertical? Identifique $a^2$ e $b^2$ corretamente.</p>
+
+<p><strong>(b)</strong> Faça $y = 0$ e encontre os vértices no eixo $x$. Faça $x = 0$ e encontre os vértices no eixo $y$. Qual é o semi-eixo maior $a$?</p>
+
+<p><strong>(c)</strong> Calcule $c$ pela relação $c^2 = a^2 - b^2$ e encontre as coordenadas dos focos.</p>
+
+<p><strong>(d)</strong> Calcule a excentricidade $e = \frac{c}{a}$. Compare com a excentricidade do exercício anterior. Qual elipse é mais "circular"?</p>
+
+<p><strong>(e)</strong> No papel, esboce a elipse vertical. Marque todos os vértices e focos.</p>
+
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
 <div class="hint">
-<p>Substitua as coordenadas do ponto na equação da elipse. Se o resultado for menor que 1, o ponto está dentro; se igual a 1, está sobre a elipse; se maior que 1, está fora.</p>
+<p>O maior denominador sempre corresponde a $a^2$. Aqui, $25 > 16$, então $a^2 = 25$ e o eixo maior é vertical (está sob $y^2$). Não confunda: $a$ não está sempre sob $x^2$! $a$ está sempre sob a variável cujo eixo contém os focos.</p>
 </div>
 </details>
+
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Substituir P(3, 2) na equação: $\frac{3^2}{16} + \frac{2^2}{12}$</li>
-<li>Calcular: $\frac{9}{16} + \frac{4}{12} = \frac{9}{16} + \frac{1}{3}$</li>
-<li>Encontrar denominador comum: $\frac{9}{16} + \frac{16}{48} = \frac{27}{48} + \frac{16}{48} = \frac{43}{48}$</li>
-<li>Como $\frac{43}{48} &lt; 1$, o mutante está dentro da zona de proteção</li>
+<li>Equação dada: $\frac{x^2}{16} + \frac{y^2}{25} = 1$.</li>
+<li>Comparando denominadores: $25 > 16$. Logo $a^2 = 25$ (sob $y^2$) e $b^2 = 16$ (sob $x^2$).</li>
+<li>O eixo maior é <strong>vertical</strong>, pois $a^2$ está sob $y^2$.</li>
+<li>Faça $y = 0$: $\frac{x^2}{16} = 1 \Rightarrow x = \pm 4$. Vértices: $(\pm 4, 0)$ — estes são os vértices do eixo menor.</li>
+<li>Faça $x = 0$: $\frac{y^2}{25} = 1 \Rightarrow y = \pm 5$. Vértices: $(0, \pm 5)$ — estes são os vértices do eixo maior.</li>
+<li>Logo $a = 5$, $b = 4$.</li>
+<li>Calcule $c$: $c^2 = a^2 - b^2 = 25 - 16 = 9$, logo $c = 3$.</li>
+<li>Focos no eixo $y$: $F_1(0, -3)$ e $F_2(0, 3)$.</li>
+<li>Excentricidade: $e = \frac{c}{a} = \frac{3}{5} = 0{,}6$.</li>
 </ol>
 <div class="formula">
-                    $$\frac{9}{16} + \frac{4}{12} = \frac{43}{48} &lt; 1$$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> Esta verificação rápida permite avaliar ameaças instantaneamente. Um resultado menor que 1 significa que o alvo está dentro do alcance de suas defesas automáticas.</p>
+$$a = 5, \quad b = 4, \quad c = 3, \quad e = 0{,}6$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A excentricidade $e = 0{,}6$ é menor que $0{,}8$ do exercício anterior, então esta elipse é mais "circular". Com $a = 5$ e $b = 4$, a diferença entre os eixos é pequena. Na Zona Devastada, uma área de pouso mais circular oferece mais opções de aproximação para aeronaves em emergência — não há uma direção preferencial de pouso.</p>
 </details>
 </div>

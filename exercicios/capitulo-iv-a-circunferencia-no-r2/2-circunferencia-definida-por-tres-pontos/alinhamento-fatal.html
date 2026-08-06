@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>ALINHAMENTO FATAL</h3>
+
+<p>Uma expedição encontrou três depósitos de suprimentos nas posições $A(1,2)$, $B(3,4)$ e $C(5,6)$. O planejador do abrigo quer estabelecer uma rota circular de patrulha que passe pelos três depósitos. Antes de montar o sistema para determinar a circunferência, verifique se os três pontos são colineares usando o determinante $2 \times 2$ com os vetores $\vec{AB}$ e $\vec{AC}$ — ferramenta estudada no Capítulo II para calcular áreas. Se forem colineares, explique por que não existe circunferência que passe pelos três pontos.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Calcule $\vec{AB} = B - A$ e $\vec{AC} = C - A$. Monte o determinante $2 \times 2$ com as componentes desses vetores. Se o resultado for zero, os pontos estão alinhados.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>$\vec{AB} = (3-1, 4-2) = (2, 2)$.</li>
+<li>$\vec{AC} = (5-1, 6-2) = (4, 4)$.</li>
+<li>Determinante: $\det \begin{pmatrix} 2 &amp; 2 \\ 4 &amp; 4 \end{pmatrix} = 2 \cdot 4 - 2 \cdot 4 = 8 - 8 = 0$.</li>
+<li>Como o determinante é zero, os vetores $\vec{AB}$ e $\vec{AC}$ são linearmente dependentes — os três pontos são <strong>colineares</strong>.</li>
+<li>Consequência geométrica: pontos colineares estão sobre uma reta. Uma circunferência intersecta uma reta em <strong>no máximo dois pontos</strong>. Portanto, não existe circunferência que passe por três pontos alinhados.</li>
+<li>Verificação algébrica: ao montar o sistema $3 \times 3$, as equações seriam inconsistentes — a solução exigiria $r^2 < 0$, o que é impossível.</li>
+</ol>
+<div class="formula">
+$$\det \begin{pmatrix} 2 &amp; 2 \\ 4 &amp; 4 \end{pmatrix} = 0 \quad\Longrightarrow\quad A, B, C \text{ são colineares} \quad\Longrightarrow\quad \text{não há circunferência}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Nem sempre três pontos definem uma circunferência. A colinearidade é o caso limite — e o determinante $2 \times 2$ é o detector rápido. Antes de investir tempo no sistema, o explorador prudente verifica se a circunferência sequer existe. Na Zona Devastada, reconhecer uma impossibilidade é tão valioso quanto resolver um problema.</p>
+</details>
+</div>

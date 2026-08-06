@@ -1,19 +1,44 @@
 <section class="manual-contexto" data-context="manual-sobrevivencia">
     <div class="terminal-border">
     <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: POSIÇÕES RELATIVAS ENTRE RETA E CIRCUNFERÊNCIA</h2>
-<p>Na Zona Devastada, a interação entre rotas e zonas seguras é crucial para nossa sobrevivência. Matematicamente, isso é análogo ao estudo das posições relativas entre retas e circunferências - um conhecimento que permite mapear zonas de perigo, estabelecer perímetros defensivos e planejar rotas de abastecimento com precisão.</p>
-<p>Uma reta e uma circunferência no plano podem se relacionar de três maneiras fundamentais: podem não se encontrar (reta externa), podem se tocar em exatamente um ponto (reta tangente), ou podem se cruzar em dois pontos distintos (reta secante). Identificar estas relações nos permite prever encontros com mutantes e evitar radiação perigosa.</p>
-<p>A chave para determinar a posição relativa está na distância entre o centro da circunferência e a reta. Comparando esta distância com o raio da circunferência, podemos determinar se nossa rota é segura ou se cruza zonas de alto risco.</p>
+
+<p>Nos tópicos anteriores, dominamos a equação da circunferência e aprendemos a determiná-la a partir de três pontos. Mas na Zona Devastada, o explorador não opera apenas com zonas isoladas — ele precisa cruzar o plano, traçar rotas retas entre abrigos, e essas rotas podem ou não atravessar as zonas circulares de radiação, vigilância ou cobertura de rádio. A pergunta que este tópico responde é: dada uma reta (uma rota) e uma circunferência (uma zona), qual é a relação geométrica entre elas? Elas se cruzam? Se tocam? Se jamais se encontram? A resposta a essa pergunta é o que chamamos de <strong>posição relativa entre reta e circunferência</strong>.</p>
+
+<p>Existem três posições possíveis. A reta pode ser <strong>externa</strong> à circunferência (não há interseção), <strong>tangente</strong> (exatamente um ponto de contato), ou <strong>secante</strong> (dois pontos de interseção). A ferramenta que distingue esses casos é a <strong>distância do centro à reta</strong>, comparada com o raio — uma aplicação direta do que estudamos no Capítulo III.</p>
+
+<p>Seja a circunferência de centro $C(x_0, y_0)$ e raio $r$, e a reta $ax + by + c = 0$ na forma geral. A distância do centro à reta é:</p>
+
 <div class="formula">
-    $\text{Seja uma circunferência } (x - x_0)^2 + (y - y_0)^2 = r^2 \text{ e uma reta } ax + by + c = 0:$
-    
-    $\text{A distância do centro } (x_0, y_0) \text{ à reta é: } d = \frac{|ax_0 + by_0 + c|}{\sqrt{a^2 + b^2}}$
-    
-    $\text{• Se } d &gt; r \text{: reta externa (0 interseções)}$
-    $\text{• Se } d = r \text{: reta tangente (1 interseção)}$
-    $\text{• Se } d &lt; r \text{: reta secante (2 interseções)}$
-    </div>
-<p>Para encontrar os pontos precisos de interseção, substituímos a equação da reta na da circunferência, resultando em uma equação quadrática. As raízes desta equação representam os pontos onde os caminhos se cruzam - informação vital para evitar emboscadas nas patrulhas diárias.</p>
+$$d = \frac{|ax_0 + by_0 + c|}{\sqrt{a^2 + b^2}}$$
+</div>
+
+<p>Comparando $d$ com $r$:</p>
+
+<div class="formula">
+$$\begin{cases} d > r &amp; \Rightarrow \text{reta externa (0 pontos de interseção)} \\ d = r &amp; \Rightarrow \text{reta tangente (1 ponto de interseção)} \\ d &lt; r &amp; \Rightarrow \text{reta secante (2 pontos de interseção)} \end{cases}$$
+</div>
+
+<p><strong>Interpretação geométrica:</strong> a distância do centro à reta mede o "afastamento mínimo" entre o coração da zona e a rota. Se esse afastamento é maior que o raio, a rota nunca entra na zona (externa). Se é igual ao raio, a rota toca a zona num único ponto — o <strong>ponto de tangência</strong> (tangente). Se é menor, a rota entra e sai da zona (secante).</p>
+
+<p><strong>Método algébrico — interseção por substituição:</strong> para encontrar os pontos exatos de interseção, isolamos uma variável na equação da reta e substituímos na equação da circunferência. O resultado é uma <strong>equação do 2° grau</strong> em uma variável. O <strong>discriminante</strong> $\Delta = b^2 - 4ac$ dessa equação repete exatamente a classificação geométrica:</p>
+
+<div class="formula">
+$$\begin{cases} \Delta > 0 &amp; \Rightarrow \text{secante: 2 pontos de interseção} \\ \Delta = 0 &amp; \Rightarrow \text{tangente: 1 ponto de interseção} \\ \Delta &lt; 0 &amp; \Rightarrow \text{externa: 0 pontos de interseção} \end{cases}$$
+</div>
+
+<p><strong>Conexão com o Tópico 1:</strong> no exercício sobre classificação de pontos em relação à circunferência, vimos que substituir as coordenadas de um ponto na equação dá $r^2$ (sobre), $< r^2$ (interno) ou $> r^2$ (externo). O discriminante é a versão contínua desse teste — em vez de testar um ponto isolado, testamos todos os pontos da reta simultaneamente.</p>
+
+<p><strong>Reta tangente e ponto de tangência:</strong> quando $d = r$, a reta toca a circunferência em exatamente um ponto $T$. Esse ponto é o <strong>pé da perpendicular</strong> do centro $C$ sobre a reta. Além disso, a reta tangente é sempre <strong>perpendicular ao raio</strong> no ponto de tangência — o segmento $\overline{CT}$ é perpendicular à reta. Isso nos dá duas ferramentas: (1) encontrar o ponto de tangência calculando o pé da perpendicular, e (2) construir a reta tangente por um ponto da circunferência usando a perpendicularidade com o raio.</p>
+
+<p><strong>Técnicas de resolução:</strong></p>
+
+<p><strong>1. Classificação por distância:</strong> calcule $d$ (centro à reta) e compare com $r$. Método mais rápido quando basta classificar.</p>
+
+<p><strong>2. Interseção por substituição:</strong> isole $y$ (ou $x$) na reta, substitua na circunferência, resolva a equação do 2° grau. Fornece os pontos exatos.</p>
+
+<p><strong>3. Parâmetro e discriminante:</strong> quando a reta contém um parâmetro (ex: $y = kx + n$), substitua na circunferência e use $\Delta = 0$ para encontrar o valor de tangência, $\Delta > 0$ para secante e $\Delta < 0$ para externa.</p>
+
+<p><strong>4. Construção de tangente por ponto:</strong> dado um ponto $P$ sobre a circunferência, a reta tangente passa por $P$ e é perpendicular ao raio $CP$. Use a condição de perpendicularidade (produto dos coeficientes angulares $= -1$) ou a equação ponto-normal.</p>
 
     </div>
 </section>

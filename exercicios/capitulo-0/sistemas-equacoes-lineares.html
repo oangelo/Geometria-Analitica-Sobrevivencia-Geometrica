@@ -18,7 +18,7 @@
       }
     };
     </script>
-    <title>REFÚGIO-TEC | SISTEMAS DE EQUAÇÕES LINEARES COM DUAS VARIÁVEIS</title>
+    <title>REFÚGIO-TEC | Sistemas de Equações Lineares com Duas Variáveis</title>
     <style>
         /* Estilo inspirado no tema pós-apocalíptico */
         @keyframes blink {
@@ -168,6 +168,11 @@
             box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
         }
 
+        .manual-contexto,
+        .enunciados-exercicios {
+            margin-bottom: 20px;
+        }
+
         .mission-counter {
             counter-reset: mission;
         }
@@ -208,7 +213,8 @@
         <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
         <div class="terminal-content">
 ┌───────────────────────────────────────────────────┐
-│ MÓDULO: SISTEMAS DE EQUAÇÕES LINEARES COM DUAS VARIÁVEIS │
+│ MÓDULO: Sistemas de Equações Lineares             │
+│ COM DUAS VARIÁVEIS                                │
 └───────────────────────────────────────────────────┘
 
 > INICIANDO TRANSMISSÃO...
@@ -217,6 +223,7 @@
         </div>
     </div>
 
+    <!-- BLOCO A: Manual de sobrevivência (contexto teórico) -->
         <div id="manual-container"></div>
 
     <div id="exercicios-container"></div>
@@ -224,18 +231,18 @@
     <script>
     const MANUAL = "sistemas-equacoes-lineares-manual.html";
     const EXERCICIOS = [
-        "sistemas-equacoes-lineares/racionamento-recursos.html",
-        "sistemas-equacoes-lineares/troca-zona-comercial.html",
-        "sistemas-equacoes-lineares/mistura-combustiveis.html",
-        "sistemas-equacoes-lineares/planejamento-expedicao.html",
-        "sistemas-equacoes-lineares/analise-agua-contaminada.html",
-        "sistemas-equacoes-lineares/dieta-sobrevivencia.html",
-        "sistemas-equacoes-lineares/fluxo-energia.html",
-        "sistemas-equacoes-lineares/circuito-emergencia.html",
-        "sistemas-equacoes-lineares/diluicao-antibioticos.html",
-        "sistemas-equacoes-lineares/rotas-evacuacao.html",
-        "sistemas-equacoes-lineares/otimizacao-cultivos.html",
-        "sistemas-equacoes-lineares/reconstrucao-sinal.html"
+        "sistemas-equacoes-lineares/substituicao-coeficientes-unitarios.html",
+        "sistemas-equacoes-lineares/substituicao-multiplos.html",
+        "sistemas-equacoes-lineares/substituicao-fracoes-simples.html",
+        "sistemas-equacoes-lineares/eliminacao-direta.html",
+        "sistemas-equacoes-lineares/eliminacao-multiplica-uma.html",
+        "sistemas-equacoes-lineares/eliminacao-multiplica-duas.html",
+        "sistemas-equacoes-lineares/geometria-retas-concorrentes.html",
+        "sistemas-equacoes-lineares/geometria-retas-paralelas.html",
+        "sistemas-equacoes-lineares/geometria-retas-coincidentes.html",
+        "sistemas-equacoes-lineares/parametro-discussao-k.html",
+        "sistemas-equacoes-lineares/mistura-tres-substancias.html",
+        "sistemas-equacoes-lineares/otimizacao-recursos.html"
     ];
 
     async function carregarManual(arquivo) {
@@ -290,7 +297,7 @@
 
     <!-- RODAPÉ DO DOCUMENTO -->
     <div class="footer">
-        REFÚGIO-TEC | SISTEMAS DE EQUAÇÕES LINEARES COM DUAS VARIÁVEIS: Sobrevivência Matemática - Quando dois caminhos se cruzam, a solução surge.
+        REFÚGIO-TEC | Sistemas de Equações Lineares: Sobrevivência Matemática - Na Zona Devastada, cada equação é uma rota de fuga
     </div>
 </body>
 </html>

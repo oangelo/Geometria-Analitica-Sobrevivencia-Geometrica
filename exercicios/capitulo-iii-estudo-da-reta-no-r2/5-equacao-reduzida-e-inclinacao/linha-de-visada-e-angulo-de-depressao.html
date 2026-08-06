@@ -1,0 +1,34 @@
+<div class="exercise">
+<h3>LINHA DE VISADA E ÂNGULO DE DEPRESSÃO</h3>
+
+<p>Um observador está posicionado na torre de vigia em $A(0, 5)$ e avista um alvo em movimento no ponto $B(12, 1)$, ambos medidos em metros. No papel, esboce a situação: marque a torre, o alvo, a linha de visada e a horizontal passando pelo observador. Calcule:</p>
+
+<p><strong>(a)</strong> O coeficiente angular da reta que representa a linha de visada.</p>
+<p><strong>(b)</strong> A equação reduzida da linha de visada.</p>
+<p><strong>(c)</strong> O ângulo de inclinação $\theta$ da linha de visada em relação à horizontal (arredonde para o inteiro mais próximo).</p>
+<p><strong>(d)</strong> O ângulo de depressão do observador em relação ao alvo — lembre-se de que o ângulo de depressão é o ângulo abaixo da horizontal, igual em módulo ao ângulo de inclinação da linha de visada quando $m < 0$.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para o item (a), calcule $m = \frac{y_2 - y_1}{x_2 - x_1}$. Note que $m$ será negativo porque o observador está acima do alvo. Para (d), o ângulo de depressão é o valor absoluto do ângulo de inclinação, pois é medido abaixo da horizontal.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li><strong>(a)</strong> Coeficiente angular: $m = \frac{1 - 5}{12 - 0} = \frac{-4}{12} = -\frac{1}{3}$.</li>
+<li><strong>(b)</strong> Equação reduzida: $y = -\frac{1}{3}x + n$. Substituindo $A(0, 5)$: $5 = -\frac{1}{3}(0) + n$, logo $n = 5$. Portanto, $y = -\frac{1}{3}x + 5$.</li>
+<li><strong>(c)</strong> Ângulo de inclinação: $\theta = \arctan\left(-\frac{1}{3}\right) \approx -18{,}43° \approx -18°$. O sinal negativo indica descida.</li>
+<li><strong>(d)</strong> O ângulo de depressão é o ângulo abaixo da horizontal, dado por $|\theta| \approx 18°$.</li>
+</ol>
+<div class="formula">
+$$m = \frac{1 - 5}{12 - 0} = -\frac{1}{3}$$
+$$y = -\frac{1}{3}x + 5$$
+$$\theta = \arctan\left(-\frac{1}{3}\right) \approx -18°$$
+$$\text{Ângulo de depressão} \approx 18°$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A linha de visada com $m = -\frac{1}{3}$ desce 1 metro para cada 3 metros de distância horizontal. O ângulo de depressão de $18°$ é pequeno o suficiente para manter o alvo em campo visual amplo, mas preciso o suficiente para cálculos balísticos. Na Zona Devastada, onde munição é escassa, cada grau de precisão conta — e a reta que liga observador ao alvo é a reta que separa o acerto do desperdício.</p>
+</details>
+</div>

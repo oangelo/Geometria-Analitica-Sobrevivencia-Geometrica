@@ -1,33 +1,69 @@
 <div class="exercise">
-<h3>Sistema com Infinitas Soluções</h3>
-<p>Três grupos de escavadores relataram descobertas em diferentes coordenadas, mas os dados parecem relacionados. Analise o sistema:</p>
+<h3>Sistema com Infinitas Soluções (SPI)</h3>
+<p><strong>Objetivo:</strong> Identificar e resolver um sistema 3&times;3 onde uma equação é combinação linear das outras, resultando em infinitas soluções.</p>
+
+<p>Três sensores de radiação estão calibrados de forma que a leitura do terceiro é sempre a soma das leituras dos dois primeiros. As equações de calibração são:</p>
+
 <div class="formula">
-            $$\begin{cases}
-            x + 2y - z = 3 \\
-            2x + 4y - 2z = 6 \\
-            -x - 2y + z = -3
-            \end{cases}$$
-            </div>
+$$\begin{cases}
+x + 2y - z = 3 \\
+2x - y + z = 1 \\
+3x + y = 4
+\end{cases}$$
+</div>
+
+<p><strong>a)</strong> Verifique que a terceira equação é a soma das duas primeiras. O que isso significa geometricamente?</p>
+
+<p><strong>b)</strong> Escalone o sistema: elimine $x$ das duas últimas equações usando a primeira como pivô.</p>
+
+<p><strong>c)</strong> O que acontece quando você tenta resolver o sistema 2&times;2 resultante? Explique por que isso indica infinitas soluções.</p>
+
+<p><strong>d)</strong> Escolha $z = t$ (parâmetro livre) e expresse $x$ e $y$ em função de $t$. Escreva a solução geral na forma paramétrica.</p>
+
+<p><strong>e)</strong> Dê três soluções particulares escolhendo valores específicos para $t$.</p>
+
+<p><strong>f)</strong> Classifique o sistema e interprete geometricamente: como os três planos se posicionam no espaço?</p>
+
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
-<div class="hint">
-                Observe as relações entre os coeficientes das equações. A segunda equação é múltipla da primeira?
-            </div>
+<p>Se a terceira equação for combinação das outras duas, ela não acrescenta informação nova. Geometricamente, o terceiro plano contém a reta de interseção dos dois primeiros. Para a solução paramétrica, isole $x$ e $y$ em função de $z = t$ usando duas equações independentes.</p>
 </details>
+
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-<ol class="solution-steps">
-<li>Observando a segunda equação: todos os coeficientes são o dobro da primeira equação</li>
-<li>Segunda equação: $2(x + 2y - z) = 2 \cdot 3 \Rightarrow 2x + 4y - 2z = 6$ ✓</li>
-<li>Terceira equação: todos os coeficientes são opostos da primeira equação</li>
-<li>Terceira equação: $-(x + 2y - z) = -3 \Rightarrow -x - 2y + z = -3$ ✓</li>
-<li>As três equações são equivalentes à primeira: $x + 2y - z = 3$</li>
-<li>Escolhendo parâmetros: $y = t$ e $z = s$</li>
-<li>Da primeira equação: $x = 3 - 2t + s$</li>
-</ol>
+
+<p><strong>a)</strong> Soma das duas primeiras:</p>
+<div class="formula">$$(x + 2y - z) + (2x - y + z) = 3x + y = 3 + 1 = 4$$</div>
+<p>A terceira equação é exatamente $3x + y = 4$. Geometricamente, o terceiro plano <strong>contém a reta de interseção</strong> dos dois primeiros planos.</p>
+
+<p><strong>b)</strong> Escalonamento:</p>
+<p>Eq. (I) &times; $(-2)$ + Eq. (II): $(2x - y + z) + (-2x - 4y + 2z) = 1 + (-6)$</p>
+<div class="formula">$$-5y + 3z = -5 \quad \text{(II')}$$</div>
+
+<p>Eq. (I) &times; $(-3)$ + Eq. (III): $(3x + y) + (-3x - 6y + 3z) = 4 + (-9)$</p>
+<div class="formula">$$-5y + 3z = -5 \quad \text{(III')}$$</div>
+
+<p>Note que (II') = (III').</p>
+
+<p><strong>c)</strong> O sistema 2&times;2 "resultante" é:</p>
+<div class="formula">$$\begin{cases} -5y + 3z = -5 \\ -5y + 3z = -5 \end{cases}$$</div>
+<p>Subtraindo uma da outra: $0 = 0$. Esta identidade indica que as duas equações são equivalentes &mdash; há apenas uma equação independente para duas incógnitas, deixando uma variável livre. Logo, existem <strong>infinitas soluções</strong>.</p>
+
+<p><strong>d)</strong> Fazendo $z = t$ na equação (II'): $-5y + 3t = -5 \Rightarrow y = \dfrac{3t + 5}{5} = \dfrac{3}{5}t + 1$.</p>
+<p>Da equação (III): $3x + y = 4 \Rightarrow x = \dfrac{4 - y}{3} = \dfrac{4 - (\frac{3}{5}t + 1)}{3} = \dfrac{3 - \frac{3}{5}t}{3} = 1 - \dfrac{1}{5}t$.</p>
+
+<p>Solução geral:</p>
 <div class="formula">
-                    Solução geral: $(x, y, z) = (3 - 2t + s, t, s)$, onde $t, s \in \mathbb{R}$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> As infinitas soluções indicam que os três grupos estão na verdade explorando a mesma região em pontos diferentes. Esta redundância pode ser aproveitada para cobrir mais área ou como backup em caso de ataque a um dos grupos.</p>
+$$\begin{cases} x = 1 - \dfrac{1}{5}t \\ y = 1 + \dfrac{3}{5}t \\ z = t \end{cases}, \quad t \in \mathbb{R}$$
+</div>
+
+<p><strong>e)</strong> Três soluções particulares:</p>
+<ul>
+<li>$t = 0$: $(1, 1, 0)$</li>
+<li>$t = 5$: $(0, 4, 5)$</li>
+<li>$t = -5$: $(2, -2, -5)$</li>
+</ul>
+
+<p><strong>f)</strong> O sistema é <span class="warning">SPI</span> (Sistema Possível e Indeterminado). Geometricamente, os três planos se intersectam em uma <strong>reta comum</strong>. Cada ponto dessa reta é uma solução do sistema.</p>
 </details>
 </div>

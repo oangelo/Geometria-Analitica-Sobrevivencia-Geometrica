@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<!-- Include MathJax -->
 <script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script>
     MathJax = {
@@ -20,15 +19,9 @@
     </script>
 <title>REFÚGIO-TEC | IGUALDADE E OPERAÇÕES COM PARES ORDENADOS</title>
 <style>
-        /* Estilo inspirado no tema pós-apocalíptico */
         @keyframes blink {
             0%, 49% { opacity: 1; }
             50%, 100% { opacity: 0; }
-        }
-
-        @keyframes scanline {
-            0% { background-position: 0 0; }
-            100% { background-position: 0 100px; }
         }
 
         body {
@@ -80,38 +73,6 @@
             background-color: #333;
             padding: 3px 5px;
             color: #ffeb3b;
-        }
-
-        .hint {
-            background-color: rgba(0, 0, 0, 0.7);
-            border-left: 4px solid #4caf50;
-            padding: 10px;
-            margin: 10px 0;
-            font-style: italic;
-        }
-        
-        .hint:before {
-            content: "DICA DE SOBREVIVÊNCIA: ";
-            color: #4caf50;
-            font-weight: bold;
-            font-style: normal;
-        }
-
-        .solution-steps {
-            margin-left: 20px;
-            counter-reset: step-counter;
-        }
-
-        .solution-steps li {
-            list-style-type: none;
-            counter-increment: step-counter;
-            margin-bottom: 10px;
-        }
-
-        .solution-steps li::before {
-            content: "> PASSO_" counter(step-counter) ": ";
-            color: #4caf50;
-            font-weight: bold;
         }
 
         .formula {
@@ -203,7 +164,6 @@
     </style>
 </head>
 <body>
-    <!-- TÍTULO E INTRODUÇÃO -->
     <div class="terminal-frame">
 <div class="terminal-header">TERMINAL REFÚGIO-TEC</div>
 <div class="terminal-content">
@@ -217,25 +177,29 @@
 </div>
 </div>
 
-        <div id="manual-container"></div>
+    <div id="manual-container"></div>
 
     <div id="exercicios-container"></div>
 
     <script>
     const MANUAL = "2-igualdade-e-operacoes-com-pares-ordenados-manual.html";
     const EXERCICIOS = [
-        "2-igualdade-e-operacoes-com-pares-ordenados/localizacao-de-zonas-seguras.html",
+        // Fase 1 — Igualdade de pares ordenados
+        "2-igualdade-e-operacoes-com-pares-ordenados/confirmacao-de-coordenada.html",
+        "2-igualdade-e-operacoes-com-pares-ordenados/decifrando-sinais-de-radio.html",
+        "2-igualdade-e-operacoes-com-pares-ordenados/identificacao-de-abrigo-duplicado.html",
+        // Fase 2 — Soma e subtração
         "2-igualdade-e-operacoes-com-pares-ordenados/triangulacao-de-suprimentos.html",
-        "2-igualdade-e-operacoes-com-pares-ordenados/calculo-de-deslocamento.html",
+        "2-igualdade-e-operacoes-com-pares-ordenados/deslocamento-entre-abrigos.html",
+        "2-igualdade-e-operacoes-com-pares-ordenados/rota-de-patrulha-composta.html",
+        // Fase 3 — Multiplicação por escalar
         "2-igualdade-e-operacoes-com-pares-ordenados/expansao-de-zona-de-radiacao.html",
-        "2-igualdade-e-operacoes-com-pares-ordenados/triangulacao-de-agua-potavel.html",
-        "2-igualdade-e-operacoes-com-pares-ordenados/rota-de-navegacao-segura.html",
-        "2-igualdade-e-operacoes-com-pares-ordenados/pontos-de-encontro-estrategicos.html",
-        "2-igualdade-e-operacoes-com-pares-ordenados/alinhamento-de-torres-de-vigilancia.html",
-        "2-igualdade-e-operacoes-com-pares-ordenados/configuracao-de-perimetro-defensivo.html",
-        "2-igualdade-e-operacoes-com-pares-ordenados/rota-de-resgate-multi-ponto.html",
-        "2-igualdade-e-operacoes-com-pares-ordenados/analise-de-propagacao-de-radiacao.html",
-        "2-igualdade-e-operacoes-com-pares-ordenados/determinacao-de-zona-segura.html"
+        "2-igualdade-e-operacoes-com-pares-ordenados/reflexao-de-sinal-de-radar.html",
+        "2-igualdade-e-operacoes-com-pares-ordenados/escala-de-mapa-tatico.html",
+        // Fase 4 — Propriedades e aplicações
+        "2-igualdade-e-operacoes-com-pares-ordenados/comutatividade-do-reabastecimento.html",
+        "2-igualdade-e-operacoes-com-pares-ordenados/associatividade-das-equipes.html",
+        "2-igualdade-e-operacoes-com-pares-ordenados/distributividade-do-perimetro.html"
     ];
 
     async function carregarManual(arquivo) {
@@ -287,8 +251,6 @@
     });
     </script>
 
-
-    <!-- RODAPÉ DO DOCUMENTO -->
     <div class="footer">
         REFÚGIO-TEC | IGUALDADE E OPERAÇÕES COM PARES ORDENADOS: Sobrevivência Matemática - Os números não mentem; eles são sua melhor arma nas Zonas Devastadas.
     </div>

@@ -1,24 +1,48 @@
 <div class="exercise">
-<h3>Identificação dos Elementos de Sobrevivência</h3>
-<p>Sua base móvel está posicionada em uma órbita elíptica de segurança. A equação da trajetória é $\frac{x^2}{25} + \frac{y^2}{9} = 1$. Identifique o semi-eixo maior, semi-eixo menor e determine as coordenadas dos focos desta rota de patrulhamento.</p>
+<h3>IDENTIFICAÇÃO DOS ELEMENTOS DE SOBREVIVÊNCIA</h3>
+
+<p>O objetivo deste exercício é usar a definição da elipse para encontrar um ponto desconhecido e, a partir dele, determinar a equação completa. Dois sensores de detecção estão em $F_1(-2, 0)$ e $F_2(2, 0)$. Um ponto de interesse $P(3, y)$, com $y > 0$, está sobre a elipse, e a soma das distâncias de $P$ aos focos é $2a = 10$.</p>
+
+<p><strong>(a)</strong> Identifique $c$ e $a$ a partir dos dados. Verifique que $a > c$ (condição de existência da elipse) e que $a > 3$ (para que $P$ com $x = 3$ possa existir).</p>
+
+<p><strong>(b)</strong> Use a definição com $P(3, y)$: $d(P, F_1) + d(P, F_2) = 2a = 10$. Escreva as distâncias, isole uma raiz, eleve ao quadrado e encontre $y$.</p>
+
+<p><strong>(c)</strong> Com $a = 5$ e $c = 2$, calcule $b$ pela relação $b^2 = a^2 - c^2$. Escreva a equação canônica da elipse e verifique que $P(3, y)$ a satisfaz.</p>
+
+<p><strong>(d)</strong> No papel, esboce a elipse, marque os focos, o ponto $P$ e os vértices nos eixos $x$ e $y$.</p>
+
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
 <div class="hint">
-<p>Compare a equação dada com a forma canônica. O maior denominador corresponde ao quadrado do semi-eixo maior.</p>
+<p>Calcule $d(P, F_1) = \sqrt{(3+2)^2 + y^2} = \sqrt{25 + y^2}$ e $d(P, F_2) = \sqrt{(3-2)^2 + y^2} = \sqrt{1 + y^2}$. A equação $\sqrt{25+y^2} + \sqrt{1+y^2} = 10$ parece complicada, mas isole $\sqrt{25+y^2} = 10 - \sqrt{1+y^2}$, eleve ao quadrado, e a raiz restante vai se isolar sozinha. Depois eleve novamente.</p>
 </div>
 </details>
+
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Identificar que $a^2 = 25$, logo $a = 5$ (semi-eixo maior)</li>
-<li>Identificar que $b^2 = 9$, logo $b = 3$ (semi-eixo menor)</li>
-<li>Calcular a distância focal: $c^2 = a^2 - b^2 = 25 - 9 = 16$, logo $c = 4$</li>
-<li>Determinar as coordenadas dos focos: F₁(-4, 0) e F₂(4, 0)</li>
+<li>Dados: $F_1(-2, 0)$, $F_2(2, 0)$, logo $c = 2$. Soma $2a = 10$, logo $a = 5$.</li>
+<li>Verificação: $a = 5 > c = 2$ ✓ (elipse existe). $a = 5 > 3$ ✓ ($P$ pode existir).</li>
+<li>$d(P, F_1) = \sqrt{(3+2)^2 + y^2} = \sqrt{25 + y^2}$.</li>
+<li>$d(P, F_2) = \sqrt{(3-2)^2 + y^2} = \sqrt{1 + y^2}$.</li>
+<li>Definição: $\sqrt{25 + y^2} + \sqrt{1 + y^2} = 10$.</li>
+<li>Isole: $\sqrt{25 + y^2} = 10 - \sqrt{1 + y^2}$.</li>
+<li>Eleve ao quadrado: $25 + y^2 = 100 - 20\sqrt{1+y^2} + 1 + y^2$.</li>
+<li>Cancele $y^2$: $25 = 101 - 20\sqrt{1+y^2}$.</li>
+<li>$20\sqrt{1+y^2} = 76$.</li>
+<li>Divida por 4: $5\sqrt{1+y^2} = 19$.</li>
+<li>Eleve ao quadrado: $25(1+y^2) = 361$.</li>
+<li>$25 + 25y^2 = 361$.</li>
+<li>$25y^2 = 336$.</li>
+<li>$y^2 = \frac{336}{25} = 13{,}44$.</li>
+<li>$y = \sqrt{13{,}44} = \sqrt{\frac{336}{25}} = \frac{\sqrt{336}}{5} = \frac{4\sqrt{21}}{5}$ (aproximadamente $3{,}67$).</li>
+<li>Calcule $b$: $b^2 = a^2 - c^2 = 25 - 4 = 21$, logo $b = \sqrt{21}$.</li>
+<li>Equação canônica: $\frac{x^2}{25} + \frac{y^2}{21} = 1$.</li>
+<li>Verificação com $P(3, \frac{4\sqrt{21}}{5})$: $\frac{9}{25} + \frac{16 \cdot 21}{25 \cdot 21} = \frac{9}{25} + \frac{16}{25} = \frac{25}{25} = 1$ ✓.</li>
 </ol>
 <div class="formula">
-                    $$a = 5, \quad b = 3, \quad c = 4$$
-                    $$F_1(-4, 0) \text{ e } F_2(4, 0)$$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> Conhecer os focos de sua rota permite estabelecer pontos estratégicos de comunicação, garantindo que qualquer posição na elipse mantenha a mesma soma de distâncias aos pontos de controle.</p>
+$$\frac{x^2}{25} + \frac{y^2}{21} = 1, \quad P\left(3, \frac{4\sqrt{21}}{5}\right)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A definição geométrica e a equação algébrica são duas faces da mesma moeda. O ponto $P$ satisfaz a definição <em>se e somente se</em> satisfaz a equação. Na Zona Devastada, ter múltiplas formas de verificar a mesma informação é uma vantagem tática. Note como $y^2 = \frac{336}{25}$ e $b^2 = 21 = \frac{525}{25}$ se relacionam: $y^2 = b^2(1 - \frac{9}{25}) = b^2 \cdot \frac{16}{25} = \frac{21 \cdot 16}{25} = \frac{336}{25}$.</p>
 </details>
 </div>

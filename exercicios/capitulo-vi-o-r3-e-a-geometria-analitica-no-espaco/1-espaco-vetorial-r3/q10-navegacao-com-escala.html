@@ -1,0 +1,40 @@
+<div class="exercise">
+<h3>NAVEGAÇÃO COM ESCALA EM PONTO INTERMEDIÁRIO</h3>
+<p>O objetivo deste exercício é combinar múltiplos vetores deslocamento em uma rota de navegação no espaço. Na prática, uma patrulha raramente vai direto do ponto $A$ ao ponto $B$ — há postos de reabastecimento, desvios por terreno hostil e escalas obrigatórias.</p>
+<p>Uma equipe de resgate deve levar suprimentos do Depósito Central $D(0, 0, 0)$ até o Acampamento Remoto $R$. A rota exige uma escala obrigatória no Posto de Reabastecimento $P(4, 2, 3)$. Do Posto $P$, a equipe segue na direção do vetor $\vec{w} = (3, -2, 5)$ por uma distância igual ao dobro do módulo de $\vec{w}$.</p>
+<p><strong>(a)</strong> Calcule o vetor deslocamento $\overrightarrow{DP}$ e seu módulo.</p>
+<p><strong>(b)</strong> Determine as coordenadas do Acampamento Remoto $R$.</p>
+<p><strong>(c)</strong> Calcule o deslocamento total $\overrightarrow{DR}$ (vetor resultante da rota completa) e verifique que $\overrightarrow{DR} = \overrightarrow{DP} + \overrightarrow{PR}$.</p>
+<p><strong>(d)</strong> Compare a distância total percorrida ($d(D, P) + d(P, R)$) com a distância em linha reta $d(D, R)$. Por que são diferentes?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>A rota tem dois trechos: $D \to P$ e $P \to R$. O segundo trecho é na direção de $\vec{w}$ com magnitude $2|\vec{w}|$, então $\overrightarrow{PR} = 2\vec{w}$. O deslocamento total é a soma vetorial dos dois trechos. A distância total percorrida é a soma das distâncias de cada trecho, enquanto $d(D, R)$ é a distância em linha reta (desigualdade triangular).</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Dados: $D = (0, 0, 0)$, $P = (4, 2, 3)$, $\vec{w} = (3, -2, 5)$</li>
+<li><strong>Item (a)</strong> — $\overrightarrow{DP} = (4 - 0, \; 2 - 0, \; 3 - 0) = (4, 2, 3)$</li>
+<li>$|\overrightarrow{DP}| = \sqrt{16 + 4 + 9} = \sqrt{29}$</li>
+<li><strong>Item (b)</strong> — $\overrightarrow{PR} = 2\vec{w} = (6, -4, 10)$</li>
+<li>$R = P + \overrightarrow{PR} = (4 + 6, \; 2 + (-4), \; 3 + 10) = (10, -2, 13)$</li>
+<li><strong>Item (c)</strong> — $\overrightarrow{DR} = (10, -2, 13)$</li>
+<li>$\overrightarrow{DP} + \overrightarrow{PR} = (4, 2, 3) + (6, -4, 10) = (10, -2, 13) = \overrightarrow{DR}$ ✓</li>
+<li><strong>Item (d)</strong> — $|\vec{w}| = \sqrt{9 + 4 + 25} = \sqrt{38}$</li>
+<li>Distância total percorrida: $\sqrt{29} + 2\sqrt{38} \approx 5{,}39 + 12{,}33 = 17{,}72$</li>
+<li>Distância em linha reta: $|\overrightarrow{DR}| = \sqrt{100 + 4 + 169} = \sqrt{273} \approx 16{,}52$</li>
+<li>$17{,}72 > 16{,}52$ — a rota com escala é mais longa (desigualdade triangular)</li>
+</ol>
+<div class="formula">
+$$\overrightarrow{DP} = (4, 2, 3), \quad |\overrightarrow{DP}| = \sqrt{29}$$
+$$R = (10, -2, 13)$$
+$$\text{Distância total} = \sqrt{29} + 2\sqrt{38} \approx 17{,}72$$
+$$d(D, R) = \sqrt{273} \approx 16{,}52$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A diferença entre distância total percorrida e distância em linha reta é o "custo da escala". Na Zona Devastada, escolher entre rota direta (mais rápida, mais arriscada) e rota com escalas (mais longa, mais segura) é uma decisão tática. A matemática quantifica essa diferença: a rota com escala adicionou aproximadamente 1,2 unidades de distância extra.</p>
+</details>
+</div>

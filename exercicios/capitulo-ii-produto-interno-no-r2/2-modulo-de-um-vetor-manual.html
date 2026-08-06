@@ -1,18 +1,31 @@
 <section class="manual-contexto" data-context="manual-sobrevivencia">
     <div class="terminal-border">
-    <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: MÓDULO DE VETORES</h2>
-<p>Sobreviventes, a capacidade de medir a intensidade de forças, distâncias e direções pode significar a diferença entre vida e morte na Zona Devastada. O módulo (ou magnitude) de um vetor é uma ferramenta essencial para quantificar essas grandezas.</p>
-<p>O módulo de um vetor $\vec{v} = (v_x, v_y)$ representa seu "tamanho" ou "comprimento" - quanto maior o módulo, maior a intensidade da grandeza representada. Seja para calcular a força necessária para empurrar um veículo enferrujado ou a quantidade de RemoveRad necessária para neutralizar a radiação de uma área, esta medida é crucial.</p>
-<p>Para vetores no plano $\mathbb{R}^2$, o módulo é calculado através da distância euclidiana do ponto até a origem, aplicando o teorema de Pitágoras.</p>
+    <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: MÓDULO DE UM VETOR</h2>
+
+<p>No tópico anterior, a expressão $\vec{v} \cdot \vec{v} = v_1^2 + v_2^2$ apareceu repetidamente — na verificação do quadrado do binômio, nas simplificações, nas equações. Você deve ter notado: essa expressão tem cara de Pitágoras. E é exatamente isso.</p>
+
+<p>O <strong>módulo</strong> (ou <strong>norma</strong>) de um vetor $\vec{v} = (v_1, v_2)$ é o comprimento desse vetor — a distância da origem até o ponto $P(v_1, v_2)$. Pelo teorema de Pitágoras, essa distância é $\sqrt{v_1^2 + v_2^2}$. Mas repare:</p>
+
 <div class="formula">
-    $$|\vec{v}| = \|\vec{v}\| = \sqrt{v_x^2 + v_y^2}$$
-    </div>
-<p>As propriedades fundamentais do módulo de vetores incluem:</p>
-<ul>
-<li>O módulo é sempre não-negativo: $|\vec{v}| \geq 0$</li>
-<li>O módulo é zero se, e somente se, o vetor for nulo: $|\vec{v}| = 0 \Leftrightarrow \vec{v} = \vec{0}$</li>
-<li>O módulo de um vetor multiplicado por um escalar é igual ao valor absoluto do escalar multiplicado pelo módulo do vetor: $|k\vec{v}| = |k||\vec{v}|$</li>
-</ul>
+$$|\vec{v}| = \sqrt{\vec{v} \cdot \vec{v}} = \sqrt{v_1^2 + v_2^2}$$
+</div>
+
+<p>O módulo é a <strong>raiz quadrada do produto escalar do vetor consigo mesmo</strong>. Pitágoras, que você aprendeu no ensino médio, é um caso particular do produto escalar.</p>
+
+<p><strong>Propriedades fundamentais:</strong></p>
+
+<p>• $|\vec{v}| \geq 0$, e $|\vec{v}| = 0$ se e somente se $\vec{v} = \vec{0}$.</p>
+<p>• $|k\vec{v}| = |k|\,|\vec{v}|$ — multiplicar por $k$ estica ou comprime o vetor pelo fator $|k|$.</p>
+
+<p><strong>Vetor unitário:</strong> Dado $\vec{v} \neq \vec{0}$, o vetor</p>
+
+<div class="formula">
+$$\hat{v} = \frac{\vec{v}}{|\vec{v}|}$$
+</div>
+
+<p>tem módulo $|\hat{v}| = 1$ e aponta na mesma direção de $\vec{v}$. É como "padronizar" o vetor: todos ficam com tamanho 1, só interessa a direção.</p>
+
+<p>No próximo tópico, usaremos o módulo para calcular a distância entre dois pontos quaisquer — não apenas entre um ponto e a origem. Tudo nasce do produto escalar.</p>
 
     </div>
 </section>

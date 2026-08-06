@@ -20,12 +20,11 @@
     <script src="https://unpkg.com/reveal.js@5.1.0/plugin/zoom/zoom.js"></script>
     <script>
       window.MathJax = {
-        tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] },
+        tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
         svg: { fontCache: 'global' },
       };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-    <script>
     <script>
         // ==========================================
         // VISUALIZAÇÕES INTERATIVAS - SOBREVIVÊNCIA GEOMÉTRICA
@@ -479,8 +478,6 @@
             Reveal.on('slidechanged', event => { initializeVisualizations(event.currentSlide); });
 
         })(); // Fim da IIFE Principal
-    </script>
-
     </script>
     <script>
       const SECTIONS = ["capitulo-iv/1-equacao-circunferencia.html", "capitulo-iv/2-posicao-de-ponto.html", "capitulo-iv/3-circunferencia-tres-pontos.html", "capitulo-iv/4-posicoes-relativas.html", "capitulo-iv/5-polar-parametrica.html"];

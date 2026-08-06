@@ -1,0 +1,35 @@
+<div class="exercise">
+    <h3>Projeção Ortogonal no Espaço</h3>
+    <p><strong>Objetivo:</strong> Aplicar a fórmula de projeção ortogonal no R³, confirmando que é idêntica à do R².</p>
+    <p>Dados $\vec{u} = (4, -1, 2)$ e $\vec{v} = (1, 2, -1)$:</p>
+    <ol>
+        <li>Calcule $\text{proj}_{\vec{v}} \vec{u}$.</li>
+        <li>Verifique que $\vec{u}_{\perp} = \vec{u} - \text{proj}_{\vec{v}} \vec{u}$ é de fato perpendicular a $\vec{v}$.</li>
+        <li>Calcule $|\text{proj}_{\vec{v}} \vec{u}|$ e interprete geometricamente.</li>
+    </ol>
+
+    <details class="hint-details">
+        <summary>DICA DE SOBREVIVÊNCIA</summary>
+        <p>A fórmula é $\text{proj}_{\vec{v}} \vec{u} = \frac{\vec{u} \cdot \vec{v}}{|\vec{v}|^2} \vec{v}$. Para verificar ortogonalidade, compute $\vec{u}_{\perp} \cdot \vec{v}$ — deve dar zero.</p>
+    </details>
+
+    <details>
+        <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+        <ol class="solution-steps">
+            <li>Produto interno e módulo ao quadrado:
+                $$\vec{u} \cdot \vec{v} = (4)(1) + (-1)(2) + (2)(-1) = 4 - 2 - 2 = 0$$
+                $$|\vec{v}|^2 = 1^2 + 2^2 + (-1)^2 = 1 + 4 + 1 = 6$$
+                <p>Portanto:</p>
+                $$\text{proj}_{\vec{v}} \vec{u} = \frac{0}{6} \vec{v} = (0, 0, 0) = \vec{0}$$
+            </li>
+            <li>Componente perpendicular:
+                $$\vec{u}_{\perp} = \vec{u} - \vec{0} = (4, -1, 2)$$
+                $$\vec{u}_{\perp} \cdot \vec{v} = (4)(1) + (-1)(2) + (2)(-1) = 4 - 2 - 2 = 0 \; \checkmark$$
+            </li>
+            <li>$|\text{proj}_{\vec{v}} \vec{u}| = |\vec{0}| = 0$.</p>
+                <p><strong>Interpretação:</strong> O produto interno $\vec{u} \cdot \vec{v} = 0$ revela que $\vec{u}$ e $\vec{v}$ já são perpendiculares! A projeção de $\vec{u}$ sobre $\vec{v}$ é o vetor nulo — $\vec{u}$ não tem "sombra" sobre $\vec{v}$. Geometricamente, $\vec{u}$ está inteiramente na direção perpendicular a $\vec{v}$.</p>
+            </li>
+        </ol>
+        <p><strong>Reflexão:</strong> A projeção ortogonal no R³ segue a mesma fórmula do R². O caso em que $\vec{u} \perp \vec{v}$ é um teste de sanidade: a projeção deve ser nula. Este exercício mostra que a fórmula "funciona" inclusive nos casos extremos.</p>
+    </details>
+</div>

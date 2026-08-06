@@ -1,13 +1,20 @@
 <section class="manual-contexto" data-context="manual-sobrevivencia">
     <div class="terminal-border">
-    <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: DISTÂNCIA ENTRE PONTOS</h2>
-<p>Na Zona Devastada, um erro de cálculo na distância entre dois pontos pode significar a diferença entre vida e morte. Seja para determinar a rota mais segura entre abrigos, calcular o alcance dos mutantes ou estimar a quantidade de combustível necessária para uma expedição, o cálculo preciso de distâncias é uma habilidade vital para qualquer sobrevivente.</p>
-<p>A distância entre dois pontos no plano é calculada usando a diferença vetorial entre suas coordenadas. Sejam $A(x_1, y_1)$ e $B(x_2, y_2)$ dois pontos no plano. O vetor $\overrightarrow{AB} = (x_2 - x_1, y_2 - y_1)$ representa o deslocamento do ponto A até o ponto B. A distância entre A e B é o módulo (ou norma) deste vetor.</p>
-<p>Este módulo matemático aborda métodos para calcular distâncias usando operações vetoriais, permitindo que você navegue com precisão pela Zona Devastada enquanto minimiza a exposição a ameaças. Lembre-se: em um mundo onde cada recurso conta, o caminho mais curto é frequentemente a diferença entre a sobrevivência e o fracasso.</p>
+    <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: DISTÂNCIA ENTRE DOIS PONTOS</h2>
+<p>No tópico anterior, aprendemos que a distância da origem até um ponto é o módulo do vetor posição: $d(O,P) = |\vec{OP}|$. Mas na Zona Devastada, raramente estamos na origem. A pergunta que importa é: <strong>qual a distância entre dois pontos quaisquer?</strong></p>
+<p>Sejam $A(x_1{,}y_1)$ e $B(x_2{,}y_2)$ dois pontos no plano. O vetor que vai de $A$ a $B$ é:</p>
 <div class="formula">
-    $$d(A,B) = |\overrightarrow{AB}| = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$
-    </div>
-<p>Este método utiliza o teorema de Pitágoras e pode ser generalizado para calcular distâncias em diferentes contextos: distância de um ponto a uma reta, entre retas paralelas ou entre um ponto e um plano. Dominar estas técnicas permitirá que você otimize rotas de exploração, mapeie zonas seguras e planeje defesas eficientes para o seu abrigo.</p>
-
+$$\overrightarrow{AB} = (x_2 - x_1,\; y_2 - y_1)$$
+</div>
+<p>A distância entre $A$ e $B$ é o módulo deste vetor diferença:</p>
+<div class="formula">
+$$d(A,B) = |\overrightarrow{AB}| = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$
+</div>
+<p>Reconheceu? É a mesma fórmula que você decorou no ensino médio via Teorema de Pitágoras — os catetos são as diferenças $\Delta x = x_2 - x_1$ e $\Delta y = y_2 - y_1$, e a distância é a hipotenusa. A novidade é que agora sabemos <em>por que</em> ela funciona: ela é o módulo do vetor $\overrightarrow{AB}$, e já sabemos calcular módulos.</p>
+<p>A distância satisfaz três propriedades fundamentais:</p>
+<div class="formula">
+$$d(A,B) = d(B,A) \qquad d(A,B) = 0 \iff A = B \qquad d(A,C) \leq d(A,B) + d(B,C)$$
+</div>
+<p>Domine esta ferramenta e você será capaz de navegar com precisão pela Zona Devastada, planejar rotas de abastecimento e dimensionar perímetros de defesa.</p>
     </div>
 </section>

@@ -1,0 +1,39 @@
+<div class="exercise">
+<h3>CORREDORES DE EQUIDISTÂNCIA</h3>
+
+<p>Duas rotas de patrulha na Zona Devastada são modeladas pelas retas $r_1: 3x + 4y - 12 = 0$ e $r_2: 3x + 4y + 18 = 0$. Um drone de reconhecimento precisa voar sempre à mesma distância das duas rotas. O objetivo deste exercício é construir o lugar geométrico desses pontos equidistantes usando a fórmula de distância ponto-reta do Capítulo III.</p>
+
+<p><strong>(a)</strong> Desenhe no papel um esboço das duas retas. Note que elas têm os mesmos coeficientes $a$ e $b$ — o que isso significa geometricamente? Calcule a distância entre elas.</p>
+
+<p><strong>(b)</strong> Seja $P(x,y)$ um ponto equidistante de $r_1$ e $r_2$. Escreva a condição $d(P, r_1) = d(P, r_2)$ usando a fórmula de distância ponto-reta.</p>
+
+<p><strong>(c)</strong> Observe que $\sqrt{3^2 + 4^2} = 5$ para ambas as retas. Elimine os denominadores e os módulos (considere os dois sinais). Obtenha as duas equações que representam as bissetrizes.</p>
+
+<p><strong>(d)</strong> Identifique geometricamente cada uma das duas bissetrizes. Uma delas é o corredor seguro entre as rotas; a outra está fora delas. Qual é qual?</p>
+
+<p><strong>(e)</strong> Verifique que o ponto $P_0(0, 0)$ está sobre uma das bissetrizes. Ele está entre as retas ou fora delas?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>No item (c), quando os denominadores são iguais, a equação se simplifica para $|3x + 4y - 12| = |3x + 4y + 18|$. O módulo gera dois casos: $3x + 4y - 12 = 3x + 4y + 18$ ou $3x + 4y - 12 = -(3x + 4y + 18)$. O primeiro caso leva a uma contradição — o que isso significa geometricamente?</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>As retas têm a mesma direção (coeficientes $a$ e $b$ iguais), logo são paralelas. A distância entre elas é $d = \dfrac{|c_2 - c_1|}{\sqrt{a^2+b^2}} = \dfrac{|18 - (-12)|}{5} = \dfrac{30}{5} = 6$.</li>
+<li>Condição: $\dfrac{|3x + 4y - 12|}{5} = \dfrac{|3x + 4y + 18|}{5}$.</li>
+<li>Simplificando: $|3x + 4y - 12| = |3x + 4y + 18|$.</li>
+<li>Caso 1 ($+$): $3x + 4y - 12 = 3x + 4y + 18 \Rightarrow -12 = 18$. Contradição! Geometricamente: não há pontos equidistantes das duas retas que estejam do mesmo lado delas (as retas são paralelas e distintas).</li>
+<li>Caso 2 ($-$): $3x + 4y - 12 = -(3x + 4y + 18) \Rightarrow 3x + 4y - 12 = -3x - 4y - 18 \Rightarrow 6x + 8y + 6 = 0$, ou $3x + 4y + 3 = 0$.</li>
+<li>A bissetriz $3x + 4y + 3 = 0$ é uma reta paralela a $r_1$ e $r_2$, situada exatamente no meio delas. É o corredor seguro.</li>
+<li>Verificação de $P_0(0,0)$: $3(0) + 4(0) + 3 = 3 \neq 0$. Logo $P_0$ <strong>não</strong> está sobre a bissetriz. Na verdade, $d(P_0, r_1) = \dfrac{|-12|}{5} = \dfrac{12}{5} = 2{,}4$ e $d(P_0, r_2) = \dfrac{|18|}{5} = \dfrac{18}{5} = 3{,}6$. O ponto está do lado de $r_1$, mais próximo dela.</li>
+</ol>
+<div class="formula">
+$$3x + 4y + 3 = 0$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Quando as retas são paralelas, há apenas uma bissetriz — a reta paralela equidistante no meio delas. O outro caso do módulo gera uma contradição porque pontos do mesmo lado de retas paralelas nunca podem ser equidistantes delas. Este é um exemplo de como a álgebra detecta impossibilidades geométricas.</p>
+</details>
+</div>

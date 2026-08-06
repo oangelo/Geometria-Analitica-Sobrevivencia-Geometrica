@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Cap. II — Módulo de um Vetor</title>
+  <link href="https://unpkg.com/reveal.js@5.1.0/dist/reveal.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/reveal.js@5.1.0/dist/theme/black.css" id="theme" rel="stylesheet"/>
+  <link href="../styles.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+  <!-- SEÇÃO 2: MÓDULO DE UM VETOR -->
+  <section>
+
+    <!-- Slide 2.1 — A Força de um Vetor (Motivação) -->
+    <section class="field-report">
+      <h2>A Força de um Vetor</h2>
+      <div class="narrative-text">
+        <p>No Capítulo I, definimos o módulo de \(\vec{v} = (x, y)\) como \(|\vec{v}| = \sqrt{x^2 + y^2}\). Agora, com o produto escalar em mãos, enxergamos por que essa fórmula é assim.</p>
+      </div>
+      <p class="formula">\[ |\vec{v}|^2 = \vec{v} \cdot \vec{v} = x^2 + y^2 \]</p>
+      <p>O <strong>módulo ao quadrado</strong> é exatamente o produto escalar do vetor consigo mesmo. Isso não é coincidência: é a mesma relação que Pitágoras, reescrita na linguagem dos vetores.</p>
+      <div class="survival-tip">
+        <p><span class="emoji-icon">🔑</span><strong>Conexão fundamental:</strong> sempre que precisar calcular \(|\vec{v}|\), você pode calcular \(\sqrt{\vec{v} \cdot \vec{v}}\) — as duas expressões são equivalentes.</p>
+      </div>
+    </section>
+
+    <!-- Slide 2.2 — Definição e Propriedades -->
+    <section class="mission-briefing">
+      <h2>Definição do Módulo</h2>
+      <p>Na Zona Devastada, medir a <strong>intensidade</strong> de um vetor é crucial. Para um vetor \(\vec{v} = (x, y)\) em \(\mathbb{R}^2\), utilizamos:</p>
+      <p class="formula">\[ |\vec{v}| = \sqrt{x^2 + y^2} = \sqrt{\vec{v} \cdot \vec{v}} \]</p>
+      <p class="formula">\[ |\vec{v}|^2 = \vec{v} \cdot \vec{v} \]</p>
+      <p>Essa fórmula deriva diretamente do Teorema de Pitágoras, considerando \(x\) e \(y\) como os catetos de um triângulo retângulo.</p>
+      <div class="definition-box">
+        <p><strong>Propriedade Multiplicativa:</strong> \(|k\vec{v}| = |k| \cdot |\vec{v}|\)</p>
+        <p><strong>Aplicação na Zona Devastada:</strong> O módulo representa a "força" ou "alcance" de um vetor — por exemplo, a distância ao Abrigo principal, a intensidade de um sinal de rádio, ou a potência de um RemoveRad.</p>
+      </div>
+    </section>
+
+    <!-- Slide 2.3 — Base Canônica: As Direções Fundamentais -->
+    <section class="mission-briefing">
+      <h2>Base Canônica: As Direções Fundamentais</h2>
+      <p>Antes de prosseguir, precisamos das <strong>direções de referência</strong> no plano. Os vetores canônicos são a bússola matemática do \(\mathbb{R}^2\):</p>
+      <div class="definition-box">
+        <p><strong>Vetores Canônicos:</strong></p>
+        <p class="formula">\[ \vec{i} = (1, 0), \quad \vec{j} = (0, 1) \]</p>
+        <p>\(\vec{i}\) aponta para leste (direção x).<br/>\(\vec{j}\) aponta para norte (direção y).</p>
+      </div>
+      <p>Qualquer vetor \(\vec{v} = (x, y)\) pode ser escrito como:</p>
+      <p class="formula">\[ \vec{v} = x\vec{i} + y\vec{j} \]</p>
+      <div class="training-problem">
+        <h4>Exemplo</h4>
+        <p>\(\vec{v} = (3, -2) = 3\vec{i} - 2\vec{j}\)</p>
+        <p>Interpretação: "3 passos a leste, 2 passos ao sul."</p>
+      </div>
+      <div class="survival-tip">
+        <p><span class="emoji-icon">🧭</span><strong>Dica de Navegação:</strong> A base canônica transforma coordenadas em direções. É como ter uma bússola interna no plano cartesiano.</p>
+      </div>
+    </section>
+
+    <!-- Slide 2.4 — Exemplos na Zona Devastada -->
+    <section class="field-report level-basic">
+      <h2>Exemplos na Zona Devastada</h2>
+      <div class="training-problem">
+        <h4>Distância ao Abrigo</h4>
+        <p>Um sobrevivente está na posição \(P(3, -4)\) em relação ao Abrigo (origem). Qual a distância até o Abrigo?</p>
+        <p class="formula">\[ |\vec{OP}| = \sqrt{3^2 + (-4)^2} = \sqrt{9 + 16} = \sqrt{25} = 5 \text{ km} \]</p>
+        <p>O sobrevivente está a <strong>5 km</strong> do Abrigo.</p>
+      </div>
+      <div class="training-problem">
+        <h4>Intensidade de Sinal de Rádio</h4>
+        <p>O vetor \(\vec{s} = (6, 8)\) representa a direção e força de um sinal de rádio. Calcule sua intensidade.</p>
+        <p class="formula">\[ |\vec{s}| = \sqrt{6^2 + 8^2} = \sqrt{36 + 64} = \sqrt{100} = 10 \text{ unidades} \]</p>
+      </div>
+    </section>
+
+    <!-- Slide 2.5 — Versor: A Direção Pura -->
+    <section class="mission-briefing">
+      <h2>Versor (Vetor Unitário)</h2>
+      <p>Na Zona Devastada, às vezes precisamos apenas da <strong>direção</strong>, não da força. Qualquer vetor \(\vec{v}\) pode ser decomposto como:</p>
+      <p class="formula">\[ \vec{v} = |\vec{v}|\hat{v}, \quad\text{onde}\quad \hat{v} = \frac{\vec{v}}{|\vec{v}|} \]</p>
+      <p>\(\hat{v}\) é o <strong>versor</strong> — um vetor unitário que indica apenas a direção e o sentido, com módulo igual a 1.</p>
+      <div class="info-panel">
+        <h4>Aplicação: Orientação de Bússola</h4>
+        <p>Se um veículo se move com velocidade \(\vec{v} = (3, 4)\) km/h, sua direção é \(\hat{v} = \frac{(3, 4)}{5} = (0{,}6, 0{,}8)\).</p>
+        <p>Isso permite calcular apenas a direção, independente da velocidade.</p>
+      </div>
+    </section>
+
+    <!-- Slide 2.6 — Treinamento: Módulo e Versor -->
+    <section class="survival-training level-intermediate">
+      <h2>Treinamento: Módulo e Versor</h2>
+      <div class="training-problem">
+        <h4>Missão 1: Distância ao Abrigo</h4>
+        <p>Um sobrevivente está em \(A(3, -2)\). Calcule a distância ao Abrigo (origem). Depois, escreva \(\vec{OA}\) na forma \(|\vec{OA}|\hat{OA}\).</p>
+      </div>
+      <div class="training-problem">
+        <h4>Missão 2: Intensidade de Sinal</h4>
+        <p>Represente o vetor \(\vec{s} = (3, -2)\) em função da base canônica, \(\vec{i}\) e \(\vec{j}\). Qual a intensidade do sinal?</p>
+      </div>
+      <div class="training-problem">
+        <h4>Missão 3: Força de RemoveRad</h4>
+        <p>Escolha outro vetor \(\vec{r} = (x, y)\) representando a força de um RemoveRad e resolva:</p>
+        <ul>
+          <li>Encontre \(|\vec{r}|\) (potência em Watts).</li>
+          <li>Determine \(\hat{r}\) (direção de emissão).</li>
+          <li>Escreva \(\vec{r}\) em termos de \(\vec{i}\) e \(\vec{j}\).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Slide 2.7 — Debriefing: Módulo -->
+    <section class="debriefing">
+      <h2>Debriefing: Módulo</h2>
+      <div class="summary-box">
+        <h3>Pontos-Chave</h3>
+        <ul>
+          <li>Módulo: \(|\vec{v}| = \sqrt{x^2 + y^2} = \sqrt{\vec{v} \cdot \vec{v}}\)</li>
+          <li>Versor: \(\hat{v} = \vec{v}/|\vec{v}|\) — direção pura</li>
+          <li>Decomposição: \(\vec{v} = |\vec{v}|\hat{v}\)</li>
+          <li>Propriedade multiplicativa: \(|k\vec{v}| = |k||\vec{v}|\)</li>
+        </ul>
+      </div>
+      <div class="next-mission">
+        <p><strong>Próxima Missão:</strong> Distância entre Dois Pontos — Se módulo mede "força" de um vetor, e dois pontos definem um vetor, então podemos medir distância entre quaisquer dois pontos.</p>
+      </div>
+    </section>
+
+  </section>
+
+</div>
+</div>
+
+<script src="https://unpkg.com/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://unpkg.com/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script src="https://unpkg.com/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['\\[', '\\]']]
+    },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    plugins: [RevealNotes, RevealHighlight]
+  });
+</script>
+
+</body>
+</html>

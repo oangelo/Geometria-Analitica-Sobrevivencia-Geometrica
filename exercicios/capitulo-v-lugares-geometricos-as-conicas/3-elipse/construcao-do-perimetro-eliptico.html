@@ -1,23 +1,44 @@
 <div class="exercise">
-<h3>Construção do Perímetro Elíptico</h3>
-<p>Você precisa estabelecer uma zona de segurança elíptica com centro na origem, focos em F₁(-3, 0) e F₂(3, 0), e semi-eixo maior igual a 5. Determine a equação desta zona de proteção.</p>
+<h3>CONSTRUÇÃO DO PERÍMETRO ELÍPTICO</h3>
+
+<p>O objetivo deste exercício é construir a equação de uma elipse a partir da definição, passo a passo, sem usar fórmulas prontas. Dois postos de comando estão posicionados em $F_1(-3, 0)$ e $F_2(3, 0)$. Um drone de patrulha deve voar de modo que a soma de suas distâncias aos dois postos seja sempre igual a $10$. Parta da definição $d(P, F_1) + d(P, F_2) = 2a$ com $P(x, y)$ e construa a equação canônica.</p>
+
+<p><strong>(a)</strong> Escreva a equação da definição usando a fórmula de distância. Identifique $c$ e $2a$ a partir dos dados.</p>
+
+<p><strong>(b)</strong> Isole uma das raízes, eleve ao quadrado, simplifique e isole a raiz restante. Mostre cada passo da álgebra.</p>
+
+<p><strong>(c)</strong> Eleve ao quadrado novamente, simplifique até chegar à forma $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$. Identifique $a$, $b$ e $c$.</p>
+
+<p><strong>(d)</strong> No papel, marque os focos e esboce a elipse. Indique os vértices nos eixos $x$ e $y$.</p>
+
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
 <div class="hint">
-<p>Use o fato de que a distância entre os focos é 2c, e aplique a relação fundamental c² = a² - b² para encontrar b.</p>
+<p>A distância entre os focos é $2c = 6$, logo $c = 3$. A soma constante é $2a = 10$, logo $a = 5$. Ao isolar $\sqrt{(x+c)^2 + y^2} = 2a - \sqrt{(x-c)^2 + y^2}$ e elevar ao quadrado, os termos $x^2$, $y^2$ e $c^2$ vão se simplificar magicamente. No segundo quadrado, lembre que $(a^2 - cx)^2 = a^4 - 2a^2cx + c^2x^2$.</p>
 </div>
 </details>
+
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Identificar que a distância focal é c = 3 (distância do centro ao foco)</li>
-<li>O semi-eixo maior é a = 5 (dado)</li>
-<li>Calcular o semi-eixo menor: $b^2 = a^2 - c^2 = 25 - 9 = 16$, logo $b = 4$</li>
-<li>Escrever a equação canônica com os valores encontrados</li>
+<li>Dados: $F_1(-3, 0)$, $F_2(3, 0)$, logo $c = 3$. Soma $2a = 10$, logo $a = 5$.</li>
+<li>Definição: $\sqrt{(x+3)^2 + y^2} + \sqrt{(x-3)^2 + y^2} = 10$.</li>
+<li>Isole: $\sqrt{(x+3)^2 + y^2} = 10 - \sqrt{(x-3)^2 + y^2}$.</li>
+<li>Eleve ao quadrado: $(x+3)^2 + y^2 = 100 - 20\sqrt{(x-3)^2 + y^2} + (x-3)^2 + y^2$.</li>
+<li>Expanda: $x^2 + 6x + 9 + y^2 = 100 - 20\sqrt{(x-3)^2 + y^2} + x^2 - 6x + 9 + y^2$.</li>
+<li>Cancele $x^2$, $y^2$, $9$: $6x = 100 - 20\sqrt{(x-3)^2 + y^2} - 6x$.</li>
+<li>$12x - 100 = -20\sqrt{(x-3)^2 + y^2}$, ou $20\sqrt{(x-3)^2 + y^2} = 100 - 12x$.</li>
+<li>Divida por 4: $5\sqrt{(x-3)^2 + y^2} = 25 - 3x$.</li>
+<li>Eleve ao quadrado: $25[(x-3)^2 + y^2] = (25 - 3x)^2 = 625 - 150x + 9x^2$.</li>
+<li>Expanda: $25x^2 - 150x + 225 + 25y^2 = 625 - 150x + 9x^2$.</li>
+<li>Cancele $-150x$: $25x^2 + 225 + 25y^2 = 625 + 9x^2$.</li>
+<li>$16x^2 + 25y^2 = 400$.</li>
+<li>Divida por 400: $\frac{x^2}{25} + \frac{y^2}{16} = 1$.</li>
 </ol>
 <div class="formula">
-                    $$\frac{x^2}{25} + \frac{y^2}{16} = 1$$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> Esta configuração cria um perímetro de segurança otimizado, onde os focos podem ser posições de torres de vigilância, garantindo cobertura máxima com recursos mínimos.</p>
+$$\frac{x^2}{25} + \frac{y^2}{16} = 1$$
+</div>
+<p>Identificação: $a^2 = 25 \Rightarrow a = 5$, $b^2 = 16 \Rightarrow b = 4$, $c = 3$ (verifique: $c^2 = a^2 - b^2 = 25 - 16 = 9$ ✓).</p>
+<p><strong>Reflexão de Sobrevivência:</strong> Você construiu a equação da elipse do zero, sem decorar. A definição $d(P,F_1) + d(P,F_2) = 2a$ é a semente; a álgebra é a ferramenta. Na Zona Devastada, quem constrói suas próprias ferramentas sobrevive.</p>
 </details>
 </div>

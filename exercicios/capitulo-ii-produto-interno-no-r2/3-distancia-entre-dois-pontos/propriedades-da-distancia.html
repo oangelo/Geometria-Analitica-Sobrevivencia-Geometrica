@@ -1,0 +1,25 @@
+<div class="exercise">
+<h3>AS TRÊS LEIS DA DISTÂNCIA</h3>
+<p>A distância entre pontos obedece a três propriedades fundamentais que todo sobrevivente precisa conhecer. Considere os pontos $A(2{,}5)$, $B(6{,}3)$ e $C(-1{,}1)$. Verifique numericamente cada propriedade:</p>
+<p><strong>(a)</strong> Simetria: calcule $d(A,B)$ e $d(B,A)$. O resultado é o mesmo?</p>
+<p><strong>(b)</strong> Identidade: calcule $d(A,A)$. O que significa esse resultado?</p>
+<p><strong>(c)</strong> Desigualdade triangular: calcule $d(A,C)$ e compare com $d(A,B) + d(B,C)$. O que você observa?</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para cada item, use $d(P,Q) = |\overrightarrow{PQ}|$. Na desigualdade triangular, lembre-se que o caminho direto nunca é mais longo que o caminho com parada intermediária.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li><strong>(a)</strong> $\overrightarrow{AB} = (4{,}-2)$, logo $d(A,B) = \sqrt{16+4} = \sqrt{20} = 2\sqrt{5}$. $\overrightarrow{BA} = (-4{,}2)$, logo $d(B,A) = \sqrt{16+4} = 2\sqrt{5}$. Resultados iguais: $d(A,B) = d(B,A)$.</li>
+<li><strong>(b)</strong> $\overrightarrow{AA} = (0{,}0)$, logo $d(A,A) = |(0{,}0)| = 0$. A distância de um ponto a si mesmo é zero — e reciprocamente, se $d(A,B)=0$, então $A=B$.</li>
+<li><strong>(c)</strong> $\overrightarrow{AC} = (-3{,}-4)$, logo $d(A,C) = \sqrt{9+16} = 5$. Temos $d(A,B) + d(B,C) = 2\sqrt{5} + \sqrt{(6+1)^2+(3-1)^2} = 2\sqrt{5} + \sqrt{49+4} = 2\sqrt{5} + \sqrt{53}$. Como $2\sqrt{5} \approx 4{,}47$ e $\sqrt{53} \approx 7{,}28$, a soma é $\approx 11{,}75$, que é maior que $5$. Confirma: $d(A,C) \leq d(A,B) + d(B,C)$.</li>
+</ol>
+<div class="formula">
+$$d(A,B) = d(B,A) \qquad d(A,A) = 0 \qquad d(A,C) \leq d(A,B) + d(B,C)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Estas três propriedades definem o que chamamos de <em>métrica</em>. A simetria diz que a distância não depende da direção. A identidade diz que só há distância zero entre pontos coincidentes. A desigualdade triangular confirma o instinto de sobrevivência: o caminho direto é sempre o mais curto.</p>
+</details>
+</div>

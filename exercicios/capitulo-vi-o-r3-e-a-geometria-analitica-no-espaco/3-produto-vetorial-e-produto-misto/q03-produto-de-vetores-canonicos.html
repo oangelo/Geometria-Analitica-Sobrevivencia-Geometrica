@@ -1,0 +1,65 @@
+<div class="exercise">
+<h3>PRODUTO VETORIAL DOS VETORES CANÔNICOS</h3>
+<p>O objetivo deste exercício é construir a tabela de produtos vetoriais entre os vetores canônicos $\vec{i}$, $\vec{j}$ e $\vec{k}$, que serve como base para entender a estrutura algébrica do produto vetorial no $\mathbb{R}^3$.</p>
+<p>Os vetores canônicos são $\vec{i} = (1, 0, 0)$, $\vec{j} = (0, 1, 0)$ e $\vec{k} = (0, 0, 1)$.</p>
+<p><strong>(a)</strong> Calcule os seguintes produtos vetoriais:</p>
+<ul>
+<li>$\vec{i} \times \vec{j}$</li>
+<li>$\vec{j} \times \vec{k}$</li>
+<li>$\vec{k} \times \vec{i}$</li>
+<li>$\vec{j} \times \vec{i}$</li>
+<li>$\vec{k} \times \vec{j}$</li>
+<li>$\vec{i} \times \vec{k}$</li>
+<li>$\vec{i} \times \vec{i}$, $\vec{j} \times \vec{j}$, $\vec{k} \times \vec{k}$</li>
+</ul>
+<p><strong>(b)</strong> Complete a tabela abaixo com os resultados:</p>
+<pre>
+        ×    |    $\vec{i}$    |    $\vec{j}$    |    $\vec{k}$
+    ---------|-----------------|-----------------|----------------
+    $\vec{i}$ |        ?        |        ?        |        ?
+    $\vec{j}$ |        ?        |        ?        |        ?
+    $\vec{k}$ |        ?        |        ?        |        ?
+</pre>
+<p><strong>(c)</strong> Que padrão você observa na tabela? Como ele se relaciona com a regra da mão direita e com a anticomutatividade?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Use a fórmula do determinante para cada par. Lembre-se: $\vec{i} \times \vec{i} = \vec{0}$ porque o ângulo é zero e $\sin 0° = 0$. Os produtos no sentido $\vec{i} \to \vec{j} \to \vec{k} \to \vec{i}$ são positivos; no sentido oposto, negativos.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>Item (a):</strong></p>
+<ol class="solution-steps">
+<li>$\vec{i} \times \vec{j} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{vmatrix} = (0\cdot0 - 0\cdot1,\; 0\cdot0 - 1\cdot0,\; 1\cdot1 - 0\cdot0) = (0, 0, 1) = \vec{k}$</li>
+<li>$\vec{j} \times \vec{k} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{vmatrix} = (1\cdot1 - 0\cdot0,\; 0\cdot0 - 0\cdot1,\; 0\cdot0 - 1\cdot0) = (1, 0, 0) = \vec{i}$</li>
+<li>$\vec{k} \times \vec{i} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 0 & 0 & 1 \\ 1 & 0 & 0 \end{vmatrix} = (0\cdot0 - 1\cdot0,\; 1\cdot1 - 0\cdot0,\; 0\cdot0 - 0\cdot1) = (0, 1, 0) = \vec{j}$</li>
+<li>$\vec{j} \times \vec{i} = -\vec{k}$ (anticomutatividade)</li>
+<li>$\vec{k} \times \vec{j} = -\vec{i}$ (anticomutatividade)</li>
+<li>$\vec{i} \times \vec{k} = -\vec{j}$ (anticomutatividade)</li>
+<li>$\vec{i} \times \vec{i} = \vec{j} \times \vec{j} = \vec{k} \times \vec{k} = \vec{0}$</li>
+</ol>
+
+<p><strong>Item (b) — Tabela completa:</strong></p>
+<pre>
+        ×    |    $\vec{i}$    |    $\vec{j}$    |    $\vec{k}$
+    ---------|-----------------|-----------------|----------------
+    $\vec{i}$ |    $\vec{0}$    |    $\vec{k}$    |   $-\vec{j}$
+    $\vec{j}$ |   $-\vec{k}$    |    $\vec{0}$    |    $\vec{i}$
+    $\vec{k}$ |    $\vec{j}$    |   $-\vec{i}$    |    $\vec{0}$
+</pre>
+
+<p><strong>Item (c):</strong></p>
+<p>O padrão observado é:</p>
+<ul>
+<li><strong>Ciclo positivo:</strong> $\vec{i} \times \vec{j} = \vec{k}$, $\vec{j} \times \vec{k} = \vec{i}$, $\vec{k} \times \vec{i} = \vec{j}$ — segue a ordem cíclica $(i, j, k)$.</li>
+<li><strong>Ciclo negativo:</strong> Inverter qualquer par inverte o sinal, pela anticomutatividade.</li>
+<li><strong>Diagonal:</strong> Todo produto de um vetor com ele mesmo é $\vec{0}$.</li>
+</ul>
+<p>Isso reflete a regra da mão direita: apontando os dedos no sentido do primeiro vetor e curvando para o segundo, o polegar aponta no sentido do resultado. A ordem cíclica $(i, j, k)$ corresponde à orientação positiva do espaço.</p>
+
+<p><strong>Reflexão de Sobrevivência:</strong> Memorizar esta tabela acelera cálculos manuais. Na Zona Devastada, sem calculadoras confiáveis, saber que $\vec{j} \times \vec{k} = \vec{i}$ de cor economiza tempo precioso durante reparos de emergência em estruturas tridimensionais.</p>
+</details>
+</div>

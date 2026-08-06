@@ -224,18 +224,22 @@
     <script>
     const MANUAL = "algebra-manual.html";
     const EXERCICIOS = [
-        "algebra/calculo-recursos.html",
-        "algebra/distribuicao-racoes.html",
-        "algebra/fortificacao-perimetro.html",
-        "algebra/radiacao-exponencial.html",
-        "algebra/multiplicacao-monomios.html",
-        "algebra/quadrado-diferenca.html",
-        "algebra/area-cultivo-seguro.html",
-        "algebra/produto-soma-diferenca.html",
-        "algebra/expansao-abrigo.html",
-        "algebra/simplificacao-fracao.html",
-        "algebra/expansao-multivariada.html",
-        "algebra/equacao-bunker.html"
+        // Fase 1 — Isolamento de incógnitas
+        "algebra/suprimentos-descontados.html",   // Q1: x + a = b (subtração)
+        "algebra/racionamento-agua.html",         // Q2: ax = b (divisão)
+        "algebra/muralha-defesa.html",            // Q3: ax + b = c (duas operações)
+        "algebra/divisao-terreno.html",           // Q4: x/a + b = c (fração + operação)
+        // Fase 2 — Propriedades algébricas
+        "algebra/armazem-quadrado.html",          // Q5: (a+b)² ≠ a²+b²
+        "algebra/diferenca-areas.html",           // Q6: diferença de quadrados
+        "algebra/radiacao-cadeia.html",           // Q7: propriedades de potências
+        // Fase 3 — Combinar com incógnitas
+        "algebra/expansao-abrigo.html",           // Q8: expandir (x+a)² e resolver
+        "algebra/simplificacao-terreno.html",     // Q9: diferença de quadrados com incógnitas
+        "algebra/decaimento-radioativo.html",     // Q10: equação com potências
+        // Fase 4 — Aplicação
+        "algebra/plantacao-sobrevivencia.html",   // Q11: montar equação área/perímetro
+        "algebra/alocacao-suprimentos.html"       // Q12: montar equação recursos
     ];
 
     async function carregarManual(arquivo) {

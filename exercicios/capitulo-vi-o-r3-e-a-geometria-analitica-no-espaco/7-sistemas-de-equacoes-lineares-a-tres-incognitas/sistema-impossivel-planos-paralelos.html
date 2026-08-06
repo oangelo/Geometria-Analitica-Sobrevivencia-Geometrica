@@ -1,0 +1,49 @@
+<div class="exercise">
+<h3>Sistema Impossível: Planos Paralelos</h3>
+<p><strong>Objetivo:</strong> Reconhecer um sistema impossível (SI) e identificar a contradição que surge durante o escalonamento.</p>
+
+<p>Três barreiras de contenção devem ser posicionadas segundo equações que definem planos no espaço. O engenheiro responsável detectou inconsistência nos dados:</p>
+
+<div class="formula">
+$$\begin{cases}
+x + y + z = 4 \\
+2x + 2y + 2z = 10 \\
+x - y + 2z = 1
+\end{cases}$$
+</div>
+
+<p><strong>a)</strong> Observe as equações (I) e (II). Os planos correspondentes são paralelos? Justifique comparando os vetores normais.</p>
+
+<p><strong>b)</strong> Aplique o método de eliminação: elimine $x$ das equações (II) e (III) usando a (I) como pivô.</p>
+
+<p><strong>c)</strong> O que acontece quando você tenta resolver o sistema 2&times;2 resultante? Identifique a contradição.</p>
+
+<p><strong>d)</strong> Classifique o sistema (SPD, SPI ou SI) e interprete geometricamente a configuração dos três planos.</p>
+
+<p><strong>e)</strong> Para tornar o sistema possível, qual deveria ser o termo independente da equação (II)? Justifique.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>Dois planos são paralelos quando seus vetores normais são paralelos (múltiplos um do outro) mas os planos são distintos (termos independentes diferentes quando normalizados). A contradição aparece como uma equação do tipo $0 = k$ com $k \neq 0$.</p>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+
+<p><strong>a)</strong> Vetor normal do primeiro plano: $\vec{n}_1 = (1, 1, 1)$. Vetor normal do segundo plano: $\vec{n}_2 = (2, 2, 2) = 2(1, 1, 1) = 2\vec{n}_1$.</p>
+<p>Os vetores normais são paralelos, logo os planos são paralelos ou coincidentes. Para verificar se são coincidentes, normalizamos: a equação (II) dividida por 2 daria $x + y + z = 5$, que difere do lado direito da (I) ($4 \neq 5$). Portanto, os planos são <strong>paralelos distintos</strong>.</p>
+
+<p><strong>b)</strong> Escalonamento:</p>
+<p>Eq. (I) &times; $(-2)$ + Eq. (II): $(2x + 2y + 2z) + (-2x - 2y - 2z) = 10 + (-8)$</p>
+<div class="formula">$$0 = 2 \quad \text{(II')}$$</div>
+
+<p>Eq. (I) &times; $(-1)$ + Eq. (III): $(x - y + 2z) + (-x - y - z) = 1 + (-4)$</p>
+<div class="formula">$$-2y + z = -3 \quad \text{(III')}$$</div>
+
+<p><strong>c)</strong> A equação (II') é $0 = 2$, uma <strong>contradição</strong>. Não existe valor de $x$, $y$ ou $z$ que satisfaça $0 = 2$. O sistema não tem solução.</p>
+
+<p><strong>d)</strong> O sistema é <span class="danger">SI</span> (Sistema Impossível). Geometricamente, os planos (I) e (II) são <strong>paralelos distintos</strong>, logo nunca se intersectam. O terceiro plano intersecta ambos em retas paralelas distintas, formando uma configuração de <strong>prisma triangular</strong> (as três retas de interseção dois a dois são paralelas e distintas).</p>
+
+<p><strong>e)</strong> Para que os planos (I) e (II) fossem coincidentes (e o sistema passível de ter solução), o termo independente da (II) deveria ser $8$, pois $2x + 2y + 2z = 8$ equivale a $x + y + z = 4$, idêntico à equação (I). Nesse caso, o sistema teria infinitas soluções (SPI).</p>
+</details>
+</div>

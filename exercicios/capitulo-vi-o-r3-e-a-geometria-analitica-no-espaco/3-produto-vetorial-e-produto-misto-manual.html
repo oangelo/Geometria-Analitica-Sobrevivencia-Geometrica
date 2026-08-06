@@ -1,16 +1,66 @@
 <section class="manual-contexto" data-context="manual-sobrevivencia">
     <div class="terminal-border">
-    <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: PRODUTO VETORIAL E PRODUTO MISTO</h2>
-<p>Sobrevivente, no espaço tridimensional da Zona Devastada, a orientação espacial pode significar a diferença entre encontrar suprimentos e se perder nas ruínas radioativas. O produto vetorial é nossa ferramenta para determinar direções perpendiculares - essencial para construir estruturas estáveis em seu abrigo e calcular a eficiência de painéis solares em relação ao sol.</p>
-<p>O <strong>produto vetorial</strong> de dois vetores $\vec{u} = (u_1, u_2, u_3)$ e $\vec{v} = (v_1, v_2, v_3)$ resulta em um novo vetor perpendicular a ambos, crucial para detectar mutações espaciais nos campos de força magnética. Sua magnitude representa a área do paralelogramo formado pelos dois vetores - útil para calcular áreas de terrenos seguros para estabelecer acampamentos.</p>
-<div class="formula">
-        $$\vec{u} \times \vec{v} = \begin{vmatrix} \vec{i} &amp; \vec{j} &amp; \vec{k} \\ u_1 &amp; u_2 &amp; u_3 \\ v_1 &amp; v_2 &amp; v_3 \end{vmatrix} = (u_2v_3 - u_3v_2, u_3v_1 - u_1v_3, u_1v_2 - u_2v_1)$$
-    </div>
-<p>O <strong>produto misto</strong> de três vetores $\vec{u}$, $\vec{v}$ e $\vec{w}$ é definido como $\vec{u} \cdot (\vec{v} \times \vec{w})$, representando o volume do paralelepípedo formado pelos três vetores. Este cálculo é vital para determinar a capacidade de armazenamento de bunkers subterrâneos e verificar se três forças atuam no mesmo plano - informação crítica para estruturas anti-radiação.</p>
-<div class="formula">
-        $$[\vec{u}, \vec{v}, \vec{w}] = \vec{u} \cdot (\vec{v} \times \vec{w}) = \begin{vmatrix} u_1 &amp; u_2 &amp; u_3 \\ v_1 &amp; v_2 &amp; v_3 \\ w_1 &amp; w_2 &amp; w_3 \end{vmatrix}$$
-    </div>
-<p>Propriedades essenciais para sobrevivência: o produto vetorial é anticomutativo ($\vec{u} \times \vec{v} = -\vec{v} \times \vec{u}$), distributivo em relação à adição, e seu módulo equals $|\vec{u}||\vec{v}|\sin\theta$. Quando o produto misto é zero, os três vetores são coplanares - indicando que as forças estão alinhadas, potencialmente perigoso para estruturas de suporte.</p>
+        <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: PRODUTO VETORIAL E PRODUTO MISTO</h2>
 
+        <h3>1. O PROBLEMA DO ESPAÇO TRIDIMENSIONAL</h3>
+        <p>Sobrevivente, no $\mathbb{R}^2$ você aprendeu a encontrar um vetor perpendicular a outro: basta girar 90°. Mas na Zona Devastada tridimensional, a situação é mais complexa.</p>
+        <p>Dados dois vetores $\vec{u}$ e $\vec{v}$ no $\mathbb{R}^3$, existem <strong>infinitas</strong> direções perpendiculares a ambos — elas formam uma reta inteira. Precisamos de uma regra que escolha <strong>uma</strong> direção específica, de forma consistente e previsível.</p>
+        <p>Além disso, no plano o "paralelogramo" formado por dois vetores sempre tem área. No espaço, precisamos de uma ferramenta que nos dê essa área <em>e</em> a direção perpendicular simultaneamente.</p>
+
+        <h3>2. DEFINIÇÃO GEOMÉTRICA DO PRODUTO VETORIAL</h3>
+        <p>O <strong>produto vetorial</strong> $\vec{u} \times \vec{v}$ é o vetor definido por três propriedades:</p>
+
+        <p><strong>(a) Direção:</strong> $\vec{u} \times \vec{v}$ é perpendicular a $\vec{u}$ e a $\vec{v}$. O sentido é dado pela <strong>regra da mão direita</strong>: aponte os dedos na direção de $\vec{u}$, curve-os para $\vec{v}$; o polegar aponta no sentido de $\vec{u} \times \vec{v}$.</p>
+
+        <p><strong>(b) Módulo:</strong></p>
+        <div class="formula">
+            $$|\vec{u} \times \vec{v}| = |\vec{u}| \, |\vec{v}| \, \sin\theta$$
+        </div>
+        <p>onde $\theta$ é o ângulo entre $\vec{u}$ e $\vec{v}$. Este módulo é exatamente a <strong>área do paralelogramo</strong> formado por $\vec{u}$ e $\vec{v}$.</p>
+
+        <p><strong>(c) Anticomutatividade:</strong></p>
+        <div class="formula">
+            $$\vec{u} \times \vec{v} = -(\vec{v} \times \vec{u})$$
+        </div>
+        <p>Inverter a ordem inverte o sentido do vetor resultante — a regra da mão direita explica isso naturalmente.</p>
+
+        <p><strong>Consequência importante:</strong> $\vec{u} \times \vec{u} = \vec{0}$ (pois $\sin 0° = 0$). O produto vetorial de um vetor com ele mesmo é o vetor nulo.</p>
+
+        <h3>3. FÓRMULA ALGÉBRICA (DETERMINANTE 3×3)</h3>
+        <p>Se $\vec{u} = (u_1, u_2, u_3)$ e $\vec{v} = (v_1, v_2, v_3)$, então:</p>
+        <div class="formula">
+            $$\vec{u} \times \vec{v} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3 \end{vmatrix}$$
+        </div>
+        <p>Expandindo pelo desenvolvimento de Laplace pela primeira linha:</p>
+        <div class="formula">
+            $$\vec{u} \times \vec{v} = (u_2 v_3 - u_3 v_2)\,\vec{i} \;+\; (u_3 v_1 - u_1 v_3)\,\vec{j} \;+\; (u_1 v_2 - u_2 v_1)\,\vec{k}$$
+        </div>
+        <p>Ou, em coordenadas:</p>
+        <div class="formula">
+            $$\vec{u} \times \vec{v} = \bigl(u_2 v_3 - u_3 v_2,\; u_3 v_1 - u_1 v_3,\; u_1 v_2 - u_2 v_1\bigr)$$
+        </div>
+
+        <p><strong>Verificação de perpendicularidade:</strong> Para confirmar que o resultado está correto, calcule $(\vec{u} \times \vec{v}) \cdot \vec{u}$ e $(\vec{u} \times \vec{v}) \cdot \vec{v}$. Ambos devem ser zero.</p>
+
+        <h3>4. PRODUTO MISTO</h3>
+        <p>O <strong>produto misto</strong> de três vetores $\vec{u}$, $\vec{v}$, $\vec{w}$ é definido como:</p>
+        <div class="formula">
+            $$[\vec{u}, \vec{v}, \vec{w}] = \vec{u} \cdot (\vec{v} \times \vec{w})$$
+        </div>
+        <p>Geometricamente, o valor absoluto do produto misto é o <strong>volume do paralelepípedo</strong> formado pelos três vetores.</p>
+
+        <p>Em coordenadas, é o determinante 3×3:</p>
+        <div class="formula">
+            $$[\vec{u}, \vec{v}, \vec{w}] = \begin{vmatrix} u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3 \\ w_1 & w_2 & w_3 \end{vmatrix}$$
+        </div>
+
+        <h3>5. COPLANARIDADE</h3>
+        <p>Três vetores são <strong>coplanares</strong> (estão no mesmo plano) se e somente se:</p>
+        <div class="formula">
+            $$[\vec{u}, \vec{v}, \vec{w}] = 0$$
+        </div>
+        <p>Isso ocorre porque, se os três vetores estão no mesmo plano, o "paralelepípedo" que eles formam tem altura zero, logo volume zero.</p>
+
+        <p><strong>Regra de sobrevivência:</strong> O produto vetorial cria direções; o produto misto mede volumes e detecta planaridade. São ferramentas complementares para navegação e engenharia na Zona Devastada.</p>
     </div>
 </section>

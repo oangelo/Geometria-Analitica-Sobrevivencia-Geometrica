@@ -1,0 +1,36 @@
+<div class="exercise">
+<h3>REDE DE TORRES DE COMUNICAÇÃO</h3>
+
+<p>O SUPERVISOR está avaliando três torres de comunicação propostas para a região leste: $T_1(1, 1)$, $T_2(5, 4)$ e $T_3(9, 1)$. No papel, esboce as três torres e os segmentos que as conectam. Primeiro, verifique se as três torres formam um triângulo retângulo — construa os vetores dos lados e use o produto escalar. Se for retângulo, identifique qual torre ocupa o vértice do ângulo reto. Depois, calcule as distâncias entre as torres (use o módulo do vetor diferença, do Capítulo II) para determinar se o triângulo é isósceles, equilátero ou escaleno. Finalmente, o SUPERVISOR quer instalar uma quarta torre $T_4$ que forme um retângulo com as três existentes. Encontre as coordenadas de $T_4$.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para o triângulo retângulo: construa $\overrightarrow{T_1T_2}$, $\overrightarrow{T_1T_3}$, $\overrightarrow{T_2T_3}$ e teste os três produtos escalares. Para $T_4$: em um retângulo, as diagonais se bissectam — o ponto médio de $T_1T_3$ deve ser igual ao ponto médio de $T_2T_4$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Vetores dos lados: $\overrightarrow{T_1T_2} = (5-1, 4-1) = (4, 3)$, $\overrightarrow{T_1T_3} = (9-1, 1-1) = (8, 0)$, $\overrightarrow{T_2T_3} = (9-5, 1-4) = (4, -3)$.</li>
+<li>Teste produtos escalares: $\overrightarrow{T_1T_2} \cdot \overrightarrow{T_1T_3} = 4 \times 8 + 3 \times 0 = 32 \neq 0$.</li>
+<li>$\overrightarrow{T_1T_2} \cdot \overrightarrow{T_2T_3} = 4 \times 4 + 3 \times (-3) = 16 - 9 = 7 \neq 0$.</li>
+<li>$\overrightarrow{T_1T_3} \cdot \overrightarrow{T_2T_3} = 8 \times 4 + 0 \times (-3) = 32 \neq 0$.</li>
+<li>Nenhum produto é zero — o triângulo não é retângulo.</li>
+<li>Distâncias: $|\overrightarrow{T_1T_2}| = \sqrt{4^2 + 3^2} = \sqrt{25} = 5$, $|\overrightarrow{T_1T_3}| = \sqrt{8^2 + 0^2} = 8$, $|\overrightarrow{T_2T_3}| = \sqrt{4^2 + (-3)^2} = \sqrt{25} = 5$.</li>
+<li>Como $|\overrightarrow{T_1T_2}| = |\overrightarrow{T_2T_3}| = 5$, o triângulo é isósceles com base $T_1T_3$.</li>
+<li>Para $T_4$ formar um retângulo: o ponto médio de $T_1T_3$ deve coincidir com o ponto médio de $T_2T_4$.</li>
+<li>Ponto médio de $T_1T_3$: $M = \left(\frac{1+9}{2}, \frac{1+1}{2}\right) = (5, 1)$.</li>
+<li>Ponto médio de $T_2T_4$: $M = \left(\frac{5+x_4}{2}, \frac{4+y_4}{2}\right) = (5, 1)$.</li>
+<li>Resolva: $\frac{5+x_4}{2} = 5 \implies x_4 = 5$, e $\frac{4+y_4}{2} = 1 \implies y_4 = -2$.</li>
+<li>Conclusão: $T_4 = (5, -2)$.</li>
+</ol>
+<div class="formula">
+$$|\overrightarrow{T_1T_2}| = |\overrightarrow{T_2T_3}| = 5, \quad |\overrightarrow{T_1T_3}| = 8$$
+$$\text{Triângulo isósceles (não retângulo)}$$
+$$M_{T_1T_3} = (5, 1) = M_{T_2T_4} \implies T_4 = (5, -2)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A quarta torre em $(5, -2)$ completa um retângulo perfeito, criando uma zona de comunicação quadrada com cobertura máxima. O fato de o triângulo original ser isósceles (não retângulo) significa que as torres $T_1$ e $T_3$ estão alinhadas horizontalmente, com $T_2$ no topo — uma configuração em "V" que a quarta torre transforma em retângulo. Na Zona Devastada, retângulos de cobertura são preferidos porque eliminam cegos e simplificam o roteamento de sinais.</p>
+</details>
+</div>

@@ -1,0 +1,44 @@
+<div class="exercise">
+<h3>POUSO DE DRONE: EQUAÇÃO VETORIAL DA TRAJETÓRIA</h3>
+<p>O objetivo deste exercício é montar e resolver uma equação vetorial da reta no espaço para encontrar o ponto onde um objeto em movimento atinge uma condição específica. Este é um problema aberto que combina a equação vetorial da reta com resolução de equação em uma variável.</p>
+<p>Um drone de suprimentos parte do ponto $A(1, 2, 15)$ e segue na direção do vetor $\vec{v} = (2, 3, -5)$. O protocolo de pouso exige que o drone pare quando atingir o nível do solo ($z = 0$).</p>
+<p><strong>(a)</strong> Escreva a equação vetorial da trajetória do drone na forma $\vec{r}(t) = \vec{r}_0 + t\vec{v}$.</p>
+<p><strong>(b)</strong> Escreva as equações paramétricas $x(t)$, $y(t)$, $z(t)$ separadamente.</p>
+<p><strong>(c)</strong> Determine o valor do parâmetro $t$ para o qual $z = 0$. Interprete o sinal de $t$.</p>
+<p><strong>(d)</strong> Calcule as coordenadas $(x, y, z)$ do ponto de pouso.</p>
+<p><strong>(e)</strong> Calcule a distância total percorrida pelo drone desde a partida até o pouso.</p>
+<p><strong>(f)</strong> Se o drone pudesse seguir em frente além do solo (hipoteticamente, atravessando o terreno), onde estaria em $t = 5$? O que isso significa geometricamente?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>A equação vetorial da reta descreve todos os pontos da trajetória. A condição $z = 0$ dá uma equação em $t$: $z_0 + tv_3 = 0$. Resolva para $t$ e substitua nas outras equações. A distância percorrida é $|t| \cdot |\vec{v}|$ quando $t > 0$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Dados: $A = (1, 2, 15)$, $\vec{v} = (2, 3, -5)$</li>
+<li><strong>Item (a)</strong> — $\vec{r}(t) = (1, 2, 15) + t(2, 3, -5)$</li>
+<li><strong>Item (b)</strong> — $x(t) = 1 + 2t$, $y(t) = 2 + 3t$, $z(t) = 15 - 5t$</li>
+<li><strong>Item (c)</strong> — Condição de pouso: $z(t) = 0$</li>
+<li>$15 - 5t = 0 \Rightarrow 5t = 15 \Rightarrow t = 3$</li>
+<li>$t = 3 > 0$: o drone atinge o solo após 3 unidades de tempo no futuro (sentido do vetor diretor)</li>
+<li><strong>Item (d)</strong> — $x(3) = 1 + 6 = 7$, $y(3) = 2 + 9 = 11$, $z(3) = 0$</li>
+<li>Ponto de pouso: $P = (7, 11, 0)$</li>
+<li><strong>Item (e)</strong> — $|\vec{v}| = \sqrt{4 + 9 + 25} = \sqrt{38}$</li>
+<li>Distância percorrida: $3\sqrt{38} \approx 18{,}49$ unidades</li>
+<li><strong>Item (f)</strong> — Para $t = 5$: $x(5) = 11$, $y(5) = 17$, $z(5) = 15 - 25 = -10$</li>
+<li>Ponto: $(11, 17, -10)$, com $z = -10$ (subterrâneo)</li>
+</ol>
+<div class="formula">
+$$\vec{r}(t) = (1, 2, 15) + t(2, 3, -5)$$
+$$t = 3 \text{ (pouso em } z = 0\text{)}$$
+$$P_{\text{pouso}} = (7, 11, 0)$$
+$$\text{Distância percorrida} = 3\sqrt{38} \approx 18{,}49$$
+$$\vec{r}(5) = (11, 17, -10) \text{ (subterrâneo)}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A equação vetorial da reta é uma máquina preditiva: conhecidos o ponto inicial e a direção, podemos determinar a posição em qualquer instante $t$. O parâmetro $t$ funciona como um "controle deslizante" ao longo da reta — valores positivos avançam na direção de $\vec{v}$, valores negativos retrocedem. O fato de $z(5) = -10$ mostra que a reta continua indefinidamente em ambas as direções; o "pouso" em $z = 0$ é apenas um ponto de interesse, não o fim da trajetória matemática. Na Zona Devastada, entender que a reta se estende além do ponto de pouso é crucial para prever rotas de emergência e zonas de exclusão aérea.</p>
+</details>
+</div>

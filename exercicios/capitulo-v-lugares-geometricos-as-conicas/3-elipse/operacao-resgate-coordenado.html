@@ -1,26 +1,44 @@
 <div class="exercise">
-<h3>Operação Resgate Coordenado</h3>
-<p>Uma missão de resgate complexa envolve duas equipes posicionadas nos focos de uma elipse de coordenação. A elipse tem centro em C(3, -2), passa pelo ponto estratégico P(7, 1) e tem semi-eixo menor igual a 4. Uma terceira equipe deve ser posicionada no ponto Q(a, b) da elipse onde a soma das coordenadas seja máxima. Determine a equação da elipse de coordenação e as coordenadas ótimas para a terceira equipe.</p>
+<h3>OPERAÇÃO RESGATE COORDENADO</h3>
+
+<p>O objetivo deste exercício é construir a equação de uma elipse vertical, onde o eixo maior está no eixo $y$. Dois postos de evacuação estão em $F_1(0, -4)$ e $F_2(0, 4)$. Um veículo de resgate deve percorrer rotas onde a soma das distâncias aos dois postos seja $12$. Parta da definição e construa a equação.</p>
+
+<p><strong>(a)</strong> Escreva a equação da definição com as coordenadas dos focos. Identifique $c$ e $2a$.</p>
+
+<p><strong>(b)</strong> Isole uma raiz, eleve ao quadrado, simplifique e isole a raiz restante.</p>
+
+<p><strong>(c)</strong> Eleve ao quadrado novamente, simplifique até chegar à forma canônica. Identifique $a$, $b$ e verifique $c^2 = a^2 - b^2$.</p>
+
+<p><strong>(d)</strong> No papel, esboce a elipse. Note que ela é "deitada" (vertical) — os vértices principais estão no eixo $y$. Marque focos e vértices.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>A distância entre os focos é $2c = 8$, logo $c = 4$. A soma constante é $2a = 12$, logo $a = 6$. O processo é idêntico ao exercício anterior, mas agora as coordenadas dos focos são $(0, \pm c)$. A equação final terá $a^2$ sob $y^2$ porque o eixo maior é vertical.</p>
+</div>
+</details>
+
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Equação com centro em (3, -2): $\frac{(x-3)^2}{a^2} + \frac{(y+2)^2}{b^2} = 1$</li>
-<li>Dado: semi-eixo menor = 4, então o menor entre a e b é 4</li>
-<li>P(7, 1) está na elipse: $\frac{(7-3)^2}{a^2} + \frac{(1+2)^2}{b^2} = 1$</li>
-<li>$\frac{16}{a^2} + \frac{9}{b^2} = 1$</li>
-<li>Se $b = 4$: $\frac{16}{a^2} + \frac{9}{16} = 1$, então $\frac{16}{a^2} = \frac{7}{16}$, logo $a^2 = \frac{256}{7}$</li>
-<li>Se $a = 4$: $\frac{16}{16} + \frac{9}{b^2} = 1$, então $\frac{9}{b^2} = 0$ (impossível)</li>
-<li>Portanto: $a^2 = \frac{256}{7}$, $b^2 = 16$</li>
-<li>Para maximizar $x + y$ na elipse, usar multiplicadores de Lagrange ou parametrização</li>
-<li>Parametrizando: $x = 3 + \frac{16}{\sqrt{7}}\cos t$, $y = -2 + 4\sin t$</li>
-<li>$x + y = 1 + \frac{16}{\sqrt{7}}\cos t + 4\sin t$</li>
-<li>Máximo quando $\frac{d}{dt}(x + y) = 0$: $-\frac{16}{\sqrt{7}}\sin t + 4\cos t = 0$</li>
-<li>$\tan t = \frac{\sqrt{7}}{4}$, então $\cos t = \frac{4}{\sqrt{23}}$, $\sin t = \frac{\sqrt{7}}{\sqrt{23}}$</li>
+<li>Dados: $F_1(0, -4)$, $F_2(0, 4)$, logo $c = 4$. Soma $2a = 12$, logo $a = 6$.</li>
+<li>Definição: $\sqrt{x^2 + (y+4)^2} + \sqrt{x^2 + (y-4)^2} = 12$.</li>
+<li>Isole: $\sqrt{x^2 + (y+4)^2} = 12 - \sqrt{x^2 + (y-4)^2}$.</li>
+<li>Eleve ao quadrado: $x^2 + (y+4)^2 = 144 - 24\sqrt{x^2 + (y-4)^2} + x^2 + (y-4)^2$.</li>
+<li>Expanda: $x^2 + y^2 + 8y + 16 = 144 - 24\sqrt{x^2 + (y-4)^2} + x^2 + y^2 - 8y + 16$.</li>
+<li>Cancele $x^2$, $y^2$, $16$: $8y = 144 - 24\sqrt{x^2 + (y-4)^2} - 8y$.</li>
+<li>$16y - 144 = -24\sqrt{x^2 + (y-4)^2}$, ou $24\sqrt{x^2 + (y-4)^2} = 144 - 16y$.</li>
+<li>Divida por 8: $3\sqrt{x^2 + (y-4)^2} = 18 - 2y$.</li>
+<li>Eleve ao quadrado: $9[x^2 + (y-4)^2] = (18 - 2y)^2 = 324 - 72y + 4y^2$.</li>
+<li>Expanda: $9x^2 + 9y^2 - 72y + 144 = 324 - 72y + 4y^2$.</li>
+<li>Cancele $-72y$: $9x^2 + 9y^2 + 144 = 324 + 4y^2$.</li>
+<li>$9x^2 + 5y^2 = 180$.</li>
+<li>Divida por 180: $\frac{x^2}{20} + \frac{y^2}{36} = 1$.</li>
 </ol>
 <div class="formula">
-                    $$\frac{(x-3)^2}{\frac{256}{7}} + \frac{(y+2)^2}{16} = 1$$
-                    $$Q\left(3 + \frac{64}{7\sqrt{23}}, -2 + \frac{4\sqrt{7}}{\sqrt{23}}\right)$$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> Otimização de posicionamento em operações coordenadas requer cálculo avançado. A terceira equipe será posicionada no ponto da elipse onde a soma das coordenadas é máxima, garantindo vantagem tática e comunicação otimizada com as equipes nos focos.</p>
+$$\frac{x^2}{20} + \frac{y^2}{36} = 1$$
+</div>
+<p>Identificação: $a^2 = 36 \Rightarrow a = 6$ (eixo maior vertical), $b^2 = 20 \Rightarrow b = \sqrt{20} = 2\sqrt{5}$. Verificação: $c^2 = a^2 - b^2 = 36 - 20 = 16$, logo $c = 4$ ✓.</p>
+<p><strong>Reflexão de Sobrevivência:</strong> A elipse vertical tem a mesma "receita de construção" que a horizontal. A única diferença é que $a^2$ aparece sob a variável cujo eixo contém os focos. Não decore — observe o padrão.</p>
 </details>
 </div>

@@ -1,0 +1,22 @@
+<div class="exercise">
+<h3>O ATALHO DO DETERMINANTE</h3>
+<p>No exercício anterior, foram necessários 8 passos para calcular a área: produto escalar, dois módulos, cosseno, seno, altura, área do paralelogramo e área do triângulo. Retome os mesmos vetores $\vec{u} = (4, 0)$ e $\vec{v} = (3, 2)$. Existe um <strong>atalho</strong> que condensa tudo em uma operação — o <strong>determinante 2×2</strong>:</p>
+<div class="formula">$$\text{Área}_{par.} = |u_1 v_2 - u_2 v_1| \quad \text{e} \quad \text{Área}_{tri.} = \frac{1}{2}|u_1 v_2 - u_2 v_1|$$</div>
+<p>Compare o resultado com o obtido pelo caminho longo.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint"><p>Substitua diretamente: $u_1 = 4$, $u_2 = 0$, $v_1 = 3$, $v_2 = 2$. Calcule $u_1 v_2 - u_2 v_1$.</p></div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Substituímos as componentes: $u_1 = 4$, $u_2 = 0$, $v_1 = 3$, $v_2 = 2$</li>
+<li>Calculamos o determinante: $u_1 v_2 - u_2 v_1 = 4 \cdot 2 - 0 \cdot 3 = 8 - 0 = 8$</li>
+<li>Área do paralelogramo = $|8| = 8$ unidades quadradas</li>
+<li>Área do triângulo = $\frac{8}{2} = 4$ unidades quadradas</li>
+</ol>
+<div class="formula">$$\det = u_1 v_2 - u_2 v_1 = \begin{vmatrix} 4 &amp; 0 \\ 3 &amp; 2 \end{vmatrix} = 8 - 0 = 8$$
+$$\text{Área}_{par.} = |8| = 8, \quad \text{Área}_{tri.} = \frac{8}{2} = 4$$</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O mesmo resultado do cálculo anterior, mas em um único passo. O determinante 2×2 condensa todo o trabalho — produto escalar, módulos, cosseno, seno, altura — em uma expressão algébrica simples. Nos exercícios seguintes, este será o método padrão.</p>
+</details>
+</div>

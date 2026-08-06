@@ -1,37 +1,30 @@
 <div class="exercise">
 <h3>EXPEDIÇÃO DE RECONHECIMENTO</h3>
-<p>Uma equipe de reconhecimento precisa verificar três locais de interesse representados pelos pontos $P_1(0, 4)$, $P_2(3, 1)$ e $P_3(6, 8)$. A área segura é delimitada pela circunferência $x^2 + y^2 - 4x - 6y - 12 = 0$. Determine quais locais podem ser visitados sem Trajes de Proteção e calcule a distância do ponto mais próximo da fronteira até a fronteira.</p>
+
+<p>No mundo real, os dados dos sensores nem sempre vêm na forma canônica limpa. Um satélite detectou uma zona de anomalia cuja equação bruta é $x^2 + y^2 - 6x + 4y - 12 = 0$. Antes de classificar qualquer ponto, é preciso identificar o centro e o raio dessa circunferência. Complete os quadrados para escrever a equação na forma canônica e determine o centro $C$ e o raio $r$. Depois, classifique os pontos $A(0,2)$, $B(7,-2)$ e $C(1,-5)$ como internos, sobre ou externos à zona de anomalia, usando o método de substituição na equação canônica encontrada.</p>
+
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
 <div class="hint">
-<p>Coloque a equação na forma canônica, identifique o centro e o raio, e depois verifique cada ponto. Para o ponto mais próximo da fronteira, calcule $|r - d(P_i, C)|$ para cada ponto interno ou $|d(P_i, C) - r|$ para cada ponto externo.</p>
+<p>Agrupe os termos em $x$ e $y$: $(x^2 - 6x) + (y^2 + 4y) = 12$. Para completar quadrados: $x^2 - 6x = (x-3)^2 - 9$ e $y^2 + 4y = (y+2)^2 - 4$. Some $9 + 4$ ao lado direito para compensar. Depois substitua cada ponto na forma canônica.</p>
 </div>
 </details>
+
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
 <ol class="solution-steps">
-<li>Reescrevemos a equação da circunferência:
-                    $x^2 + y^2 - 4x - 6y - 12 = 0$</li>
-<li>Completando os quadrados:
-                    $x^2 - 4x + 4 + y^2 - 6y + 9 - 12 - 4 - 9 = 0$
-                    $(x - 2)^2 + (y - 3)^2 = 25$</li>
-<li>Identificamos o centro $C(2, 3)$ e o raio $r = 5$.</li>
-<li>Para $P_1(0, 4)$:
-                    $d(P_1, C) = \sqrt{(0 - 2)^2 + (4 - 3)^2} = \sqrt{4 + 1} = \sqrt{5} \approx 2,24$</li>
-<li>Como $d(P_1, C) \approx 2,24 &lt; 5 = r$, o ponto $P_1$ está dentro da circunferência.</li>
-<li>Para $P_2(3, 1)$:
-                    $d(P_2, C) = \sqrt{(3 - 2)^2 + (1 - 3)^2} = \sqrt{1 + 4} = \sqrt{5} \approx 2,24$</li>
-<li>Como $d(P_2, C) \approx 2,24 &lt; 5 = r$, o ponto $P_2$ está dentro da circunferência.</li>
-<li>Para $P_3(6, 8)$:
-                    $d(P_3, C) = \sqrt{(6 - 2)^2 + (8 - 3)^2} = \sqrt{16 + 25} = \sqrt{41} \approx 6,40$</li>
-<li>Como $d(P_3, C) \approx 6,40 &gt; 5 = r$, o ponto $P_3$ está fora da circunferência.</li>
-<li>Os pontos $P_1$ e $P_2$ estão ambos a uma distância $\sqrt{5}$ do centro, então a distância de ambos até a fronteira é $r - d(P_i, C) = 5 - \sqrt{5} \approx 2,76$ unidades.</li>
+<li>Agrupe: $(x^2 - 6x) + (y^2 + 4y) = 12$.</li>
+<li>Complete quadrados: $(x-3)^2 - 9 + (y+2)^2 - 4 = 12$, logo $(x-3)^2 + (y+2)^2 = 25$.</li>
+<li>Centro $C(3,-2)$ e raio $r = 5$.</li>
+<li>Ponto $A(0,2)$: $(0-3)^2 + (2+2)^2 = 9 + 16 = 25 = r^2$. $A$ está <strong>sobre</strong> a circunferência.</li>
+<li>Ponto $B(7,-2)$: $(7-3)^2 + (-2+2)^2 = 16 + 0 = 16 < 25$. $B$ é <strong>interno</strong>.</li>
+<li>Ponto $C(1,-5)$: $(1-3)^2 + (-5+2)^2 = 4 + 9 = 13 < 25$. $C$ é <strong>interno</strong>.</li>
+<li>Conclusão: $A$ está exatamente no bordo da anomalia, enquanto $B$ e $C$ estão no interior.</li>
 </ol>
 <div class="formula">
-                    $(x - 2)^2 + (y - 3)^2 = 25$
-                    
-                    $d_{fronteira} = r - d(P_i, C) = 5 - \sqrt{5} \approx 2,76$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> Os locais $P_1$ e $P_2$ podem ser visitados sem Trajes de Proteção, mas para $P_3$ eles serão necessários. Ambos os pontos seguros estão a aproximadamente 2,76 unidades da fronteira da zona segura, o que proporciona uma margem confortável para pequenos desvios na navegação sem risco de exposição à radiação.</p>
+$$(x-3)^2 + (y+2)^2 = 25 \quad C(3,-2),\; r = 5$$
+$$A(0,2):\; 25 = 25 \;\Rightarrow\; \text{sobre} \qquad B(7,-2):\; 16 &lt; 25 \;\Rightarrow\; \text{interno} \qquad C(1,-5):\; 13 &lt; 25 \;\Rightarrow\; \text{interno}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A forma geral esconde o centro e o raio, mas completar quadrados revela a geometria por trás dos números. Uma vez na forma canônica, a classificação de pontos é imediata — substituição e comparação. Na Zona Devastada, dados brutos exigem processamento antes de serem úteis.</p>
 </details>
 </div>

@@ -1,27 +1,21 @@
 <div class="exercise">
 <h3>TRIANGULAÇÃO DE SUPRIMENTOS</h3>
-<p>Um sinal de rádio fragmentado indica que um pacote de suprimentos médicos foi lançado na posição que resulta da soma das coordenadas de dois abrigos conhecidos. Se o Abrigo Alpha está em $A = (2,5)$ e o Abrigo Beta em $B = (3,-1)$, determine as coordenadas exatas onde o pacote médico deve ser procurado.</p>
+<p>O objetivo deste exercício é compreender a <strong>soma de pares ordenados</strong> como uma operação componente a componente e visualizar o resultado no plano cartesiano.</p>
+<p>Um sinal de rádio fragmentado do Refúgio-TEC indica que um pacote de suprimentos médicos foi lançado na posição que resulta da <strong>soma</strong> das coordenadas de dois abrigos conhecidos. O Abrigo Alpha está em $A(2, 5)$ e o Abrigo Beta em $B(3, -1)$. A instrução é: "SOMEM AS POSIÇÕES E TERÃO O ALVO."</p>
+<p><strong>(a)</strong> Antes de calcular, desenhe os pontos $A(2, 5)$ e $B(3, -1)$ no plano cartesiano. Preveja em qual quadrante ficará o resultado da soma.</p>
+<p><strong>(b)</strong> Calcule $(2, 5) + (3, -1)$ aplicando a regra: some a primeira coordenada com a primeira, a segunda com a segunda.</p>
+<p><strong>(c)</strong> Agora calcule $B + A$, ou seja, $(3, -1) + (2, 5)$. Compare com o resultado de <strong>(b)</strong>. O que você observa?</p>
 <details class="hint-details">
 <summary>DICA DE SOBREVIVÊNCIA</summary>
-<div class="hint">
-<p>A soma de dois pares ordenados é obtida somando as coordenadas correspondentes. Aplique a fórmula da adição para encontrar o local do pacote.</p>
-</div>
+<p>A regra da soma é direta: $(a, b) + (c, d) = (a + c,\; b + d)$. Some componente a componente, sem misturar. Na parte <strong>(a)</strong>, imagine: $2 + 3 = 5$ (positivo) e $5 + (-1) = 4$ (positivo) — isso já indica o quadrante.</p>
 </details>
 <details>
 <summary>ACESSO NÍVEL: SUPERVISOR</summary>
-<ol class="solution-steps">
-<li>Identifique as coordenadas de cada abrigo:
-                       Abrigo Alpha: $A = (2,5)$
-                       Abrigo Beta: $B = (3,-1)$</li>
-<li>Aplique a fórmula de adição de pares ordenados:
-                       $A + B = (2,5) + (3,-1) = (2+3, 5+(-1))$</li>
-<li>Calcule as coordenadas resultantes:
-                       $A + B = (5, 4)$</li>
-</ol>
+<p><strong>(a)</strong> $A(2, 5)$ está no 1º quadrante e $B(3, -1)$ está no 4º quadrante. A soma das coordenadas $x$ será $2 + 3 = 5 > 0$ e a soma das coordenadas $y$ será $5 + (-1) = 4 > 0$. Previsão: o resultado ficará no 1º quadrante.</p>
+<p><strong>(b)</strong> $(2, 5) + (3, -1) = (2 + 3,\; 5 + (-1)) = (5,\; 4)$. O pacote está na posição $(5, 4)$ — 1º quadrante, confirmando a previsão.</p>
+<p><strong>(c)</strong> $(3, -1) + (2, 5) = (3 + 2,\; -1 + 5) = (5,\; 4)$. O resultado é idêntico! Isso ilustra a <strong>propriedade comutativa</strong> da soma de pares ordenados: a ordem das parcelas não altera o resultado.</p>
 <div class="formula">
-                    $(a,b) + (c,d) = (a+c, b+d)$<br/>
-                    $(2,5) + (3,-1) = (2+3, 5+(-1)) = (5, 4)$
-                </div>
-<p><strong>Reflexão de Sobrevivência:</strong> A capacidade de combinar coordenadas permite localizar pontos baseados em referências conhecidas. Em situações onde comunicações são fragmentadas, este conhecimento possibilita interpretar instruções parciais e encontrar recursos vitais mesmo com informações incompletas.</p>
+$$(a, b) + (c, d) = (c, d) + (a, b) = (a + c,\; b + d)$$
+</div>
 </details>
 </div>

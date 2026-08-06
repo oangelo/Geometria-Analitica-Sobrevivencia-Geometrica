@@ -1,0 +1,35 @@
+<div class="exercise">
+<h3>COLINEARIDADE E PARÂMETRO</h3>
+
+<p>Três pontos são <strong>colineares</strong> quando pertencem à mesma reta — uma propriedade crucial para verificar se abrigos estão alinhados em uma mesma rota de patrulha. Os pontos $A(1, 2)$, $B(3, k)$ e $C(5, 8)$ representam três postos de observação. Determine o valor de $k$ para que os três pontos sejam colineares. Depois, escreva a equação geral da reta que os contém e verifique se o ponto $D(7, 11)$ também pertence a ela.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Se $A$, $B$ e $C$ são colineares, o vetor $\overrightarrow{AB}$ deve ser múltiplo do vetor $\overrightarrow{AC}$ — ou seja, eles têm a mesma direção. Construa os dois vetores, iguale as razões das componentes e encontre $k$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Construa $\overrightarrow{AB} = B - A = (3-1, k-2) = (2, k-2)$.</li>
+<li>Construa $\overrightarrow{AC} = C - A = (5-1, 8-2) = (4, 6)$.</li>
+<li>Para colinearidade, $\overrightarrow{AB}$ e $\overrightarrow{AC}$ devem ser paralelos, ou seja, $\overrightarrow{AC} = \lambda \cdot \overrightarrow{AB}$ para algum escalar $\lambda$.</li>
+<li>Da primeira componente: $4 = \lambda \cdot 2 \Rightarrow \lambda = 2$.</li>
+<li>Da segunda componente: $6 = \lambda \cdot (k-2) = 2(k-2) \Rightarrow 6 = 2k - 4 \Rightarrow 2k = 10 \Rightarrow k = 5$.</li>
+<li>Com $k = 5$, temos $B(3, 5)$. Vetor diretor: $\overrightarrow{AC} = (4, 6)$, que simplifica para $(2, 3)$.</li>
+<li>Equação paramétrica usando $A(1, 2)$: $x = 1 + 2t$, $y = 2 + 3t$.</li>
+<li>Forma geral: $t = \frac{x-1}{2}$, então $y = 2 + 3 \cdot \frac{x-1}{2} = \frac{4 + 3x - 3}{2} = \frac{3x+1}{2}$.
+   Multiplicando: $2y = 3x + 1$, ou $3x - 2y + 1 = 0$.</li>
+<li>Verificação de $D(7, 11)$: $3(7) - 2(11) + 1 = 21 - 22 + 1 = 0$ ✓. O ponto pertence à reta.</li>
+</ol>
+<div class="formula">
+$$\overrightarrow{AB} = (2, k-2), \quad \overrightarrow{AC} = (4, 6)$$
+$$\lambda = 2 \Rightarrow k = 5$$
+$$3x - 2y + 1 = 0$$
+$$D(7,11): \; 3(7) - 2(11) + 1 = 0 \; \checkmark$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Colinearidade é o teste de alinhamento: três postos na mesma reta significam que uma única patrulha pode vigiar todos — eficiência máxima. Se não forem colineares, são necessárias rotas separadas, aumentando o risco e o consumo de recursos. Na Zona Devastada, cada posto fora da reta é um ponto cego que pode esconder uma ameaça.</p>
+</details>
+</div>
