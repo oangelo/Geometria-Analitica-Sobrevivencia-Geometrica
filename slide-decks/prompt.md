@@ -1,5 +1,15 @@
 # Diretrizes para Criação de Slides Interativos de Geometria Analítica: Sobrevivência Geométrica
 
+> **Leitura obrigatória antes de criar slides:**
+> 1. `slide-decks/AGENTS.md` — regras críticas (CSS, LaTeX, notação, escopo) e pipeline de 4 agentes
+> 2. `slide-decks/template-spec.md` — template canônico, fluxo pedagógico V1→V7, limites
+> 3. `slide-decks/narrative-spec.md` — inserts no V1 + fragmentos (temas BR/RJ, fontes verificáveis)
+> 4. `slide-decks/pedagogical-spec.md` — dissonância cognitiva, conteúdo técnico prioritário
+> 5. `slide-decks/visual-design-spec.md` — hierarquia, enquadramento, profundidade
+> 6. `slide-decks/section-checklist.md` — checklist por seção (verificador)
+>
+> **Issues de referência:** #45 (template canônico) e #46 (arco narrativo) — decisões aprovadas lá têm precedência.
+
 ## IMPORTANTE: Uso do CSS Existente
 - **NUNCA gere CSS adicional** em blocos de estilo ou estilos inline
 - **SEMPRE use apenas as classes existentes** no arquivo style.css fornecido
@@ -300,6 +310,9 @@ Utilize estes padrões HTML para todos os elementos interativos, garantindo cons
 - **SEMPRE utilize apenas as classes CSS já definidas** no arquivo styles.css
 - **Todos os estilos visuais devem ser aplicados usando as classes disponíveis**
 - **Não crie classes personalizadas** - adapte seu HTML para usar as classes existentes
+- **Cada tópico de conteúdo (02–NN) deve ter insert narrativo no V1** (1-2 frases, parágrafo final, tom seco — ver `narrative-spec.md`)
+- **Todo dado numérico deve ter fonte verificável** (IBGE, IPEA, ONU, dados oficiais) — nunca inventar números
+- **Crítica sistêmica, nunca partidária** — sem nomes de políticos ou campanhas
 
 ## Tópicos Específicos de Geometria Analítica
 

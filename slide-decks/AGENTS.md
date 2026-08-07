@@ -77,6 +77,8 @@ Ao revisar slides, verificar se algum conceito fora do escopo aparece. Exemplo: 
 
 Slides não são enciclopédia — são **aula narrada**. Cada stack vertical conta uma história com começo, meio e fim.
 
+> **Specs complementares:** leia `narrative-spec.md` (inserts no V1 + fragmentos, temas BR/RJ), `pedagogical-spec.md` (dissonância cognitiva), `template-spec.md` (fluxo pedagógico) e `visual-design-spec.md` (design visual) antes de planejar ou implementar slides.
+
 ### 2.1 Necessidade antes de definição
 
 Antes de apresentar um conceito ou fórmula, o slide deve mostrar **por que** ele é necessário. Qual problema cria a demanda? Qual foi a motivação histórica ou prática?
@@ -134,6 +136,21 @@ Nem todo conceito precisa de canvas interativo. Visualizações devem ser adicio
 - O aluno precisa ver a consequence de mudar parâmetros
 
 Quando não houver visualização, não forçar — um `field-report` bom supre a necessidade.
+
+### 2.6 Três camadas da narrativa
+
+A narrativa crítica (temas sociais BR/RJ — ver issue #46 e `narrative-spec.md`) entra nos slides em três níveis:
+
+1. **`01-narrativa.html`** — slide dedicado após a capa. Apresenta o tema social do capítulo (3-5 frases, sem fórmulas).
+2. **Insert no V1 de cada tópico** — parágrafo final do slide de abertura (motivação), 1-2 frases, tom seco. **OBRIGATÓRIO em toda seção de conteúdo (02–NN).** Se não houver conexão natural, criar por analogia, contraste ou ironia.
+3. **Fragmento ao lado de exemplos** — nos slides de APLICAÇÃO (V5+), o exemplo pode usar painel duplo: esquerda = matemática, direita = fragmento narrativo (2-4 frases). O fragmento NÃO precisa ter relação lógica com o exemplo — a justaposição emocional ancora a memória técnica.
+
+**Regras obrigatórias:**
+- **Fatos verificáveis:** todo dado numérico com fonte (IBGE, IPEA, ONU, dados oficiais). Nunca inventar números.
+- **Sem partidarismo:** crítica sistêmica, nunca nomes de políticos ou campanhas.
+- **Tom seco:** o impacto vem dos fatos, não da retórica.
+- **Conteúdo técnico é prioridade:** se a inserção não ajuda a reter/entender a matemática, cortar.
+- Inserts e fragmentos não repetem os mesmos fatos — cada beat é único.
 
 ---
 
@@ -284,17 +301,20 @@ Padrão IIFE obrigatório:
 
 ---
 
-## 5. Pipeline de Revisão (3 Agentes)
+## 5. Pipeline de Revisão (4 Agentes)
 
-O pipeline tem 3 etapas com 3 agentes distintos. Entre cada etapa, o professor revisa e aprova antes de prosseguir.
+O pipeline tem 4 etapas com 4 agentes distintos. Entre cada etapa, o professor revisa e aprova antes de prosseguir.
 
 ```
 Agente 1 — Revisor (diagnóstico → RTC)
          ↓ Revisão humana (professor comenta aprovação/ajustes)
-Agente 2 — Planejador (planejamento fino detalhado)
+Agente 2 — Planejador (PDI em 4 camadas, independentes)
          ↓ Revisão humana (professor comenta aprovação/ajustes)
-Agente 3 — Implementador (executa o planejamento)
+Agente 3 — Implementador (executa o PDI final)
+Agente 4 — Verificador (confere implementação contra specs e checklist)
 ```
+
+**Modelo de referência:** o pipeline em 4 camadas foi adaptado do curso de Cálculo Vetorial (ver `slide-decks/AGENTS.md` daquele repo).
 
 ### Agente 1 — Revisor (gera RTC)
 
@@ -365,9 +385,11 @@ Agente 3 — Implementador (executa o planejamento)
 3. Adicionar slide de projeção vetorial (exercício 5 pressupõe conhecimento)
 ```
 
-### Agente 2 — Planejador (gera planejamento fino detalhado)
+### Agente 2 — Planejador (gera PDI em 4 camadas)
 
-**Propósito:** Transformar o diagnóstico (RTC + aprovação do professor) em plano executável detalhado. O implementador deve conseguir seguir o planejamento sem voltar aos arquivos originais para entender o que fazer.
+**Propósito:** Transformar o diagnóstico (RTC + aprovação do professor) em Plano Detalhado de Implementação (PDI) em **4 camadas independentes**. Cada camada é publicada separadamente e exige aprovação antes de avançar.
+
+**Por que em camadas:** a narrativa não pode ser "tempero" da matemática — é um arco que vale por si mesmo. Matemática e narrativa são planejadas de forma independente e só depois integradas. A integração pode resultar em conexões naturais (analogias) ou em separação limpa (lado a lado). Nem todo slide precisa de insert — forçar conexões artificiais é pior que não ter.
 
 **Entrada:** RTC + comentários de aprovação do professor no issue
 
@@ -375,7 +397,8 @@ Agente 3 — Implementador (executa o planejamento)
 1. Ler o RTC nos comentários do issue
 2. Ler a aprovação/ajustes do professor
 3. Ler os slides atuais e exercícios para referência
-4. Gerar planejamento slide a slide
+4. Ler `narrative-spec.md` e `pedagogical-spec.md`
+5. Gerar as 4 camadas, cada uma como comentário separado
 
 **Como invocar:**
 
@@ -389,89 +412,71 @@ Agente 3 — Implementador (executa o planejamento)
 > 5. Leia os slides atuais em `slide-decks/capitulo-N/`
 > 6. Leia os exercícios em `exercicios/capitulo-N/`
 >
-> Gere um planejamento fino detalhado como comentário no issue, seguindo o formato abaixo.
+> Gere o PDI em 4 camadas como comentários no issue, seguindo o formato abaixo.
 
-**Formato do Planejamento Fino Detalhado:**
+**Formato do PDI — Camada 1: Núcleo Matemático (independente)**
 
-```markdown
-## PLANEJAMENTO FINO DETALHADO — CAPÍTULO N: [NOME]
+Para cada seção de conteúdo (02–NN), mapear:
+- Quais conceitos dos exercícios viram slides verticais (um conceito por slide)
+- Ordem de progressão
+- O que fica para os exercícios (nem tudo precisa estar nos slides)
 
-### Estrutura Geral
+**Requisitos obrigatórios:**
+- Cada seção deve incluir **1 a 3 exemplos clássicos** (usar `training-problem`/`problem-section`, sem solução — a decidir na issue #45). Exemplos clássicos do tópico, calculáveis em aula.
+- Cada seção deve seguir o **fluxo pedagógico** (ver `template-spec.md`): motivação → conceito → formalização → interpretação → exemplos → visualização.
 
-Tabela com visão geral de todas as seções (horizontal) e seus slides verticais:
+Publicado como primeiro comentário. Aprovação humana antes de seguir.
 
-| Seção | Arquivo | Tópico | Slides Verticais | Classe Principal |
-|-------|---------|--------|------------------|------------------|
-| 0 | capitulo-N.html | Loader principal | — | — |
-| 1 | 1-topico.html | ... | N | ... |
-| ... | ... | ... | ... | ... |
+**Formato do PDI — Camada 2: Narrativa (independente)**
 
-**Total: N slides verticais em M seções horizontais**
+Qual arco este capítulo conta (tema social BR/RJ — ver issue #46)?
+- **Abertura** (01-narrativa): o que apresenta — sistema, território, evento, pergunta
+- **Desenvolvimento**: beats narrativos ao longo dos tópicos
+- **Fechamento** (N+2-reflexao): dissonância final, pergunta sem resposta
+- **Tipo(s) de crítica**: que variedade este capítulo traz (territorial, social, ambiental, política, econômica, filosófica)
 
----
+A narrativa é planejada **sem referência à matemática**. É uma narrativa com coerência própria.
 
-### SEÇÃO 0: LOADER PRINCIPAL (`capitulo-N.html`)
+Publicado como segundo comentário. Aprovação humana antes de seguir.
 
-**Alterações necessárias:**
-- Atualizar array `SECTIONS` para nova ordem
-- Listar outras mudanças necessárias no loader
+**Formato do PDI — Camada 3: Integração**
 
----
+Onde Camada 1 e Camada 2 se encontram — dois mecanismos:
 
-### SEÇÃO K: [NOME DO TÓPICO] (`k-topico.html`) — N slides
+- **Inserts no V1 (obrigatório):** todo tópico de conteúdo (02–NN) recebe insert no V1. Se não houver conexão natural, usar analogia, contraste ou ironia. Inserts são 1-2 frases, parágrafo final, tom seco.
+- **Fragmentos junto a exemplos (dinâmico):** exemplos podem usar painel duplo: esquerda = matemática, direita = fragmento narrativo. O fragmento NÃO precisa ter relação lógica com o exemplo — justaposição emocional é válida. 1 ou mais exemplos por seção recebem fragmento. Fragmentos distribuem beats que não couberam nos inserts.
 
-Para CADA seção, detalhar slide a slide:
+**Regras gerais:**
+- A história flui coerentemente APESAR da matemática
+- Tipos variados (justaposição, ironia, pergunta aberta, fato impactante, contraste)
+- Inserts e fragmentos não repetem os mesmos fatos — cada beat é único
+- Todo dado numérico com fonte verificável (IBGE, IPEA, ONU, dados oficiais)
 
-**Slide K.1 — [Título] (Motivação)**
-- **Classe:** `field-report` (ou outra)
-- **Conteúdo:** O que aparece no slide
-- **Objetivo didático:** O que o aluno deve entender
-- **Elementos:** `narrative-text`, `survival-tip`, etc.
-- **Narrativa:** Texto-chave da motivação (se aplicável)
-- **Alterações:** O que mudar em relação ao slide atual (se revisão)
+Publicado como terceiro comentário. Aprovação humana antes de seguir.
 
-**Slide K.2 — [Título] (Definição)**
-- (mesma estrutura)
-...
+**Formato do PDI — Camada 4: PDI Final (slide a slide)**
 
----
+Para cada slide de cada seção:
+- Conteúdo matemático (se houver) — texto, fórmulas, classes CSS
+- Conteúdo narrativo (se houver) — textos prontos para implementação
+- Layout (painel duplo, canvas, etc.)
+- Marcação: NOVO / REESCREVER / MANTER
+- Para exemplos com fragmento: indicar tipo de fragmento e texto
 
-### ALTERAÇÕES NECESSÁRIAS NO `styles.css`
+Publicado como quarto comentário. Aprovação humana antes de implementar.
 
-Listar novas classes necessárias (se houver), com CSS sugerido.
-
----
-
-### CHECKLIST DE IMPLEMENTAÇÃO
-
-| Ordem | Tarefa | Arquivo(s) | Prioridade |
-|-------|--------|------------|------------|
-| 1 | ... | ... | Alta |
-| 2 | ... | ... | Alta |
-| ... | ... | ... | ... |
-
----
-
-### CORRESPONDÊNCIA FINAL SLIDES ↔ EXERCÍCIOS
-
-| Tópico Exercícios | Slides Correspondentes | Status |
-|-------------------|----------------------|--------|
-| 1-topico | 1-topico.html (N slides) | ✓ Completo |
-| 2-topico | 2-topico.html (N slides) | ✓ Completo |
-```
-
-**Referência:** O planejamento do Capítulo I na issue #18 é o modelo de referência. Leia `gh issue view 18 --comments` para ver o formato completo aplicado na prática.
+**Variedade de críticas por capítulo:** para evitar repetição ao longo do curso, cada capítulo traz tipo(s) diferente(s) de crítica. O mapeamento é definido na issue #46. Tipos possíveis: territorial, social (periferia/raça), social (gênero), econômica, infraestrutura, ambiental, política, filosófica. Nenhum tipo deve aparecer em mais de 2-3 capítulos.
 
 ### Agente 3 — Implementador
 
-**Propósito:** Executar o planejamento fino detalhado. Seguir o checklist de implementação na ordem definida.
+**Propósito:** Executar o PDI final (Camada 4 aprovada). Seguir o PDI na ordem definida.
 
-**Entrada:** Planejamento fino detalhado + aprovação do professor no issue
+**Entrada:** PDI final (Camada 4) + aprovação do professor no issue
 
 **Processo:**
-1. Ler o planejamento nos comentários do issue
-2. Ler `slide-decks/AGENTS.md` e `slide-decks/prompt.md`
-3. Seguir o checklist de implementação na ordem definida
+1. Ler o PDI nos comentários do issue
+2. Ler `slide-decks/AGENTS.md`, `slide-decks/prompt.md` e `template-spec.md`
+3. Seguir o PDI na ordem definida
 4. Após cada arquivo: executar verificações obrigatórias (grep)
 5. Após todos os arquivos: subir servidor e verificar visualmente (screenshot)
 6. Se correto, oferecer URL + screenshot ao usuário
@@ -480,13 +485,47 @@ Listar novas classes necessárias (se houver), com CSS sugerido.
 
 > Execute o Agente Implementador no issue #N.
 >
-> Leia o planejamento nos comentários da issue (`gh issue view N --comments`).
+> Leia o PDI nos comentários da issue (`gh issue view N --comments`).
 > Leia `slide-decks/AGENTS.md` e `slide-decks/prompt.md`.
-> Siga o checklist de implementação na ordem definida pelo planejamento.
+> Siga o PDI na ordem definida.
 > Após cada arquivo, execute as verificações obrigatórias:
 > - `grep -n 'style=' slide-decks/capitulo-N/*.html` (zero inline styles)
 > - `grep -n '\\\\(' slide-decks/capitulo-N/*.html | grep -v script` (zero LaTeX quebrado)
 > Suba servidor web e tire screenshot dos slides alterados.
+
+### Agente 4 — Verificador
+
+**Propósito:** Conferir se a implementação seguiu o PDI aprovado, os specs e o checklist por seção.
+
+**Entrada:** Implementação + PDI final aprovado
+
+**Processo:**
+1. Ler o PDI nos comentários do issue
+2. Verificar cada seção contra `section-checklist.md`
+3. Executar as verificações técnicas (grep style=, LaTeX, notação, escopo)
+4. Gerar relatório de verificação como comentário no issue
+
+**Saída (relatório de verificação):**
+
+| Verificação | Critério |
+| --- | --- |
+| Estrutura | Segue `template-spec.md`? (capa, narrativa, tópicos, resumo, reflexão) |
+| Fluxo pedagógico | Cada seção segue V1→V2→V3→... conforme template-spec? |
+| Exemplos | Cada seção tem 1-3 exemplos clássicos (sem solução — a decidir na issue #45)? |
+| Fragmentos | Exemplos com fragmento usam painel duplo? Fragmento gera emoção? Dado tem fonte? |
+| Navegação | H = seções, V = aprofundamento? |
+| CSS | Zero inline? Classes corretas? |
+| MathJax | `\(` e `\[` sem barra dupla? |
+| Inserts | Todo tópico (02–NN) tem insert no V1? |
+| Narrativa | Arco coerente? Variedade de inserts e fragmentos? Sem repetição de fatos? |
+| Coerência | Alinha com exercícios revisados? |
+| narrative-spec | Segue pelo menos 1 diretriz? |
+| pedagogical-spec | Dissonância sem resolução? |
+| Variedade | Tipo de crítica diferente de capítulos adjacentes? |
+| Fontes | Nenhum dado inventado — números com fonte verificável? |
+| Partidarismo | Nenhuma crítica partidária? |
+
+Ver também `section-checklist.md` para checklist completo por seção.
 
 ---
 
@@ -630,6 +669,9 @@ const { firefox } = require('playwright');
 - [ ] **LaTeX correto**: `grep -n '\\\\(' slide-decks/capitulo-N/*.html | grep -v script` retorna vazio
 - [ ] **Notação**: Pontos maiúsculos, `\vec{}`, vírgula decimal
 - [ ] **Escopo**: Nenhum conceito de capítulo posterior
+- [ ] **Inserts**: Todo tópico (02–NN) tem insert narrativo no V1 (se aplicável ao capítulo)
+- [ ] **Fontes**: Nenhum dado inventado — números com fonte verificável (IBGE, IPEA, ONU)
+- [ ] **Sem partidarismo**: Crítica sistêmica, sem nomes de políticos/campanhas
 - [ ] **Verificação visual**: Screenshot tirado e analisado (ou ⚠️ aviso de modelo sem visão enviado ao professor com caminhos dos arquivos)
 - [ ] **URL fornecida ao usuário** para validação
 - [ ] **Sem regressões**: Slides adjacentes não quebraram
@@ -644,11 +686,22 @@ const { firefox } = require('playwright');
 |---------|----------|
 | `slide-decks/AGENTS.md` | Este arquivo — regras, pipeline, verificações |
 | `slide-decks/prompt.md` | Classes CSS disponíveis, estrutura de slides, exemplos |
+| `slide-decks/template-spec.md` | Template canônico, fluxo pedagógico V1→V7, limites (issue #45) |
+| `slide-decks/narrative-spec.md` | Narrativa crítica (inserts V1, fragmentos, temas BR/RJ — issue #46) |
+| `slide-decks/pedagogical-spec.md` | Abordagem pedagógica (dissonância cognitiva) |
+| `slide-decks/visual-design-spec.md` | Princípios de design visual (hierarquia, enquadramento, opacidade) |
+| `slide-decks/section-checklist.md` | Checklist por seção (implementador/verificador) |
 | `slide-decks/styles.css` | Estilos — NÃO criar novos, usar apenas estes |
 | `slide-decks/template.html` | Template base para novos slides |
 | `exercicios/capitulo-N/` | Exercícios do capítulo N — referência para coerência |
 | `AGENTS.md` (raiz) | Regras gerais do repositório, notação, paleta de cores |
 | `ESTILO.md` | Guia completo de notação matemática |
+
+### Issues de referência
+
+- **#45** — Definir template canônico dos slides (decisões de estrutura/classes pendentes)
+- **#46** — Definir arco narrativo do curso (tema social BR/RJ, críticas por capítulo)
+- **#18** — Pipeline completo aplicado no Capítulo I (modelo de referência)
 
 ### Exemplo de referência (pipeline completo aplicado)
 
