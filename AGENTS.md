@@ -149,11 +149,13 @@ No automated test suite exists. Manual verification required:
 
 ### Slide Decks (`slide-decks/`)
 
-1. **CSS Rule (CRITICAL):** NEVER add inline styles or `<style>` blocks. Use ONLY classes from `slide-decks/styles.css`
+> **Guia completo:** `slide-decks/AGENTS.md` — regras críticas, pipeline de revisão, coerência com exercícios, verificações obrigatórias.
+
+1. **CSS Rule (CRITICAL):** NEVER add inline styles or `<style>` blocks. Use ONLY classes from `slide-decks/styles.css`. Verify with `grep 'style=' capitulo-N/*.html`.
 
 2. **Navigation structure:**
-   - Horizontal: Between main topics
-   - Vertical: Deepening within each topic
+   - Horizontal: Between main topics (one per exercise topic)
+   - Vertical: Deepening within each topic (motivation → concept → visualization → practice → synthesis)
 
 3. **Slide type classes:** `mission-briefing`, `field-report`, `simulator`, `survival-training`, `debriefing`
 
@@ -171,7 +173,11 @@ No automated test suite exists. Manual verification required:
 
 5. **Template:** Use `slide-decks/template.html` as base
 
-6. **Visual verification required:** See `/slide-decks/AGENTS.md` for mandatory screenshot verification workflow
+6. **Coherence with exercises:** Each horizontal section should correspond to a topic in the exercise list for that chapter. See `slide-decks/AGENTS.md` §3.
+
+7. **Review pipeline (3 agents):** See `slide-decks/AGENTS.md` §5 — Revisor (RTC) → Planejador (fino detalhado) → Implementador. Each step requires professor approval before proceeding.
+
+8. **Visual verification required:** See `slide-decks/AGENTS.md` §7 — mandatory screenshot verification after any change.
 
 ### Exams (`provas/`)
 
@@ -189,6 +195,37 @@ No automated test suite exists. Manual verification required:
    - `{type}-{year}-{semester}.html` — Exam (from `template-prova.html`)
    - `gabarito-{type}-{year}-{semester}.html` — Answer key
    - `folha-{type}-{year}-{semester}.html` — Answer sheet
+
+## Slide Design Principles
+
+When creating or reviewing slides, follow these principles:
+
+### 1. Necessity Before Definition
+
+Before presenting a concept or formula, show **why** it's needed. What problem creates the demand? What practical context motivates the tool? Only then comes the formal definition.
+
+**Bad**: "A vector \(\vec{v}\) in the plane is an ordered pair \((x,y)\) with magnitude and direction."
+**Good**: "Coordinates tell you *where* you are. But to go from Shelter Alpha to Outpost Bravo, we need to know not just distance, but *direction*. We need a tool that captures direction **and** magnitude. → Now: a vector is..."
+
+### 2. Slide as Narrative, Not Encyclopedia
+
+Each vertical stack should tell a story with progression: motivation → concept → visualization → practice → synthesis. The scaffold (`mission-briefing`, `field-report`, `simulator`, `survival-training`, `debriefing`) is a guide, not a rigid mold.
+
+### 3. Coherence with Exercises
+
+Each horizontal section corresponds to a topic in the exercise list. Slides introduce what exercises practice. If an exercise presupposes knowledge not covered in slides, that's a gap to flag.
+
+### 4. Build on Prior Knowledge
+
+Slides should revisit concepts from earlier chapters/topics and show how the new concept extends them. The student never starts from zero.
+
+### 5. One Idea Per Vertical Slide
+
+Don't overload a single slide. If it has more than one definition + one example, split it.
+
+### 6. Visualization When Didactically Useful
+
+Canvas interactives are valuable for inherently geometric concepts (vectors, lines, conics). Don't force visualizations where a good `field-report` suffices.
 
 ---
 
@@ -261,13 +298,17 @@ Before any commit, verify:
 
 - [ ] Mathematical notation uses correct LaTeX (points uppercase, vectors with `\vec{}`)
 - [ ] No new CSS — only existing classes from template stylesheets
-- [ ] Decimal numbers use comma: `$0{,}5$` not `$0.5$`
+- [ ] No inline styles — `grep 'style='` returns empty for slide section files
+- [ ] LaTeX delimiters correct — `grep '\\\\(' ... | grep -v script` returns empty
+- [ ] Decimal numbers use comma: `\(0{,}5\)` not `\(0.5\)`
 - [ ] No calculus concepts — only algebra/geometry/trigonometry
 - [ ] Exercise difficulty follows progressive difficulty (basic → advanced)
 - [ ] Each exercise has a clear motivation statement
 - [ ] Hints use `<details class="hint-details">` structure
 - [ ] Files named in lowercase kebab-case
 - [ ] For slides: verified visually via screenshot (see `slide-decks/AGENTS.md`)
+- [ ] For slides: each section starts with motivation, not definition
+- [ ] For slides: topics correspond to exercise list topics
 
 ---
 
@@ -278,4 +319,5 @@ Before any commit, verify:
 - `exercicios/agents.md` — Agent guide for exercise creation (workflow, format, rules)
 - `exercicios/diretrizes-listas-de-exercicios.md` — 8 design principles for exercise lists
 - `exercicios/checklist-conceitos-permitidos.md` — Concept progression by chapter
-- `slide-decks/prompt.md` — Detailed slide creation reference
+- `slide-decks/AGENTS.md` — Detailed slide guide: rules, pipeline, verification, narrative principles
+- `slide-decks/prompt.md` — CSS classes, templates, examples
