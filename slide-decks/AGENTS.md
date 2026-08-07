@@ -745,3 +745,14 @@ Combine `field-report` com níveis:
 <section class="field-report level-intermediate">...</section>
 <section class="field-report level-advanced">...</section>
 ```
+
+---
+
+## 10. Status Atual (retomada)
+
+> **Última atualização:** 2026-08-07 — issues #45 (template canônico) e #46 (arco narrativo) criadas e aguardando decisões do professor. **Resolver as issues ANTES de rodar o próximo pipeline.**
+
+- **#45** — Definir template canônico dos slides: 5 decisões pendentes (formato de fragmento, soluções nos exemplos, nomenclatura, loader, paleta) — ver comentário de status na issue
+- **#46** — Definir arco narrativo do curso (temas BR/RJ): tese e mapeamento por capítulo aguardando aprovação; decidir sub-issues por capítulo vs. PDI Camada 2
+- Specs (`template-spec.md`, `narrative-spec.md`, `pedagogical-spec.md`, `visual-design-spec.md`, `section-checklist.md`) criados no commit `8b593b8` e aguardando as decisões das issues para serem consolidados
+- Próximos passos após as issues: atualizar specs + `styles.css` com as decisões → escolher capítulo piloto → rodar pipeline completo (RTC → PDI 4 camadas → implementação → verificação)
