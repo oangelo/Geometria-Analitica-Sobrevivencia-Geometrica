@@ -1,0 +1,920 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CapÃ­tulo I - O EspaÃ§o Vetorial RÂ² (Lista Completa)</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    ></script>
+
+    <style>
+/* =====================================================
+   EXERCÍCIOS DE SALA - Geometria Analítica
+   Formato: A4, coluna dupla, para impressão
+   ===================================================== */
+
+/* === VARIÁVEIS === */
+:root {
+  --font-main: 'Latin Modern Roman', 'Times New Roman', serif;
+  --font-math: 'Latin Modern Math', 'Times New Roman', serif;
+  --color-text: #000;
+  --color-muted: #666;
+  --color-border: #333;
+  --color-accent: #4caf50;
+  --font-size-base: 10pt;
+  --line-height: 1.4;
+}
+
+/* === TELA (Visualização antes de imprimir) === */
+@media screen {
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background: #f5f5f5;
+  }
+
+  body {
+    font-family: var(--font-main);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height);
+    color: var(--color-text);
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 20px auto;
+    padding: 15mm;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .columns {
+    column-count: 2;
+    column-gap: 8mm;
+    column-rule: 1px solid #ccc;
+  }
+}
+
+/* === IMPRESSÃO === */
+@media print {
+  @page {
+    size: A4;
+    margin: 15mm;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  body {
+    font-family: var(--font-main);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height);
+    color: var(--color-text);
+  }
+
+  .page {
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .columns {
+    column-count: 2;
+    column-gap: 8mm;
+  }
+
+  .questao,
+  .tabela,
+  .checkpoint {
+    break-inside: avoid;
+  }
+
+  p,
+  li {
+    orphans: 2;
+    widows: 2;
+  }
+
+  a {
+    color: var(--color-muted);
+    text-decoration: none;
+  }
+}
+
+/* === CABEÇALHO === */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 4mm;
+  padding-bottom: 2mm;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header-left {
+  flex: 1;
+}
+
+.header-right {
+  text-align: right;
+  font-size: 9pt;
+  color: var(--color-muted);
+}
+
+.title {
+  font-size: 14pt;
+  font-weight: bold;
+  margin: 0;
+  color: var(--color-text);
+}
+
+.subtitle {
+  font-size: 10pt;
+  color: var(--color-muted);
+  margin: 2pt 0 0 0;
+}
+
+.course-info {
+  font-size: 9pt;
+}
+
+/* === INSTRUÇÕES === */
+.instructions {
+  font-size: 9pt;
+  color: var(--color-muted);
+  margin-bottom: 4mm;
+  padding: 2mm;
+  background: #f9f9f9;
+  border-left: 2pt solid var(--color-muted);
+}
+
+@media print {
+  .instructions {
+    background: transparent;
+    border-left: 2pt solid var(--color-muted);
+  }
+}
+
+/* === CONTEÚDO EM COLUNAS === */
+.columns {
+  column-count: 2;
+  column-gap: 8mm;
+}
+
+/* === EXERCÍCIOS === */
+.exercicio {
+  margin-bottom: 4mm;
+  padding: 3mm;
+  padding-bottom: 2mm;
+  border: 1px solid #ddd;
+  border-left: 3pt solid var(--color-accent);
+  background: #fafafa;
+}
+
+@media print {
+  .exercicio {
+    background: transparent;
+    border: 1px solid #ccc;
+    border-left: 3pt solid var(--color-accent);
+  }
+}
+
+.exercicio-numero {
+  display: inline-block;
+  font-weight: bold;
+  color: white;
+  background: var(--color-accent);
+  padding: 1pt 4pt;
+  margin-right: 2mm;
+  font-size: 11pt;
+}
+
+.exercicio-enunciado {
+  margin: 2mm 0;
+  font-weight: 500;
+}
+
+.exercicio-enunciado p {
+  margin: 1mm 0;
+}
+
+/* === QUESTÃO (subtítulo dentro do exercício) === */
+.questao {
+  font-weight: 600;
+  color: #333;
+  margin: 3mm 0 2mm 0;
+  padding-left: 2mm;
+  border-left: 2pt solid #888;
+}
+
+/* === DIÁLOGO (texto explicativo) === */
+.dialogo {
+  font-size: 9pt;
+  color: #555;
+  margin: 1mm 0;
+  font-style: italic;
+}
+
+/* === SUBITENS (a, b, c) === */
+.subitem {
+  margin: 2mm 0 1.5mm 0;
+  padding-left: 4mm;
+  line-height: 1.5;
+}
+
+/* === LACUNAS === */
+.lacuna {
+  display: inline-block;
+  min-width: 20mm;
+  border-bottom: 1px solid var(--color-text);
+  text-align: center;
+  margin: 0 1mm;
+}
+
+.lacuna-grande {
+  display: block;
+  min-width: 100%;
+  height: 8mm;
+  border-bottom: 1px solid var(--color-text);
+  margin: 2mm 0;
+}
+
+/* === CAIXA DE TRABALHO === */
+.workspace {
+  height: 15mm;
+  border: 1px dashed var(--color-muted);
+  margin: 2mm 0;
+  background: repeating-linear-gradient(
+    transparent,
+    transparent 4mm,
+    #f0f0f0 4mm,
+    #f0f0f0 4.5mm
+  );
+}
+
+@media print {
+  .workspace {
+    background: transparent;
+    border: 1px dashed var(--color-muted);
+  }
+}
+
+/* === CHECKPOINT === */
+.checkpoint {
+  font-size: 9pt;
+  color: var(--color-muted);
+  margin: 2mm 0;
+  padding: 1mm 2mm;
+  border-left: 2pt solid var(--color-accent);
+  background: #f5f5f5;
+}
+
+@media print {
+  .checkpoint {
+    background: transparent;
+  }
+}
+
+.checkmark {
+  display: inline-block;
+  width: 3mm;
+  height: 3mm;
+  border: 1px solid var(--color-text);
+  vertical-align: middle;
+  margin-right: 1mm;
+}
+
+/* === DICA === */
+.dica {
+  font-size: 9pt;
+  color: var(--color-muted);
+  font-style: italic;
+  margin: 1mm 0;
+}
+
+.dica::before {
+  content: 'Dica: ';
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* === TABELA DE AVALIAÇÃO === */
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2mm 0;
+  font-size: 9pt;
+}
+
+.tabela th,
+.tabela td {
+  border: 1px solid var(--color-border);
+  padding: 1.5mm 2mm;
+  text-align: center;
+}
+
+.tabela th {
+  background: #eee;
+  font-weight: 600;
+}
+
+.tabela td {
+  background: white;
+}
+
+.tabela td.lacuna-cell {
+  min-width: 12mm;
+  background: #fafafa;
+}
+
+@media print {
+  .tabela th {
+    background: #f0f0f0;
+  }
+  .tabela td.lacuna-cell {
+    background: transparent;
+  }
+}
+
+/* === FÓRMULAS === */
+.formula {
+  text-align: center;
+  margin: 2mm 0;
+  font-size: 11pt;
+}
+
+/* === RODAPÉ === */
+.footer {
+  margin-top: 4mm;
+  padding-top: 2mm;
+  border-top: 1px solid var(--color-border);
+  font-size: 8pt;
+  color: var(--color-muted);
+  text-align: center;
+}
+
+/* === QUEBRA DE PÁGINA === */
+.page-break {
+  page-break-after: always;
+}
+
+.avoid-break {
+  break-inside: avoid;
+}
+
+/* === UTILITÁRIOS === */
+.center {
+  text-align: center;
+}
+.bold {
+  font-weight: bold;
+}
+.small {
+  font-size: 9pt;
+}
+.muted {
+  color: var(--color-muted);
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <div class="header-left">
+          <h1 class="title">CapÃ­tulo I: O EspaÃ§o Vetorial RÂ²</h1>
+          <p class="subtitle">Geometria AnalÃ­tica</p>
+        </div>
+        <div class="header-right">
+          <p class="course-info">Geometria AnalÃ­tica - 2026/1</p>
+          <p class="course-info">Nome: _______________________</p>
+          <p class="course-info">Data: ___/___/___</p>
+        </div>
+      </header>
+
+      <div class="instructions">
+        <p>
+          Resolva os exercÃ­cios seguindo o raciocÃ­nio proposto. Preencha as
+          lacunas. Todo exercÃ­cio comeÃ§a com um desenho no papel.
+        </p>
+      </div>
+
+      <main class="columns">
+<section class="exercicio" data-topico="pontos" data-dificuldade="facil">
+  <p class="exercicio-enunciado">
+    <span class="exercicio-numero">1.</span>
+    O primeiro passo para se orientar na Zona Devastada é construir um mapa: os eixos $x$ e $y$ dividem o plano em quatro quadrantes, e o sinal das coordenadas diz em qual região cada ponto cai.
+  </p>
+
+  <p class="questao">
+    Construa o plano cartesiano e localize pontos.
+  </p>
+
+  <p class="dialogo">
+    Desenhe no papel o plano cartesiano: eixo $x$ horizontal, eixo $y$ vertical, cruzando na origem.
+  </p>
+  <p class="subitem">
+    a) Marque a origem $O(0, 0)$ e numere a escala de $-5$ a $5$ em cada eixo.
+  </p>
+  <p class="subitem">
+    b) Marque os pontos $A(3, 2)$, $B(-2, 4)$, $C(-3, -1)$ e $D(4, -2)$ no plano.
+  </p>
+  <p class="subitem">
+    c) Para cada ponto, escreva em qual quadrante ele está: $A$ no Quadrante <span class="lacuna"></span>, $B$ no <span class="lacuna"></span>, $C$ no <span class="lacuna"></span>, $D$ no <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    d) Complete a regra dos sinais: $x > 0$ e $y > 0$ → Quadrante <span class="lacuna"></span>; $x < 0$ e $y > 0$ → Quadrante <span class="lacuna"></span>; $x < 0$ e $y < 0$ → Quadrante <span class="lacuna"></span>; $x > 0$ e $y < 0$ → Quadrante <span class="lacuna"></span>.
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: o ponto $B(-2, 4)$ tem $x$ negativo e $y$ positivo — ele está no Quadrante II. Isso bate com o seu desenho?
+  </p>
+
+  <p class="questao">
+    Classifique pontos que ficam sobre os eixos e na origem.
+  </p>
+
+  <p class="dialogo">
+    Quando uma coordenada é zero, o ponto não cai em nenhum quadrante — ele fica sobre um eixo.
+  </p>
+  <p class="subitem">
+    a) Marque $E(0, 3)$ e $F(-2, 0)$. Em qual eixo cada um está? $E$ está sobre o eixo <span class="lacuna"></span>; $F$ está sobre o eixo <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    b) Se $x = 0$ e $y = 0$, o ponto é a <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    c) Um batedor reporta um depósito no Quadrante III. Sem saber os valores exatos, o que você pode afirmar sobre os sinais de $x$ e $y$? Escreva: <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: em (a), $E(0, 3)$ tem $x = 0$, então está sobre o eixo $y$. Confere?
+  </p>
+</section>
+
+
+<section class="exercicio" data-topico="pontos" data-dificuldade="medio">
+  <p class="exercicio-enunciado">
+    <span class="exercicio-numero">2.</span>
+    Espelhar um ponto é refleti-lo em relação a um eixo ou à origem. Na Zona Devastada, o ponto simétrico marca uma posição "invertida" em relação a uma referência — útil para confirmar leituras de radar duplicadas.
+  </p>
+
+  <p class="questao">
+    Explore as simetrias do ponto $A(2, 3)$.
+  </p>
+
+  <p class="dialogo">
+    Desenhe no papel o plano cartesiano e marque o ponto $A(2, 3)$. Espelhar pelo eixo $x$ mantém $x$ e troca o sinal de $y$.
+  </p>
+  <p class="subitem">
+    a) O simétrico de $A$ pelo eixo $x$ é $A_x = (2, -3)$. Marque $A_x$ no plano.
+  </p>
+  <p class="subitem">
+    b) Espelhe $A$ pelo eixo $y$: mantém $y$ e troca o sinal de $x$. Escreva $A_y = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$ e marque no plano.
+  </p>
+  <p class="subitem">
+    c) Espelhe $A$ pela origem: as duas coordenadas trocam de sinal. Escreva $A_o = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$ e marque no plano.
+  </p>
+  <p class="subitem">
+    d) Generalize: o simétrico de (x, y) pelo eixo x é (x, <span class="lacuna"></span>); pelo eixo y é (<span class="lacuna"></span>, y); pela origem é (<span class="lacuna"></span>, <span class="lacuna"></span>).
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: o simétrico de $(-2, 5)$ pela origem é $(2, -5)$? Você trocou os dois sinais?
+  </p>
+
+  <p class="questao">
+    Confirme leituras duplicadas usando simetria.
+  </p>
+
+  <p class="dialogo">
+    O radar detectou um sinal em $P(4, 1)$ e um eco em $Q(-4, 1)$. Compare os sinais das coordenadas.
+  </p>
+  <p class="subitem">
+    a) $Q$ é o simétrico de $P$ em relação a qual referência (eixo $x$, eixo $y$ ou origem)? <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    b) Desenhe $P$ e $Q$ no plano e trace uma linha pontilhada ligando os dois. Essa linha é paralela a qual eixo? <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    c) Se um terceiro sinal aparece em $R(-4, -1)$, em relação a que referência $R$ é o simétrico de $Q$? <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: em (c), de $Q(-4, 1)$ para $R(-4, -1)$ apenas a coordenada $y$ trocou de sinal. Isso é simetria pelo eixo $x$?
+  </p>
+</section>
+
+
+<section class="exercicio" data-topico="pontos" data-dificuldade="facil">
+  <p class="exercicio-enunciado">
+    <span class="exercicio-numero">3.</span>
+    Dois pares ordenados são iguais somente quando as coordenadas correspondentes são iguais. Essa regra permite confirmar se duas coordenadas apontam para o mesmo local — ou se um sinal de rádio fragmentado pode ser decodificado.
+  </p>
+
+  <p class="questao">
+    Verifique a igualdade de pares ordenados.
+  </p>
+
+  <p class="dialogo">
+    $(a, b) = (c, d)$ acontece se, e somente se, $a = c$ e $b = d$. Compare uma coordenada por vez.
+  </p>
+  <p class="subitem">
+    a) $(3, 5) = (3, 5)$? A primeira coordenada confere: $3 = 3$. E a segunda: $5 = 5$? A igualdade é <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    b) $(2, 7) = (2, 4)$? A primeira coordenada confere, mas a segunda: $7 = 4$? A igualdade é <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    c) O rádio recebeu a coordenada $(x + 2, 3y)$ e o mapa mostra o depósito em $(5, 9)$. Se as duas posições são a mesma, escreva: $x + 2 =$ <span class="lacuna"></span> e $3y =$ <span class="lacuna"></span>.
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: em (b), como $7 \neq 4$, os pares não são iguais. Basta uma coordenada diferente?
+  </p>
+
+  <p class="questao">
+    Resolva as incógnitas usando a condição de igualdade.
+  </p>
+
+  <p class="dialogo">
+    Use as duas equações obtidas em (c) para descobrir os valores. Isole $x$ subtraindo 2 de ambos os lados; isole $y$ dividindo por 3.
+  </p>
+  <p class="subitem">
+    a) $x + 2 = 5 \rightarrow x =$ <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    b) $3y = 9 \rightarrow y =$ <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    c) Confirme: substitua $x$ e $y$ em $(x + 2, 3y)$ e verifique se o resultado é $(5, 9)$. O par obtido é <span class="lacuna"></span>.
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: em (c), o par substituído deve coincidir com $(5, 9)$. As coordenadas batem?
+  </p>
+</section>
+
+
+<section class="exercicio" data-topico="pontos" data-dificuldade="facil">
+  <p class="exercicio-enunciado">
+    <span class="exercicio-numero">4.</span>
+    Somar pares ordenados é somar componente a componente. Geometricamente, a soma é um deslocamento: partindo de um ponto e aplicando a soma, chegamos a outro ponto — o desenho mostra o que a álgebra faz.
+  </p>
+
+  <p class="questao">
+    Calcule a soma e desenhe o resultado como deslocamento.
+  </p>
+
+  <p class="dialogo">
+    A regra da soma: $(a, b) + (c, d) = (a + c, b + d)$. Some a primeira coordenada com a primeira, a segunda com a segunda.
+  </p>
+  <p class="subitem">
+    a) Calcule $(2, 3) + (1, 4) = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    b) Desenhe no papel o ponto $A(2, 3)$ e o resultado $B($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    c) Interprete: se você partia de $A$ e deslocou $(1, 4)$ unidades, onde chegou? Escreva a resposta: <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: o resultado da soma é um ponto. No seu desenho, ele está onde você esperava?
+  </p>
+
+  <p class="questao">
+    Aplique a soma a um segundo exemplo com coordenadas negativas.
+  </p>
+
+  <p class="dialogo">
+    A regra não muda com sinais negativos: some cada componente, cuidando do sinal.
+  </p>
+  <p class="subitem">
+    a) Calcule $(-1, 2) + (3, -1) = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    b) Desenhe os dois pontos e o resultado. Em qual quadrante ficou o resultado? <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    c) Agora calcule $(3, -1) + (-1, 2)$. Compare com o resultado de (a): a ordem alterou o resultado? <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: em (c), o resultado é o mesmo de (a)? Isso mostra que a soma de pares ordenados é comutativa.
+  </p>
+</section>
+
+
+<section class="exercicio" data-topico="pontos" data-dificuldade="medio">
+  <p class="exercicio-enunciado">
+    <span class="exercicio-numero">5.</span>
+    Multiplicar um par por um escalar multiplica cada componente: se $k > 1$ o ponto se afasta da origem, se $0 < k < 1$ se aproxima, e se $k < 0$ vai para o lado oposto. Subtrair, por sua vez, é somar com o oposto — e descreve o deslocamento de um ponto até outro.
+  </p>
+
+  <p class="questao">
+    Explore o efeito geométrico da multiplicação por escalar.
+  </p>
+
+  <p class="dialogo">
+    A regra: $k \cdot (a, b) = (k \cdot a, k \cdot b)$. Multiplique cada componente pelo escalar.
+  </p>
+  <p class="subitem">
+    a) Calcule $2 \cdot (3, 1) = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$ e desenhe a seta da origem até o resultado.
+  </p>
+  <p class="subitem">
+    b) Calcule $\frac{1}{2} \cdot (4, 6) = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$. O ponto ficou mais perto ou mais longe da origem? <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    c) Calcule $-1 \cdot (2, 3) = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$. Desenhe os dois pontos. Eles estão em lados opostos da origem? <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: multiplicar por $-1$ espelha o ponto pela origem. No seu desenho, os pontos estão em lados opostos?
+  </p>
+
+  <p class="questao">
+    Use a subtração como deslocamento entre dois pontos.
+  </p>
+
+  <p class="dialogo">
+    Subtrair é somar com o oposto: $(a, b) - (c, d) = (a - c, b - d)$. O resultado é o deslocamento de $(c, d)$ até $(a, b)$.
+  </p>
+  <p class="subitem">
+    a) Calcule $(5, 4) - (2, 1) = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    b) Escreva a mesma conta como soma com o oposto: $(5, 4) + ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    c) Desenhe os pontos $A(2, 1)$ e $B(5, 4)$ e trace a seta de $A$ até $B$. A seta representa o deslocamento calculado em (a)? <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: em (c), a seta de $A$ até $B$ anda 3 unidades na horizontal e 3 na vertical — exatamente o par encontrado em (a)?
+  </p>
+</section>
+
+
+<section class="exercicio" data-topico="vetores" data-dificuldade="medio">
+  <p class="exercicio-enunciado">
+    <span class="exercicio-numero">6.</span>
+    O grande segredo do capítulo: o mesmo par ordenado pode ser um ponto (onde estou) ou um vetor (para onde vou). Confundir os rótulos é como confundir "o depósito está em $(4, 3)$" com "ande $(4, 3)$ unidades" — erros fatais na navegação.
+  </p>
+
+  <p class="questao">
+    Observe o mesmo par ordenado como ponto e como vetor.
+  </p>
+
+  <p class="dialogo">
+    Considere o par ordenado $(3, 2)$. Ele pode ser lido de duas formas.
+  </p>
+  <p class="subitem">
+    a) Como ponto: marque $A(3, 2)$ no plano. O ponto é uma <strong>posição fixa</strong> — onde você está.
+  </p>
+  <p class="subitem">
+    b) Como vetor: desenhe uma seta saindo da origem até o ponto $(3, 2)$. O vetor é um <strong>deslocamento</strong> — ande 3 na horizontal e 2 na vertical.
+  </p>
+  <p class="subitem">
+    c) Aplique o vetor $(3, 2)$ a partir do ponto $B(1, 1)$: calcule $B + (3, 2) = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$ e desenhe a seta.
+  </p>
+  <p class="subitem">
+    d) Escreva com suas palavras a diferença entre "ponto $(3, 2)$" e "vetor $(3, 2)$": <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: se você está em $B(1, 1)$ e aplica o vetor $(3, 2)$, chega em $(4, 3)$. Bate com o seu desenho?
+  </p>
+
+  <p class="questao">
+    Distinga ponto de vetor em situações de navegação.
+  </p>
+
+  <p class="dialogo">
+    Um rádio transmite: "Depósito em $(2, 5)$" e depois "Desloque $(2, 5)$". Identifique em cada frase se o par é ponto ou vetor.
+  </p>
+  <p class="subitem">
+    a) "Depósito em $(2, 5)$": o par é um <span class="lacuna"></span> (posição ou deslocamento?).
+  </p>
+  <p class="subitem">
+    b) "Desloque $(2, 5)$": o par é um <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    c) Um mensageiro confundiu as leituras e partiu da origem seguindo o vetor $(2, 5)$ quando deveria ir ao ponto $(2, 5)$. Nesse caso, ele chegou ao destino ou passou além? Explique: <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: em (c), o vetor aplicado à origem termina exatamente no ponto $(2, 5)$ — por isso a confusão passa despercebida. Mas se o ponto de partida não fosse a origem, os dois destinos seriam diferentes.
+  </p>
+</section>
+
+
+<section class="exercicio" data-topico="vetores" data-dificuldade="medio">
+  <p class="exercicio-enunciado">
+    <span class="exercicio-numero">7.</span>
+    Para encontrar o vetor que vai de $A$ até $B$, subtraia as coordenadas do ponto de partida das coordenadas do ponto de chegada: $\overrightarrow{AB} = B - A$. É a rota direta entre duas posições no mapa.
+  </p>
+
+  <p class="questao">
+    Construa o vetor deslocamento entre dois pontos.
+  </p>
+
+  <p class="dialogo">
+    Desenhe no papel o plano cartesiano e marque $A(1, 2)$ e $B(4, 6)$.
+  </p>
+  <p class="subitem">
+    a) Calcule $\overrightarrow{AB} = B - A = (4 - 1,\ 6 - 2) = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    b) Desenhe a seta de $A$ até $B$. Essa seta anda quantas unidades na horizontal e quantas na vertical? <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    c) Verifique: some o vetor $\overrightarrow{AB}$ ao ponto $A$. Você deve obter $B$. Calcule: $A + \overrightarrow{AB} = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: em (c), o resultado é $B(4, 6)$? Se sim, o vetor descreve corretamente o caminho de $A$ até $B$.
+  </p>
+
+  <p class="questao">
+    Inverta o sentido e compare com o vetor oposto.
+  </p>
+
+  <p class="dialogo">
+    O vetor de $B$ até $A$ é o oposto do vetor de $A$ até $B$: $\overrightarrow{BA} = -\overrightarrow{AB}$.
+  </p>
+  <p class="subitem">
+    a) Calcule $\overrightarrow{BA} = A - B = (1 - 4,\ 2 - 6) = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    b) Desenhe a seta de $B$ até $A$ no mesmo plano. Compare com a seta do item (b) anterior: mesmo comprimento e sentidos opostos? <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    c) Calcule $\overrightarrow{AB} + \overrightarrow{BA} = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$. O que esse resultado representa? <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: em (c), a soma dos dois vetores opostos é $(0, 0)$ — o vetor nulo. Ir e voltar anula o deslocamento.
+  </p>
+</section>
+
+
+<section class="exercicio" data-topico="pontos" data-dificuldade="medio">
+  <p class="exercicio-enunciado">
+    <span class="exercicio-numero">8.</span>
+    O ponto médio divide o segmento ao meio: dos pontos $A$ e $B$, o ponto médio é a média aritmética das coordenadas correspondentes, $M = \frac{A + B}{2}$. Ele marca o posto de troca justo entre duas comunidades.
+  </p>
+
+  <p class="questao">
+    Deduza e aplique a fórmula do ponto médio.
+  </p>
+
+  <p class="dialogo">
+    Desenhe no papel os pontos $A(2, 0)$ e $B(6, 4)$ e o segmento $AB$. Se $M$ está exatamente no meio, os vetores $\overrightarrow{AM}$ e $\overrightarrow{MB}$ devem ser iguais.
+  </p>
+  <p class="subitem">
+    a) Escreva a condição: $\overrightarrow{AM} = \overrightarrow{MB}$. Em coordenadas, $x_M - x_A = x_B - x_M$. Isole $x_M$: $2x_M = x_A + x_B$, logo $x_M = \frac{x_A + x_B}{2}$.
+  </p>
+  <p class="subitem">
+    b) Aplique para $A(2, 0)$ e $B(6, 4)$: $x_M = \frac{2 + 6}{2} =$ <span class="lacuna"></span> e $y_M = \frac{0 + 4}{2} =$ <span class="lacuna"></span>. Então $M = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    c) Marque $M$ no desenho. Ele parece estar no meio do segmento? <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: em (b), $M = (4, 2)$. É a média de cada coordenada?
+  </p>
+
+  <p class="questao">
+    Verifique com vetores que $M$ divide o segmento ao meio.
+  </p>
+
+  <p class="dialogo">
+    Calcule os dois deslocamentos a partir de $M$ e compare-os.
+  </p>
+  <p class="subitem">
+    a) $\overrightarrow{AM} = M - A = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    b) $\overrightarrow{MB} = B - M = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    c) Os dois vetores são iguais? <span class="lacuna"></span> O que isso garante sobre a posição de $M$? <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: em (c), se $\overrightarrow{AM} = \overrightarrow{MB}$, então ir de $A$ até $M$ custa o mesmo deslocamento que ir de $M$ até $B$ — $M$ está exatamente no meio.
+  </p>
+</section>
+
+
+<section class="exercicio" data-topico="pontos" data-dificuldade="dificil">
+  <p class="exercicio-enunciado">
+    <span class="exercicio-numero">9.</span>
+    O baricentro é o centro de equilíbrio do triângulo: a média aritmética das três coordenadas, $G = \frac{A + B + C}{3}$. Geometricamente, é o ponto onde as três medianas se encontram — o lugar natural para um centro de distribuição entre três comunidades.
+  </p>
+
+  <p class="questao">
+    Calcule e localize o baricentro de um triângulo.
+  </p>
+
+  <p class="dialogo">
+    Desenhe no papel os pontos $A(2, 0)$, $B(6, 0)$ e $C(4, 6)$ e forme o triângulo $ABC$.
+  </p>
+  <p class="subitem">
+    a) Calcule $G = \left(\frac{2 + 6 + 4}{3},\ \frac{0 + 0 + 6}{3}\right) = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    b) Marque $G$ dentro do triângulo. Ele parece ser o centro de equilíbrio da figura? <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    c) Se uma quarta comunidade se juntar em $D(2, 6)$, o novo centro de equilíbrio dos quatro pontos seria $G' = \frac{A + B + C + D}{4}$. Calcule $G' = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: em (a), $G = (4, 2)$. Confere com a média das coordenadas $x$ e das coordenadas $y$?
+  </p>
+
+  <p class="questao">
+    Relacione o baricentro com as medianas do triângulo.
+  </p>
+
+  <p class="dialogo">
+    A mediana de um vértice vai até o ponto médio do lado oposto. O baricentro é a interseção das três medianas.
+  </p>
+  <p class="subitem">
+    a) Calcule o ponto médio $M$ do lado $BC$: $M = \frac{B + C}{2} = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    b) Desenhe a mediana que vai de $A$ até $M$. A reta tracejada passa por $G$? <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    c) Ao longo dessa mediana, o segmento de $A$ até $G$ é o dobro do segmento de $G$ até $M$. Verifique com vetores: compare $\overrightarrow{AG}$ e $\overrightarrow{GM}$. O que você observa? <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: em (c), $\overrightarrow{AG} = 2 \cdot \overrightarrow{GM}$ — o baricentro divide cada mediana na proporção 2:1 a partir do vértice.
+  </p>
+</section>
+
+      </main>
+
+      <footer class="footer">
+        <p>Geometria AnalÃ­tica - ExercÃ­cios de Sala | CapÃ­tulo I: O EspaÃ§o Vetorial RÂ²</p>
+      </footer>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '', right: '', display: true },
+            { left: '$', right: '$', display: false },
+          ],
+          throwOnError: false,
+        });
+      });
+    </script>
+  </body>
+</html>
