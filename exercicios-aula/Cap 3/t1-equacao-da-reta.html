@@ -1,0 +1,120 @@
+<section class="exercicio" data-topico="retas" data-dificuldade="facil">
+  <p class="exercicio-enunciado">
+    <span class="exercicio-numero">1.</span>
+    Sobre os mapas de sobrevivência, uma rota inteira pode ser descrita por uma única equação. A linha de suprimento entre dois abrigos segue a reta $2x + 4y - 8 = 0$. Para navegar por ela, precisamos extrair as informações geométricas que essa equação esconde: o vetor normal, o vetor diretor, a inclinação e os pontos de corte com os eixos.
+  </p>
+
+  <p class="questao">
+    Identifique o vetor normal e o vetor diretor.
+  </p>
+
+  <p class="dialogo">
+    Na forma geral $Ax + By + C = 0$, os coeficientes de $x$ e $y$ formam o vetor normal $\vec{n} = (A, B)$, perpendicular à reta. O vetor diretor, por sua vez, é paralelo à reta.
+  </p>
+  <p class="subitem">
+    a) Pela equação dada, os coeficientes são $A =$ <span class="lacuna"></span> e $B =$ <span class="lacuna"></span>. Logo $\vec{n} = (A, B)$ tem coordenadas $($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    b) Para obter um vetor diretor, troque as coordenadas de $\vec{n}$ e mude um sinal: $\vec{d} = (-4, 2)$, ou, dividindo por 2, $\vec{d} = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    c) Confira a ortogonalidade: $\vec{n} \cdot \vec{d} = 2 \cdot (-2) + 4 \cdot 1 =$ <span class="lacuna"></span>.
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: $\vec{n} = (2, 4)$ e $\vec{d} = (-2, 1)$. O produto escalar $= -4 + 4 = 0$ — vetor diretor perpendicular ao normal, como esperado.
+  </p>
+
+  <p class="questao">
+    Encontre um ponto da reta e escreva a equação paramétrica.
+  </p>
+
+  <p class="dialogo">
+    Um ponto simples de obter: faça $x = 0$ e resolva a equação para $y$.
+  </p>
+  <p class="subitem">
+    a) Com $x = 0$: $4y - 8 = 0$, logo $y =$ <span class="lacuna"></span>. O ponto é $P_0(0, $<span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    b) Partindo de $P_0$ e usando $\vec{d} = (-2, 1)$, escreva as equações paramétricas: $x = $<span class="lacuna"></span>$t$ e $y = $<span class="lacuna"></span>$ + t$.
+  </p>
+  <p class="subitem">
+    c) Confirme que $t = 0$ cai em $P_0$ e que caminhando um vetor diretor ($t = 1$) chegamos a $(-2, 3)$, outro ponto da reta.
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: $P_0(0, 2)$; paramétricas $x = -2t$ e $y = 2 + t$. Teste alguns valores de $t$ e confira que satisfazem $2x + 4y - 8 = 0$.
+  </p>
+
+  <p class="questao">
+    Escreva a forma reduzida lendo a inclinação e o intercepto.
+  </p>
+
+  <p class="dialogo">
+    Isolando $y$ em $Ax + By + C = 0$, quando $B \neq 0$, encontramos $m = -\frac{A}{B}$ (inclinação) e $n = -\frac{C}{B}$ (intercepto no eixo $y$).
+  </p>
+  <p class="subitem">
+    a) Calcule $m = -\frac{A}{B} = -\frac{2}{4} =$ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    b) Calcule $n = -\frac{C}{B} = -\frac{-8}{4} =$ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    c) A forma reduzida é $y = mx + n$, ou seja, $y =$ <span class="lacuna"></span>$x +$ <span class="lacuna"></span>.
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: $m = -\frac{1}{2}$ e $n = 2$, logo $y = -\frac{1}{2}x + 2$. Para cada 2 unidades em $x$, a reta desce 1 unidade em $y$.
+  </p>
+
+  <p class="questao">
+    Determine os interceptos e escreva a forma segmentária.
+  </p>
+
+  <p class="dialogo">
+    A reta corta o eixo $x$ quando $y = 0$ e o eixo $y$ quando $x = 0$.
+  </p>
+  <p class="subitem">
+    a) Corte com o eixo $x$: faça $y = 0$ em $2x + 4y - 8 = 0$: $x =$ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    b) Corte com o eixo $y$: faça $x = 0$: $y =$ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    c) Com esses cortes $p$ e $q$, a forma segmentária $\frac{x}{p} + \frac{y}{q} = 1$ fica:
+    $\frac{x}{}$ <span class="lacuna"></span> $+ \frac{y}{}$ <span class="lacuna"></span> $= 1$.
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: cortes em $(4, 0)$ e $(0, 2)$; segmentária $\frac{x}{4} + \frac{y}{2} = 1$. Basta marcar os cortes e ligar para traçar a rota.
+  </p>
+
+  <p class="questao">
+    Monte a equação geral a partir de dois pontos já conhecidos.
+  </p>
+
+  <p class="dialogo">
+    Agora inverta o processo: em vez de extrair informações de uma equação, use pontos da reta para reconstruí-la. Nos itens anteriores confirmamos que $P_0(0, 2)$ e $(-2, 3)$ pertencem à rota.
+  </p>
+  <p class="subitem">
+    a) O vetor diretor que vai de $P_0(0, 2)$ até $(-2, 3)$ tem componentes $\Delta x = -2$ e $\Delta y =$ <span class="lacuna"></span>. Logo $\vec{d} = (-2,$ <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    b) O vetor normal é perpendicular a $\vec{d}$: troque as coordenadas e mude um sinal. Uma escolha é $\vec{n} = (1, 2)$. Confira: $\vec{n} \cdot \vec{d} = 1 \cdot (-2) + 2 \cdot 1 =$ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    c) Com $\vec{n} = (1, 2)$, a forma geral é $Ax + By + C = 0$. Substitua $P_0(0, 2)$: $1 \cdot 0 + 2 \cdot 2 + C = 0$, logo $C =$ <span class="lacuna"></span>. A equação montada é: <span class="lacuna-grande"></span>
+  </p>
+  <p class="subitem">
+    d) Sua equação $x + 2y - 4 = 0$ é proporcional à original $2x + 4y - 8 = 0$ (basta multiplicar por 2). Confirme que $(-2, 3)$ também a satisfaz: $-2 + 2 \cdot 3 - 4 =$ <span class="lacuna"></span>. Quantas equações diferentes podem descrever a mesma reta? <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: $\vec{d} = (-2, 1)$, produto escalar $= 0$, $C = -4$, logo $x + 2y - 4 = 0$. Multiplicando ou dividindo por qualquer número não nulo obtemos a mesma reta — existem infinitas equações equivalentes.
+  </p>
+</section>
