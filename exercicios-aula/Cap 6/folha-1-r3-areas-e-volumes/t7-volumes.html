@@ -15,20 +15,23 @@
     como isso facilita a expansão?
   </p>
   <p class="subitem">
-    a) Escreva o determinante $\begin{vmatrix} u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3 \\ w_1 & w_2 & w_3 \end{vmatrix}$ com os números dados.
+    a) Escreva o determinante $\begin{vmatrix} u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3 \\ w_1 & w_2 & w_3 \end{vmatrix}$ com os dados do problema.
     <span class="lacuna-grande"></span>
   </p>
   <p class="subitem">
-    b) Expandindo pela primeira linha (cheia de zeros), resta apenas:
-    $V = |1 \cdot (2 \cdot 3 - 0 \cdot 1)| =$ <span class="lacuna"></span>
+    b) $[\vec{u}, \vec{v}, \vec{w}] =$ <span class="lacuna"></span>
   </p>
   <p class="subitem">
-    c) Por que a expansão pela primeira linha foi tão curta? <span class="lacuna"></span>
+    c) $V = |[\vec{u}, \vec{v}, \vec{w}]| =$ <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    d) Por que a expansão foi tão curta? <span class="lacuna"></span>
   </p>
 
   <p class="checkpoint">
     <span class="checkmark"></span>
-    Verificação: $V = 6$; os dois termos com $u_2 = 0$ e $u_3 = 0$ sumiram.
+    Verifique: ao expandir pela primeira linha, os termos que multiplicam $u_2$
+    e $u_3$ desaparecem (são zero). Confira que só o termo de $u_1$ sobrevive.
   </p>
 
   <p class="questao">
@@ -44,12 +47,13 @@
     a) $[\vec{u}, \vec{v}, \vec{w}] =$ <span class="lacuna"></span> (da questão 1)
   </p>
   <p class="subitem">
-    b) $V_T = \frac{6}{6} =$ <span class="lacuna"></span>
+    b) $V_T = \frac{|[\vec{u}, \vec{v}, \vec{w}]|}{6} =$ <span class="lacuna"></span>
   </p>
 
   <p class="checkpoint">
     <span class="checkmark"></span>
-    Verificação: $V_T = 1$ — exatamente a sexta parte do volume 6.
+    Verifique: o volume do tetraedro é um sexto do volume do paralelepípedo.
+    Divida o valor da questão 1 por seis.
   </p>
 
   <p class="questao">
@@ -62,25 +66,27 @@
     vértice você escolhe como "origem"?
   </p>
   <p class="subitem">
-    a) $\vec{AB} = B - A = ($<span class="lacuna"></span>, <span class="lacuna"></span>, <span class="lacuna"></span>$)$
+    a) $\vec{AB} = B - A =$ <span class="lacuna"></span>
   </p>
   <p class="subitem">
-    b) $\vec{AC} = C - A = ($<span class="lacuna"></span>, <span class="lacuna"></span>, <span class="lacuna"></span>$)$
+    b) $\vec{AC} = C - A =$ <span class="lacuna"></span>
   </p>
   <p class="subitem">
-    c) $\vec{AD} = D - A = ($<span class="lacuna"></span>, <span class="lacuna"></span>, <span class="lacuna"></span>$)$
+    c) $\vec{AD} = D - A =$ <span class="lacuna"></span>
   </p>
   <p class="subitem">
-    d) $[\vec{AB}, \vec{AC}, \vec{AD}] = 1 \cdot (2 \cdot 3 - 1 \cdot 1) - 2 \cdot (0 \cdot 3 - 1 \cdot 2) + 2 \cdot (0 \cdot 1 - 2 \cdot 2) =$ <span class="lacuna"></span>
+    d) Monte o produto misto $[\vec{AB}, \vec{AC}, \vec{AD}]$ e calcule o
+    determinante. <span class="lacuna"></span>
   </p>
   <p class="subitem">
-    e) $V_T = \frac{|[\vec{AB}, \vec{AC}, \vec{AD}]|}{6} = \frac{1}{6}$
+    e) $V_T = \frac{|[\vec{AB}, \vec{AC}, \vec{AD}]|}{6} =$ <span class="lacuna"></span>
   </p>
 
   <p class="checkpoint">
     <span class="checkmark"></span>
-    Verificação: o misto vale $5 + 4 - 8 = 1$; o volume é $\frac{1}{6}$. O
-    mesmo volume da questão 2, com pontos diferentes.
+    Verifique: aplique a fórmula $V_T = \frac{|[\vec{AB}, \vec{AC}, \vec{AD}]|}{6}$.
+    O volume não depende de qual vértice você escolhe como origem — repita o
+    cálculo tomando $B$ como origem e confirme que o resultado é o mesmo.
   </p>
 
   <p class="dica">Escolha um vértice como "origem" e forme os três vetores a partir dele — qualquer escolha dá o mesmo volume.</p>

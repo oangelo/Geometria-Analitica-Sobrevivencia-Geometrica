@@ -12,27 +12,28 @@
   </p>
 
   <p class="dialogo">
-    O determinante
-    $\begin{vmatrix} 1 & 2 & 3 \\ 2 & 3 & 4 \\ 3 & 4 & 0 \end{vmatrix}$
-    expande-se pela primeira linha, com sinais alternados $+ - +$. Qual é cada
-    termo?
+    Monte o determinante
+    $\begin{vmatrix} u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3 \\ w_1 & w_2 & w_3 \end{vmatrix}$
+    e expanda pela primeira linha, com os sinais alternados $+ - +$.
   </p>
   <p class="subitem">
-    a) Termo do $u_1$: $1 \cdot (3 \cdot 0 - 4 \cdot 4) =$ <span class="lacuna"></span>
+    a) Termo do $u_1$: $u_1 \cdot (v_2 w_3 - v_3 w_2) =$ <span class="lacuna"></span>
   </p>
   <p class="subitem">
-    b) Termo do $-u_2$: $-2 \cdot (2 \cdot 0 - 4 \cdot 3) =$ <span class="lacuna"></span>
+    b) Termo do $-u_2$: $-u_2 \cdot (v_1 w_3 - v_3 w_1) =$ <span class="lacuna"></span>
   </p>
   <p class="subitem">
-    c) Termo do $u_3$: $3 \cdot (2 \cdot 4 - 3 \cdot 3) =$ <span class="lacuna"></span>
+    c) Termo do $u_3$: $u_3 \cdot (v_1 w_2 - v_2 w_1) =$ <span class="lacuna"></span>
   </p>
   <p class="subitem">
-    d) $[\vec{u}, \vec{v}, \vec{w}] = -16 + 24 - 3 =$ <span class="lacuna"></span>
+    d) $[\vec{u}, \vec{v}, \vec{w}] =$ <span class="lacuna"></span>
   </p>
 
   <p class="checkpoint">
     <span class="checkmark"></span>
-    Verificação: o determinante vale $5$, um número positivo.
+    Verifique: some os três termos com os sinais corretos. Monte o determinante
+    completo e confira que a expansão pela primeira linha reproduz o mesmo
+    valor.
   </p>
 
   <p class="questao">
@@ -40,12 +41,12 @@
   </p>
 
   <p class="dialogo">
-    O produto misto nulo indica coplanaridade. E um valor diferente de zero,
-    o que indica?
+    O produto misto nulo indica coplanaridade. O que indica um valor diferente
+    de zero?
   </p>
   <p class="subitem">
-    a) $[\vec{u}, \vec{v}, \vec{w}] = 5 \neq 0$: os três vetores são
-    coplanares ou não? <span class="lacuna"></span>
+    a) $[\vec{u}, \vec{v}, \vec{w}] \neq 0$: os três vetores são coplanares ou
+    não? <span class="lacuna"></span>
   </p>
   <p class="subitem">
     b) Complete: três vetores são coplanares quando $[\vec{u}, \vec{v},
@@ -54,8 +55,8 @@
 
   <p class="checkpoint">
     <span class="checkmark"></span>
-    Verificação: misto $= 5 \neq 0$ — os vetores não são coplanares e formam
-    uma base do espaço.
+    Verifique: misto não nulo ⇒ vetores não coplanares, formando uma base do
+    espaço. Confira essa interpretação com o sinal que você obteve.
   </p>
 
   <p class="questao">
@@ -64,18 +65,18 @@
   </p>
 
   <p class="dialogo">
-    Antes de calcular, compare $\vec{a}$ e $\vec{b}$: um deles é múltiplo do
-    outro?
+    Antes de calcular, compare $\vec{a}$ e $\vec{b}$: um é múltiplo do outro?
+   </p>
+  <p class="subitem">
+    a) $\vec{b} =$ <span class="lacuna"></span> $\cdot \vec{a}$ — os dois são
+    paralelos.
   </p>
   <p class="subitem">
-    a) $\vec{b} =$ <span class="lacuna"></span> $\cdot \vec{a}$ — os dois são paralelos.
+    b) Com dois vetores paralelos, os três vetores ficam no mesmo plano? Preveja
+    o determinante: $[\vec{a}, \vec{b}, \vec{c}] =$ <span class="lacuna"></span>
   </p>
   <p class="subitem">
-    b) Com dois vetores paralelos, os três vetores ficam no mesmo plano?
-    Preveja o determinante: $[\vec{a}, \vec{b}, \vec{c}] =$ <span class="lacuna"></span>
-  </p>
-  <p class="subitem">
-    c) Confirme calculando: $1 \cdot (4 \cdot 2 - 6 \cdot 1) - 2 \cdot (2 \cdot 2 - 6 \cdot 3) + 3 \cdot (2 \cdot 1 - 4 \cdot 3) =$ <span class="lacuna"></span>
+    c) Confirme montando o determinante e expandindo. <span class="lacuna"></span>
   </p>
   <p class="subitem">
     d) Os vetores são coplanares? <span class="lacuna"></span>
@@ -83,8 +84,8 @@
 
   <p class="checkpoint">
     <span class="checkmark"></span>
-    Verificação: $2 + 28 - 30 = 0$ — determinante nulo e $\vec{b} = 2\vec{a}$;
-    dois vetores paralelos já "forçam" o plano.
+    Verifique: como $\vec{b}$ é múltiplo de $\vec{a}$, o determinante tem de
+    ser nulo (linhas proporcionais). Se você obteve zero, estão coplanares.
   </p>
 
   <p class="questao">
@@ -93,8 +94,8 @@
 
   <p class="dialogo">
     Uma permutação cíclica mantém o valor do produto misto:
-    $[\vec{u}, \vec{v}, \vec{w}] = [\vec{v}, \vec{w}, \vec{u}]$. E se
-    trocarmos dois vetores de lugar?
+    $[\vec{u}, \vec{v}, \vec{w}] = [\vec{v}, \vec{w}, \vec{u}]$. E trocar dois
+    vetores de lugar?
   </p>
   <p class="subitem">
     a) Usando a questão 1: $[\vec{v}, \vec{w}, \vec{u}] =$ <span class="lacuna"></span>
@@ -105,7 +106,7 @@
 
   <p class="checkpoint">
     <span class="checkmark"></span>
-    Verificação: ciclar mantém o valor ($5$); trocar dois vetores inverte o
-    sinal ($-5$).
+    Verifique: ciclar os vetores conserva o determinante; trocar qualquer par
+    de linhas inverte o sinal. Confira os sinais relativos.
   </p>
 </section>

@@ -13,7 +13,7 @@
   <p class="dialogo">
     O determinante é
     $\begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3 \end{vmatrix}$.
-    Quais números vão em cada linha?
+    Escreva as três linhas com os dados do problema.
   </p>
   <p class="subitem">
     a) Primeira linha (vetores canônicos): $($<span class="lacuna"></span>, <span class="lacuna"></span>, <span class="lacuna"></span>$)$
@@ -27,27 +27,28 @@
 
   <p class="checkpoint">
     <span class="checkmark"></span>
-    Verificação: a primeira linha é $(\vec{i}, \vec{j}, \vec{k})$, a segunda
-    $(1, 2, 3)$ e a terceira $(2, 3, 4)$.
+    Verifique: a primeira linha é sempre $(\vec{i}, \vec{j}, \vec{k})$, a
+    segunda traz as componentes de $\vec{u}$ e a terceira as de $\vec{v}$, na
+    ordem em que aparecem no produto.
   </p>
 
   <p class="questao">
     Calcule cada componente de $\vec{u} \times \vec{v}$.
   </p>
-  <!-- [REVISAR] Subdeterminantes com números já substituídos na fórmula podem estar mastigados demais; conceito novo (produto vetorial na 1ª vez) justifica a mediação alta. Professor deve avaliar. -->
 
   <p class="dialogo">
-    A componente em $\vec{i}$ usa a submatriz das linhas 2 e 3, colunas 2 e 3:
-    "meio vezes fim menos fim vezes meio". E as outras componentes?
+    Expanda o determinante pela primeira linha. A componente em $\vec{i}$ usa
+    a submatriz das linhas 2 e 3, colunas 2 e 3: "produto dos meios menos
+    produto dos extremos". Monte as outras componentes do mesmo jeito.
   </p>
   <p class="subitem">
-    a) Componente em $\vec{i}$: $2 \cdot 4 - 3 \cdot 3 =$ <span class="lacuna"></span>
+    a) Componente em $\vec{i}$: $u_2 v_3 - u_3 v_2 =$ <span class="lacuna"></span>
   </p>
   <p class="subitem">
-    b) Componente em $\vec{j}$: $u_3 v_1 - u_1 v_3 = 3 \cdot 2 - 1 \cdot 4 =$ <span class="lacuna"></span>
+    b) Componente em $\vec{j}$: $-(u_1 v_3 - u_3 v_1) =$ <span class="lacuna"></span>
   </p>
   <p class="subitem">
-    c) Componente em $\vec{k}$: $u_1 v_2 - u_2 v_1 = 1 \cdot 3 - 2 \cdot 2 =$ <span class="lacuna"></span>
+    c) Componente em $\vec{k}$: $u_1 v_2 - u_2 v_1 =$ <span class="lacuna"></span>
   </p>
   <p class="subitem">
     d) $\vec{u} \times \vec{v} = ($<span class="lacuna"></span>, <span class="lacuna"></span>, <span class="lacuna"></span>$)$
@@ -55,7 +56,8 @@
 
   <p class="checkpoint">
     <span class="checkmark"></span>
-    Verificação: $\vec{u} \times \vec{v} = (-1, 2, -1)$.
+    Verifique: as três componentes devem bater com a regra de expansão do
+    determinante. Releia o sinal de cada termo se duvidar.
   </p>
 
   <p class="questao">
@@ -63,14 +65,14 @@
   </p>
 
   <p class="dialogo">
-    Perpendicular significa produto interno nulo. Como verificar isso com o
-    resultado da questão 2?
+    Perpendicular significa produto interno nulo. Use o resultado da questão 2
+    e calcule o produto interno com os vetores originais.
   </p>
   <p class="subitem">
-    a) $\vec{u} \cdot (\vec{u} \times \vec{v}) = 1 \cdot (-1) + 2 \cdot 2 + 3 \cdot (-1) =$ <span class="lacuna"></span>
+    a) $\vec{u} \cdot (\vec{u} \times \vec{v}) =$ <span class="lacuna"></span>
   </p>
   <p class="subitem">
-    b) $\vec{v} \cdot (\vec{u} \times \vec{v}) = 2 \cdot (-1) + 3 \cdot 2 + 4 \cdot (-1) =$ <span class="lacuna"></span>
+    b) $\vec{v} \cdot (\vec{u} \times \vec{v}) =$ <span class="lacuna"></span>
   </p>
   <p class="subitem">
     c) Os dois produtos deram zero. O que isso significa? <span class="lacuna"></span>
@@ -78,8 +80,9 @@
 
   <p class="checkpoint">
     <span class="checkmark"></span>
-    Verificação: produtos internos nulos com $\vec{u}$ e com $\vec{v}$ — o
-    vetor é ortogonal a ambos.
+    Verifique: como o produto vetorial é perpendicular a cada um dos vetores,
+    ambos os produtos internos devem ser nulos. Se algum não for, há erro na
+    conta.
   </p>
 
   <p class="questao">
@@ -87,25 +90,20 @@
   </p>
 
   <p class="dialogo">
-    O que acontece com o sinal das componentes quando invertemos a ordem dos
-    vetores?
+    O determinante muda quando se trocam duas linhas (segunda e terceira).
+    Preveja o que acontece com o sinal das componentes.
   </p>
   <p class="subitem">
-    a) Componente em $\vec{i}$: $3 \cdot 3 - 4 \cdot 2 =$ <span class="lacuna"></span>
+    a) $\vec{v} \times \vec{u} =$ <span class="lacuna"></span>
   </p>
   <p class="subitem">
-    b) Componente em $\vec{j}$: $4 \cdot 1 - 2 \cdot 3 =$ <span class="lacuna"></span>
-  </p>
-  <p class="subitem">
-    c) Componente em $\vec{k}$: $2 \cdot 2 - 3 \cdot 1 =$ <span class="lacuna"></span>
-  </p>
-  <p class="subitem">
-    d) $\vec{v} \times \vec{u} = ($<span class="lacuna"></span>, <span class="lacuna"></span>, <span class="lacuna"></span>$)$. Compare com $\vec{u} \times \vec{v}$: $\vec{v} \times \vec{u} = -(\vec{u} \times \vec{v})$? <span class="lacuna"></span>
+    b) Compare com $\vec{u} \times \vec{v}$ da questão 2. Vale
+    $\vec{v} \times \vec{u} = -(\vec{u} \times \vec{v})$? <span class="lacuna"></span>
   </p>
 
   <p class="checkpoint">
     <span class="checkmark"></span>
-    Verificação: $\vec{v} \times \vec{u} = (1, -2, 1) = -(-1, 2, -1)$ —
-    inverter a ordem inverte o sinal.
+    Verifique: trocar a ordem dos vetores no produto vetorial inverte o sentido
+    (e o sinal) do resultado. Compare as componentes correspondentes.
   </p>
 </section>
