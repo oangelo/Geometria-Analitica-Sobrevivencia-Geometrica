@@ -27,7 +27,9 @@
 
   <p class="checkpoint">
     <span class="checkmark"></span>
-    Verificação: $A = \begin{pmatrix} 1 & 1 & 1 \\ 1 & -1 & 1 \\ 1 & 1 & -1 \end{pmatrix}$.
+    Verifique: cada linha guarda os coeficientes de uma equação, na ordem $x$,
+    $y$, $z$ — sem os termos independentes. Confira a coluna do $z$, onde os
+    sinais costumam escapar.
   </p>
 
   <p class="questao">
@@ -35,25 +37,28 @@
   </p>
 
   <p class="dialogo">
-    Expanda pela primeira linha, com sinais alternados $+ - +$. Qual é cada
-    termo da expansão?
+    Expanda pela primeira linha, com sinais alternados $+ - +$. Em cada termo,
+    o determinante $2 \times 2$ é o produto da diagonal principal menos o
+    produto da diagonal secundária.
   </p>
   <p class="subitem">
-    a) $+ 1 \cdot \begin{vmatrix} -1 & 1 \\ 1 & -1 \end{vmatrix} = 1 \cdot ((-1)(-1) - 1 \cdot 1) = 1 \cdot (1 - 1) =$ <span class="lacuna"></span>
+    a) $+ 1 \cdot \begin{vmatrix} -1 & 1 \\ 1 & -1 \end{vmatrix} = 1 \cdot ($<span class="lacuna"></span>$) =$ <span class="lacuna"></span>
   </p>
   <p class="subitem">
-    b) $- 1 \cdot \begin{vmatrix} 1 & 1 \\ 1 & -1 \end{vmatrix} = -1 \cdot (1 \cdot (-1) - 1 \cdot 1) = -1 \cdot (-2) =$ <span class="lacuna"></span>
+    b) $- 1 \cdot \begin{vmatrix} 1 & 1 \\ 1 & -1 \end{vmatrix} = -1 \cdot ($<span class="lacuna"></span>$) =$ <span class="lacuna"></span>
   </p>
   <p class="subitem">
-    c) $+ 1 \cdot \begin{vmatrix} 1 & -1 \\ 1 & 1 \end{vmatrix} = 1 \cdot (1 \cdot 1 - (-1) \cdot 1) = 1 \cdot 2 =$ <span class="lacuna"></span>
+    c) $+ 1 \cdot \begin{vmatrix} 1 & -1 \\ 1 & 1 \end{vmatrix} = 1 \cdot ($<span class="lacuna"></span>$) =$ <span class="lacuna"></span>
   </p>
   <p class="subitem">
-    d) $\det A = 0 + 2 + 2 =$ <span class="lacuna"></span>
+    d) Soma dos três termos: $\det A =$ <span class="lacuna"></span> $+$ <span class="lacuna"></span> $+$ <span class="lacuna"></span> $=$ <span class="lacuna"></span>
   </p>
 
   <p class="checkpoint">
     <span class="checkmark"></span>
-    Verificação: $\det A = 4$.
+    Verifique: confira a expansão com a regra de Sarrus (repita as duas
+    primeiras colunas ao lado da matriz e some as diagonais) — os dois caminhos
+    devem dar o mesmo valor. Os sinais alternados são essenciais.
   </p>
 
   <p class="questao">
@@ -65,7 +70,7 @@
     no exercício 3.
   </p>
   <p class="subitem">
-    a) $\det A = 4 \neq 0$ — o sistema é SPD, SPI ou SI? <span class="lacuna"></span>
+    a) $\det A \neq 0$ — o sistema é SPD, SPI ou SI? <span class="lacuna"></span>
   </p>
   <p class="subitem">
     b) Qual é a solução única? (Use o exercício 3.) <span class="lacuna"></span>
@@ -77,7 +82,8 @@
 
   <p class="checkpoint">
     <span class="checkmark"></span>
-    Verificação: $\det A \neq 0$ ⇒ SPD, com solução única $(1, 2, 3)$; com
-    determinante nulo, é preciso investigar (SPI ou SI).
+    Verifique: determinante não nulo garante solução única — a solução que você
+    escreveu deve coincidir com a do exercício 3. E lembre: determinante nulo
+    não decide entre infinitas e nenhuma solução; isso exige escalonar.
   </p>
 </section>
