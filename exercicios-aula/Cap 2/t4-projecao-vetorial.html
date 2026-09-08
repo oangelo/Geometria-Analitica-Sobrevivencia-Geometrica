@@ -1,0 +1,103 @@
+﻿<section class="exercicio" data-topico="projecao" data-dificuldade="medio">
+  <p class="exercicio-enunciado">
+    <span class="exercicio-numero">4.</span>
+    Nem sempre o esforço está na direção do objetivo. A <strong>projeção vetorial</strong> extrai a componente de $\vec{u}$ que atua na direção de $\vec{v}$: ela diz quanto do deslocamento é útil na direção desejada.
+  </p>
+
+  <p class="questao">
+    Calcule a projeção de $\vec{u}$ na direção de $\vec{v}$.
+  </p>
+
+  <p class="dialogo">
+    Use a fórmula $\text{proj}_{\vec{v}} \vec{u} = \frac{\vec{u} \cdot \vec{v}}{|\vec{v}|^2}\,\vec{v}$. Comece calculando o produto escalar e o módulo.
+  </p>
+  <p class="subitem">
+    a) Para $\vec{u} = (3, 1)$ e $\vec{v} = (2, 2)$, calcule $\vec{u} \cdot \vec{v} = 3 \cdot 2 + 1 \cdot 2 =$ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    b) Calcule $|\vec{v}|^2 = 2^2 + 2^2 =$ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    c) O fator escalar é: $\frac{\vec{u} \cdot \vec{v}}{|\vec{v}|^2} = \frac{8}{8} =$ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    d) Multiplique o fator pelo vetor $\vec{v}$: $\text{proj}_{\vec{v}} \vec{u} = 1 \cdot (2, 2) = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: em (d), a projeção é $(2, 2)$. Desenhe $\vec{u}$, $\vec{v}$ e a projeção: a projeção é paralela a $\vec{v}$ e é "a sombra" de $\vec{u}$ na direção de $\vec{v}$?
+  </p>
+
+  <p class="questao">
+    Decomponha $\vec{u}$ em componente paralela e perpendicular a $\vec{v}$.
+  </p>
+
+  <p class="dialogo">
+    Qualquer vetor $\vec{u}$ pode ser escrito como $\vec{u} = \text{proj}_{\vec{v}} \vec{u} + \vec{w}$, onde $\vec{w}$ é a parte perpendicular a $\vec{v}$.
+  </p>
+  <p class="subitem">
+    a) Usando a projeção do item (d), calcule $\vec{w} = \vec{u} - \text{proj}_{\vec{v}} \vec{u} = (3, 1) - (2, 2) = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    b) Verifique que $\vec{w}$ é perpendicular a $\vec{v}$: $\vec{w} \cdot \vec{v} = 1 \cdot 2 + (-1) \cdot 2 =$ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    c) Sendo o produto escalar nulo, $\vec{w}$ e $\vec{v}$ são <span class="lacuna"></span>.
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: em (b), $2 - 2 = 0$. O produto escalar nulo confirma que a componente restante é perpendicular a $\vec{v}$.
+  </p>
+
+  <p class="questao">
+    Aplique a projeção ao trabalho efetivo de uma força.
+  </p>
+
+  <p class="dialogo">
+    Um grupo empurra um suprimento com força $\vec{F} = (3, 4)$ sobre um deslocamento horizontal $\vec{d} = (5, 0)$. O trabalho útil é $W = \vec{F} \cdot \vec{d} = |\text{proj}_{\vec{d}} \vec{F}| \cdot |\vec{d}|$ — só a componente da força na direção do movimento gera trabalho.
+  </p>
+  <p class="subitem">
+    a) Calcule a projeção de $\vec{F}$ na direção de $\vec{d}$: $\vec{F} \cdot \vec{d} = 3 \cdot 5 + 4 \cdot 0 =$ <span class="lacuna"></span>; $|\vec{d}|^2 = 5^2 + 0^2 =$ <span class="lacuna"></span>; $\frac{\vec{F} \cdot \vec{d}}{|\vec{d}|^2}\,\vec{d} = \frac{15}{25}\,(5, 0) = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    b) O módulo da projeção é a componente útil da força: $|\text{proj}_{\vec{d}} \vec{F}| = |(3, 0)| =$ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    c) O trabalho é componente útil vezes deslocamento: $W = 3 \cdot 5 =$ <span class="lacuna"></span>. Compare com $\vec{F} \cdot \vec{d}$ do item (a): coincidem? <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    d) A componente vertical $4$ da força não gera trabalho. Ela é perpendicular ao deslocamento? <span class="lacuna"></span> Quantas unidades foram "desperdiçadas" no trabalho? <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: em (c), $W = 15 = \vec{F} \cdot \vec{d}$. A projeção extrai justamente a parcela da força que gera trabalho útil.
+  </p>
+
+  <p class="questao">
+    Avalie a eficiência do trabalho pelo ângulo entre força e deslocamento.
+  </p>
+
+  <p class="dialogo">
+    A eficiência é máxima quando a força é paralela ao deslocamento. Calcule o ângulo $\theta$ entre $\vec{F} = (3, 4)$ e $\vec{d} = (5, 0)$ usando $\cos\theta = \frac{\vec{F} \cdot \vec{d}}{|\vec{F}| \, |\vec{d}|}$.
+  </p>
+  <p class="subitem">
+    a) Do exercício anterior: $\vec{F} \cdot \vec{d} =$ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    b) Calcule os módulos: $|\vec{F}| = \sqrt{3^2 + 4^2} = \sqrt{}$<span class="lacuna"></span>$=$ <span class="lacuna"></span> e $|\vec{d}| = \sqrt{5^2 + 0^2} =$ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    c) Então $\cos\theta = \frac{15}{5 \cdot 5} = \frac{15}{25} =$ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    d) Para $\cos\theta = \frac{3}{5} = 0{,}6$, o ângulo é $\theta \approx$ <span class="lacuna"></span>° (use a calculadora). A força está bem alinhada com o movimento? <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: em (d), $\theta \approx 53°$ — um ângulo agudo, mas não nulo, o que explica por que a componente perpendicular "desperdiça" parte da força.
+  </p>
+</section>

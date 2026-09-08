@@ -1,0 +1,113 @@
+<section class="exercicio" data-topico="retas" data-dificuldade="medio">
+  <p class="exercicio-enunciado">
+    <span class="exercicio-numero">3.</span>
+    Um muro de defesa na Zona Devastada segue a rota $r: 2x - y - 5 = 0$. Para maximizar a cobertura, precisamos construir um portão perpendicular a esse muro passando por $P(1, 1)$. Saber reconhecer é sobrevivência; saber construir é domínio.
+  </p>
+
+  <p class="questao">
+    Descubra a inclinação do muro.
+  </p>
+
+  <p class="dialogo">
+    A condição de paralelismo usa os coeficientes angulares. Isole $y$ na equação de $r$ para ler $m_r$ diretamente.
+  </p>
+  <p class="subitem">
+    a) Isolando $y$: $2x - y - 5 = 0 \Rightarrow y = 2x - 5$. Logo $m_r =$ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    b) Para uma reta ser paralela a $r$, seu coeficiente angular deve ser <span class="lacuna"></span> (igual/diferente?) a $m_r$.
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: $m_r = 2$. Retas paralelas têm a MESMA inclinação ($m_1 = m_2$).
+  </p>
+
+  <p class="questao">
+    Encontre a inclinação de uma reta perpendicular ao muro.
+  </p>
+
+  <p class="dialogo">
+    A condição de perpendicularidade é $m_s \cdot m_r = -1$. Use o valor de $m_r$ encontrado acima.
+  </p>
+  <p class="subitem">
+    a) Monte a equação: $m_s \cdot 2 = -1$, logo $m_s =$ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    b) Alternativa vetorial: o vetor normal de $r$ é $\vec{n}_r = (2, -1)$. Se $s \perp r$, o vetor $\vec{n}_r$ é um vetor diretor de $s$, $\vec{v}_s = (2, -1)$.
+  </p>
+  <p class="subitem">
+    c) Confira pela forma geral: para $s: A_sx + B_sy + C_s = 0$, vale $m_s = -\frac{A_s}{B_s}$. Qual escolha de $(A_s, B_s)$ dá $m_s = -\frac{1}{2}$?
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: $m_s = -\frac{1}{2}$ — a inclinação perpendicular é o oposto do inverso de $2$.
+  </p>
+
+  <p class="questao">
+    Escreva a equação da reta perpendicular que passa por $P(1, 1)$.
+  </p>
+
+  <p class="dialogo">
+    Use a forma ponto-inclinação: $y - y_0 = m_s(x - x_0)$, com $P(1,1)$ e $m_s = -\frac{1}{2}$.
+  </p>
+  <p class="subitem">
+    a) Substituindo: $y - 1 =$ <span class="lacuna"></span> $(x - 1)$.
+  </p>
+  <p class="subitem">
+    b) Multiplique os dois lados para eliminar a fração: $2(y - 1) = -1(x - 1)$, isto é, $2y - 2 = -x + 1$.
+  </p>
+  <p class="subitem">
+    c) Passe tudo para o lado esquerdo e escreva a forma geral: <span class="lacuna-grande"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: $2y - 2 = -x + 1 \Rightarrow x + 2y - 3 = 0$. Teste $P(1,1)$: $1 + 2 - 3 = 0$; e $m_s = -\frac{1}{2}$ confirma a perpendicularidade com $r$.
+  </p>
+
+  <p class="questao">
+    Confirme a perpendicularidade pelo produto escalar dos vetores normais.
+  </p>
+
+  <p class="dialogo">
+    Os vetores normais de retas perpendiculares têm produto escalar nulo: $\vec{n}_r \cdot \vec{n}_s = 0$. Tome $\vec{n}_r = (2, -1)$ e $\vec{n}_s = (1, 2)$.
+  </p>
+  <p class="subitem">
+    a) Calcule $\vec{n}_r \cdot \vec{n}_s = 2 \cdot 1 + (-1) \cdot 2 =$ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    b) O resultado é zero? <span class="lacuna"></span> Logo, as retas $r$ e a reta do portão são <span class="lacuna"></span>.
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: $2 - 2 = 0$ — vetores normais ortogonais indicam retas perpendiculares, confirmando a construção.
+  </p>
+
+  <p class="questao">
+    Agora construa uma trincheira paralela ao muro passando por $Q(3, -2)$.
+  </p>
+
+  <p class="dialogo">
+    Já construímos o portão perpendicular. Para uma trincheira paralela vale o oposto: retas paralelas têm o <strong>mesmo</strong> coeficiente angular. Use o valor de $m_r$ encontrado na primeira questão.
+  </p>
+  <p class="subitem">
+    a) O coeficiente angular da trincheira $m_t$ deve ser <span class="lacuna"></span> (igual ou diferente de $m_r = 2$?).
+  </p>
+  <p class="subitem">
+    b) Usando a forma ponto-inclinação com $Q(3, -2)$ e $m_t = 2$: $y - (-2) = 2(x - 3)$, ou seja, $y + 2 =$ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    c) Isole $y$ e escreva a forma geral da trincheira: <span class="lacuna-grande"></span>
+  </p>
+  <p class="subitem">
+    d) Confirme os vetores: os normais $\vec{n}_r = (2, -1)$ e $\vec{n}_t = (2, -1)$ são múltiplos — as retas são <span class="lacuna"></span>. E verifique que $Q$ satisfaz a equação: $2 \cdot 3 - (-2) - 8 =$ <span class="lacuna"></span>.
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: $y + 2 = 2(x - 3) \Rightarrow y = 2x - 8$, forma geral $2x - y - 8 = 0$. Mesmo $m = 2$ das duas retas (paralelas); $2 \cdot 3 + 2 - 8 = 0$, então $Q$ está na trincheira.
+  </p>
+</section>

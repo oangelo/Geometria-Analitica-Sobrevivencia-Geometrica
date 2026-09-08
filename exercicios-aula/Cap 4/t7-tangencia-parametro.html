@@ -1,0 +1,69 @@
+<section class="exercicio" data-topico="circulos" data-dificuldade="dificil">
+  <p class="exercicio-enunciado">
+    <span class="exercicio-numero">7.</span>
+    Além de classificar retas já conhecidas, a comparação entre distância e raio permite <strong>descobrir</strong> retas com uma propriedade pedida. Se uma reta depende de um parâmetro $k$, impor a condição de tangência resolve o valor de $k$.
+  </p>
+
+  <p class="questao">
+    Escreva a distância do centro à reta em função de $k$.
+  </p>
+
+  <p class="dialogo">
+    Considere a circunferência $(x - 2)^2 + (y + 1)^2 = 25$, de centro $C(2, -1)$ e raio $R = 5$, e a família de retas $r_k: 3x - 4y + k = 0$. No papel, desenhe a circunferência e algumas retas dessa família.
+  </p>
+  <p class="subitem">
+    a) Os coeficientes de $r_k$ são $A =$ <span class="lacuna"></span>, $B =$ <span class="lacuna"></span>, $C_0 =$ <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    b) $d(C, r_k) = \frac{|3 \cdot 2 + (-4) \cdot (-1) + k|}{\sqrt{3^2 + (-4)^2}} = \frac{|6 + 4 + k|}{5} = \frac{|10 + k|}{5}$
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: o numerador é $|10 + k|$ e o denominador é $\sqrt{25} = 5$. A distância varia apenas com $k$.
+  </p>
+
+  <p class="questao">
+    Imponha a condição de tangência.
+  </p>
+
+  <p class="dialogo">
+    A reta é tangente quando $d = R = 5$. Iguale a expressão da distância a $5$ e resolva a equação com módulo.
+  </p>
+  <p class="subitem">
+    a) $\frac{|10 + k|}{5} = 5$, logo $|10 + k| =$ <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    b) A equação com módulo dá dois casos: $10 + k = 25$ ou $10 + k = -25$.
+  </p>
+  <p class="subitem">
+    c) Resolva cada caso: $k =$ <span class="lacuna"></span> ou $k =$ <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: $k = 15$ ou $k = -35$. Existem duas retas paralelas tangentes, uma de cada lado da circunferência.
+  </p>
+
+  <p class="questao">
+    Interprete o significado dos dois valores.
+  </p>
+
+  <p class="dialogo">
+    As duas retas $3x - 4y + 15 = 0$ e $3x - 4y - 35 = 0$ são paralelas e tangentes. Qualquer $k$ entre eles torna a reta secante; fora, externa.
+  </p>
+  <p class="subitem">
+    a) Para $k = 11$, calcule $d(C, r_k) = \frac{|10 + 11|}{5} = \frac{21}{5} = 4{,}2$. Como $4{,}2 < 5$, a reta é <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    b) Para $k = 17$, $d = \frac{27}{5} = 5{,}4 > 5$. A reta é <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    c) Complete a regra: para $-35 < k < 15$ a reta é <span class="lacuna"></span>; para $k < -35$ ou $k > 15$ é <span class="lacuna"></span>; para $k = -35$ ou $k = 15$ é <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: secante para $-35 < k < 15$, externa fora desse intervalo e tangente nos extremos. O intervalo secante tem comprimento $50 = 2 \times 25$, relacionado ao diâmetro da zona.
+  </p>
+</section>
