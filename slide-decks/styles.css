@@ -1366,3 +1366,228 @@
 .final-emblem {
   margin-top: 1em;
 }
+
+/* ============================================================
+   SISTEMA DE TEMPLATES — classes canônicas (issue #45)
+   Âncoras e variantes em template/. Paleta existente:
+   verde terminal #4caf50 · fundo #0c0c0c · texto #e6e6e6
+   amarelo #ffeb3b · laranja #ff9800 · vermelho #f44336
+   verde claro #8bc34a · interno #1c1c1c · acento #ADFF2F
+   ============================================================ */
+
+/* --- Enquadramento: header e footer de navegação (visual-design-spec) --- */
+.slide-header {
+  position: absolute;
+  top: 0.6em;
+  left: 1.2em;
+  right: 1.2em;
+  font-size: 0.55em;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(76, 175, 80, 0.5);
+  border-bottom: 1px solid rgba(76, 175, 80, 0.15);
+  padding-bottom: 0.35em;
+  text-align: left;
+}
+
+.slide-footer {
+  position: absolute;
+  bottom: 0.6em;
+  left: 1.2em;
+  right: 1.2em;
+  font-size: 0.5em;
+  letter-spacing: 0.15em;
+  color: rgba(76, 175, 80, 0.25);
+  border-top: 1px solid rgba(76, 175, 80, 0.08);
+  padding-top: 0.35em;
+  text-align: left;
+}
+
+.slide-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 2.4em 1.2em;
+  text-align: left;
+}
+
+/* --- Layouts lado a lado --- */
+.dual-panel {
+  display: flex;
+  gap: 1.2em;
+  align-items: stretch;
+}
+
+.dual-panel > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.dual-panel > .v-bar {
+  flex: 0 0 1px;
+  min-width: 1px;
+}
+
+.triple-panel {
+  display: flex;
+  gap: 1em;
+}
+
+.triple-panel > div {
+  flex: 1;
+  min-width: 0;
+  background-color: #1c1c1c;
+  border: 1px solid rgba(76, 175, 80, 0.3);
+  border-radius: 3px;
+  padding: 0.8em;
+}
+
+.v-bar {
+  flex: 0 0 1px;
+  align-self: stretch;
+  background: rgba(76, 175, 80, 0.3);
+}
+
+.h-bar {
+  height: 1px;
+  width: 100%;
+  background: rgba(76, 175, 80, 0.3);
+  margin: 0.9em 0;
+}
+
+/* --- Destaque de fórmula principal --- */
+.formula-spotlight {
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid #4caf50;
+  border-radius: 4px;
+  box-shadow: 0 0 18px rgba(76, 175, 80, 0.15);
+  padding: 0.9em 1.2em;
+  margin: 0.6em 0 1em;
+  text-align: center;
+}
+
+.formula-spotlight p {
+  margin: 0;
+  font-size: 1.3em;
+  color: #e6e6e6;
+}
+
+/* --- Enunciado de problema (sem solução — professor resolve em sala) --- */
+.problem-section {
+  background-color: #1c1c1c;
+  border: 1px solid rgba(255, 235, 59, 0.35);
+  border-left: 4px solid #ffeb3b;
+  border-radius: 3px;
+  padding: 0.8em 1em;
+  margin: 0.6em 0;
+}
+
+.problem-section p {
+  color: #e6e6e6;
+}
+
+/* --- Narrativa: bloco, label e insert no V1 --- */
+.narrative-section {
+  background-color: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(173, 255, 47, 0.25);
+  border-radius: 3px;
+  padding: 0.8em 1em;
+  margin: 0.6em 0;
+}
+
+.narrative-section p {
+  color: #c0c0c0;
+}
+
+.narrative-label {
+  display: block;
+  font-size: 0.6em;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(173, 255, 47, 0.55);
+  margin-bottom: 0.5em;
+}
+
+.narrative-insert {
+  font-style: italic;
+  color: #adff2f;
+  border-left: 3px solid rgba(173, 255, 47, 0.6);
+  padding-left: 0.8em;
+  margin-top: 0.8em;
+  font-size: 0.9em;
+}
+
+/* --- Visualizações interativas --- */
+.visualization-canvas {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  background-color: #0c0c0c;
+  border: 1px solid rgba(76, 175, 80, 0.4);
+  border-radius: 4px;
+}
+
+.canvas-overlay {
+  position: relative;
+}
+
+.canvas-overlay .formula {
+  position: absolute;
+  top: 0.6em;
+  left: 0.8em;
+  background-color: rgba(12, 12, 12, 0.85);
+  padding: 0.4em 0.8em;
+  border-radius: 3px;
+}
+
+.controls-container {
+  display: flex;
+  gap: 1.2em;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.8em;
+}
+
+.control-slider {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 0.8em;
+  color: #e6e6e6;
+}
+
+.control-slider input[type="range"] {
+  accent-color: #4caf50;
+  width: 12em;
+}
+
+.control-button {
+  background-color: #1c1c1c;
+  color: #4caf50;
+  border: 1px solid #4caf50;
+  border-radius: 3px;
+  padding: 0.3em 1em;
+  font-family: inherit;
+  font-size: 0.8em;
+  cursor: pointer;
+}
+
+.control-button:hover {
+  background-color: rgba(76, 175, 80, 0.15);
+}
+
+/* --- Capa: metadados --- */
+.doc-code {
+  font-size: 0.55em;
+  letter-spacing: 0.2em;
+  color: rgba(255, 235, 59, 0.6);
+  margin: 0.4em 0 0;
+}
+
+.chapter-meta {
+  font-size: 0.6em;
+  letter-spacing: 0.12em;
+  color: rgba(230, 230, 230, 0.5);
+  margin: 0.8em 0 0;
+}
