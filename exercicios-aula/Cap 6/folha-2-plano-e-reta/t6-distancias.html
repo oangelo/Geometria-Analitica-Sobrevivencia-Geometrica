@@ -1,21 +1,81 @@
 <section class="exercicio" data-topico="distancias" data-dificuldade="dificil">
   <p class="exercicio-enunciado">
     <span class="exercicio-numero">6.</span>
-    A distância do ponto $P(x_0, y_0, z_0)$ ao plano
-    $ax + by + cz + d = 0$ é
-    $d(P, \pi) = \frac{|ax_0 + by_0 + cz_0 + d|}{\sqrt{a^2 + b^2 + c^2}}$.
+    Distâncias no espaço: ponto–plano, plano–plano e ponto–reta.
   </p>
 
   <p class="questao">
-    Calcule a distância de $P(2, 3, 1)$ ao plano $\pi: 2x - y + 2z = 5$.
+    Calcule a distância de $P(2, 3, 1)$ ao plano $\pi: 2x - y + 2z = 5$
+    usando projeção.
   </p>
 
   <p class="dialogo">
-    Primeiro coloque o plano na forma geral $ax + by + cz + d = 0$. Quais são
-    os valores de $a$, $b$, $c$ e $d$?
+    Escolha um ponto $A$ do plano e forme o vetor $\overrightarrow{AP}$, que
+    vai de $A$ até $P$. Ao projetar $\overrightarrow{AP}$ sobre a normal
+    $\vec{n}$, sobra apenas a parte de $P$ que se afasta do plano na direção
+    perpendicular — e essa parte é exatamente a distância.
+  </p>
+
+  <p class="subitem">
+    a) Normal do plano: $\vec{n} = ($<span class="lacuna"></span>,
+    <span class="lacuna"></span>, <span class="lacuna"></span>$)$
   </p>
   <p class="subitem">
-    a) Reescreva o plano $\pi$ na forma geral $ax + by + cz + d = 0$: e
+    b) Escolha um ponto $A$ do plano zerando duas coordenadas e calcule a
+    terceira: $A($<span class="lacuna"></span>,
+    <span class="lacuna"></span>, <span class="lacuna"></span>$)$
+  </p>
+  <p class="subitem">
+    c) $\overrightarrow{AP} = P - A = ($<span class="lacuna"></span>,
+    <span class="lacuna"></span>, <span class="lacuna"></span>$)$
+  </p>
+  <p class="subitem">
+    d) $\overrightarrow{AP} \cdot \vec{n} =$
+    <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    e) $|\vec{n}|^2 =$
+    <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    f) Escalar da projeção: $\dfrac{\overrightarrow{AP} \cdot \vec{n}}{|\vec{n}|^2} =$
+    <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    g) Vetor projeção de $\overrightarrow{AP}$ sobre $\vec{n}$:
+    <span class="lacuna"></span> $\cdot \vec{n} = ($<span class="lacuna"></span>,
+    <span class="lacuna"></span>, <span class="lacuna"></span>$)$
+  </p>
+  <p class="subitem">
+    h) $d(P, \pi)$ é o módulo do vetor projeção: $d(P, \pi) =$
+    <span class="lacuna-grande"></span>
+  </p>
+
+  <p class="dica">
+    O módulo de $k\vec{n}$ é $|k| \cdot |\vec{n}|$ — use isso para obter a
+    distância a partir do vetor projeção.
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verifique: a distância nunca supera o comprimento do vetor que você
+    projetou — confira que $d(P, \pi) \le \|\overrightarrow{AP}\|$. O produto
+    interno pode ter saído negativo: o que o módulo garante aqui?
+  </p>
+
+  <p class="questao">
+    A fórmula
+    $d(P, \pi) = \frac{|ax_0 + by_0 + cz_0 + d|}{\sqrt{a^2 + b^2 + c^2}}$
+    também dá a distância de $P$ ao plano. Verifique que ela produz o mesmo
+    resultado da projeção.
+  </p>
+
+  <p class="dialogo">
+    Coloque o plano na forma geral $ax + by + cz + d = 0$, identifique os
+    coeficientes e substitua as coordenadas de $P$.
+  </p>
+  <p class="subitem">
+    a) Reescreva o plano $\pi$ na forma geral $ax + by + cz + d = 0$ e
     identifique $a$, $b$, $c$ e $d$ (escreva no espaço de trabalho).
     $a =$ <span class="lacuna"></span>, $b =$ <span class="lacuna"></span>,
     $c =$ <span class="lacuna"></span>, $d =$ <span class="lacuna"></span>
@@ -33,47 +93,57 @@
     d) Denominador: √( <span class="lacuna"></span> ) = <span class="lacuna"></span>
   </p>
   <p class="subitem">
-    e) $d(P, \pi) =$ <span class="lacuna-grande"></span>
+    e) $d(P, \pi) =$ <span class="lacuna-grande"></span> — esse valor coincide
+    com o obtido por projeção?
   </p>
 
   <p class="checkpoint">
     <span class="checkmark"></span>
-    Verifique: a distância nunca é negativa (o módulo garante isso). Confira o
-    módulo e a raiz antes de seguir.
+    Verifique: os dois caminhos coincidiram? Se não, confira o produto interno
+    da Parte 1 ou o módulo do numerador.
   </p>
 
   <p class="questao">
     Calcule a distância entre os planos paralelos
-    $\pi_1: 2x - y + 2z = 5$ e $\pi_2: 2x - y + 2z = 8$.
+    $\pi_1: 2x - y + 2z = 5$ e $\pi_2: 2x - y + 2z = 8$ usando projeção.
   </p>
 
   <p class="dialogo">
-    Normais iguais, planos paralelos. A distância entre eles é a distância de
-    um ponto de um deles ao outro. Qual ponto de $\pi_1$ é fácil de obter?
+    Normais iguais, planos paralelos. Pegue um ponto $A$ de $\pi_1$ e um ponto
+    $B$ de $\pi_2$ e projete $\overrightarrow{AB}$ sobre a normal: só a parte
+    perpendicular entre os planos sobra como distância.
   </p>
   <p class="subitem">
     a) Normais: $\vec{n}_1 = ($<span class="lacuna"></span>, <span class="lacuna"></span>, <span class="lacuna"></span>$)$ e $\vec{n}_2 = ($<span class="lacuna"></span>, <span class="lacuna"></span>, <span class="lacuna"></span>$)$ — paralelos.
   </p>
   <p class="subitem">
-    b) Escolha um ponto de $\pi_1$ zerando duas coordenadas e calcule a
-    terceira: Ponto $A($<span class="lacuna"></span>,
+    b) Ponto $A$ de $\pi_1$: você já escolheu um na Questão 1 e pode
+    reutilizá-lo: $A($<span class="lacuna"></span>,
     <span class="lacuna"></span>, <span class="lacuna"></span>$)$
   </p>
   <p class="subitem">
-    c) Numerador (substitua $A$ na equação de $\pi_2$):
-    |2( <span class="lacuna"></span> ) - ( <span class="lacuna"></span> ) + 2( <span class="lacuna"></span> ) - 8| =
-    <span class="lacuna"></span>
+    c) Escolha um ponto $B$ de $\pi_2$ zerando duas coordenadas:
+    $B($<span class="lacuna"></span>,
+    <span class="lacuna"></span>, <span class="lacuna"></span>$)$
   </p>
   <p class="subitem">
-    d) $d(\pi_1, \pi_2) =$ <span class="lacuna-grande"></span>
+    d) $\overrightarrow{AB} = B - A = ($<span class="lacuna"></span>,
+    <span class="lacuna"></span>, <span class="lacuna"></span>$)$
+  </p>
+  <p class="subitem">
+    e) $\overrightarrow{AB} \cdot \vec{n} =$ <span class="lacuna"></span> e
+    $|\vec{n}| =$ <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    f) $d(\pi_1, \pi_2) = \dfrac{|\overrightarrow{AB} \cdot \vec{n}|}{|\vec{n}|} =$
+    <span class="lacuna-grande"></span>
   </p>
 
   <p class="checkpoint">
     <span class="checkmark"></span>
-    Verifique: a distância entre planos paralelos não depende do ponto
-    escolhido no primeiro plano — teste outro ponto, se quiser. O denominador
-    é o mesmo da questão 1, e o resultado deve sair como uma fração
-    simplificada.
+    Verifique: troque $B$ por outro ponto de $\pi_2$ e refaça apenas o produto
+    interno — o valor muda? E a distância? A distância entre planos paralelos
+    não pode depender dos pontos escolhidos.
   </p>
 
   <p class="questao">
