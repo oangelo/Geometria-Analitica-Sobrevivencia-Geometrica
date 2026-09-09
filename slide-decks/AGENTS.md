@@ -433,6 +433,7 @@ Para cada seção de conteúdo (02–NN), mapear:
 
 **Requisitos obrigatórios:**
 - Cada seção deve incluir **1 a 3 exemplos clássicos** (usar `training-problem`/`problem-section`, sem solução — a decidir na issue #45). Exemplos clássicos do tópico, calculáveis em aula.
+- Cada seção com **tabela de classificação / taxonomia** (posições relativas — reta/reta, reta/plano, plano/plano — ou casos de um método) deve listar **1 exemplo numérico por caso** (sem solução), além do mínimo 1–3 por seção.
 - Cada seção deve seguir o **fluxo pedagógico** (ver `template-spec.md`): motivação → conceito → formalização → interpretação → exemplos → visualização.
 
 Publicado como primeiro comentário. Aprovação humana antes de seguir.
@@ -521,7 +522,7 @@ Publicado como quarto comentário. Aprovação humana antes de implementar.
 | --- | --- |
 | Estrutura | Segue `template-spec.md`? (capa, narrativa, tópicos, resumo, reflexão) |
 | Fluxo pedagógico | Cada seção segue V1→V2→V3→... conforme template-spec? |
-| Exemplos | Cada seção tem 1-3 exemplos clássicos (sem solução — a decidir na issue #45)? |
+| Exemplos | Cada seção tem 1-3 exemplos clássicos (sem solução — decisão #45) **e cada caso de taxonomia tem ≥1 exemplo numérico**? |
 | Fragmentos | Exemplos com fragmento usam painel duplo? Fragmento gera emoção? Dado tem fonte? |
 | Navegação | H = seções, V = aprofundamento? |
 | CSS | Zero inline? Classes corretas? |

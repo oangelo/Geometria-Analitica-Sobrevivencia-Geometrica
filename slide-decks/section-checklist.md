@@ -33,6 +33,7 @@
 ### APLICAÇÃO (V5–V6)
 
 - [ ] Pelo menos 1 exemplo guiado com `problem-section` / `training-problem` (enunciado apenas)?
+- [ ] Toda taxonomia / caso de classificação (posições relativas, casos de método) tem ≥1 exemplo numérico correspondente (enunciado apenas)?
 - [ ] Exemplo é um problema clássico do tópico (não um truque)?
 - [ ] Exemplo é calculável em aula (número razoável de passos)?
 - [ ] Se há 2-3 exemplos, são variações progressivas ou casos diferentes?

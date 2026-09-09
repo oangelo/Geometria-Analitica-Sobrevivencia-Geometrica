@@ -109,6 +109,11 @@ Cada seção de conteúdo segue este fluxo. A ordem não é sugerida — é obri
 
 ━━━ APLICAÇÃO (V5-V6) ━━━
   1 a 3 exemplos clássicos, calculáveis em aula
+  → **Taxonomias e classificações:** sempre que a seção apresentar uma TABELA DE CASOS/classificação
+    (ex.: posições relativas — reta/reta, reta/plano, plano/plano; casos de um método como
+    escalonamento), cada caso deve ter **≥ 1 exemplo numérico** correspondente (sem solução), além
+    do mínimo de 1–3 exemplos por seção. O objetivo é que o aluno exercite o método em CADA caso,
+    não apenas decore a tabela.
   → Exemplos podem usar dual-panel: esquerda = matemática, direita = fragmento narrativo
   → Fragmento NÃO precisa ter relação lógica com o exemplo (justaposição emocional)
   → Nem todos os exemplos precisam de fragmento (dinâmico)
@@ -128,7 +133,7 @@ Cada seção de conteúdo segue este fluxo. A ordem não é sugerida — é obri
 
 **Número típico de slides por seção:** 5 (mínimo) a 8 (máximo).
 
-**Exceções permitidas:** nenhuma. Todo tópico tem motivação, conceito, fórmula, exemplo e (quando aplicável) visualização.
+**Exceções permitidas:** nenhuma. Todo tópico tem motivação, conceito, fórmula, exemplo e (quando aplicável) visualização; e todo caso de uma taxonomia/classificação tem exemplo numérico.
 
 ### `N+1-resumo.html`
 
