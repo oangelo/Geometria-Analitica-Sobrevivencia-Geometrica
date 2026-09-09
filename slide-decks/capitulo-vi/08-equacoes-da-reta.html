@@ -1,0 +1,94 @@
+<!-- 08-TÓPICO: EQUAÇÕES DA RETA NO ESPAÇO (corresponde ao tópico 6 dos exercícios) -->
+<section>
+  <!-- V1: Abertura (motivação + insert narrativo) -->
+  <section class="field-report">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 08 &middot; EQUAÇÕES DA RETA NO ESPAÇO</div>
+    <h2>Trajetórias Lineares</h2>
+    <h3 class="mission-subtitle">Uma Equação Não Basta Mais</h3>
+    <p>No \(R^3\), uma única equação linear desenha um <strong>plano</strong>, não uma reta. Para descrever uma reta no espaço, precisamos de uma abordagem paramétrica: um ponto de partida e uma direção.</p>
+    <p>Aplicações: rotas de drones, tirolesas, linhas de tiro, feixes de luz.</p>
+    <div class="survival-tip">
+      <p>Não assuma que trajetórias que se cruzam em mapas 2D o farão no 3D. A altitude \(z\) é tudo!</p>
+    </div>
+    <p class="narrative-insert">Um drone só pode voar a até 400 pés, cerca de 120 metros, pela regra da ANAC. Acima disso, o céu é de outra jurisdição.</p>
+    <p class="chapter-meta">Fonte: ANAC, RBAC-E 94</p>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V2: Definição formal -->
+  <section class="mission-briefing">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 08 &middot; EQUAÇÕES DA RETA NO ESPAÇO</div>
+    <h2>Equações da Reta no Espaço</h2>
+    <div class="definition-box">
+      <p><strong>Forma vetorial:</strong> \(\vec{X} = \vec{P_0} + t\vec{v}\), com \(t \in \mathbb{R}\)</p>
+      <p><strong>Forma paramétrica:</strong></p>
+      <p class="formula">\[ \begin{cases} x = x_0 + ta \\ y = y_0 + tb \\ z = z_0 + tc \end{cases} \]</p>
+      <p>com \(\vec{P_0} = (x_0, y_0, z_0)\) e vetor diretor \(\vec{v} = (a, b, c)\).</p>
+      <p><strong>Alternativa:</strong> a reta é a interseção de dois planos não paralelos.</p>
+    </div>
+    <p class="mnemonic">"No \(R^3\), uma equação só não faz verão (pra reta). Paramétrica é a salvação!"</p>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V3: Simulador -->
+  <section class="simulator">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 08 &middot; EQUAÇÕES DA RETA NO ESPAÇO</div>
+    <h3>Simulador: Desenhando Retas no Espaço</h3>
+    <div class="canvas-container">
+      <canvas id="equacao-reta-espaco-canvas" width="800" height="400"></canvas>
+      <div class="simulator-controls">
+        <p>Ponto \(\vec{P_0}\):</p>
+        <div class="control-panel">
+          <label for="reta-x0">\(x_0\):</label> <input type="range" id="reta-x0" min="-5" max="5" value="0" step="0.5"> <span id="reta-x0-val">0</span>
+          <label for="reta-y0">\(y_0\):</label> <input type="range" id="reta-y0" min="-5" max="5" value="0" step="0.5"> <span id="reta-y0-val">0</span>
+          <label for="reta-z0">\(z_0\):</label> <input type="range" id="reta-z0" min="-5" max="5" value="0" step="0.5"> <span id="reta-z0-val">0</span>
+        </div>
+        <p>Direção \(\vec{v}\):</p>
+        <div class="control-panel">
+          <label for="reta-va">\(a\):</label> <input type="range" id="reta-va" min="-2" max="2" value="1" step="0.1"> <span id="reta-va-val">1</span>
+          <label for="reta-vb">\(b\):</label> <input type="range" id="reta-vb" min="-2" max="2" value="1" step="0.1"> <span id="reta-vb-val">1</span>
+          <label for="reta-vc">\(c\):</label> <input type="range" id="reta-vc" min="-2" max="2" value="1" step="0.1"> <span id="reta-vc-val">1</span>
+        </div>
+      </div>
+    </div>
+    <div class="hint-message">
+      <p>O ponto dourado é \(\vec{P_0}\); o segmento vermelho mostra a direção \(\vec{v}\). A reta é o caminho livre do parâmetro \(t\).</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V4: Posições relativas -->
+  <section class="field-report level-intermediate">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 08 &middot; EQUAÇÕES DA RETA NO ESPAÇO</div>
+    <h2>Relatório: Encontros em 3D</h2>
+    <div class="info-panel">
+      <div class="info-screen">
+        <h4>Posições relativas de duas retas no espaço:</h4>
+        <ul>
+          <li><strong>Paralelas:</strong> direções paralelas, pontos distintos.</li>
+          <li><strong>Concorrentes:</strong> exatamente um ponto em comum.</li>
+          <li><strong>Coincidentes:</strong> mesma reta.</li>
+          <li><strong>Reversas:</strong> não se cruzam e não são paralelas. A novidade do \(R^3\): em 2D isso não existe!</li>
+        </ul>
+      </div>
+    </div>
+    <p class="mnemonic">"No \(R^3\), uma equação só não faz verão (pra reta). Paramétrica é a salvação!"</p>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V5: Debriefing -->
+  <section class="debriefing">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 08 &middot; EQUAÇÕES DA RETA NO ESPAÇO</div>
+    <h3>Debriefing: Trajetórias Sob Controle</h3>
+    <div class="summary-box">
+      <p>Ponto + direção descrevem a reta no espaço. Reversas alertam: no 3D, caminhos podem se aproximar sem nunca se encontrar.</p>
+    </div>
+    <div class="next-mission">
+      <p>Próximo briefing: e quando várias condições de plano precisam valer ao mesmo tempo? Sistemas Lineares 3×3.</p>
+    </div>
+    <div class="instructor-note">
+      <p>"Vocês têm as ferramentas para redesenhar suas linhas de defesa. Mantenham os cálculos afiados!"</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+</section>

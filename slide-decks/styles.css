@@ -2,10 +2,10 @@
    ESTILOS BASE PARA ELEMENTOS REVEAL
    ==================== */
 
-/* Cabeçalhos */
+/* Cabeçalhos — text-shadow reforçado para nitidez (contraste) */
 .reveal h1 {
   font-size: 2.8rem;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9), 1px 1px 2px rgba(0, 0, 0, 0.7);
   color: #FFD700; /* Dourado */
   margin-bottom: 0.3em;
   letter-spacing: 0px;
@@ -13,7 +13,7 @@
 
 .reveal h2 {
   font-size: 2.4rem;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9), 1px 1px 2px rgba(0, 0, 0, 0.7);
   color: #FFD700; /* Dourado */
   margin-bottom: 0.3em;
   letter-spacing: 0px;
@@ -21,7 +21,7 @@
 
 .reveal h3 {
   font-size: 2rem;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9), 1px 1px 2px rgba(0, 0, 0, 0.7);
   color: #FFD700; /* Dourado */
   margin-bottom: 0.2em;
   letter-spacing: 0px;
@@ -29,7 +29,7 @@
 
 .reveal h4 {
   font-size: 1.6rem;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 1px 1px 2px rgba(0, 0, 0, 0.7);
   color: #FFD700; /* Dourado */
   margin-bottom: 0.15em;
   letter-spacing: 0px;
@@ -136,14 +136,14 @@
    ESTILOS TEMÁTICOS ADAPTADOS
    ==================== */
 
-/* Tela de título */
+/* Tela de título — fundo neutro escuro (sem véu verde que lavava o texto) */
 .title-screen {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 85vh;
-  background: radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,100,0,0.1) 100%);
+  background: radial-gradient(circle, rgba(12, 12, 12, 0) 0%, rgba(12, 12, 12, 0.6) 100%);
   position: relative;
 }
 
@@ -281,6 +281,7 @@
   max-width: 800px;
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -308,6 +309,7 @@
   padding: 5px;
   border-radius: 0 0 3px 3px;
   margin-top: 5px;
+  width: 100%;
 }
 
 .control-panel {
@@ -1362,6 +1364,13 @@
   margin: 5px;
 }
 
+.svg-image-small {
+  max-width: 260px;
+  height: auto;
+  display: inline-block;
+  margin: 5px;
+}
+
 /* Emblema final para slides de conclusão */
 .final-emblem {
   margin-top: 1em;
@@ -1375,7 +1384,8 @@
    verde claro #8bc34a · interno #1c1c1c · acento #ADFF2F
    ============================================================ */
 
-/* --- Enquadramento: header e footer de navegação (visual-design-spec) --- */
+/* --- Enquadramento: header e footer de navegação (visual-design-spec) ---
+   Contraste: texto informativo sempre >= 4.5:1 (WCAG AA) sobre #0c0c0c. */
 .slide-header {
   position: absolute;
   top: 0.6em;
@@ -1384,7 +1394,7 @@
   font-size: 0.55em;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(76, 175, 80, 0.5);
+  color: #8bc34a; /* verde-claro sólido — ratio ~7:1 */
   border-bottom: 1px solid rgba(76, 175, 80, 0.15);
   padding-bottom: 0.35em;
   text-align: left;
@@ -1397,10 +1407,19 @@
   right: 1.2em;
   font-size: 0.5em;
   letter-spacing: 0.15em;
-  color: rgba(76, 175, 80, 0.25);
+  color: rgba(230, 230, 230, 0.55); /* cinza claro — ratio ~5:1 */
   border-top: 1px solid rgba(76, 175, 80, 0.08);
   padding-top: 0.35em;
   text-align: left;
+}
+
+/* Slides com header/footer absoluto: reservam espaço para não colidir */
+.reveal section:has(> .slide-header) {
+  padding-top: 1.6em;
+}
+
+.reveal section:has(> .slide-footer) {
+  padding-bottom: 1.4em;
 }
 
 .slide-body {
@@ -1505,7 +1524,7 @@
   font-size: 0.6em;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(173, 255, 47, 0.55);
+  color: #adff2f; /* sólido — ratio ~13:1 */
   margin-bottom: 0.5em;
 }
 
@@ -1577,17 +1596,29 @@
   background-color: rgba(76, 175, 80, 0.15);
 }
 
-/* --- Capa: metadados --- */
+/* --- Capa: metadados — sólidos para contraste (WCAG AA) --- */
 .doc-code {
   font-size: 0.55em;
   letter-spacing: 0.2em;
-  color: rgba(255, 235, 59, 0.6);
+  color: #ffeb3b; /* amarelo sólido — ratio ~12:1 */
   margin: 0.4em 0 0;
 }
 
 .chapter-meta {
   font-size: 0.6em;
   letter-spacing: 0.12em;
-  color: rgba(230, 230, 230, 0.5);
+  color: rgba(230, 230, 230, 0.75); /* ratio ~8:1 */
   margin: 0.8em 0 0;
+}
+
+/* --- Capa: glifo geométrico animado (canvas leve, por capítulo) ---
+   Paleta do canvas: #ADFF2F principal + destaques #FFD700/#ff3333.
+   Nunca introduzir cores fora da paleta (issue #45, decisão #5 revisada). */
+.cover-glyph {
+  display: block;
+  margin: 0.6em auto;
+  max-width: 100%;
+  background-color: #0c0c0c;
+  border: 1px solid rgba(76, 175, 80, 0.4);
+  border-radius: 4px;
 }

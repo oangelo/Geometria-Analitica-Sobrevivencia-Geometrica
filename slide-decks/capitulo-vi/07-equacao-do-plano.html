@@ -1,0 +1,85 @@
+<!-- 07-TÓPICO: EQUAÇÃO DO PLANO (corresponde ao tópico 5 dos exercícios) -->
+<section>
+  <!-- V1: Abertura (motivação + insert narrativo) -->
+  <section class="field-report">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 07 &middot; EQUAÇÃO DO PLANO</div>
+    <h2>Superfícies no Espaço</h2>
+    <h3 class="mission-subtitle">Da Reta no R² ao Plano no R³</h3>
+    <p>No \(R^2\), uma equação linear \(ax + by + c = 0\) desenhava uma <strong>reta</strong>. No \(R^3\), a mesma ideia \(ax + by + cz + d = 0\) desenha uma <strong>superfície plana</strong>: um plano.</p>
+    <p>Aplicações: horizonte de radar, lajes e paredes de um projeto, zonas de cobertura.</p>
+    <div class="survival-tip">
+      <p>Uma equação, um novo significado. A mesma fórmula do \(R^2\), agora descrevendo superfícies no espaço.</p>
+    </div>
+    <p class="narrative-insert">O Estatuto da Cidade, de 2001, criou a outorga onerosa: construir acima do limite básico é comprar o direito ao ar da prefeitura.</p>
+    <p class="chapter-meta">Fonte: Lei 10.257/2001</p>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V2: Definição formal -->
+  <section class="mission-briefing">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 07 &middot; EQUAÇÃO DO PLANO</div>
+    <h2>Equação do Plano</h2>
+    <div class="definition-box">
+      <p class="formula">\[ ax + by + cz + d = 0 \]</p>
+      <p><strong>Forma vetorial:</strong> \(\vec{n} \cdot (\vec{X} - \vec{P_0}) = 0\), com \(\vec{n} = (a, b, c)\)</p>
+      <p><strong>Vetor normal</strong> \(\vec{n}\): perpendicular a todo vetor contido no plano. Cada coeficiente da equação é uma componente da normal.</p>
+    </div>
+    <p class="mnemonic">"Os coeficientes do plano são a cara da normal: \((a, b, c)\) aponta para fora da superfície."</p>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V3: Simulador -->
+  <section class="simulator">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 07 &middot; EQUAÇÃO DO PLANO</div>
+    <h3>Simulador: Manipulando Planos</h3>
+    <div class="canvas-container">
+      <canvas id="equacao-plano-canvas" width="800" height="400"></canvas>
+      <div class="simulator-controls">
+        <div class="control-panel">
+          <label for="plano-a">\(a\):</label> <input type="range" id="plano-a" min="-2" max="2" value="1" step="0.1"> <span id="plano-a-value">1.0</span>
+          <label for="plano-b">\(b\):</label> <input type="range" id="plano-b" min="-2" max="2" value="1" step="0.1"> <span id="plano-b-value">1.0</span>
+          <label for="plano-c">\(c\):</label> <input type="range" id="plano-c" min="-2" max="2" value="1" step="0.1"> <span id="plano-c-value">1.0</span>
+          <label for="plano-d">\(d\):</label> <input type="range" id="plano-d" min="-5" max="5" value="-2" step="0.1"> <span id="plano-d-value">-2.0</span>
+        </div>
+        <p>Equação: <span id="plano-eq-display" class="formula">\( 1.0x + 1.0y + 1.0z - 2.0 = 0 \)</span></p>
+      </div>
+    </div>
+    <div class="hint-message">
+      <p>Mova os coeficientes e observe: o vetor vermelho (normal) gira junto com o plano.</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V4: Distância ponto-plano -->
+  <section class="field-report">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 07 &middot; EQUAÇÃO DO PLANO</div>
+    <h2>Relatório: Distâncias e Segurança</h2>
+    <div class="info-panel">
+      <div class="info-screen">
+        <h4>Distância de um ponto \(P_0(x_0, y_0, z_0)\) ao plano:</h4>
+        <p class="formula">\[ D = \frac{|ax_0 + by_0 + cz_0 + d|}{\sqrt{a^2 + b^2 + c^2}} \]</p>
+        <p>A distância é a projeção do deslocamento \(\overrightarrow{P_0P}\) na direção da normal. O denominador é \(\|\vec{n}\|\), a normalização da direção.</p>
+      </div>
+    </div>
+    <div class="survival-tip">
+      <p>Distância zero significa que o ponto está NO plano. É o teste de pertinência mais rápido que existe.</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V5: Debriefing -->
+  <section class="debriefing">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 07 &middot; EQUAÇÃO DO PLANO</div>
+    <h3>Debriefing: A Assinatura da Superfície</h3>
+    <div class="summary-box">
+      <p>Um ponto e uma normal descrevem um plano inteiro. Distâncias e pertinências viram contas de produto interno.</p>
+    </div>
+    <div class="next-mission">
+      <p>Próximo briefing: e se exigirmos DUAS equações ao mesmo tempo? Equações da Reta no Espaço.</p>
+    </div>
+    <div class="instructor-note">
+      <p>"Um bom plano separa um abrigo seguro de uma armadilha."</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+</section>

@@ -54,6 +54,16 @@ sed -i '/inlineMath\|displayMath/!{s/\\\\(/\\(/g; s/\\\\)/\\)/g; s/\\\\\[/\\[/g;
 
 **Atenção:** Dentro de `<script>` (config do MathJax), `\\` é correto — é JavaScript. Dentro de `bmatrix`, `\\` também é correto (separador de linha). O `sed` acima preserva ambos.
 
+### 1.2b Contraste (acessibilidade)
+
+```
+REGRA: Texto informativo com ratio MÍNIMO 4.5:1 (WCAG AA) sobre o fundo #0c0c0c.
+       Opacidade baixa APENAS em elementos decorativos (molduras, marcas d'água).
+       Headers, footers, metadados e labels: cores sólidas ou opacidade >= 0.55.
+```
+
+Referência: `slide-decks/visual-design-spec.md` §3 (opacidade por camadas — camadas decorativas podem ficar abaixo de 4.5:1, conteúdo nunca).
+
 ### 1.3 Notação Matemática
 
 | Elemento | Correto | Errado |

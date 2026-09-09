@@ -59,8 +59,18 @@ Cada arquivo de tópico (`02-topico-1.html` em diante) corresponde a **um tópic
 ### `00-capa.html`
 
 - **1 slide horizontal** (sem slides verticais)
-- Classes existentes: `title-screen`, `subtitle`, `warning-text` (e complementos aprovados na issue #45)
-- Conteúdo: título do capítulo, subtítulo temático, aviso de classificação narrativa
+- Classes existentes: `title-screen`, `subtitle`, `warning-text`, `doc-code`, `chapter-meta`, `cover-glyph`
+- Conteúdo: `doc-code` no topo, título do capítulo, subtítulo temático, **glifo geométrico animado** (canvas `.cover-glyph`), aviso de classificação narrativa, metadados do capítulo
+- **Glifo por capítulo:** cada capítulo tem um motivo geométrico próprio, leve (~40-50 linhas), animação sutil contínua via `requestAnimationFrame`. Não é o mini-jogo do cap 0 — é um "emblema vivo":
+  - Cap 0: grade cartesiana pulsante (revisão)
+  - Cap I: ponto + vetor girando em R² (glifo padrão do template)
+  - Cap II: dois vetores abrindo ângulo (produto escalar)
+  - Cap III: reta varrendo o plano
+  - Cap IV: circunferência expandindo do centro
+  - Cap V: ponto traçando uma cônica (definição por focos)
+  - Cap VI: eixo z subindo do plano (R²→R³)
+- **JS do glifo:** IIFE, `window.vizCapa = { init, cleanup }`, `cancelAnimationFrame` quando o slide não está visível
+- **Paleta do canvas:** `#ADFF2F` principal + destaques `#FFD700`/`#ff3333` (decisão #5 revisada — ver issue #45)
 
 ### `01-narrativa.html`
 
@@ -238,6 +248,12 @@ O inventário completo está em `slide-decks/prompt.md`. Classes principais:
 - Máximo 2-3 fórmulas complexas por slide
 - Títulos com menos de 60 caracteres
 - Texto de narrativa: 3-5 frases no máximo
+
+### Contraste (acessibilidade)
+
+- Texto informativo: ratio **mínimo 4.5:1** (WCAG AA) sobre o fundo `#0c0c0c`
+- Opacidade baixa é permitida **apenas** em elementos decorativos (molduras, marcas d'água) — ver `visual-design-spec.md` §3
+- Metadados e headers/footers usam cores sólidas ou opacidade ≥ 0.55, nunca abaixo disso
 
 ### CSS
 

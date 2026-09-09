@@ -27,16 +27,19 @@
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
     <script>
       const SECTIONS = [
-        "capitulo-vi/0-introducao.html",
-        "capitulo-vi/1-espaco-vetorial-r3.html",
-        "capitulo-vi/2-produto-interno-no-r3.html",
-        "capitulo-vi/3-determinantes.html",
-        "capitulo-vi/4-produto-vetorial-e-misto.html",
-        "capitulo-vi/5-equacao-do-plano.html",
-        "capitulo-vi/6-equacoes-da-reta.html",
-        "capitulo-vi/7-sistemas-de-equacoes.html",
-        "capitulo-vi/8-equacao-da-esfera.html",
-        "capitulo-vi/9-conclusao.html"
+        "capitulo-vi/00-capa.html",
+        "capitulo-vi/01-narrativa.html",
+        "capitulo-vi/02-espaco-vetorial-r3.html",
+        "capitulo-vi/03-produto-interno-no-r3.html",
+        "capitulo-vi/04-determinantes.html",
+        "capitulo-vi/05-produto-vetorial-e-misto.html",
+        "capitulo-vi/06-areas-e-volumes.html",
+        "capitulo-vi/07-equacao-do-plano.html",
+        "capitulo-vi/08-equacoes-da-reta.html",
+        "capitulo-vi/09-sistemas-3x3.html",
+        "capitulo-vi/10-superficie-esferica.html",
+        "capitulo-vi/11-resumo.html",
+        "capitulo-vi/12-reflexao.html"
       ];
 
       async function loadAndInit() {
@@ -44,22 +47,29 @@
         const pendingScripts = [];
 
         for (const url of SECTIONS) {
-          const res  = await fetch(url);
-          const text = await res.text();
-          const doc  = new DOMParser().parseFromString(text, 'text/html');
+          try {
+            const res  = await fetch(url);
+            if (!res.ok) throw new Error('Falha ao carregar ' + url);
+            const text = await res.text();
+            const doc  = new DOMParser().parseFromString(text, 'text/html');
 
-          const wrapper = doc.body.querySelector('section');
-          if (wrapper) container.appendChild(document.importNode(wrapper, true));
+            // Apenas seções de nível superior do fragmento (decisão #45: body > section)
+            doc.body.querySelectorAll(':scope > section').forEach(s => {
+              container.appendChild(document.importNode(s, true));
+            });
 
-          // Collect inline scripts (skip Reveal.initialize and MathJax config)
-          doc.querySelectorAll('body script:not([src])').forEach(s => {
-            const content = s.textContent.trim();
-            if (content &&
-                !content.includes('Reveal.initialize') &&
-                !content.includes('window.MathJax =')) {
-              pendingScripts.push(content);
-            }
-          });
+            // Collect inline scripts (skip Reveal.initialize and MathJax config)
+            doc.querySelectorAll('body script:not([src])').forEach(s => {
+              const content = s.textContent.trim();
+              if (content &&
+                  !content.includes('Reveal.initialize') &&
+                  !content.includes('window.MathJax =')) {
+                pendingScripts.push(content);
+              }
+            });
+          } catch (e) {
+            console.error(e);
+          }
         }
 
         // Re-execute scripts with DOMContentLoaded shim
@@ -95,19 +105,33 @@
         if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
 
         Reveal.on('slidechanged', function(event) {
-          const slide = event.currentSlide;
-          if (!slide) return;
-          if (slide.querySelector('#r3-vetores-canvas') && window.initR3Vetores) window.initR3Vetores();
-          if (slide.querySelector('#produto-interno-r3-canvas') && window.initProdutoInternoR3) window.initProdutoInternoR3();
-          if (slide.querySelector('#produto-vetorial-canvas') && window.initProdutoVetorial) window.initProdutoVetorial();
-          if (slide.querySelector('#produto-misto-canvas') && window.initProdutoMisto) window.initProdutoMisto();
-          if (slide.querySelector('#equacao-plano-canvas') && window.initEquacaoPlano) window.initEquacaoPlano();
-          if (slide.querySelector('#equacao-reta-espaco-canvas') && window.initEquacaoReta) window.initEquacaoReta();
+          initCanvasFor(event.currentSlide);
         });
+
+        // Deep-link (hash): inicializa canvas do slide atual sem precisar navegar
+        Reveal.on('ready', function(event) {
+          initCanvasFor(event.currentSlide);
+        });
+
+        function initCanvasFor(slide) {
+          if (!slide) return;
+          var wiring = [
+            ['#capa-eixo-z-canvas', window.vizCapaR3],
+            ['#r3-vetores-canvas', window.vizR3Vetores],
+            ['#produto-interno-r3-canvas', window.vizProdutoInternoR3],
+            ['#produto-vetorial-canvas', window.vizProdutoVetorial],
+            ['#produto-misto-canvas', window.vizProdutoMisto],
+            ['#equacao-plano-canvas', window.vizEquacaoPlano],
+            ['#equacao-reta-espaco-canvas', window.vizEquacaoReta]
+          ];
+          wiring.forEach(function (pair) {
+            if (slide.querySelector(pair[0]) && pair[1]) pair[1].init();
+          });
+        }
       }
 
       loadAndInit();
     </script>
-    <script src="capitulo-vi/simulators.js"></script>
+    <script src="capitulo-vi/simulators.js?v=3"></script>
   </body>
 </html>
