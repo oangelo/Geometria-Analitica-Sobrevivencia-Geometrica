@@ -1,0 +1,41 @@
+<div class="exercise">
+<h3>POSIÇÃO DE UM PONTO RELATIVA À ESFERA</h3>
+<p>O objetivo deste exercício é classificar a posição de um ponto em relação a uma superfície esférica — interior, sobre ou exterior — usando a distância ao centro. Esta é a generalização natural da posição relativa ponto–circunferência do Capítulo IV.</p>
+<p>A zona de segurança de um abrigo subterrâneo é modelada pela superfície esférica de centro $C(3, -1, 2)$ e raio $r = 5$. Três sinais de possíveis ameaças foram detectados nos pontos:</p>
+<div class="formula">
+$$P_1(7, 2, 5), \quad P_2(3, -1, 6), \quad P_3(0, 3, -2)$$
+</div>
+<p><strong>(a)</strong> Calcule a distância de cada ponto ao centro $C$.</p>
+<p><strong>(b)</strong> Classifique cada ponto como interior, sobre ou exterior à esfera.</p>
+<p><strong>(c)</strong> Para o ponto mais próximo do centro, calcule sua distância à superfície esférica (distância ao centro menos o raio, se exterior; raio menos a distância, se interior).</p>
+<p><strong>(d)</strong> O ponto $P_4(3, -1, 7)$ está sobre a esfera? Verifique.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Calcule $d_i = d(P_i, C)$ para cada ponto e compare com $r = 5$. Se $d_i < r$, o ponto está no interior; se $d_i = r$, sobre a superfície; se $d_i > r$, no exterior. A distância de um ponto interior à superfície é $r - d$; de um ponto exterior, é $d - r$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Centro: $C = (3, -1, 2)$; raio: $r = 5$</li>
+<li><strong>Item (a)</strong> — Distâncias:</li>
+<li>$d(P_1, C) = \sqrt{(7-3)^2 + (2-(-1))^2 + (5-2)^2} = \sqrt{16 + 9 + 9} = \sqrt{34} \approx 5{,}83$</li>
+<li>$d(P_2, C) = \sqrt{(3-3)^2 + (-1-(-1))^2 + (6-2)^2} = \sqrt{0 + 0 + 16} = 4$</li>
+<li>$d(P_3, C) = \sqrt{(0-3)^2 + (3-(-1))^2 + (-2-2)^2} = \sqrt{9 + 16 + 16} = \sqrt{41} \approx 6{,}40$</li>
+<li><strong>Item (b)</strong> — Classificação:</li>
+<li>$P_1$: $\sqrt{34} > 5$ → \u003cspan class="warning">exterior</span></li>
+<li>$P_2$: $4 < 5$ → \u003cspan class="success">interior</span></li>
+<li>$P_3$: $\sqrt{41} > 5$ → \u003cspan class="warning">exterior</span></li>
+<li><strong>Item (c)</strong> — O ponto mais próximo do centro é $P_2$ (distância $4$)</li>
+<li>Distância de $P_2$ à superfície: $r - d = 5 - 4 = 1$ unidade</li>
+<li><strong>Item (d)</strong> — Para $P_4(3, -1, 7)$: $d = \sqrt{0 + 0 + 25} = 5 = r$ → \u003cspan class="success">está sobre a esfera</span>.</li>
+</ol>
+<div class="formula">
+$$P_1: \text{exterior}, \quad P_2: \text{interior}, \quad P_3: \text{exterior}, \quad P_4: \text{sobre}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> $P_2$ está a apenas $1$ unidade da fronteira da zona segura — uma posição confortável. $P_1$ e $P_3$ estão fora, mas $P_1$ está mais próximo da superfície ($\sqrt{34}-5 \approx 0{,}83$) do que $P_3$ ($\sqrt{41}-5 \approx 1{,}40$). $P_4$ está exatamente na fronteira, como um posto de vigilância na cúpula do abrigo.</p>
+</details>
+</div>

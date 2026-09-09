@@ -1,0 +1,20 @@
+<div class="exercise">
+<h3>TRIÂNGULO DE VIGILÂNCIA</h3>
+<p>Nos exercícios anteriores, comparamos o "caminho longo" com o atalho do determinante. Agora vamos praticar o atalho com um cenário real. Três torres de vigilância foram erguidas nos pontos $A(1, 1)$, $B(5, 1)$ e $C(3, 5)$. A área coberta pelo sistema de vigilância é o triângulo $ABC$. Construa os vetores $\overrightarrow{AB}$ e $\overrightarrow{AC}$ e calcule a área do triângulo usando o determinante 2×2.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint"><p>Construa dois vetores a partir do mesmo vértice (por exemplo, $A$): $\overrightarrow{AB} = (x_B - x_A, y_B - y_A)$ e $\overrightarrow{AC} = (x_C - x_A, y_C - y_A)$. Depois aplique $\text{Área} = \frac{1}{2}|u_1 v_2 - u_2 v_1|$.</p></div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Escolhemos $A$ como vértice de referência</li>
+<li>Calculamos $\overrightarrow{AB} = (5 - 1, 1 - 1) = (4, 0)$ e $\overrightarrow{AC} = (3 - 1, 5 - 1) = (2, 4)$</li>
+<li>Calculamos o determinante: $u_1 v_2 - u_2 v_1 = 4 \cdot 4 - 0 \cdot 2 = 16$</li>
+<li>Área do triângulo = $\frac{1}{2}|16| = 8$ unidades quadradas</li>
+</ol>
+<div class="formula">$$\overrightarrow{AB} = (4, 0), \quad \overrightarrow{AC} = (2, 4)$$
+$$\text{Área} = \frac{1}{2}|4 \cdot 4 - 0 \cdot 2| = \frac{1}{2} \cdot 16 = 8$$</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Com o determinante, basta construir dois vetores a partir de um vértice e calcular uma expressão. O resultado não depende de qual vértice escolhemos como referência — a área é sempre a mesma.</p>
+</details>
+</div>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gabarito - Prova 2 (P2)</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <script>
+        // Configuração do MathJax para funcionar com <details>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            options: {
+                skipHtmlTags: ['details'] // Permite que MathJax renderize dentro de <details>
+            },
+            startup: {
+                ready: () => {
+                    MathJax.startup.defaultReady();
+                }
+            }
+        };
+    </script>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            background-color: #fff;
+            color: #000;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .header h1 {
+            text-align: center;
+            font-size: 16pt;
+            font-weight: bold;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .question {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+        }
+
+        .question:last-child {
+            border-bottom: none;
+        }
+        
+        .question-header {
+            font-weight: bold;
+            font-size: 13pt;
+            color: #000;
+            border-left: 4px solid #000;
+            padding: 8px 10px;
+            background-color: #f0f0f0;
+            margin-bottom: 12px;
+        }
+        
+        .subquestion {
+            margin: 10px 0 10px 20px;
+        }
+        
+        details {
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        summary {
+            font-weight: bold;
+            padding: 8px 12px;
+            cursor: pointer;
+            background-color: #e9e9e9;
+            font-size: 10pt;
+            border-radius: 3px;
+        }
+        .answer {
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            background-color: #fff;
+        }
+        .answer p {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Gabarito - Prova 2 (P2)</h1>
+        </div>
+        <div class="content">
+            <!-- Questão 1 -->
+            <div class="question">
+                <div class="question-header">Questão 1: Aplicações do Produto Vetorial e Misto</div>
+                <p>Considere os pontos \(A=(1, 0, 1)\), \(B=(2, 1, 3)\), \(C=(0, 2, 2)\) e \(D=(3, -1, 0)\).</p>
+                <p><em><b>Justificativa Didática:</b> Esta questão avalia a capacidade do aluno de aplicar os produtos vetorial e misto para resolver problemas geométricos concretos no R³, como o cálculo de áreas e volumes.</em></p>
+                <div class="subquestion">
+                    <strong>a)</strong> Calcule a área do paralelogramo definido pelos vetores \(\vec{AB}\) e \(\vec{AC}\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Primeiro, calculamos os vetores:</p>
+                            <p>\(\vec{AB} = B - A = (2-1, 1-0, 3-1) = (1, 1, 2)\)</p>
+                            <p>\(\vec{AC} = C - A = (0-1, 2-0, 2-1) = (-1, 2, 1)\)</p>
+                            <p>A área do paralelogramo é o módulo do produto vetorial \(\vec{AB} \times \vec{AC}\).</p>
+                            <p>\(\vec{AB} \times \vec{AC} = \det \begin{pmatrix} \vec{i} & \vec{j} & \vec{k} \\ 1 & 1 & 2 \\ -1 & 2 & 1 \end{pmatrix} = (1-4)\vec{i} - (1-(-2))\vec{j} + (2-(-1))\vec{k} = -3\vec{i} - 3\vec{j} + 3\vec{k} = (-3, -3, 3)\)</p>
+                            <p>Área \( = |(-3, -3, 3)| = \sqrt{(-3)^2 + (-3)^2 + 3^2} = \sqrt{9+9+9} = \sqrt{27}\)</p>
+                            <p><strong>Resposta:</strong> \(3\sqrt{3}\) unidades de área.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="subquestion">
+                    <strong>b)</strong> Calcule o volume do paralelepípedo definido pelos vetores \(\vec{AB}\), \(\vec{AC}\) e \(\vec{AD}\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Primeiro, calculamos o vetor \(\vec{AD}\):</p>
+                            <p>\(\vec{AD} = D - A = (3-1, -1-0, 0-1) = (2, -1, -1)\)</p>
+                            <p>O volume do paralelepípedo é o módulo do produto misto \((\vec{AB}, \vec{AC}, \vec{AD})\).</p>
+                            <p>Volume \( = |(\vec{AB} \times \vec{AC}) \cdot \vec{AD}| = |(-3, -3, 3) \cdot (2, -1, -1)| \)</p>
+                            <p>Volume \( = |(-3)(2) + (-3)(-1) + (3)(-1)| = |-6 + 3 - 3| = |-6|\)</p>
+                            <p><strong>Resposta:</strong> 6 unidades de volume.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Questão 2 -->
+            <div class="question">
+                <div class="question-header">Questão 2: Equações da Reta e do Plano no R³</div>
+                 <p>Considere a reta \((r)\) que passa pelo ponto \(A=(1, 1, 0)\) com vetor diretor \(\vec{v}=(2, -1, 1)\), e o ponto \(P=(0, 2, 1)\).</p>
+                <p><em><b>Justificativa Didática:</b> A questão avalia a habilidade de construir objetos geométricos a partir de descrições mais complexas, exigindo o uso de produto vetorial e a compreensão da relação de ortogonalidade.</em></p>
+                <div class="subquestion">
+                    <strong>a)</strong> Determine a equação geral do plano \(\pi\) que contém a reta \((r)\) e o ponto \(P\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Para definir o plano, precisamos de um ponto (podemos usar A ou P) e um vetor normal \(\vec{n}\). O vetor normal é perpendicular a dois vetores não paralelos do plano. Temos o vetor diretor da reta, \(\vec{v}=(2, -1, 1)\), e podemos formar outro vetor com o ponto A da reta e o ponto P, \(\vec{AP}\).</p>
+                            <p>\(\vec{AP} = P - A = (0-1, 2-1, 1-0) = (-1, 1, 1)\)</p>
+                            <p>O vetor normal \(\vec{n}\) é o produto vetorial \(\vec{v} \times \vec{AP}\).</p>
+                            <p>\(\vec{n} = (2, -1, 1) \times (-1, 1, 1) = ((-1)(1) - (1)(1), (1)(-1) - (2)(1), (2)(1) - (-1)(-1)) = (-2, -3, 1)\)</p>
+                            <p>A equação do plano é \(-2x - 3y + z + d = 0\). Usando o ponto \(P(0, 2, 1)\):</p>
+                            <p>\(-2(0) - 3(2) + 1 + d = 0 \implies -6 + 1 + d = 0 \implies d = 5\)</p>
+                            <p><strong>Resposta:</strong> A equação geral do plano é \(-2x - 3y + z + 5 = 0\) ou \(2x + 3y - z - 5 = 0\).</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="subquestion">
+                    <strong>b)</strong> Determine as equações paramétricas da reta \((s)\) que é normal (perpendicular) ao plano \(\pi\) e que passa pelo ponto \(Q=(1, 0, 5)\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Se a reta \((s)\) é normal ao plano \(\pi\), seu vetor diretor é o próprio vetor normal do plano, \(\vec{n}=(-2, -3, 1)\) (ou qualquer múltiplo, como \((2, 3, -1)\)).</p>
+                            <p>A reta passa pelo ponto \(Q=(1, 0, 5)\). As equações paramétricas são:</p>
+                             <p>\[ \begin{cases} x = 1 - 2t \\ y = 0 - 3t \\ z = 5 + t \end{cases}, t \in \mathbb{R} \]</p>
+                             <p><strong>Resposta:</strong> \(x=1-2t\), \(y=-3t\), \(z=5+t\).</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+            
+            <!-- Questão 3 -->
+            <div class="question">
+                <div class="question-header">Questão 3: Interseção de Planos e Sistemas Lineares</div>
+                <p>Considere o sistema de equações lineares que representa a interseção de três planos:
+                \[ \begin{cases} x + 2y - z = 6 \\ 2x - y + 3z = -13 \\ 3x - 2y + 3z = -16 \end{cases} \]</p>
+                <p><em><b>Justificativa Didática:</b> Esta questão aprofunda a conexão entre Álgebra Linear e Geometria, exigindo análise das propriedades da matriz e a justificativa do método de resolução.</em></p>
+                <div class="subquestion">
+                    <strong>a)</strong> Calcule o determinante da matriz dos coeficientes. Qual a relação entre o valor encontrado e o tipo de solução do sistema?
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>A matriz dos coeficientes é \( M = \begin{pmatrix} 1 & 2 & -1 \\ 2 & -1 & 3 \\ 3 & -2 & 3 \end{pmatrix} \).</p>
+                            <p>\(\det(M) = 1(-3 - (-6)) - 2(6 - 9) -1(-4 - (-3)) = 1(3) - 2(-3) - 1(-1) = 3 + 6 + 1 = 10\)</p>
+                            <p><strong>Relação:</strong> Como o determinante é diferente de zero (\(\det(M) \neq 0\)), o sistema é Possível e Determinado (SPD). Geometricamente, isso significa que os três planos se interceptam em um único ponto.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="subquestion">
+                    <strong>b)</strong> Escreva a matriz aumentada do sistema e aplique o método de escalonamento.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Matriz aumentada: \( \left[ \begin{array}{ccc|c} 1 & 2 & -1 & 6 \\ 2 & -1 & 3 & -13 \\ 3 & -2 & 3 & -16 \end{array} \right] \)</p>
+                            <p>Operações: \(L_2 \leftarrow L_2 - 2L_1\) e \(L_3 \leftarrow L_3 - 3L_1\)</p>
+                            <p>\( \left[ \begin{array}{ccc|c} 1 & 2 & -1 & 6 \\ 0 & -5 & 5 & -25 \\ 0 & -8 & 6 & -34 \end{array} \right] \)</p>
+                            <p>Operação: \(L_2 \leftarrow -\frac{1}{5}L_2\)</p>
+                            <p>\( \left[ \begin{array}{ccc|c} 1 & 2 & -1 & 6 \\ 0 & 1 & -1 & 5 \\ 0 & -8 & 6 & -34 \end{array} \right] \)</p>
+                            <p>Operação: \(L_3 \leftarrow L_3 + 8L_2\)</p>
+                            <p><strong>Resposta:</strong> \( \left[ \begin{array}{ccc|c} 1 & 2 & -1 & 6 \\ 0 & 1 & -1 & 5 \\ 0 & 0 & -2 & 6 \end{array} \right] \)</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="subquestion">
+                    <strong>c)</strong> Encontre a solução do sistema e verifique.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Da forma escalonada:</p>
+                            <p>\(-2z = 6 \implies z = -3\)</p>
+                            <p>\(y - z = 5 \implies y - (-3) = 5 \implies y = 2\)</p>
+                            <p>\(x + 2y - z = 6 \implies x + 2(2) - (-3) = 6 \implies x + 4 + 3 = 6 \implies x = -1\)</p>
+                            <p><strong>Solução:</strong> O ponto de interseção é \(P=(-1, 2, -3)\).</p>
+                            <p><strong>Verificação na 1ª equação:</strong> \( (-1) + 2(2) - (-3) = -1 + 4 + 3 = 6 \). (Confere)</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Questão 4 -->
+            <div class="question">
+                <div class="question-header">Questão 4: Cônicas - Hipérbole</div>
+                <p>Uma hipérbole tem focos nos pontos \(F_1=(-1, 2)\) e \(F_2=(9, 2)\) e a medida do seu eixo real é 8 unidades (\(2a=8\)).</p>
+                <p><em><b>Justificativa Didática:</b> Avalia a compreensão das definições e elementos de uma hipérbole, especificamente a habilidade de construir sua equação a partir de elementos-chave com centro fora da origem.</em></p>
+                <div class="subquestion">
+                    <strong>a)</strong> Determine as coordenadas do centro (C), o valor da semidistância focal (c) e o valor de \(b^2\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>O centro \(C=(h,k)\) é o ponto médio dos focos \(F_1=(-1, 2)\) e \(F_2=(9, 2)\).</p>
+                            <p>\(C = \left(\frac{-1+9}{2}, \frac{2+2}{2}\right) = (4, 2)\)</p>
+                            <p>A distância focal é \(2c = d(F_1, F_2) = \sqrt{(9 - (-1))^2 + (2-2)^2} = \sqrt{10^2} = 10\). Logo, a semidistância focal é \(c = 5\).</p>
+                            <p>O eixo real é \(2a = 8\), então \(a = 4\).</p>
+                            <p>A relação na hipérbole é \(c^2 = a^2 + b^2\).</p>
+                            <p>\(5^2 = 4^2 + b^2 \implies 25 = 16 + b^2 \implies b^2 = 9\)</p>
+                            <p><strong>Resposta:</strong> Centro \(C=(4, 2)\), \(c=5\) e \(b^2=9\).</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="subquestion">
+                    <strong>b)</strong> Escreva a equação reduzida desta hipérbole.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Como os focos estão em uma linha horizontal (\(y=2\)), a hipérbole é horizontal. A equação tem a forma: \(\frac{(x-h)^2}{a^2} - \frac{(y-k)^2}{b^2} = 1\).</p>
+                            <p>Substituindo os valores encontrados: \(h=4\), \(k=2\), \(a^2 = 4^2 = 16\) e \(b^2 = 9\).</p>
+                            <p><strong>Resposta:</strong> \(\frac{(x-4)^2}{16} - \frac{(y-2)^2}{9} = 1\)</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

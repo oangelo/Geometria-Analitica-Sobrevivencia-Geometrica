@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Cap. II — Paralelismo e Ortogonalidade</title>
+  <link href="https://unpkg.com/reveal.js@5.1.0/dist/reveal.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/reveal.js@5.1.0/dist/theme/black.css" id="theme" rel="stylesheet"/>
+  <link href="../styles.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+  <!-- SEÇÃO 5: PARALELISMO E ORTOGONALIDADE -->
+  <section>
+
+    <!-- Slide 5.1 — Rotas que se Alinham ou se Cruzam (Motivação) -->
+    <section class="field-report">
+      <h2>Rotas que se Alinham ou se Cruzam</h2>
+      <div class="narrative-text">
+        <p>Na Zona Devastada, patrulhas podem seguir rotas paralelas (mesma direção) ou ortogonais (perpendiculares). Entender essas relações é crucial para cobertura territorial eficiente.</p>
+      </div>
+      <p>"Já sabemos calcular ângulos qualitativamente via sinal do produto escalar. Agora vamos formalizar os casos extremos."</p>
+      <div class="survival-tip">
+        <p><span class="emoji-icon">🔄</span><strong>Progressão Natural:</strong> Passamos do "alinhamento máximo" (paralelismo) para o "desalinhamento perpendicular" (ortogonalidade), e finalmente para o "desalinhamento geral" (ângulo arbitrário).</p>
+      </div>
+    </section>
+
+    <!-- Slide 5.2 — Vetores Paralelos (Definição) -->
+    <section class="mission-briefing">
+      <h2>Vetores Paralelos</h2>
+      <p>Dois vetores \(\vec{u}\) e \(\vec{v}\) são <span class="highlight">paralelos</span> quando um pode ser transformado no outro através de uma multiplicação escalar:</p>
+      <p class="formula">\[ \vec{u} = k \cdot \vec{v} \]</p>
+      <div class="definition-box">
+        <p><strong>Teste de Paralelismo:</strong> Divida as coordenadas de um vetor pelas do outro. Se o resultado for constante, as rotas são alinhadas.</p>
+      </div>
+      <div class="training-problem">
+        <h4>Exemplo</h4>
+        <p>\(\vec{u} = (2, 4)\) e \(\vec{v} = (1, 2)\). Observe que \(\vec{u} = 2 \cdot \vec{v}\), portanto, são <strong>paralelos</strong> — como patrulhas que seguem rotas idênticas, mas em horários diferentes.</p>
+      </div>
+    </section>
+
+    <!-- Slide 5.3 — Vetores Ortogonais (Definição) -->
+    <section class="mission-briefing">
+      <h2>Ortogonalidade: Independência em Campo</h2>
+      <p>Vetores ortogonais são como <strong>esquadrões táticos</strong> que operam de forma independente, cobrindo ângulos estratégicos sem interferir um no outro.</p>
+      <div class="definition-box">
+        <p><strong>Definição Matemática:</strong> Dois vetores \(\vec{u}\) e \(\vec{v}\) são <span class="highlight">ortogonais</span> quando seu produto interno é zero:</p>
+        <p class="formula">\[ \vec{u} \cdot \vec{v} = 0 \]</p>
+        <p>Eles formam um ângulo de 90°, garantindo que suas rotas são perpendiculares — perfeito para evitar emboscadas.</p>
+      </div>
+      <div class="training-problem">
+        <h4>Exemplo</h4>
+        <p>\(\vec{u} = (1, 0)\) — patrulha leste-oeste, e \(\vec{v} = (0, 1)\) — patrulha norte-sul.</p>
+        <p class="formula">\[ \vec{u} \cdot \vec{v} = (1 \cdot 0) + (0 \cdot 1) = 0 \]</p>
+        <p>Esses esquadrões não interferem um no outro, maximizando a vigilância sem sobreposição de esforços.</p>
+      </div>
+    </section>
+
+    <!-- Slide 5.4 — Atalho Ortogonal no R² -->
+    <section class="field-report level-intermediate">
+      <h2>Atalho Ortogonal no R²</h2>
+      <p>Existe uma propriedade prática muito útil no plano:</p>
+      <div class="definition-box">
+        <p><strong>Propriedade:</strong> Se \(\vec{v} = (a, b)\), então um vetor ortogonal a \(\vec{v}\) é:</p>
+        <p class="formula">\[ \vec{w} = (b, -a) \quad \text{ou} \quad \vec{w} = (-b, a) \]</p>
+        <p><strong>Verificação:</strong> \(\vec{v} \cdot \vec{w} = a \cdot b + b \cdot (-a) = ab - ab = 0\) ✓</p>
+      </div>
+      <div class="training-problem">
+        <h4>Exemplos</h4>
+        <ul>
+          <li>Ortogonal a \((3, 4)\) é \((4, -3)\) ou \((-4, 3)\)</li>
+          <li>Ortogonal a \((1, 0)\) é \((0, -1)\) ou \((0, 1)\)</li>
+          <li>Ortogonal a \((2, -5)\) é \((-5, -2)\) ou \((5, 2)\)</li>
+        </ul>
+      </div>
+      <div class="survival-tip">
+        <p><span class="emoji-icon">💡</span><strong>Dica de Sobrevivência:</strong> Troque as coordenadas e inverta o sinal de uma delas. Isso é mais rápido que resolver equações!</p>
+      </div>
+    </section>
+
+    <!-- Slide 5.5 — Parâmetro para Ortogonalidade e Paralelismo -->
+    <section class="survival-training level-intermediate">
+      <h2>Parâmetro para Ortogonalidade e Paralelismo</h2>
+      <div class="training-problem">
+        <h4>Tipo 1: Encontrar k para Ortogonalidade</h4>
+        <p>Encontre \(k\) tal que \(\vec{a} = (2, k)\) seja ortogonal a \(\vec{b} = (3, -4)\).</p>
+        <p><strong>Resolução:</strong> \(2 \cdot 3 + k \cdot (-4) = 0 \Rightarrow 6 - 4k = 0 \Rightarrow k = \frac{3}{2}\)</p>
+      </div>
+      <div class="training-problem">
+        <h4>Tipo 2: Encontrar k para Paralelismo</h4>
+        <p>Encontre \(k\) tal que \(\vec{u} = (k, 2k)\) seja paralelo a \(\vec{v} = (3, 6)\).</p>
+        <p><strong>Resolução:</strong> \(\frac{k}{3} = \frac{2k}{6} \Rightarrow \frac{k}{3} = \frac{k}{3}\) — válido para qualquer \(k \neq 0\). Se \(k = 0\), o vetor é nulo.</p>
+      </div>
+    </section>
+
+    <!-- Slide 5.6 — Exemplo Avançado: Quarto Vértice do Retângulo -->
+    <section class="field-report level-advanced">
+      <h2>Exemplo Avançado: Quarto Vértice do Retângulo</h2>
+      <p>Dados três vértices de um retângulo, como encontrar o quarto?</p>
+      <div class="training-problem">
+        <h4>Problema</h4>
+        <p>Dados \(A(1, 2)\), \(B(5, 2)\), \(C(5, 5)\). Encontre \(D\).</p>
+        <p><strong>Passo 1:</strong> Calcule os vetores:</p>
+        <p class="formula">\[ \vec{AB} = (4, 0), \quad \vec{BC} = (0, 3) \]</p>
+        <p><strong>Passo 2:</strong> Verifique ortogonalidade:</p>
+        <p class="formula">\[ \vec{AB} \cdot \vec{BC} = 4 \cdot 0 + 0 \cdot 3 = 0 \]</p>
+        <p><strong>Passo 3:</strong> O quarto vértice é:</p>
+        <p class="formula">\[ D = A + \vec{BC} = (1, 2) + (0, 3) = (1, 5) \]</p>
+      </div>
+      <div class="survival-tip">
+        <p>Em um retângulo, lados adjacentes são ortogonais. Use essa propriedade para verificar e construir.</p>
+      </div>
+    </section>
+
+    <!-- Slide 5.7 — Treinamento: Paralelismo e Ortogonalidade -->
+    <section class="survival-training level-intermediate">
+      <h2>Treinamento: Paralelismo e Ortogonalidade</h2>
+      <div class="training-problem">
+        <h4>Missão 1: Classificação de Pares</h4>
+        <p>Dados \(\vec{a} = (3, 4)\), \(\vec{b} = (4, -3)\), \(\vec{c} = (6, 8)\). Determine quais são paralelos e quais são ortogonais.</p>
+      </div>
+      <div class="training-problem">
+        <h4>Missão 2: Vetor Ortogonal com Módulo</h4>
+        <p>Encontre um vetor ortogonal a \((5, -2)\) com módulo \(\sqrt{29}\).</p>
+      </div>
+      <div class="training-problem">
+        <h4>Missão 3: Parâmetro para Paralelismo</h4>
+        <p>Dado \(\vec{u} = (2, 1)\), encontre \(k\) tal que \(\vec{v} = (k, 3)\) seja paralelo a \(\vec{u}\).</p>
+      </div>
+    </section>
+
+    <!-- Slide 5.8 — Debriefing: Direções no Plano -->
+    <section class="debriefing">
+      <h2>Debriefing: Direções no Plano</h2>
+      <div class="summary-box">
+        <h3>Pontos-Chave</h3>
+        <ul>
+          <li><strong>Paralelismo:</strong> \(\vec{u} = k\vec{v}\) — mesma direção, sentidos possivelmente opostos</li>
+          <li><strong>Ortogonalidade:</strong> \(\vec{u} \cdot \vec{v} = 0\) — ângulo de 90°</li>
+          <li><strong>Atalho R²:</strong> \((a, b) \perp (b, -a)\)</li>
+          <li><strong>Aplicação:</strong> Cobertura territorial, construção de retângulos, sistemas de navegação</li>
+        </ul>
+      </div>
+      <div class="next-mission">
+        <p><strong>Próxima Missão:</strong> Ângulo entre Vetores — Sabemos identificar se dois vetores cooperam ou competem. Mas <em>quanto</em> cooperam ou competem? Isso requer medir o ângulo exato.</p>
+      </div>
+    </section>
+
+  </section>
+
+</div>
+</div>
+
+<script src="https://unpkg.com/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://unpkg.com/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script src="https://unpkg.com/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['\\[', '\\]']]
+    },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    plugins: [RevealNotes, RevealHighlight]
+  });
+</script>
+
+</body>
+</html>

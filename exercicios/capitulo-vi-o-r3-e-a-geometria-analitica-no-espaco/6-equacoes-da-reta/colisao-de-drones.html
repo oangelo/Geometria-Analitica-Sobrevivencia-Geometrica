@@ -1,0 +1,69 @@
+<div class="exercise">
+<h3>Colisão de Drones — Problema Aberto</h3>
+<p><strong>Objetivo:</strong> Resolver um problema de verificação de colisão entre duas trajetórias retilíneas no espaço, exigindo que dois objetos ocupem o mesmo ponto no <em>mesmo instante</em>.</p>
+<p>Dois drones patrulham a Zona Devastada com trajetórias retilíneas:</p>
+<ul>
+    <li><strong>Drone Alfa:</strong> parte de $A_0(0, 0, 10)$ com velocidade $\vec{v}_\alpha = (2, 1, -1)$ m/s.</li>
+    <li><strong>Drone Beta:</strong> parte de $B_0(6, 3, 8)$ com velocidade $\vec{v}_\beta = (-1, 0, 1)$ m/s.</li>
+</ul>
+<p>Ambos partem em $t = 0$.</p>
+<ol>
+    <li>Escreva as equações paramétricas de ambas as trajetórias.</li>
+    <li>Verifique se as retas suporte das trajetórias se intersectam (mesmo ponto no espaço, possivelmente em tempos diferentes).</li>
+    <li>Se as retas se intersectarem, verifique se a colisão ocorre no mesmo instante $t$ para ambos os drones. Se não, calcule os tempos $t_\alpha$ e $t_\beta$ em que cada drone passa pelo ponto de interseção.</li>
+    <li>As trajetórias são seguras (sem risco de colisão) ou devem ser alteradas?</li>
+</ol>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+            Para verificar interseção de retas, iguale as coordenadas: $x_\alpha(t_\alpha) = x_\beta(t_\beta)$, $y_\alpha(t_\alpha) = y_\beta(t_\beta)$, $z_\alpha(t_\alpha) = z_\beta(t_\beta)$. Isso gera um sistema de 3 equações com 2 incógnitas ($t_\alpha$, $t_\beta$). Se o sistema for consistente, as retas se intersectam. Para colisão, exija $t_\alpha = t_\beta = t$.
+        </div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>Item (a) — Equações paramétricas:</strong></p>
+<div class="formula">
+            $$\text{Alfa: } \begin{cases} x = 2t_\alpha \\ y = t_\alpha \\ z = 10 - t_\alpha \end{cases}, \quad t_\alpha \geq 0$$
+            $$\text{Beta: } \begin{cases} x = 6 - t_\beta \\ y = 3 \\ z = 8 + t_\beta \end{cases}, \quad t_\beta \geq 0$$
+        </div>
+
+<p><strong>Item (b) — Interseção das retas:</strong></p>
+<ol class="solution-steps">
+<li>Igualar coordenadas (usando $t$ para Alfa e $s$ para Beta):
+            $$\begin{cases} 2t = 6 - s \quad \text{(x)} \\ t = 3 \quad \text{(y)} \\ 10 - t = 8 + s \quad \text{(z)} \end{cases}$$
+        </li>
+<li>Da equação de $y$: $t = 3$.</li>
+<li>Substituir $t = 3$ na equação de $x$: $2(3) = 6 - s \Rightarrow 6 = 6 - s \Rightarrow s = 0$.</li>
+<li>Verificar na equação de $z$: $10 - 3 = 8 + 0 \Rightarrow 7 = 8$.</li>
+</ol>
+<p class="danger">✗ Contradição! $7 \neq 8$. As retas <strong>não se intersectam</strong>.</p>
+
+<p><strong>Item (c) — Análise de colisão:</strong></p>
+<p>Como as retas não se intersectam, não há possibilidade de colisão. Os drones nunca ocuparão o mesmo ponto no espaço, independentemente do tempo.</p>
+
+<p><strong>Verificação adicional — Distância mínima entre as retas:</strong></p>
+<p>Para confirmar que as trajetórias são seguras, calculemos a distância mínima entre as duas retas. A fórmula para distância entre retas reversas é:</p>
+<div class="formula">
+            $$d(r_\alpha, r_\beta) = \frac{|(\vec{B_0} - \vec{A_0}) \cdot (\vec{v}_\alpha \times \vec{v}_\beta)|}{|\vec{v}_\alpha \times \vec{v}_\beta|}$$
+        </div>
+<ol class="solution-steps">
+<li>$\vec{B_0} - \vec{A_0} = (6, 3, 8) - (0, 0, 10) = (6, 3, -2)$.</li>
+<li>$\vec{v}_\alpha \times \vec{v}_\beta = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 2 & 1 & -1 \\ -1 & 0 & 1 \end{vmatrix} = \vec{i}(1 - 0) - \vec{j}(2 - 1) + \vec{k}(0 + 1) = (1, -1, 1)$.</li>
+<li>$|\vec{v}_\alpha \times \vec{v}_\beta| = \sqrt{1 + 1 + 1} = \sqrt{3}$.</li>
+<li>Produto misto: $(6, 3, -2) \cdot (1, -1, 1) = 6 - 3 - 2 = 1$.</li>
+<li>Distância mínima: $d = \frac{|1|}{\sqrt{3}} = \frac{\sqrt{3}}{3} \approx 0{,}58$ m.</li>
+</ol>
+
+<p><strong>Item (d) — Conclusão de segurança:</strong></p>
+<p class="success">✓ As trajetórias são seguras. As retas são <strong>reversas</strong> (não se intersectam e não são paralelas). A distância mínima entre elas é $\frac{\sqrt{3}}{3} \approx 0{,}58$ metros — uma distância muito pequena, mas não nula. Em operações reais, drones precisam de uma margem de segurança maior (tipicamente 5-10 m). Recomenda-se ajustar uma das trajetórias para aumentar esta distância.</p>
+
+<div class="formula">
+            $$r_\alpha \cap r_\beta = \emptyset \text{ (retas reversas)}$$
+            $$d_{\text{mín}} = \frac{\sqrt{3}}{3} \approx 0{,}58 \text{ m}$$
+            $$\text{Colisão: IMPOSSÍVEL (mas margem de segurança insuficiente)}$$
+        </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Este é o problema mais completo da lista. A verificação de colisão exige duas condições simultâneas: (1) as retas devem se intersectar no espaço, <em>e</em> (2) a interseção deve ocorrer no mesmo instante $t$. Neste caso, as retas nem sequer se intersectam — são retas reversas, uma configuração típica do R³ que não existe no R². A distância mínima de ~0,58 m é teoricamente segura (não há colisão), mas operacionalmente perigosa. Este exercício ilustra por que o espaço tridimensional é mais complexo que o plano: no R², duas retas ou são paralelas ou se intersectam; no R³, há uma terceira possibilidade — retas reversas, que "passam perto" mas nunca se tocam.</p>
+</details>
+</div>

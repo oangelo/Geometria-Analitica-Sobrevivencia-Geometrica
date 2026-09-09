@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 500 400"
+   version="1.1"
+   id="svg48"
+   sodipodi:docname="extracted_9.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs48" />
+  <sodipodi:namedview
+     id="namedview48"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.3316667"
+     inkscape:cx="140.801"
+     inkscape:cy="141.55194"
+     inkscape:window-width="2560"
+     inkscape:window-height="1008"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg48" />
+  <!-- Fundo estilizado -->
+  <rect
+     fill="#1d3557"
+     height="400"
+     opacity="0.9"
+     width="500"
+     id="rect1"
+     x="0"
+     y="0" />
+  <!-- Grade de fundo esmaecida -->
+  <g
+     opacity="0.2"
+     stroke="#a8dadc"
+     stroke-width="0.5"
+     id="g16">
+    <!-- Linhas verticais da grade -->
+    <line
+       x1="50"
+       x2="50"
+       y1="50"
+       y2="350"
+       id="line1" />
+    <line
+       x1="100"
+       x2="100"
+       y1="50"
+       y2="350"
+       id="line2" />
+    <line
+       x1="150"
+       x2="150"
+       y1="50"
+       y2="350"
+       id="line3" />
+    <line
+       x1="200"
+       x2="200"
+       y1="50"
+       y2="350"
+       id="line4" />
+    <line
+       x1="250"
+       x2="250"
+       y1="50"
+       y2="350"
+       id="line5" />
+    <line
+       x1="300"
+       x2="300"
+       y1="50"
+       y2="350"
+       id="line6" />
+    <line
+       x1="350"
+       x2="350"
+       y1="50"
+       y2="350"
+       id="line7" />
+    <line
+       x1="400"
+       x2="400"
+       y1="50"
+       y2="350"
+       id="line8" />
+    <line
+       x1="450"
+       x2="450"
+       y1="50"
+       y2="350"
+       id="line9" />
+    <!-- Linhas horizontais da grade -->
+    <line
+       x1="50"
+       x2="450"
+       y1="50"
+       y2="50"
+       id="line10" />
+    <line
+       x1="50"
+       x2="450"
+       y1="100"
+       y2="100"
+       id="line11" />
+    <line
+       x1="50"
+       x2="450"
+       y1="150"
+       y2="150"
+       id="line12" />
+    <line
+       x1="50"
+       x2="450"
+       y1="200"
+       y2="200"
+       id="line13" />
+    <line
+       x1="50"
+       x2="450"
+       y1="250"
+       y2="250"
+       id="line14" />
+    <line
+       x1="50"
+       x2="450"
+       y1="300"
+       y2="300"
+       id="line15" />
+    <line
+       x1="50"
+       x2="450"
+       y1="350"
+       y2="350"
+       id="line16" />
+  </g>
+  <!-- Eixos coordenados principais -->
+  <g
+     stroke="#f0f0f0"
+     stroke-width="2"
+     id="g18">
+    <!-- Eixo X -->
+    <line
+       x1="50"
+       x2="450"
+       y1="200"
+       y2="200"
+       id="line17" />
+    <!-- Eixo Y -->
+    <line
+       x1="250"
+       x2="250"
+       y1="50"
+       y2="350"
+       id="line18" />
+  </g>
+  <!-- Pontos dos vértices do triângulo -->
+  <!-- Vértice A: (1,3) -->
+  <circle
+     cx="300"
+     cy="80"
+     fill="#e63946"
+     r="8"
+     id="circle18" />
+  <path
+     id="line26"
+     style="stroke:#ffd166;stroke-width:2.5"
+     d="m 280.11264,18.894868 35.2766,258.927402"
+     sodipodi:nodetypes="cc" />
+  <text
+     fill="#f0f0f0"
+     font-family="Arial"
+     font-size="12px"
+     font-weight="bold"
+     x="315"
+     y="75"
+     id="text18">A(1,3)</text>
+  <!-- Vértice B: (4,1) -->
+  <circle
+     cx="450"
+     cy="160"
+     fill="#e63946"
+     r="8"
+     id="circle19" />
+  <text
+     fill="#f0f0f0"
+     font-family="Arial"
+     font-size="12px"
+     font-weight="bold"
+     x="450"
+     y="150"
+     id="text19">B(4,1)</text>
+  <!-- Vértice C: (-2,-1) -->
+  <circle
+     cx="150"
+     cy="250"
+     fill="#e63946"
+     r="8"
+     id="circle20" />
+  <text
+     fill="#f0f0f0"
+     font-family="Arial"
+     font-size="12px"
+     font-weight="bold"
+     x="135"
+     y="240"
+     id="text20">C(-2,-1)</text>
+  <!-- Triângulo definido pelos três pontos -->
+  <g
+     fill="#457b9d"
+     opacity="0.2"
+     stroke="#f0f0f0"
+     stroke-width="1"
+     id="g20">
+    <polygon
+       points="150,250 300,80 450,160 "
+       id="polygon20" />
+  </g>
+  <!-- Baricentro: ponto verde -->
+  <circle
+     cx="300"
+     cy="163"
+     fill="#8ac926"
+     r="10"
+     id="circle21" />
+  <text
+     fill="#8ac926"
+     font-family="Arial"
+     font-size="14px"
+     font-weight="bold"
+     x="315"
+     y="157"
+     id="text21">G</text>
+  <text
+     fill="#f0f0f0"
+     font-family="Arial"
+     font-size="10px"
+     x="315"
+     y="178"
+     id="text22">Baricentro</text>
+  <!-- Circuncentro: ponto azul -->
+  <circle
+     cx="309.41519"
+     cy="234.69237"
+     fill="#4cc9f0"
+     r="10"
+     id="circle22" />
+  <text
+     fill="#4cc9f0"
+     font-family="Arial"
+     font-size="14px"
+     font-weight="bold"
+     x="324.41522"
+     y="230.9754"
+     id="text23">O</text>
+  <text
+     fill="#f0f0f0"
+     font-family="Arial"
+     font-size="10px"
+     x="323.64865"
+     y="249.65462"
+     id="text24">Circuncentro</text>
+  <!-- Ortocentro: ponto vermelho -->
+  <text
+     fill="#e63946"
+     font-family="Arial"
+     font-size="14px"
+     font-weight="bold"
+     x="287.06384"
+     y="41.396748"
+     id="text25"
+     style="fill:#ff8080">H</text>
+  <text
+     fill="#f0f0f0"
+     font-family="Arial"
+     font-size="10px"
+     x="224.2303"
+     y="40.612019"
+     id="text26">Ortocentro</text>
+  <!-- Reta de Euler -->
+  <text
+     fill="#ffd166"
+     font-family="Arial"
+     font-size="14px"
+     font-weight="bold"
+     x="324.65582"
+     y="280.48184"
+     id="text27">Reta de Euler</text>
+  <!-- Circunferência circunscrita (pelo circuncentro) -->
+  <circle
+     cx="309.41519"
+     cy="236.69237"
+     fill="none"
+     opacity="0.5"
+     r="158.69273"
+     stroke="#4cc9f0"
+     stroke-width="1.10974"
+     id="circle27" />
+  <!-- Linhas do Baricentro -->
+  <line
+     stroke="#8ac926"
+     stroke-dasharray="4, 2"
+     stroke-width="1"
+     x1="300"
+     x2="300"
+     y1="80"
+     y2="163"
+     id="line27" />
+  <line
+     stroke="#8ac926"
+     stroke-dasharray="4, 2"
+     stroke-width="1"
+     x1="450"
+     x2="300"
+     y1="160"
+     y2="163"
+     id="line28" />
+  <line
+     stroke="#8ac926"
+     stroke-dasharray="4, 2"
+     stroke-width="1"
+     x1="150"
+     x2="300"
+     y1="250"
+     y2="163"
+     id="line29" />
+  <!-- Linhas do Ortocentro (alturas) -->
+  <!-- Relação entre os três pontos -->
+  <!-- Painel com explicação da Reta de Euler -->
+  <g
+     transform="translate(16.394227,281.40611)"
+     id="g38">
+    <g
+       id="g50"
+       transform="translate(-1.0619877,-12.212858)">
+      <rect
+         fill="#457b9d"
+         height="113.80584"
+         opacity="0.7"
+         rx="6.0472379"
+         width="217.70056"
+         x="0"
+         y="0"
+         id="rect32"
+         style="stroke-width:1.17321" />
+      <text
+         fill="#ffd166"
+         font-family="Arial"
+         font-size="14px"
+         font-weight="bold"
+         x="10"
+         y="20"
+         id="text33">Reta de Euler</text>
+      <text
+         fill="#f0f0f0"
+         font-family="Arial"
+         font-size="10px"
+         x="10"
+         y="40"
+         id="text34">• Conecta os três pontos notáveis:</text>
+      <text
+         fill="#e63946"
+         font-family="Arial"
+         font-size="10px"
+         x="20"
+         y="55"
+         id="text35">Ortocentro (H)</text>
+      <text
+         fill="#8ac926"
+         font-family="Arial"
+         font-size="10px"
+         x="20"
+         y="70"
+         id="text36">Baricentro (G)</text>
+      <text
+         fill="#4cc9f0"
+         font-family="Arial"
+         font-size="10px"
+         x="20"
+         y="85"
+         id="text37">Circuncentro (O)</text>
+      <text
+         fill="#f0f0f0"
+         font-family="Arial"
+         font-size="10px"
+         x="10"
+         y="100"
+         id="text38">• H-G-O sempre nesta ordem e HG:GO = 2:1</text>
+    </g>
+  </g>
+  <!-- Painel de aplicação prática -->
+  <g
+     transform="translate(280.91128,292.91246)"
+     id="g42">
+    <rect
+       fill="#e63946"
+       height="86.460808"
+       opacity="0.7"
+       rx="6.10884"
+       width="207.70056"
+       x="0"
+       y="0"
+       id="rect38"
+       style="stroke-width:1.22844" />
+    <text
+       fill="#f0f0f0"
+       font-family="Arial"
+       font-size="12px"
+       font-weight="bold"
+       x="10"
+       y="20"
+       id="text39">IMPORTÂNCIA:</text>
+    <text
+       fill="#f0f0f0"
+       font-family="Arial"
+       font-size="10px"
+       x="10"
+       y="40"
+       id="text40">• Relaciona propriedades estruturais</text>
+    <text
+       fill="#f0f0f0"
+       font-family="Arial"
+       font-size="10px"
+       x="10"
+       y="55"
+       id="text41">• Permite posicionamento integrado</text>
+    <text
+       fill="#f0f0f0"
+       font-family="Arial"
+       font-size="10px"
+       x="10"
+       y="70"
+       id="text42">• Base para design de sistemas complexos</text>
+  </g>
+  <!-- Ilustração da aplicação prática -->
+  <g
+     transform="translate(38.042277,53.354518)"
+     id="g48">
+    <rect
+       fill="#ffd166"
+       height="79.203888"
+       opacity="0.6"
+       rx="5.1327481"
+       width="123.18596"
+       x="-4.2479506"
+       y="3.8939545"
+       id="rect42"
+       style="stroke-width:1.07774" />
+    <text
+       fill="#1d3557"
+       font-family="Arial"
+       font-size="10px"
+       font-weight="bold"
+       x="10"
+       y="20"
+       id="text43">APLICAÇÃO:</text>
+    <text
+       fill="#1d3557"
+       font-family="Arial"
+       font-size="9px"
+       x="10"
+       y="40"
+       id="text44">Sistema integrado de</text>
+    <text
+       fill="#1d3557"
+       font-family="Arial"
+       font-size="9px"
+       x="10"
+       y="55"
+       id="text45">segurança e recursos</text>
+    <text
+       fill="#1d3557"
+       font-family="Arial"
+       font-size="9px"
+       x="10"
+       y="70"
+       id="text46">em território triangular</text>
+    <!-- Mini diagrama de sistema integrado -->
+    <g
+       id="g49"
+       transform="translate(11.827284,6.7584481)">
+      <circle
+         cx="95"
+         cy="20"
+         fill="#e63946"
+         r="5"
+         id="circle46" />
+      <circle
+         cx="95"
+         cy="35"
+         fill="#8ac926"
+         r="5"
+         id="circle47" />
+      <circle
+         cx="95"
+         cy="50"
+         fill="#4cc9f0"
+         r="5"
+         id="circle48" />
+      <line
+         stroke="#f0f0f0"
+         stroke-width="1"
+         x1="95"
+         x2="95"
+         y1="20"
+         y2="50"
+         id="line48" />
+    </g>
+  </g>
+  <!-- Título da visualização -->
+  <circle
+     cx="279.77347"
+     cy="18.853565"
+     fill="#e63946"
+     r="10"
+     id="circle24"
+     style="fill:#ff8080" />
+  <text
+     fill="#f0f0f0"
+     font-family="Arial"
+     font-size="18px"
+     font-weight="bold"
+     text-anchor="middle"
+     x="250"
+     y="25"
+     id="text48">Os Três Centros Fundamentais e a Reta de Euler</text>
+</svg>

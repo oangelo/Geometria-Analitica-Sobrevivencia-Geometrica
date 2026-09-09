@@ -1,0 +1,47 @@
+<div class="exercise">
+<h3>Triangulação com Dois Postos de Observação</h3>
+
+<p><strong>Objetivo:</strong> Combinar ângulos de elevação com a Lei dos Senos para localizar uma ameaça.</p>
+
+<p>Dois postos de observação, $A$ e $B$, estão separados por uma distância conhecida de $100$ m ao longo de uma estrada leste-oeste. Do posto $A$, um sinal de fumaça é avistado a $N40°E$ (norte com $40°$ para leste). Do posto $B$, o mesmo sinal é avistado a $N30°W$ (norte com $30°$ para oeste). <strong>Desenhe no papel</strong> a situação, representando a estrada leste-oeste, os dois postos e as duas linhas de visão até o sinal de fumaça.</p>
+
+<p><strong>(a)</strong> Determine os ângulos internos do triângulo $ABS$ (onde $S$ é a posição do sinal de fumaça) nos vértices $A$ e $B$. (Dica: a direção $N40°E$ forma um ângulo de $40°$ com a direção norte, medido para leste.)</p>
+
+<p><strong>(b)</strong> Calcule o terceiro ângulo do triângulo, no vértice $S$.</p>
+
+<p><strong>(c)</strong> Aplique a Lei dos Senos para encontrar a distância do posto $A$ até o sinal de fumaça.</p>
+
+<p><strong>(d)</strong> Aplique a Lei dos Senos para encontrar a distância do posto $B$ até o sinal de fumaça.</p>
+
+<p><strong>(e)</strong> Se uma equipe de resposta parte do posto mais próximo ao sinal e viaja a $5$ m/s, quanto tempo levará para chegar até o sinal?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>Para encontrar o ângulo interno em $A$: a direção norte forma $90°$ com a direção leste (a estrada). $N40°E$ significa $40°$ a partir do norte em direção ao leste. Portanto, o ângulo entre a estrada (direção leste a partir de $A$) e a linha $AS$ é $90° - 40° = 50°$. Faça o mesmo raciocínio para o posto $B$.</p>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>(a)</strong> No posto $A$: a direção $N40°E$ forma $40°$ com o norte. Como a estrada é leste-oeste, o ângulo entre o norte e a estrada (direção leste) é $90°$. Portanto, o ângulo interno em $A$ é:</p>
+<p>$$A = 90° - 40° = 50°$$</p>
+
+<p>No posto $B$: a direção $N30°W$ forma $30°$ com o norte em direção ao oeste. O ângulo entre o norte e a estrada (direção oeste a partir de $B$) é $90°$. Portanto, o ângulo interno em $B$ é:</p>
+<p>$$B = 90° - 30° = 60°$$</p>
+
+<p><strong>(b)</strong> O terceiro ângulo:</p>
+<p>$$S = 180° - 50° - 60° = 70°$$</p>
+
+<p><strong>(c)</strong> Pela Lei dos Senos:</p>
+<p>$$\frac{AS}{\sin(B)} = \frac{AB}{\sin(S)}$$</p>
+<p>$$\frac{AS}{\sin(60°)} = \frac{100}{\sin(70°)}$$</p>
+<p>$$AS = \frac{100 \cdot \sin(60°)}{\sin(70°)} = \frac{100 \cdot \frac{\sqrt{3}}{2}}{0{,}9397} \approx \frac{86{,}60}{0{,}9397} \approx 92{,}2 \text{ m}$$</p>
+
+<p><strong>(d)</strong> Pela Lei dos Senos:</p>
+<p>$$\frac{BS}{\sin(A)} = \frac{AB}{\sin(S)}$$</p>
+<p>$$\frac{BS}{\sin(50°)} = \frac{100}{\sin(70°)}$$</p>
+<p>$$BS = \frac{100 \cdot \sin(50°)}{\sin(70°)} = \frac{100 \cdot 0{,}7660}{0{,}9397} \approx 81{,}5 \text{ m}$$</p>
+
+<p><strong>(e)</strong> O posto mais próximo é $B$, a aproximadamente $81{,}5$ m. A $5$ m/s:</p>
+<p>$$t = \frac{81{,}5}{5} \approx 16{,}3 \text{ segundos}$$</p>
+</details>
+</div>

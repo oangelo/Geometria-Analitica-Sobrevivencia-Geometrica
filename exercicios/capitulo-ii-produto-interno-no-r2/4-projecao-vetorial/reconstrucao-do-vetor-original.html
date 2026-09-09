@@ -1,0 +1,26 @@
+<div class="exercise">
+<h3>ENGENHARIA REVERSA DA PROJEÇÃO</h3>
+
+<p>Nos exercícios anteriores, você partiu de vetores dados e calculou a projeção. Agora o problema se inverte: o sistema de navegação registrou que a projeção de um vetor desconhecido $\vec{a}$ sobre $\vec{b} = (3, 4)$ resultou em $\vec{p} = (1{,}44, 1{,}92)$. Sabendo que $\vec{a}$ é paralelo a $\vec{b}$ (ou seja, $\vec{a} = k\vec{b}$ para algum escalar $k$), reconstrua $\vec{a}$. Se a projeção de $\vec{a}$ sobre $\vec{b}$ é o próprio $\vec{a}$ quando são paralelos, qual deve ser a relação entre $\vec{p}$ e $\vec{a}$ neste caso?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVÊNCIA</summary>
+<div class="hint">
+<p>Se $\vec{a} = k\vec{b}$, então $\text{proj}_{\vec{b}}\,\vec{a} = \vec{a}$ (um vetor projetado sobre sua própria direção é ele mesmo). Logo $\vec{p} = \vec{a}$. Verifique se $\vec{p}$ é de fato paralelo a $\vec{b}$: existe $k$ tal que $\vec{p} = k\vec{b}$?</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Se $\vec{a} = k\vec{b}$, a projeção de $\vec{a}$ sobre $\vec{b}$ é o próprio $\vec{a}$: $\text{proj}_{\vec{b}}\,\vec{a} = \frac{(k\vec{b}) \cdot \vec{b}}{\vec{b} \cdot \vec{b}}\vec{b} = k\vec{b} = \vec{a}$.</li>
+<li>Logo, se $\vec{p} = (1{,}44, 1{,}92)$ é a projeção e $\vec{a}$ é paralelo a $\vec{b}$, então $\vec{a} = \vec{p} = (1{,}44, 1{,}92)$.</li>
+<li>Verificação: $\vec{p} = k\vec{b}$? $k = \frac{1{,}44}{3} = 0{,}48$. Confirme: $0{,}48 \times 4 = 1{,}92$ ✓.</li>
+<li>Portanto $\vec{a} = 0{,}48\vec{b} = (1{,}44, 1{,}92)$.</li>
+</ol>
+<div class="formula">
+$$\vec{a} = k\vec{b} \implies \text{proj}_{\vec{b}}\,\vec{a} = \vec{a} \implies \vec{a} = \vec{p} = (1{,}44,\; 1{,}92) = 0{,}48\,(3,\;4)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Quando um vetor é paralelo à direção de projeção, a projeção não "perde" nada — todo o vetor é reciclado. Na Zona Devastada, isso equivale a um deslocamento perfeitamente alinhado com o objetivo: nenhum esforço desperdiçado. Mas e se o vetor não for paralelo? O que acontece com a "parte que sobra"? Essa pergunta leva ao próximo exercício.</p>
+</details>
+</div>

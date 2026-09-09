@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="600"
+   height="400"
+   viewBox="-150 -100 300 200"
+   style="background-color: #111;"
+   version="1.1"
+   id="svg13"
+   sodipodi:docname="elipse_anatomia.svg"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview13"
+     pagecolor="#000000"
+     bordercolor="#000000"
+     borderopacity="0.24705882"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.9975"
+     inkscape:cx="299.87484"
+     inkscape:cy="200"
+     inkscape:window-width="2560"
+     inkscape:window-height="1008"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg13" />
+  <style
+     id="style1">
+    .main-shape { stroke: #ADFF2F; stroke-width: 2; fill: none; }
+    .axis-line { stroke: #E0E0E0; stroke-width: 1; }
+    .dim-line { stroke: #888888; stroke-width: 1; marker-end: url(#arrow); marker-start: url(#arrow); }
+    .dim-line-no-arrow { stroke: #888888; stroke-width: 1; stroke-dasharray: 2,2; }
+    .focus-point { fill: #FFD700; stroke: #000; stroke-width: 0.5; }
+    .vertex-point { fill: #FFD700; stroke: #000; stroke-width: 0.5; }
+    .text-label { fill: #FFFFFF; font-family: 'Courier New', monospace; font-size: 10px; text-anchor: middle; }
+    .text-formula { fill: #ADFF2F; font-family: 'Courier New', monospace; font-size: 12px; font-weight: bold; text-anchor: middle; }
+    .text-bg { fill: rgba(0,0,0,0.6); stroke: #ADFF2F; stroke-width: 0.5px; }
+  </style>
+  <defs
+     id="defs1">
+    <marker
+       id="arrow"
+       viewBox="0 0 10 10"
+       refX="5"
+       refY="5"
+       markerWidth="3"
+       markerHeight="3"
+       orient="auto-start-reverse">
+      <path
+         d="M 0 0 L 10 5 L 0 10 z"
+         fill="#888888"
+         id="path1" />
+    </marker>
+  </defs>
+  <!-- Valores para a elipse -->
+  <script
+     id="script1">
+    const a = 100; // Semi-eixo maior
+    const b = 60;  // Semi-eixo menor
+    const c = Math.sqrt(a*a - b*b); // Distância focal
+  </script>
+  <!-- Elipse -->
+  <ellipse
+     cx="0"
+     cy="0"
+     rx="100"
+     ry="60"
+     class="main-shape"
+     id="ellipse1" />
+  <!-- Eixos -->
+  <line
+     x1="-140"
+     y1="0"
+     x2="140"
+     y2="0"
+     class="axis-line"
+     id="line1" />
+  <!-- Eixo X -->
+  <line
+     x1="0"
+     y1="-90"
+     x2="0"
+     y2="90"
+     class="axis-line"
+     id="line2" />
+  <!-- Eixo Y -->
+  <!-- Focos -->
+  <circle
+     cx="-80"
+     cy="0"
+     r="3"
+     class="focus-point"
+     id="circle2" />
+  <text
+     x="-80"
+     y="-8"
+     class="text-label"
+     id="text2">F1</text>
+  <circle
+     cx="80"
+     cy="0"
+     r="3"
+     class="focus-point"
+     id="circle3" />
+  <text
+     x="80.750938"
+     y="10.523154"
+     class="text-label"
+     id="text3">F2</text>
+  <!-- Vértices (no eixo maior) -->
+  <circle
+     cx="-100"
+     cy="0"
+     r="3"
+     class="vertex-point"
+     id="circle4" />
+  <text
+     x="-108.01001"
+     y="-8.5006256"
+     class="text-label"
+     id="text4">V1</text>
+  <circle
+     cx="100"
+     cy="0"
+     r="3"
+     class="vertex-point"
+     id="circle5" />
+  <text
+     x="112.51565"
+     y="-4.4956193"
+     class="text-label"
+     id="text5">V2</text>
+  <!-- Co-vértices (no eixo menor) -->
+  <circle
+     cx="0"
+     cy="-60"
+     r="3"
+     class="vertex-point"
+     id="circle6" />
+  <text
+     x="9.5018778"
+     y="-66.007507"
+     class="text-label"
+     id="text6">B1</text>
+  <circle
+     cx="0"
+     cy="60"
+     r="3"
+     class="vertex-point"
+     id="circle7" />
+  <text
+     x="9.0012512"
+     y="55.244057"
+     class="text-label"
+     id="text7">B2</text>
+  <!-- Centro -->
+  <circle
+     cx="0"
+     cy="0"
+     r="2"
+     fill="#E0E0E0"
+     id="circle8" />
+  <text
+     x="-5"
+     y="12"
+     class="text-label"
+     id="text8">O</text>
+  <!-- Dimensões a, b, c -->
+  <!-- 'a' semi-eixo maior -->
+  <line
+     x1="-0.018226666"
+     y1="15"
+     x2="98.766663"
+     y2="15"
+     class="dim-line"
+     id="line8" />
+  <text
+     x="50"
+     y="25"
+     class="text-label"
+     id="text9">a</text>
+  <line
+     x1="100"
+     y1="0"
+     x2="100"
+     y2="15"
+     class="dim-line-no-arrow"
+     id="line9" />
+  <!-- 'b' semi-eixo menor -->
+  <line
+     x1="-15"
+     y1="0.041718815"
+     x2="-15"
+     y2="-58.289528"
+     class="dim-line"
+     id="line10" />
+  <text
+     x="-20.994993"
+     y="-27.997498"
+     class="text-label"
+     id="text10">b</text>
+  <line
+     x1="0"
+     y1="-60"
+     x2="-15"
+     y2="-60"
+     class="dim-line-no-arrow"
+     id="line11" />
+  <!-- 'c' distância focal -->
+  <line
+     x1="-0.031666089"
+     y1="-15"
+     x2="78.279472"
+     y2="-15"
+     class="dim-line"
+     id="line12" />
+  <text
+     x="40.750938"
+     y="-21.245306"
+     class="text-label"
+     id="text12">c</text>
+  <line
+     x1="80"
+     y1="0"
+     x2="80"
+     y2="-15"
+     class="dim-line-no-arrow"
+     id="line13" />
+  <!-- Relação entre a, b, c -->
+  <rect
+     x="-50"
+     y="70"
+     width="100"
+     height="20"
+     rx="2"
+     class="text-bg"
+     id="rect13" />
+  <text
+     x="0"
+     y="83"
+     class="text-formula"
+     id="text13">a² = b² + c²</text>
+</svg>

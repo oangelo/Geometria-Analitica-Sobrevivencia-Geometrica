@@ -1,0 +1,50 @@
+<div class="exercise">
+<h3>CLASSIFICAÇÃO DO TRIÂNGULO</h3>
+<p>Três postos de vigilância formam um perímetro triangular com vértices em $A(1,2)$, $B(5,4)$ e $C(3,8)$. Para avaliar a cobertura defensiva, o comando precisa classificar o triângulo formado pelos postos. Combine as ferramentas dos tópicos anteriores — distância (Tópico 3), ortogonalidade (Tópico 4) e ângulo (Tópico 5) — para:</p>
+<p><strong>(a)</strong> Calcular os comprimentos dos três lados: $AB$, $BC$ e $AC$. Há algum lado com comprimento igual?</p>
+<p><strong>(b)</strong> Calcular o ângulo em cada vértice. Comece verificando se algum produto escalar é zero — isso revelaria um ângulo reto imediatamente.</p>
+<p><strong>(c)</strong> Classificar o triângulo quanto aos lados (equilátero, isósceles ou escaleno) e quanto aos ângulos (acutângulo, retângulo ou obtusângulo).</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>No item (a), use $d(P,Q) = |\overrightarrow{PQ}|$. No item (b), para o vértice $B$, construa $\overrightarrow{BA}$ e $\overrightarrow{BC}$ e calcule o produto escalar. Se for zero, o ângulo é reto. Repita para os demais vértices.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li><strong>(a) Comprimentos dos lados:</strong>
+$$AB = |\overrightarrow{AB}| = |(4,2)| = \sqrt{16 + 4} = \sqrt{20} = 2\sqrt{5}$$
+$$BC = |\overrightarrow{BC}| = |(-2,4)| = \sqrt{4 + 16} = \sqrt{20} = 2\sqrt{5}$$
+$$AC = |\overrightarrow{AC}| = |(2,6)| = \sqrt{4 + 36} = \sqrt{40} = 2\sqrt{10}$$
+Os lados $AB = BC = 2\sqrt{5}$ são iguais — o triângulo é isósceles.</li>
+<li><strong>(b) Ângulos em cada vértice:</strong>
+
+<strong>Ângulo em $B$:</strong> $\overrightarrow{BA} = (-4,-2)$ e $\overrightarrow{BC} = (-2,4)$
+$$\overrightarrow{BA} \cdot \overrightarrow{BC} = (-4)(-2) + (-2)(4) = 8 - 8 = 0$$
+Produto escalar zero $\implies$ ângulo reto: $\angle B = 90°$.
+
+<strong>Ângulo em $A$:</strong> $\overrightarrow{AB} = (4,2)$ e $\overrightarrow{AC} = (2,6)$
+$$\overrightarrow{AB} \cdot \overrightarrow{AC} = 8 + 12 = 20$$
+$$|\overrightarrow{AB}| = 2\sqrt{5}, \quad |\overrightarrow{AC}| = 2\sqrt{10}$$
+$$\cos A = \frac{20}{2\sqrt{5} \cdot 2\sqrt{10}} = \frac{20}{4\sqrt{50}} = \frac{20}{20\sqrt{2}} = \frac{\sqrt{2}}{2} \implies \angle A = 45°$$
+
+<strong>Ângulo em $C$:</strong> $\overrightarrow{CA} = (-2,-6)$ e $\overrightarrow{CB} = (2,-4)$
+$$\overrightarrow{CA} \cdot \overrightarrow{CB} = -4 + 24 = 20$$
+$$|\overrightarrow{CA}| = 2\sqrt{10}, \quad |\overrightarrow{CB}| = 2\sqrt{5}$$
+$$\cos C = \frac{20}{2\sqrt{10} \cdot 2\sqrt{5}} = \frac{20}{4\sqrt{50}} = \frac{\sqrt{2}}{2} \implies \angle C = 45°$$
+
+Verificação: $90° + 45° + 45° = 180°$ $\checkmark$</li>
+<li><strong>(c) Classificação:</strong>
+Quanto aos lados: $AB = BC$ e $AC \neq AB$ $\implies$ <strong>isósceles</strong>.
+Quanto aos ângulos: um ângulo reto ($90°$) $\implies$ <strong>retângulo</strong>.
+Classificação completa: <strong>triângulo retângulo isósceles</strong>.</li>
+</ol>
+<div class="formula">
+$$AB = BC = 2\sqrt{5}, \quad AC = 2\sqrt{10}$$
+$$\angle A = 45°, \quad \angle B = 90°, \quad \angle C = 45°$$
+$$\text{Triângulo retângulo isósceles}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Este exercício combinou três ferramentas numa só missão: distância (Tópico 3) revelou lados iguais, ortogonalidade (Tópico 4) detectou o ângulo reto num único cálculo, e a fórmula do ângulo (Tópico 5) completou os demais. Na prática, a verificação de ortogonalidade é sempre o primeiro passo — um produto escalar zero resolve o problema instantaneamente.</p>
+</details>
+</div>

@@ -1,0 +1,29 @@
+<div class="exercise">
+<h3>PERÍMETRO DEFENSIVO</h3>
+
+<p>Nos exercícios anteriores, usamos o determinante para calcular áreas e testar alinhamento, e o produto escalar para verificar ortogonalidade. Agora o SUPERVISOR precisa que você planeje o perímetro defensivo de um novo assentamento. O terreno disponível é delimitado por quatro postos: $A(0, 0)$, $B(6, 0)$, $C(8, 5)$ e $D(2, 5)$. O quadrilátero pode ser dividido em dois triângulos: $ABC$ e $ACD$. Calcule a área de cada triângulo usando o determinante 2×2 e some para obter a área total. Depois, verifique se os lados opostos são paralelos ($\overrightarrow{AB}$ é paralelo a $\overrightarrow{DC}$? $\overrightarrow{AD}$ é paralelo a $\overrightarrow{BC}$?). O que isso revela sobre a forma do terreno?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para a área de $ABC$: use $\overrightarrow{AB}$ e $\overrightarrow{AC}$. Para $ACD$: use $\overrightarrow{AC}$ e $\overrightarrow{AD}$. Para testar paralelismo, verifique se os vetores são proporcionais (tópico 4).</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Triângulo $ABC$: $\overrightarrow{AB} = (6, 0)$ e $\overrightarrow{AC} = (8, 5)$. Área $= \frac{1}{2}|6 \times 5 - 0 \times 8| = \frac{1}{2} \times 30 = 15$.</li>
+<li>Triângulo $ACD$: $\overrightarrow{AC} = (8, 5)$ e $\overrightarrow{AD} = (2, 5)$. Área $= \frac{1}{2}|8 \times 5 - 5 \times 2| = \frac{1}{2}|40 - 10| = \frac{1}{2} \times 30 = 15$.</li>
+<li>Área total: $15 + 15 = 30$ unidades quadradas.</li>
+<li>Teste de paralelismo: $\overrightarrow{AB} = (6, 0)$ e $\overrightarrow{DC} = (8-2, 5-5) = (6, 0)$. São iguais! Paralelos ✓</li>
+<li>$\overrightarrow{AD} = (2, 5)$ e $\overrightarrow{BC} = (8-6, 5-0) = (2, 5)$. São iguais! Paralelos ✓</li>
+<li>Lados opostos paralelos → o terreno é um <strong>paralelogramo</strong>. A área também poderia ser calculada diretamente: $|\overrightarrow{AB}| \times h$ (onde $h$ é a distância vertical entre lados paralelos = $5$). Área $= 6 \times 5 = 30$ ✓.</li>
+</ol>
+<div class="formula">
+$$\text{Área}_{ABC} = 15, \quad \text{Área}_{ACD} = 15, \quad \text{Área total} = 30$$
+$$\overrightarrow{AB} = \overrightarrow{DC} = (6, 0) \implies \text{paralelogramo}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Este exercício integra tudo: determinante para área, vetores para paralelismo, e geometria para interpretação. O terreno é um paralelogramo — isso facilita o planejamento: lados opostos iguais, defesa simétrica. Na Zona Devastada, reconhecer a forma do terreno pelo cálculo vetorial permite planejar defesas antes mesmo de visitar o local.</p>
+</details>
+</div>

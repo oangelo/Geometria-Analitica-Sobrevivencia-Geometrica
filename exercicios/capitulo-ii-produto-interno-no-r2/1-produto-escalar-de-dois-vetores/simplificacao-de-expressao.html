@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>SIMPLIFICAÇÃO DE EXPRESSÃO</h3>
+
+<p>No exercício anterior, usamos o produto escalar para encontrar uma incógnita. Agora vamos usar as propriedades para <strong>simplificar</strong> expressões vetoriais. O sistema de navegação do abrigo gera a expressão $2\vec{u} \cdot (3\vec{v} - \vec{w})$, e o computador precisa do resultado numérico. Em vez de calcular os vetores resultantes e depois o produto escalar, podemos aplicar as propriedades para simplificar algebricamente. Usando as propriedades verificadas nos exercícios anteriores (distributividade e associatividade escalar), expanda a expressão $2\vec{u} \cdot (3\vec{v} - \vec{w})$ na forma $a(\vec{u} \cdot \vec{v}) + b(\vec{u} \cdot \vec{w})$, identificando os coeficientes $a$ e $b$. Depois, verifique com $\vec{u} = (1, 2)$, $\vec{v} = (3, 0)$ e $\vec{w} = (-1, 4)$.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Use a distributividade para expandir o produto: $\vec{u} \cdot (3\vec{v} - \vec{w}) = \vec{u} \cdot 3\vec{v} - \vec{u} \cdot \vec{w}$. Depois use a associatividade escalar para "tirar" os escalares de dentro dos produtos escalares. Não se esqueça do escalar $2$ que está multiplicando tudo.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Aplique a distributividade: $2\vec{u} \cdot (3\vec{v} - \vec{w}) = 2[\vec{u} \cdot 3\vec{v} - \vec{u} \cdot \vec{w}]$.</li>
+<li>Aplique a associatividade escalar: $\vec{u} \cdot 3\vec{v} = 3(\vec{u} \cdot \vec{v})$.</li>
+<li>Substitua: $2[3(\vec{u} \cdot \vec{v}) - \vec{u} \cdot \vec{w}] = 6(\vec{u} \cdot \vec{v}) - 2(\vec{u} \cdot \vec{w})$. Coeficientes: $a = 6$, $b = -2$.</li>
+<li>Verificação com números: $\vec{u} = (1,2)$, $\vec{v} = (3,0)$, $\vec{w} = (-1,4)$.</li>
+<li>Método direto: $2\vec{u} = (2,4)$, $3\vec{v} - \vec{w} = (9,0) - (-1,4) = (10, -4)$. Produto: $2 \times 10 + 4 \times (-4) = 20 - 16 = 4$.</li>
+<li>Método simplificado: $\vec{u} \cdot \vec{v} = 3$, $\vec{u} \cdot \vec{w} = -1 + 8 = 7$. Logo $6(3) - 2(7) = 18 - 14 = 4$. Confirma!</li>
+</ol>
+<div class="formula">
+$$2\vec{u} \cdot (3\vec{v} - \vec{w}) = 6(\vec{u} \cdot \vec{v}) - 2(\vec{u} \cdot \vec{w})$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Simplificar antes de calcular é como escolher a rota mais curta antes de sair do abrigo. Em vez de computar vetores resultantes (trabalhoso), usamos propriedades para reduzir tudo a produtos escalares simples. Quando o computador do abrigo tem pouca memória, cada simplificação conta.</p>
+</details>
+</div>

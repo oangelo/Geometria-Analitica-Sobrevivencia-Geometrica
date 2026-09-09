@@ -1,0 +1,29 @@
+<div class="exercise">
+<h3>ELIMINANDO O PARÂMETRO</h3>
+
+<p>A equação paramétrica é excelente para gerar pontos, mas nem sempre é a forma mais conveniente para verificar se um ponto pertence à reta ou para encontrar interseções. A forma geral $ax + by + c = 0$ elimina o parâmetro $t$ e relaciona $x$ e $y$ diretamente. Dada a reta com equações paramétricas $x = 2 + 3t$ e $y = 1 - 2t$, elimine $t$ para obter a equação geral. No papel, esboce a reta marcando o ponto correspondente a $t = 0$ e a direção do vetor diretor.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Isole $t$ em uma das equações (escolha a que torna o cálculo mais simples) e substitua na outra. Por exemplo, da primeira equação: $t = \frac{x - 2}{3}$. Substitua esse valor na equação de $y$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Da equação $x = 2 + 3t$, isole $t$: $t = \frac{x - 2}{3}$.</li>
+<li>Substitua em $y = 1 - 2t$: $y = 1 - 2 \cdot \frac{x - 2}{3}$.</li>
+<li>Multiplique tudo por 3 para eliminar o denominador: $3y = 3 - 2(x - 2)$.</li>
+<li>Distribua: $3y = 3 - 2x + 4 = 7 - 2x$.</li>
+<li>Reorganize na forma geral $ax + by + c = 0$: $2x + 3y - 7 = 0$.</li>
+<li>Verificação: para $t = 0$, temos $P(2, 1)$. Substituindo na geral: $2(2) + 3(1) - 7 = 4 + 3 - 7 = 0$ ✓.</li>
+</ol>
+<div class="formula">
+$$t = \frac{x - 2}{3} \Rightarrow y = 1 - 2\left(\frac{x - 2}{3}\right)$$
+$$3y = 3 - 2(x - 2) \Rightarrow 2x + 3y - 7 = 0$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A eliminação do parâmetro transforma um gerador de pontos em uma condição de pertinência. Com a forma geral, verificar se um ponto está na rota é apenas substituir $x$ e $y$ — nenhum cálculo de $t$ necessário. Na Zona Devastada, economia de passos significa economia de tempo, e tempo é vida.</p>
+</details>
+</div>

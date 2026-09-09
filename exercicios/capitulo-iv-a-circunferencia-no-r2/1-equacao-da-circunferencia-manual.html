@@ -1,0 +1,42 @@
+<section class="manual-contexto" data-context="manual-sobrevivencia">
+    <div class="terminal-border">
+    <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: EQUAÇÃO DA CIRCUNFERÊNCIA</h2>
+
+<p>No Capítulo III, estudamos a reta — o lugar geométrico dos pontos que satisfazem uma equação linear $ax + by + c = 0$. Agora o SUPERVISOR precisa de algo mais: zonas de alcance circular. O rádio do abrigo transmite até certa distância do transmissor. O perímetro de segurança é circular ao redor do núcleo. A contaminação se espalha em círculos a partir do ponto de impacto. Todos esses cenários têm algo em comum — pontos a uma distância fixa de um centro. Precisamos de uma equação para esse lugar geométrico, e ela nasce da ferramenta mais básica que já dominamos: a distância entre dois pontos.</p>
+
+<p>A <strong>circunferência</strong> é o lugar geométrico dos pontos do plano equidistantes de um ponto fixo $C(a,b)$, chamado centro. A distância constante é o <strong>raio</strong> $r$. Em símbolos: dado $P(x,y)$ sobre a circunferência, temos $d(P,C) = r$. Substituindo a fórmula de distância do Capítulo II:</p>
+
+<div class="formula">
+$$\sqrt{(x-a)^2 + (y-b)^2} = r$$
+</div>
+
+<p>Elevando ao quadrado para eliminar a raiz, obtemos a <strong>equação canônica</strong> (ou reduzida):</p>
+
+<div class="formula">
+$$(x - a)^2 + (y - b)^2 = r^2$$
+</div>
+
+<p>onde $C(a,b)$ é o centro e $r > 0$ é o raio. Casos particulares úteis: se o centro é a origem $O(0,0)$, a equação simplifica para $x^2 + y^2 = r^2$; se o centro está no eixo das abscissas, $(x-a)^2 + y^2 = r^2$.</p>
+
+<p>Para verificar se um ponto $P(x_0, y_0)$ pertence à circunferência, basta substituir $(x_0, y_0)$ na equação — canônica ou geral. Se a igualdade se verifica, o ponto está sobre a circunferência; caso contrário, não está. Isso é consequência direta da definição: pertencer significa estar exatamente a distância $r$ do centro.</p>
+
+<p>Expandindo os quadrados com os produtos notáveis $(x-a)^2 = x^2 - 2ax + a^2$ e $(y-b)^2 = y^2 - 2by + b^2$, e reunindo os termos, obtemos a <strong>forma geral</strong>:</p>
+
+<div class="formula">
+$$x^2 + y^2 + Dx + Ey + F = 0$$
+</div>
+
+<p>onde $D = -2a$, $E = -2b$ e $F = a^2 + b^2 - r^2$. O centro e o raio podem ser recuperados diretamente dos coeficientes:</p>
+
+<p>• Centro: $C\!\left(-\dfrac{D}{2},\; -\dfrac{E}{2}\right)$</p>
+
+<p>• Raio: $r = \sqrt{\left(\dfrac{D}{2}\right)^2 + \left(\dfrac{E}{2}\right)^2 - F}$</p>
+
+<p>O caminho inverso — da forma geral para a canônica — usa a técnica de <strong>completar quadrados</strong>: agrupamos os termos em $x$ e em $y$, e completamos cada bloco como um quadrado perfeito. Por exemplo, $x^2 + Dx$ se transforma em $\!\left(x + \frac{D}{2}\right)^2 - \left(\frac{D}{2}\right)^2$. É a mesma manipulação dos produtos notáveis do Capítulo 0, aplicada ao contrário.</p>
+
+<p><strong>Atenção:</strong> nem toda equação $x^2 + y^2 + Dx + Ey + F = 0$ representa uma circunferência. Após completar os quadrados, o lado direito será $r^2$. Se $r^2 > 0$, temos uma circunferência de raio $r$. Se $r^2 = 0$, todos os pontos colapsam no centro — um único ponto. Se $r^2 < 0$, nenhum ponto real satisfaz a equação. Sempre verifique o sinal de $r^2$ antes de concluir.</p>
+
+<p>Com essas ferramentas, somos capazes de escrever a equação de qualquer circunferência dada sua descrição geométrica, converter entre formas e verificar pertencimento. Nos próximos tópicos, veremos como três pontos determinam uma circunferência (sistema de equações) e como uma reta pode ser externa, tangente ou secante a ela — tudo nasce desta fundamentação.</p>
+
+    </div>
+</section>

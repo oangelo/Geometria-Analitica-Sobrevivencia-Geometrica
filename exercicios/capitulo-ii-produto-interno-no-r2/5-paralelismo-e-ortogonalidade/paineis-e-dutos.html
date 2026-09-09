@@ -1,0 +1,34 @@
+<div class="exercise">
+<h3>PAINEIS E DUTOS — APLICAÇÃO INTEGRADA</h3>
+
+<p>Este exercício reúne todas as ferramentas do tópico: ortogonalidade, paralelismo, módulo e o atalho do $\mathbb{R}^2$. O objetivo é resolver um problema com múltiplas condições, como o engenheiro do Refúgio-TEC faria na prática.</p>
+
+<p>O Refúgio-TEC precisa instalar dois sistemas simultaneamente. Os painéis solares devem ser orientados segundo o vetor $\vec{s} = (4, 3)$. Os dutos de ventilação devem seguir uma direção ortogonal aos painéis (para evitar sombreamento), representada pelo vetor $\vec{d} = (a, b)$. Além disso, uma tubulação de emergência deve ser paralela aos dutos, com vetor $\vec{e} = (10, c)$.</p>
+
+<p>(a) Determine $a$ e $b$ (com $b > 0$) de modo que $\vec{d}$ seja ortogonal a $\vec{s}$ e $|\vec{d}| = 5$.</p>
+<p>(b) Determine $c$ de modo que $\vec{e}$ seja paralelo a $\vec{d}$.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para (a), use o atalho ortogonal para encontrar a direção, depois ajuste o módulo. Para (b), use a proporcionalidade das componentes entre $\vec{e}$ e $\vec{d}$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>(a) Um vetor ortogonal a $\vec{s} = (4, 3)$ é $(3, -4)$ ou $(-3, 4)$ pelo atalho. Como queremos $b > 0$, tomamos $(-3, 4)$.</li>
+<li>Módulo de $(-3, 4)$: $|(-3, 4)| = \sqrt{9 + 16} = 5$. Já é o módulo desejado! Logo $\vec{d} = (-3, 4)$, ou seja, $a = -3$ e $b = 4$.</li>
+<li>Confirmação: $\vec{s} \cdot \vec{d} = 4 \cdot (-3) + 3 \cdot 4 = -12 + 12 = 0$ ✓ e $|\vec{d}| = 5$ ✓.</li>
+<li>(b) Paralelismo entre $\vec{e} = (10, c)$ e $\vec{d} = (-3, 4)$: $\frac{10}{-3} = \frac{c}{4}$.</li>
+<li>Resolva: $c = \frac{10 \cdot 4}{-3} = -\frac{40}{3}$.</li>
+<li>Confirmação: $\vec{e} = \left(10, -\frac{40}{3}\right) = -\frac{10}{3} \cdot (-3, 4) = -\frac{10}{3}\vec{d}$ ✓.</li>
+</ol>
+<div class="formula">
+$$\vec{d} = (-3, 4), \quad |\vec{d}| = 5, \quad \vec{s} \cdot \vec{d} = 4(-3) + 3(4) = 0 \quad \checkmark$$
+$$c = -\frac{40}{3}, \quad \vec{e} = \left(10, -\frac{40}{3}\right) = -\frac{10}{3}\vec{d}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Este problema integra ortogonalidade, módulo e paralelismo num cenário realista. O engenheiro projeta: painéis com certa orientação, dutos na direção perpendicular (para não fazer sombra), tubulação de emergência paralela aos dutos. Cada condição matemática corresponde a uma exigência física do sistema. A geometria analítica deixa de ser exercício e vira ferramenta de projeto.</p>
+</details>
+</div>

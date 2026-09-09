@@ -1,0 +1,39 @@
+<div class="exercise">
+<h3>IDENTIFICAR CENTRO E RAIO DA FORMA CANÔNICA</h3>
+<p>O objetivo deste exercício é reconhecer o centro e o raio de uma superfície esférica diretamente de sua equação canônica, habilidade essencial para interpretar rapidamente dados de sensores e zonas de alcance.</p>
+<p>A central de monitoramento recebeu a seguinte equação descrevendo a zona de exclusão de uma área contaminada:</p>
+<div class="formula">
+$$(x-2)^2 + (y+1)^2 + (z-3)^2 = 16$$
+</div>
+<p><strong>(a)</strong> Identifique as coordenadas do centro $C(a, b, c)$ da esfera.</p>
+<p><strong>(b)</strong> Determine o raio $r$.</p>
+<p><strong>(c)</strong> O ponto $P(6, -1, 3)$ está dentro, sobre ou fora da zona? Justifique calculando a distância ao centro.</p>
+<p><strong>(d)</strong> Escreva a equação da mesma esfera na forma geral $x^2 + y^2 + z^2 + Dx + Ey + Fz + G = 0$.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Na forma $(x-a)^2 + (y-b)^2 + (z-c)^2 = r^2$, o centro é $(a, b, c)$ e o raio é $r$. Atenção aos sinais: $(y+1)^2 = (y-(-1))^2$, logo $b = -1$. Para a forma geral, expanda cada quadrado usando $(x-a)^2 = x^2 - 2ax + a^2$ e reúna os termos.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Equação dada: $(x-2)^2 + (y+1)^2 + (z-3)^2 = 16$</li>
+<li>Reescrevendo: $(x-2)^2 + (y-(-1))^2 + (z-3)^2 = 4^2$</li>
+<li><strong>Item (a)</strong> — Centro: $C = (2, -1, 3)$</li>
+<li><strong>Item (b)</strong> — Raio: $r = \sqrt{16} = 4$</li>
+<li><strong>Item (c)</strong> — Distância de $P(6, -1, 3)$ a $C$: $d = \sqrt{(6-2)^2 + (-1-(-1))^2 + (3-3)^2} = \sqrt{16 + 0 + 0} = 4$</li>
+<li>Como $d = r = 4$, o ponto $P$ está \u003cspan class="success">sobre a superfície esférica</span>.</li>
+<li><strong>Item (d)</strong> — Expandindo: $x^2 - 4x + 4 + y^2 + 2y + 1 + z^2 - 6z + 9 = 16$</li>
+<li>Simplificando: $x^2 + y^2 + z^2 - 4x + 2y - 6z + 14 = 16$</li>
+<li>Forma geral: $x^2 + y^2 + z^2 - 4x + 2y - 6z - 2 = 0$</li>
+</ol>
+<div class="formula">
+$$C = (2, -1, 3), \quad r = 4$$
+$$x^2 + y^2 + z^2 - 4x + 2y - 6z - 2 = 0$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A capacidade de extrair centro e raio rapidamente de uma equação canônica é crítica em campo. O ponto $P(6, -1, 3)$ está exatamente na fronteira da zona de exclusão — uma patrulha ali estaria no limite seguro. A forma geral, embora menos legível, é útil quando a equação vem de um sistema ou de dados brutos de sensor.</p>
+</details>
+</div>

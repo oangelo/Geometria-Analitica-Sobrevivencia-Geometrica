@@ -1,0 +1,55 @@
+<div class="exercise">
+<h3>Distância de Sobrevivente à Rota de Fuga</h3>
+<p><strong>Objetivo:</strong> Construir e aplicar a fórmula da distância de um ponto a uma reta no espaço, usando o produto vetorial como ferramenta geométrica.</p>
+<p>Um sobrevivente está na posição $Q(4, 0, -1)$. A rota de fuga mais próxima passa pelo ponto $P_0(1, 2, 3)$ e tem direção $\vec{v} = (2, -1, 2)$.</p>
+<ol>
+    <li>Calcule a distância do sobrevivente à rota de fuga.</li>
+    <li>Interprete geometricamente o que representa esta distância.</li>
+    <li>Se o sobrevivente pudesse se mover perpendicularmente até a reta, qual seria o ponto de encontro?</li>
+</ol>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+            A fórmula da distância é $d(Q, r) = \frac{|\vec{P_0Q} \times \vec{v}|}{|\vec{v}|}$. Primeiro calcule o vetor $\vec{P_0Q} = Q - P_0$, depois o produto vetorial com $\vec{v}$. O módulo do produto vetorial é a área do paralelogramo; dividir pela base $|\vec{v}|$ dá a altura, que é a distância perpendicular.
+        </div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Calcular o vetor $\vec{P_0Q} = Q - P_0 = (4-1, 0-2, -1-3) = (3, -2, -4)$.</li>
+<li>Calcular o produto vetorial $\vec{P_0Q} \times \vec{v}$:
+            $$\vec{P_0Q} \times \vec{v} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 3 & -2 & -4 \\ 2 & -1 & 2 \end{vmatrix}$$
+            $$= \vec{i}((-2)(2) - (-4)(-1)) - \vec{j}((3)(2) - (-4)(2)) + \vec{k}((3)(-1) - (-2)(2))$$
+            $$= \vec{i}(-4 - 4) - \vec{j}(6 + 8) + \vec{k}(-3 + 4)$$
+            $$= (-8, -14, 1)$$
+        </li>
+<li>Módulo do produto vetorial:
+            $$|\vec{P_0Q} \times \vec{v}| = \sqrt{(-8)^2 + (-14)^2 + 1^2} = \sqrt{64 + 196 + 1} = \sqrt{261}$$
+        </li>
+<li>Módulo do vetor diretor:
+            $$|\vec{v}| = \sqrt{2^2 + (-1)^2 + 2^2} = \sqrt{4 + 1 + 4} = \sqrt{9} = 3$$
+        </li>
+<li>Distância:
+            $$d(Q, r) = \frac{\sqrt{261}}{3} = \frac{\sqrt{9 \cdot 29}}{3} = \frac{3\sqrt{29}}{3} = \sqrt{29}$$
+        </li>
+</ol>
+
+<p><strong>Item (b) — Interpretação geométrica:</strong></p>
+<p>A distância $\sqrt{29} \approx 5{,}39$ unidades é o <strong>comprimento do segmento perpendicular</strong> do ponto $Q$ até a reta $r$. Geometricamente, se construirmos o paralelogramo com lados $\vec{P_0Q}$ e $\vec{v}$, a área é $|\vec{P_0Q} \times \vec{v}| = \sqrt{261}$. A "altura" deste paralelogramo relativa à base $|\vec{v}| = 3$ é exatamente $\frac{\sqrt{261}}{3} = \sqrt{29}$.</p>
+
+<p><strong>Item (c) — Ponto de encontro (projeção):</strong></p>
+<p>O ponto $H$ sobre a reta mais próximo de $Q$ satisfaz $\vec{P_0H} = t\vec{v}$ e $\vec{QH} \perp \vec{v}$. O parâmetro $t$ do ponto mais próximo é:</p>
+<div class="formula">
+            $$t = \frac{\vec{P_0Q} \cdot \vec{v}}{|\vec{v}|^2} = \frac{(3, -2, -4) \cdot (2, -1, 2)}{9} = \frac{6 + 2 - 8}{9} = \frac{0}{9} = 0$$
+        </div>
+<p>Como $t = 0$, o ponto mais próximo é exatamente $P_0(1, 2, 3)$!</p>
+
+<div class="formula">
+            $$d(Q, r) = \sqrt{29} \approx 5{,}39 \text{ unidades}$$
+            $$H = P_0 = (1, 2, 3) \text{ (ponto de projeção)}$$
+        </div>
+<p><strong>Reflexão de Sobrevivência:</strong> O fato de $t = 0$ para a projeção significa que o ponto $P_0$ <em>já é</em> o ponto da reta mais próximo de $Q$. Isso ocorre porque $\vec{P_0Q} \cdot \vec{v} = 0$, ou seja, o vetor do ponto base ao sobrevivente é perpendicular à direção da reta. Em termos operacionais: o sobrevivente está "ao lado" da rota, não "adiante" ou "atrás" dela. A fórmula do produto vetorial sempre fornece a distância mínima, independentemente de onde o ponto de projeção cai no parâmetro $t$.</p>
+</details>
+</div>

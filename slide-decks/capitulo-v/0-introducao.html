@@ -1,0 +1,132 @@
+<!-- SEÇÃO 1: LUGARES GEOMÉTRICOS — INTRODUÇÃO -->
+<section>
+
+  <!-- Slide 1.1 — Título do Capítulo -->
+  <section class="field-report">
+    <div class="title-screen">
+      <h1>Lugares Geométricos: As Cônicas</h1>
+      <h2 class="subtitle">Formas que Determinam Vida ou Morte</h2>
+      <div class="emblem-number">GA-105</div>
+      <p class="subtitle-warning">PROTOCOLO DE NAVEGAÇÃO AVANÇADO</p>
+    </div>
+  </section>
+
+  <!-- Slide 1.2 — Motivação: Por Que "Lugares"? -->
+  <section class="field-report">
+    <h2>Por Que "Lugares"?</h2>
+    <div class="narrative-text">
+      <p>Nos capítulos anteriores, conhecíamos a figura (reta, circunferência) e buscávamos sua equação. Mas na wasteland, muitas vezes sabemos a <strong>REGRA</strong> — "fique a 5km do centro" — e precisamos descobrir que <strong>FORMA</strong> essa regra cria.</p>
+    </div>
+    <div class="survival-tip">
+      <p><strong>LIÇÃO:</strong> Invertemos o problema. Antes: figura → equação. Agora: condição → figura. Essa inversão é a chave de todo o capítulo.</p>
+    </div>
+  </section>
+
+  <!-- Slide 1.3 — Definição: Lugar Geométrico -->
+  <section class="mission-briefing">
+    <h2>Lugar Geométrico: A Regra que Cria a Forma</h2>
+    <div class="definition-box">
+      <p>Lugar Geométrico (L.G.) é o conjunto de todos os pontos do plano que satisfazem uma mesma condição geométrica.</p>
+      <p class="formula">\(\text{L.G.} = \{P(x,y) \mid P \text{ satisfaz a condição}\}\)</p>
+      <p>Requisito de mão dupla: (1) Todo ponto do L.G. satisfaz a condição. (2) Todo ponto que satisfaz a condição pertence ao L.G.</p>
+    </div>
+    <p>O conceito funciona como um "filtro": de todos os pontos do plano, selecionamos apenas os que obedecem à regra.</p>
+  </section>
+
+  <!-- Slide 1.4 — Exemplo 1: A Mediatriz -->
+  <section class="field-report level-basic">
+    <h3>Primeiro L.G.: A Mediatriz</h3>
+    <span class="level-indicator">NÍVEL BÁSICO</span>
+    <p>Condição: pontos equidistantes de dois pontos \(A\) e \(B\).</p>
+    <p class="formula">\(\{P(x,y) \mid d(P,A) = d(P,B)\}\)</p>
+    <div class="concept-definition">
+      <p>Desenvolvendo: \((x-x_A)^2 + (y-y_A)^2 = (x-x_B)^2 + (y-y_B)^2\)</p>
+      <p>Simplificando, obtemos uma equação do 1° grau: uma reta.</p>
+      <p class="formula">\(\text{Mediatriz: reta perpendicular a } AB \text{ pelo ponto médio}\)</p>
+    </div>
+    <div class="survival-tip">
+      <p>A mediatriz já era conhecida do Capítulo III — mas agora sabemos <strong>POR QUE</strong> ela é uma reta: porque a condição de equidistância gera uma equação linear.</p>
+    </div>
+  </section>
+
+  <!-- Slide 1.5 — Exemplo 2: Circunferência como L.G. -->
+  <section class="field-report level-basic">
+    <h3>A Circunferência Revisitada</h3>
+    <p>Condição: pontos a uma distância constante \(r\) de um centro \(C\).</p>
+    <p class="formula">\(\{P(x,y) \mid d(P,C) = r\} \implies (x-x_0)^2 + (y-y_0)^2 = r^2\)</p>
+    <p>Já conhecemos esta curva do Capítulo IV! Agora a reconhecemos como um <strong>LUGAR GEOMÉTRICO</strong> — a mesma ideia, vista por outro ângulo.</p>
+    <div class="survival-tip">
+      <p>A equação da circunferência não é uma fórmula mágica — é a tradução algébrica da condição "distância constante ao centro".</p>
+    </div>
+  </section>
+
+  <!-- Slide 1.6 — Pipeline de 3 Passos -->
+  <section class="field-report level-intermediate">
+    <h3>O Método Universal</h3>
+    <div class="info-panel">
+      <div class="info-screen">
+        <h4>Pipeline de Tradução</h4>
+        <ul>
+          <li><strong>1) TRADUZIR:</strong> converter a condição geométrica em equação algébrica</li>
+          <li><strong>2) MANIPULAR:</strong> simplificar a equação (elevar ao quadrado, expandir, etc.)</li>
+          <li><strong>3) INTERPRETAR:</strong> identificar a figura e verificar</li>
+        </ul>
+      </div>
+    </div>
+    <p>Atenção: ao elevar ao quadrado, podemos introduzir soluções espúrias — sempre verifique!</p>
+    <div class="survival-tip">
+      <p>Este pipeline resolve <strong>TODAS</strong> as cônicas. Cada cônica nasce de uma condição diferente, mas o método é sempre o mesmo.</p>
+    </div>
+  </section>
+
+  <!-- Slide 1.7 — Preview: As Três Cônicas -->
+  <section class="field-report level-intermediate">
+    <h3>Três Condições, Três Curvas</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Condição</th>
+          <th>Curva</th>
+          <th>Elementos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(d(P,F) = d(P,d)\)<br/>(equidistância foco-diretriz)</td>
+          <td>Parábola</td>
+          <td>1 foco + 1 diretriz</td>
+        </tr>
+        <tr>
+          <td>\(d(P,F_1) + d(P,F_2) = 2a\)<br/>(soma constante)</td>
+          <td>Elipse</td>
+          <td>2 focos, fechada</td>
+        </tr>
+        <tr>
+          <td>\(|d(P,F_1) - d(P,F_2)| = 2a\)<br/>(diferença constante)</td>
+          <td>Hipérbole</td>
+          <td>2 focos, 2 ramos</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="mnemonic">
+      <p><strong>PEH:</strong> <strong>P</strong>arábolas Projetam, <strong>E</strong>lipses Economizam, <strong>H</strong>ipérboles Localizam</p>
+    </div>
+  </section>
+
+  <!-- Slide 1.8 — Debriefing -->
+  <section class="debriefing">
+    <h3>Debriefing: Lugares Geométricos</h3>
+    <div class="summary-box">
+      <ul>
+        <li>L.G. = conjunto de pontos que satisfazem uma condição</li>
+        <li>Pipeline: Traduzir → Manipular → Interpretar</li>
+        <li>Mediatriz e circunferência são L.G. já conhecidos</li>
+        <li>As três cônicas são novos L.G. com condições mais sofisticadas</li>
+      </ul>
+    </div>
+    <div class="next-mission">
+      <p><strong>Próxima Missão:</strong> A primeira cônica — a parábola. Quando a distância a um ponto iguala a distância a uma reta, uma curva aberta surge.</p>
+    </div>
+  </section>
+
+</section>

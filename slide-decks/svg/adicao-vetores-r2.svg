@@ -1,0 +1,84 @@
+<svg id="svg35" inkscape:version="1.4 (e7c3feb100, 2024-10-09)" sodipodi:docname="adicao.svg" version="1.1" viewBox="0 0 437.5 350" xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg">
+<defs id="defs35">
+<marker id="DartArrow" inkscape:collect="always" inkscape:isstock="true" inkscape:stockid="Dart arrow" markerHeight="1" markerWidth="1" orient="auto-start-reverse" preserveAspectRatio="xMidYMid" refX="0" refY="0" style="overflow:visible" viewBox="0 0 1 1">
+<path d="M 0,0 5,-5 -12.5,0 5,5 Z" id="path6" style="fill:context-stroke;fill-rule:evenodd;stroke:none" transform="scale(-0.5)"></path>
+</marker>
+</defs>
+<sodipodi:namedview bordercolor="#000000" borderopacity="0.25" id="namedview35" inkscape:current-layer="g31" inkscape:cx="250" inkscape:cy="200" inkscape:deskcolor="#d1d1d1" inkscape:pagecheckerboard="0" inkscape:pageopacity="0.0" inkscape:showpageshadow="2" inkscape:window-height="1008" inkscape:window-maximized="1" inkscape:window-width="1920" inkscape:window-x="1920" inkscape:window-y="0" inkscape:zoom="2" pagecolor="#ffffff"></sodipodi:namedview>
+<!-- Fundo estilizado -->
+<rect fill="#1d3557" height="350" id="rect1" opacity="0.9" style="stroke-width:0.875" width="437.5" x="0" y="0"></rect>
+<!-- Grade de fundo esmaecida -->
+<g id="g16" opacity="0.2" stroke="#a8dadc" stroke-width="0.5" transform="scale(0.875)">
+<!-- Linhas verticais da grade -->
+<line id="line1" x1="50" x2="50" y1="50" y2="350"></line>
+<line id="line2" x1="100" x2="100" y1="50" y2="350"></line>
+<line id="line3" x1="150" x2="150" y1="50" y2="350"></line>
+<line id="line4" x1="200" x2="200" y1="50" y2="350"></line>
+<line id="line5" x1="250" x2="250" y1="50" y2="350"></line>
+<line id="line6" x1="300" x2="300" y1="50" y2="350"></line>
+<line id="line7" x1="350" x2="350" y1="50" y2="350"></line>
+<line id="line8" x1="400" x2="400" y1="50" y2="350"></line>
+<line id="line9" x1="450" x2="450" y1="50" y2="350"></line>
+<!-- Linhas horizontais da grade -->
+<line id="line10" x1="50" x2="450" y1="50" y2="50"></line>
+<line id="line11" x1="50" x2="450" y1="100" y2="100"></line>
+<line id="line12" x1="50" x2="450" y1="150" y2="150"></line>
+<line id="line13" x1="50" x2="450" y1="200" y2="200"></line>
+<line id="line14" x1="50" x2="450" y1="250" y2="250"></line>
+<line id="line15" x1="50" x2="450" y1="300" y2="300"></line>
+<line id="line16" x1="50" x2="450" y1="350" y2="350"></line>
+</g>
+<!-- Eixos coordenados principais -->
+<g id="g18" stroke="#f0f0f0" stroke-width="2" transform="scale(0.875)">
+<!-- Eixo X -->
+<line id="line17" x1="50" x2="450" y1="200" y2="200"></line>
+<!-- Eixo Y -->
+<line id="line18" x1="250" x2="250" y1="50" y2="350"></line>
+</g>
+<!-- Origem destacada -->
+<circle cx="218.75" cy="175" fill="#f0f0f0" id="circle18" r="4.375" style="stroke-width:0.875"></circle>
+<text fill="#f0f0f0" font-family="Arial" font-size="10.5px" id="text18" style="stroke-width:0.875" text-anchor="middle" x="210" y="192.5">O</text>
+<!-- Vetor u: (2,1) - Primeira rota de navegação -->
+<path d="m 217.81503,175.94997 75.49686,-37.52969" id="line19" sodipodi:nodetypes="cc" style="stroke:#e63946;stroke-width:2.35678;marker-end:url(#DartArrow)"></path>
+<text fill="#e63946" font-family="Arial" font-size="12.25px" font-weight="bold" id="text19" style="stroke-width:0.875" x="262.5" y="144.375">u</text>
+<text fill="#a8dadc" font-family="Arial" font-size="8.75px" font-style="italic" id="text20" style="stroke-width:0.875" transform="rotate(-31.561281)" x="120.57771" y="247.41103">Rota para Abrigo</text>
+<!-- Vetor v: (1,-2) - Segunda rota de navegação -->
+<!-- Vetor u+v: (3,-1) - Rota combinada -->
+<text fill="#8ac926" font-family="Arial" font-size="12.25px" font-weight="bold" id="text23" style="stroke-width:0.875" x="242.375" y="206.5">u + v</text>
+<text fill="#a8dadc" font-family="Arial" font-size="8.75px" font-style="italic" id="text24" style="stroke-width:0.875" transform="rotate(16.638515)" x="310.97949" y="100.77345">Rota Combinada</text>
+<!-- Ponto final - Novo ponto de destino -->
+<circle cx="350" cy="218.75" fill="#ffd166" id="circle24" r="7" style="stroke-width:0.875"></circle>
+<text fill="#ffd166" font-family="Arial" font-size="10.5px" font-weight="bold" id="text25" style="stroke-width:0.875" x="358.75" y="214.375">P(3,-1)</text>
+<text fill="#a8dadc" font-family="Arial" font-size="8.75px" id="text26" style="stroke-width:0.875" x="358.75" y="227.5">Destino Final</text>
+<!-- Construção do paralelogramo (linha tracejada) -->
+<line id="line26" stroke="#a8dadc" stroke-dasharray="5, 3" stroke-width="0.875" x1="218.75" x2="262.5" y1="175" y2="262.5"></line>
+<line id="line27" stroke="#a8dadc" stroke-dasharray="5, 3" stroke-width="0.875" x1="262.5" x2="350" y1="262.5" y2="218.75"></line>
+<g id="g28" transform="matrix(0.875,0,0,0.875,306.25,131.25)">
+<line id="line28" stroke="#a8dadc" stroke-dasharray="5, 3" stroke-width="1" x1="0" x2="-50" y1="0" y2="150"></line>
+</g>
+<!-- Painel de operação vetorial -->
+<g id="g31" transform="translate(60,60)">
+<rect fill="#457b9d" height="81.8125" id="rect28" opacity="0.7" rx="4.375" style="stroke-width:0.945954" width="148.75" x="-7.5" y="-7.5"></rect>
+<text fill="#ffd166" font-family="Arial" font-size="12.25px" font-weight="bold" id="text28" style="stroke-width:0.875" x="1.25" y="10">Adição de Vetores</text>
+<text fill="#f0f0f0" font-family="Arial" font-size="10.5px" id="text29" style="stroke-width:0.875" x="1.25" y="27.5">u = (2,1)</text>
+<text fill="#f0f0f0" font-family="Arial" font-size="10.5px" id="text30" style="stroke-width:0.875" x="1.25" y="45">v = (1,-2)</text>
+<text fill="#8ac926" font-family="Arial" font-size="10.5px" id="text31" style="stroke-width:0.875" x="1.25" y="62.5">u + v = (3,-1)</text>
+</g>
+<!-- Painel de interpretação -->
+<g id="g34" transform="matrix(0.875,0,0,0.875,306.25,52.5)">
+<g id="g35" transform="translate(-289.5,189.5)">
+<rect fill="#e63946" height="71.5" id="rect31" opacity="0.7" rx="5.9583335" style="stroke-width:1.19167" width="143" x="0" y="0"></rect>
+<text fill="#f0f0f0" font-family="Arial" font-size="12px" font-weight="bold" id="text32" x="10" y="20">PROTOCOLO:</text>
+<text fill="#f0f0f0" font-family="Arial" font-size="10px" id="text33" x="10" y="40">Otimização de rota</text>
+<text fill="#f0f0f0" font-family="Arial" font-size="10px" id="text34" x="10" y="55">pela regra do paralelogramo</text>
+</g>
+</g>
+<!-- Título da visualização -->
+<text fill="#f0f0f0" font-family="Arial" font-size="15.75px" font-weight="bold" id="text35" style="stroke-width:0.875" text-anchor="middle" x="218.75" y="21.875">Adição de Vetores: Combinando Rotas de Navegação</text>
+<g id="g22" transform="matrix(0.875,0,0,0.875,307.125,130.375)">
+<path d="M -2.2000802,0.26917791 43.885448,86.440231" id="line20" sodipodi:nodetypes="cc" style="stroke:#4cc9f0;stroke-width:2.49513;marker-end:url(#DartArrow)"></path>
+<text fill="#4cc9f0" font-family="Arial" font-size="14px" font-weight="bold" id="text21" x="25" y="40">v</text>
+<text fill="#a8dadc" font-family="Arial" font-size="10px" font-style="italic" id="text22" transform="rotate(56.20589)" x="27.184971" y="-14.64942">Rota para Água</text>
+</g>
+<path d="m 217.95507,174.66513 118.93983,39.2758" id="line22" sodipodi:nodetypes="cc" style="stroke:#8ac926;stroke-width:2.33201;stroke-dasharray:8.75, 4.375;marker-end:url(#DartArrow)"></path>
+</svg>

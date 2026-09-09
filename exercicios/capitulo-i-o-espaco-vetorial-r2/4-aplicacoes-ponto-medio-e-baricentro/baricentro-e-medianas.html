@@ -1,0 +1,24 @@
+<div class="exercise">
+<h3>BARICENTRO E A RAZÃO 2:1</h3>
+<p>Na dedução do baricentro, descobrimos que ele está a $\frac{2}{3}$ do caminho de cada vértice até o ponto médio oposto. Isso significa que o baricentro <strong>divide cada mediana na razão $2:1$</strong>, medindo a partir do vértice. O objetivo deste exercício é verificar essa propriedade fundamental com cálculos concretos. Desenhe o triângulo, as medianas e o baricentro.</p>
+<p><strong>(a)</strong> Considere o triângulo $A(0, 0)$, $B(6, 0)$, $C(3, 6)$. Calcule o baricentro $G$ e os pontos médios $M_1$ (de $BC$), $M_2$ (de $AC$) e $M_3$ (de $AB$).</p>
+<p><strong>(b)</strong> Calcule as distâncias $\|AG\|$ e $\|GM_1\|$ ao longo da mediana $AM_1$. Verifique que $\frac{\|AG\|}{\|GM_1\|} = 2$ (razão $2:1$). Use a fórmula de distância: $d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$.</p>
+<p><strong>(c)</strong> Repita a verificação para as outras duas medianas: calcule $\frac{\|BG\|}{\|GM_2\|}$ e $\frac{\|CG\|}{\|GM_3\|}$. Todas as medianas são divididas na mesma razão?</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>Primeiro calcule $G$ e os pontos médios. Depois, para cada mediana, calcule a distância do vértice até $G$ e de $G$ até o ponto médio. Use a fórmula da distância euclidiana. O resultado esperado é que a razão seja sempre $2:1$ — isso é uma propriedade universal das medianas de qualquer triângulo.</p>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>$G = \left(\frac{0 + 6 + 3}{3}, \frac{0 + 0 + 6}{3}\right) = (3, 2)$. Pontos médios: $M_1 = \left(\frac{6 + 3}{2}, \frac{0 + 6}{2}\right) = (4{,}5, 3)$, $M_2 = \left(\frac{0 + 3}{2}, \frac{0 + 6}{2}\right) = (1{,}5, 3)$, $M_3 = \left(\frac{0 + 6}{2}, \frac{0 + 0}{2}\right) = (3, 0)$.</li>
+<li>Mediana $AM_1$: $\|AG\| = \sqrt{(3 - 0)^2 + (2 - 0)^2} = \sqrt{9 + 4} = \sqrt{13}$. $\|GM_1\| = \sqrt{(4{,}5 - 3)^2 + (3 - 2)^2} = \sqrt{2{,}25 + 1} = \sqrt{3{,}25}$. Razão: $\frac{\sqrt{13}}{\sqrt{3{,}25}} = \frac{\sqrt{13}}{\sqrt{\frac{13}{4}}} = \frac{\sqrt{13}}{\frac{\sqrt{13}}{2}} = 2$. Confirmado: razão $2:1$.</li>
+<li>Mediana $BM_2$: $\|BG\| = \sqrt{(3 - 6)^2 + (2 - 0)^2} = \sqrt{9 + 4} = \sqrt{13}$. $\|GM_2\| = \sqrt{(1{,}5 - 3)^2 + (3 - 2)^2} = \sqrt{2{,}25 + 1} = \sqrt{3{,}25}$. Razão: $2$. Mediana $CM_3$: $\|CG\| = \sqrt{(3 - 3)^2 + (2 - 6)^2} = 4$. $\|GM_3\| = \sqrt{(3 - 3)^2 + (0 - 2)^2} = 2$. Razão: $\frac{4}{2} = 2$. Todas as três medianas são divididas na razão $2:1$.</li>
+</ol>
+<div class="formula">
+$$\frac{\|AG\|}{\|GM_1\|} = \frac{\|BG\|}{\|GM_2\|} = \frac{\|CG\|}{\|GM_3\|} = 2$$
+$$\text{O baricentro divide cada mediana na razão } 2:1 \text{ (do vértice ao ponto médio)}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A razão $2:1$ é universal — vale para qualquer triângulo, seja equilátero, isósceles ou escaleno. Isso significa que, na Zona Devastada, independentemente da forma do território, o centro de comando estará sempre mais próximo do ponto médio do que do vértice oposto — especificamente, a $\frac{1}{3}$ do caminho a partir do ponto médio.</p>
+</details>
+</div>

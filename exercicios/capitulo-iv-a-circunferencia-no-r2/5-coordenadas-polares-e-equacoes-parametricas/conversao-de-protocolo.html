@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>CONVERSÃO DE PROTOCOLO</h3>
+
+<p>Agora que dominamos a construção da paramétrica a partir do centro e do raio, podemos converter diretamente entre as duas representações da circunferência. O sistema de segurança do abrigo registrou a zona de exclusão como $(x - 2)^2 + (y + 3)^2 = 25$. O terminal de navegação dos patrulheiros só opera com equações paramétricas. Converta a equação canônica para a forma paramétrica, identificando centro e raio.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Da canônica $(x - a)^2 + (y - b)^2 = r^2$, leia diretamente o centro $C(a, b)$ e o raio $r$. Depois monte $x = a + r\cos t$, $y = b + r\sin t$. Atenção aos sinais: em $(y + 3)^2$, temos $y - (-3)$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Da canônica $(x - 2)^2 + (y + 3)^2 = 25$: centro $C(2, -3)$ e raio $r = 5$.</li>
+<li>Equação paramétrica: $x = 2 + 5\cos t$, $y = -3 + 5\sin t$.</li>
+<li>Verificação: substituindo na canônica, $(2 + 5\cos t - 2)^2 + (-3 + 5\sin t + 3)^2 = 25\cos^2 t + 25\sin^2 t = 25(\cos^2 t + \sin^2 t) = 25$ ✓.</li>
+</ol>
+<div class="formula">
+$$(x - 2)^2 + (y + 3)^2 = 25 \;\to\; C(2, -3),\; r = 5$$
+$$x = 2 + 5\cos t, \qquad y = -3 + 5\sin t$$
+$$\text{Verificação: } 25\cos^2 t + 25\sin^2 t = 25 \;\checkmark$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A identidade $\cos^2 t + \sin^2 t = 1$ é a ponte entre as duas representações. A canônica mostra a forma (o lugar geométrico), a paramétrica mostra o movimento (a posição ao longo do perímetro). Ambas descrevem o mesmo objeto — a diferença está no que cada uma facilita.</p>
+</details>
+</div>

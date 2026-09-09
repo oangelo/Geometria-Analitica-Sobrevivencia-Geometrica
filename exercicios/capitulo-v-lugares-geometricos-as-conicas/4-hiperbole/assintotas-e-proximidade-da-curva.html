@@ -1,0 +1,32 @@
+<div class="exercise">
+<h3>Assíntotas e Proximidade da Curva</h3>
+<p>O objetivo deste exercício é entender as assíntotas como retas que a hipérbole se aproxima no infinito, e verificar essa aproximação numericamente. Uma zona de radiação segue a hipérbole $\frac{x^2}{4} - \frac{y^2}{9} = 1$.</p>
+<p><strong>(a)</strong> Identifique $a$ e $b$ e escreva as equações das duas assíntotas.</p>
+<p><strong>(b)</strong> Verifique que o ponto $P(4, 3\sqrt{3})$ pertence à hipérbole. Substitua $x = 4$ e $y = 3\sqrt{3}$ na equação e confirme.</p>
+<p><strong>(c)</strong> Para $x = 4$, calcule o valor que a assíntota $y = \frac{b}{a}x$ prediz. Compare com o valor real $y = 3\sqrt{3} \approx 5{,}20$ do ponto na hipérbole. Qual é a diferença vertical entre o ponto da hipérbole e a assíntota?</p>
+<p><strong>(d)</strong> Agora considere um ponto com $x = 10$. Resolva a equação da hipérbole para encontrar $y$ positivo. Depois calcule o valor da assíntota em $x = 10$. Qual é a diferença agora? A diferença aumentou ou diminuiu em relação ao item (c)?</p>
+<p><strong>(e)</strong> Repita para $x = 100$. O que você observa sobre a diferença entre a hipérbole e a assíntota conforme $x$ cresce?</p>
+<p><strong>(f)</strong> Faça um esboço mostrando a hipérbole, as assíntotas, e os pontos calculados.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>No item (d), para encontrar $y$ quando $x = 10$, substitua na equação: $\frac{100}{4} - \frac{y^2}{9} = 1$. Resolva para $y^2$. Lembre-se que $\sqrt{225} = 15$ e $\sqrt{224} \approx 14{,}97$. A diferença entre a hipérbole e a assíntota é $|y_{\text{hipérbole}} - y_{\text{assíntota}}|$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>$a = 2$, $b = 3$. Assíntotas: $y = \pm \frac{3}{2}x$.</li>
+<li>Verificação de $P(4, 3\sqrt{3})$: $\frac{16}{4} - \frac{27}{9} = 4 - 3 = 1$ ✓</li>
+<li>Assíntota em $x = 4$: $y = \frac{3}{2} \cdot 4 = 6$. Diferença: $6 - 3\sqrt{3} \approx 6 - 5{,}20 = 0{,}80$.</li>
+<li>Para $x = 10$: $\frac{100}{4} - \frac{y^2}{9} = 1 \Rightarrow 25 - \frac{y^2}{9} = 1 \Rightarrow \frac{y^2}{9} = 24 \Rightarrow y^2 = 216 \Rightarrow y = \sqrt{216} = 6\sqrt{6} \approx 14{,}70$.</li>
+<li>Assíntota em $x = 10$: $y = \frac{3}{2} \cdot 10 = 15$. Diferença: $15 - 14{,}70 = 0{,}30$. A diferença <strong>diminuiu</strong>!</li>
+<li>Para $x = 100$: $\frac{10000}{4} - \frac{y^2}{9} = 1 \Rightarrow 2500 - \frac{y^2}{9} = 1 \Rightarrow y^2 = 9 \cdot 2499 = 22491 \Rightarrow y = \sqrt{22491} \approx 149{,}97$.</li>
+<li>Assíntota em $x = 100$: $y = \frac{3}{2} \cdot 100 = 150$. Diferença: $150 - 149{,}97 = 0{,}03$. A diferença ficou muito pequena!</li>
+</ol>
+<div class="formula">$$\text{Diferenças: } x=4 \Rightarrow 0{,}80 \quad x=10 \Rightarrow 0{,}30 \quad x=100 \Rightarrow 0{,}03$$</div>
+<p><strong>Reflexão de Sobrevivência:</strong> As assíntotas não são apenas retas auxiliares — elas representam o comportamento assintótico da hipérbole. Conforme nos afastamos do centro, a curva se torna praticamente indistinguível de suas assíntotas. Em aplicações de navegação, isso significa que para grandes distâncias, podemos aproximar a posição usando as assíntotas, simplificando cálculos em campo.</p>
+</details>
+</div>

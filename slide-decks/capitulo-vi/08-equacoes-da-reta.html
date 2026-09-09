@@ -1,0 +1,277 @@
+<!-- 08-TÓPICO: EQUAÇÕES DA RETA NO ESPAÇO (corresponde ao tópico 6 dos exercícios) -->
+<section>
+  <!-- V1: Abertura (motivação + insert narrativo) -->
+  <section class="field-report">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 08 &middot; EQUAÇÕES DA RETA NO ESPAÇO</div>
+    <h2>Trajetórias Lineares</h2>
+    <h3 class="mission-subtitle">Uma Equação Não Basta Mais</h3>
+    <p>No \(R^3\), uma única equação linear desenha um <strong>plano</strong>, não uma reta. Para descrever uma reta no espaço, precisamos de uma abordagem paramétrica: um ponto de partida e uma direção.</p>
+    <p>Aplicações: rotas de drones, tirolesas, linhas de tiro, feixes de luz.</p>
+    <div class="survival-tip">
+      <p>Não assuma que trajetórias que se cruzam em mapas 2D o farão no 3D. A altitude \(z\) é tudo!</p>
+    </div>
+    <p class="narrative-insert">Um drone só pode voar a até 400 pés, cerca de 120 metros, pela regra da ANAC. Acima disso, o céu é de outra jurisdição.</p>
+    <p class="chapter-meta">Fonte: ANAC, RBAC-E 94</p>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V2: Definição formal -->
+  <section class="mission-briefing">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 08 &middot; EQUAÇÕES DA RETA NO ESPAÇO</div>
+    <h2>Equações da Reta no Espaço</h2>
+    <div class="definition-box">
+      <p><strong>Forma vetorial:</strong> \(\vec{X} = \vec{P_0} + t\vec{v}\), com \(t \in \mathbb{R}\)</p>
+      <p><strong>Forma paramétrica:</strong></p>
+      <p class="formula">\[ \begin{cases} x = x_0 + ta \\ y = y_0 + tb \\ z = z_0 + tc \end{cases} \]</p>
+      <p>com \(\vec{P_0} = (x_0, y_0, z_0)\) e vetor diretor \(\vec{v} = (a, b, c)\).</p>
+      <p><strong>Alternativa:</strong> a reta é a interseção de dois planos não paralelos.</p>
+    </div>
+    <p class="mnemonic">"No \(R^3\), uma equação só não faz verão (pra reta). Paramétrica é a salvação!"</p>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V3: Simulador -->
+  <section class="simulator">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 08 &middot; EQUAÇÕES DA RETA NO ESPAÇO</div>
+    <h3>Simulador: Desenhando Retas no Espaço</h3>
+    <div class="canvas-container">
+      <canvas id="equacao-reta-espaco-canvas" width="800" height="400"></canvas>
+      <div class="simulator-controls">
+        <p>Ponto \(\vec{P_0}\):</p>
+        <div class="control-panel">
+          <label for="reta-x0">\(x_0\):</label> <input type="range" id="reta-x0" min="-5" max="5" value="0" step="0.5"> <span id="reta-x0-val">0</span>
+          <label for="reta-y0">\(y_0\):</label> <input type="range" id="reta-y0" min="-5" max="5" value="0" step="0.5"> <span id="reta-y0-val">0</span>
+          <label for="reta-z0">\(z_0\):</label> <input type="range" id="reta-z0" min="-5" max="5" value="0" step="0.5"> <span id="reta-z0-val">0</span>
+        </div>
+        <p>Direção \(\vec{v}\):</p>
+        <div class="control-panel">
+          <label for="reta-va">\(a\):</label> <input type="range" id="reta-va" min="-2" max="2" value="1" step="0.1"> <span id="reta-va-val">1</span>
+          <label for="reta-vb">\(b\):</label> <input type="range" id="reta-vb" min="-2" max="2" value="1" step="0.1"> <span id="reta-vb-val">1</span>
+          <label for="reta-vc">\(c\):</label> <input type="range" id="reta-vc" min="-2" max="2" value="1" step="0.1"> <span id="reta-vc-val">1</span>
+        </div>
+      </div>
+    </div>
+    <div class="hint-message">
+      <p>O ponto dourado é \(\vec{P_0}\); o segmento vermelho mostra a direção \(\vec{v}\). A reta é o caminho livre do parâmetro \(t\).</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V4: Posições relativas — taxonomia completa (reescrita, issue #51) -->
+  <section class="field-report level-intermediate">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 08 &middot; EQUAÇÕES DA RETA NO ESPAÇO</div>
+    <h2>Relatório: Encontros em 3D</h2>
+    <div class="info-panel">
+      <div class="info-screen">
+        <h4>Como duas retas podem se relacionar no \(R^3\):</h4>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Caso</th><th>Critério</th><th>Leitura geométrica</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Paralelas coincidentes</strong></td>
+                <td>diretores paralelos e um ponto comum</td>
+                <td>infinitos pontos em comum — é a mesma reta</td>
+              </tr>
+              <tr>
+                <td><strong>Paralelas distintas</strong></td>
+                <td>diretores paralelos e nenhum ponto comum</td>
+                <td>nunca se encontram; seguem a mesma direção</td>
+              </tr>
+              <tr>
+                <td><strong>Concorrentes perpendiculares</strong></td>
+                <td>cruzam em um ponto e \(\vec{v}_1 \cdot \vec{v}_2 = 0\)</td>
+                <td>um único encontro, a \(90^\circ\)</td>
+              </tr>
+              <tr>
+                <td><strong>Concorrentes oblíquas</strong></td>
+                <td>cruzam em um ponto e \(\vec{v}_1 \cdot \vec{v}_2 \neq 0\)</td>
+                <td>um encontro, ângulo via \(\cos\)</td>
+              </tr>
+              <tr>
+                <td><strong>Reversas</strong></td>
+                <td>\(\vec{v}_1, \vec{v}_2, \overrightarrow{P_1P_2}\) não coplanares; sistema sem solução</td>
+                <td>não se cruzam e não são paralelas — a novidade do \(R^3\)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <p><strong>Método:</strong> para dizer como duas retas se relacionam, iguale as duas paramétricas e resolva o sistema nas incógnitas \(t, s\) — o mesmo espírito do Cap 0; a classificação é "sistema impossível / solução única / infinitas". Formalizamos a escrita em matriz no Tópico 09.</p>
+    <div class="survival-tip">
+      <p>Reversas nunca se encontram, mas isso não quer dizer que estejam longe: podem passar a um fio de cabelo uma da outra e seguir, cada uma seu caminho.</p>
+    </div>
+    <p class="mnemonic">"No \(R^3\), uma equação só não faz verão (pra reta). Paramétrica é a salvação!"</p>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V5: Exercício — retas coincidentes (só enunciado) -->
+  <section class="survival-training">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 08 &middot; EQUAÇÕES DA RETA NO ESPAÇO</div>
+    <h3>Treinamento: Retas Coincidentes</h3>
+    <div class="training-problem">
+      <h4>Problema #VI.8.1: A Mesma Rota</h4>
+      <p>Classifique a posição relativa destas duas retas e justifique:</p>
+      <p class="formula">\[ r_1: \begin{cases} x = 2 + 2t \\ y = 1 + t \\ z = -5 + t \end{cases} \qquad r_2: \begin{cases} x = 4 + 2s \\ y = 2 + s \\ z = -4 + s \end{cases} \]</p>
+      <p>Reconheça se \(r_1\) e \(r_2\) descrevem a mesma reta.</p>
+    </div>
+    <div class="problem-context">
+      <p>Duas patrulhas na mesma rota não precisam de dois comandos.</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V6: Exercício — retas paralelas distintas (só enunciado) -->
+  <section class="survival-training">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 08 &middot; EQUAÇÕES DA RETA NO ESPAÇO</div>
+    <h3>Treinamento: Retas Paralelas Distintas</h3>
+    <div class="training-problem">
+      <h4>Problema #VI.8.2: A Rota Que Nunca Alcança</h4>
+      <p>Classifique a posição relativa destas duas retas e justifique:</p>
+      <p class="formula">\[ r_1: \begin{cases} x = 2 + 2t \\ y = 1 + t \\ z = -5 + t \end{cases} \qquad r_2: \begin{cases} x = 2 + 2s \\ y = 2 + s \\ z = -5 + s \end{cases} \]</p>
+      <p>Elas têm a mesma direção, mas nunca se encontram — explique por quê.</p>
+    </div>
+    <div class="problem-context">
+      <p>Dois trilhos retos e paralelos jamais se cruzam.</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V7: Exercício — retas concorrentes perpendiculares (só enunciado) -->
+  <section class="survival-training">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 08 &middot; EQUAÇÕES DA RETA NO ESPAÇO</div>
+    <h3>Treinamento: Concorrentes Perpendiculares</h3>
+    <div class="training-problem">
+      <h4>Problema #VI.8.3: O Encontro em Ângulo Reto</h4>
+      <p>Classifique a posição relativa e, se concorrentes, determine o ponto comum:</p>
+      <p class="formula">\[ r_1: \begin{cases} x = 1 + t \\ y = 1 + 2t \\ z = 1 + 2t \end{cases} \qquad r_2: \begin{cases} x = 1 + 2s \\ y = 1 - s \\ z = 1 \end{cases} \]</p>
+      <p>Verifique ainda se o encontro se dá a \(90^\circ\) — use o produto escalar.</p>
+    </div>
+    <div class="problem-context">
+      <p>Dois corredores em direções opostas que se cruzam num cruzamento perfeito.</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V8: Exercício — retas concorrentes oblíquas (só enunciado) -->
+  <section class="survival-training">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 08 &middot; EQUAÇÕES DA RETA NO ESPAÇO</div>
+    <h3>Treinamento: Concorrentes Oblíquas</h3>
+    <div class="training-problem">
+      <h4>Problema #VI.8.4: O Encontro em Ângulo Aberto</h4>
+      <p>Classifique a posição relativa, determine o ponto comum e calcule o \(\cos\) do ângulo entre as retas:</p>
+      <p class="formula">\[ r_1: \begin{cases} x = 1 + t \\ y = 1 + 2t \\ z = 1 + 3t \end{cases} \qquad r_2: \begin{cases} x = 2 + s \\ y = 3 - s \\ z = 4 \end{cases} \]</p>
+      <p>Elas se cruzam em \(P(2,3,4)\). Confirme o ângulo oblíquo via produto escalar.</p>
+    </div>
+    <div class="problem-context">
+      <p>Um atalho que cruza a trilha principal num ângulo qualquer.</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V9: Exercício — retas reversas (só enunciado) -->
+  <section class="survival-training">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 08 &middot; EQUAÇÕES DA RETA NO ESPAÇO</div>
+    <h3>Treinamento: Retas Reversas</h3>
+    <div class="training-problem">
+      <h4>Problema #VI.8.5: A Aproximação que Nunca É Encontro</h4>
+      <p>Prove que o sistema de igualdades das duas rotas abaixo <strong>não tem solução</strong>:</p>
+      <p class="formula">\[ r_\alpha: \begin{cases} x = 2t \\ y = t \\ z = 10 - t \end{cases} \qquad r_\beta: \begin{cases} x = 6 - s \\ y = 3 \\ z = 8 + s \end{cases} \]</p>
+      <p>Tal sistema, sem solução, é a assinatura do novo caso do \(R^3\): as retas reversas, que não se cruzam e não são paralelas.</p>
+    </div>
+    <div class="problem-context">
+      <p>Dois drones em órbitas que se aproximam sem jamais colidir.</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V10: Teoria — posição relativa reta × plano (issue #52) -->
+  <section class="field-report level-intermediate">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 08 &middot; EQUAÇÕES DA RETA NO ESPAÇO</div>
+    <h2>Relatório: Reta e Plano</h2>
+    <div class="info-panel">
+      <div class="info-screen">
+        <h4>Substituindo a reta \(r: \vec{P_0} + t\vec{v}\) no plano \(\pi: ax + by + cz + d = 0\):</h4>
+        <p class="formula">\[ (\vec{v} \cdot \vec{n})\,t + (\vec{n} \cdot \vec{P_0} + d) = 0 \]</p>
+        <p>com normal \(\vec{n} = (a, b, c)\). É uma equação linear em uma incógnita \(t\):</p>
+        <ul>
+          <li><strong>Secante:</strong> \(\vec{v} \cdot \vec{n} \neq 0\) &rarr; \(t\) único &rarr; <strong>1 ponto</strong>.</li>
+          <li><strong>Paralela distinta:</strong> \(\vec{v} \cdot \vec{n} = 0\) e \((\vec{n} \cdot \vec{P_0} + d) \neq 0\) &rarr; <strong>nenhum ponto</strong>.</li>
+          <li><strong>Contida:</strong> \(\vec{v} \cdot \vec{n} = 0\) e \((\vec{n} \cdot \vec{P_0} + d) = 0\) &rarr; <strong>infinitos pontos</strong>.</li>
+        </ul>
+      </div>
+    </div>
+    <p><strong>Método:</strong> isto é a leitura de uma equação linear em \(t\) — o degrau de 1 incógnita da nossa escada de sistemas: o coeficiente de \(t\) contando pivôs, a constante detectando \(0 = k\).</p>
+    <div class="survival-tip">
+      <p>Um só produto escalar \(\vec{v} \cdot \vec{n}\) já diz se a reta fura o plano, passa ao lado ou deita nele.</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V11: Exercício — reta secante ao plano (só enunciado) -->
+  <section class="survival-training">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 08 &middot; EQUAÇÕES DA RETA NO ESPAÇO</div>
+    <h3>Treinamento: Reta Secante ao Plano</h3>
+    <div class="training-problem">
+      <h4>Problema #VI.8.6: O Furo na Parede</h4>
+      <p>Classifique a posição relativa e, se a reta furar o plano, determine o ponto de interseção:</p>
+      <p class="formula">\[ r: \begin{cases} x = t \\ y = 2t \\ z = 3t \end{cases} \qquad \pi: x + y + z = 6 \]</p>
+      <p>Verifique que o ponto de encontro é \(P(1,2,3)\).</p>
+    </div>
+    <div class="problem-context">
+      <p>Um facho de luz atravessando uma janela no ponto exato.</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V12: Exercício — reta paralela distinta ao plano (só enunciado) -->
+  <section class="survival-training">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 08 &middot; EQUAÇÕES DA RETA NO ESPAÇO</div>
+    <h3>Treinamento: Reta Paralela ao Plano</h3>
+    <div class="training-problem">
+      <h4>Problema #VI.8.7: A Rota Que Passa ao Lado</h4>
+      <p>Mostre que a reta não tem nenhum ponto em comum com o plano:</p>
+      <p class="formula">\[ r: \begin{cases} x = 1 + 2t \\ y = 3 - t \\ z = -1 + 3t \end{cases} \qquad \pi: 2x + y - z + 4 = 0 \]</p>
+      <p>Dica: confirme \(\vec{v} \cdot \vec{n} = 0\) e que o ponto \(\vec{P_0}\) não pertence ao plano.</p>
+    </div>
+    <div class="problem-context">
+      <p>Uma rota de voo paralela ao chão, que jamais o toca.</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V13: Exercício — reta contida no plano (só enunciado) -->
+  <section class="survival-training">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 08 &middot; EQUAÇÕES DA RETA NO ESPAÇO</div>
+    <h3>Treinamento: Reta Contida no Plano</h3>
+    <div class="training-problem">
+      <h4>Problema #VI.8.8: Deitada na Superfície</h4>
+      <p>Mostre que a reta está inteiramente contida no plano:</p>
+      <p class="formula">\[ r: \begin{cases} x = 1 + 2t \\ y = 3 - t \\ z = -1 + 3t \end{cases} \qquad \pi: x + 5y + z - 15 = 0 \]</p>
+      <p>Confirme \(\vec{v} \cdot \vec{n} = 0\) e que o ponto \(\vec{P_0}\) pertence ao plano.</p>
+    </div>
+    <div class="problem-context">
+      <p>Uma trilha riscada no próprio terreno, andando só sobre ele.</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V14: Debriefing (texto ajustado) -->
+  <section class="debriefing">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 08 &middot; EQUAÇÕES DA RETA NO ESPAÇO</div>
+    <h3>Debriefing: Trajetórias Sob Controle</h3>
+    <div class="summary-box">
+      <p>Ponto + direção descrevem uma reta no espaço. Encontrar e classificar encontros — reta com reta, reta com plano — é resolver um sistema linear: a assinatura do escalonamento começa aqui.</p>
+    </div>
+    <div class="next-mission">
+      <p>Próximo briefing: quando vários planos precisam valer ao mesmo tempo — os sistemas lineares 3×3, onde o escalonamento vira ferramenta formal.</p>
+    </div>
+    <div class="instructor-note">
+      <p>"Vocês têm as ferramentas para redesenhar suas linhas de defesa. Mantenham os cálculos afiados!"</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+</section>

@@ -1,0 +1,38 @@
+<!-- V-VISUALIZAÇÃO Variante A: Canvas grande + Controles abaixo -->
+<!-- Uso: a visualização é o foco principal, precisa de espaço. -->
+<!-- Posicionamento flexível: pode entrar entre CONCEITO e FORMALIZAÇÃO quando -->
+<!-- apoia a definição — o critério é pedagógico (template-spec.md). -->
+
+<section>
+  <div class="slide-header">SEÇÃO [NN] · [TÓPICO]</div>
+  <div class="slide-body">
+    <h3>Visualização: [Título]</h3>
+    <canvas id="[topico]-canvas" class="visualization-canvas" width="700" height="400"></canvas>
+    <div class="controls-container">
+      <div class="control-slider">
+        <label>[Label]:</label>
+        <input type="range" id="[topico]-slider" min="0" max="100" value="50" step="1" />
+      </div>
+      <button class="control-button">Reiniciar</button>
+    </div>
+  </div>
+  <div class="slide-footer">GA-CH[N]-[ANO] · CAPÍTULO [N]</div>
+</section>
+
+<script>
+  // Padrão IIFE obrigatório (AGENTS.md §4.4). ID único: [topico]-canvas.
+  (function () {
+    function init() {
+      var canvas = document.getElementById('[topico]-canvas');
+      if (!canvas) return;
+      var ctx = canvas.getContext('2d');
+      // ... lógica de desenho (requestAnimationFrame, nunca setInterval) ...
+    }
+    document.addEventListener('DOMContentLoaded', init);
+    if (window.Reveal) {
+      Reveal.on('slidechanged', function () {
+        if (document.getElementById('[topico]-canvas')) init();
+      });
+    }
+  })();
+</script>

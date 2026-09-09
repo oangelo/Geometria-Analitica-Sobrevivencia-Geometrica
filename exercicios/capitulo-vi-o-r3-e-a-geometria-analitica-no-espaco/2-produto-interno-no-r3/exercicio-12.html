@@ -1,0 +1,42 @@
+<div class="exercise">
+    <h3>Vetor Perpendicular a Dois Vetores Dados</h3>
+    <p><strong>Objetivo:</strong> Resolver um problema aberto: encontrar um vetor unitário perpendicular a dois vetores dados no R³, introduzindo geometricamente a ideia de vetor normal a um plano.</p>
+    <p>Dados $\vec{v} = (1, 2, -1)$ e $\vec{w} = (2, -1, 1)$, e sabendo que $\vec{u}$ é um vetor unitário ($|\vec{u}| = 1$) perpendicular a ambos:</p>
+    <ol>
+        <li>Escreva o sistema de equações que $\vec{u} = (x, y, z)$ deve satisfazer.</li>
+        <li>Resolva o sistema para encontrar a direção de $\vec{u}$ (a menos de um sinal).</li>
+        <li>Normalize para obter $\vec{u}$ com $|\vec{u}| = 1$. Há duas soluções possíveis; apresente ambas.</li>
+        <li><strong>[Interpretação geométrica]</strong> Os vetores $\vec{v}$ e $\vec{w}$ definem um plano. O que representa geometricamente o vetor $\vec{u}$ encontrado? Por que há duas soluções?</li>
+    </ol>
+
+    <details class="hint-details">
+        <summary>DICA DE SOBREVIVÊNCIA</summary>
+        <p>As condições são: $\vec{u} \cdot \vec{v} = 0$ e $\vec{u} \cdot \vec{w} = 0$. Isso dá duas equações lineares em três incógnitas. Resolva o sistema por escalonamento. A normalização usa $|\vec{u}| = \sqrt{x^2 + y^2 + z^2} = 1$.</p>
+    </details>
+
+    <details>
+        <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+        <ol class="solution-steps">
+            <li>Sistema de equações:
+                $$\vec{u} \cdot \vec{v} = x + 2y - z = 0 \quad \text{(Eq. 1)}$$
+                $$\vec{u} \cdot \vec{w} = 2x - y + z = 0 \quad \text{(Eq. 2)}$$
+                $$x^2 + y^2 + z^2 = 1 \quad \text{(Eq. 3: normalização)}$$
+            </li>
+            <li>Resolvendo Eq. 1 + Eq. 2:
+                $$3x + y = 0 \Rightarrow y = -3x$$
+                <p>Substituindo em Eq. 1:
+                    $$x + 2(-3x) - z = 0 \Rightarrow x - 6x - z = 0 \Rightarrow z = -5x$$
+                </p>
+                <p>Portanto, $\vec{u} = (x, -3x, -5x) = x(1, -3, -5)$. A direção é $(1, -3, -5)$ (ou qualquer múltiplo não-nulo).</p>
+            </li>
+            <li>Normalização:
+                $$|(1, -3, -5)| = \sqrt{1 + 9 + 25} = \sqrt{35}$$
+                <p>As duas soluções unitárias (sinais opostos):</p>
+                $$\vec{u}_1 = \frac{1}{\sqrt{35}}(1, -3, -5) = \left(\frac{1}{\sqrt{35}}, -\frac{3}{\sqrt{35}}, -\frac{5}{\sqrt{35}}\right)$$
+                $$\vec{u}_2 = -\vec{u}_1 = \frac{1}{\sqrt{35}}(-1, 3, 5)$$
+            </li>
+            <li><strong>Interpretação geométrica:</strong> Os vetores $\vec{v}$ e $\vec{w}$ (que não são paralelos, pois $\vec{v} \neq \lambda \vec{w}$) definem um plano passando pela origem. O vetor $\vec{u}$ é <em>normal</em> (perpendicular) a este plano — ele aponta na direção "para cima" ou "para baixo" do plano. As duas soluções $\vec{u}_1$ e $\vec{u}_2$ correspondem aos dois sentidos possíveis da normal: uma de cada lado do plano. No Capítulo VII, esta operação será sistematizada como o <em>produto vetorial</em>: $\vec{u} \parallel \vec{v} \times \vec{w}$.</li>
+        </ol>
+        <p><strong>Reflexão:</strong> Este exercício antecipa o produto vetorial (Cap VII). A ideia central é: no R³, dados dois vetores não-paralelos, existe uma única direção (a menos de sinal) perpendicular a ambos. Esta direção é a "normal ao plano" definido pelos dois vetores. No R², dois vetores não-paralelos já definem todo o espaço; não há direção "fora do plano". A existência de uma terceira direção perpendicular é uma das propriedades definidoras do espaço tridimensional.</p>
+    </details>
+</div>

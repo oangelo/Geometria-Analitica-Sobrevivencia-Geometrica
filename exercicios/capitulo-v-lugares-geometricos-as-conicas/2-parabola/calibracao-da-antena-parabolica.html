@@ -1,0 +1,34 @@
+<div class="exercise">
+<h3>Calibração da Antena Parabólica de Comunicação</h3>
+<p>O objetivo deste exercício é aplicar a construção da parábola a um problema prático de engenharia. Uma antena parabólica de comunicação de emergência tem foco em $F(0,3)$ e diretriz $y = -3$. O receptor de sinal deve ser posicionado exatamente no foco, e a estrutura da antena segue a curva parabólica.</p>
+<p><strong>(a)</strong> Desenhe no papel o foco $F(0,3)$, a diretriz $y = -3$ e o vértice $V$. Construa a equação da antena a partir da definição $d(P,F) = d(P,d)$.</p>
+<p><strong>(b)</strong> A partir da equação encontrada, identifique $p$ e confirme a posição do foco.</p>
+<p><strong>(c)</strong> A borda da antena está a 6 metros do eixo de simetria (ou seja, em $x = 6$ e $x = -6$). Determine a altura $y$ da borda usando a equação da parábola.</p>
+<p><strong>(d)</strong> Verifique que o ponto da borda $P(6,y)$ satisfaz a definição $d(P,F) = d(P,d)$. Calcule ambas as distâncias explicitamente.</p>
+<p><strong>(e)</strong> Se o receptor for deslocado acidentalmente para $(0,2)$, ele ainda captará sinais da antena? Justifique: um ponto na posição $(0,2)$ pertence à parábola? Substitua na equação para verificar.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>A construção é idêntica aos exercícios iniciais. Para a borda, substitua $x = 6$ na equação da parábola e resolva para $y$. Na verificação do item (d), use a fórmula de distância. No item (e), lembre-se: apenas pontos da parábola têm a propriedade refletora — o foco é um ponto especial, mas não pertence à curva.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>$d(P,F) = \sqrt{x^2 + (y-3)^2}$ e $d(P,d) = |y + 3|$</li>
+<li>Igualando e elevando ao quadrado: $x^2 + (y-3)^2 = (y+3)^2$</li>
+<li>Expandindo: $x^2 + y^2 - 6y + 9 = y^2 + 6y + 9$</li>
+<li>Simplificando: $x^2 = 12y$</li>
+<li>Comparando com $x^2 = 4py$: $4p = 12$, logo $p = 3$. Foco em $F(0,3)$ ✓.</li>
+<li>Para $x = 6$: $36 = 12y$, logo $y = 3$. A borda está em $(6,3)$ e $(-6,3)$.</li>
+<li>Verificação de $P(6,3)$: $d(P,F) = \sqrt{(6-0)^2 + (3-3)^2} = 6$. $d(P,d) = |3 - (-3)| = 6$. ✓</li>
+<li>Verificação de $(0,2)$: na parábola $x^2 = 12y$, para $x = 0$ temos $y = 0$. O ponto $(0,2)$ não satisfaz $0 = 12(2) = 24$. Logo $(0,2)$ não pertence à parábola. O receptor deslocado não está na posição correta.</li>
+</ol>
+<div class="formula">
+$$x^2 = 12y, \quad p = 3, \quad \text{borda em } (6,3) \text{ e } (-6,3)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A propriedade refletora da parábola depende do receptor estar exatamente no foco. Um deslocamento de 1 metro (de $y=3$ para $y=2$) quebra a geometria do sistema. A equação da parábola é o mapa — qualquer desvio do mapa compromete a operação.</p>
+</details>
+</div>

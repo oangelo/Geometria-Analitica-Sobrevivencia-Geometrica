@@ -1,0 +1,25 @@
+<section class="manual-contexto" data-context="manual-sobrevivencia">
+    <div class="terminal-border">
+        <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: DISTÂNCIA PONTO-RETA E INEQUAÇÕES</h2>
+
+        <p>Na Zona Devastada, uma fronteira de contaminação não é uma barreira física — é uma reta invisível que separa a vida da morte. Saber exatamente a que distância seu abrigo está dessa fronteira, e em qual lado dela você se encontra, é informação tática de primeira ordem. A geometria analítica transforma essa necessidade em cálculo preciso.</p>
+
+        <p>A <strong>distância de um ponto a uma reta</strong> tem um significado geométrico simples: é a menor distância possível entre o ponto e qualquer ponto da reta. Geometricamente, essa menor distância é sempre medida ao longo da perpendicular — qualquer outro caminho até a reta é mais longo. Se a reta tem equação geral $ax + by + c = 0$ e o ponto é $P(x_0, y_0)$, essa distância mínima é dada por:</p>
+
+        <div class="formula">
+            $$d(P, r) = \frac{|ax_0 + by_0 + c|}{\sqrt{a^2 + b^2}}$$
+        </div>
+
+        <p>O numerador $|ax_0 + by_0 + c|$ mede o "deslocamento" do ponto em relação à reta, com sinal indicando de qual lado ele está. O denominador $\sqrt{a^2 + b^2}$ normaliza essa medida, tornando-a independente de como a equação foi escrita. O valor absoluto garante que a distância seja sempre positiva — afinal, distância é uma grandeza.</p>
+
+        <p>Com isso, podemos agora responder uma pergunta ainda mais fundamental: <strong>de qual lado da fronteira estou?</strong> Uma inequação linear $ax + by + c > 0$ não define uma reta, mas um <strong>semiplano</strong> — uma das duas regiões em que a reta divide o plano. Para descobrir qual lado satisfaz a desigualdade, basta testar um ponto: se $ax_0 + by_0 + c > 0$, o ponto está no semiplano positivo; se $< 0$, no negativo. A reta em si ($= 0$) é a fronteira.</p>
+
+        <p>Quando combinamos várias inequações, obtemos a <strong>interseção de semiplanos</strong> — uma região poligonal que pode representar uma zona segura, um perímetro defensivo ou uma área de patrulha. Cada inequação é uma parede; a região viável é o espaço dentro de todas elas.</p>
+
+        <p><strong>Técnicas de sobrevivência:</strong></p>
+        <p><strong>(1)</strong> Converter qualquer forma da equação da reta para a forma geral $ax + by + c = 0$ antes de aplicar a fórmula da distância.</p>
+        <p><strong>(2)</strong> O valor $ax_0 + by_0 + c$ (sem o módulo) indica o lado do ponto em relação à reta — útil para verificar se dois pontos estão do mesmo lado.</p>
+        <p><strong>(3)</strong> Para sistemas de inequações, esboce cada reta e teste um ponto de referência (como a origem) para identificar o semiplano correto.</p>
+        <p><strong>(4)</strong> A distância ponto-reta generaliza o conceito de distância entre pontos (Capítulo II): quando a reta degenera num ponto, ambas as fórmulas coincidem.</p>
+    </div>
+</section>

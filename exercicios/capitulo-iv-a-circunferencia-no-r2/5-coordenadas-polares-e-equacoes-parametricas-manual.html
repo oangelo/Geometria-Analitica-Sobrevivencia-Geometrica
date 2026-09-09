@@ -1,0 +1,38 @@
+<section class="manual-contexto" data-context="manual-sobrevivencia">
+    <div class="terminal-border">
+    <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: COORDENADAS POLARES E EQUAÇÃO PARAMÉTRICA</h2>
+<p>Na Zona Devastada, nem todo equipamento opera no mesmo sistema de referência. Radares sobreviventes registram alvos por distância e direção, enquanto os mapas do abrigo usam coordenadas cartesianas. Se você não domina a conversão entre os dois sistemas, um alvo a $3$ quilômetros na direção $60°$ vira um ponto inútil no mapa. As coordenadas polares e a equação paramétrica da circunferência são as ferramentas que permitem traduzir entre sistemas e rastrear movimento circular — essencial para qualquer operação de patrulha.</p>
+<p>Um ponto $P$ no plano cartesiano pode ser localizado de duas formas equivalentes: pelas coordenadas cartesianas $(x, y)$, que medem deslocamentos horizontal e vertical a partir da origem, ou pelas <strong>coordenadas polares</strong> $(r, \theta)$, onde $r \geq 0$ é a distância direta do ponto à origem $O$ e $\theta$ é o ângulo que o segmento $\overline{OP}$ forma com o eixo $x$ positivo, medido no sentido anti-horário.</p>
+<div class="formula">
+$$\text{Conversão polar} \to \text{cartesiana:} \quad x = r\cos\theta, \quad y = r\sin\theta$$
+$$\text{Conversão cartesiana} \to \text{polar:} \quad r = \sqrt{x^2 + y^2}, \quad \tan\theta = \frac{y}{x}$$
+</div>
+<p>Ao converter de cartesianas para polares, o valor de $\theta$ obtido por $\arctan(y/x)$ precisa ser ajustado conforme o quadrante: se o ponto está no 2° quadrante ($x &lt; 0$, $y &gt; 0$), some $180°$ ao resultado; se está no 3° quadrante ($x &lt; 0$, $y &lt; 0$), some $180°$; se está no 4° quadrante ($x &gt; 0$, $y &lt; 0$), some $360°$.</p>
+<p>Os valores de seno e cosseno para os ângulos notáveis são indispensáveis:</p>
+<div class="formula">
+$$\begin{aligned}
+&amp;\cos 0° = 1, &amp;&amp;\sin 0° = 0 \\
+&amp;\cos 30° = \frac{\sqrt{3}}{2}, &amp;&amp;\sin 30° = \frac{1}{2} \\
+&amp;\cos 45° = \frac{\sqrt{2}}{2}, &amp;&amp;\sin 45° = \frac{\sqrt{2}}{2} \\
+&amp;\cos 60° = \frac{1}{2}, &amp;&amp;\sin 60° = \frac{\sqrt{3}}{2} \\
+&amp;\cos 90° = 0, &amp;&amp;\sin 90° = 1
+\end{aligned}$$
+</div>
+<p>A <strong>equação paramétrica da circunferência</strong> descreve cada ponto do perímetro por meio de um parâmetro $t$ que representa o ângulo de referência. Para uma circunferência com centro $C(a, b)$ e raio $r$:</p>
+<div class="formula">
+$$x = a + r\cos t, \quad y = b + r\sin t, \quad t \in [0°, 360°)$$
+</div>
+<p>Cada valor de $t$ produz um ponto $(x, y)$ sobre a circunferência. Quando $t$ percorre o intervalo $[0°, 360°)$, todos os pontos do perímetro são visitados exatamente uma vez.</p>
+<p>A relação entre a equação canônica e a paramétrica é direta. Substituindo as expressões paramétricas na identidade fundamental $\cos^2 t + \sin^2 t = 1$:</p>
+<div class="formula">
+$$(x - a)^2 + (y - b)^2 = r^2\cos^2 t + r^2\sin^2 t = r^2$$
+</div>
+<p>Isto confirma que a paramétrica e a canônica descrevem a mesma circunferência. Saber converter entre as duas formas permite trocar entre a representação estática (a equação do lugar geométrico) e a representação dinâmica (a posição variável ao longo do perímetro).</p>
+<p><strong>Técnicas principais:</strong></p>
+<p><strong>1. Conversão cartesiana → polar:</strong> calcule $r = \sqrt{x^2 + y^2}$, depois use a tangente e o quadrante para determinar $\theta$.</p>
+<p><strong>2. Conversão polar → cartesiana:</strong> aplique $x = r\cos\theta$ e $y = r\sin\theta$ diretamente com os valores notáveis.</p>
+<p><strong>3. Canônica → paramétrica:</strong> identifique centro $C(a, b)$ e raio $r$ na canônica $(x-a)^2+(y-b)^2=r^2$ e monte $x = a + r\cos t$, $y = b + r\sin t$.</p>
+<p><strong>4. Paramétrica → canônica:</strong> identifique $a$, $b$ e $r$ na paramétrica e construa $(x-a)^2+(y-b)^2 = r^2$.</p>
+<p><strong>5. Ponto específico na circunferência:</strong> substitua o valor de $t$ na paramétrica e verifique o resultado na canônica.</p>
+    </div>
+</section>

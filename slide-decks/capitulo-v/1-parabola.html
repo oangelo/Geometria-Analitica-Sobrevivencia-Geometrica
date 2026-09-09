@@ -1,0 +1,130 @@
+<section>
+
+  <section class="field-report">
+    <h2>A Parábola: Antenas, Projéteis e Refletores</h2>
+    <div class="narrative-text">
+      <p>Na wasteland, toda antena de comunicação tem forma parabólica. Por quê? Porque a parábola reflete sinais paralelos para um ÚNICO ponto — o foco. Projéteis seguem trajetórias parabólicas. Refletores de luz usam parábolas. A geometria por trás disso: a distância de qualquer ponto da curva ao foco é igual à distância à diretriz.</p>
+    </div>
+    <div class="survival-tip">
+      <p>Se você precisa concentrar energia — sinais de rádio, luz solar, ondas — em um ponto, a parábola é a forma ideal. A natureza matemática garante a eficiência.</p>
+    </div>
+  </section>
+
+  <section class="mission-briefing">
+    <h2>Definição: A Parábola</h2>
+    <h3 class="mission-subtitle">Equidistância entre foco e diretriz</h3>
+    <p>A parábola é o lugar geométrico dos pontos equidistantes de um ponto fixo \(F\) (foco) e de uma reta fixa \(d\) (diretriz):</p>
+    <div class="definition-box">
+      <p class="formula">\(\text{Parábola} = \{P(x,y) \mid d(P,F) = d(P,d)\}\)</p>
+      <p>Eixo vertical (abertura para cima/baixo):</p>
+      <p class="formula">\[x^2 = 4py\]</p>
+      <p>onde \(p\) é a distância do vértice ao foco. Se \(p > 0\): abre para cima. Se \(p < 0\): abre para baixo.</p>
+      <p>Eixo horizontal:</p>
+      <p class="formula">\[y^2 = 4px\]</p>
+      <p>Se \(p > 0\): abre para a direita. Se \(p < 0\): abre para a esquerda.</p>
+    </div>
+  </section>
+
+  <section class="field-report level-basic">
+    <h3>Elementos da Parábola</h3>
+    <div class="info-panel">
+      <div class="info-screen">
+        <h4>Componentes da Parábola</h4>
+        <ul>
+          <li>Vértice \(V\): ponto da curva mais próximo da diretriz</li>
+          <li>Foco \(F\): ponto fixo (a distância \(|p|\) do vértice)</li>
+          <li>Diretriz \(d\): reta fixa (a distância \(|p|\) do vértice, lado oposto ao foco)</li>
+          <li>Eixo de simetria: reta que passa por \(V\) e \(F\), perpendicular à diretriz</li>
+          <li>Parâmetro \(p\): distância foco-vértice = distância vértice-diretriz</li>
+        </ul>
+      </div>
+    </div>
+    <div class="survival-tip">
+      <p>Propriedade reflexiva: raios paralelos ao eixo refletem-se e passam pelo foco. É por isso que antenas parabólicas funcionam!</p>
+    </div>
+  </section>
+
+  <section class="field-report level-intermediate">
+    <h3>Formas da Equação da Parábola</h3>
+    <div class="conversion-panel">
+      <div class="conversion-step">Canônica (vértice na origem): \(x^2 = 4py\) (vertical) ou \(y^2 = 4px\) (horizontal)</div>
+      <div class="conversion-step">Transladada (vértice \(V(h,k)\)): \((x-h)^2 = 4p(y-k)\) ou \((y-k)^2 = 4p(x-h)\)</div>
+      <div class="conversion-step">Forma geral: \(y = ax^2 + bx + c\). Para encontrar o vértice: completar os quadrados.</div>
+    </div>
+    <div class="survival-tip">
+      <p>A forma geral é familiar (função do 2° grau). A forma canônica revela foco e diretriz. Saber converter entre elas é tático.</p>
+    </div>
+  </section>
+
+  <section class="simulator">
+    <h3 class="slide-title-for-svg">Simulador: Parábola Interativa</h3>
+    <div class="interactive-canvas" id="parabola-canvas">
+      <div class="interaction-hint">Arraste os controles para ajustar a parábola</div>
+      <div class="pipboy-info">y = ax² + bx + c</div>
+    </div>
+    <div class="control-panel">
+      <div class="slider-container">
+        <div class="slider-label">Coeficiente a</div>
+        <input type="range" min="-2" max="2" step="0.1" value="1" id="a-slider" />
+        <div class="value-display" id="a-value">1.0</div>
+      </div>
+      <div class="slider-container">
+        <div class="slider-label">Coeficiente b</div>
+        <input type="range" min="-5" max="5" step="0.5" value="0" id="b-slider" />
+        <div class="value-display" id="b-value">0.0</div>
+      </div>
+      <div class="slider-container">
+        <div class="slider-label">Coeficiente c</div>
+        <input type="range" min="-5" max="5" step="0.5" value="0" id="c-slider" />
+        <div class="value-display" id="c-value">0.0</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="survival-training level-basic">
+    <h3>Treinamento: Antena Parabólica</h3>
+    <span class="level-indicator">NÍVEL BÁSICO</span>
+    <div class="training-problem">
+      <h4>Missão: Encontrar o Foco</h4>
+      <p>A equação da sua antena é \(y = 0{,}5x^2\). Onde está o foco?</p>
+    </div>
+    <div class="conversion-panel">
+      <div class="conversion-step">Comparando com \(x^2 = 4py\): \(x^2 = 2y\), logo \(4p = 2\) e \(p = 0{,}5\).</div>
+      <div class="conversion-step">Foco: \(F(0, p) = F(0, 0{,}5)\). Diretriz: \(y = -p = -0{,}5\).</div>
+    </div>
+    <div class="survival-tip">
+      <p>Relação inversa: quanto maior o coeficiente \(A\) em \(y = Ax^2\), mais estreita a parábola e mais próximo o foco do vértice. Fórmula: \(p = \frac{1}{4A}\).</p>
+    </div>
+  </section>
+
+  <section class="survival-training level-advanced">
+    <h3>Treinamento Avançado: Parábola</h3>
+    <span class="level-indicator">NÍVEL AVANÇADO</span>
+    <div class="training-problem">
+      <h4>Missão 1: Análise de Projétil</h4>
+      <p>Um projétil segue \(y = -0{,}05x^2 + 2x\). Qual a altura máxima e o alcance?</p>
+    </div>
+    <div class="training-problem">
+      <h4>Missão 2: Construção de Barreira</h4>
+      <p>Uma barreira segue \(y^2 = 12x\). Identifique o foco e a diretriz.</p>
+    </div>
+    <div class="training-problem">
+      <h4>Missão 3: Sinal Desconhecido</h4>
+      <p>Um sinal forma a curva que passa por \((1,3)\), \((2,6)\) e \((3,11)\). Determine a equação da parábola na forma geral \(y = ax^2 + bx + c\).</p>
+    </div>
+    <p class="problem-context">Estes problemas simulam situações reais de exploração na wasteland. Resolva com o pipeline de 3 passos.</p>
+  </section>
+
+  <section class="debriefing">
+    <h3>Debriefing: Parábola</h3>
+    <div class="summary-box">
+      <ul>
+        <li>Parábola = equidistância entre foco e diretriz</li>
+        <li>Canônica: \(x^2 = 4py\) (vertical) ou \(y^2 = 4px\) (horizontal)</li>
+        <li>Propriedade reflexiva: raios paralelos convergem no foco</li>
+      </ul>
+    </div>
+    <p class="next-mission">Próxima Missão: E se houver DOIS focos e a SOMA das distâncias for constante? Uma curva fechada surge — a elipse.</p>
+  </section>
+
+</section>

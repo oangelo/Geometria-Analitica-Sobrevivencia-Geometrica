@@ -1,0 +1,59 @@
+<div class="exercise">
+<h3>CLASSIFICAÇÃO DE TRIÂNGULO NO ESPAÇO</h3>
+<p>O objetivo deste exercício é combinar cálculo de áreas com distâncias para classificar um triângulo no espaço como equilátero, isósceles ou escaleno.</p>
+<p>Três torres de comunicação estão posicionadas em $A(1, 0, 1)$, $B(3, 2, 3)$ e $C(2, 4, 0)$. A equipe precisa classificar o triângulo formado por essas torres para planejar a distribuição de cabos.</p>
+<p><strong>(a)</strong> Calcule os comprimentos dos três lados $AB$, $BC$ e $CA$.</p>
+<p><strong>(b)</strong> Classifique o triângulo como equilátero, isósceles ou escaleno, justificando pela comparação dos lados.</p>
+<p><strong>(c)</strong> Calcule a área do triângulo $ABC$ usando o produto vetorial.</p>
+<p><strong>(d)</strong> Usando a fórmula da área de um triângulo qualquer, $A = \frac{1}{2}ab\sin C$, verifique que o resultado do item (c) é consistente com os lados e o ângulo entre eles.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>A distância entre dois pontos no $\mathbb{R}^3$ é $d(P,Q) = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2 + (z_2-z_1)^2}$. Um triângulo é equilátero se todos os lados são iguais, isósceles se dois são iguais, e escaleno se todos são diferentes. Para o item (d), use o produto escalar para encontrar $\cos C$, depois $\sin C$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>Item (a):</strong></p>
+<ol class="solution-steps">
+<li>$AB = \sqrt{(3-1)^2 + (2-0)^2 + (3-1)^2} = \sqrt{4 + 4 + 4} = \sqrt{12} = 2\sqrt{3}$</li>
+<li>$BC = \sqrt{(2-3)^2 + (4-2)^2 + (0-3)^2} = \sqrt{1 + 4 + 9} = \sqrt{14}$</li>
+<li>$CA = \sqrt{(1-2)^2 + (0-4)^2 + (1-0)^2} = \sqrt{1 + 16 + 1} = \sqrt{18} = 3\sqrt{2}$</li>
+</ol>
+<div class="formula">
+$$AB = 2\sqrt{3} \approx 3{,}46, \quad BC = \sqrt{14} \approx 3{,}74, \quad CA = 3\sqrt{2} \approx 4{,}24$$
+</div>
+
+<p><strong>Item (b):</strong></p>
+<p>Como $AB \neq BC \neq CA$ (os três lados têm comprimentos distintos), o triângulo é <strong>escaleno</strong>.</p>
+
+<p><strong>Item (c):</strong></p>
+<ol class="solution-steps">
+<li>$\overrightarrow{AB} = (2, 2, 2)$, $\overrightarrow{AC} = (1, 4, -1)$</li>
+<li>$\overrightarrow{AB} \times \overrightarrow{AC} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 2 & 2 & 2 \\ 1 & 4 & -1 \end{vmatrix}$</li>
+<li>Componente $\vec{i}$: $(2)(-1) - (2)(4) = -2 - 8 = -10$</li>
+<li>Componente $\vec{j}$: $-[(2)(-1) - (2)(1)] = -[-2 - 2] = 4$</li>
+<li>Componente $\vec{k}$: $(2)(4) - (2)(1) = 8 - 2 = 6$</li>
+<li>$|\overrightarrow{AB} \times \overrightarrow{AC}| = \sqrt{(-10)^2 + 4^2 + 6^2} = \sqrt{100 + 16 + 36} = \sqrt{152} = 2\sqrt{38}$</li>
+<li>Área do triângulo: $\dfrac{1}{2} \cdot 2\sqrt{38} = \sqrt{38}$</li>
+</ol>
+<div class="formula">
+$$\text{Área do } \triangle ABC = \sqrt{38} \approx 6{,}16 \text{ unidades}^2$$
+</div>
+
+<p><strong>Item (d):</strong></p>
+<p>Usando os lados $AB = 2\sqrt{3}$ e $AC = 3\sqrt{2}$ com o ângulo $A$ entre eles:</p>
+<ol class="solution-steps">
+<li>$\overrightarrow{AB} \cdot \overrightarrow{AC} = (2)(1) + (2)(4) + (2)(-1) = 2 + 8 - 2 = 8$</li>
+<li>$\cos A = \dfrac{\overrightarrow{AB} \cdot \overrightarrow{AC}}{|\overrightarrow{AB}||\overrightarrow{AC}|} = \dfrac{8}{2\sqrt{3} \cdot 3\sqrt{2}} = \dfrac{8}{6\sqrt{6}} = \dfrac{4}{3\sqrt{6}}$</li>
+<li>$\cos^2 A = \dfrac{16}{9 \cdot 6} = \dfrac{16}{54} = \dfrac{8}{27}$</li>
+<li>$\sin^2 A = 1 - \dfrac{8}{27} = \dfrac{19}{27}$, logo $\sin A = \dfrac{\sqrt{19}}{\sqrt{27}} = \dfrac{\sqrt{19}}{3\sqrt{3}}$</li>
+<li>$\dfrac{1}{2} \cdot AB \cdot AC \cdot \sin A = \dfrac{1}{2} \cdot 2\sqrt{3} \cdot 3\sqrt{2} \cdot \dfrac{\sqrt{19}}{3\sqrt{3}} = \sqrt{3} \cdot 3\sqrt{2} \cdot \dfrac{\sqrt{19}}{3\sqrt{3}} = \sqrt{2} \cdot \sqrt{19} = \sqrt{38}$ ✓</li>
+</ol>
+<p>O resultado coincide com o item (c).</p>
+
+<p><strong>Reflexão de Sobrevivência:</strong> Classificar um triângulo no espaço exige duas verificações independentes: distâncias (para os lados) e produto vetorial (para a área). Se os resultados não forem consistentes, houve erro de cálculo. Na Zona Devastada, verificação cruzada é protocolo obrigatório — uma torre mal posicionada pode comprometer toda a rede de comunicação.</p>
+</details>
+</div>

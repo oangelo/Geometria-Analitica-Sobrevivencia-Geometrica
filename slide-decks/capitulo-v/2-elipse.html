@@ -1,0 +1,135 @@
+<section>
+
+  <section class="field-report">
+    <h2>A Elipse: Órbitas, Abrigos e Rotas</h2>
+    <div class="narrative-text">
+      <p>No Capítulo III, vimos que a reta conecta dois pontos. No IV, que a circunferência mantém distância constante de um centro. Mas e se você precisa patrulhar DOIS postos, mantendo a distância total sempre igual? Ou se os planetas orbitam em caminhos ovais, não circulares? A elipse é a resposta.</p>
+    </div>
+    <p>Enquanto a parábola tem 1 foco e 1 diretriz, a elipse tem 2 focos — e a condição muda de equidistância para SOMA constante.</p>
+    <div class="survival-tip">
+      <p>Na wasteland, abóbadas subterrâneas têm formato elíptico — mais resistentes que circulares. Torres de comunicação usam a propriedade reflexiva da elipse: um sinal emitido de um foco reflete e chega ao outro foco.</p>
+    </div>
+  </section>
+
+  <section class="mission-briefing">
+    <h2>Definição: A Elipse</h2>
+    <h3 class="mission-subtitle">Soma constante de distâncias</h3>
+    <p>A elipse é o lugar geométrico dos pontos cuja soma das distâncias a dois focos \(F_1\) e \(F_2\) é constante e igual a \(2a\):</p>
+    <div class="definition-box">
+      <p class="formula">\(\text{Elipse} = \{P(x,y) \mid d(P,F_1) + d(P,F_2) = 2a\}\)</p>
+      <p>Equação canônica (eixo maior horizontal):</p>
+      <p class="formula">\[\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1\]</p>
+      <p>onde \(a > b > 0\) e a relação fundamental é:</p>
+      <p class="formula">\[c^2 = a^2 - b^2\]</p>
+      <p>Os focos estão em \(F_1(-c, 0)\) e \(F_2(c, 0)\). A constante da soma é \(2a\).</p>
+    </div>
+  </section>
+
+  <section class="field-report level-basic">
+    <h3 class="slide-title-for-svg">Anatomia da Elipse</h3>
+    <div class="info-panel">
+      <div class="info-screen">
+        <h4>Componentes</h4>
+        <ul>
+          <li>Centro \(O\): ponto médio entre os focos</li>
+          <li>Eixo maior: segmento de comprimento \(2a\) (passa pelos focos)</li>
+          <li>Eixo menor: segmento de comprimento \(2b\) (perpendicular ao eixo maior)</li>
+          <li>Focos: \(F_1\) e \(F_2\) a distância \(c\) do centro</li>
+          <li>Excentricidade: \(e = c/a\), com \(0 < e < 1\)</li>
+        </ul>
+      </div>
+    </div>
+    <p>Quanto menor \(e\), mais circular. Quanto maior \(e\), mais achatada.</p>
+    <img class="svg-visualization" src="capitulo-v_svgs/elipse_anatomia.svg" alt="Anatomia da elipse" />
+  </section>
+
+  <section class="field-report level-basic">
+    <h3 class="slide-title-for-svg">A Relação \(a^2 = b^2 + c^2\)</h3>
+    <p>No triângulo retângulo formado pelo centro \(O\), o foco \(F_1\) e um vértice do eixo menor, vale o Teorema de Pitágoras:</p>
+    <p class="formula">\[c^2 + b^2 = a^2 \implies c^2 = a^2 - b^2\]</p>
+    <p>Esta relação permite calcular qualquer elemento a partir dos outros dois.</p>
+    <img class="svg-visualization" src="capitulo-v_svgs/elipse_relacao_abc.svg" alt="Relação fundamental da elipse" />
+    <div class="survival-tip">
+      <p>Compare com a hipérbole (próximo tópico): lá será \(c^2 = a^2 + b^2\). O sinal muda!</p>
+    </div>
+  </section>
+
+  <section class="simulator">
+    <h3 class="slide-title-for-svg">Simulador: Elipse Interativa</h3>
+    <div class="interactive-canvas" id="ellipse-canvas">
+      <div class="interaction-hint">Arraste os focos ou ajuste os controles</div>
+      <div class="pipboy-info">Excentricidade: 0{,}5</div>
+    </div>
+    <div class="control-panel">
+      <div class="slider-container">
+        <div class="slider-label">Semi-eixo a</div>
+        <input type="range" min="50" max="250" step="10" value="200" id="a-ellipse-slider" />
+        <div class="value-display" id="a-ellipse-value">200</div>
+      </div>
+      <div class="slider-container">
+        <div class="slider-label">Semi-eixo b</div>
+        <input type="range" min="50" max="250" step="10" value="100" id="b-ellipse-slider" />
+        <div class="value-display" id="b-ellipse-value">100</div>
+      </div>
+      <div class="slider-container">
+        <div class="slider-label">Rotação</div>
+        <input type="range" min="0" max="180" step="5" value="0" id="rotation-slider" />
+        <div class="value-display" id="rotation-value">0°</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="survival-training level-basic">
+    <h3>Treinamento: Rota de Patrulha</h3>
+    <span class="level-indicator">NÍVEL BÁSICO</span>
+    <div class="training-problem">
+      <h4>Missão: Planejar a Rota</h4>
+      <p>Dois assentamentos (focos) estão a 6km de distância. A rota de patrulha deve ter percurso total de 10km (propriedade da elipse).</p>
+      <ul>
+        <li>Qual o valor do semi-eixo maior \(a\)?</li>
+        <li>Qual o valor de \(c\)?</li>
+        <li>Qual o valor do semi-eixo menor \(b\)?</li>
+      </ul>
+    </div>
+    <div class="conversion-panel">
+      <div class="conversion-step">Percurso total = \(2a = 10 \implies a = 5\).</div>
+      <div class="conversion-step">Distância entre focos = \(2c = 6 \implies c = 3\).</div>
+      <div class="conversion-step">Relação: \(b^2 = a^2 - c^2 = 25 - 9 = 16 \implies b = 4\).</div>
+      <div class="conversion-step">Equação: \(\frac{x^2}{25} + \frac{y^2}{16} = 1\).</div>
+    </div>
+    <div class="survival-tip">
+      <p>Fórmula da Wasteland: dado o percurso e a distância entre focos, a rota elíptica está completamente determinada.</p>
+    </div>
+  </section>
+
+  <section class="survival-training level-advanced">
+    <h3>Treinamento Avançado: Elipse</h3>
+    <span class="level-indicator">NÍVEL AVANÇADO</span>
+    <div class="training-problem">
+      <h4>Missão 1: Zona Segura</h4>
+      <p>Uma zona segura é delimitada por \(\frac{x^2}{36} + \frac{y^2}{16} = 1\). Determine os focos e a excentricidade.</p>
+    </div>
+    <div class="training-problem">
+      <h4>Missão 2: Órbita de Satélite</h4>
+      <p>Um satélite obsoleto orbita em elipse com focos em \((-2, 0)\) e \((2, 0)\), passando por \((0, 3)\). Encontre a equação.</p>
+    </div>
+    <div class="training-problem">
+      <h4>Missão 3: Câmara Secreta</h4>
+      <p>A câmara do Overseer tem forma elíptica com eixos 8m e 6m. Um sinal emitido de um foco chega ao outro em 0{,}01ms. Confirme a propriedade reflexiva.</p>
+    </div>
+    <p class="problem-context">A propriedade reflexiva da elipse garante que sinais de um foco chegam ao outro. Use-a estrategicamente.</p>
+  </section>
+
+  <section class="debriefing">
+    <h3>Debriefing: Elipse</h3>
+    <div class="summary-box">
+      <ul>
+        <li>Elipse = soma constante de distâncias a 2 focos</li>
+        <li>Relação fundamental: \(c^2 = a^2 - b^2\)</li>
+        <li>Excentricidade \(0 < e < 1\): mede o achatamento</li>
+      </ul>
+    </div>
+    <p class="next-mission">Próxima Missão: E se a operação for DIFERENÇA em vez de soma? A curva se abre em dois ramos — a hipérbole.</p>
+  </section>
+
+</section>

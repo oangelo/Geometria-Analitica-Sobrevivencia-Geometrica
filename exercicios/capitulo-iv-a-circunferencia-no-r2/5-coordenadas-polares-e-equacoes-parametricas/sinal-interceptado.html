@@ -1,0 +1,26 @@
+<div class="exercise">
+<h3>SINAL INTERCEPTADO</h3>
+
+<p>Se no exercício anterior fomos da canônica para a paramétrica, agora faremos o caminho inverso. Agentes de reconhecimento interceptaram uma transmissão codificada que descreve uma rota circular pelas equações $x = 4 + 2\cos t$ e $y = -1 + 2\sin t$. Recupere a equação canônica da circunferência descrita e verifique explicitamente que a substituição da paramétrica na canônica produz uma identidade verdadeira.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Da paramétrica $x = a + r\cos t$, $y = b + r\sin t$, identifique $a = 4$, $b = -1$ e $r = 2$. Construa $(x - a)^2 + (y - b)^2 = r^2$. Para verificar, substitua as expressões de $x$ e $y$ e use $\cos^2 t + \sin^2 t = 1$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Centro $C(4, -1)$, raio $r = 2$. Equação canônica: $(x - 4)^2 + (y + 1)^2 = 4$.</li>
+<li>Verificação: substituindo $x = 4 + 2\cos t$ e $y = -1 + 2\sin t$:
+$$(4 + 2\cos t - 4)^2 + (-1 + 2\sin t + 1)^2 = (2\cos t)^2 + (2\sin t)^2 = 4\cos^2 t + 4\sin^2 t = 4(\cos^2 t + \sin^2 t) = 4 \;\checkmark$$</li>
+</ol>
+<div class="formula">
+$$x = 4 + 2\cos t, \; y = -1 + 2\sin t \;\to\; (x - 4)^2 + (y + 1)^2 = 4$$
+$$\text{Verificação: } 4\cos^2 t + 4\sin^2 t = 4(\cos^2 t + \sin^2 t) = 4 \;\checkmark$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A verificação algébrica — substituir e confirmar — é o protocolo de validação da Zona Devastada. Ninguém confia em informação não verificada. Ao demonstrar que a paramétrica e a canônica são equivalentes via $\cos^2 t + \sin^2 t = 1$, você garante que a transmissão interceptada é coerente e não uma armadilha.</p>
+</details>
+</div>
