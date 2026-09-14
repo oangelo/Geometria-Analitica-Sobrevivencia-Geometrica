@@ -1,9 +1,9 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CapÃ­tulo I - O EspaÃ§o Vetorial RÂ² (Lista Completa)</title>
+    <title>Capítulo I - O Espaço Vetorial R² (Lista Completa)</title>
 
     <link
       rel="stylesheet"
@@ -404,11 +404,11 @@
     <div class="page">
       <header class="header">
         <div class="header-left">
-          <h1 class="title">CapÃ­tulo I: O EspaÃ§o Vetorial RÂ²</h1>
-          <p class="subtitle">Geometria AnalÃ­tica</p>
+          <h1 class="title">Capítulo I: O Espaço Vetorial R²</h1>
+          <p class="subtitle">Geometria Analítica</p>
         </div>
         <div class="header-right">
-          <p class="course-info">Geometria AnalÃ­tica - 2026/1</p>
+          <p class="course-info">Geometria Analítica - 2026/1</p>
           <p class="course-info">Nome: _______________________</p>
           <p class="course-info">Data: ___/___/___</p>
         </div>
@@ -416,8 +416,8 @@
 
       <div class="instructions">
         <p>
-          Resolva os exercÃ­cios seguindo o raciocÃ­nio proposto. Preencha as
-          lacunas. Todo exercÃ­cio comeÃ§a com um desenho no papel.
+          Resolva os exercícios seguindo o raciocínio proposto. Preencha as
+          lacunas. Todo exercício começa com um desenho no papel.
         </p>
       </div>
 
@@ -584,7 +584,7 @@
 </section>
 
 
-<section class="exercicio" data-topico="pontos" data-dificuldade="facil">
+<section class="exercicio" data-topico="vetores" data-dificuldade="facil">
   <p class="exercicio-enunciado">
     <span class="exercicio-numero">4.</span>
     Somar pares ordenados é somar componente a componente. Geometricamente, a soma é um deslocamento: partindo de um ponto e aplicando a soma, chegamos a outro ponto — o desenho mostra o que a álgebra faz.
@@ -636,7 +636,7 @@
 </section>
 
 
-<section class="exercicio" data-topico="pontos" data-dificuldade="medio">
+<section class="exercicio" data-topico="vetores" data-dificuldade="medio">
   <p class="exercicio-enunciado">
     <span class="exercicio-numero">5.</span>
     Multiplicar um par por um escalar multiplica cada componente: se $k > 1$ o ponto se afasta da origem, se $0 < k < 1$ se aproxima, e se $k < 0$ vai para o lado oposto. Subtrair, por sua vez, é somar com o oposto — e descreve o deslocamento de um ponto até outro.
@@ -898,10 +898,232 @@
   </p>
 </section>
 
+
+<section class="exercicio" data-topico="vetores" data-dificuldade="medio">
+  <p class="exercicio-enunciado">
+    <span class="exercicio-numero">10.</span>
+    A norma (ou magnitude) de um vetor mede o comprimento da seta que o representa: $\|\vec{v}\| = \sqrt{x^2 + y^2}$. Na Zona Devastada, a norma é a distância real percorrida ao seguir um vetor — importa para calcular consumo de combustível, tempo de deslocamento e riscos da rota.
+  </p>
+
+  <p class="questao">
+    Calcule a norma de cada vetor.
+  </p>
+
+  <p class="dialogo">
+    A fórmula da norma: $\|\vec{v}\| = \sqrt{x^2 + y^2}$. Eleve cada componente ao quadrado, some e tire a raiz quadrada.
+  </p>
+  <p class="subitem">
+    a) Para $\vec{v} = (3, 4)$: $\|\vec{v}\| = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = $ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    b) Para $\vec{v} = (5, 12)$: $\|\vec{v}\| = \sqrt{5^2 + 12^2} = \sqrt{25 + 144} = \sqrt{169} = $ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    c) Para $\vec{v} = (1, 1)$: $\|\vec{v}\| = \sqrt{1^2 + 1^2} = \sqrt{1 + 1} = \sqrt{2} \approx $ <span class="lacuna"></span>.
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: o vetor $(3, 4)$ tem norma 5 — é o clássico triângulo 3-4-5. Confere?
+  </p>
+
+  <p class="questao">
+    Compare as normas de dois vetores.
+  </p>
+
+  <p class="dialogo">
+    Dois vetores representam duas rotas de suprimentos. A norma diz qual rota é mais longa — e portanto mais perigosa e dispendiosa.
+  </p>
+  <p class="subitem">
+    a) Calcule $\|\vec{v}\|$ para $\vec{v} = (3, 4)$: <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    b) Calcule $\|\vec{w}\|$ para $\vec{w} = (6, 1)$: $\|\vec{w}\| = \sqrt{6^2 + 1^2} = \sqrt{36 + 1} = \sqrt{37} \approx $ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    c) Qual rota é mais longa? A do vetor $\vec{v}$ ou a do vetor $\vec{w}$? <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: $\|\vec{v}\| = 5$ e $\|\vec{w}\| \approx 6{,}08$. A rota $\vec{w}$ é mais longa?
+  </p>
+
+  <p class="questao">
+    Encontre uma componente desconhecida dado o valor da norma.
+  </p>
+
+  <p class="dialogo">
+    Se você sabe a distância total e uma componente, pode descobrir a outra usando a fórmula da norma invertida: $y^2 = \|\vec{v}\|^2 - x^2$.
+  </p>
+  <p class="subitem">
+    a) Se $\|\vec{v}\| = 5$ e $\vec{v} = (3, y)$, calcule: $y^2 = 5^2 - 3^2 = 25 - 9 = 16$, logo $y = $ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    b) As duas soluções são $y = 4$ e $y = -4$. Desenhe os dois vetores $(3, 4)$ e $(3, -4)$ no plano. O que eles têm em comum? <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    c) Verifique: calcule $\|\vec{v}\|$ para $\vec{v} = (3, -4)$. O resultado é 5? <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: em (c), $\|\vec{v}\| = \sqrt{9 + 16} = \sqrt{25} = 5$. Mesma norma, direções diferentes.
+  </p>
+</section>
+
+
+<section class="exercicio" data-topico="vetores" data-dificuldade="medio">
+  <p class="exercicio-enunciado">
+    <span class="exercicio-numero">11.</span>
+    O vetor unitário indica a direção de um vetor sem importar a magnitude: $\hat{u} = \frac{\vec{v}}{\|\vec{v}\|}$. A base canônica $\{\vec{e}_1, \vec{e}_2\}$ é a régua do plano — todo vetor pode ser escrito como combinação linear de $\vec{e}_1 = (1, 0)$ e $\vec{e}_2 = (0, 1)$.
+  </p>
+
+  <p class="questao">
+    Compute o vetor unitário na direção de $\vec{v}$.
+  </p>
+
+  <p class="dialogo">
+    Para obter o vetor unitário, divida cada componente pela norma: $\hat{u} = \frac{1}{\|\vec{v}\|} \cdot \vec{v}$.
+  </p>
+  <p class="subitem">
+    a) Para $\vec{v} = (3, 4)$: $\|\vec{v}\| = 5$, logo $\hat{u} = \frac{1}{5} \cdot (3, 4) = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    b) Para $\vec{v} = (1, 1)$: $\|\vec{v}\| = \sqrt{2}$, logo $\hat{u} = \frac{1}{\sqrt{2}} \cdot (1, 1) = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    c) Verifique que $\|\hat{u}\| = 1$ para o vetor do item (a): $\|\hat{u}\| = \sqrt{\left(\frac{3}{5}\right)^2 + \left(\frac{4}{5}\right)^2} = \sqrt{\frac{9}{25} + \frac{16}{25}} = \sqrt{\frac{25}{25}} = $ <span class="lacuna"></span>.
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: todo vetor unitário tem norma 1. No item (c), o resultado é 1?
+  </p>
+
+  <p class="questao">
+    Decomponha um vetor na base canônica.
+  </p>
+
+  <p class="dialogo">
+    A base canônica é $\vec{e}_1 = (1, 0)$ e $\vec{e}_2 = (0, 1)$. Qualquer vetor $\vec{v} = (x, y)$ pode ser escrito como $\vec{v} = x \cdot \vec{e}_1 + y \cdot \vec{e}_2$.
+  </p>
+  <p class="subitem">
+    a) Escreva $\vec{v} = (3, -2)$ como combinação de $\vec{e}_1$ e $\vec{e}_2$: $\vec{v} = $ <span class="lacuna"></span> $\cdot \vec{e}_1 + $ <span class="lacuna"></span> $\cdot \vec{e}_2$.
+  </p>
+  <p class="subitem">
+    b) Geometricamente, $\vec{e}_1$ representa um deslocamento de 1 unidade na horizontal e $\vec{e}_2$ de 1 unidade na vertical. Explique por que todo vetor pode ser decomposto assim: <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    c) Escreva $\vec{w} = (-1, 5)$ na base canônica: $\vec{w} = $ <span class="lacuna"></span> $\cdot \vec{e}_1 + $ <span class="lacuna"></span> $\cdot \vec{e}_2$.
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: em (a), $3 \cdot (1, 0) + (-2) \cdot (0, 1) = (3, 0) + (0, -2) = (3, -2)$. Confere?
+  </p>
+
+  <p class="questao">
+    Aplique a base canônica a um problema de navegação.
+  </p>
+
+  <p class="dialogo">
+    Você está navegando uma grade. Seu deslocamento é $\vec{v} = (4, 3)$. Expresse isso em termos de vetores da base canônica e calcule a distância total percorrida.
+  </p>
+  <p class="subitem">
+    a) Escreva $\vec{v} = (4, 3)$ como soma de deslocamentos horizontal e vertical: $\vec{v} = $ <span class="lacuna"></span> $\cdot \vec{e}_1 + $ <span class="lacuna"></span> $\cdot \vec{e}_2$.
+  </p>
+  <p class="subitem">
+    b) A distância total percorrida é a norma do vetor: $\|\vec{v}\| = \sqrt{4^2 + 3^2} = $ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    c) Interprete: se cada unidade representa 1 km, quantos km você andou no total? <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: $\vec{v} = 4\vec{e}_1 + 3\vec{e}_2$ e $\|\vec{v}\| = 5$. Andou 5 km no total.
+  </p>
+</section>
+
+
+<section class="exercicio" data-topico="vetores" data-dificuldade="facil">
+  <p class="exercicio-enunciado">
+    <span class="exercicio-numero">12.</span>
+    As operações com vetores obedecem a propriedades fundamentais que garantem previsibilidade nas contas. Na Zona Devastada, isso significa que a ordem das operações não altera o resultado final — confiabilidade essencial para cálculos de rota e suprimentos.
+  </p>
+
+  <p class="questao">
+    Verifique a comutatividade da adição de vetores.
+  </p>
+
+  <p class="dialogo">
+    A propriedade comutativa afirma: $\vec{u} + \vec{v} = \vec{v} + \vec{u}$. A ordem da soma não altera o resultado.
+  </p>
+  <p class="subitem">
+    a) Calcule $(2, 3) + (4, 1) = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    b) Calcule $(4, 1) + (2, 3) = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    c) Os dois resultados são iguais? <span class="lacuna"></span> Isso confirma a comutatividade?
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: $(2, 3) + (4, 1) = (6, 4)$ e $(4, 1) + (2, 3) = (6, 4)$. Resultados iguais?
+  </p>
+
+  <p class="questao">
+    Verifique a associatividade da adição de vetores.
+  </p>
+
+  <p class="dialogo">
+    A propriedade associativa afirma: $(\vec{u} + \vec{v}) + \vec{w} = \vec{u} + (\vec{v} + \vec{w})$. O agrupamento não altera o resultado.
+  </p>
+  <p class="subitem">
+    a) Calcule o lado esquerdo: $((1, 2) + (3, 4)) + (5, 6) = (4, 6) + (5, 6) = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    b) Calcule o lado direito: $(1, 2) + ((3, 4) + (5, 6)) = (1, 2) + (8, 10) = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    c) Os dois resultados são iguais? <span class="lacuna"></span> Isso confirma a associatividade?
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: ambos os lados dão $(9, 12)$. A ordem das parcelas não afeta a soma total.
+  </p>
+
+  <p class="questao">
+    Verifique a distributividade da multiplicação por escalar.
+  </p>
+
+  <p class="dialogo">
+    A propriedade distributiva afirma: $k \cdot (\vec{u} + \vec{v}) = k \cdot \vec{u} + k \cdot \vec{v}$. O escalar pode ser distribuído pela soma.
+  </p>
+  <p class="subitem">
+    a) Calcule o lado esquerdo: $2 \cdot ((1, 3) + (2, 1)) = 2 \cdot (3, 4) = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    b) Calcule o lado direito: $2 \cdot (1, 3) + 2 \cdot (2, 1) = (2, 6) + (4, 2) = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    c) Os dois resultados são iguais? <span class="lacuna"></span> Isso confirma a distributividade?
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: ambos os lados dão $(6, 8)$. O escalar se distribui corretamente pela soma.
+  </p>
+</section>
+
       </main>
 
       <footer class="footer">
-        <p>Geometria AnalÃ­tica - ExercÃ­cios de Sala | CapÃ­tulo I: O EspaÃ§o Vetorial RÂ²</p>
+        <p>Geometria Analítica - Exercícios de Sala | Capítulo I: O Espaço Vetorial R²</p>
       </footer>
     </div>
 
@@ -909,7 +1131,7 @@
       document.addEventListener('DOMContentLoaded', function () {
         renderMathInElement(document.body, {
           delimiters: [
-            { left: '', right: '', display: true },
+            { left: '$$', right: '$$', display: true },
             { left: '$', right: '$', display: false },
           ],
           throwOnError: false,

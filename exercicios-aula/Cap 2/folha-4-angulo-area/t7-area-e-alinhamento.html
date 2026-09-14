@@ -1,0 +1,103 @@
+﻿<section class="exercicio" data-topico="area-alinhamento" data-dificuldade="dificil">
+  <p class="exercicio-enunciado">
+    <span class="exercicio-numero">7.</span>
+    Dois vetores delimitam um território. A área do <strong>paralelogramo</strong> formado por $\vec{u}$ e $\vec{v}$ é dada pelo módulo do determinante: $A = |\det(\vec{u}, \vec{v})| = |x_u y_v - y_u x_v|$. Para o triângulo, dividimos por 2. Quando a área é zero, os pontos estão alinhados.
+  </p>
+
+  <p class="questao">
+    Calcule a área do triângulo usando o determinante.
+  </p>
+
+  <p class="dialogo">
+    Para $\vec{u} = (3, 4)$ e $\vec{v} = (1, 2)$, calcule o determinante multiplicando "cruzado" e subtraindo.
+  </p>
+  <p class="subitem">
+    a) $\det(\vec{u}, \vec{v}) = 3 \cdot 2 - 4 \cdot 1 = 6 - 4 =$ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    b) A área do paralelogramo é $|\det| =$ <span class="lacuna"></span> unidades².
+  </p>
+  <p class="subitem">
+    c) A área do triângulo é metade: $A = \frac{1}{2} \cdot 2 =$ <span class="lacuna"></span> unidade².
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: em (c), o triângulo de vetores $(3, 4)$ e $(1, 2)$ tem área 1. O determinante evita calcular ângulos.
+  </p>
+
+  <p class="questao">
+    Verifique se três pontos estão alinhados.
+  </p>
+
+  <p class="dialogo">
+    Três pontos $A$, $B$, $C$ são <strong>colineares</strong> quando o triângulo formado tem área zero, ou seja, quando $\det(\vec{AB}, \vec{AC}) = 0$.
+  </p>
+  <p class="subitem">
+    a) Para $A(1, 1)$, $B(3, 5)$ e $C(5, 9)$, calcule $\vec{AB} = (2, 4)$ e $\vec{AC} = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    b) Calcule $\det(\vec{AB}, \vec{AC}) = 2 \cdot 8 - 4 \cdot 4 = 16 - 16 =$ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    c) A área é zero? <span class="lacuna"></span> Logo, os pontos são <span class="lacuna"></span> (alinhados ou não?).
+  </p>
+  <p class="subitem">
+    d) Confirme: $\vec{AC}$ é múltiplo de $\vec{AB}$? $\vec{AC} = 2 \cdot \vec{AB}$, pois $(4, 8) = 2 \cdot (2, 4)$. Paralelos → <span class="lacuna"></span>.
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: em (b), o determinante é zero, então $A$, $B$ e $C$ estão em linha reta. Em (d), vetores paralelos confirmam o alinhamento.
+  </p>
+
+  <p class="questao">
+    Compare o atalho do determinante com a área via seno.
+  </p>
+
+  <p class="dialogo">
+    O caminho longo usa ângulo: $A_{\triangle} = \frac{1}{2} |\vec{u}| \, |\vec{v}| \sin\theta$. Para $\vec{u} = (3, 4)$ e $\vec{v} = (1, 2)$, o determinante já deu $2$; o ângulo $\theta$ entre eles tem $\sin\theta = \frac{2}{|\vec{u}||\vec{v}|}$.
+  </p>
+  <p class="subitem">
+    a) Calcule os módulos: $|\vec{u}| = \sqrt{3^2 + 4^2} = \sqrt{}$<span class="lacuna"></span>$=$ <span class="lacuna"></span> e $|\vec{v}| = \sqrt{1^2 + 2^2} = $<span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    b) Calcule $\sin\theta = \frac{\det}{|\vec{u}||\vec{v}|} = \frac{2}{5 \cdot \sqrt{5}} = \frac{2}{5\sqrt{5}}$.
+  </p>
+  <p class="subitem">
+    c) Aplique a fórmula da área: $A = \frac{1}{2} \cdot 5 \cdot \sqrt{5} \cdot \frac{2}{5\sqrt{5}} =$ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    d) Compare com o resultado do item (c) da primeira questão: a área via seno coincide com a via determinante? <span class="lacuna"></span> Qual método é mais rápido? <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: em (c), $A = 1$, o mesmo valor obtido pelo determinante. O determinante é o atalho — a fórmula do seno é o caminho longo que evita memorizar a primeira.
+  </p>
+
+  <p class="questao">
+    Calcule a área do triângulo a partir de três pontos.
+  </p>
+
+  <p class="dialogo">
+    Com vértices $A(0, 0)$, $B(4, 2)$ e $C(1, 3)$, a área usa o determinante dos vetores que partem de um mesmo vértice. Desenhe no papel o triângulo.
+  </p>
+  <p class="subitem">
+    a) Escolha $A$ como vértice comum e calcule $\vec{AB} = B - A = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$ e $\vec{AC} = C - A = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    b) Calcule o determinante: $\det(\vec{AB}, \vec{AC}) = 4 \cdot 3 - 2 \cdot 1 = 12 - 2 =$ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    c) A área do triângulo é metade do módulo do determinante: $A = \frac{1}{2} \cdot 10 =$ <span class="lacuna"></span> unidades².
+  </p>
+  <p class="subitem">
+    d) Escolha agora $B$ como vértice comum: calcule $\vec{BA}$ e $\vec{BC}$, o determinante e a área. O resultado é o mesmo? <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: em (c), a área é $5$ unidades². Em (d), a escolha do vértice não altera a área — o determinante muda de sinal, mas o módulo preserva o valor.
+  </p>
+</section>

@@ -1,0 +1,147 @@
+<section class="exercicio" data-topico="paralelismo-ortogonalidade" data-dificuldade="medio">
+  <p class="exercicio-enunciado">
+    <span class="exercicio-numero">5.</span>
+    Rotas de patrulha podem ser <strong>paralelas</strong> (mesma direção, um vetor é múltiplo do outro) ou <strong>ortogonais</strong> (perpendiculares, produto escalar nulo). Essas duas relações são os casos extremos de alinhamento.
+  </p>
+
+  <p class="questao">
+    Verifique se dois vetores são paralelos.
+  </p>
+
+  <p class="dialogo">
+    Vetores paralelos são proporcionais: existe $k$ tal que $\vec{u} = k \cdot \vec{v}$. Compare as razões das coordenadas.
+  </p>
+  <p class="subitem">
+    a) $\vec{u} = (2, 4)$ e $\vec{v} = (1, 2)$. Calcule as razões: $\frac{2}{1} =$ <span class="lacuna"></span> e $\frac{4}{2} =$ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    b) As razões são iguais? <span class="lacuna"></span> Logo, $\vec{u} = k \cdot \vec{v}$ com $k =$ <span class="lacuna"></span>. Eles são paralelos? <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    c) $\vec{a} = (3, 4)$ e $\vec{b} = (4, 3)$. Calcule as razões: $\frac{3}{4}$ e $\frac{4}{3}$. Elas são iguais? <span class="lacuna"></span> Eles são paralelos? <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: em (a)-(b), $\frac{2}{1} = \frac{4}{2} = 2$, então $\vec{u} = 2\vec{v}$ — paralelos. Em (c), as razões diferem, não são paralelos.
+  </p>
+
+  <p class="questao">
+    Verifique se dois vetores são ortogonais.
+  </p>
+
+  <p class="dialogo">
+    Vetores ortogonais formam ângulo reto, e seu produto escalar é zero: $\vec{u} \cdot \vec{v} = 0$.
+  </p>
+  <p class="subitem">
+    a) $\vec{u} = (1, 0)$ e $\vec{v} = (0, 1)$. Calcule $\vec{u} \cdot \vec{v} = 1 \cdot 0 + 0 \cdot 1 =$ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    b) O resultado é zero? <span class="lacuna"></span> Logo, os vetores são <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    c) Atalho no plano: para $\vec{v} = (a, b)$, um vetor ortogonal é $(b, -a)$. Verifique para $\vec{v} = (3, 4)$: $(4, -3)$. Calcule $3 \cdot 4 + 4 \cdot (-3) =$ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    d) Encontre um vetor ortogonal a $\vec{w} = (2, -5)$: $( -5, $ <span class="lacuna"></span>$)$.
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: em (c), $12 - 12 = 0$. Trocar coordenadas e inverter um sinal gera sempre um vetor ortogonal.
+  </p>
+
+  <p class="questao">
+    Encontre o parâmetro $k$ para ortogonalidade.
+  </p>
+
+  <p class="dialogo">
+    Queremos $\vec{a} = (2, k)$ ortogonal a $\vec{b} = (3, -4)$, ou seja, $\vec{a} \cdot \vec{b} = 0$. Monte a equação e isole $k$.
+  </p>
+  <p class="subitem">
+    a) Escreva o produto escalar: $\vec{a} \cdot \vec{b} = 2 \cdot 3 + k \cdot (-4) = 6 - 4k$.
+  </p>
+  <p class="subitem">
+    b) Imponha a condição de ortogonalidade: $6 - 4k =$ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    c) Isole $k$: $4k = 6 \Rightarrow k =$ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    d) Verifique substituindo o $k$ encontrado em $\vec{a}$ e conferindo $\vec{a} \cdot \vec{b} = 0$: <span class="lacuna"></span>.
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: em (c), $k = \frac{3}{2}$. Em (d), $(2, \frac{3}{2}) \cdot (3, -4) = 6 - 6 = 0$ — os vetores ficam ortogonais.
+  </p>
+
+  <p class="questao">
+    Encontre o parâmetro $k$ para paralelismo.
+  </p>
+
+  <p class="dialogo">
+    Dado $\vec{u} = (2, 1)$, queremos $\vec{v} = (k, 3)$ paralelo a $\vec{u}$. Vetores paralelos têm razões das coordenadas iguais.
+  </p>
+  <p class="subitem">
+    a) Iguale as razões: $\frac{k}{2} = \frac{3}{1}$. Multiplique em cruz: $k \cdot 1 = 2 \cdot 3$, logo $k =$ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    b) Com esse $k$, o vetor é $\vec{v} = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    c) Confirme que $\vec{v}$ é múltiplo de $\vec{u}$: $\vec{v} = 3 \cdot \vec{u}$, pois $6 = 3 \cdot 2$ e $3 = 3 \cdot 1$. Logo $\vec{v}$ e $\vec{u}$ são <span class="lacuna"></span>.
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: em (a), $k = 6$. Em (c), $\vec{v} = (6, 3) = 3 \cdot (2, 1)$ — múltiplo escalar, paralelo.
+  </p>
+
+  <p class="questao">
+    Construa o quarto vértice de um retângulo usando ortogonalidade.
+  </p>
+
+  <p class="dialogo">
+    Dados três vértices $A(1, 2)$, $B(5, 2)$ e $C(5, 5)$, queremos $D$ tal que $ABCD$ seja um retângulo. Lados adjacentes de um retângulo são ortogonais. Desenhe no papel os três pontos.
+  </p>
+  <p class="subitem">
+    a) Calcule $\vec{AB} = B - A = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$ e $\vec{BC} = C - B = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    b) Verifique a ortogonalidade: $\vec{AB} \cdot \vec{BC} = 4 \cdot 0 + 0 \cdot 3 =$ <span class="lacuna"></span>. Logo $\vec{AB}$ e $\vec{BC}$ são <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    c) O quarto vértice é alcançado somando $\vec{BC}$ ao ponto $A$: $D = A + \vec{BC} = (1, 2) + (0, 3) = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$.
+  </p>
+  <p class="subitem">
+    d) Marque $D$ no desenho. Os quatro pontos formam um retângulo? <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: em (c), $D = (1, 5)$. A ortogonalidade dos lados adjacentes garante que a figura é um retângulo.
+  </p>
+
+  <p class="questao">
+    Encontre um vetor ortogonal com módulo dado.
+  </p>
+
+  <p class="dialogo">
+    Queremos um vetor ortogonal a $(5, -2)$ com módulo $\sqrt{29}$. Use o atalho de trocar coordenadas e inverter um sinal, depois ajuste o módulo.
+  </p>
+  <p class="subitem">
+    a) Um candidato ortogonal a $(5, -2)$ é $(2, 5)$ ou $(-2, 5)$. Calcule o módulo de $\vec{w} = (2, 5)$: $|\vec{w}| = \sqrt{2^2 + 5^2} = \sqrt{}$<span class="lacuna"></span>$=$ <span class="lacuna"></span> — já é $\sqrt{29}$? <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    b) Confirme a ortogonalidade: $(5, -2) \cdot (2, 5) = 10 - 10 =$ <span class="lacuna"></span>.
+  </p>
+  <p class="subitem">
+    c) Então um vetor que atende ao pedido é $\vec{w} = ($<span class="lacuna"></span>, <span class="lacuna"></span>$)$, com módulo $\sqrt{29}$.
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verificação: em (a), $|\vec{w}| = \sqrt{29}$. O atalho $(b, -a)$ já entrega o módulo pedido quando as coordenadas originais têm o mesmo módulo quadrático.
+  </p>
+</section>
