@@ -911,6 +911,21 @@
   margin: 20px 0;
 }
 
+/* Tabelas dentro do info-screen: mesma escala compacta do texto do painel */
+.info-screen table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.2rem !important;
+  line-height: 1.2;
+}
+
+.info-screen table th,
+.info-screen table td {
+  padding: 2px 6px;
+  text-align: left;
+  vertical-align: top;
+}
+
 /* Painel de posições */
 .positions-panel {
   display: flex;
@@ -1441,6 +1456,11 @@
 .dual-panel > div {
   flex: 1;
   min-width: 0;
+}
+
+.dual-panel > .info-panel {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .dual-panel > .v-bar {
