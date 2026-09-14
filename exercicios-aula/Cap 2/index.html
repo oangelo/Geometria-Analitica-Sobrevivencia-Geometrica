@@ -18,7 +18,7 @@
       src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
     ></script>
 
-    <link rel="stylesheet" href="sala-styles.css" />
+    <link rel="stylesheet" href="../sala-styles.css" />
   </head>
   <body>
     <div class="page">
@@ -38,13 +38,28 @@
       <!-- INSTRUÇÕES -->
       <div class="instructions">
         <p>
-          Resolva os exercícios seguindo o raciocínio proposto. Preencha as lacunas (espaços em branco). Quando uma linha tiver múltiplas lacunas, preencha cada uma separadamente. Todo exercício começa com um desenho no papel.
+          Resolva os exercícios seguindo o raciocínio proposto. Preencha as
+          lacunas. Todo exercício começa com um desenho no papel.
         </p>
       </div>
 
-      <!-- EXERCÍCIOS (carregados dinamicamente) -->
-      <main class="columns" id="exercicios-container">
-        <!-- Os exercícios são injetados aqui via JavaScript -->
+      <!-- LISTA DE FOLHAS -->
+      <main class="columns">
+        <h2>Folhas</h2>
+        <ul>
+          <li>
+            <a href="folha-1-produto-escalar-modulo/index.html">Folha 1 — Produto Escalar e Módulo (Exercícios 1–2)</a>
+          </li>
+          <li>
+            <a href="folha-2-distancia-projecao/index.html">Folha 2 — Distância e Projeção (Exercícios 3–4)</a>
+          </li>
+          <li>
+            <a href="folha-3-paralelismo-ortogonalidade/index.html">Folha 3 — Paralelismo e Ortogonalidade (Exercício 5)</a>
+          </li>
+          <li>
+            <a href="folha-4-angulo-area/index.html">Folha 4 — Ângulo e Área (Exercícios 6–7)</a>
+          </li>
+        </ul>
       </main>
 
       <!-- RODAPÉ -->
@@ -52,46 +67,5 @@
         <p>Geometria Analítica - Exercícios de Sala | Capítulo II: Produto Interno no R²</p>
       </footer>
     </div>
-
-    <script>
-      const EXERCICIOS = [
-        't1-produto-escalar.html',
-        't2-modulo-de-um-vetor.html',
-        't3-distancia-entre-dois-pontos.html',
-        't4-projecao-vetorial.html',
-        't5-paralelismo-ortogonalidade.html',
-        't6-angulo-entre-vetores.html',
-        't7-area-e-alinhamento.html',
-      ];
-
-      async function carregarExercicios() {
-        const container = document.getElementById('exercicios-container');
-
-        for (const arquivo of EXERCICIOS) {
-          try {
-            const response = await fetch(arquivo);
-            if (!response.ok) throw new Error('Falha ao carregar ' + arquivo);
-            const html = await response.text();
-            container.insertAdjacentHTML('beforeend', html);
-          } catch (erro) {
-            console.error('Erro ao carregar ' + arquivo + ':', erro);
-            container.insertAdjacentHTML(
-              'beforeend',
-              '<p style="color: red;">Erro ao carregar ' + arquivo + '</p>'
-            );
-          }
-        }
-
-        renderMathInElement(document.body, {
-          delimiters: [
-            { left: '$$', right: '$$', display: true },
-            { left: '$', right: '$', display: false },
-          ],
-          throwOnError: false,
-        });
-      }
-
-      document.addEventListener('DOMContentLoaded', carregarExercicios);
-    </script>
   </body>
 </html>

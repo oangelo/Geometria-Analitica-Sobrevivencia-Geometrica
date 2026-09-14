@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Folha 3 — Elipse</title>
+    <title>Folha 2 — Operações com Vetores</title>
 
     <link
       rel="stylesheet"
@@ -24,25 +24,35 @@
     <div class="page">
       <header class="header">
         <div class="header-left">
-          <h1 class="title">Folha 3 — Elipse</h1>
-          <p class="subtitle">Geometria Analítica</p>
+          <h1 class="title">Folha 2 — Operações com Vetores</h1>
+          <p class="subtitle">Exercícios 4–7</p>
         </div>
         <div class="header-right">
           <p class="course-info">Geometria Analítica - 2026/1</p>
-          <p class="course-info">Nome: _______________________</p>
-          <p class="course-info">Data: ___/___/___</p>
         </div>
       </header>
+
       <div class="instructions">
-        <p>Resolva os exercícios seguindo o raciocínio proposto. Preencha as lacunas. Todo exercício começa com um desenho no papel.</p>
+        <p>Selecione um exercício abaixo para visualizar.</p>
       </div>
+
       <main class="columns" id="exercicios-container"></main>
+
       <footer class="footer">
-        <p>Geometria Analítica - Exercícios de Sala | Capítulo V: Lugares Geométricos — As Cônicas</p>
+        <p>Geometria Analítica - Exercícios de Sala | Capítulo I: O Espaço Vetorial R²</p>
       </footer>
     </div>
+
     <script>
-      const EXERCICIOS = ['t3-elipse.html'];
+      const EXERCICIOS = [
+        'exercicio-4.html',
+        'exercicio-5.html',
+        'exercicio-6.html',
+        'exercicio-7.html',
+        'exercicio-10.html',
+        'exercicio-11.html',
+        'exercicio-12.html',
+      ];
 
       async function carregarExercicios() {
         const container = document.getElementById('exercicios-container');

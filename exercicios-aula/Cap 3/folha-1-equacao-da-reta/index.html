@@ -3,20 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Folha 3 — Elipse</title>
+    <title>Folha 1 — Equação da Reta</title>
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
-    />
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
-    ></script>
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
-    ></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 
     <link rel="stylesheet" href="../../sala-styles.css" />
   </head>
@@ -24,7 +15,7 @@
     <div class="page">
       <header class="header">
         <div class="header-left">
-          <h1 class="title">Folha 3 — Elipse</h1>
+          <h1 class="title">Folha 1 — Equação da Reta</h1>
           <p class="subtitle">Geometria Analítica</p>
         </div>
         <div class="header-right">
@@ -33,16 +24,24 @@
           <p class="course-info">Data: ___/___/___</p>
         </div>
       </header>
+
       <div class="instructions">
-        <p>Resolva os exercícios seguindo o raciocínio proposto. Preencha as lacunas. Todo exercício começa com um desenho no papel.</p>
+        <p>Resolva os exercícios seguindo o raciocínio proposto. Preencha as lacunas. Desenhe no papel sempre que um exercício pedir esboço.</p>
       </div>
-      <main class="columns" id="exercicios-container"></main>
+
+      <main class="columns" id="exercicios-container">
+      </main>
+
       <footer class="footer">
-        <p>Geometria Analítica - Exercícios de Sala | Capítulo V: Lugares Geométricos — As Cônicas</p>
+        <p>Geometria Analítica - Exercícios de Sala | Equação da Reta</p>
       </footer>
     </div>
+
     <script>
-      const EXERCICIOS = ['t3-elipse.html'];
+      const EXERCICIOS = [
+        "t1-equacao-da-reta.html",
+        "t5-equacao-reduzida-inclinacao.html"
+      ];
 
       async function carregarExercicios() {
         const container = document.getElementById('exercicios-container');
@@ -55,10 +54,7 @@
             container.insertAdjacentHTML('beforeend', html);
           } catch (erro) {
             console.error('Erro ao carregar ' + arquivo + ':', erro);
-            container.insertAdjacentHTML(
-              'beforeend',
-              '<p>Erro ao carregar ' + arquivo + '</p>'
-            );
+            container.insertAdjacentHTML('beforeend', '<p>Erro ao carregar ' + arquivo + '</p>');
           }
         }
 

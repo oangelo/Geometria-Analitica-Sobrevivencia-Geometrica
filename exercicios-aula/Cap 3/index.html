@@ -18,7 +18,7 @@
       src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
     ></script>
 
-    <link rel="stylesheet" href="sala-styles.css" />
+    <link rel="stylesheet" href="../sala-styles.css" />
   </head>
   <body>
     <div class="page">
@@ -43,9 +43,20 @@
         </p>
       </div>
 
-      <!-- EXERCÍCIOS (carregados dinamicamente) -->
-      <main class="columns" id="exercicios-container">
-        <!-- Os exercícios são injetados aqui via JavaScript -->
+      <!-- LISTA DE FOLHAS -->
+      <main class="columns">
+        <h2>Folhas</h2>
+        <ul>
+          <li>
+            <a href="folha-1-equacao-da-reta/index.html">Folha 1 — Equação da Reta</a>
+          </li>
+          <li>
+            <a href="folha-2-posicoes-relativas/index.html">Folha 2 — Posições Relativas</a>
+          </li>
+          <li>
+            <a href="folha-3-ponto-e-reta/index.html">Folha 3 — Ponto e Reta</a>
+          </li>
+        </ul>
       </main>
 
       <!-- RODAPÉ -->
@@ -53,45 +64,5 @@
         <p>Geometria Analítica - Exercícios de Sala | Capítulo III: Estudo da Reta no R²</p>
       </footer>
     </div>
-
-    <script>
-      const EXERCICIOS = [
-        't1-equacao-da-reta.html',
-        't5-equacao-reduzida-inclinacao.html',
-        't2-posicoes-relativas.html',
-        't6-angulo-entre-retas.html',
-        't3-paralelismo-perpendicularidade.html',
-        't4-ponto-e-reta.html',
-      ];
-
-      async function carregarExercicios() {
-        const container = document.getElementById('exercicios-container');
-
-        for (const arquivo of EXERCICIOS) {
-          try {
-            const response = await fetch(arquivo);
-            if (!response.ok) throw new Error('Falha ao carregar ' + arquivo);
-            const html = await response.text();
-            container.insertAdjacentHTML('beforeend', html);
-          } catch (erro) {
-            console.error('Erro ao carregar ' + arquivo + ':', erro);
-            container.insertAdjacentHTML(
-              'beforeend',
-              '<p style="color: red;">Erro ao carregar ' + arquivo + '</p>'
-            );
-          }
-        }
-
-        renderMathInElement(document.body, {
-          delimiters: [
-            { left: '$$', right: '$$', display: true },
-            { left: '$', right: '$', display: false },
-          ],
-          throwOnError: false,
-        });
-      }
-
-      document.addEventListener('DOMContentLoaded', carregarExercicios);
-    </script>
   </body>
 </html>
