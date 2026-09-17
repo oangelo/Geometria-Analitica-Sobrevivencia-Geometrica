@@ -1,0 +1,31 @@
+<div class="exercise">
+<h3>TORRE DE COMUNICAÇÃO OTIMIZADA</h3>
+
+<p>Três antenas de comunicação foram instaladas em $A(3,4)$, $B(-3,4)$ e $C(3,-4)$. O engenheiro do REFÚGIO-TEC precisa determinar a circunferência que passa pelas três antenas — ela definirá a zona de cobertura ótima do sistema. Ao montar e resolver o sistema, observe se algum padrão especial aparece nos coeficientes $D$ e $E$. Isso revela algo sobre a posição do centro em relação à origem?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Calcule $x^2 + y^2$ para cada ponto. Se os três valores forem iguais, os pontos são equidistantes da origem — pense no que isso significa geometricamente para o centro da circunferência.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>$A(3,4)$: $9 + 16 + 3D + 4E + F = 0 \Rightarrow 3D + 4E + F = -25$ &nbsp; ...(1)</li>
+<li>$B(-3,4)$: $9 + 16 - 3D + 4E + F = 0 \Rightarrow -3D + 4E + F = -25$ &nbsp; ...(2)</li>
+<li>$C(3,-4)$: $9 + 16 + 3D - 4E + F = 0 \Rightarrow 3D - 4E + F = -25$ &nbsp; ...(3)</li>
+<li>(1) $-$ (2): $6D = 0 \Rightarrow D = 0$.</li>
+<li>(1) $-$ (3): $8E = 0 \Rightarrow E = 0$.</li>
+<li>De (1): $0 + 0 + F = -25 \Rightarrow F = -25$.</li>
+<li>Equação: $x^2 + y^2 - 25 = 0$, ou seja, $x^2 + y^2 = 25$.</li>
+<li>Centro: $(0, 0)$ — a própria origem. Raio: $r = 5$.</li>
+<li>Observação: os três pontos satisfazem $x^2 + y^2 = 25$, ou seja, estão todos a distância 5 da origem. Isso já indicava que a origem seria o centro.</li>
+</ol>
+<div class="formula">
+$$x^2 + y^2 = 25 \qquad \text{Centro } (0,0), \quad r = 5$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Quando os três pontos são equidistantes da origem, a circunferência que os contém é centrada na origem — $D = 0$ e $E = 0$ confirmam isso algebricamente. O sistema $3 \times 3$ resolve qualquer caso, mas reconhecer padrões geométricos poupa trabalho. Na Zona Devastada, a antena mais eficiente é aquela que opera a partir do centro exato da rede.</p>
+</details>
+</div>

@@ -1,0 +1,36 @@
+<div class="exercise">
+<h3>VERIFICAÇÃO DE TRIÂNGULO NO ESPAÇO</h3>
+<p>O objetivo deste exercício é usar vetores para verificar se três pontos no espaço formam um triângulo válido — ou seja, se são não colineares. Três pontos são colineares quando os vetores que os conectam são múltiplos escalares um do outro.</p>
+<p>Três sondas de reconhecimento reportaram posições de possíveis abrigos: $A(1, 2, 3)$, $B(4, 5, 6)$ e $C(7, 8, 9)$. Antes de despachar equipes, você precisa confirmar que estas posições definem uma área de busca triangular (não uma linha reta).</p>
+<p><strong>(a)</strong> Calcule os vetores $\overrightarrow{AB}$ e $\overrightarrow{AC}$.</p>
+<p><strong>(b)</strong> Verifique se existe um escalar $k$ tal que $\overrightarrow{AC} = k\overrightarrow{AB}$. O que isso implica sobre a colinearidade?</p>
+<p><strong>(c)</strong> Se os pontos forem colineares, proponha uma pequena alteração na coordenada $z$ de $C$ que torne os três pontos não colineares. Justifique.</p>
+<p><strong>(d)</strong> Esboce a configuração dos pontos em perspectiva isométrica, indicando se estão alinhados ou formam um triângulo.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Dois vetores são paralelos (e portanto os pontos são colineares) se um é múltiplo escalar do outro. Verifique componente a componente: se $\overrightarrow{AC} = k\overrightarrow{AB}$, então cada componente de $\overrightarrow{AC}$ deve ser $k$ vezes a correspondente componente de $\overrightarrow{AB}$. Para o item (c), alterar uma coordenada quebrará a proporção.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li><strong>Item (a)</strong> — $\overrightarrow{AB} = (4 - 1, \; 5 - 2, \; 6 - 3) = (3, 3, 3)$</li>
+<li>$\overrightarrow{AC} = (7 - 1, \; 8 - 2, \; 9 - 3) = (6, 6, 6)$</li>
+<li><strong>Item (b)</strong> — Verificando: $\dfrac{6}{3} = 2$, $\dfrac{6}{3} = 2$, $\dfrac{6}{3} = 2$</li>
+<li>Portanto, $\overrightarrow{AC} = 2\overrightarrow{AB}$, com $k = 2$</li>
+<li>Os pontos $A$, $B$ e $C$ são <span class="danger">COLINEARES</span> — não formam triângulo</li>
+<li><strong>Item (c)</strong> — Se alterarmos $C$ para $C' = (7, 8, 10)$, então $\overrightarrow{AC'} = (6, 6, 7)$</li>
+<li>Verificando: $\dfrac{6}{3} = 2$, $\dfrac{6}{3} = 2$, mas $\dfrac{7}{3} \neq 2$</li>
+<li>Não existe $k$ tal que $\overrightarrow{AC'} = k\overrightarrow{AB}$ ⟹ $A$, $B$, $C'$ são não colineares ✓</li>
+</ol>
+<div class="formula">
+$$\overrightarrow{AB} = (3, 3, 3), \quad \overrightarrow{AC} = (6, 6, 6)$$
+$$\overrightarrow{AC} = 2\overrightarrow{AB} \Rightarrow A, B, C \text{ são colineares}$$
+$$C' = (7, 8, 10) \Rightarrow \overrightarrow{AC'} = (6, 6, 7) \text{ (não colinear)}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A colinearidade dos pontos $A$, $B$, $C$ é um alerta: as três sondas estavam na mesma linha de visada. Isso pode indicar que seguiram a mesma rota ou que há um erro de calibração. Na Zona Devastada, três pontos colineares oferecem cobertura de busca mínima — um triângulo real expande a área de reconhecimento significativamente.</p>
+</details>
+</div>

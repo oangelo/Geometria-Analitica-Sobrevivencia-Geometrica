@@ -1,0 +1,34 @@
+<div class="exercise">
+    <h3>Cálculo Direto no Espaço</h3>
+    <p><strong>Objetivo:</strong> Estender o cálculo do produto escalar do R² para o R³, observando que a única diferença é a adição da terceira componente.</p>
+    <p>Dados os vetores $\vec{u} = (2, -1, 3)$ e $\vec{v} = (4, 0, -2)$ no R³:</p>
+    <ol>
+        <li>Calcule o produto interno $\vec{u} \cdot \vec{v}$.</li>
+        <li>Se esses vetores estivessem no R² (ignorando a terceira componente), qual seria o produto escalar? Compare com o resultado do item (a).</li>
+        <li>Calcule $\vec{u} \cdot \vec{u}$ e $\vec{v} \cdot \vec{v}$. O que esses valores representam geometricamente?</li>
+    </ol>
+
+    <details class="hint-details">
+        <summary>DICA DE SOBREVIVÊNCIA</summary>
+        <p>No R²: $\vec{u} \cdot \vec{v} = u_1v_1 + u_2v_2$. No R³: acrescente $u_3v_3$. O produto $\vec{v} \cdot \vec{v}$ está relacionado ao quadrado do módulo.</p>
+    </details>
+
+    <details>
+        <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+        <ol class="solution-steps">
+            <li>Produto interno no R³:
+                $$\vec{u} \cdot \vec{v} = (2)(4) + (-1)(0) + (3)(-2) = 8 + 0 - 6 = 2$$
+            </li>
+            <li>No R² (componentes $(2, -1)$ e $(4, 0)$):
+                $$\vec{u} \cdot \vec{v} = (2)(4) + (-1)(0) = 8$$
+                <p>A diferença é exatamente a contribuição da terceira componente: $(3)(-2) = -6$. O produto no R³ é $8 + (-6) = 2$. A terceira componente pode <em>reduzir</em> o produto escalar, dependendo dos sinais.</p>
+            </li>
+            <li>
+                $$\vec{u} \cdot \vec{u} = 2^2 + (-1)^2 + 3^2 = 4 + 1 + 9 = 14 = |\vec{u}|^2$$
+                $$\vec{v} \cdot \vec{v} = 4^2 + 0^2 + (-2)^2 = 16 + 0 + 4 = 20 = |\vec{v}|^2$$
+                <p>Geometricamente, $\vec{v} \cdot \vec{v} = |\vec{v}|^2$ é o quadrado do comprimento do vetor. Pelo teorema de Pitágoras estendido: $|\vec{u}| = \sqrt{14}$ e $|\vec{v}| = \sqrt{20} = 2\sqrt{5}$.</p>
+            </li>
+        </ol>
+        <p><strong>Reflexão:</strong> A transição R² → R³ é uma extensão mecânica: somente adicionamos $u_3v_3$. As propriedades algébricas (comutatividade, distributividade) e a interpretação geométrica (módulo via $\vec{v} \cdot \vec{v}$) permanecem inalteradas. A terceira componente pode modificar drasticamente o valor numérico do produto escalar.</p>
+    </details>
+</div>

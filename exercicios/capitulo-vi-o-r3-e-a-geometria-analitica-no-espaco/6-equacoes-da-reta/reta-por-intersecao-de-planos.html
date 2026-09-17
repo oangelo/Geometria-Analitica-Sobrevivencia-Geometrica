@@ -1,0 +1,50 @@
+<div class="exercise">
+<h3>Reta Definida por Interseção de Planos</h3>
+<p><strong>Objetivo:</strong> Extrair as informações de uma reta (ponto e vetor diretor) a partir de sua representação como interseção de dois planos, conectando com o Tópico 5 (Equações do Plano).</p>
+<p>Uma rota subterrânea é definida pela interseção dos seguintes planos de contenção:</p>
+<div class="formula">
+        $$\pi_1: x + 2y - z + 1 = 0$$
+        $$\pi_2: 2x - y + z - 3 = 0$$
+</div>
+<p>Determine:</p>
+<ol>
+    <li>O vetor diretor $\vec{v}$ da reta de interseção.</li>
+    <li>Um ponto $P_0$ pertencente à reta.</li>
+    <li>As equações paramétricas da reta.</li>
+</ol>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+            O vetor diretor da reta é perpendicular aos dois vetores normais dos planos, portanto $\vec{v} = \vec{n}_1 \times \vec{n}_2$. Para encontrar um ponto da reta, faça $z = 0$ (ou outra escolha conveniente) e resolva o sistema de duas equações com duas incógnitas resultante.
+        </div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Identificar os vetores normais: $\vec{n}_1 = (1, 2, -1)$ e $\vec{n}_2 = (2, -1, 1)$.</li>
+<li>Calcular o produto vetorial $\vec{v} = \vec{n}_1 \times \vec{n}_2$:
+            $$\vec{v} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 1 & 2 & -1 \\ 2 & -1 & 1 \end{vmatrix}$$
+            $$\vec{v} = \vec{i}(2 \cdot 1 - (-1) \cdot (-1)) - \vec{j}(1 \cdot 1 - (-1) \cdot 2) + \vec{k}(1 \cdot (-1) - 2 \cdot 2)$$
+            $$\vec{v} = \vec{i}(2 - 1) - \vec{j}(1 + 2) + \vec{k}(-1 - 4)$$
+            $$\vec{v} = (1, -3, -5)$$
+        </li>
+<li>Para encontrar um ponto, faça $z = 0$ no sistema:
+            $$\begin{cases} x + 2y + 1 = 0 \\ 2x - y - 3 = 0 \end{cases}$$
+        </li>
+<li>Da primeira equação: $x = -2y - 1$.</li>
+<li>Substituir na segunda: $2(-2y - 1) - y - 3 = 0 \Rightarrow -4y - 2 - y - 3 = 0 \Rightarrow -5y = 5 \Rightarrow y = -1$.</li>
+<li>Logo $x = -2(-1) - 1 = 2 - 1 = 1$. O ponto é $P_0(1, -1, 0)$.</li>
+<li>Verificação em $\pi_1$: $1 + 2(-1) - 0 + 1 = 1 - 2 + 1 = 0$ ✓</li>
+<li>Verificação em $\pi_2$: $2(1) - (-1) + 0 - 3 = 2 + 1 - 3 = 0$ ✓</li>
+<li>Equações paramétricas: $x = 1 + t$, $y = -1 - 3t$, $z = -5t$.</li>
+</ol>
+<div class="formula">
+            $$\vec{v} = \vec{n}_1 \times \vec{n}_2 = (1, -3, -5)$$
+            $$P_0 = (1, -1, 0)$$
+            $$r: \begin{cases} x = 1 + t \\ y = -1 - 3t \\ z = -5t \end{cases}, \quad t \in \mathbb{R}$$
+        </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Esta é a conexão fundamental entre planos e retas no R³: uma reta é a interseção de dois planos, e seu vetor diretor é perpendicular a ambos os normais. Se os planos fossem paralelos ($\vec{n}_1 \parallel \vec{n}_2$), o produto vetorial seria nulo e não haveria reta de interseção — ou os planos seriam coincidentes (infinitas retas) ou paralelos distintos (sem interseção). Sempre verifique se $\vec{n}_1 \times \vec{n}_2 \neq \vec{0}$ antes de prosseguir.</p>
+</details>
+</div>

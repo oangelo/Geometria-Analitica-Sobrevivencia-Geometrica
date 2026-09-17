@@ -1,0 +1,29 @@
+<div class="exercise">
+<h3>ZONA CONTAMINADA</h3>
+
+<p>Uma frente de contaminação se move em linha reta pelo território, modelada pela equação $r: 2x + y - 10 = 0$. Dois pontos de interesse foram mapeados: o Abrigo-Sul em $A(1, 3)$ e a Fonte de Água Limpa em $B(6, 5)$. No papel, esboce a reta $r$ (encontre dois pontos dela), marque $A$ e $B$, e estime visualmente qual está mais próximo da fronteira e qual lado da reta cada um ocupa. Depois, calcule a distância de cada ponto à fronteira e determine: <strong>(a)</strong> qual está mais próximo da contaminação; <strong>(b)</strong> qual está do lado seguro (semiplano positivo ou negativo) e qual está do lado contaminado; <strong>(c)</strong> se a distância mínima de segurança exigida pelo SUPERVISOR é de $1{,}5$ unidades, qual dos dois locais está em conformidade?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para esboçar a reta, encontre os interceptos com os eixos. Para as distâncias, use a fórmula com $a = 2$, $b = 1$, $c = -10$. Para verificar o lado, calcule $2x + y - 10$ para cada ponto — o sinal indica o semiplano.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Esboço da reta: quando $x = 0$, $y = 10$; quando $y = 0$, $x = 5$. A reta passa por $(0, 10)$ e $(5, 0)$.</li>
+<li>Distância de $A(1, 3)$: $d_A = \frac{|2(1) + 1(3) - 10|}{\sqrt{2^2 + 1^2}} = \frac{|2 + 3 - 10|}{\sqrt{5}} = \frac{5}{\sqrt{5}} = \sqrt{5} \approx 2{,}24$.</li>
+<li>Distância de $B(6, 5)$: $d_B = \frac{|2(6) + 1(5) - 10|}{\sqrt{5}} = \frac{|12 + 5 - 10|}{\sqrt{5}} = \frac{7}{\sqrt{5}} = \frac{7\sqrt{5}}{5} \approx 3{,}13$.</li>
+<li>Lado de $A$: $2(1) + 3 - 10 = -5 < 0$ (semiplano negativo).</li>
+<li>Lado de $B$: $2(6) + 5 - 10 = 7 > 0$ (semiplano positivo).</li>
+<li>Ambas as distâncias são maiores que $1{,}5$: $d_A \approx 2{,}24 > 1{,}5$ e $d_B \approx 3{,}13 > 1{,}5$. Ambos estão em conformidade.</li>
+</ol>
+<div class="formula">
+$$d_A = \frac{5}{\sqrt{5}} = \sqrt{5} \approx 2{,}24 \quad ; \quad d_B = \frac{7}{\sqrt{5}} \approx 3{,}13$$
+$$A: -5 < 0 \quad ; \quad B: 7 > 0$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O Abrigo-Sul está mais próximo da fronteira ($2{,}24$ vs. $3{,}13$) e no semiplano oposto à Fonte de Água. Isso significa que a contaminação os separa — qualquer rota direta entre o abrigo e a fonte cruza a zona perigosa. Na Zona Devastada, distância não é só segurança; é também conectividade. Dois pontos seguros separados por uma fronteira podem ser tão inútil quanto um ponto inseguro.</p>
+</details>
+</div>

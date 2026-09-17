@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visualização: Vetores no Plano</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #ADFF2F;
+      font-family: 'Courier New', monospace;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    
+    h1 {
+      color: #FFD700;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+    
+    .visualization-container {
+      position: relative;
+      margin: 20px auto;
+      width: 800px;
+      height: 500px;
+    }
+    
+    canvas {
+      border: 3px solid #3a3a3a;
+      background-color: #000;
+      box-shadow: inset 0 0 15px #ADFF2F;
+    }
+    
+    .canvas-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 255, 0, 0.03),
+        rgba(0, 255, 0, 0.03) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+      z-index: 10;
+    }
+    
+    .vignette-effect {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8);
+      pointer-events: none;
+      z-index: 5;
+    }
+    
+    .controls {
+      background-color: #2F2F2F;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 20px;
+      width: 100%;
+      max-width: 800px;
+    }
+    
+    .control-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    
+    .vector-controls {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      grid-gap: 10px;
+      align-items: center;
+    }
+    
+    label {
+      color: #ADFF2F;
+      font-weight: bold;
+      margin-right: 10px;
+      min-width: 100px;
+    }
+    
+    input[type="range"] {
+      flex-grow: 1;
+      margin: 0 10px;
+      accent-color: #ADFF2F;
+    }
+    
+    .value-display {
+      background-color: #000;
+      color: #ADFF2F;
+      padding: 3px 8px;
+      border-radius: 3px;
+      min-width: 50px;
+      text-align: center;
+      font-family: 'Courier New', monospace;
+    }
+    
+    .pip-boy-display {
+      background-color: #000;
+      border: 2px solid #3a3a3a;
+      padding: 10px;
+      margin-top: 20px;
+      border-radius: 5px;
+      width: 100%;
+      max-width: 800px;
+      font-family: 'Courier New', monospace;
+    }
+    
+    .pip-boy-display h2 {
+      color: #ADFF2F;
+      font-size: 1.2rem;
+      margin: 5px 0;
+      border-bottom: 1px solid #ADFF2F;
+      padding-bottom: 5px;
+    }
+    
+    .vector-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    
+    .info-box {
+      background-color: rgba(0, 0, 0, 0.7);
+      border: 1px solid #ADFF2F;
+      padding: 5px 10px;
+      border-radius: 3px;
+    }
+    
+    .operations {
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    
+    .operation-btn {
+      background-color: #2F2F2F;
+      color: #ADFF2F;
+      border: 1px solid #ADFF2F;
+      padding: 5px 10px;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .operation-btn:hover {
+      background-color: #3F3F3F;
+      box-shadow: 0 0 5px #ADFF2F;
+    }
+    
+    .operation-btn.active {
+      background-color: #ADFF2F;
+      color: #000;
+    }
+    
+    .radiation-pulse {
+      animation: radiation-pulse 2s infinite;
+    }
+    
+    @keyframes radiation-pulse {
+      0% { box-shadow: 0 0 5px #ADFF2F; }
+      50% { box-shadow: 0 0 15px #ADFF2F, 0 0 20px #ADFF2F; }
+      100% { box-shadow: 0 0 5px #ADFF2F; }
+    }
+    
+    .custom-cursor {
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="12" fill="%23ADFF2F" opacity="0.6"/><circle cx="16" cy="16" r="5" fill="%23ADFF2F"/></svg>') 16 16, auto;
+    }
+    
+    .tutorial-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      color: #ADFF2F;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    
+    .tutorial-heading {
+      color: #FFD700;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    
+    .tutorial-content {
+      max-width: 80%;
+      margin-bottom: 30px;
+    }
+    
+    .tutorial-button {
+      background-color: #ADFF2F;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .tutorial-button:hover {
+      background-color: #FFD700;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <h1>VAULT-TEC SIMULADOR: Vetores no Plano</h1>
+  
+  <!-- Container para visualização -->
+  <div class="visualization-container">
+    <canvas id="vector-canvas" width="800" height="500" class="custom-cursor"></canvas>
+    <div class="canvas-overlay"></div>
+    <div class="vignette-effect"></div>
+    
+    <!-- Tutorial overlay (inicialmente visível) -->
+    <div id="tutorial-overlay" class="tutorial-overlay">
+      <h2 class="tutorial-heading">MANUAL DE SOBREVIVÊNCIA VAULT-TEC</h2>
+      <div class="tutorial-content">
+        <p>Bem-vindo ao simulador de vetores da Vault-Tec Industries!</p>
+        <p>Nesta simulação, você aprenderá a trabalhar com vetores - ferramentas essenciais para planejar rotas na wasteland.</p>
+        <p>• Arraste os pontos azuis para modificar os vetores</p>
+        <p>• Use os controles deslizantes para ajustes precisos</p>
+        <p>• Experimente as operações vetoriais: soma, subtração e produto escalar</p>
+        <p>ATENÇÃO: Vetores são como planos de viagem - direção e magnitude podem significar vida ou morte!</p>
+      </div>
+      <button id="start-simulation" class="tutorial-button">INICIAR SIMULAÇÃO</button>
+    </div>
+  </div>
+  
+  <!-- Controles para manipulação -->
+  <div class="controls">
+    <h3 style="color:#FFD700; margin-top:0; text-align:center;">Controle de Vetores</h3>
+    <div class="vector-controls">
+      <label for="vector-a-x">Vetor A (x):</label>
+      <input type="range" id="vector-a-x" min="-10" max="10" value="5" step="0.5">
+      <span id="a-x-value" class="value-display">5.0</span>
+      
+      <label for="vector-a-y">Vetor A (y):</label>
+      <input type="range" id="vector-a-y" min="-10" max="10" value="2" step="0.5">
+      <span id="a-y-value" class="value-display">2.0</span>
+      
+      <label for="vector-b-x">Vetor B (x):</label>
+      <input type="range" id="vector-b-x" min="-10" max="10" value="-3" step="0.5">
+      <span id="b-x-value" class="value-display">-3.0</span>
+      
+      <label for="vector-b-y">Vetor B (y):</label>
+      <input type="range" id="vector-b-y" min="-10" max="10" value="4" step="0.5">
+      <span id="b-y-value" class="value-display">4.0</span>
+    </div>
+    
+    <div class="operations">
+      <button id="show-vectors" class="operation-btn active">Vetores</button>
+      <button id="show-sum" class="operation-btn">Soma (A+B)</button>
+      <button id="show-subtraction" class="operation-btn">Subtração (A-B)</button>
+      <button id="show-dot-product" class="operation-btn">Produto Escalar</button>
+      <button id="show-components" class="operation-btn">Componentes</button>
+      <button id="reset-vectors" class="operation-btn">Resetar</button>
+    </div>
+  </div>
+  
+  <!-- Display estilo Pip-Boy para informações -->
+  <div class="pip-boy-display radiation-pulse">
+    <h2>RELATÓRIO DE ROTAS DA CARAVANA</h2>
+    
+    <div class="vector-info">
+      <div class="info-box">
+        <p>VETOR A: (<span id="vector-a-x-display">5.0</span>, <span id="vector-a-y-display">2.0</span>)</p>
+        <p>MAGNITUDE: <span id="magnitude-a">5.39</span> unidades</p>
+      </div>
+      <div class="info-box">
+        <p>VETOR B: (<span id="vector-b-x-display">-3.0</span>, <span id="vector-b-y-display">4.0</span>)</p>
+        <p>MAGNITUDE: <span id="magnitude-b">5.00</span> unidades</p>
+      </div>
+    </div>
+    
+    <div class="info-box" style="margin-top: 10px;">
+      <p>ÂNGULO ENTRE VETORES: <span id="angle-display">90.0</span>°</p>
+      <p>PRODUTO ESCALAR: <span id="dot-product-display">0.0</span></p>
+      <p id="operation-result">RESULTADO DA OPERAÇÃO: Visualizando vetores individuais</p>
+    </div>
+    
+    <div id="survival-analysis" style="margin-top: 10px; font-style: italic; color: #FFD700;">
+      ANÁLISE DE SOBREVIVÊNCIA: Rotas perpendiculares oferecem melhor cobertura estratégica.
+    </div>
+  </div>
+  
+  <script>
+    // Esperar carregamento completo do DOM
+    document.addEventListener('DOMContentLoaded', function() {
+      // Elementos do DOM
+      const canvas = document.getElementById('vector-canvas');
+      const ctx = canvas.getContext('2d');
+      const vectorAXControl = document.getElementById('vector-a-x');
+      const vectorAYControl = document.getElementById('vector-a-y');
+      const vectorBXControl = document.getElementById('vector-b-x');
+      const vectorBYControl = document.getElementById('vector-b-y');
+      const aXValue = document.getElementById('a-x-value');
+      const aYValue = document.getElementById('a-y-value');
+      const bXValue = document.getElementById('b-x-value');
+      const bYValue = document.getElementById('b-y-value');
+      const vectorAXDisplay = document.getElementById('vector-a-x-display');
+      const vectorAYDisplay = document.getElementById('vector-a-y-display');
+      const vectorBXDisplay = document.getElementById('vector-b-x-display');
+      const vectorBYDisplay = document.getElementById('vector-b-y-display');
+      const magnitudeA = document.getElementById('magnitude-a');
+      const magnitudeB = document.getElementById('magnitude-b');
+      const angleDisplay = document.getElementById('angle-display');
+      const dotProductDisplay = document.getElementById('dot-product-display');
+      const operationResult = document.getElementById('operation-result');
+      const survivalAnalysis = document.getElementById('survival-analysis');
+      const tutorialOverlay = document.getElementById('tutorial-overlay');
+      const startButton = document.getElementById('start-simulation');
+      
+      // Botões de operação
+      const showVectorsBtn = document.getElementById('show-vectors');
+      const showSumBtn = document.getElementById('show-sum');
+      const showSubtractionBtn = document.getElementById('show-subtraction');
+      const showDotProductBtn = document.getElementById('show-dot-product');
+      const showComponentsBtn = document.getElementById('show-components');
+      const resetVectorsBtn = document.getElementById('reset-vectors');
+      
+      // Configurações do canvas
+      const width = canvas.width;
+      const height = canvas.height;
+      const centerX = width / 2;
+      const centerY = height / 2;
+      const gridSize = 40; // Pixels por unidade
+      const axisColor = '#ADFF2F';
+      const gridColor = 'rgba(173, 255, 47, 0.2)';
+      const vectorAColor = '#4682B4'; // Azul (cor do Vault)
+      const vectorBColor = '#FFD700'; // Dourado
+      const resultVectorColor = '#FF6347'; // Vermelho/laranja
+      
+      // Estado
+      let vectorA = { x: 5, y: 2 };
+      let vectorB = { x: -3, y: 4 };
+      let currentOperation = 'vectors'; // vectors, sum, subtraction, dot, components
+      let isDragging = null; // null, 'a-start', 'a-end', 'b-start', 'b-end'
+      
+      // Função para converter coordenadas matemáticas para coordenadas do canvas
+      function mathToCanvas(x, y) {
+        return {
+          x: centerX + x * gridSize,
+          y: centerY - y * gridSize // Inverte Y pois canvas cresce para baixo
+        };
+      }
+      
+      // Função para converter coordenadas do canvas para coordenadas matemáticas
+      function canvasToMath(x, y) {
+        return {
+          x: (x - centerX) / gridSize,
+          y: (centerY - y) / gridSize
+        };
+      }
+      
+      // Função para calcular a magnitude de um vetor
+      function magnitude(vector) {
+        return Math.sqrt(vector.x * vector.x + vector.y * vector.y);
+      }
+      
+      // Função para calcular o produto escalar de dois vetores
+      function dotProduct(v1, v2) {
+        return v1.x * v2.x + v1.y * v2.y;
+      }
+      
+      // Função para calcular o ângulo entre dois vetores em graus
+      function angleBetweenVectors(v1, v2) {
+        const dot = dotProduct(v1, v2);
+        const mag1 = magnitude(v1);
+        const mag2 = magnitude(v2);
+        
+        if (mag1 === 0 || mag2 === 0) return 0;
+        
+        const cosAngle = dot / (mag1 * mag2);
+        // Lidar com imprecisões de ponto flutuante
+        const clampedCos = Math.max(-1, Math.min(1, cosAngle));
+        return Math.round(Math.acos(clampedCos) * 180 / Math.PI);
+      }
+      
+      // Função para desenhar o grid e os eixos
+      function drawGrid() {
+        ctx.clearRect(0, 0, width, height);
+        
+        // Desenhar linhas de grade
+        ctx.strokeStyle = gridColor;
+        ctx.lineWidth = 1;
+        
+        // Linhas verticais
+        for (let x = centerX % gridSize; x < width; x += gridSize) {
+          ctx.beginPath();
+          ctx.moveTo(x, 0);
+          ctx.lineTo(x, height);
+          ctx.stroke();
+        }
+        
+        // Linhas horizontais
+        for (let y = centerY % gridSize; y < height; y += gridSize) {
+          ctx.beginPath();
+          ctx.moveTo(0, y);
+          ctx.lineTo(width, y);
+          ctx.stroke();
+        }
+        
+        // Desenhar eixos
+        ctx.strokeStyle = axisColor;
+        ctx.lineWidth = 2;
+        
+        // Eixo X
+        ctx.beginPath();
+        ctx.moveTo(0, centerY);
+        ctx.lineTo(width, centerY);
+        ctx.stroke();
+        
+        // Eixo Y
+        ctx.beginPath();
+        ctx.moveTo(centerX, 0);
+        ctx.lineTo(centerX, height);
+        ctx.stroke();
+        
+        // Desenhar marcações nos eixos
+        ctx.fillStyle = axisColor;
+        ctx.font = '12px "Courier New", monospace';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        
+        // Marcações no eixo X
+        for (let x = -Math.floor((centerX) / gridSize); x <= Math.floor((width - centerX) / gridSize); x++) {
+          if (x === 0) continue; // Pular a origem
+          const canvasX = centerX + x * gridSize;
+          
+          // Linha de marcação
+          ctx.beginPath();
+          ctx.moveTo(canvasX, centerY - 5);
+          ctx.lineTo(canvasX, centerY + 5);
+          ctx.stroke();
+          
+          // Número
+          ctx.fillText(x.toString(), canvasX, centerY + 15);
+        }
+        
+        // Marcações no eixo Y
+        for (let y = -Math.floor((centerY) / gridSize); y <= Math.floor((height - centerY) / gridSize); y++) {
+          if (y === 0) continue; // Pular a origem
+          const canvasY = centerY - y * gridSize;
+          
+          // Linha de marcação
+          ctx.beginPath();
+          ctx.moveTo(centerX - 5, canvasY);
+          ctx.lineTo(centerX + 5, canvasY);
+          ctx.stroke();
+          
+          // Número
+          ctx.fillText(y.toString(), centerX - 15, canvasY);
+        }
+        
+        // Marcar a origem
+        ctx.fillText('0', centerX - 15, centerY + 15);
+        
+        // Rótulos dos eixos
+        ctx.font = '16px "Courier New", monospace';
+        ctx.fillText('X', width - 20, centerY - 20);
+        ctx.fillText('Y', centerX + 20, 20);
+      }
+      
+      // Função para desenhar um vetor
+      function drawVector(startX, startY, endX, endY, color, label) {
+        const start = mathToCanvas(startX, startY);
+        const end = mathToCanvas(endX, endY);
+        
+        // Linha do vetor
+        ctx.beginPath();
+        ctx.moveTo(start.x, start.y);
+        ctx.lineTo(end.x, end.y);
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        
+        // Cabeça da seta
+        const angle = Math.atan2(start.y - end.y, start.x - end.x);
+        const headLength = 10;
+        
+        ctx.beginPath();
+        ctx.moveTo(end.x, end.y);
+        ctx.lineTo(
+          end.x + headLength * Math.cos(angle - Math.PI / 6),
+          end.y + headLength * Math.sin(angle - Math.PI / 6)
+        );
+        ctx.lineTo(
+          end.x + headLength * Math.cos(angle + Math.PI / 6),
+          end.y + headLength * Math.sin(angle + Math.PI / 6)
+        );
+        ctx.closePath();
+        ctx.fillStyle = color;
+        ctx.fill();
+        
+        // Ponto no início (origem do vetor)
+        ctx.beginPath();
+        ctx.arc(start.x, start.y, 5, 0, 2 * Math.PI);
+        ctx.fillStyle = color;
+        ctx.fill();
+        ctx.strokeStyle = '#FFF';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        
+        // Ponto no final do vetor
+        ctx.beginPath();
+        ctx.arc(end.x, end.y, 5, 0, 2 * Math.PI);
+        ctx.fillStyle = color;
+        ctx.fill();
+        ctx.strokeStyle = '#FFF';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        
+        // Rótulo do vetor
+        ctx.fillStyle = '#FFF';
+        ctx.font = '16px "Courier New", monospace';
+        ctx.fillText(label, (start.x + end.x) / 2 + 15, (start.y + end.y) / 2 - 10);
+      }
+      
+      // Função para desenhar componentes de um vetor
+      function drawComponents(startX, startY, endX, endY, color, label) {
+        const start = mathToCanvas(startX, startY);
+        const end = mathToCanvas(endX, endY);
+        
+        // Componente X
+        ctx.beginPath();
+        ctx.moveTo(start.x, start.y);
+        ctx.lineTo(end.x, start.y);
+        ctx.strokeStyle = color;
+        ctx.setLineDash([5, 3]);
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        
+        // Componente Y
+        ctx.beginPath();
+        ctx.moveTo(end.x, start.y);
+        ctx.lineTo(end.x, end.y);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        
+        // Rótulos das componentes
+        ctx.fillStyle = '#FFF';
+        ctx.font = '14px "Courier New", monospace';
+        ctx.fillText(`${label}x: ${(endX - startX).toFixed(1)}`, (start.x + end.x) / 2, start.y - 10);
+        ctx.fillText(`${label}y: ${(endY - startY).toFixed(1)}`, end.x + 10, (start.y + end.y) / 2);
+      }
+      
+      // Função para desenhar a soma de vetores
+      function drawVectorSum() {
+        // Desenhar vetor A
+        drawVector(0, 0, vectorA.x, vectorA.y, vectorAColor, 'A');
+        
+        // Desenhar vetor B a partir do final de A
+        drawVector(vectorA.x, vectorA.y, vectorA.x + vectorB.x, vectorA.y + vectorB.y, vectorBColor, 'B');
+        
+        // Desenhar vetor resultante (soma)
+        drawVector(0, 0, vectorA.x + vectorB.x, vectorA.y + vectorB.y, resultVectorColor, 'A+B');
+        
+        operationResult.textContent = `RESULTADO DA OPERAÇÃO: Soma A+B = (${(vectorA.x + vectorB.x).toFixed(1)}, ${(vectorA.y + vectorB.y).toFixed(1)})`;
+        
+        const magSum = magnitude({x: vectorA.x + vectorB.x, y: vectorA.y + vectorB.y});
+        survivalAnalysis.textContent = `ANÁLISE DE SOBREVIVÊNCIA: Rota resultante com magnitude ${magSum.toFixed(2)} unidades. ${getRouteAnalysis(magSum)}`;
+      }
+      
+      // Função para desenhar a subtração de vetores
+      function drawVectorSubtraction() {
+        // Desenhar vetor A
+        drawVector(0, 0, vectorA.x, vectorA.y, vectorAColor, 'A');
+        
+        // Desenhar vetor -B
+        drawVector(vectorA.x, vectorA.y, vectorA.x - vectorB.x, vectorA.y - vectorB.y, vectorBColor, '-B');
+        
+        // Desenhar vetor resultante (subtração)
+        drawVector(0, 0, vectorA.x - vectorB.x, vectorA.y - vectorB.y, resultVectorColor, 'A-B');
+        
+        operationResult.textContent = `RESULTADO DA OPERAÇÃO: Subtração A-B = (${(vectorA.x - vectorB.x).toFixed(1)}, ${(vectorA.y - vectorB.y).toFixed(1)})`;
+        
+        const magSubtraction = magnitude({x: vectorA.x - vectorB.x, y: vectorA.y - vectorB.y});
+        survivalAnalysis.textContent = `ANÁLISE DE SOBREVIVÊNCIA: Distância entre pontos: ${magSubtraction.toFixed(2)} unidades. ${getDistanceAnalysis(magSubtraction)}`;
+      }
+      
+      // Função para desenhar o produto escalar
+      function drawDotProduct() {
+        // Desenhar vetor A
+        drawVector(0, 0, vectorA.x, vectorA.y, vectorAColor, 'A');
+        
+        // Desenhar vetor B
+        drawVector(0, 0, vectorB.x, vectorB.y, vectorBColor, 'B');
+        
+        // Desenhar arco para indicar o ângulo
+        const angle = angleBetweenVectors(vectorA, vectorB);
+        const startCanvas = mathToCanvas(0, 0);
+        const radius = 30;
+        
+        // Calcular ângulos para o arco
+        const vectorAAngle = Math.atan2(-vectorA.y, vectorA.x); // Negativo pois o eixo Y do canvas é invertido
+        const vectorBAngle = Math.atan2(-vectorB.y, vectorB.x);
+        
+        // Desenhar arco
+        ctx.beginPath();
+        ctx.arc(startCanvas.x, startCanvas.y, radius, Math.min(vectorAAngle, vectorBAngle), Math.max(vectorAAngle, vectorBAngle));
+        ctx.strokeStyle = '#FFF';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        
+        // Rótulo do ângulo
+        ctx.fillStyle = '#FFF';
+        ctx.font = '14px "Courier New", monospace';
+        const arcMidAngle = (vectorAAngle + vectorBAngle) / 2;
+        ctx.fillText(`${angle}°`, 
+                    startCanvas.x + (radius + 15) * Math.cos(arcMidAngle),
+                    startCanvas.y + (radius + 15) * Math.sin(arcMidAngle));
+        
+        // Mostrar resultado do produto escalar
+        const dot = dotProduct(vectorA, vectorB);
+        operationResult.textContent = `RESULTADO DA OPERAÇÃO: Produto Escalar A·B = ${dot.toFixed(2)}`;
+        
+        // Análise baseada no ângulo
+        survivalAnalysis.textContent = `ANÁLISE DE SOBREVIVÊNCIA: ${getAngleAnalysis(angle, dot)}`;
+      }
+      
+      // Função para desenhar os componentes dos vetores
+      function drawAllComponents() {
+        // Desenhar vetor A e seus componentes
+        drawVector(0, 0, vectorA.x, vectorA.y, vectorAColor, 'A');
+        drawComponents(0, 0, vectorA.x, vectorA.y, vectorAColor, 'A');
+        
+        // Desenhar vetor B e seus componentes
+        drawVector(0, 0, vectorB.x, vectorB.y, vectorBColor, 'B');
+        drawComponents(0, 0, vectorB.x, vectorB.y, vectorBColor, 'B');
+        
+        operationResult.textContent = `RESULTADO DA OPERAÇÃO: Visualizando componentes dos vetores`;
+        survivalAnalysis.textContent = `ANÁLISE DE SOBREVIVÊNCIA: Conhecer as componentes permite planejar rotas mais eficientes.`;
+      }
+      
+      // Função para obter análise da rota baseada na magnitude
+      function getRouteAnalysis(magnitude) {
+        if (magnitude < 3) {
+          return "Rota curta e segura, baixo consumo de recursos.";
+        } else if (magnitude < 7) {
+          return "Rota moderada, planeje abastecimento no meio do caminho.";
+        } else {
+          return "Rota longa e perigosa! Prepare-se para encontros hostis.";
+        }
+      }
+      
+      // Função para obter análise da distância
+      function getDistanceAnalysis(distance) {
+        if (distance < 2) {
+          return "Distância segura para comunicação por rádio.";
+        } else if (distance < 5) {
+          return "Necessário amplificador de sinal para comunicação.";
+        } else {
+          return "Comunicação impossível sem torres de relay.";
+        }
+      }
+      
+      // Função para obter análise baseada no ângulo
+      function getAngleAnalysis(angle, dot) {
+        if (angle === 0) {
+          return "Vetores alinhados - rota direta, altamente exposta.";
+        } else if (angle === 180) {
+          return "Vetores opostos - retorno ao ponto inicial.";
+        } else if (angle === 90) {
+          return "Vetores perpendiculares - cobertura máxima de terreno.";
+        } else if (angle < 45) {
+          return "Ângulo agudo - rotas similares, baixa diversidade de terreno.";
+        } else if (angle > 135) {
+          return "Ângulo obtuso - rotas quase opostas, desperdiça recursos.";
+        } else {
+          return "Ângulo intermediário - boa relação entre cobertura e eficiência.";
+        }
+      }
+      
+      // Função para desenhar os vetores normais
+      function drawNormalVectors() {
+        // Desenhar vetor A
+        drawVector(0, 0, vectorA.x, vectorA.y, vectorAColor, 'A');
+        
+        // Desenhar vetor B
+        drawVector(0, 0, vectorB.x, vectorB.y, vectorBColor, 'B');
+        
+        operationResult.textContent = `RESULTADO DA OPERAÇÃO: Visualizando vetores individuais`;
+        survivalAnalysis.textContent = `ANÁLISE DE SOBREVIVÊNCIA: Conhecer múltiplas rotas aumenta suas chances de sobrevivência.`;
+      }
+      
+      // Função para desenhar baseada na operação atual
+      function drawBasedOnOperation() {
+        switch(currentOperation) {
+          case 'vectors':
+            drawNormalVectors();
+            break;
+          case 'sum':
+            drawVectorSum();
+            break;
+          case 'subtraction':
+            drawVectorSubtraction();
+            break;
+          case 'dot':
+            drawDotProduct();
+            break;
+          case 'components':
+            drawAllComponents();
+            break;
+        }
+      }
+      
+      // Função principal de desenho
+      function draw() {
+        drawGrid();
+        drawBasedOnOperation();
+      }
+      
+      // Função para verificar se o mouse está próximo a um ponto
+      function isNearPoint(mouseX, mouseY, pointX, pointY) {
+        const point = mathToCanvas(pointX, pointY);
+        const dx = point.x - mouseX;
+        const dy = point.y - mouseY;
+        return Math.sqrt(dx*dx + dy*dy) < 10;
+      }
+      
+      // Função para manipular interações do mouse
+      function handleMouseDown(e) {
+        const rect = canvas.getBoundingClientRect();
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+        
+        // Verificar se o clique foi próximo a algum ponto extremo dos vetores
+        if (isNearPoint(mouseX, mouseY, 0, 0)) {
+          // Clicou na origem (não fazemos nada, pois a origem é fixa)
+          return;
+        } else if (isNearPoint(mouseX, mouseY, vectorA.x, vectorA.y)) {
+          isDragging = 'a-end';
+        } else if (isNearPoint(mouseX, mouseY, vectorB.x, vectorB.y)) {
+          isDragging = 'b-end';
+        }
+      }
+      
+      function handleMouseMove(e) {
+        if (!isDragging) return;
+        
+        const rect = canvas.getBoundingClientRect();
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+        const mathCoords = canvasToMath(mouseX, mouseY);
+        
+        // Limitar às coordenadas dentro do intervalo dos sliders
+        const x = Math.max(-10, Math.min(10, Math.round(mathCoords.x * 2) / 2));
+        const y = Math.max(-10, Math.min(10, Math.round(mathCoords.y * 2) / 2));
+        
+        if (isDragging === 'a-end') {
+          vectorA.x = x;
+          vectorA.y = y;
+          vectorAXControl.value = x;
+          vectorAYControl.value = y;
+        } else if (isDragging === 'b-end') {
+          vectorB.x = x;
+          vectorB.y = y;
+          vectorBXControl.value = x;
+          vectorBYControl.value = y;
+        }
+        
+        updateUI();
+        draw();
+      }
+      
+      function handleMouseUp() {
+        isDragging = null;
+      }
+      
+      // Manipuladores de eventos para controles deslizantes
+      function handleVectorControlChange() {
+        vectorA.x = parseFloat(vectorAXControl.value);
+        vectorA.y = parseFloat(vectorAYControl.value);
+        vectorB.x = parseFloat(vectorBXControl.value);
+        vectorB.y = parseFloat(vectorBYControl.value);
+        
+        updateUI();
+        draw();
+      }
+      
+      // Função para atualizar a interface com os novos valores
+      function updateUI() {
+        // Atualizar valores nos controles
+        aXValue.textContent = vectorA.x.toFixed(1);
+        aYValue.textContent = vectorA.y.toFixed(1);
+        bXValue.textContent = vectorB.x.toFixed(1);
+        bYValue.textContent = vectorB.y.toFixed(1);
+        
+        // Atualizar displays
+        vectorAXDisplay.textContent = vectorA.x.toFixed(1);
+        vectorAYDisplay.textContent = vectorA.y.toFixed(1);
+        vectorBXDisplay.textContent = vectorB.x.toFixed(1);
+        vectorBYDisplay.textContent = vectorB.y.toFixed(1);
+        
+        // Calcular e exibir magnitudes
+        const magA = magnitude(vectorA);
+        const magB = magnitude(vectorB);
+        magnitudeA.textContent = magA.toFixed(2);
+        magnitudeB.textContent = magB.toFixed(2);
+        
+        // Calcular e exibir ângulo e produto escalar
+        const angle = angleBetweenVectors(vectorA, vectorB);
+        const dot = dotProduct(vectorA, vectorB);
+        angleDisplay.textContent = angle;
+        dotProductDisplay.textContent = dot.toFixed(2);
+      }
+      
+      // Funções para manipular botões de operação
+      function setOperation(operation) {
+        currentOperation = operation;
+        
+        // Remover classe ativa de todos os botões
+        showVectorsBtn.classList.remove('active');
+        showSumBtn.classList.remove('active');
+        showSubtractionBtn.classList.remove('active');
+        showDotProductBtn.classList.remove('active');
+        showComponentsBtn.classList.remove('active');
+        
+        // Adicionar classe ativa ao botão selecionado
+        switch(operation) {
+          case 'vectors':
+            showVectorsBtn.classList.add('active');
+            break;
+          case 'sum':
+            showSumBtn.classList.add('active');
+            break;
+          case 'subtraction':
+            showSubtractionBtn.classList.add('active');
+            break;
+          case 'dot':
+            showDotProductBtn.classList.add('active');
+            break;
+          case 'components':
+            showComponentsBtn.classList.add('active');
+            break;
+        }
+        
+        draw();
+      }
+      
+      // Função para resetar os vetores
+      function resetVectors() {
+        vectorA = { x: 5, y: 2 };
+        vectorB = { x: -3, y: 4 };
+        
+        vectorAXControl.value = vectorA.x;
+        vectorAYControl.value = vectorA.y;
+        vectorBXControl.value = vectorB.x;
+        vectorBYControl.value = vectorB.y;
+        
+        updateUI();
+        draw();
+      }
+      
+      // Fechar o tutorial e iniciar a simulação
+      function startSimulation() {
+        tutorialOverlay.style.display = 'none';
+      }
+      
+      // Inicialização
+      function init() {
+        // Registrar eventos do canvas
+        canvas.addEventListener('mousedown', handleMouseDown);
+        canvas.addEventListener('mousemove', handleMouseMove);
+        canvas.addEventListener('mouseup', handleMouseUp);
+        canvas.addEventListener('mouseleave', handleMouseUp);
+        
+        // Registrar eventos dos controles
+        vectorAXControl.addEventListener('input', handleVectorControlChange);
+        vectorAYControl.addEventListener('input', handleVectorControlChange);
+        vectorBXControl.addEventListener('input', handleVectorControlChange);
+        vectorBYControl.addEventListener('input', handleVectorControlChange);
+        
+        // Registrar eventos dos botões de operação
+        showVectorsBtn.addEventListener('click', () => setOperation('vectors'));
+        showSumBtn.addEventListener('click', () => setOperation('sum'));
+        showSubtractionBtn.addEventListener('click', () => setOperation('subtraction'));
+        showDotProductBtn.addEventListener('click', () => setOperation('dot'));
+        showComponentsBtn.addEventListener('click', () => setOperation('components'));
+        resetVectorsBtn.addEventListener('click', resetVectors);
+        
+        // Botão de iniciar simulação
+        startButton.addEventListener('click', startSimulation);
+        
+        // Desenho inicial
+        updateUI();
+        draw();
+      }
+      
+      // Iniciar a aplicação
+      init();
+    });
+  </script>
+</body>
+</html>

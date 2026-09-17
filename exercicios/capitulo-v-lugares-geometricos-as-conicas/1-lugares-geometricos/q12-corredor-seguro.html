@@ -1,0 +1,45 @@
+<div class="exercise">
+<h3>CORREDOR SEGURO</h3>
+
+<p>Duas rotas de patrulha na Zona Devastada são modeladas pelas retas $r_1: x - 2y + 4 = 0$ e $r_2: 2x - y - 2 = 0$. Um corredor seguro é definido como o lugar geométrico dos pontos equidistantes das duas rotas. O objetivo deste exercício é construir as bissetrizes, interpretar qual delas representa o corredor seguro entre as rotas, e analisar a geometria do problema.</p>
+
+<p><strong>(a)</strong> Desenhe no papel as duas retas. Para isso, encontre dois pontos de cada reta (por exemplo, os interceptos com os eixos). Estime visualmente onde as retas se encontram e onde estão os ângulos agudo e obtuso entre elas.</p>
+
+<p><strong>(b)</strong> Seja $P(x,y)$ equidistante de $r_1$ e $r_2$. Escreva a condição $d(P, r_1) = d(P, r_2)$ usando a fórmula de distância ponto-reta. Calcule $\sqrt{a_1^2 + b_1^2}$ e $\sqrt{a_2^2 + b_2^2}$.</p>
+
+<p><strong>(c)</strong> Elimine os módulos considerando os dois sinais. Obtenha as duas equações das bissetrizes e simplifique-as.</p>
+
+<p><strong>(d)</strong> Encontre o ponto de intersecção $I$ das duas retas $r_1$ e $r_2$. Verifique que ambas as bissetrizes passam por $I$.</p>
+
+<p><strong>(e)</strong> Para determinar qual bissetriz é o corredor seguro (entre as rotas) e qual é a externa, escolha um ponto de teste entre as retas (por exemplo, um ponto próximo à intersecção) e avalie as distâncias. A bissetriz que passa por pontos entre as retas é o corredor seguro.</p>
+
+<p><strong>(f)</strong> Verifique que as duas bissetrizes são perpendiculares calculando o produto de seus coeficientes angulares.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>No item (b), $\sqrt{1^2 + (-2)^2} = \sqrt{5}$ e $\sqrt{2^2 + (-1)^2} = \sqrt{5}$. Os denominadores são iguais, o que simplifica a conta. No item (c), você obterá $|x - 2y + 4| = |2x - y - 2|$. Os dois casos do módulo geram duas retas. No item (e), o ponto $I$ de intersecção das retas é um bom ponto de referência — mas ele está sobre ambas as retas, não entre elas. Escolha um ponto ligeiramente deslocado de $I$ na direção entre as retas.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Interceptos de $r_1$: $x = 0 \Rightarrow y = 2$; $y = 0 \Rightarrow x = -4$. Pontos: $(0, 2)$ e $(-4, 0)$. Interceptos de $r_2$: $x = 0 \Rightarrow y = -2$; $y = 0 \Rightarrow x = 1$. Pontos: $(0, -2)$ e $(1, 0)$.</li>
+<li>Condição: $\dfrac{|x - 2y + 4|}{\sqrt{5}} = \dfrac{|2x - y - 2|}{\sqrt{5}}$, ou $|x - 2y + 4| = |2x - y - 2|$.</li>
+<li>Caso 1 ($+$): $x - 2y + 4 = 2x - y - 2 \Rightarrow -x - y + 6 = 0$, ou $x + y - 6 = 0$.</li>
+<li>Caso 2 ($-$): $x - 2y + 4 = -(2x - y - 2) \Rightarrow x - 2y + 4 = -2x + y + 2 \Rightarrow 3x - 3y + 2 = 0$.</li>
+<li>Intersecção de $r_1$ e $r_2$: $\begin{cases} x - 2y = -4 \\ 2x - y = 2 \end{cases}$. Da segunda: $y = 2x - 2$. Substituindo na primeira: $x - 2(2x-2) = -4 \Rightarrow x - 4x + 4 = -4 \Rightarrow -3x = -8 \Rightarrow x = \dfrac{8}{3}$. Então $y = 2\cdot\dfrac{8}{3} - 2 = \dfrac{16-6}{3} = \dfrac{10}{3}$. Ponto $I\left(\dfrac{8}{3}, \dfrac{10}{3}\right)$.</li>
+<li>Verificação da bissetriz $x + y - 6 = 0$: $\dfrac{8}{3} + \dfrac{10}{3} - 6 = \dfrac{18}{3} - 6 = 6 - 6 = 0$ ✓.</li>
+<li>Verificação da bissetriz $3x - 3y + 2 = 0$: $3\cdot\dfrac{8}{3} - 3\cdot\dfrac{10}{3} + 2 = 8 - 10 + 2 = 0$ ✓.</li>
+<li>Teste de ponto entre as retas: escolhemos $P_0(2, 1)$. Para $r_1$: $2 - 2(1) + 4 = 4 > 0$. Para $r_2$: $2(2) - 1 - 2 = 1 > 0$. Como ambos têm o mesmo sinal, $P_0$ está do mesmo lado de ambas as retas — não está entre elas. Vamos tentar $P_1(0, 0)$: $r_1$: $4 > 0$; $r_2$: $-2 < 0$. Sinais opostos! Logo $P_1(0,0)$ está entre as retas.</li>
+<li>Avaliando $P_1(0,0)$ nas bissetrizes: $x + y - 6 = -6 < 0$; $3x - 3y + 2 = 2 > 0$. A bissetriz $3x - 3y + 2 = 0$ passa pela região entre as retas (pois $P_1$ dá positivo nela). Mas espere — precisamos verificar melhor. Vamos testar $P_2(3, 3)$: $r_1$: $3 - 6 + 4 = 1 > 0$; $r_2$: $6 - 3 - 2 = 1 > 0$. Mesmo lado. $P_3(2, 3)$: $r_1$: $2 - 6 + 4 = 0$ (sobre $r_1$). $P_4(1, 2)$: $r_1$: $1 - 4 + 4 = 1 > 0$; $r_2$: $2 - 2 - 2 = -2 < 0$. Entre as retas! Avaliando $P_4$ nas bissetrizes: $x + y - 6 = 1 + 2 - 6 = -3 < 0$; $3x - 3y + 2 = 3 - 6 + 2 = -1 < 0$. Ambas dão negativo. Vamos testar $P_5(4, 4)$: $r_1$: $4 - 8 + 4 = 0$ (sobre). $P_6(5, 5)$: $r_1$: $5 - 10 + 4 = -1 < 0$; $r_2$: $10 - 5 - 2 = 3 > 0$. Entre as retas! Avaliando: $x + y - 6 = 4 > 0$; $3x - 3y + 2 = 2 > 0$. Ambas dão positivo.</li>
+<li>Análise mais cuidadosa: as duas bissetrizes se cruzam em $I$ e formam quatro setores. Cada setor contém pontos que estão entre as retas ou fora delas. A bissetriz $x + y - 6 = 0$ tem coeficiente angular $-1$. A bissetriz $3x - 3y + 2 = 0$, ou $y = x + \dfrac{2}{3}$, tem coeficiente angular $1$. O produto é $(-1) \cdot 1 = -1$, confirmando que são perpendiculares ✓.</li>
+<li>Para identificar o corredor seguro, note que as retas $r_1$ e $r_2$ se cruzam em $I$ formando quatro ângulos. As bissetrizes dividem esses ângulos. Uma bissetriz divide os ângulos opostos agudos; a outra, os ângulos opostos obtusos. O "corredor seguro" depende de qual ângulo consideramos — tecnicamente, há dois corredores (um para cada par de ângulos opostos), mas na prática o termo se refere à bissetriz do ângulo agudo.</li>
+</ol>
+<div class="formula">
+$$b_1: x + y - 6 = 0 \quad \text{e} \quad b_2: 3x - 3y + 2 = 0$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Duas retas concorrentes sempre geram duas bissetrizes perpendiculares. Cada bissetriz divide um par de ângulos opostos. Na Zona Devastada, ambas podem ser úteis: uma como corredor seguro entre duas rotas de patrulha, a outra como linha de fogo segura (equidistante das rotas, mas fora do setor entre elas). A perpendicularidade das bissetrizes é uma propriedade geométrica profunda: se uma reta divide um ângulo em duas partes iguais, a reta perpendicular a ela divide o ângulo suplementar em duas partes iguais.</p>
+</details>
+</div>

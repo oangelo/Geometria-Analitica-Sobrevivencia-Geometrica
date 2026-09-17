@@ -1,0 +1,23 @@
+<div class="exercise">
+<h3>PATRULHA EM LINHA</h3>
+<p>Nos exercícios anteriores, o determinante 2×2 calculou áreas. Mas ele tem um segundo poder: quando o resultado é zero, os três pontos são colineares — estão sobre a mesma reta. Três postos de patrulha foram instalados em $A(1, 1)$, $B(3, 2)$ e $C(7, 4)$. Para cada par de vetores partindo de $A$, calcule $u_1 v_2 - u_2 v_1$. Os postos estão alinhados? Se sim, uma única rota de patrulha cobre todos — economia de recursos. Depois, verifique também se os depósitos $P(0, 0)$, $Q(3, 1)$ e $R(6, 4)$ estão alinhados.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint"><p>Para cada trio de pontos, construa $\overrightarrow{AB}$ e $\overrightarrow{AC}$ (ou $\overrightarrow{PQ}$ e $\overrightarrow{PR}$) e calcule $u_1 v_2 - u_2 v_1$. Se o resultado for zero, os pontos são colineares. Se não for zero, calcule a área do triângulo.</p></div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>(a) Para $A(1, 1)$, $B(3, 2)$, $C(7, 4)$: $\overrightarrow{AB} = (2, 1)$ e $\overrightarrow{AC} = (6, 3)$</li>
+<li>Determinante: $2 \cdot 3 - 1 \cdot 6 = 6 - 6 = 0$</li>
+<li>Como o determinante é zero, os pontos $A$, $B$ e $C$ são <strong>colineares</strong>. Uma única rota de patrulha linear conecta os três abrigos.</li>
+<li>(b) Para $P(0, 0)$, $Q(3, 1)$, $R(6, 4)$: $\overrightarrow{PQ} = (3, 1)$ e $\overrightarrow{PR} = (6, 4)$</li>
+<li>Determinante: $3 \cdot 4 - 1 \cdot 6 = 12 - 6 = 6 \neq 0$</li>
+<li>Como o determinante não é zero, os pontos $P$, $Q$ e $R$ <strong>não são colineares</strong>. A área do triângulo $PQR$ é $\frac{1}{2} \cdot 6 = 3$ unidades quadradas.</li>
+</ol>
+<div class="formula">$$\text{(a) } \det = 2 \cdot 3 - 1 \cdot 6 = 0 \implies A, B, C \text{ são colineares}$$
+$$\text{(b) } \det = 3 \cdot 4 - 1 \cdot 6 = 6 \neq 0 \implies P, Q, R \text{ NÃO são colineares}$$
+$$\text{Área de } PQR = \frac{1}{2} \cdot 6 = 3$$</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A mesma fórmula que calcula área serve como teste de alinhamento. Determinante zero = colineares. Determinante não-zero = formam um triângulo cuja área é a metade do valor absoluto. Uma ferramenta, duas funções.</p>
+</details>
+</div>

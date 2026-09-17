@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova S - Geometria Analítica</title>
+    
+    <!-- Script do MathJax para renderizar LaTeX -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(', '\\)']],
+          displayMath: [['\\[', '\\]']]
+        },
+        svg: {
+          fontCache: 'global'
+        }
+      };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+
+    <!-- Estilos CSS para formatação -->
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 20px;
+        }
+        h2 {
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        ol {
+            list-style-type: lower-alpha;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 15px;
+        }
+        details {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+            color: #0056b3;
+        }
+        .solution {
+            padding-top: 10px;
+            margin-top: 10px;
+            border-top: 1px dashed #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Prova S (Gabarito) - Geometria Analítica</h1>
+
+    <h2>Questão 1</h2>
+    <p>Considere os pontos no R³: \( A = (1, 0, 1) \), \( B = (3, 1, 0) \), \( C = (0, 2, 0) \) e \( D = (2, 2, 4) \).</p>
+    <ol>
+        <li>
+            Encontre a equação geral do plano (\(\pi\)) que contém os pontos A, B e C.
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>Primeiro, determinamos dois vetores no plano, \(\overrightarrow{AB}\) e \(\overrightarrow{AC}\):</p>
+                    <p>\(\overrightarrow{AB} = B - A = (3-1, 1-0, 0-1) = (2, 1, -1)\)</p>
+                    <p>\(\overrightarrow{AC} = C - A = (0-1, 2-0, 0-1) = (-1, 2, -1)\)</p>
+                    <p>O vetor normal \(\vec{n}\) ao plano é o produto vetorial desses vetores:</p>
+                    <p>\( \vec{n} = \overrightarrow{AB} \times \overrightarrow{AC} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 2 & 1 & -1 \\ -1 & 2 & -1 \end{vmatrix} = \vec{i}(-1 - (-2)) - \vec{j}(-2 - 1) + \vec{k}(4 - (-1)) = (1, 3, 5) \)</p>
+                    <p>A equação do plano é da forma \(ax + by + cz + d = 0\). Usando \(\vec{n} = (1, 3, 5)\) e o ponto \(A = (1, 0, 1)\):</p>
+                    \[ 1(x - 1) + 3(y - 0) + 5(z - 1) = 0 \]
+                    \[ x - 1 + 3y + 5z - 5 = 0 \]
+                    <p>A equação geral do plano é: <strong>\( x + 3y + 5z - 6 = 0 \)</strong></p>
+                </div>
+            </details>
+        </li>
+        <li>
+            Determine as equações paramétricas da reta (r) que passa pelo ponto A e é perpendicular ao plano \(\pi\).
+             <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>A reta \(r\) é perpendicular ao plano \(\pi\), então seu vetor diretor \(\vec{v_r}\) é o próprio vetor normal do plano, \(\vec{n} = (1, 3, 5)\).</p>
+                    <p>A reta passa pelo ponto \(A = (1, 0, 1)\).</p>
+                    <p>As equações paramétricas são:</p>
+                    \[ r: \begin{cases} x = 1 + t \\ y = 3t \\ z = 1 + 5t \end{cases}, \quad t \in \mathbb{R} \]
+                </div>
+            </details>
+        </li>
+        <li>
+            Calcule a área do triângulo formado pelos pontos A, B e C.
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                     <p>A área do triângulo ABC é metade do módulo do produto vetorial \(\overrightarrow{AB} \times \overrightarrow{AC}\), que já calculamos no item (a).</p>
+                     <p>O vetor é \(\vec{n} = (1, 3, 5)\).</p>
+                     <p>O módulo do vetor é: \( |\vec{n}| = \sqrt{1^2 + 3^2 + 5^2} = \sqrt{1 + 9 + 25} = \sqrt{35} \)</p>
+                     <p>A área do triângulo é:</p>
+                     \[ \text{Área} = \frac{1}{2} |\overrightarrow{AB} \times \overrightarrow{AC}| = \frac{\sqrt{35}}{2} \text{ u.a.} \]
+                </div>
+            </details>
+        </li>
+        <li>
+            Calcule o volume do tetraedro de vértices A, B, C e D.
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                     <p>O volume do tetraedro é dado por \( V = \frac{1}{6} |(\overrightarrow{AD}) \cdot (\overrightarrow{AB} \times \overrightarrow{AC})| \).</p>
+                     <p>Primeiro, calculamos o vetor \(\overrightarrow{AD}\):</p>
+                     <p>\( \overrightarrow{AD} = D - A = (2-1, 2-0, 4-1) = (1, 2, 3) \)</p>
+                     <p>O produto vetorial \(\overrightarrow{AB} \times \overrightarrow{AC}\) já foi calculado e é \((1, 3, 5)\).</p>
+                     <p>Calculamos o produto misto (que é o produto escalar entre \(\overrightarrow{AD}\) e o resultado do produto vetorial):</p>
+                     \[ (\overrightarrow{AD}) \cdot (\overrightarrow{AB} \times \overrightarrow{AC}) = (1, 2, 3) \cdot (1, 3, 5) = (1)(1) + (2)(3) + (3)(5) = 1 + 6 + 15 = 22 \]
+                     <p>O volume do tetraedro é:</p>
+                     \[ V = \frac{1}{6} |22| = \frac{22}{6} = \frac{11}{3} \text{ u.v.} \]
+                </div>
+            </details>
+        </li>
+    </ol>
+    
+    <h2>Questão 2</h2>
+    <p>Dadas as retas \(r\) e \(s\) no R³:</p>
+    <ul>
+        <li>Reta \(r\): \( (x, y, z) = (1, 2, 0) + t(1, -1, 2) \), com \( t \in \mathbb{R} \)</li>
+        <li>Reta \(s\): \( \frac{x-2}{2} = \frac{y}{1} = \frac{z-1}{-1} \)</li>
+    </ul>
+    <ol>
+        <li>
+            Estude a posição relativa entre as retas \(r\) e \(s\).
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>Extraímos os pontos e vetores diretores de cada reta:</p>
+                    <p>\(r\): Ponto \(A_r=(1,2,0)\), vetor diretor \(\vec{v_r}=(1,-1,2)\).</p>
+                    <p>\(s\): Ponto \(A_s=(2,0,1)\), vetor diretor \(\vec{v_s}=(2,1,-1)\).</p>
+                    <p><b>1. Paralelismo:</b> Os vetores diretores não são múltiplos (\(\frac{1}{2} \neq \frac{-1}{1}\)), então as retas não são paralelas nem coincidentes.</p>
+                    <p><b>2. Concorrência/Reversas:</b> Calculamos o produto misto entre os vetores \(\vec{v_r}\), \(\vec{v_s}\) e o vetor que liga as retas, \(\overrightarrow{A_rA_s}\).</p>
+                    <p>\(\overrightarrow{A_rA_s} = A_s - A_r = (2-1, 0-2, 1-0) = (1, -2, 1)\).</p>
+                    <p>Produto misto \( [\overrightarrow{A_rA_s}, \vec{v_r}, \vec{v_s}] = \begin{vmatrix} 1 & -2 & 1 \\ 1 & -1 & 2 \\ 2 & 1 & -1 \end{vmatrix} \)</p>
+                    \[ = 1(1-2) - (-2)(-1-4) + 1(1 - (-2)) = -1 - 10 + 3 = -8 \]
+                    <p>Como o produto misto é diferente de zero (\(-8 \neq 0\)), os vetores não são coplanares. Portanto, as retas são <strong>reversas</strong>.</p>
+                </div>
+            </details>
+        </li>
+        <li>
+            Se forem reversas ou paralelas, calcule a distância entre elas. Se forem concorrentes, encontre o ponto de interseção.
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>Como as retas são reversas, a distância é dada pela fórmula: \( d(r,s) = \frac{|[\overrightarrow{A_rA_s}, \vec{v_r}, \vec{v_s}]|}{|\vec{v_r} \times \vec{v_s}|} \).</p>
+                    <p>O valor do produto misto já foi calculado: \(|-8| = 8\).</p>
+                    <p>Calculamos o produto vetorial \(\vec{v_r} \times \vec{v_s}\):</p>
+                    \[ \vec{v_r} \times \vec{v_s} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 1 & -1 & 2 \\ 2 & 1 & -1 \end{vmatrix} = \vec{i}(1-2) - \vec{j}(-1-4) + \vec{k}(1-(-2)) = (-1, 5, 3) \]
+                    <p>Calculamos o módulo: \(|\vec{v_r} \times \vec{v_s}| = \sqrt{(-1)^2 + 5^2 + 3^2} = \sqrt{1+25+9} = \sqrt{35}\).</p>
+                    <p>A distância é: <strong>\( d(r,s) = \frac{8}{\sqrt{35}} \)</strong> u.c.</p>
+                </div>
+            </details>
+        </li>
+        <li>
+            Encontre a equação de um plano \(\pi\) que contenha a reta \(r\) e seja paralelo à reta \(s\).
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>O plano \(\pi\) contém \(r\), então contém o ponto \(A_r=(1,2,0)\) e seu vetor normal \(\vec{n_\pi}\) deve ser perpendicular a \(\vec{v_r}\).</p>
+                    <p>O plano é paralelo a \(s\), então seu vetor normal \(\vec{n_\pi}\) também deve ser perpendicular a \(\vec{v_s}\).</p>
+                    <p>Portanto, o vetor normal do plano é dado pelo produto vetorial dos vetores diretores: \(\vec{n_\pi} = \vec{v_r} \times \vec{v_s} = (-1, 5, 3)\), como calculado no item anterior.</p>
+                    <p>Usando \(\vec{n_\pi}=(-1,5,3)\) e o ponto \(A_r=(1,2,0)\):</p>
+                    \[ -1(x-1) + 5(y-2) + 3(z-0) = 0 \]
+                    \[ -x + 1 + 5y - 10 + 3z = 0 \]
+                    <p>A equação geral do plano é: <strong>\( -x + 5y + 3z - 9 = 0 \)</strong> (ou \(x - 5y - 3z + 9 = 0\)).</p>
+                </div>
+            </details>
+        </li>
+    </ol>
+
+    <h2>Questão 3</h2>
+    <p>Considere o seguinte sistema linear:</p>
+    \[
+    \begin{cases}
+    x + y - z = 1 \\
+    2x + 3y + kz = 3 \\
+    x + ky + 3z = 2
+    \end{cases}
+    \]
+    <p>Para que valores de \(k\) o sistema:</p>
+    <ol>
+        <li>
+            não tem solução?
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>Após o escalonamento, a última linha da matriz aumentada corresponde à equação: \( (-k^2 - k + 6)z = 2-k \).</p>
+                    <p>O sistema não tem solução (SI) quando o coeficiente de \(z\) é zero, mas o termo independente não é.</p>
+                    <p>O coeficiente \( -k^2 - k + 6 = -(k-2)(k+3) \) é zero para \(k=2\) ou \(k=-3\).</p>
+                    <p>O termo independente \(2-k\) só é zero se \(k=2\).</p>
+                    <p>Portanto, a condição para SI (coeficiente zero e termo independente não-zero) é satisfeita apenas para <strong>\(k = -3\)</strong>.</p>
+                </div>
+            </details>
+        </li>
+        <li>
+            tem uma única solução?
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>O sistema tem uma única solução (SPD) quando o coeficiente da última variável no sistema escalonado é diferente de zero.</p>
+                    <p>A partir da equação \( (-k^2 - k + 6)z = 2-k \), o coeficiente de \(z\) deve ser não nulo:</p>
+                    \[ -k^2 - k + 6 \neq 0 \implies -(k-2)(k+3) \neq 0 \]
+                    <p>Isso ocorre quando <strong>\( k \neq 2 \) e \( k \neq -3 \)</strong>.</p>
+                </div>
+            </details>
+        </li>
+        <li>
+            tem infinitas soluções?
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>O sistema tem infinitas soluções (SPI) quando o coeficiente de \(z\) e o termo independente na última equação são ambos zero, resultando em \(0 \cdot z = 0\).</p>
+                    <p>Coeficiente zero: \(k=2\) ou \(k=-3\).</p>
+                    <p>Termo independente zero: \(k=2\).</p>
+                    <p>A única condição que satisfaz ambos é <strong>\(k = 2\)</strong>.</p>
+                </div>
+            </details>
+        </li>
+    </ol>
+
+    <h2>Questão 4</h2>
+    <p>Uma hipérbole tem focos em \(F_1=(2, 5)\) e \(F_2=(2, -1)\), e o comprimento do seu eixo real (transverso) é 4. Determine:</p>
+    <ol>
+        <li>
+            As coordenadas do centro (C), os valores de \(a\), \(b\) e a distância focal \(c\).
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>Como os focos têm a mesma coordenada x, a hipérbole é <strong>vertical</strong>.</p>
+                    <p><b>Centro (C):</b> É o ponto médio dos focos. \( C = \left(\frac{2+2}{2}, \frac{5+(-1)}{2}\right) = (2, 2) \).</p>
+                    <p><b>Distância focal (c):</b> É a distância do centro a um dos focos. \( c = \text{dist}(C, F_1) = \sqrt{(2-2)^2 + (5-2)^2} = \sqrt{3^2} = 3 \).</p>
+                    <p><b>Semieixo real (a):</b> O comprimento do eixo real é \(2a = 4\), então \( a = 2 \).</p>
+                    <p><b>Semieixo imaginário (b):</b> Usamos a relação da hipérbole \(c^2 = a^2 + b^2\).
+                    \( 3^2 = 2^2 + b^2 \implies 9 = 4 + b^2 \implies b^2 = 5 \). Logo, \( b = \sqrt{5} \).</p>
+                    <p><strong>Resumo:</strong> C=(2,2), a=2, b=\(\sqrt{5}\), c=3.</p>
+                </div>
+            </details>
+        </li>
+        <li>
+            A equação reduzida da hipérbole.
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>A equação de uma hipérbole vertical com centro \((h,k)\) é: \( \frac{(y-k)^2}{a^2} - \frac{(x-h)^2}{b^2} = 1 \).</p>
+                    <p>Substituindo os valores \(C=(2,2)\), \(a^2=4\) e \(b^2=5\), obtemos:</p>
+                    \[ \frac{(y-2)^2}{4} - \frac{(x-2)^2}{5} = 1 \]
+                </div>
+            </details>
+        </li>
+        <li>
+            Esboce o gráfico da hipérbole, indicando seus vértices e focos.
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>Para esboçar o gráfico:</p>
+                    <ol>
+                        <li>Marque o centro \(C(2,2)\).</li>
+                        <li>Marque os focos \(F_1(2,5)\) e \(F_2(2,-1)\).</li>
+                        <li>Marque os vértices reais (no eixo focal), que estão a uma distância \(a=2\) do centro: \(V_1=(2, 2+2)=(2,4)\) e \(V_2=(2, 2-2)=(2,0)\).</li>
+                        <li>A partir do centro, desenhe um "retângulo de referência" com altura \(2a=4\) e largura \(2b=2\sqrt{5}\). As retas que passam pelas diagonais desse retângulo são as assíntotas.</li>
+                        <li>Desenhe as duas ramificações da hipérbole, partindo dos vértices \(V_1\) e \(V_2\) e se aproximando assintoticamente das retas traçadas.</li>
+                    </ol>
+                </div>
+            </details>
+        </li>
+    </ol>
+    
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!-- 05-TÓPICO: PRODUTO VETORIAL E MISTO (corresponde ao tópico 3 dos exercícios) -->
+<section>
+  <!-- V1: Abertura (motivação + insert narrativo) -->
+  <section class="field-report">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 05 &middot; PRODUTO VETORIAL E MISTO</div>
+    <h2>Direção Perpendicular</h2>
+    <h3 class="mission-subtitle">Como Achar uma Direção Perpendicular a Duas Outras?</h3>
+    <p>No \(R^2\), girar um vetor em 90° era simples. No \(R^3\), infinitas direções são perpendiculares a um dado vetor: precisamos de uma ferramenta que produza <strong>a</strong> perpendicular a <strong>duas</strong> direções.</p>
+    <p>O produto vetorial é exclusivo do \(R^3\): recebe dois vetores e devolve um terceiro, perpendicular a ambos.</p>
+    <div class="survival-tip">
+      <p>Mude os vetores e veja como a normal e a área do paralelogramo se alteram no simulador adiante.</p>
+    </div>
+    <p class="narrative-insert">Quem constrói sem engenheiro descobre a gravidade no dia errado.</p>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V2: Definição do produto vetorial -->
+  <section class="mission-briefing">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 05 &middot; PRODUTO VETORIAL E MISTO</div>
+    <h2>Produto Vetorial: Exclusivo do \(R^3\)</h2>
+    <div class="definition-box">
+      <p class="formula">\[ \vec{u} \times \vec{v} = \det \begin{pmatrix} \vec{i} & \vec{j} & \vec{k} \\ u_x & u_y & u_z \\ v_x & v_y & v_z \end{pmatrix} = (u_y v_z - u_z v_y)\vec{i} - (u_x v_z - u_z v_x)\vec{j} + (u_x v_y - u_y v_x)\vec{k} \]</p>
+      <p><strong>Módulo com significado geométrico:</strong> \(\|\vec{u} \times \vec{v}\| = \|\vec{u}\| \cdot \|\vec{v}\| \sin \theta =\) área do paralelogramo.</p>
+    </div>
+    <p class="mnemonic">"Determinante com \(\vec{i}\), \(\vec{j}\), \(\vec{k}\) na primeira fila, o vetor perpendicular você terá."</p>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V3: Simulador do produto vetorial -->
+  <section class="simulator">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 05 &middot; PRODUTO VETORIAL E MISTO</div>
+    <h3>Simulador: Produto Vetorial em Ação</h3>
+    <div class="canvas-container">
+      <canvas id="produto-vetorial-canvas" width="800" height="400"></canvas>
+      <div class="simulator-controls">
+        <p>Vetor \(\vec{u}\):</p>
+        <div class="control-panel">
+          <label for="pv-ux">\(u_x\):</label> <input type="range" id="pv-ux" min="-3" max="3" value="2" step="0.1"> <span id="pv-ux-value">2</span>
+          <label for="pv-uy">\(u_y\):</label> <input type="range" id="pv-uy" min="-3" max="3" value="0" step="0.1"> <span id="pv-uy-value">0</span>
+          <label for="pv-uz">\(u_z\):</label> <input type="range" id="pv-uz" min="-3" max="3" value="0" step="0.1"> <span id="pv-uz-value">0</span>
+        </div>
+        <p>Vetor \(\vec{v}\):</p>
+        <div class="control-panel">
+          <label for="pv-vx">\(v_x\):</label> <input type="range" id="pv-vx" min="-3" max="3" value="0" step="0.1"> <span id="pv-vx-value">0</span>
+          <label for="pv-vy">\(v_y\):</label> <input type="range" id="pv-vy" min="-3" max="3" value="2" step="0.1"> <span id="pv-vy-value">2</span>
+          <label for="pv-vz">\(v_z\):</label> <input type="range" id="pv-vz" min="-3" max="3" value="0" step="0.1"> <span id="pv-vz-value">0</span>
+        </div>
+        <p>\(\vec{u} \times \vec{v}\): <span id="pv-result-vector" class="formula">(0,0,4)</span> | Área: <span id="pv-area-value" class="formula">4</span></p>
+      </div>
+    </div>
+    <div class="hint-message">
+      <p>O vetor verde é perpendicular aos dois vetores de entrada. A área do paralelogramo é o seu módulo.</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V4: Produto misto -->
+  <section class="mission-briefing">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 05 &middot; PRODUTO VETORIAL E MISTO</div>
+    <h2>Produto Misto: Volumes na Prática</h2>
+    <div class="definition-box">
+      <p class="formula">\[ [\vec{u}, \vec{v}, \vec{w}] = (\vec{u} \times \vec{v}) \cdot \vec{w} \]</p>
+      <p>\(\left|(\vec{u} \times \vec{v}) \cdot \vec{w}\right| =\) volume do paralelepípedo definido pelos três vetores.</p>
+      <p class="formula">\[ [\vec{u}, \vec{v}, \vec{w}] = \det \begin{pmatrix} u_x & u_y & u_z \\ v_x & v_y & v_z \\ w_x & w_y & w_z \end{pmatrix} \]</p>
+    </div>
+    <p class="mnemonic">"Determinante dos vetores expostos, o misto dá o volume, sem grandes desgostos."</p>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V5: Simulador do produto misto -->
+  <section class="simulator">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 05 &middot; PRODUTO VETORIAL E MISTO</div>
+    <h3>Simulador: Volume com Produto Misto</h3>
+    <div class="canvas-container">
+      <canvas id="produto-misto-canvas" width="800" height="400"></canvas>
+      <div class="simulator-controls">
+        <div class="control-panel">
+          <label for="pm-wz-slider">\(w_z\):</label>
+          <input type="range" id="pm-wz-slider" min="-2" max="2" value="1" step="0.1">
+          <span id="pm-wz-value-span">1</span>
+          <button id="pm-reset-btn" class="operation-btn">Resetar Vetores</button>
+        </div>
+        <p>\(\vec{u}\) = (<span id="pm-ux-val">2.0</span>, <span id="pm-uy-val">0.5</span>, <span id="pm-uz-val">0.2</span>) &nbsp;
+           \(\vec{v}\) = (<span id="pm-vx-val">0.5</span>, <span id="pm-vy-val">2.0</span>, <span id="pm-vz-val">0.3</span>) &nbsp;
+           \(\vec{w}\) = (<span id="pm-wx-val">0.2</span>, <span id="pm-wy-val">0.3</span>, <span id="pm-wz-value-span">1.0</span>)</p>
+        <p>Volume do paralelepípedo: <span id="pm-volume-value" class="formula">1</span></p>
+      </div>
+    </div>
+    <div class="hint-message">
+      <p>Manipule \(w_z\) e veja o paralelepípedo mudar. Volume zero significa vetores coplanares.</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V6: Debriefing -->
+  <section class="debriefing">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 05 &middot; PRODUTO VETORIAL E MISTO</div>
+    <h3>Debriefing: Arsenal Tridimensional</h3>
+    <div class="summary-box">
+      <p>O produto vetorial devolve a perpendicular e mede áreas; o produto misto fecha o trio e mede volumes.</p>
+    </div>
+    <div class="next-mission">
+      <p>Próxima diretiva: com a normal em mãos, descrevemos superfícies inteiras. Equação do Plano.</p>
+    </div>
+    <div class="instructor-note">
+      <p>"Com estas ferramentas, vocês moldam o mundo."</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+</section>

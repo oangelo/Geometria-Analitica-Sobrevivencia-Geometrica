@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Cap. I — Pontos Notáveis</title>
+  <link href="https://unpkg.com/reveal.js@5.1.0/dist/reveal.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/reveal.js@5.1.0/dist/theme/black.css" id="theme" rel="stylesheet"/>
+  <link href="../styles.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+  <!-- SEÇÃO 5: APLICAÇÕES — PONTO MÉDIO E BARICENTRO -->
+  <section>
+    <!-- Slide 5.1 — Pontos Estratégicos no Plano (Motivação) -->
+    <section class="field-report">
+      <h2>Pontos Estratégicos no Plano</h2>
+      <h3 class="mission-subtitle">O Tratado da Confederação do Vale</h3>
+      <div class="narrative-text">
+        <p>Após anos de conflitos por recursos, cinco comunidades da região assinaram o Tratado da Confederação do Vale. O acordo exigia postos de troca neutros, equidistantes entre os assentamentos. Para que nenhuma comunidade tivesse vantagem, os Engenheiros precisavam de ferramentas geométricas precisas.</p>
+      </div>
+      <p>Onde construir um ponto de encontro entre <strong>duas</strong> comunidades? E entre <strong>três</strong>?</p>
+      <div class="survival-tip">
+        <p>⚖️ PRINCÍPIO DE SOBREVIVÊNCIA: Na wasteland, quem controla a geometria controla o equilíbrio de poder.</p>
+      </div>
+    </section>
+
+    <!-- Slide 5.2 — O Ponto Médio (Definição) -->
+    <section class="mission-briefing">
+      <h2>O Ponto Médio</h2>
+      <h3 class="mission-subtitle">Equilíbrio entre Dois Pontos</h3>
+      <div class="concept-definition">
+        <p>Dados dois pontos <strong>A</strong> e <strong>B</strong>, o <strong>ponto médio</strong> <strong>M</strong> é o ponto equidistante de ambos:</p>
+        <p class="formula">\[ M = \left(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}\right) \]</p>
+      </div>
+      <p>Aplicações na wasteland:</p>
+      <ul>
+        <li>Postos de troca entre duas comunidades rivais</li>
+        <li>Pontos de encontro equidistantes para caravanas</li>
+        <li>Divisão justa de territórios entre assentamentos</li>
+      </ul>
+      <div class="mnemonic">
+        <p>"Para encontrar o meio, some e divida por dois — a justiça geométrica é simples assim."</p>
+      </div>
+    </section>
+
+    <!-- Slide 5.3 — Visualização: Ponto Médio -->
+    <section class="simulator">
+      <h3>Visualização: Ponto Médio</h3>
+      <div class="visualization-container">
+        <img src="svg/ponto-medio-triangulo.svg" alt="Ponto médio de um segmento no plano cartesiano"/>
+      </div>
+      <div class="hint-message">
+        <p>O ponto médio divide o segmento em duas partes iguais. Note que cada coordenada é a média aritmética das coordenadas correspondentes.</p>
+      </div>
+    </section>
+
+    <!-- Slide 5.4 — O Baricentro (Definição) -->
+    <section class="mission-briefing">
+      <h2>O Baricentro</h2>
+      <h3 class="mission-subtitle">Centro de Equilíbrio de Três Pontos</h3>
+      <div class="concept-definition">
+        <p>Dados três pontos <strong>A</strong>, <strong>B</strong> e <strong>C</strong>, o <strong>baricentro</strong> <strong>G</strong> é o centro de equilíbrio do triângulo:</p>
+        <p class="formula">\[ G = \left(\frac{x_1 + x_2 + x_3}{3}, \frac{y_1 + y_2 + y_3}{3}\right) \]</p>
+        <p>Geometricamente, é o ponto de interseção das <strong>medianas</strong> do triângulo.</p>
+      </div>
+      <p>Aplicações na wasteland:</p>
+      <ul>
+        <li>Centros de comando que supervisionam três postos simultaneamente</li>
+        <li>Distribuição equitativa de recursos entre três comunidades</li>
+        <li>Centro de massa de estruturas triangulares</li>
+      </ul>
+      <div class="survival-tip">
+        <p>⚖️ PRINCÍPIO DE JUSTIÇA GEOMÉTRICA: "Quando três comunidades disputam recursos, o centro de distribuição no baricentro garante que nenhuma terá vantagem geográfica sobre as outras."</p>
+      </div>
+    </section>
+
+    <!-- Slide 5.5 — Visualização: Baricentro -->
+    <section class="simulator">
+      <h3>Visualização: Baricentro</h3>
+      <div class="visualization-container">
+        <img src="svg/baricentro-triangulo.svg" alt="Baricentro de um triângulo como interseção das medianas"/>
+      </div>
+      <div class="hint-message">
+        <p>O baricentro divide cada mediana na proporção 2:1, com o segmento maior adjacente ao vértice.</p>
+      </div>
+    </section>
+
+    <!-- Slide 5.6 — Treinamento: Pontos Notáveis (Exercícios) -->
+    <section class="survival-training level-intermediate">
+      <h2>Treinamento: Pontos Notáveis</h2>
+      <h3 class="mission-subtitle">Nível Intermediário <span class="level-indicator">INTERMEDIÁRIO</span></h3>
+
+      <div class="training-problem">
+        <h4>Exercício 1: Ponto de Encontro entre Duas Comunidades</h4>
+        <p>Duas comunidades estão localizadas nos pontos <strong>A</strong>\((2, 4)\) e <strong>B</strong>\((8, 10)\). Onde construir o posto de troca equidistante?</p>
+        <p><em>Calcule as coordenadas do ponto médio <strong>M</strong>.</em></p>
+      </div>
+
+      <div class="training-problem">
+        <h4>Exercício 2: Centro de Distribuição entre Três Comunidades</h4>
+        <p>Três comunidades ocupam os pontos <strong>A</strong>\((0, 0)\), <strong>B</strong>\((12, 0)\) e <strong>C</strong>\((6, 8)\). Onde construir o centro de distribuição de recursos para máxima equidade?</p>
+        <p><em>Calcule as coordenadas do baricentro <strong>G</strong>.</em></p>
+      </div>
+
+      <div class="training-problem">
+        <h4>Exercício 3: Coordenadas Exatas do Posto de Troca</h4>
+        <p>Um posto de troca deve ser construído exatamente no ponto médio entre os pontos <strong>P</strong>\((2, 3)\) e <strong>Q</strong>\((8, 7)\).</p>
+        <p><em>Quais são as coordenadas exatas do posto?</em></p>
+      </div>
+
+      <div class="problem-context">
+        <p>⚠️ ALERTA: Erros de cálculo em coordenadas estratégicas podem levar a conflitos territoriais. Verifique sempre suas respostas!</p>
+      </div>
+    </section>
+  </section>
+</div>
+</div>
+<script src="https://unpkg.com/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(','\\)']],
+      displayMath: [['\\[','\\]']]
+    }
+  };
+  Reveal.initialize({ hash: true, slideNumber: true });
+</script>
+</body>
+</html>

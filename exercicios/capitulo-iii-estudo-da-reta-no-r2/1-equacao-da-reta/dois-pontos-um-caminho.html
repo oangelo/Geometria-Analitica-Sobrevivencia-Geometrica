@@ -1,0 +1,29 @@
+<div class="exercise">
+<h3>DOIS PONTOS, UM CAMINHO</h3>
+
+<p>O Refúgio-12 está no ponto $A(1, 2)$ e a fonte de água potável está no ponto $B(4, 6)$. No papel, marque esses dois pontos em um sistema de coordenadas, trace o segmento que os une e observe a direção do deslocamento. Do Capítulo I, sabemos que o vetor $\overrightarrow{AB} = B - A$ captura essa direção. Construa $\overrightarrow{AB}$, escreva a equação paramétrica da reta que passa por $A$ na direção desse vetor e verifique se o ponto $P(7, 10)$ pertence a essa reta — ele poderia ser um ponto de parada intermediário na rota.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>O vetor diretor é $\overrightarrow{AB} = (4-1, 6-2)$. A equação paramétrica usa um ponto da reta (escolha $A$) e o vetor diretor: $x = x_0 + t \cdot d_1$, $y = y_0 + t \cdot d_2$. Para verificar se $P(7, 10)$ pertence à reta, encontre o valor de $t$ na primeira equação e confirme na segunda.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Construa o vetor diretor: $\overrightarrow{AB} = B - A = (4-1, 6-2) = (3, 4)$.</li>
+<li>Escreva a equação paramétrica usando $P_0 = A(1, 2)$ e $\vec{d} = (3, 4)$:
+   $x = 1 + 3t$, $y = 2 + 4t$.</li>
+<li>Para verificar $P(7, 10)$: na primeira equação, $7 = 1 + 3t \Rightarrow 3t = 6 \Rightarrow t = 2$.</li>
+<li>Substitua $t = 2$ na segunda equação: $y = 2 + 4 \times 2 = 2 + 8 = 10$. Confere com a coordenada $y$ de $P$.</li>
+<li>Conclusão: $P(7, 10)$ pertence à reta — é um ponto válido na rota (corresponde a $t = 2$, ou seja, "andar duas vezes" o vetor diretor a partir de $A$).</li>
+</ol>
+<div class="formula">
+$$\overrightarrow{AB} = (3, 4), \quad x = 1 + 3t, \quad y = 2 + 4t$$
+$$t = 2 \Rightarrow x = 7, \; y = 10 \; \checkmark$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A equação paramétrica é um "gerador de pontos": cada valor de $t$ produz uma coordenada da rota. Na Zona Devastada, isso significa que podemos calcular pontos de abrigo intermediários sem sair do papel — economizando expedições reais e reduzindo exposição à radiação.</p>
+</details>
+</div>

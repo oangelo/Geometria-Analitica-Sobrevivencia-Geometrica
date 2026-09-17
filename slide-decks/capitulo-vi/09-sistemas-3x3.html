@@ -1,0 +1,360 @@
+<!-- 09-TÓPICO: SISTEMAS LINEARES 3×3 (corresponde ao tópico 7 dos exercícios) -->
+<section>
+  <!-- V1: Abertura (motivação + insert narrativo) -->
+  <section class="field-report">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 09 &middot; SISTEMAS LINEARES 3×3</div>
+    <h2>O Encontro de Planos</h2>
+    <h3 class="mission-subtitle">Resolver um Sistema é Ver Planos se Cruzarem</h3>
+    <p>Cada equação linear 3×3 é um <strong>plano</strong> no espaço (Tópico 07). Resolver um sistema de três equações é encontrar os pontos onde os três planos se cruzam: um ponto, uma reta, um plano ou nada.</p>
+    <p><strong>Problema:</strong> como organizar o cálculo sem se perder em três equações e três incógnitas?</p>
+    <div class="survival-tip">
+      <p>Entender como as superfícies se encontram é a diferença entre emboscar e ser emboscado. A geometria não mente.</p>
+    </div>
+    <p class="narrative-insert">No estado do Rio de Janeiro, 2,1 milhões de pessoas moram em favelas e comunidades urbanas. A Rocinha, no Rio, é a maior favela do Brasil.</p>
+    <p class="chapter-meta">Fonte: IBGE, Censo 2022</p>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V2: Matriz aumentada -->
+  <section class="mission-briefing">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 09 &middot; SISTEMAS LINEARES 3×3</div>
+    <h2>Ferramenta: A Matriz Aumentada</h2>
+    <div class="definition-box">
+      <p class="formula">\[ \begin{cases} \pi_1: a_{11}x + a_{12}y + a_{13}z = b_1 \\ \pi_2: a_{21}x + a_{22}y + a_{23}z = b_2 \\ \pi_3: a_{31}x + a_{32}y + a_{33}z = b_3 \end{cases} \]</p>
+      <p>Viram uma única estrutura:</p>
+      <p class="formula">\[ \left[ \begin{array}{ccc|c} a_{11} & a_{12} & a_{13} & b_1 \\ a_{21} & a_{22} & a_{23} & b_2 \\ a_{31} & a_{32} & a_{33} & b_3 \end{array} \right] \]</p>
+    </div>
+    <p>A matriz aumentada \([A|B]\) é o painel de controle do sistema: à esquerda os coeficientes, à direita os resultados.</p>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V3: Operações elementares -->
+  <section class="mission-briefing">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 09 &middot; SISTEMAS LINEARES 3×3</div>
+    <h2>Operações Elementares Sobre Linhas</h2>
+    <div class="definition-box">
+      <p class="formula">\[ L_i \leftrightarrow L_j \quad \text{(trocar duas linhas)} \]</p>
+      <p class="formula">\[ L_i \leftarrow kL_i, \quad k \neq 0 \quad \text{(multiplicar linha)} \]</p>
+      <p class="formula">\[ L_i \leftarrow L_i + kL_j \quad \text{(somar múltiplo de outra)} \]</p>
+    </div>
+    <p>Estas operações não mudam o conjunto solução: o sistema muda de forma, mas os planos se cruzam nos mesmos pontos.</p>
+    <p class="mnemonic">"Trocar, multiplicar, somar com múltiplo de outra. São as chaves para o sistema desvendar, sem que a solução se perca ou fuja!"</p>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V4: Escalonamento de Gauss -->
+  <section class="field-report">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 09 &middot; SISTEMAS LINEARES 3×3</div>
+    <h2>Estratégia: Escalonamento (Método de Gauss)</h2>
+    <p>Meta: triangular a matriz com <strong>pivôs</strong> (primeiros elementos não nulos) abaixo formando uma escada:</p>
+    <p class="formula">\[ \left[ \begin{array}{ccc|c} \blacksquare & * & * & * \\ 0 & \blacksquare & * & * \\ 0 & 0 & \blacksquare & *' \end{array} \right] \]</p>
+    <p>Depois de escalonar, resolva de baixo para cima (<strong>retrosubstituição</strong>): primeiro \(z\), depois \(y\), depois \(x\).</p>
+    <div class="survival-tip">
+      <p>Pense como remover camadas de entulho para revelar a estrutura central.</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V5: Interpretando o painel escalonado (reescrito e reordenado, era antigo V8) -->
+  <section class="field-report">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 09 &middot; SISTEMAS LINEARES 3×3</div>
+    <h2>Assinatura do Painel Escalonado</h2>
+    <div class="info-panel">
+      <div class="info-screen">
+        <h4>Três pistas deixadas pela escada:</h4>
+        <ul>
+          <li><strong>3 pivôs:</strong> solução única (SPD) — o ponto de encontro dos três planos.</li>
+          <li><strong>Linha nula \([0\;0\;0 \mid 0]\):</strong> equação verdadeira para qualquer valor — existe variável livre, infinitas soluções (SPI). <em>1 variável livre → a interseção é uma reta; 2 variáveis livres → a interseção é um plano.</em></li>
+          <li><strong>Linha \([0\;0\;0 \mid k]\), \(k \neq 0\):</strong> afirmação impossível do tipo \(0 = k\) (SI).</li>
+        </ul>
+      </div>
+    </div>
+    <div class="survival-tip">
+      <p>SI tem sabores geométricos diferentes (prisma, dois paralelos, planos coincidentes): o escalonamento só diz "impossível". Separar esses sabores exige comparar os vetores normais aos pares — veremos adiante.</p>
+    </div>
+    <p>O determinante do Tópico 04 reaparece aqui: \(\det \neq 0\) garante três pivôs e, com isso, ponto único (SPD).</p>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V6: Análise da interseção de dois planos (reescrito, issue #53) -->
+  <section class="field-report">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 09 &middot; SISTEMAS LINEARES 3×3</div>
+    <h2>Análise: Interseção de Dois Planos</h2>
+    <div class="definition-box">
+      <p>Dois planos formam um sistema 2×3:</p>
+      <p class="formula">\[ \begin{cases} a_1x + b_1y + c_1z = d_1 \\ a_2x + b_2y + c_2z = d_2 \end{cases} \]</p>
+      <p><strong>Método:</strong> escalonar a matriz aumentada do par e resolver com uma <strong>variável livre</strong> — o que resulta, sempre que os planos não são paralelos, em uma <strong>reta</strong> de interseção.</p>
+    </div>
+    <div class="info-panel">
+      <div class="info-screen">
+        <h4>Quatro casos (normais \(\vec{n}_1\) e \(\vec{n}_2\)):</h4>
+        <ul>
+          <li><strong>Paralelos coincidentes:</strong> \(\vec{n}_2 = k\vec{n}_1\) e as equações são proporcionais → um mesmo plano.</li>
+          <li><strong>Paralelos distintos:</strong> \(\vec{n}_1 \parallel \vec{n}_2\), equações não proporcionais → sistema impossível.</li>
+          <li><strong>Secantes perpendiculares:</strong> \(\vec{n}_1 \cdot \vec{n}_2 = 0\) → interseção em reta, planos a 90°.</li>
+          <li><strong>Secantes oblíquos:</strong> \(\vec{n}_1 \cdot \vec{n}_2 \neq 0\) → interseção em reta, ângulo qualquer entre os planos.</li>
+        </ul>
+      </div>
+    </div>
+    <p>Para achar e classificar a interseção escolhemos o <strong>escalonamento</strong>. Como verificação, o produto vetorial do Tópico 05 dá a direção: \(\vec{v} = \vec{n}_1 \times \vec{n}_2\).</p>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V7: Exemplo 1 — dois planos coincidentes (enunciado, sem solução) -->
+  <section class="survival-training">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 09 &middot; SISTEMAS LINEARES 3×3</div>
+    <h3>Problema #VI.9.a: Planos Coincidentes</h3>
+    <div class="training-problem">
+      <h4>Uma única superfície</h4>
+      <p>Escalone a matriz aumentada do sistema e classifique a interseção dos planos:</p>
+      <p class="formula">\[ \begin{cases} \pi_1: x + y + z = 1 \\ \pi_2: 2x + 2y + 2z = 2 \end{cases} \]</p>
+    </div>
+    <div class="visualization-container">
+      <img class="svg-image-small" src="capitulo_vi_imagens_sistemas_py/2planos_coincidentes_py.svg" alt="Dois planos coincidentes ocupando o mesmo lugar no espaço" />
+    </div>
+    <div class="problem-context">
+      <p>Ao comparar as normais, veja se as equações são proporcionais.</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V8: Exemplo 2 — dois planos paralelos distintos (enunciado, sem solução) -->
+  <section class="survival-training">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 09 &middot; SISTEMAS LINEARES 3×3</div>
+    <h3>Problema #VI.9.b: Planos Paralelos Distintos</h3>
+    <div class="training-problem">
+      <h4>Nunca se encontram</h4>
+      <p>Escalone a matriz aumentada do sistema e classifique a interseção dos planos:</p>
+      <p class="formula">\[ \begin{cases} \pi_1: x + y + z = 1 \\ \pi_2: x + y + z = 2 \end{cases} \]</p>
+    </div>
+    <div class="visualization-container">
+      <img class="svg-image-small" src="capitulo_vi_imagens_sistemas_py/2planos_paralelos_distintos_py.svg" alt="Dois planos paralelos que nunca se tocam" />
+    </div>
+    <div class="problem-context">
+      <p>Normais iguais, constantes diferentes: que linha o escalonamento revela?</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V9: Exemplo 3 — dois planos secantes perpendiculares (enunciado, sem solução) -->
+  <section class="survival-training">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 09 &middot; SISTEMAS LINEARES 3×3</div>
+    <h3>Problema #VI.9.c: Secantes Perpendiculares</h3>
+    <div class="training-problem">
+      <h4>Um cruzamento em ângulo reto</h4>
+      <p>Escalone a matriz aumentada do sistema, classifique e determine a reta-interseção:</p>
+      <p class="formula">\[ \begin{cases} \pi_1: x = 0 \\ \pi_2: y = 0 \end{cases} \]</p>
+    </div>
+    <div class="visualization-container">
+      <img class="svg-image-small" src="capitulo_vi_imagens_sistemas_py/2planos_intersecao_reta_py.svg" alt="Dois planos perpendiculares se cruzando em uma reta vertical" />
+    </div>
+    <div class="problem-context">
+      <p>As normais \(\vec{n}_1\) e \(\vec{n}_2\) são perpendiculares — que reta os planos compartilham?</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V10: Exemplo 4 — dois planos secantes oblíquos (enunciado, sem solução) -->
+  <section class="survival-training">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 09 &middot; SISTEMAS LINEARES 3×3</div>
+    <h3>Problema #VI.9.d: Secantes Oblíquos</h3>
+    <div class="training-problem">
+      <h4>Um cruzamento inclinado</h4>
+      <p>Escalone a matriz aumentada do sistema, classifique e determine a reta-interseção:</p>
+      <p class="formula">\[ \begin{cases} \pi_1: x + y + z = 1 \\ \pi_2: x + z = 1 \end{cases} \]</p>
+      <p>Espere uma reta do tipo \(r:(1,0,0) + t(-1,0,1)\). Compare ainda com a alternativa validada nos exercícios: \(\pi_1: x + 2y - z + 1 = 0\), \(\pi_2: 2x - y + z - 3 = 0\), cuja interseção é \(r:(1,-1,0) + t(1,-3,-5)\).</p>
+    </div>
+    <div class="visualization-container">
+      <img class="svg-image-small" src="capitulo_vi_imagens_sistemas_py/2planos_intersecao_reta_py.svg" alt="Dois planos secantes oblíquos se cruzando em uma reta" />
+    </div>
+    <div class="problem-context">
+      <p>Normais não paralelas: resta sempre uma variável livre no sistema escalonado.</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V11: Três planos — det ≠ 0 → ponto único (mantido, era antigo V6) -->
+  <section class="mission-briefing">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 09 &middot; SISTEMAS LINEARES 3×3</div>
+    <h2>O Encontro de Três Planos (1/2)</h2>
+    <h3 class="mission-subtitle">Determinante não nulo: ponto único</h3>
+    <div class="definition-box">
+      <p>Se \(\det(\vec{n}_1, \vec{n}_2, \vec{n}_3) \neq 0\), as normais são linearmente independentes: os planos se cruzam em <strong>um único ponto</strong>.</p>
+      <p class="formula">\[ \text{Sistema Possível Determinado (SPD)} \]</p>
+    </div>
+    <div class="visualization-container">
+      <img class="svg-image-small" src="capitulo_vi_imagens_sistemas_py/3planos_intersecao_ponto_py.svg" alt="Três planos se cruzando em um único ponto" />
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V12: Três planos — det = 0 (reescrito e ampliado, era antigo V7) -->
+  <section class="mission-briefing">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 09 &middot; SISTEMAS LINEARES 3×3</div>
+    <h2>O Encontro de Três Planos (2/2)</h2>
+    <h3 class="mission-subtitle">Determinante nulo: reta, plano ou nada</h3>
+    <p>Se \(\det = 0\), as normais são dependentes e o sistema <strong>nunca é SPD</strong>. Para separar os casos restantes, <strong>escalone</strong> a matriz aumentada:</p>
+    <div class="visualization-container">
+      <img class="svg-image-small" src="capitulo_vi_imagens_sistemas_py/3planos_intersecao_reta_livro_py.svg" alt="Três planos com interseção em uma reta (SPI)" />
+      <img class="svg-image-small" src="capitulo_vi_imagens_sistemas_py/3planos_coincidentes_py.svg" alt="Três planos coincidentes formando um único plano (SPI)" />
+      <img class="svg-image-small" src="capitulo_vi_imagens_sistemas_py/3planos_prisma_oco_py.svg" alt="Três planos formando um prisma oco sem ponto comum (SI)" />
+    </div>
+    <p><strong>SPI:</strong> a interseção é uma reta (1 variável livre) ou um plano (2 variáveis livres, planos coincidentes). <strong>SI:</strong> prisma oco — nenhum par é paralelo, mas o trio não tem um ponto comum.</p>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V13: Catálogo completo das configurações de três planos (novo, issue #53) -->
+  <section class="field-report">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 09 &middot; SISTEMAS LINEARES 3×3</div>
+    <h2>Catálogo: As Configurações dos Três Planos</h2>
+    <div class="info-panel">
+      <div class="info-screen">
+        <h4>Classificação por assinatura do escalonamento + geometria:</h4>
+        <ul>
+          <li><strong>SI — prisma oco:</strong> nenhum par paralelo; o trio não tem ponto comum.</li>
+          <li><strong>SI — 2 paralelos + 1 secante:</strong> um par paralelo não se cruza; o terceiro corta os dois.</li>
+          <li><strong>SI — 2 coincidentes + 1 paralelo distinto:</strong> um par se confunde; o terceiro é paralelo a ambos.</li>
+          <li><strong>SI — 3 paralelos distintos:</strong> todos os pares paralelos; sistema nunca se resolve.</li>
+          <li><strong>SPI — reta (2 coincidentes + 1 secante):</strong> dois planos se confundem e o terceiro os corta em uma reta.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="visualization-container">
+      <img class="svg-image-small" src="capitulo_vi_imagens_sistemas_py/3planos_prisma_oco_py.svg" alt="Prisma oco: nenhum par paralelo, sem ponto comum (SI)" />
+      <img class="svg-image-small" src="capitulo_vi_imagens_sistemas_py/3planos_2paralelos_1secante_py.svg" alt="Dois planos paralelos e um secante (SI)" />
+      <img class="svg-image-small" src="capitulo_vi_imagens_sistemas_py/3planos_2coincidentes_1paralelo_distinto_py.svg" alt="Dois planos coincidentes e um paralelo distinto (SI)" />
+      <img class="svg-image-small" src="capitulo_vi_imagens_sistemas_py/3planos_paralelos_distintos_py.svg" alt="Três planos paralelos distintos (SI)" />
+      <img class="svg-image-small" src="capitulo_vi_imagens_sistemas_py/3planos_2coincidentes_1secante_reta_py.svg" alt="Dois planos coincidentes cortados por um secante em uma reta (SPI)" />
+    </div>
+    <div class="survival-tip">
+      <p>O escalonamento prova SPD, SPI ou SI. Para separar os <em>sabores</em> de SI, compare os vetores normais aos pares: são paralelos? São proporcionais?</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V14: Treinamento SPD (mantido, era antigo V9; só enunciado, professor resolve) -->
+  <section class="survival-training">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 09 &middot; SISTEMAS LINEARES 3×3</div>
+    <h3>Exercício: Ponto de Encontro Secreto</h3>
+    <div class="training-problem">
+      <h4>Problema #VI.9.1: Escalonamento na Prática</h4>
+      <p>Encontre o ponto de encontro \(P(x, y, z)\) escalonando a matriz aumentada:</p>
+      <p class="formula">\[ \begin{cases} x + y + z = 6 \\ 2x - y + z = 3 \\ x + 2y - 3z = -4 \end{cases} \]</p>
+    </div>
+    <div class="problem-context">
+      <p>Errar o ponto compromete a operação.</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V15: Treino #VI.9.2 — SI prisma oco (novo, issue #50; só enunciado) -->
+  <section class="survival-training">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 09 &middot; SISTEMAS LINEARES 3×3</div>
+    <h3>Exercício: O Prisma Oco</h3>
+    <div class="training-problem">
+      <h4>Problema #VI.9.2: Sem Ponto Comum</h4>
+      <p>Escalone a matriz aumentada e classifique o sistema:</p>
+      <p class="formula">\[ \begin{cases} x + y + z = 6 \\ 2x - y + z = 3 \\ 3x + 2z = 10 \end{cases} \]</p>
+      <p>Observe que nenhum par de planos é paralelo, mas o trio não tem um ponto comum.</p>
+    </div>
+    <div class="visualization-container">
+      <img class="svg-image-small" src="capitulo_vi_imagens_sistemas_py/3planos_prisma_oco_py.svg" alt="Prisma oco: três planos que se cruzam aos pares, mas sem ponto comum (SI)" />
+    </div>
+    <div class="problem-context">
+      <p>Procure a linha contraditória \([0\;0\;0 \mid k]\) que o escalonamento deve revelar.</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V16: Treino #VI.9.3 — SPI, solução é uma reta (novo, issue #50; só enunciado) -->
+  <section class="survival-training">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 09 &middot; SISTEMAS LINEARES 3×3</div>
+    <h3>Exercício: Uma Linha de Encontro</h3>
+    <div class="training-problem">
+      <h4>Problema #VI.9.3: Solução é uma Reta</h4>
+      <p>Escalone a matriz aumentada e classifique o sistema (a terceira equação é a soma das duas primeiras):</p>
+      <p class="formula">\[ \begin{cases} x + 2y = 3 \\ x + 3y + z = 7 \\ 2x + 5y + z = 10 \end{cases} \]</p>
+    </div>
+    <div class="visualization-container">
+      <img class="svg-image-small" src="capitulo_vi_imagens_sistemas_py/3planos_intersecao_reta_livro_py.svg" alt="Três planos cuja interseção é uma reta (SPI)" />
+    </div>
+    <div class="problem-context">
+      <p>Uma linha nula deixa uma variável livre — sobram os pontos de uma reta.</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V17: Treino #VI.9.4 — SPI, solução é um plano (novo, issue #50; só enunciado) -->
+  <section class="survival-training">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 09 &middot; SISTEMAS LINEARES 3×3</div>
+    <h3>Exercício: Um Único Plano</h3>
+    <div class="training-problem">
+      <h4>Problema #VI.9.4: três planos coincidentes</h4>
+      <p>Escalone a matriz aumentada e classifique o sistema:</p>
+      <p class="formula">\[ \begin{cases} x + 2y - 3z = 1 \\ 2x + 4y - 6z = 2 \\ -3x - 6y + 9z = -3 \end{cases} \]</p>
+    </div>
+    <div class="visualization-container">
+      <img class="svg-image-small" src="capitulo_vi_imagens_sistemas_py/3planos_coincidentes_py.svg" alt="Três planos coincidentes formando um único plano (SPI)" />
+    </div>
+    <div class="problem-context">
+      <p>As linhas nulas indicam duas variáveis livres — toda a superfície é solução.</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V18: Treino #VI.9.5 — SI, 2 paralelos + 1 secante (novo, issue #50; opcional, só enunciado) -->
+  <section class="survival-training">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 09 &middot; SISTEMAS LINEARES 3×3</div>
+    <h3>Exercício: O Farol de Dois Muros</h3>
+    <div class="training-problem">
+      <h4>Problema #VI.9.5: 2 paralelos + 1 secante</h4>
+      <p>Escalone a matriz aumentada e classifique o sistema:</p>
+      <p class="formula">\[ \begin{cases} \pi_1: x + y + z = 1 \\ \pi_2: x + y + z = 2 \\ \pi_3: x - z = 0 \end{cases} \]</p>
+      <p>O escalonamento leva ao impossível: compare as normais de \(\pi_1\) e \(\pi_2\) para reconhecer o paralelismo.</p>
+    </div>
+    <div class="visualization-container">
+      <img class="svg-image-small" src="capitulo_vi_imagens_sistemas_py/3planos_2paralelos_1secante_py.svg" alt="Dois planos paralelos e um terceiro secante (SI)" />
+    </div>
+    <div class="problem-context">
+      <p>Dois muros paralelos e um corte: jamais haverá um ponto comum aos três.</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V19: Síntese da espinha (novo) -->
+  <section class="debriefing">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 09 &middot; SISTEMAS LINEARES 3×3</div>
+    <h2>A Escada dos Encontros</h2>
+    <div class="summary-box">
+      <p>Os encontros vão ganhando dimensões, mas todos respondem à mesma assinatura de escalonamento:</p>
+    </div>
+    <div class="info-panel">
+      <div class="info-screen">
+        <ul>
+          <li><strong>Reta × Plano:</strong> uma equação em \(t\) — um ponto.</li>
+          <li><strong>Duas retas (3×2):</strong> a interseção é um ponto ou nada.</li>
+          <li><strong>Dois planos (2×3):</strong> variável livre leva a uma reta (ou nada).</li>
+          <li><strong>Três planos (3×3):</strong> ponto, reta, plano ou nada.</li>
+        </ul>
+        <p>Em todos, a mesma leitura: <strong>pivôs → SPD</strong>, <strong>linha nula → SPI</strong>, <strong>linha contraditória → SI</strong>.</p>
+      </div>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V20: Debriefing final (classe mantida, texto ajustado) -->
+  <section class="debriefing">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 09 &middot; SISTEMAS LINEARES 3×3</div>
+    <h3>Debriefing: A Geometria dos Sistemas</h3>
+    <div class="summary-box">
+      <p>Todo sistema 3×3 é uma pergunta geométrica sobre planos. Pivôs e determinante respondem: ponto, reta, plano ou nada.</p>
+    </div>
+    <div class="next-mission">
+      <p>Próximo briefing: da interseção de planos à superfície que protege em todas as direções — A Esfera.</p>
+    </div>
+    <div class="instructor-note">
+      <p>"A geometria não mente: três planos, três condições, um único destino."</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+</section>

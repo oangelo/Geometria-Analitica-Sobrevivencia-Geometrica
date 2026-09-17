@@ -1,0 +1,56 @@
+<div class="exercise">
+<h3>Interseção de Rota com Plano de Segurança</h3>
+<p><strong>Objetivo:</strong> Calcular o ponto de interseção entre uma reta e um plano, substituindo as equações paramétricas da reta na equação geral do plano.</p>
+<p>Um drone de reconhecimento segue a trajetória:</p>
+<div class="formula">
+        $$r: \begin{cases} x = 1 + 2t \\ y = 3 - t \\ z = -1 + 3t \end{cases}$$
+    </div>
+<p>Ele deve atravessar uma zona de monitoramento delimitada pelo plano:</p>
+<div class="formula">
+        $$\pi: 2x + y - z + 4 = 0$$
+    </div>
+<p>Determine:</p>
+<ol>
+    <li>O ponto de interseção entre a trajetória do drone e o plano de monitoramento.</li>
+    <li>O valor do parâmetro $t$ no momento da interseção.</li>
+    <li>Verifique se o drone está se aproximando ou se afastando do plano no sentido de $t$ crescente.</li>
+</ol>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+            Substitua as expressões paramétricas $x(t)$, $y(t)$, $z(t)$ na equação do plano. Isso gera uma equação linear em $t$, que tem solução única desde que a reta não seja paralela ao plano. O sinal de $t$ indica se a interseção ocorre no "futuro" ($t > 0$) ou no "passado" ($t < 0$) da trajetória.
+        </div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Substituir as paramétricas na equação do plano:
+            $$2(1 + 2t) + (3 - t) - (-1 + 3t) + 4 = 0$$
+        </li>
+<li>Expandir: $2 + 4t + 3 - t + 1 - 3t + 4 = 0$.</li>
+<li>Simplificar: $(2 + 3 + 1 + 4) + (4t - t - 3t) = 0 \Rightarrow 10 + 0t = 0$.</li>
+</ol>
+<p class="danger">⚠ O coeficiente de $t$ é zero! Isso indica que a reta é paralela ao plano. Verifiquemos se é contida ou paralela distinta.</p>
+<ol class="solution-steps" start="4">
+<li>Verificar se algum ponto da reta pertence ao plano. Use $t = 0$: $P_0(1, 3, -1)$.</li>
+<li>Substituir $P_0$ no plano: $2(1) + 3 - (-1) + 4 = 2 + 3 + 1 + 4 = 10 \neq 0$.</li>
+</ol>
+<p class="warning">A reta é paralela ao plano (diretor perpendicular ao normal) mas não está contida no plano. Não há interseção!</p>
+
+<p><strong>Verificação da condição de paralelismo:</strong></p>
+<ol class="solution-steps">
+<li>Vetor diretor da reta: $\vec{v} = (2, -1, 3)$.</li>
+<li>Vetor normal do plano: $\vec{n} = (2, 1, -1)$.</li>
+<li>Produto escalar: $\vec{v} \cdot \vec{n} = 2(2) + (-1)(1) + 3(-1) = 4 - 1 - 3 = 0$.</li>
+</ol>
+<p class="success">✓ $\vec{v} \cdot \vec{n} = 0$ confirma que a reta é paralela ao plano.</p>
+
+<div class="formula">
+            $$\vec{v} \cdot \vec{n} = (2, -1, 3) \cdot (2, 1, -1) = 4 - 1 - 3 = 0$$
+            $$\text{A reta } r \text{ é paralela ao plano } \pi \text{ (não há interseção)}$$
+        </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Este exercício ilustra um cenário crítico: ao substituir paramétricas no plano, o coeficiente de $t$ anulou-se. Isso é o "alarme de paralelismo" — a reta nunca cruza o plano. No contexto operacional, isso significa que o drone <em>nunca entrará</em> na zona de monitoramento. Sempre que o coeficiente de $t$ for zero, verifique a pertinência de um ponto da reta ao plano para distinguir "paralela distinta" (sem interseção) de "contida no plano" (infinitos pontos de interseção).</p>
+</details>
+</div>

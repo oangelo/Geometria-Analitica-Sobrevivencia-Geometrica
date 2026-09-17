@@ -1,0 +1,44 @@
+<div class="exercise">
+<h3>Lei dos Cossenos: Ângulo de Aproximação da Ameaça</h3>
+
+<p><strong>Objetivo:</strong> Usar a Lei dos Cossenos para encontrar um ângulo quando todos os três lados são conhecidos.</p>
+
+<p>Três torres de sensoriamento formam um triângulo de alerta. A torre $A$ está a $40$ m da torre $B$. A torre $B$ está a $50$ m da torre $C$. A torre $C$ está a $30$ m da torre $A$. Uma patrulha inimiga é detectada se aproximando da torre $B$. Você precisa saber o ângulo na torre $B$ entre as linhas de visão para as torres $A$ e $C$ para determinar o campo de visão do sensor. <strong>Desenhe no papel</strong> o triângulo $ABC$ com as distâncias marcadas.</p>
+
+<p><strong>(a)</strong> Identifique os três lados do triângulo: $a$ (oposto a $A$), $b$ (oposto a $B$) e $c$ (oposto a $C$).</p>
+
+<p><strong>(b)</strong> Escreva a Lei dos Cossenos isolando $\cos(B)$.</p>
+
+<p><strong>(c)</strong> Substitua os valores dos lados e calcule $\cos(B)$.</p>
+
+<p><strong>(d)</strong> Determine o ângulo $B$ usando a função inversa do cosseno.</p>
+
+<p><strong>(e)</strong> Verifique se o resultado faz sentido: o lado oposto ao ângulo $B$ é o maior, o menor ou o intermediário? O ângulo calculado é consistente com isso?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>Para isolar $\cos(B)$, comece com $b^2 = a^2 + c^2 - 2ac\cos(B)$ e resolva algebricamente. Lembre-se de que, em um triângulo, ângulos maiores estão opostos a lados maiores. O lado oposto a $B$ é $b = AC = 30$ m.</p>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>(a)</strong> Identificação dos lados:</p>
+<p>- Lado $a = BC = 50$ m (oposto ao ângulo $A$)</p>
+<p>- Lado $b = AC = 30$ m (oposto ao ângulo $B$)</p>
+<p>- Lado $c = AB = 40$ m (oposto ao ângulo $C$)</p>
+
+<p><strong>(b)</strong> Isolando $\cos(B)$:</p>
+<p>$$b^2 = a^2 + c^2 - 2ac\cos(B)$$</p>
+<p>$$2ac\cos(B) = a^2 + c^2 - b^2$$</p>
+<p>$$\cos(B) = \frac{a^2 + c^2 - b^2}{2ac}$$</p>
+
+<p><strong>(c)</strong> Substituindo:</p>
+<p>$$\cos(B) = \frac{50^2 + 40^2 - 30^2}{2 \cdot 50 \cdot 40}$$</p>
+<p>$$\cos(B) = \frac{2500 + 1600 - 900}{4000}$$</p>
+<p>$$\cos(B) = \frac{3200}{4000} = 0{,}8$$</p>
+
+<p><strong>(d)</strong> $$B = \arccos(0{,}8) \approx 36{,}87°$$</p>
+
+<p><strong>(e)</strong> O lado oposto a $B$ é $b = 30$ m, que é o menor lado do triângulo. Portanto, o ângulo $B$ deve ser o menor ângulo. De fato, $B \approx 36{,}87°$ é menor que $90°$, o que é consistente. O maior lado é $a = 50$ m, oposto ao maior ângulo $A$.</p>
+</details>
+</div>

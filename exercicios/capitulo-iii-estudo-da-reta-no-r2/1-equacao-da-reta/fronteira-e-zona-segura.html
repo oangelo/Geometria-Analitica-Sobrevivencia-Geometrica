@@ -1,0 +1,26 @@
+<div class="exercise">
+<h3>FRONTEIRA E ZONA SEGURA</h3>
+
+<p>Dois postos de fronteira do território controlado estão em $A(-2, 4)$ e $B(4, -2)$. A linha que os une define a fronteira sul — tudo abaixo dessa linha é Zona Devastada não-cartografada, tudo acima é território seguro. No papel, esboce os pontos, trace a fronteira e identifique visualmente qual lado é seguro. Determine a equação geral da fronteira e use-a para verificar se os pontos $P(0, 2)$ e $Q(3, -4)$ estão do lado seguro ou do lado da Zona Devastada. Lembre-se: um ponto está sobre a fronteira se a equação resultar em zero; o sinal do lado esquerdo indica de qual lado ele está.</p>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Vetor diretor: $\overrightarrow{AB} = B - A = (4-(-2), (-2)-4) = (6, -6)$, que simplifica para $(1, -1)$.</li>
+<li>Equação paramétrica usando $A(-2, 4)$: $x = -2 + t$, $y = 4 - t$.</li>
+<li>Elimine $t$: $t = x + 2$, então $y = 4 - (x + 2) = 4 - x - 2 = 2 - x$.</li>
+<li>Forma geral: $x + y - 2 = 0$.</li>
+<li>Verificação com $A(-2, 4)$: $(-2) + 4 - 2 = 0$ ✓. Com $B(4, -2)$: $4 + (-2) - 2 = 0$ ✓.</li>
+<li>Teste de $P(0, 2)$: $0 + 2 - 2 = 0$. O ponto está <strong>sobre a fronteira</strong> — é um ponto de passagem, nem seguro nem devastado.</li>
+<li>Teste de $Q(3, -4)$: $3 + (-4) - 2 = 3 - 4 - 2 = -3 < 0$.</li>
+<li>Para determinar qual lado é seguro, teste um ponto claramente acima da reta, como $(0, 5)$: $0 + 5 - 2 = 3 > 0$. Portanto, o lado onde $x + y - 2 > 0$ é o território seguro.</li>
+<li>Como $Q$ dá $-3 < 0$, ele está do lado da Zona Devastada — abaixo da fronteira.</li>
+</ol>
+<div class="formula">
+$$\overrightarrow{AB} = (6, -6), \quad x + y - 2 = 0$$
+$$P(0,2): \; 0 + 2 - 2 = 0 \; \text{(sobre a fronteira)}$$
+$$Q(3,-4): \; 3 - 4 - 2 = -3 < 0 \; \text{(Zona Devastada)}$$
+$$</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A equação geral da reta é mais do que um mapa — é um detector de território. O sinal da expressão $ax + by + c$ divide o plano em dois semiplanos: um seguro, outro hostil. Na Zona Devastada, saber de qual lado da fronteira você está é a informação mais valiosa que a matemática pode oferecer. Este conceito será a base para o estudo de inequações lineares e semiplanos nos próximos tópicos — a fronteira é apenas o começo.</p>
+</details>
+</div>

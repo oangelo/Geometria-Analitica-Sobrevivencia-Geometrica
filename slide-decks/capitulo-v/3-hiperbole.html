@@ -1,0 +1,162 @@
+<section>
+
+  <section class="field-report">
+    <h2>A Hipérbole: Navegação e Localização</h2>
+    <div class="narrative-text">
+      <p>Duas torres de rádio emitem sinais. Você detecta a DIFERENÇA nos tempos de chegada — não a soma. Essa diferença constante define uma curva com DUAS ramificações. O sistema LORAN de navegação usa exatamente isso para localizar posições no oceano.</p>
+    </div>
+    <p>Da elipse para a hipérbole: trocamos a SOMA pela DIFERENÇA. Uma mudança de sinal que transforma uma curva fechada em duas curvas abertas.</p>
+    <div class="survival-tip">
+      <p>Na wasteland, a hipérbole é a ferramenta de triangulação. Se você detecta a diferença de tempo entre dois sinais, está sobre uma hipérbole. Com três torres, duas hipérboles se cruzam — e você encontra sua posição exata.</p>
+    </div>
+  </section>
+
+  <section class="mission-briefing">
+    <h2>Definição: A Hipérbole</h2>
+    <h3 class="mission-subtitle">Diferença constante de distâncias</h3>
+    <p>A hipérbole é o lugar geométrico dos pontos cuja diferença (em valor absoluto) das distâncias a dois focos \(F_1\) e \(F_2\) é constante e igual a \(2a\):</p>
+    <div class="definition-box">
+      <p class="formula">\(\text{Hipérbole} = \{P(x,y) \mid |d(P,F_1) - d(P,F_2)| = 2a\}\)</p>
+      <p>Equação canônica (eixo transverso horizontal):</p>
+      <p class="formula">\[\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1\]</p>
+      <p>Relação fundamental (ATENÇÃO ao sinal!):</p>
+      <p class="formula">\[c^2 = a^2 + b^2\]</p>
+      <p>Compare com a elipse: \(c^2 = a^2 - b^2\). Na hipérbole, é MAIS. Os focos estão em \(F_1(-c, 0)\) e \(F_2(c, 0)\). O valor absoluto gera dois ramos.</p>
+    </div>
+  </section>
+
+  <section class="field-report level-basic">
+    <h3 class="slide-title-for-svg">Anatomia da Hipérbole</h3>
+    <div class="info-panel">
+      <div class="info-screen">
+        <h4>Componentes</h4>
+        <ul>
+          <li>Centro \(O\): ponto médio entre os focos</li>
+          <li>Vértices: \(V_1(-a, 0)\) e \(V_2(a, 0)\) — pontos mais próximos do centro em cada ramo</li>
+          <li>Eixo transverso: segmento \(V_1V_2\) de comprimento \(2a\)</li>
+          <li>Eixo conjugado: segmento imaginário de comprimento \(2b\)</li>
+          <li>Assíntotas: retas que a curva se aproxima infinitamente</li>
+          <li>Excentricidade: \(e = c/a > 1\) (sempre!)</li>
+        </ul>
+      </div>
+    </div>
+    <p>Assíntotas (caso horizontal):</p>
+    <p class="formula">\[y = \pm\frac{b}{a}x\]</p>
+    <img class="svg-visualization" src="capitulo-v_svgs/hiperbole_anatomia.svg" alt="Anatomia da hipérbole" />
+  </section>
+
+  <section class="field-report level-basic">
+    <h3 class="slide-title-for-svg">A Relação \(c^2 = a^2 + b^2\)</h3>
+    <p>A relação da hipérbole é semelhante à de um triângulo retângulo com catetos \(a\) e \(b\) e hipotenusa \(c\):</p>
+    <p class="formula">\[c^2 = a^2 + b^2\]</p>
+    <p>Compare sistematicamente:</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Elipse</th>
+          <th>Hipérbole</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(c^2 = a^2 - b^2\)</td>
+          <td>\(c^2 = a^2 + b^2\)</td>
+        </tr>
+        <tr>
+          <td>\(c &lt; a\)</td>
+          <td>\(c &gt; a\)</td>
+        </tr>
+        <tr>
+          <td>\(0 &lt; e &lt; 1\)</td>
+          <td>\(e &gt; 1\)</td>
+        </tr>
+        <tr>
+          <td>Curva fechada</td>
+          <td>Dois ramos abertos</td>
+        </tr>
+      </tbody>
+    </table>
+    <img class="svg-visualization" src="capitulo-v_svgs/hiperbole_relacao_abc.svg" alt="Relação fundamental da hipérbole" />
+  </section>
+
+  <section class="simulator">
+    <h3 class="slide-title-for-svg">Simulador: Hipérbole Interativa</h3>
+    <div class="interactive-canvas" id="hyperbola-canvas">
+      <div class="interaction-hint">Ajuste os parâmetros para ver as assíntotas</div>
+      <div class="pipboy-info">x²/a² - y²/b² = 1</div>
+    </div>
+    <div class="control-panel">
+      <div class="slider-container">
+        <div class="slider-label">Semi-eixo a</div>
+        <input type="range" min="20" max="150" step="5" value="80" id="a-hyper-slider" />
+        <div class="value-display" id="a-hyper-value">80</div>
+      </div>
+      <div class="slider-container">
+        <div class="slider-label">Semi-eixo b</div>
+        <input type="range" min="20" max="150" step="5" value="60" id="b-hyper-slider" />
+        <div class="value-display" id="b-hyper-value">60</div>
+      </div>
+      <div class="slider-container">
+        <div class="slider-label">Orientação</div>
+        <input type="range" min="0" max="1" step="1" value="0" id="orientation-slider" />
+        <div class="value-display" id="orientation-value">Eixo X</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="survival-training level-basic">
+    <h3>Treinamento: Localização por Sinal</h3>
+    <span class="level-indicator">NÍVEL BÁSICO</span>
+    <div class="training-problem">
+      <h4>Missão: Triangulação</h4>
+      <p>Duas estações de rádio estão a 50km uma da outra (focos). A diferença nos tempos de recepção indica que você está 30km mais próximo da segunda estação.</p>
+      <ul>
+        <li>Qual o valor de \(a\)?</li>
+        <li>Qual o valor de \(c\)?</li>
+        <li>Qual o valor de \(b\)?</li>
+        <li>Qual a equação da hipérbole?</li>
+      </ul>
+    </div>
+    <div class="conversion-panel">
+      <div class="conversion-step">Diferença constante: \(2a = 30 \implies a = 15\).</div>
+      <div class="conversion-step">Distância entre focos: \(2c = 50 \implies c = 25\).</div>
+      <div class="conversion-step">Relação: \(b^2 = c^2 - a^2 = 625 - 225 = 400 \implies b = 20\).</div>
+      <div class="conversion-step">Equação: \(\frac{x^2}{225} - \frac{y^2}{400} = 1\).</div>
+    </div>
+    <div class="survival-tip">
+      <p>Lógica da Wasteland: \(a\) vem da diferença, \(c\) vem da distância entre focos. Nunca confunda os dois!</p>
+    </div>
+  </section>
+
+  <section class="survival-training level-advanced">
+    <h3>Treinamento Avançado: Hipérbole</h3>
+    <span class="level-indicator">NÍVEL AVANÇADO</span>
+    <div class="training-problem">
+      <h4>Missão 1: Onda de Choque</h4>
+      <p>A zona de uma explosão é modelada por \(\frac{x^2}{144} - \frac{y^2}{25} = 1\). Encontre focos, vértices e assíntotas.</p>
+    </div>
+    <div class="training-problem">
+      <h4>Missão 2: Sistema de Navegação</h4>
+      <p>Um sistema LORAN tem focos em \((0, -10)\) e \((0, 10)\). Um explorador detecta diferença de 12. Encontre a equação.</p>
+    </div>
+    <div class="training-problem">
+      <h4>Missão 3: Torre de Resfriamento</h4>
+      <p>Uma torre tem forma hiperbólica com vértices em \((\pm 3, 0)\) e assíntotas \(y = \pm\frac{4}{3}x\). Encontre a equação.</p>
+    </div>
+    <p class="problem-context">A navegação por hipérboles é uma das aplicações mais importantes na wasteland. Domine a técnica.</p>
+  </section>
+
+  <section class="debriefing">
+    <h3>Debriefing: Hipérbole</h3>
+    <div class="summary-box">
+      <ul>
+        <li>Hipérbole = diferença constante de distâncias a 2 focos</li>
+        <li>Relação fundamental: \(c^2 = a^2 + b^2\)</li>
+        <li>Excentricidade \(e &gt; 1\): quanto maior, mais aberta</li>
+        <li>Assíntotas: guias que a curva jamais ultrapassa</li>
+      </ul>
+    </div>
+    <p class="next-mission">Próxima Missão: Conclusão do capítulo — a síntese das três cônicas e a conexão com o próximo capítulo.</p>
+  </section>
+
+</section>

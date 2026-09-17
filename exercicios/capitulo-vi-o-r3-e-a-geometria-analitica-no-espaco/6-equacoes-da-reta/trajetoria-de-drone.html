@@ -1,0 +1,50 @@
+<div class="exercise">
+<h3>Trajetória de Drone de Reconhecimento</h3>
+<p><strong>Objetivo:</strong> Aplicar as equações da reta em um contexto cinemático, onde o parâmetro $t$ representa o tempo e o vetor diretor representa a velocidade.</p>
+<p>Um drone de reconhecimento parte da posição inicial $P_0(10, 5, 20)$ (em metros) com velocidade constante $\vec{v} = (-2, 1, -4)$ m/s. O solo está no plano $z = 0$.</p>
+<ol>
+    <li>Escreva as equações paramétricas da trajetória do drone.</li>
+    <li>Determine a posição do drone após $t = 3$ segundos.</li>
+    <li>Calcule o instante $t$ em que o drone atinge o solo ($z = 0$) e as coordenadas do ponto de impacto.</li>
+    <li>Calcule a velocidade escalar (módulo da velocidade) do drone.</li>
+    <li>Qual a distância total percorrida pelo drone desde a partida até o solo?</li>
+</ol>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+            Em cinemática, as equações paramétricas são $\vec{r}(t) = \vec{r}_0 + t\vec{v}$, onde $\vec{v}$ é a velocidade vetorial. Para encontrar quando $z = 0$, isole $t$ na equação de $z$. A distância percorrida é velocidade escalar × tempo, ou $|t| \cdot |\vec{v}|$.
+        </div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Equações paramétricas da trajetória:
+            $$\begin{cases} x = 10 - 2t \\ y = 5 + t \\ z = 20 - 4t \end{cases}, \quad t \geq 0$$
+        </li>
+<li>Posição em $t = 3$: $x = 10 - 6 = 4$, $y = 5 + 3 = 8$, $z = 20 - 12 = 8$.
+            $$P(3) = (4, 8, 8) \text{ m}$$
+        </li>
+<li>Para atingir o solo ($z = 0$):
+            $$20 - 4t = 0 \Rightarrow t = 5 \text{ s}$$
+            $$x = 10 - 2(5) = 0, \quad y = 5 + 5 = 10$$
+            $$P_{\text{impacto}} = (0, 10, 0) \text{ m}$$
+        </li>
+<li>Velocidade escalar:
+            $$|\vec{v}| = \sqrt{(-2)^2 + 1^2 + (-4)^2} = \sqrt{4 + 1 + 16} = \sqrt{21} \approx 4{,}58 \text{ m/s}$$
+        </li>
+<li>Distância total percorrida:
+            $$d = |t| \cdot |\vec{v}| = 5 \cdot \sqrt{21} = 5\sqrt{21} \approx 22{,}91 \text{ m}$$
+        </li>
+</ol>
+<div class="formula">
+            $$\vec{r}(t) = (10, 5, 20) + t(-2, 1, -4), \quad t \geq 0$$
+            $$P(3) = (4, 8, 8) \text{ m}$$
+            $$t_{\text{impacto}} = 5 \text{ s}, \quad P_{\text{impacto}} = (0, 10, 0) \text{ m}$$
+            $$|\vec{v}| = \sqrt{21} \approx 4{,}58 \text{ m/s}$$
+            $$d_{\text{total}} = 5\sqrt{21} \approx 22{,}91 \text{ m}$$
+        </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Este exercício demonstra a interpretação física do parâmetro $t$ como tempo. A relação $d = |t| \cdot |\vec{v}|$ só é válida porque a velocidade é constante — em movimento uniforme, a distância é simplesmente velocidade × tempo. Note que o drone atinge o solo em 5 segundos, mas em $t = 3$ ainda está a 8 metros de altura. A trajetória é uma reta no espaço, mas o movimento é restrito a $t \geq 0$ (não faz sentido tempo negativo neste contexto). Se o vetor velocidade tivesse componente $v_z > 0$, o drone nunca atingiria o solo — subiria indefinidamente.</p>
+</details>
+</div>

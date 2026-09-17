@@ -1,0 +1,23 @@
+<div class="exercise">
+<h3>RAIO DE ALCANCE — ZONA DE COMUNICAÇÃO</h3>
+<p>A antena de rádio do Refúgio-TEC está instalada na posição $A(2{,}3)$ e tem alcance de $4$ unidades. Um grupo de sobreviventes solicita resgate em três posições possíveis: $P_1(5{,}3)$, $P_2(0{,}0)$ e $P_3(2{,}7)$. Para cada ponto, determine se o sinal de rádio alcança o grupo, calculando a distância da antena até cada posição e comparando com o alcance.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Calcule $d(A,P_k)$ para cada ponto. Se $d(A,P_k) \leq 4$, o rádio alcança. Caso contrário, o grupo está fora de cobertura.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>$d(A,P_1) = |(5-2{,}3-3)| = |(3{,}0)| = 3 \leq 4$ — <strong>alcança</strong>.</li>
+<li>$d(A,P_2) = |(0-2{,}0-3)| = |(-2{,}-3)| = \sqrt{4+9} = \sqrt{13} \approx 3{,}61 \leq 4$ — <strong>alcança</strong>.</li>
+<li>$d(A,P_3) = |(2-2{,}7-3)| = |(0{,}4)| = 4 \leq 4$ — <strong>alcança</strong> (no limite).</li>
+<li>Todos os três pontos estão dentro da zona de cobertura da antena.</li>
+</ol>
+<div class="formula">
+$$d(A,P_1) = 3 \qquad d(A,P_2) = \sqrt{13} \approx 3{,}61 \qquad d(A,P_3) = 4$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O conceito de "pontos dentro do alcance" define uma <em>região</em> do plano: todos os pontos $P$ tais que $d(A,P) \leq r$ formam um disco (uma circunferência preenchida). No Capítulo IV, estudaremos as circunferências em detalhes — e a distância será a ferramenta central para descrevê-las.</p>
+</details>
+</div>

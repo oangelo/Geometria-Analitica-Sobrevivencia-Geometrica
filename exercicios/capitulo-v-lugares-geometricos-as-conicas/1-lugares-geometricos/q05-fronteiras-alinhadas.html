@@ -1,0 +1,41 @@
+<div class="exercise">
+<h3>FRONTEIRAS ALINHADAS</h3>
+
+<p>Dois postos de observação foram instalados em $A(2, 5)$ e $B(2, 1)$. Por acaso, ambos têm a mesma coordenada $x$. A coordenação precisa da fronteira equidistante. O objetivo deste exercício é mostrar que, mesmo em casos especiais onde o segmento é vertical ou horizontal, o processo de dedução da mediatriz funciona exatamente da mesma forma.</p>
+
+<p><strong>(a)</strong> Desenhe no papel os pontos $A(2,5)$ e $B(2,1)$. O segmento $\overline{AB}$ é vertical. Onde você espera que a mediatriz esteja? Qual deve ser sua inclinação?</p>
+
+<p><strong>(b)</strong> Aplique a definição $d(P,A) = d(P,B)$ com $P(x,y)$, eleve ao quadrado e simplifique. Mostre todos os passos.</p>
+
+<p><strong>(c)</strong> A equação obtida é de que tipo de reta? Confirme que ela é perpendicular a $\overline{AB}$ e passa pelo ponto médio.</p>
+
+<p><strong>(d)</strong> Agora considere $A(3, 2)$ e $B(7, 2)$ (segmento horizontal). Sem fazer contas, prediga a equação da mediatriz. Depois, verifique sua predição aplicando a definição.</p>
+
+<p><strong>(e)</strong> Generalize: se $A(x_0, y_1)$ e $B(x_0, y_2)$ (mesmo $x$), qual é a mediatriz? E se $A(x_1, y_0)$ e $B(x_2, y_0)$ (mesmo $y$)?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>No item (b), quando $x_A = x_B$, o termo em $x$ desaparece da equação final — isso significa que $x$ é constante, ou seja, a reta é vertical. No item (d), use simetria: se o segmento é horizontal, a mediatriz deve ser vertical.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>O segmento $\overline{AB}$ é vertical (mesmo $x$). A mediatriz deve ser horizontal, passando pelo ponto médio.</li>
+<li>Condição: $\sqrt{(x-2)^2 + (y-5)^2} = \sqrt{(x-2)^2 + (y-1)^2}$.</li>
+<li>Elevando ao quadrado: $(x-2)^2 + (y-5)^2 = (x-2)^2 + (y-1)^2$.</li>
+<li>Cancelando $(x-2)^2$: $(y-5)^2 = (y-1)^2$.</li>
+<li>Expandindo: $y^2 - 10y + 25 = y^2 - 2y + 1$.</li>
+<li>Simplificando: $-10y + 25 = -2y + 1 \Rightarrow -8y = -24 \Rightarrow y = 3$.</li>
+<li>A mediatriz é a reta horizontal $y = 3$. Ponto médio: $M(2, 3)$, que satisfaz $y = 3$ ✓. A reta $y = 3$ é perpendicular ao segmento vertical $\overline{AB}$ ✓.</li>
+<li>Para $A(3,2)$ e $B(7,2)$: predição — mediatriz vertical passando pelo ponto médio $M(5,2)$, ou seja, $x = 5$. Verificação: $\sqrt{(x-3)^2 + (y-2)^2} = \sqrt{(x-7)^2 + (y-2)^2}$. Cancelando $(y-2)^2$: $(x-3)^2 = (x-7)^2 \Rightarrow x^2 - 6x + 9 = x^2 - 14x + 49 \Rightarrow 8x = 40 \Rightarrow x = 5$ ✓.</li>
+<li>Generalização: se $A(x_0, y_1)$ e $B(x_0, y_2)$, a mediatriz é $y = \dfrac{y_1+y_2}{2}$. Se $A(x_1, y_0)$ e $B(x_2, y_0)$, a mediatriz é $x = \dfrac{x_1+x_2}{2}$.</li>
+</ol>
+<div class="formula">
+$$y = 3 \quad \text{(caso vertical)} \qquad x = 5 \quad \text{(caso horizontal)}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Casos especiais onde o segmento é alinhado aos eixos simplificam drasticamente a conta — mas o princípio é idêntico. A mediatriz sempre é perpendicular ao segmento e passa pelo ponto médio. Reconhecer esses casos especiais economiza tempo em campo e evita erros de cálculo desnecessários.</p>
+</details>
+</div>

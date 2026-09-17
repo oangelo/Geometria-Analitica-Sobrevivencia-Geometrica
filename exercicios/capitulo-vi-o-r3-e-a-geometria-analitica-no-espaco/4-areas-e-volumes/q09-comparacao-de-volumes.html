@@ -1,0 +1,62 @@
+<div class="exercise">
+<h3>COMPARAÇÃO DE VOLUMES</h3>
+<p>O objetivo deste exercício é comparar os volumes de um paralelepípedo e um tetraedro que compartilham a mesma base, estabelecendo a relação matemática entre eles.</p>
+<p>Uma estrutura de armazenamento pode ser construída de duas formas:</p>
+<ul>
+<li><strong>Opção P (Paralelepípedo):</strong> Arestas $\vec{u} = (2, 1, 0)$, $\vec{v} = (1, 3, 0)$ e $\vec{w} = (0, 0, 4)$.</li>
+<li><strong>Opção T (Tetraedro):</strong> Base triangular definida pelos mesmos $\vec{u}$ e $\vec{v}$, com vértice no ponto $D$ tal que $\overrightarrow{AD} = \vec{w}$ (mesma altura do paralelepípedo).</li>
+</ul>
+<p><strong>(a)</strong> Calcule o volume do paralelepípedo (Opção P).</p>
+<p><strong>(b)</strong> Calcule o volume do tetraedro (Opção T).</p>
+<p><strong>(c)</strong> Determine a razão entre o volume do paralelepípedo e o volume do tetraedro. Essa razão depende dos vetores específicos escolhidos?</p>
+<p><strong>(d)</strong> Interprete geometricamente: por que um tetraedro com a mesma base e mesma altura de um paralelepípedo tem exatamente $\frac{1}{6}$ do volume do paralelepípedo, e não $\frac{1}{3}$ (como uma pirâmide de base quadrada)?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>O volume do paralelepípedo é $| [\vec{u}, \vec{v}, \vec{w}] |$. O volume do tetraedro com arestas $\vec{u}$, $\vec{v}$, $\vec{w}$ a partir de um vértice comum é $\frac{1}{6}| [\vec{u}, \vec{v}, \vec{w}] |$. Para o item (d), lembre-se que uma pirâmide de base quadrada tem volume $\frac{1}{3} \times \text{base} \times \text{altura}$, mas a base do tetraedro é triangular, não quadrada.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>Item (a):</strong></p>
+<ol class="solution-steps">
+<li>$[\vec{u}, \vec{v}, \vec{w}] = \begin{vmatrix} 2 & 1 & 0 \\ 1 & 3 & 0 \\ 0 & 0 & 4 \end{vmatrix}$</li>
+<li>Expansão pela terceira coluna (mais simples, pois tem dois zeros):</li>
+<li>$= 0 - 0 + 4 \cdot \begin{vmatrix} 2 & 1 \\ 1 & 3 \end{vmatrix} = 4[(2)(3) - (1)(1)] = 4(6 - 1) = 20$</li>
+</ol>
+<div class="formula">
+$$V_P = |20| = 20 \text{ unidades}^3$$
+</div>
+
+<p><strong>Item (b):</strong></p>
+<ol class="solution-steps">
+<li>Volume do tetraedro: $V_T = \frac{1}{6}| [\vec{u}, \vec{v}, \vec{w}] |$</li>
+<li>$V_T = \frac{1}{6} \times 20 = \frac{10}{3}$</li>
+</ol>
+<div class="formula">
+$$V_T = \frac{10}{3} \approx 3{,}33 \text{ unidades}^3$$
+</div>
+
+<p><strong>Item (c):</strong></p>
+<ol class="solution-steps">
+<li>Razão: $\dfrac{V_P}{V_T} = \dfrac{20}{\frac{10}{3}} = 20 \times \frac{3}{10} = 6$</li>
+</ol>
+<div class="formula">
+$$\frac{V_P}{V_T} = 6$$
+</div>
+<p>Essa razão <strong>não depende</strong> dos vetores específicos escolhidos. Desde que o tetraedro e o paralelepípedo compartilhem as mesmas três arestas a partir de um vértice comum, a razão será sempre 6. Isso ocorre porque $V_P = | [\vec{u}, \vec{v}, \vec{w}] |$ e $V_T = \frac{1}{6}| [\vec{u}, \vec{v}, \vec{w}] |$ para quaisquer vetores $\vec{u}$, $\vec{v}$, $\vec{w}$.</p>
+
+<p><strong>Item (d):</strong></p>
+<p>A confusão entre $\frac{1}{3}$ e $\frac{1}{6}$ vem de comparar o tetraedro com objetos diferentes:</p>
+<ul>
+<li>Uma <strong>pirâmide de base quadrada</strong> com a mesma base e altura de um prisma tem volume $\frac{1}{3}$ do prisma. Isso porque a base quadrada já ocupa toda a face do prisma.</li>
+<li>Um <strong>tetraedro</strong>, porém, tem base <strong>triangular</strong>. A face do paralelepípedo é um paralelogramo, que pode ser dividido em 2 triângulos congruentes. Logo, a base do tetraedro é metade da base do paralelepípedo.</li>
+<li>Além disso, a altura do tetraedro (distância do vértice à base triangular) é a mesma do paralelepípedo apenas quando o vértice está no vértice oposto do paralelepípedo.</li>
+</ul>
+<p>Combinando: o tetraedro tem base $\frac{1}{2}$ da base do paralelepípedo, e a fórmula de volume de pirâmide já introduz o fator $\frac{1}{3}$. Mas o tetraedro não é uma pirâmide sobre a base do paralelepípedo — é uma pirâmide sobre metade da base. A decomposição correta mostra que um paralelepípedo contém exatamente 6 tetraedros congruentes, cada um com volume $\frac{1}{6}$ do total.</p>
+
+<p><strong>Reflexão de Sobrevivência:</strong> Na Zona Devastada, materiais de construção são escassos. Saber que um tetraedro com a mesma base e altura de um paralelepípedo ocupa apenas $\frac{1}{6}$ do volume permite estimar rapidamente: se um depósito paralelepípedo armazena 1200 litros, um tetraedro com as mesmas dimensões de base e altura armazena apenas 200 litros. A escolha da forma geométrica impacta diretamente a capacidade.</p>
+</details>
+</div>

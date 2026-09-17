@@ -1,0 +1,33 @@
+<div class="exercise">
+<h3>Construção com Vértice Deslocado</h3>
+<p>O objetivo deste exercício é aplicar a definição quando o vértice não está na origem, introduzindo a translação. Uma torre de vigilância avançada está no foco $F(2,3)$ e a barreira de detecção está na reta $y = -1$. O sistema de coordenadas usa a origem como ponto de referência fixo do acampamento.</p>
+<p><strong>(a)</strong> Desenhe no papel o foco $F(2,3)$ e a diretriz $y = -1$. Marque o vértice $V$ como o ponto médio entre o foco e sua projeção perpendicular sobre a diretriz. Quais são as coordenadas de $V$?</p>
+<p><strong>(b)</strong> Seja $P(x,y)$ um ponto qualquer do campo de detecção. Escreva $d(P,F)$ e $d(P,d)$.</p>
+<p><strong>(c)</strong> Aplique a definição, eleve ao quadrado e simplifique. Você deve obter uma equação da forma $(x-h)^2 = 4p(y-k)$. Identifique $h$, $k$ e $p$.</p>
+<p><strong>(d)</strong> Expanda a equação encontrada no item (c) e verifique que ela é equivalente à equação obtida no item (b) após simplificação.</p>
+<p><strong>(e)</strong> A partir da equação na forma $(x-h)^2 = 4p(y-k)$, identifique diretamente o vértice $V(h,k)$, o foco $F(h, k+p)$ e a diretriz $y = k-p$. Confirme que coincide com os dados do problema.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>O vértice está no eixo de simetria, que é a reta vertical passando pelo foco: $x = 2$. A projeção de $F(2,3)$ sobre $y = -1$ é o ponto $(2,-1)$. O vértice é o ponto médio. Na simplificação, tente agrupar $(x-2)^2$ e $(y-1)^2$ para revelar a estrutura transladada.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>A projeção de $F(2,3)$ sobre $y = -1$ é $(2,-1)$. O vértice é o ponto médio: $V\left(2, \frac{3+(-1)}{2}\right) = V(2,1)$.</li>
+<li>$d(P,F) = \sqrt{(x-2)^2 + (y-3)^2}$ e $d(P,d) = |y - (-1)| = |y + 1|$</li>
+<li>Igualando: $(x-2)^2 + (y-3)^2 = (y+1)^2$</li>
+<li>Expandindo: $(x-2)^2 + y^2 - 6y + 9 = y^2 + 2y + 1$</li>
+<li>Simplificando: $(x-2)^2 - 6y + 9 = 2y + 1$, portanto $(x-2)^2 = 8y - 8 = 8(y-1)$</li>
+<li>Comparando $(x-2)^2 = 8(y-1)$ com $(x-h)^2 = 4p(y-k)$: $h = 2$, $k = 1$, $4p = 8$ logo $p = 2$.</li>
+<li>Vértice: $V(2,1)$. Foco: $F(2, 1+2) = F(2,3)$ ✓. Diretriz: $y = 1-2 = -1$ ✓.</li>
+</ol>
+<div class="formula">
+$$(x-2)^2 = 8(y-1), \quad V(2,1), \quad p = 2, \quad F(2,3), \quad \text{diretriz: } y = -1$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Quando o vértice sai da origem, a equação ganha a forma $(x-h)^2 = 4p(y-k)$. Os valores $h$ e $k$ são as coordenadas do vértice, e $p$ continua sendo a distância do vértice ao foco. A construção pela definição funciona sempre, independentemente da posição.</p>
+</details>
+</div>

@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>MESMO PROBLEMA, NOVA FERRAMENTA</h3>
+
+<p>No exercício anterior sobre distância à fronteira, você calculou a distância de $P(4, 5)$ à reta $y = 2$ usando Pitágoras e obteve $3$. Agora vamos resolver o mesmo problema com a fórmula da distância ponto-reta. Primeiro, escreva a reta $y = 2$ na forma geral $ax + by + c = 0$. Depois, aplique a fórmula $d = \frac{|ax_0 + by_0 + c|}{\sqrt{a^2 + b^2}}$ e compare o resultado com o que você encontrou pelo método geométrico.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>A forma geral exige que tudo fique de um lado da igualdade: $y = 2$ vira $0x + 1y - 2 = 0$. Identifique $a$, $b$ e $c$, depois substitua $x_0 = 4$ e $y_0 = 5$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Converta $y = 2$ para a forma geral: $0x + 1y - 2 = 0$, logo $a = 0$, $b = 1$, $c = -2$.</li>
+<li>Aplique a fórmula com $P(4, 5)$: $d = \frac{|0 \cdot 4 + 1 \cdot 5 + (-2)|}{\sqrt{0^2 + 1^2}}$.</li>
+<li>Calcule o numerador: $|5 - 2| = |3| = 3$.</li>
+<li>Calcule o denominador: $\sqrt{0 + 1} = 1$.</li>
+<li>Distância: $d = \frac{3}{1} = 3$.</li>
+</ol>
+<div class="formula">
+$$d = \frac{|0 \cdot 4 + 1 \cdot 5 - 2|}{\sqrt{0^2 + 1^2}} = \frac{3}{1} = 3$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Os dois métodos concordam — Pitágoras e a fórmula da distância ponto-reta dão o mesmo resultado. A diferença é que a fórmula funciona para qualquer reta, enquanto Pitágoras "na mão" só é prático quando a reta é paralela a um eixo. Na Zona Devastada, ter uma ferramenta universal vale mais do que ter uma ferramenta rápida em casos especiais.</p>
+</details>
+</div>

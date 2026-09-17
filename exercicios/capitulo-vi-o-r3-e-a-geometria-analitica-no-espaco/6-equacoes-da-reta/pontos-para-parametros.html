@@ -1,0 +1,45 @@
+<div class="exercise">
+<h3>Pontos de Referência na Trajetória</h3>
+<p><strong>Objetivo:</strong> Compreender a interpretação geométrica do parâmetro $t$ e construir uma representação mental da reta no espaço através de pontos calculados.</p>
+<p>Uma sonda de reconhecimento parte do ponto $P_0(2, -1, 4)$ e segue na direção do vetor $\vec{v} = (1, 2, -2)$. Sua trajetória é descrita por:</p>
+<div class="formula">
+        $$r: \begin{cases} x = 2 + t \\ y = -1 + 2t \\ z = 4 - 2t \end{cases}$$
+    </div>
+<p>Determine:</p>
+<ol>
+    <li>As coordenadas dos pontos correspondentes a $t = 0$, $t = 1$ e $t = -1$.</li>
+    <li>A distância entre os pontos de $t = 0$ e $t = 1$.</li>
+    <li>A distância entre os pontos de $t = 0$ e $t = -1$.</li>
+    <li>O que representa geometricamente o parâmetro $t$ nesta reta?</li>
+</ol>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+            Para cada valor de $t$, substitua nas três equações paramétricas. A distância entre dois pontos no R³ é $d = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2 + (z_2-z_1)^2}$. Compare a distância calculada com o módulo do vetor diretor.
+        </div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Para $t = 0$: $P(0) = (2 + 0, -1 + 0, 4 - 0) = (2, -1, 4) = P_0$.</li>
+<li>Para $t = 1$: $P(1) = (2 + 1, -1 + 2, 4 - 2) = (3, 1, 2)$.</li>
+<li>Para $t = -1$: $P(-1) = (2 - 1, -1 - 2, 4 + 2) = (1, -3, 6)$.</li>
+<li>Distância $d(P_0, P(1))$:
+            $$d = \sqrt{(3-2)^2 + (1-(-1))^2 + (2-4)^2} = \sqrt{1 + 4 + 4} = \sqrt{9} = 3$$
+        </li>
+<li>Distância $d(P_0, P(-1))$:
+            $$d = \sqrt{(1-2)^2 + (-3-(-1))^2 + (6-4)^2} = \sqrt{1 + 4 + 4} = \sqrt{9} = 3$$
+        </li>
+<li>Módulo do vetor diretor: $|\vec{v}| = \sqrt{1^2 + 2^2 + (-2)^2} = \sqrt{1 + 4 + 4} = \sqrt{9} = 3$.</li>
+</ol>
+<div class="formula">
+            $$P(0) = (2, -1, 4), \quad P(1) = (3, 1, 2), \quad P(-1) = (1, -3, 6)$$
+            $$d(P_0, P(1)) = 3, \quad d(P_0, P(-1)) = 3$$
+            $$|\vec{v}| = 3$$
+        </div>
+<p><strong>Interpretação geométrica de $t$:</strong> O parâmetro $t$ representa o <strong>"tempo" ou "distância parametrizada"</strong> ao longo da reta, medido em unidades do vetor diretor. Como $|\vec{v}| = 3$, cada unidade de $t$ corresponde a 3 unidades de distância no espaço. O ponto $P(t)$ está a uma distância $|t| \cdot |\vec{v}|$ do ponto inicial $P_0$.</p>
+<p><strong>Reflexão de Sobrevivência:</strong> A relação $d(P_0, P(t)) = |t| \cdot |\vec{v}|$ é fundamental: se $\vec{v}$ for um vetor <strong>unitário</strong> ($|\vec{v}| = 1$), então $t$ representa diretamente a distância ao longo da reta. Isso simplifica drasticamente cálculos de posicionamento. Quando você precisar saber "a que distância está o próximo abrigo ao longo desta rota?", a resposta será simplesmente $|t_2 - t_1| \cdot |\vec{v}|$.</p>
+</details>
+</div>

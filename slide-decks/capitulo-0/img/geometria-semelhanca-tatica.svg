@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="180" viewBox="0 0 400 180" style="margin: 10px auto; display: block">
+  <!-- Fundo -->
+  <rect width="400" height="180" fill="#0A0A0A" opacity="0.7" rx="5" ry="5" />
+  
+  <!-- Chão -->
+  <line x1="20" y1="150" x2="380" y2="150" stroke="#ADFF2F" stroke-width="2" />
+  
+  <!-- Poça de água reflexiva (espelho) -->
+  <ellipse cx="240" cy="150" rx="15" ry="3" fill="#33FF33" opacity="0.5" />
+  <text x="240" y="165" fill="#ADFF2F" font-size="10" font-family="monospace" text-anchor="middle">Poça reflexiva</text>
+  
+  <!-- Torre (Hostil) -->
+  <rect x="50" y="30" width="20" height="120" fill="none" stroke="#ADFF2F" stroke-width="2" />
+  <line x1="50" y1="50" x2="70" y2="70" stroke="#ADFF2F" stroke-width="1" />
+  <line x1="50" y1="90" x2="70" y2="110" stroke="#ADFF2F" stroke-width="1" />
+  <text x="60" y="20" fill="#FFD700" font-size="12" font-family="monospace" text-anchor="middle">H = ?</text>
+  <!-- Linha de altura da torre -->
+  <line x1="40" y1="30" x2="40" y2="150" stroke="#FFD700" stroke-width="1" stroke-dasharray="3,3" />
+  
+  <!-- Observador -->
+  <line x1="300" y1="110" x2="300" y2="150" stroke="#ADFF2F" stroke-width="3" />
+  <circle cx="300" cy="110" r="4" fill="#ADFF2F" />
+  <text x="330" y="125" fill="#FFD700" font-size="12" font-family="monospace" text-anchor="middle">h = 1.8m</text>
+  
+  <!-- Linhas de Visão (Raio de luz) -->
+  <line x1="300" y1="110" x2="240" y2="150" stroke="#FFD700" stroke-width="1.5" stroke-dasharray="4,2" />
+  <line x1="240" y1="150" x2="60" y2="30" stroke="#FFD700" stroke-width="1.5" stroke-dasharray="4,2" />
+  
+  <!-- Medidas no chão -->
+  <!-- d = 6m -->
+  <line x1="240" y1="140" x2="300" y2="140" stroke="#ADFF2F" stroke-width="1" />
+  <text x="270" y="135" fill="#FFD700" font-size="10" font-family="monospace" text-anchor="middle">d = 6m</text>
+  
+  <!-- D = 18m -->
+  <line x1="60" y1="140" x2="240" y2="140" stroke="#ADFF2F" stroke-width="1" />
+  <text x="150" y="135" fill="#FFD700" font-size="10" font-family="monospace" text-anchor="middle">D = 18m</text>
+  
+  <!-- Cálculo (Simulação Pip-Boy) -->
+  <rect x="250" y="15" width="130" height="50" fill="#000" stroke="#ADFF2F" stroke-width="1" />
+  <text x="255" y="30" fill="#ADFF2F" font-size="10" font-family="monospace">V.A.T.S. Analysis</text>
+  <text x="255" y="45" fill="#FFD700" font-size="11" font-family="monospace">H / 18 = 1.8 / 6</text>
+  <text x="255" y="58" fill="#FFD700" font-size="11" font-family="monospace">H = 5.4 metros</text>
+</svg>

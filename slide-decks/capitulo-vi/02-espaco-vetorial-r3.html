@@ -1,0 +1,98 @@
+<!-- 02-TÓPICO: ESPAÇO VETORIAL R³ (corresponde ao tópico 1 dos exercícios) -->
+<section>
+  <!-- V1: Abertura (motivação + insert narrativo) -->
+  <section class="field-report">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 02 &middot; ESPAÇO VETORIAL R³</div>
+    <h2>Uma Nova Dimensão</h2>
+    <h3 class="mission-subtitle">Por Que 3 Dimensões?</h3>
+    <p>Um drone precisa navegar de \(A(1,2,3)\) até \(B(4,5,6)\). No mapa 2D, ele só vê \(x\) e \(y\). Mas a altitude \(z\) é crucial para evitar colisões.</p>
+    <p><strong>Problema:</strong> Como descrever posições, deslocamentos e trajetórias no espaço tridimensional?</p>
+    <div class="survival-tip">
+      <p>Coordenadas 2D te dizem onde está o inimigo no mapa. Mas para um drone atacar de cima, você precisa da terceira coordenada.</p>
+    </div>
+    <p class="narrative-insert">1,1 bilhão de pessoas vivem em assentamentos informais no mundo. A maior parte se constrói na vertical, sem engenheiro e sem mapa.</p>
+    <p class="chapter-meta">Fonte: ONU-Habitat / ONU News, 2025</p>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V2: Definição formal -->
+  <section class="mission-briefing">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 02 &middot; ESPAÇO VETORIAL R³</div>
+    <h2>O Espaço Vetorial \(R^3\)</h2>
+    <h3 class="mission-subtitle">Pontos e Vetores no Espaço</h3>
+    <div class="definition-box">
+      <p><strong>Ponto em \(R^3\):</strong> \(\quad P(x, y, z)\)</p>
+      <p><strong>Vetor em \(R^3\):</strong> \(\quad \vec{v} = (x, y, z) = x\vec{i} + y\vec{j} + z\vec{k}\)</p>
+      <p><strong>Vetores canônicos:</strong> \(\quad \vec{i} = (1,0,0), \quad \vec{j} = (0,1,0), \quad \vec{k} = (0,0,1)\)</p>
+    </div>
+    <p><strong>Comparação com \(R^2\):</strong> Tudo se generaliza: só adicionamos o componente \(z\).</p>
+    <p class="mnemonic">"\(\vec{i}\), \(\vec{j}\), \(\vec{k}\) são os três eixos da sobrevivência. Sem eles, você está perdido no espaço."</p>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V3: Operações -->
+  <section class="field-report">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 02 &middot; ESPAÇO VETORIAL R³</div>
+    <h2>Operações em \(R^3\)</h2>
+    <h3 class="mission-subtitle">O Que Muda, O Que Permanece?</h3>
+    <div class="info-panel">
+      <div class="info-screen">
+        <h4>Generalizações do \(R^2\):</h4>
+        <ul>
+          <li><strong>Soma:</strong> \(\vec{u} + \vec{v} = (u_x+v_x, u_y+v_y, u_z+v_z)\)</li>
+          <li><strong>Escalar:</strong> \(k\vec{v} = (kv_x, kv_y, kv_z)\)</li>
+          <li><strong>Módulo:</strong> \(\|\vec{v}\| = \sqrt{x^2 + y^2 + z^2}\)</li>
+          <li><strong>Distância:</strong> \(d(P,Q) = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2 + (z_2-z_1)^2}\)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="survival-tip">
+      <p>DICA DE SOBREVIVÊNCIA: Não presuma que tudo do \(R^2\) se aplica diretamente. A terceira dimensão tem suas próprias regras.</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V4: Simulador -->
+  <section class="simulator">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 02 &middot; ESPAÇO VETORIAL R³</div>
+    <h3>Simulador: Vetores em 3D</h3>
+    <div class="canvas-container">
+      <canvas id="r3-vetores-canvas" width="800" height="400"></canvas>
+      <div class="simulator-controls">
+        <p>Vetor \(\vec{u}\):</p>
+        <div class="control-panel">
+          <label for="r3-ux">\(u_x\):</label> <input type="range" id="r3-ux" min="-5" max="5" value="2" step="0.1"> <span id="r3-ux-value">2</span>
+          <label for="r3-uy">\(u_y\):</label> <input type="range" id="r3-uy" min="-5" max="5" value="1" step="0.1"> <span id="r3-uy-value">1</span>
+          <label for="r3-uz">\(u_z\):</label> <input type="range" id="r3-uz" min="-5" max="5" value="1" step="0.1"> <span id="r3-uz-value">1</span>
+        </div>
+        <p>Vetor \(\vec{v}\):</p>
+        <div class="control-panel">
+          <label for="r3-vx">\(v_x\):</label> <input type="range" id="r3-vx" min="-5" max="5" value="-1" step="0.1"> <span id="r3-vx-value">-1</span>
+          <label for="r3-vy">\(v_y\):</label> <input type="range" id="r3-vy" min="-5" max="5" value="2" step="0.1"> <span id="r3-vy-value">2</span>
+          <label for="r3-vz">\(v_z\):</label> <input type="range" id="r3-vz" min="-5" max="5" value="0" step="0.1"> <span id="r3-vz-value">0</span>
+        </div>
+        <p>Soma \(\vec{u} + \vec{v}\): <span id="r3-soma" class="formula">(1, 3, 1)</span> | Módulo \(\|\vec{u}\|\): <span id="r3-mag-u" class="formula">2,45</span></p>
+      </div>
+    </div>
+    <div class="hint-message">
+      <p>Ajuste os vetores e observe a soma e os módulos em tempo real.</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V5: Debriefing -->
+  <section class="debriefing">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 02 &middot; ESPAÇO VETORIAL R³</div>
+    <h3>Debriefing: Fundamentos Tridimensionais</h3>
+    <div class="summary-box">
+      <p>O \(R^3\) é uma expansão natural do \(R^2\). Pontos, vetores, operações e distâncias generalizam-se diretamente.</p>
+    </div>
+    <div class="next-mission">
+      <p>Próximo briefing: Como comparar direções no espaço? Produto Interno em \(R^3\).</p>
+    </div>
+    <div class="instructor-note">
+      <p>"No térreo você sobrevive, mas é nos andares superiores que a reconstrução acontece. Bem-vindos ao \(R^3\)."</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+</section>

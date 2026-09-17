@@ -1,0 +1,57 @@
+<div class="exercise">
+<h3>CAPACIDADE DO BUNKER — PRODUTO MISTO</h3>
+<p>O objetivo deste exercício é usar o produto misto para calcular o volume de um depósito subterrâneo com formato de paralelepípedo, determinando sua capacidade de armazenamento.</p>
+<p>Um bunker de suprimentos foi construído com três arestas principais a partir de um canto do piso. As arestas são representadas pelos vetores $\vec{a} = (4, 0, 0)$, $\vec{b} = (2, 5, 0)$ e $\vec{c} = (1, 2, 3)$, todas em metros.</p>
+<p><strong>(a)</strong> Calcule o produto misto $[\vec{a}, \vec{b}, \vec{c}]$.</p>
+<p><strong>(b)</strong> Qual o volume do bunker em metros cúbicos?</p>
+<p><strong>(c)</strong> Cada caixa de suprimentos ocupa $0{,}5 \text{ m}^3$. Quantas caixas cabem no bunker? (Considere apenas o volume bruto.)</p>
+<p><strong>(d)</strong> O vetor $\vec{a}$ está ao longo do eixo $x$ e $\vec{b}$ está no plano $xy$. Verifique que o produto misto pode ser interpretado como "área da base × altura", onde a base é o paralelogramo formado por $\vec{a}$ e $\vec{b}$ e a altura é a componente de $\vec{c}$ perpendicular ao plano $xy$.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para o item (d), calcule $|\vec{a} \times \vec{b}|$ (área da base) e compare com a terceira coordenada de $\vec{c}$. O produto misto $[\vec{a}, \vec{b}, \vec{c}] = (\vec{a} \times \vec{b}) \cdot \vec{c}$. Como $\vec{a} \times \vec{b}$ aponta na direção $\vec{k}$, apenas a componente $z$ de $\vec{c}$ contribui para o produto escalar.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>Item (a):</strong></p>
+<ol class="solution-steps">
+<li>$[\vec{a}, \vec{b}, \vec{c}] = \begin{vmatrix} 4 & 0 & 0 \\ 2 & 5 & 0 \\ 1 & 2 & 3 \end{vmatrix}$</li>
+<li>Expansão por Laplace (primeira linha): $4 \cdot \begin{vmatrix} 5 & 0 \\ 2 & 3 \end{vmatrix} - 0 + 0$</li>
+<li>$= 4[(5)(3) - (0)(2)] = 4(15 - 0) = 60$</li>
+</ol>
+<div class="formula">
+$$[\vec{a}, \vec{b}, \vec{c}] = 60$$
+</div>
+
+<p><strong>Item (b):</strong></p>
+<ol class="solution-steps">
+<li>Volume: $|[\vec{a}, \vec{b}, \vec{c}]| = |60| = 60 \text{ m}^3$</li>
+</ol>
+<div class="formula">
+$$V = 60 \text{ m}^3$$
+</div>
+
+<p><strong>Item (c):</strong></p>
+<ol class="solution-steps">
+<li>Número de caixas: $\dfrac{60}{0{,}5} = 120$ caixas</li>
+</ol>
+<div class="formula">
+$$\text{Capacidade} = 120 \text{ caixas}$$
+</div>
+
+<p><strong>Item (d):</strong></p>
+<ol class="solution-steps">
+<li>$\vec{a} \times \vec{b} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 4 & 0 & 0 \\ 2 & 5 & 0 \end{vmatrix} = (0, 0, 20) = 20\vec{k}$</li>
+<li>Área da base: $|\vec{a} \times \vec{b}| = |20\vec{k}| = 20 \text{ m}^2$</li>
+<li>$(\vec{a} \times \vec{b}) \cdot \vec{c} = (0, 0, 20) \cdot (1, 2, 3) = 0 + 0 + 60 = 60$</li>
+<li>Componente $z$ de $\vec{c}$: $c_3 = 3$ m (altura perpendicular ao plano $xy$)</li>
+<li>"Área da base × altura" $= 20 \times 3 = 60$ ✓</li>
+</ol>
+<p>Isso confirma que o produto misto generaliza a fórmula clássica de volume "área da base × altura". Quando a base está no plano $xy$, o produto vetorial $\vec{a} \times \vec{b}$ aponta na direção $\vec{k}$, e apenas a componente vertical de $\vec{c}$ contribui para o volume. Se $\vec{c}$ tivesse componentes $x$ ou $y$, elas não afetariam o volume porque corresponderiam a "deslizar" o topo do paralelepípedo paralelamente à base, sem alterar a altura.</p>
+
+<p><strong>Reflexão de Sobrevivência:</strong> Bunkers subterrâneos raramente têm paredes perfeitamente alinhadas com os eixos coordenados. O produto misto calcula o volume real de qualquer paralelepípedo, independentemente de sua orientação. Na Zona Devastada, saber exatamente quantos suprimentos cabem em um depósito pode ser a diferença entre sobrevivência e escassez.</p>
+</details>
+</div>

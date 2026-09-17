@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>REGIÃO VIÁVEL</h3>
+
+<p>O Refúgio-Gama precisa definir sua zona segura usando três barreiras naturais: um rio tóxico modelado por $x + y \leq 4$ (o refúgio deve ficar abaixo dessa reta), uma muralha de destroços modelada por $x \geq 0$ (não se pode ir além da origem no eixo $x$), e um penhasco modelado por $y \geq 0$ (não se pode descer abaixo do eixo $y$). No papel, esboce as três retas, identifique a região que satisfaz todas as três condições simultaneamente, e verifique se o ponto $P(1, 2)$ está dentro da zona segura. Depois, encontre todos os vértices da região viável.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Esboce cada reta separadamente e use a origem $(0, 0)$ como ponto de teste para identificar o semiplano correto. A região viável é a interseção dos três semiplanos. Os vértices são os pontos onde as retas se encontram.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>A reta $x + y = 4$ passa por $(4, 0)$ e $(0, 4)$. Testando $(0, 0)$: $0 + 0 = 0 \leq 4$ ✓, então a região segura inclui a origem (abaixo da reta).</li>
+<li>$x \geq 0$ é o semiplano à direita do eixo $y$.</li>
+<li>$y \geq 0$ é o semiplano acima do eixo $x$.</li>
+<li>Para $P(1, 2)$: $1 + 2 = 3 \leq 4$ ✓, $1 \geq 0$ ✓, $2 \geq 0$ ✓. O ponto está na zona segura.</li>
+<li>Vértices da região: interseção de $x = 0$ e $y = 0$ é $O(0, 0)$; interseção de $y = 0$ e $x + y = 4$ é $A(4, 0)$; interseção de $x = 0$ e $x + y = 4$ é $B(0, 4)$.</li>
+</ol>
+<div class="formula">
+$$\text{Vértices: } O(0, 0), \quad A(4, 0), \quad B(0, 4)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A região viável é um triângulo com vértices na origem, em $(4, 0)$ e em $(0, 4)$. Na Zona Devastada, cada vértice é um ponto crítico — geralmente onde duas fronteiras se encontram e o risco é máximo. Conhecer os vértices permite planejar rotas que evitem esses pontos de alta exposição.</p>
+</details>
+</div>

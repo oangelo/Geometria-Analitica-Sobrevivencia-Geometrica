@@ -1,0 +1,31 @@
+<div class="exercise">
+<h3>Descobrindo Elementos da Hipérbole Horizontal</h3>
+<p>O objetivo deste exercício é, dada a equação de uma hipérbole, descobrir todos os seus elementos manipulando a equação — sem usar fórmulas decoradas. Um sensor detectou uma assinatura hiperbólica descrita por $\frac{x^2}{9} - \frac{y^2}{16} = 1$.</p>
+<p><strong>(a)</strong> Faça $y = 0$ na equação e resolva para $x$. Os pontos encontrados são os vértices. Identifique o valor de $a$.</p>
+<p><strong>(b)</strong> Identifique $b^2$ diretamente da equação. Qual é o valor de $b$?</p>
+<p><strong>(c)</strong> Use a relação $c^2 = a^2 + b^2$ para calcular $c$. Escreva as coordenadas dos focos $F_1$ e $F_2$.</p>
+<p><strong>(d)</strong> Tente fazer $x = 0$ na equação. O que acontece? Por que isso confirma que a hipérbole não cruza o eixo $y$?</p>
+<p><strong>(e)</strong> Para encontrar as assíntotas, considere $|x|$ muito grande. Nesse caso, o termo $1$ na equação se torna desprezível. A equação se aproxima de $\frac{x^2}{a^2} - \frac{y^2}{b^2} \approx 0$. Resolva para $y$ em função de $x$ para obter as assíntotas.</p>
+<p><strong>(f)</strong> Faça um esboço no papel: marque os vértices, os focos, desenhe o retângulo de vértices $(\pm a, \pm b)$, trace as assíntotas como diagonais, e esboce os dois ramos da hipérbole.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>No item (e), quando $|x|$ é grande, $\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1$ é aproximadamente $\frac{x^2}{a^2} - \frac{y^2}{b^2} = 0$. Rearranje para $\frac{y^2}{b^2} = \frac{x^2}{a^2}$ e tire a raiz quadrada dos dois lados. Não se esqueça do $\pm$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Fazendo $y = 0$: $\frac{x^2}{9} = 1 \Rightarrow x^2 = 9 \Rightarrow x = \pm 3$. Vértices: $A_1(-3, 0)$ e $A_2(3, 0)$. Logo $a = 3$.</li>
+<li>Da equação: $b^2 = 16$, logo $b = 4$.</li>
+<li>$c^2 = a^2 + b^2 = 9 + 16 = 25$, logo $c = 5$. Focos: $F_1(-5, 0)$ e $F_2(5, 0)$.</li>
+<li>Fazendo $x = 0$: $-\frac{y^2}{16} = 1 \Rightarrow y^2 = -16$. Impossível em $\mathbb{R}$. A hipérbole nunca cruza o eixo $y$.</li>
+<li>Para $|x|$ grande: $\frac{x^2}{9} - \frac{y^2}{16} \approx 0 \Rightarrow \frac{y^2}{16} \approx \frac{x^2}{9} \Rightarrow y^2 \approx \frac{16}{9}x^2 \Rightarrow y \approx \pm \frac{4}{3}x$.</li>
+<li>Assíntotas: $y = \frac{4}{3}x$ e $y = -\frac{4}{3}x$.</li>
+</ol>
+<div class="formula">$$\text{Vértices: } (\pm 3, 0) \quad \text{Focos: } (\pm 5, 0) \quad \text{Assíntotas: } y = \pm \frac{4}{3}x$$</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A impossibilidade de $x = 0$ é a marca registrada da hipérbole: dois ramos separados, nunca conectados. Geometricamente, isso significa que a diferença das distâncias $2a = 6$ é menor que a distância entre os focos $2c = 10$ — a hipérbole só existe onde essa diferença é possível.</p>
+</details>
+</div>

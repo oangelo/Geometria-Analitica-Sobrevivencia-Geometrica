@@ -1,0 +1,46 @@
+<div class="exercise">
+<h3>ESFERA E PLANO: POSIÇÃO RELATIVA</h3>
+<p>O objetivo deste exercício é classificar a posição relativa entre uma superfície esférica e um plano, determinando se o plano intersecta a esfera (formando um círculo), é tangente (tocando em um único ponto) ou é externo (sem interseção). Esta é a generalização natural da posição relativa reta–circunferência do Capítulo IV.</p>
+<p>Uma esfera de monitoramento tem centro $C(1, 2, -1)$ e raio $r = 5$. Três planos de corte foram propostos para análise da estrutura interna:</p>
+<div class="formula">
+$$\pi_1: 2x - y + 2z + 5 = 0, \quad \pi_2: x + 2y - 2z - 8 = 0, \quad \pi_3: 3x + 4z + 20 = 0$$
+</div>
+<p><strong>(a)</strong> Para cada plano, calcule a distância $d$ do centro $C$ ao plano.</p>
+<p><strong>(b)</strong> Classifique a interseção de cada plano com a esfera: círculo, ponto (tangente) ou vazio (externo).</p>
+<p><strong>(c)</strong> Para o plano que intersecta a esfera em um círculo, calcule o raio $\rho$ desse círculo de interseção.</p>
+<p><strong>(d)</strong> Se um plano tangencia a esfera, determine as coordenadas do ponto de tangência.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>A distância de um ponto $P_0(x_0,y_0,z_0)$ a um plano $ax + by + cz + d = 0$ é $d = \frac{|ax_0 + by_0 + cz_0 + d|}{\sqrt{a^2+b^2+c^2}}$. Compare essa distância com o raio $r$: se $d < r$, interseção é um círculo de raio $\rho = \sqrt{r^2 - d^2}$; se $d = r$, tangente; se $d > r$, externo. O ponto de tangência está na reta perpendicular ao plano passando pelo centro.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Centro: $C = (1, 2, -1)$; raio: $r = 5$</li>
+<li><strong>Item (a)</strong> — Distâncias:</li>
+<li>$\pi_1$: $d_1 = \frac{|2(1) - 1(2) + 2(-1) + 5|}{\sqrt{4+1+4}} = \frac{|2 - 2 - 2 + 5|}{3} = \frac{3}{3} = 1$</li>
+<li>$\pi_2$: $d_2 = \frac{|1(1) + 2(2) - 2(-1) - 8|}{\sqrt{1+4+4}} = \frac{|1 + 4 + 2 - 8|}{3} = \frac{1}{3} \approx 0{,}33$</li>
+<li>$\pi_3$: $d_3 = \frac{|3(1) + 4(-1) + 20|}{\sqrt{9+16}} = \frac{|3 - 4 + 20|}{5} = \frac{19}{5} = 3{,}8$</li>
+<li><strong>Item (b)</strong> — Classificação:</li>
+<li>$\pi_1$: $d_1 = 1 < 5$ → \u003cspan class="success">interseção é um círculo</span></li>
+<li>$\pi_2$: $d_2 = \frac{1}{3} < 5$ → \u003cspan class="success">interseção é um círculo</span></li>
+<li>$\pi_3$: $d_3 = 3{,}8 < 5$ → \u003cspan class="success">interseção é um círculo</span></li>
+<li>Nenhum plano é tangente ou externo neste caso.</li>
+<li><strong>Item (c)</strong> — Raios dos círculos de interseção:</li>
+<li>$\pi_1$: $\rho_1 = \sqrt{25 - 1} = \sqrt{24} = 2\sqrt{6} \approx 4{,}90$</li>
+<li>$\pi_2$: $\rho_2 = \sqrt{25 - \frac{1}{9}} = \sqrt{\frac{224}{9}} = \frac{\sqrt{224}}{3} = \frac{4\sqrt{14}}{3} \approx 4{,}99$</li>
+<li>$\pi_3$: $\rho_3 = \sqrt{25 - 14{,}44} = \sqrt{10{,}56} \approx 3{,}25$</li>
+<li><strong>Item (d)</strong> — Não há plano tangente neste exercício. Se houvesse, o ponto de tangência estaria na reta perpendicular ao plano passando por $C$, a distância $r$ do centro.</li>
+</ol>
+<div class="formula">
+$$\pi_1: \text{círculo de raio } \rho_1 = \sqrt{24} \approx 4{,}90$$
+$$\pi_2: \text{círculo de raio } \rho_2 = \frac{4\sqrt{14}}{3} \approx 4{,}99$$
+$$\pi_3: \text{círculo de raio } \rho_3 = \sqrt{10{,}56} \approx 3{,}25$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Todos os três planos intersectam a esfera em círculos, mas com tamanhos distintos. O plano $\pi_2$ passa muito próximo do centro ($d \approx 0{,}33$), produzindo um círculo quase tão grande quanto a esfera. O plano $\pi_3$, mais afastado, gera um círculo menor. Em campo, isso significa que cortes próximos ao centro revelam mais área da estrutura interna.</p>
+</details>
+</div>
