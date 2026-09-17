@@ -911,19 +911,56 @@
   margin: 20px 0;
 }
 
-/* Tabelas dentro do info-screen: mesma escala compacta do texto do painel */
+/* Tabelas dentro do info-screen: escala compacta + grade horizontal completa */
 .info-screen table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 1.2rem !important;
-  line-height: 1.2;
+  font-size: 1.1rem !important;
+  line-height: 1.15;
+  table-layout: fixed;
+}
+
+.info-screen table th:nth-child(1),
+.info-screen table td:nth-child(1) {
+  width: 22%;
+}
+
+.info-screen table th:nth-child(2),
+.info-screen table td:nth-child(2) {
+  width: 38%;
+}
+
+.info-screen table th:nth-child(3),
+.info-screen table td:nth-child(3) {
+  width: 40%;
 }
 
 .info-screen table th,
 .info-screen table td {
-  padding: 2px 6px;
+  padding: 1px 5px;
   text-align: left;
   vertical-align: top;
+  border-bottom: 1px solid #adff2f;
+}
+
+/* O tema do Reveal zera a borda da última linha; aqui ela também aparece */
+.info-screen table tbody tr:last-child th,
+.info-screen table tbody tr:last-child td {
+  border-bottom: 1px solid #adff2f;
+}
+
+/* Barra horizontal separando grupos de casos dentro da tabela */
+.info-screen table tr.group-separator th,
+.info-screen table tr.group-separator td {
+  border-bottom: 3px solid #adff2f;
+}
+
+.info-screen h4 {
+  font-size: 1.3rem !important;
+}
+
+.info-screen .table-container {
+  margin: 8px 0;
 }
 
 /* Painel de posições */
