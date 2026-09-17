@@ -76,7 +76,7 @@ São Paulo: Atual, 1982.
 4. [A hipérbole](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-v-lugares-geometricos-as-conicas/4-hiperbole.html)
 5. [Revisão](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-v-lugares-geometricos-as-conicas/index.html)
 
-## [Capítulo VI - O R³ e a Geometria Analítica no Espaço](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-vi.html)
+## [Capítulo VI - O R³ e a Geometria Analítica no Espaço](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/slide-decks/capitulo-vi.html) [📝](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios-aula/Cap%206/index.html)
 
 1. [O espaço vetorial R³](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-vi-o-r3-e-a-geometria-analitica-no-espaco/1-espaco-vetorial-r3.html)
 2. [Produto interno no R³](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-vi-o-r3-e-a-geometria-analitica-no-espaco/2-produto-interno-no-r3.html)
@@ -87,6 +87,18 @@ São Paulo: Atual, 1982.
 7. [Sistemas de equações lineares a três incógnitas](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-vi-o-r3-e-a-geometria-analitica-no-espaco/7-sistemas-de-equacoes-lineares-a-tres-incognitas.html)
 8. [Equação da superfície esférica](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-vi-o-r3-e-a-geometria-analitica-no-espaco/8-equacao-da-superficie-esferica.html)
 9. [Revisão](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios/capitulo-vi-o-r3-e-a-geometria-analitica-no-espaco/index.html)
+
+# Exercícios de Sala (Aula)
+
+Folhas para resolução durante a aula, organizadas por capítulo e tema:
+
+- [Capítulo 0 — Preparação para a Wasteland](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios-aula/capitulo-0-preparacao/index.html)
+- [Capítulo I — O Espaço Vetorial R²](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios-aula/Cap%201/index.html)
+- [Capítulo II — Produto Interno no R²](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios-aula/Cap%202/index.html)
+- [Capítulo III — Estudo da Reta no R²](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios-aula/Cap%203/index.html)
+- [Capítulo IV — A Circunferência no R²](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios-aula/Cap%204/index.html)
+- [Capítulo V — Lugares Geométricos: As Cônicas](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios-aula/Cap%205/index.html)
+- [Capítulo VI — O R³ e a Geometria Analítica no Espaço](https://oangelo.github.io/Geometria-Analitica-Sobrevivencia-Geometrica/exercicios-aula/Cap%206/index.html)
 
 <details>
 <summary>Material Complementar</summary>

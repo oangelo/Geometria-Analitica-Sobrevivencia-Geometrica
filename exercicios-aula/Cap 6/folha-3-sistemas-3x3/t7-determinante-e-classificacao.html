@@ -1,0 +1,145 @@
+<section class="exercicio" data-topico="determinante" data-dificuldade="medio">
+  <p class="exercicio-enunciado">
+    <span class="exercicio-numero">7.</span>
+    Existe um atalho para a classificação: o <strong>determinante da matriz dos
+    coeficientes</strong> $A$. Se $\det A \neq 0$, o sistema tem solução única
+    (SPD). Se $\det A = 0$, ele pode ser SPI ou SI — e você precisa escalonar
+    para decidir. Considere o sistema
+    $\begin{cases} x + y + z = 6 \\ x - y + z = 2 \\ x + y - z = 0 \end{cases}$.
+  </p>
+
+  <p class="questao">
+    Calcule $\det A$.
+  </p>
+
+  <p class="dialogo">
+    Escreva só os coeficientes (sem a coluna dos termos independentes). Expanda
+    pela primeira linha, com sinais alternados $+ - +$; cada determinante
+    $2 \times 2$ é o produto da diagonal principal menos o da secundária.
+  </p>
+  <p class="subitem">
+    a) Escreva a matriz dos coeficientes $A$:
+  </p>
+  <div class="workspace"></div>
+  <p class="subitem">
+    b) Calcule os três determinantes $2 \times 2$, na ordem em que aparecem na
+    expansão: <span class="lacuna"></span>, <span class="lacuna"></span>,
+    <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    c) Aplique os sinais $+ - +$ e some: $\det A =$ <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verifique: confira a expansão com a regra de Sarrus (repita as duas
+    primeiras colunas ao lado da matriz e some as diagonais descendentes,
+    subtraindo as ascendentes). Os dois caminhos devem dar o mesmo valor.
+  </p>
+
+  <p class="questao">
+    Classifique o sistema pelo determinante.
+  </p>
+  <p class="subitem">
+    a) Como $\det A \neq 0$, o sistema é SPD, SPI ou SI? <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    b) Qual é a solução única? (Use o exercício 5.) <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    c) Se $\det A = 0$, esse resultado sozinho decide entre SPI e SI?
+    <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verifique: determinante não nulo garante solução única — a solução deve
+    coincidir com a obtida escalonando. E lembre: $\det A = 0$ não decide entre
+    infinitas e nenhuma solução; isso exige analisar a matriz escalonada.
+  </p>
+
+  <p class="questao">
+    Classifique e resolva
+    $\begin{cases} x + y + z = 6 \\ x - y + z = 2 \\ 2x + 2z = 8 \end{cases}$.
+  </p>
+
+  <p class="dialogo">
+    A terceira equação é a soma das duas primeiras (redundante). Escalone e
+    deixe uma variável livre.
+  </p>
+  <p class="subitem">
+    a) Após escalonar, qual linha de zeros aparece na matriz aumentada?
+    <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    b) Classificação: <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    c) Da segunda linha, $y =$ <span class="lacuna"></span>. Chamando $x = t$,
+    escreva a solução geral: $($<span class="lacuna"></span>,
+    <span class="lacuna"></span>, <span class="lacuna"></span>$)$
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verifique: escolha dois valores de $t$, monte as triplas e substitua nas
+    duas primeiras equações. Ambas devem funcionar — sinal de infinitas
+    soluções.
+  </p>
+
+  <p class="questao">
+    Classifique
+    $\begin{cases} x + y + z = 6 \\ x - y + z = 2 \\ 2x + 2z = 9 \end{cases}$.
+  </p>
+
+  <p class="dialogo">
+    Compare a soma das duas primeiras equações ($2x + 2z = 8$) com a terceira
+    ($2x + 2z = 9$). Elas concordam?
+  </p>
+  <p class="subitem">
+    a) Após escalonar, qual linha de zeros aparece? <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    b) Existe tripla que satisfaça as três equações ao mesmo tempo? <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    c) Classificação: <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verifique: a comparação entre a soma das duas primeiras equações e a
+    terceira decide tudo. Se discordam, nenhuma tripla satisfaz as três ao
+    mesmo tempo.
+  </p>
+
+  <p class="questao">
+    Classifique o sistema com parâmetro
+    $\begin{cases} x + y + z = 6 \\ x - y + z = 2 \\ 2x + 2z = k \end{cases}$.
+  </p>
+
+  <p class="dialogo">
+    A terceira equação é sempre combinação das duas primeiras — a matriz dos
+    coeficientes sempre tem determinante nulo. O que muda quando $k$ varia é só
+    a compatibilidade.
+  </p>
+  <p class="subitem">
+    a) Se $k = 8$, a terceira equação é compatível. Classificação:
+    <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    b) Se $k \neq 8$, há contradição. Classificação: <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    c) Existe algum valor de $k$ que torne o sistema SPD? <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verifique: teste com $k = 8$ e com $k = 5$. A terceira equação nunca se
+    torna independente das outras duas, então o determinante é sempre nulo —
+    SPD é impossível.
+  </p>
+
+  <p class="dica">Um sistema $3 \times 3$ nunca é SPD quando uma equação é combinação linear das outras duas — nesse caso o determinante é nulo.</p>
+</section>

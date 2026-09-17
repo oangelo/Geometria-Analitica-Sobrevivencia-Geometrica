@@ -1,0 +1,113 @@
+<section class="exercicio" data-topico="escalonamento" data-dificuldade="dificil">
+  <p class="exercicio-enunciado">
+    <span class="exercicio-numero">4.</span>
+    Sem receita pronta: você monta a matriz e escolhe todas as operações.
+    Considere
+    $\begin{cases} x + 2y + z = 3 \\ 2x + y - z = 0 \\ x - y + 2z = 9 \end{cases}$.
+    Leve até a forma triangular e leia as incógnitas.
+  </p>
+
+  <p class="questao">
+    Monte a matriz aumentada.
+  </p>
+
+  <p class="dialogo">
+    Ordene os coeficientes na ordem $x$, $y$, $z$ e separe a última coluna com
+    uma barra.
+  </p>
+  <p class="subitem">
+    a) Escreva a matriz aumentada $[A|B]$:
+  </p>
+  <div class="workspace"></div>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verifique: $3$ linhas, $4$ colunas. A coluna do $y$ é a que tem os valores
+    $2$, $1$, $-1$; confira os sinais.
+  </p>
+
+  <p class="questao">
+    Zere os coeficientes de $x$ abaixo do primeiro pivô.
+  </p>
+
+  <p class="dialogo">
+    Use o primeiro pivô (linha 1) para zerar o $x$ das linhas 2 e 3. Escreva
+    cada operação na forma $L_i \leftarrow L_i + kL_1$ e determine o $k$.
+  </p>
+  <p class="subitem">
+    a) Para a linha 2: $k =$ <span class="lacuna"></span>. Escreva a operação:
+    $L_2 \leftarrow L_2 + kL_1$, com esse $k$.
+  </p>
+  <p class="subitem">
+    b) Nova linha 2: $($<span class="lacuna"></span>, <span class="lacuna"></span>,
+    <span class="lacuna"></span>$|$ <span class="lacuna"></span>$)$
+  </p>
+  <p class="subitem">
+    c) Para a linha 3: $k =$ <span class="lacuna"></span>. Escreva a operação
+    com esse $k$.
+  </p>
+  <p class="subitem">
+    d) Nova linha 3: $($<span class="lacuna"></span>, <span class="lacuna"></span>,
+    <span class="lacuna"></span>$|$ <span class="lacuna"></span>$)$
+  </p>
+  <p class="subitem">
+    e) Escreva a matriz após essas duas operações:
+  </p>
+  <div class="workspace"></div>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verifique: a coluna do $x$ virou $(1, 0, 0)$. Se a linha 3 não zerou o $x$,
+    revise o $k$ da letra (c).
+  </p>
+
+  <p class="questao">
+    Zere o coeficiente de $y$ da linha 3.
+  </p>
+
+  <p class="dialogo">
+    O novo pivô é o coeficiente de $y$ na linha 2. Agora use $L_3 \leftarrow L_3 + kL_2$.
+  </p>
+  <p class="subitem">
+    a) Pivô de $y$ (linha 2): <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    b) Coeficiente de $y$ na linha 3: <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    c) Para zerar, $k =$ <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    d) Nova linha 3: $($<span class="lacuna"></span>, <span class="lacuna"></span>,
+    <span class="lacuna"></span>$|$ <span class="lacuna"></span>$)$
+  </p>
+  <p class="subitem">
+    e) Escreva a matriz triangular final:
+  </p>
+  <div class="workspace"></div>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verifique: abaixo da diagonal principal só deve haver zeros. Cada linha tem
+    seu pivô mais à direita que o da linha de cima.
+  </p>
+
+  <p class="questao">
+    Leia as incógnitas da forma triangular.
+  </p>
+  <p class="subitem">
+    a) Da linha 3: $z =$ <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    b) Da linha 2, substituindo $z$: $y =$ <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    c) Da linha 1, substituindo $y$ e $z$: $x =$ <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verifique: substitua $(x, y, z)$ nas três equações originais. Os três
+    lados direitos ($3$, $0$ e $9$) devem ser reproduzidos exatamente.
+  </p>
+</section>
