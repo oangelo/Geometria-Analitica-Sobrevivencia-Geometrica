@@ -1,0 +1,33 @@
+<div class="exercise">
+<h3>DEPÓSITO SUBTERRÂNEO</h3>
+
+<p>Uma rede de túneis abandonados possui três entradas mapeadas nas coordenadas $A(7,3)$, $B(-1,7)$ e $C(2,8)$. O engenheiro do abrigo precisa instalar uma central de ventilação no centro da circunferência que passa pelas três entradas — ela garantirá fluxo de ar equidistante a todas elas. A coordenada negativa em $B$ exige atenção redobrada aos sinais durante a substituição. No papel, esboce os três pontos (note que $B$ está à esquerda do eixo $y$) e trace a circunferência aproximada, depois determine a equação, o centro e o raio.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Ao substituir $B(-1,7)$, lembre-se: $x^2 + y^2 = 1 + 49 = 50$ e $Dx = D(-1) = -D$. Cuidado com o sinal de $-D$ — ele inverte o coeficiente $D$ na equação.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Substituindo $A(7,3)$: $49 + 9 + 7D + 3E + F = 0 \Rightarrow 7D + 3E + F = -58$ &nbsp; ...(1)</li>
+<li>Substituindo $B(-1,7)$: $1 + 49 - D + 7E + F = 0 \Rightarrow -D + 7E + F = -50$ &nbsp; ...(2)</li>
+<li>Substituindo $C(2,8)$: $4 + 64 + 2D + 8E + F = 0 \Rightarrow 2D + 8E + F = -68$ &nbsp; ...(3)</li>
+<li>(2) $-$ (1): $-8D + 4E = 8 \Rightarrow -2D + E = 2$ &nbsp; ...(4)</li>
+<li>(3) $-$ (1): $-5D + 5E = -10 \Rightarrow -D + E = -2$ &nbsp; ...(5)</li>
+<li>De (5): $E = D - 2$. Substituindo em (4): $-2D + D - 2 = 2 \Rightarrow -D = 4 \Rightarrow D = -4$.</li>
+<li>$E = -4 - 2 = -6$.</li>
+<li>De (1): $7(-4) + 3(-6) + F = -58 \Rightarrow -28 - 18 + F = -58 \Rightarrow F = -12$.</li>
+<li>Equação: $x^2 + y^2 - 4x - 6y - 12 = 0$.</li>
+<li>Centro: $(2, 3)$.</li>
+<li>Raio: $r = \sqrt{4 + 9 + 12} = \sqrt{25} = 5$.</li>
+</ol>
+<div class="formula">
+$$x^2 + y^2 - 4x - 6y - 12 = 0 \qquad \text{Centro } (2,3), \quad r = 5$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A coordenada negativa em $B$ poderia ter causado erros de sinal, mas o método é robusto — cada equação é apenas uma substituição cuidadosa. O raio $5$ confirma que as três entradas estão a uma distância considerável do centro, indicando um depósito subterrâneo extenso.</p>
+</details>
+</div>

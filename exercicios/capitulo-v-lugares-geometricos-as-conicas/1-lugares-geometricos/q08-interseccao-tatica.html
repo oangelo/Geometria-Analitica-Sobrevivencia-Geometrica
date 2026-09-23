@@ -1,0 +1,40 @@
+<div class="exercise">
+<h3>INTERSECÇÃO TÁTICA</h3>
+
+<p>A fronteira equidistante entre os abrigos $A(0, 0)$ e $B(6, 0)$ intercepta o perímetro de alerta de um terceiro abrigo $C(3, 4)$ com raio $r = 5$. A coordenação precisa dos pontos exatos onde a fronteira cruza o perímetro — esses são pontos de interesse tático para patrulhas conjuntas. O objetivo deste exercício é resolver um sistema envolvendo mediatriz e circunferência sem usar fórmulas prontas.</p>
+
+<p><strong>(a)</strong> Desenhe no papel os pontos $A(0,0)$, $B(6,0)$ e $C(3,4)$. Esboce a mediatriz de $\overline{AB}$ e a circunferência de centro $C$ e raio $5$. Quantos pontos de intersecção você prevê visualmente?</p>
+
+<p><strong>(b)</strong> Construa a equação da mediatriz de $\overline{AB}$ a partir da definição $d(P,A) = d(P,B)$.</p>
+
+<p><strong>(c)</strong> Construa a equação da circunferência de centro $C(3,4)$ e raio $5$ a partir da definição $d(P,C) = 5$.</p>
+
+<p><strong>(d)</strong> Resolva o sistema formado pela mediatriz e pela circunferência. Substitua a equação da reta na equação da circunferência e resolva a equação quadrática resultante.</p>
+
+<p><strong>(e)</strong> Interprete o resultado: os pontos de intersecção existem? Se sim, quais são suas coordenadas? Verifique que cada ponto satisfaz ambas as equações.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>No item (b), o cancelamento dos termos quadráticos deve levar a uma reta vertical. No item (d), ao substituir $x = 3$ na equação da circunferência, você obterá uma equação em $y$ que pode ter zero, uma ou duas soluções — cada caso tem um significado geométrico diferente.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Visualmente: $A$ e $B$ estão no eixo $x$, $C$ está acima do ponto médio. A mediatriz é vertical ($x = 3$) e passa por $C$. A circunferência tem raio $5$, então deve cruzar a reta $x = 3$ em dois pontos (um acima de $C$, um abaixo).</li>
+<li>Mediatriz: $\sqrt{x^2 + y^2} = \sqrt{(x-6)^2 + y^2}$. Elevando ao quadrado: $x^2 + y^2 = (x-6)^2 + y^2$. Cancelando $y^2$: $x^2 = x^2 - 12x + 36 \Rightarrow 12x = 36 \Rightarrow x = 3$.</li>
+<li>Circunferência: $\sqrt{(x-3)^2 + (y-4)^2} = 5$. Elevando ao quadrado: $(x-3)^2 + (y-4)^2 = 25$.</li>
+<li>Sistema: $\begin{cases} x = 3 \\ (x-3)^2 + (y-4)^2 = 25 \end{cases}$. Substituindo $x = 3$: $(3-3)^2 + (y-4)^2 = 25 \Rightarrow (y-4)^2 = 25$.</li>
+<li>Resolvendo: $y - 4 = \pm 5$, logo $y = 4 + 5 = 9$ ou $y = 4 - 5 = -1$.</li>
+<li>Pontos de intersecção: $P_1(3, 9)$ e $P_2(3, -1)$.</li>
+<li>Verificação de $P_1(3,9)$: Mediatriz — $x = 3$ ✓. Circunferência — $(3-3)^2 + (9-4)^2 = 0 + 25 = 25$ ✓.</li>
+<li>Verificação de $P_2(3,-1)$: Mediatriz — $x = 3$ ✓. Circunferência — $(3-3)^2 + (-1-4)^2 = 0 + 25 = 25$ ✓.</li>
+</ol>
+<div class="formula">
+$$P_1(3, 9) \quad \text{e} \quad P_2(3, -1)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A mediatriz $x = 3$ passa exatamente pelo centro $C(3,4)$ da circunferência. Isso não foi acaso — $C$ foi escolhido sobre a mediatriz. Quando uma reta passa pelo centro de uma circunferência, ela é um diâmetro e sempre intercepta a circunferência em exatamente dois pontos. Este exercício conecta lugar geométrico (Capítulo V) com circunferência (Capítulo IV) e sistema de equações (Capítulo III).</p>
+</details>
+</div>

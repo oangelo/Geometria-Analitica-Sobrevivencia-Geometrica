@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>Distância de Ponto a Plano por Projeção</h3>
+<p><strong>Objetivo:</strong> Construir a fórmula da distância ponto-plano a partir da projeção, não apenas aplicá-la.</p>
+<p>Um ponto de ameaça foi detectado em $P(4, -1, 2)$. A linha de defesa é o plano $\pi: 2x + y - 2z + 3 = 0$. Calcule a distância mínima do ponto de ameaça à linha de defesa, construindo o raciocínio a partir da projeção do vetor $\overrightarrow{AP}$ sobre o vetor normal $\vec{n}$ (onde $A$ é um ponto qualquer do plano).</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+                A distância é o comprimento da projeção ortogonal de $\overrightarrow{AP}$ sobre $\vec{n}$: $\text{proj}_{\vec{n}} \overrightarrow{AP} = \frac{\vec{n} \cdot \overrightarrow{AP}}{\|\vec{n}\|^2}\vec{n}$. O comprimento dessa projeção é $\frac{|\vec{n} \cdot \overrightarrow{AP}|}{\|\vec{n}\|}$. Escolha $A$ como um ponto fácil do plano (por exemplo, um intercepto com algum eixo).
+            </div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Encontrar um ponto $A$ do plano. Fazendo $y = z = 0$: $2x + 3 = 0 \Rightarrow x = -\frac{3}{2}$. Ponto: $A\left(-\frac{3}{2}, 0, 0\right)$.</li>
+<li>Construir $\overrightarrow{AP} = P - A = \left(4 - \left(-\frac{3}{2}\right), -1 - 0, 2 - 0\right) = \left(\frac{11}{2}, -1, 2\right)$.</li>
+<li>Vetor normal: $\vec{n} = (2, 1, -2)$.</li>
+<li>Calcular $\vec{n} \cdot \overrightarrow{AP} = (2)\left(\frac{11}{2}\right) + (1)(-1) + (-2)(2) = 11 - 1 - 4 = 6$.</li>
+<li>Calcular $\|\vec{n}\| = \sqrt{2^2 + 1^2 + (-2)^2} = \sqrt{4 + 1 + 4} = \sqrt{9} = 3$.</li>
+<li>Distância: $d = \frac{|\vec{n} \cdot \overrightarrow{AP}|}{\|\vec{n}\|} = \frac{|6|}{3} = 2$.</li>
+<li>Verificação pela fórmula direta: $d = \frac{|2(4) + (-1) + (-2)(2) + 3|}{3} = \frac{|8 - 1 - 4 + 3|}{3} = \frac{6}{3} = 2$. <strong>Confere!</strong></li>
+</ol>
+<div class="formula">
+                    $$d = 2 \text{ unidades}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> A fórmula da distância ponto-plano não é mágica — ela é o comprimento da projeção do vetor que liga um ponto do plano ao ponto externo, sobre a direção normal. Entender essa construção permite adaptar o cálculo a situações mais complexas onde a fórmula pronta não se aplica diretamente.</p>
+</details>
+</div>

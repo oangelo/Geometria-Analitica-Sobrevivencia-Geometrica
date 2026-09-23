@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>Distância entre Dois Planos Paralelos</h3>
+<p><strong>Objetivo:</strong> Calcular a distância entre dois planos paralelos usando a fórmula da distância ponto-plano.</p>
+<p>Duas camadas de blindagem foram instaladas em um bunker. A primeira camada é o plano $\pi_1: x + 2y - 2z + 6 = 0$ e a segunda é $\pi_2: x + 2y - 2z - 3 = 0$. Verifique que os planos são paralelos e calcule a espessura da blindagem (distância entre os dois planos).</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+                Verifique que os vetores normais são paralelos. Para a distância, escolha um ponto qualquer de $\pi_1$ e calcule sua distância a $\pi_2$ (ou vice-versa). A distância entre planos paralelos é a distância de qualquer ponto de um ao outro.
+            </div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Vetor normal de $\pi_1$: $\vec{n}_1 = (1, 2, -2)$. Vetor normal de $\pi_2$: $\vec{n}_2 = (1, 2, -2)$.</li>
+<li>Como $\vec{n}_1 = \vec{n}_2$, os vetores normais são paralelos (de fato, iguais), logo <strong>$\pi_1 \parallel \pi_2$</strong>.</li>
+<li>Escolher um ponto de $\pi_1$. Fazendo $y = z = 0$: $x + 6 = 0 \Rightarrow x = -6$. Ponto: $A(-6, 0, 0) \in \pi_1$.</li>
+<li>Calcular distância de $A$ a $\pi_2$: $d = \frac{|(-6) + 2(0) - 2(0) - 3|}{\sqrt{1^2 + 2^2 + (-2)^2}}$.</li>
+<li>Numerador: $|-6 - 3| = |-9| = 9$.</li>
+<li>Denominador: $\sqrt{1 + 4 + 4} = \sqrt{9} = 3$.</li>
+<li>Distância: $d = \frac{9}{3} = 3$.</li>
+</ol>
+<div class="formula">
+                    $$d = 3 \text{ unidades}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> A espessura de uma parede dupla é a distância entre seus planos. Em engenharia de sobrevivência, essa medida determina a eficácia de isolamento térmico, acústico e de radiação. Planos paralelos mantêm espessura constante em toda a extensão.</p>
+</details>
+</div>

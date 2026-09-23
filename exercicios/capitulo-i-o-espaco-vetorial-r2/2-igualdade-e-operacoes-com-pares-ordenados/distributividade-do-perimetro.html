@@ -1,0 +1,25 @@
+<div class="exercise">
+<h3>DISTRIBUIVIDADE DO PERÍMETRO</h3>
+<p>O objetivo deste exercício é <strong>verificar experimentalmente</strong> a propriedade distributiva: $k \cdot (A + B) = k \cdot A + k \cdot B$, ligando multiplicação por escalar à soma de pares ordenados.</p>
+<p>O SUPERVISOR está redesenhando o perímetro defensivo. Dois postos de vigilância estão em $A(3, -1)$ e $B(1, 5)$. O plano é somar as posições e depois multiplicar o resultado por $k = 2$ para obter uma "versão expandida" do perímetro.</p>
+<p><strong>(a)</strong> Calcule $A + B$ e depois $2 \cdot (A + B)$.</p>
+<p><strong>(b)</strong> Agora calcule separadamente $2 \cdot A$ e $2 \cdot B$, e depois some os resultados: $2 \cdot A + 2 \cdot B$.</p>
+<p><strong>(c)</strong> Compare os resultados de <strong>(a)</strong> e <strong>(b)</strong>. São iguais? Prove algebraicamente que $k \cdot \bigl((a, b) + (c, d)\bigr) = k \cdot (a, b) + k \cdot (c, d)$ desenvolvendo cada lado.</p>
+<p><strong>(d)</strong> Teste a mesma propriedade com $k = -1$ nos mesmos pontos $A(3, -1)$ e $B(1, 5)$. A distributividade também funciona com escalar negativo?</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>Na parte <strong>(a)</strong>, some primeiro, depois multiplique. Na <strong>(b)</strong>, multiplique cada um separadamente, depois some. Na <strong>(c)</strong>, use $k \cdot (a + c,\; b + d) = (k(a + c),\; k(b + d))$ e expandha os parênteses usando a distributividade dos reais.</p>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>(a)</strong> $A + B = (3, -1) + (1, 5) = (4, 4)$. Então $2 \cdot (A + B) = 2 \cdot (4, 4) = (8, 8)$.</p>
+<p><strong>(b)</strong> $2 \cdot A = 2 \cdot (3, -1) = (6, -2)$. $2 \cdot B = 2 \cdot (1, 5) = (2, 10)$. $2 \cdot A + 2 \cdot B = (6, -2) + (2, 10) = (8, 8)$.</p>
+<p><strong>(c)</strong> Sim, ambos resultam em $(8, 8)$. Prova algébrica:</p>
+<div class="formula">
+$$k \cdot \bigl((a, b) + (c, d)\bigr) = k \cdot (a + c,\; b + d) = \bigl(k(a + c),\; k(b + d)\bigr)$$
+$$= (ka + kc,\; kb + kd) = (ka, kb) + (kc, kd) = k \cdot (a, b) + k \cdot (c, d)$$
+</div>
+<p>A distributividade dos pares ordenados é consequência direta da distributividade dos números reais: $k(a + c) = ka + kc$.</p>
+<p><strong>(d)</strong> Com $k = -1$: $(-1) \cdot (A + B) = (-1) \cdot (4, 4) = (-4, -4)$. $(-1) \cdot A + (-1) \cdot B = (-3, 1) + (-1, -5) = (-4, -4)$. Sim, a distributividade funciona com $k = -1$. Na verdade, vale para qualquer número real $k$, positivo, negativo ou zero.</p>
+</details>
+</div>

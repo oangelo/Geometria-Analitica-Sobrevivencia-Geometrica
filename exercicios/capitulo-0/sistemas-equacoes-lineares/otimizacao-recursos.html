@@ -1,0 +1,46 @@
+<div class="exercise">
+<h3>Otimização de Recursos Limitados</h3>
+
+<p>O objetivo deste exercício é aplicar sistemas lineares em um problema de otimização. O refúgio precisa produzir rações de emergência usando dois ingredientes: proteína sintética ($P$) e carboidratos ($C$). Cada quilo de proteína custa 5 unidades de crédito e cada quilo de carboidratos custa 3 unidades. Temos um orçamento de 60 créditos e precisamos produzir exatamente 16 kg de ração. Quantos quilos de cada ingrediente devemos comprar para usar todo o orçamento e atingir o peso exato?</p>
+
+<p><strong>(a)</strong> Chamando de $x$ os quilos de proteína e de $y$ os quilos de carboidratos, escreva o sistema de equações. A primeira equação representa o peso total e a segunda o custo total.</p>
+
+<p><strong>(b)</strong> Resolva o sistema por substituição ou eliminação para encontrar $x$ e $y$.</p>
+
+<p><strong>(c)</strong> Verifique se a solução é realista (valores não-negativos) e se realmente esgota tanto o orçamento quanto a quantidade necessária de ração. Se o orçamento aumentasse para 80 créditos (mantendo 16 kg), como mudaria a composição?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>O sistema é $x + y = 16$ e $5x + 3y = 60$. Use eliminação multiplicando a primeira por 3.</p>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>Resolução:</strong></p>
+<p><strong>(a)</strong> O sistema é:</p>
+<div class="formula">
+$$\begin{cases} x + y = 16 \\ 5x + 3y = 60 \end{cases}$$
+</div>
+
+<p><strong>(b)</strong> Multiplicando a primeira equação por 3:</p>
+<p>$3x + 3y = 48$ (equação I multiplicada)</p>
+<p>Subtraindo da segunda:</p>
+<p>$(5x + 3y) - (3x + 3y) = 60 - 48$</p>
+<p>$2x = 12$</p>
+<p>$x = 6$</p>
+<p>Substituindo em $x + y = 16$:</p>
+<p>$6 + y = 16$</p>
+<p>$y = 10$</p>
+
+<p><strong>(c)</strong> <span class="warning">Verificação e análise:</span></p>
+<p>- Peso: $6 + 10 = 16$ kg ✓</p>
+<p>- Custo: $5(6) + 3(10) = 30 + 30 = 60$ créditos ✓</p>
+<p>- Ambos positivos: solução realista ✓</p>
+<p><strong>Se o orçamento fosse 80 créditos:</strong></p>
+<p>$5x + 3y = 80$ com $x + y = 16$</p>
+<p>$3x + 3y = 48$</p>
+<p>Subtraindo: $2x = 32$ → $x = 16$, $y = 0$</p>
+<p>Com orçamento maior, compraríamos apenas proteína (16 kg) e nenhum carboidrato.</p>
+<p><strong>Resposta:</strong> Devemos comprar 6 kg de proteína e 10 kg de carboidratos.</p>
+</details>
+</div>

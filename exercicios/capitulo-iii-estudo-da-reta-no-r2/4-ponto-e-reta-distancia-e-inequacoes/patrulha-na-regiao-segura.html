@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>PATRULHA NA REGIÃO SEGURA</h3>
+
+<p>O SUPERVISOR definiu a região segura de patrulha por três condições: ao norte da reta $r_1: y = 1$ (ou seja, $y > 1$); ao oeste da reta $r_2: x = 4$ (ou seja, $x < 4$); e abaixo da reta $r_3: x + y = 6$ (ou seja, $x + y < 6$). Uma patrulha planeja seguir a rota do ponto $P(2, 3)$ até $Q(3, 2)$ em linha reta. No papel, esboce as três retas, identifique a região segura (interseção dos três semiplanos), e marque os pontos $P$ e $Q$. Verifique se ambos os pontos estão na região segura. Depois, determine se toda a rota entre $P$ e $Q$ permanece dentro da zona segura — para isso, verifique se o ponto médio do segmento $\overline{PQ}$ também satisfaz as três condições.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Teste cada ponto nas três inequações. O ponto médio de $\overline{PQ}$ é $\left(\frac{x_P + x_Q}{2}, \frac{y_P + y_Q}{2}\right)$. Se o ponto médio também estiver na região segura, isso é um indicativo forte (mas não definitivo) de que toda a rota está segura.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Região segura: $y > 1$, $x < 4$, $x + y < 6$.</li>
+<li>Teste de $P(2, 3)$: $3 > 1$ ✓, $2 < 4$ ✓, $2 + 3 = 5 < 6$ ✓. $P$ está na região segura.</li>
+<li>Teste de $Q(3, 2)$: $2 > 1$ ✓, $3 < 4$ ✓, $3 + 2 = 5 < 6$ ✓. $Q$ está na região segura.</li>
+<li>Ponto médio de $\overline{PQ}$: $M = \left(\frac{2+3}{2}, \frac{3+2}{2}\right) = (2{,}5, 2{,}5)$.</li>
+<li>Teste de $M(2{,}5, 2{,}5)$: $2{,}5 > 1$ ✓, $2{,}5 < 4$ ✓, $2{,}5 + 2{,}5 = 5 < 6$ ✓. $M$ está na região segura.</li>
+<li>Como $P$ e $Q$ estão na região segura e o segmento $\overline{PQ}$ não cruza nenhuma das três retas (verificável pelo esboço), toda a rota é segura.</li>
+</ol>
+<div class="formula">
+$$P(2, 3) \in \text{segura} \quad ; \quad Q(3, 2) \in \text{segura} \quad ; \quad M(2{,}5, 2{,}5) \in \text{segura}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A região segura é um triângulo com vértices em $(1, 1)$, $(4, 1)$ e $(4, 2)$ — uma área compacta e defendível. A rota de patrulha entre $P$ e $Q$ permanece inteiramente dentro dessa zona. Na Zona Devastada, patrulhas que saem da região segura não retornam. Verificar não apenas os pontos de partida e chegada, mas também pontos intermediários, é o mínimo de cautela que separa uma patrulha bem-sucedida de uma estatística.</p>
+</details>
+</div>

@@ -1,0 +1,58 @@
+<div class="exercise">
+<h3>VOLUME DO TETRAEDRO</h3>
+<p>O objetivo deste exercício é calcular o volume de um tetraedro a partir de quatro pontos no espaço, usando a relação entre tetraedro e paralelepípedo.</p>
+<p>Quatro postos de observação foram instalados nas coordenadas: $A(1, 1, 1)$, $B(4, 1, 2)$, $C(2, 3, 1)$ e $D(3, 2, 4)$. A equipe de engenharia precisa saber o volume da região tridimensional delimitada por esses quatro pontos.</p>
+<p><strong>(a)</strong> Determine os vetores $\overrightarrow{AB}$, $\overrightarrow{AC}$ e $\overrightarrow{AD}$.</p>
+<p><strong>(b)</strong> Calcule o produto misto $[\overrightarrow{AB}, \overrightarrow{AC}, \overrightarrow{AD}]$.</p>
+<p><strong>(c)</strong> Calcule o volume do tetraedro $ABCD$.</p>
+<p><strong>(d)</strong> Esboce no papel um paralelepípedo e mostre como ele pode ser dividido em 6 tetraedros congruentes. Explique por que o volume do tetraedro é $\frac{1}{6}$ do volume do paralelepípedo.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Escolha um vértice como origem (por exemplo, $A$) e construa os três vetores a partir dele. O volume do tetraedro é $\frac{1}{6}$ do valor absoluto do produto misto desses três vetores. Para o item (d), pense na diagonal principal do paralelepípedo dividindo-o em duas pirâmides triangulares, e cada pirâmide em três tetraedros.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>Item (a):</strong></p>
+<ol class="solution-steps">
+<li>$\overrightarrow{AB} = B - A = (4-1, 1-1, 2-1) = (3, 0, 1)$</li>
+<li>$\overrightarrow{AC} = C - A = (2-1, 3-1, 1-1) = (1, 2, 0)$</li>
+<li>$\overrightarrow{AD} = D - A = (3-1, 2-1, 4-1) = (2, 1, 3)$</li>
+</ol>
+
+<p><strong>Item (b):</strong></p>
+<ol class="solution-steps">
+<li>$[\overrightarrow{AB}, \overrightarrow{AC}, \overrightarrow{AD}] = \begin{vmatrix} 3 & 0 & 1 \\ 1 & 2 & 0 \\ 2 & 1 & 3 \end{vmatrix}$</li>
+<li>$= 3 \cdot \begin{vmatrix} 2 & 0 \\ 1 & 3 \end{vmatrix} - 0 \cdot \begin{vmatrix} 1 & 0 \\ 2 & 3 \end{vmatrix} + 1 \cdot \begin{vmatrix} 1 & 2 \\ 2 & 1 \end{vmatrix}$</li>
+<li>$= 3[(2)(3) - (0)(1)] - 0 + 1[(1)(1) - (2)(2)]$</li>
+<li>$= 3(6 - 0) + 1(1 - 4) = 18 - 3 = 15$</li>
+</ol>
+<div class="formula">
+$$[\overrightarrow{AB}, \overrightarrow{AC}, \overrightarrow{AD}] = 15$$
+</div>
+
+<p><strong>Item (c):</strong></p>
+<ol class="solution-steps">
+<li>Volume do paralelepípedo: $|[\overrightarrow{AB}, \overrightarrow{AC}, \overrightarrow{AD}]| = |15| = 15$</li>
+<li>Volume do tetraedro: $\dfrac{1}{6} \times 15 = \dfrac{5}{2}$</li>
+</ol>
+<div class="formula">
+$$V_{\text{tetraedro}} = \frac{5}{2} = 2{,}5 \text{ unidades}^3$$
+</div>
+
+<p><strong>Item (d):</strong></p>
+<p>Considere o paralelepípedo com arestas $\overrightarrow{AB}$, $\overrightarrow{AC}$, $\overrightarrow{AD}$ a partir do vértice $A$. A diagonal principal vai de $A$ ao vértice oposto $E = A + \overrightarrow{AB} + \overrightarrow{AC} + \overrightarrow{AD}$.</p>
+<p>Essa diagonal divide o paralelepípedo em duas pirâmides triangulares congruentes:</p>
+<ul>
+<li>Pirâmide 1: base $\triangle BCD$, vértice $A$</li>
+<li>Pirâmide 2: base $\triangle CDE$, vértice $E$ (ou equivalente)</li>
+</ul>
+<p>Cada pirâmide triangular tem volume $\frac{1}{3} \times (\text{área da base}) \times (\text{altura})$. A área da base é metade da área da face do paralelepípedo, e a altura é a mesma. Portanto, cada pirâmide tem volume $\frac{1}{2} V_{\text{paralelepípedo}}$.</p>
+<p>Cada pirâmide triangular pode ser subdividida em 3 tetraedros de mesmo volume (dividindo a base triangular em 3 triângulos de mesma área, todos com o mesmo vértice). Logo, o paralelepípedo contém $2 \times 3 = 6$ tetraedros congruentes, cada um com volume $\frac{1}{6} V_{\text{paralelepípedo}}$.</p>
+
+<p><strong>Reflexão de Sobrevivência:</strong> O fator $\frac{1}{6}$ é uma constante geométrica universal — qualquer tetraedro com arestas coincidentes com as de um paralelepípedo ocupa exatamente um sexto do espaço do paralelepípedo. Na Zona Devastada, isso permite estimar rapidamente a capacidade de um abrigo de formato irregular a partir de um paralelepípedo circunscrito.</p>
+</details>
+</div>

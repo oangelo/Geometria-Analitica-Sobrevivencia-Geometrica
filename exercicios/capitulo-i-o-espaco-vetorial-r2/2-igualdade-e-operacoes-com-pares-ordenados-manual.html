@@ -1,0 +1,53 @@
+<section class="manual-contexto" data-context="manual-sobrevivencia">
+    <div class="terminal-border">
+    <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: IGUALDADE E OPERAÇÕES COM PARES ORDENADOS</h2>
+<p>Sobrevivente, este módulo contém as ferramentas fundamentais para manipular posições no plano cartesiano. Nas Zonas Devastadas, marcar, comparar e combinar coordenadas determina se sua patrulha encontra suprimentos ou caminha direto para uma zona de mutantes.</p>
+
+<h3>IGUALDADE DE PARES ORDENADOS</h3>
+<p>Dois pares ordenados $(a, b)$ e $(c, d)$ representam o <strong>mesmo ponto</strong> no plano se e somente se cada coordenada coincide:</p>
+<div class="formula">
+$$(a, b) = (c, d) \iff a = c \;\text{ e }\; b = d$$
+</div>
+<p>Ambas as condições devem ser verdadeiras simultaneamente. Uma única componente diferente é suficiente para que os pares representem pontos distintos. Essa regra permite resolver equações envolvendo coordenadas desconhecidas.</p>
+
+<h3>SOMA DE PARES ORDENADOS</h3>
+<p>A soma é realizada <strong>componente a componente</strong>:</p>
+<div class="formula">
+$$(a, b) + (c, d) = (a + c,\; b + d)$$
+</div>
+<p>Geometricamente, somar dois pares ordenados produz um deslocamento composto: o resultado combina os movimentos horizontais e verticais de ambos os pares.</p>
+
+<h3>SUBTRAÇÃO DE PARES ORDENADOS</h3>
+<p>A subtração também é componente a componente:</p>
+<div class="formula">
+$$(a, b) - (c, d) = (a - c,\; b - d)$$
+</div>
+<p>A subtração $B - A$ representa o <strong>deslocamento</strong> do ponto $A$ até o ponto $B$. Se $A = B$, o deslocamento é $(0, 0)$. Note que $A - B = -(B - A)$.</p>
+
+<h3>MULTIPLICAÇÃO POR ESCALAR</h3>
+<p>Multiplicar um par ordenado por um número real $k$:</p>
+<div class="formula">
+$$k \cdot (a, b) = (ka,\; kb)$$
+</div>
+<p>O efeito geométrico depende do valor de $k$:</p>
+<p><strong>$k > 1$:</strong> dilatação — o ponto se afasta da origem na mesma direção.</p>
+<p><strong>$0 &lt; k &lt; 1$:</strong> contração — o ponto se aproxima da origem na mesma direção.</p>
+<p><strong>$k = 1$:</strong> identidade — o ponto permanece inalterado.</p>
+<p><strong>$k = 0$:</strong> o resultado é sempre a origem $(0, 0)$.</p>
+<p><strong>$k &lt; 0$:</strong> reflexão através da origem — o ponto vai para o lado oposto, combinada com dilatação ($|k| > 1$) ou contração ($|k| &lt; 1$).</p>
+<p>Em todos os casos, os pontos $k \cdot (a, b)$ permanecem sobre a mesma reta que passa pela origem.</p>
+
+<h3>PROPRIEDADES DAS OPERAÇÕES</h3>
+<p>Para quaisquer pares ordenados $A$, $B$, $C$ e escalares $k$, $m$:</p>
+<div class="formula">
+$$A + B = B + A \qquad \text{(comutatividade da soma)}$$
+$$(A + B) + C = A + (B + C) \qquad \text{(associatividade da soma)}$$
+$$k \cdot (A + B) = k \cdot A + k \cdot B \qquad \text{(distributividade)}$$
+$$(k + m) \cdot A = k \cdot A + m \cdot A \qquad \text{(distributividade)}$$
+$$k \cdot (m \cdot A) = (km) \cdot A \qquad \text{(associatividade do escalar)}$$
+$$1 \cdot A = A \qquad \text{(elemento neutro)}$$
+</div>
+<p>Todas essas propriedades são consequências diretas das propriedades correspondentes dos números reais, aplicadas componente a componente.</p>
+
+    </div>
+</section>

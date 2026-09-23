@@ -1,0 +1,39 @@
+<div class="exercise">
+    <h3>Ângulos Diretores</h3>
+    <p><strong>Objetivo:</strong> Calcular os ângulos que um vetor no R³ faz com cada eixo coordenado, e deduzir a relação fundamental dos cossenos diretores.</p>
+    <p>Dado $\vec{v} = (3, 4, 12)$:</p>
+    <ol>
+        <li>Calcule $|\vec{v}|$.</li>
+        <li>Calcule os ângulos diretores $\alpha$, $\beta$ e $\gamma$ que $\vec{v}$ forma com os eixos $Ox$, $Oy$ e $Oz$, respectivamente (em graus, aproximados para inteiro).</li>
+        <li>Verifique que $\cos^2 \alpha + \cos^2 \beta + \cos^2 \gamma = 1$.</li>
+        <li><strong>[Desafio conceitual]</strong> Por que esta relação não existe no R²? O que teríamos no plano?</li>
+    </ol>
+
+    <details class="hint-details">
+        <summary>DICA DE SOBREVIVÊNCIA</summary>
+        <p>Os ângulos diretores usam os vetores canônicos $\vec{e}_1 = (1,0,0)$, $\vec{e}_2 = (0,1,0)$, $\vec{e}_3 = (0,0,1)$. Por exemplo, $\cos \alpha = \frac{\vec{v} \cdot \vec{e}_1}{|\vec{v}||\vec{e}_1|} = \frac{v_1}{|\vec{v}|}$.</p>
+    </details>
+
+    <details>
+        <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+        <ol class="solution-steps">
+            <li>Módulo:
+                $$|\vec{v}| = \sqrt{3^2 + 4^2 + 12^2} = \sqrt{9 + 16 + 144} = \sqrt{169} = 13$$
+            </li>
+            <li>Cossenos diretores:
+                $$\cos \alpha = \frac{3}{13} \approx 0{,}2308 \Rightarrow \alpha \approx 76°$$
+                $$\cos \beta = \frac{4}{13} \approx 0{,}3077 \Rightarrow \beta \approx 72°$$
+                $$\cos \gamma = \frac{12}{13} \approx 0{,}9231 \Rightarrow \gamma \approx 23°$$
+            </li>
+            <li>Verificação:
+                $$\cos^2 \alpha + \cos^2 \beta + \cos^2 \gamma = \left(\frac{3}{13}\right)^2 + \left(\frac{4}{13}\right)^2 + \left(\frac{12}{13}\right)^2$$
+                $$= \frac{9}{169} + \frac{16}{169} + \frac{144}{169} = \frac{169}{169} = 1 \; \checkmark$$
+            </li>
+            <li>No R², um vetor $\vec{v} = (v_1, v_2)$ tem apenas dois ângulos diretores:
+                $$\cos \alpha = \frac{v_1}{|\vec{v}|}, \quad \cos \beta = \frac{v_2}{|\vec{v}|}$$
+                <p>A relação seria $\cos^2 \alpha + \cos^2 \beta = \frac{v_1^2 + v_2^2}{|\vec{v}|^2} = 1$. De fato, no R² temos $\alpha + \beta = 90°$ (quando ambos são agudos), então $\cos \beta = \sin \alpha$, e a identidade é $\cos^2 \alpha + \sin^2 \alpha = 1$. No R³, não há relação simples entre $\alpha$, $\beta$, $\gamma$ — apenas a relação dos cossenos quadrados.</p>
+            </li>
+        </ol>
+        <p><strong>Reflexão:</strong> Os ângulos diretores são uma novidade genuína do R³. No plano, conhecer o ângulo com um eixo determina o vetor (a menos do módulo). No espaço, conhecer um ângulo diretor deixa duas incógnitas — o vetor pode "girar" em torno do eixo. A relação $\cos^2 \alpha + \cos^2 \beta + \cos^2 \gamma = 1$ é a generalização natural de $\cos^2 \theta + \sin^2 \theta = 1$.</p>
+    </details>
+</div>

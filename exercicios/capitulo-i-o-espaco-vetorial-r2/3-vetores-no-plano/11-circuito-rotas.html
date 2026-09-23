@@ -1,0 +1,31 @@
+<div class="exercise">
+<h3>CIRCUITO DE ROTAS: QUANDO A SOMA DÁ ZERO</h3>
+
+<p>Uma patrulha sai do abrigo $A$, segue até o posto de suprimentos $B$, depois à torre de vigia $C$, visita o ponto de coleta $D$ e retorna ao abrigo $A$. O comandante quer confirmar que o circuito é <em>fechado</em> — ou seja, a patrulha realmente volta ao ponto de partida. O objetivo deste exercício é verificar se a soma dos deslocamentos é o vetor nulo $\vec{0}$ e refletir sobre o significado do vetor nulo.</p>
+
+<p>Os deslocamentos são: $\overrightarrow{AB} = (3, 2)$, $\overrightarrow{BC} = (-1, 4)$, $\overrightarrow{CD} = (-4, -1)$ e $\overrightarrow{DA} = (2, -5)$.</p>
+
+<p><strong>(a)</strong> Calcule a soma $\overrightarrow{AB} + \overrightarrow{BC} + \overrightarrow{CD} + \overrightarrow{DA}$. O resultado é o vetor nulo?</p>
+
+<p><strong>(b)</strong> Desenhe no papel: partindo de $A$, encadeie os quatro vetores pela regra do triângulo (ponta-cauda). O último vetor deve retornar ao ponto $A$. Se não retornar, o circuito tem uma "sobra".</p>
+
+<p><strong>(c)</strong> Agora considere outra patrulha com três deslocamentos: $\vec{p}_1 = (2, 3)$, $\vec{p}_2 = (4, -1)$ e $\vec{p}_3 = (-5, -2)$. A soma é $\vec{0}$? Se não, qual é o vetor de "sobra"? Para onde a patrulha terminou em relação ao abrigo?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>Some todas as componentes $x$ e todas as componentes $y$ separadamente. Se ambas forem zero, o circuito é fechado e a soma é $\vec{0}$. Se não, o vetor resultante indica onde a patrulha terminou em relação ao ponto de partida.</p>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>(a)</strong> Componente $x$: $3 + (-1) + (-4) + 2 = 0$. Componente $y$: $2 + 4 + (-1) + (-5) = 0$. A soma é $\vec{0} = (0, 0)$. O circuito é fechado!</p>
+<p><strong>(b)</strong> No esboço, os quatro vetores encadeados formam um polígono fechado — a seta final liga $D$ de volta a $A$. Isso é a representação geométrica da propriedade $\sum \overrightarrow{d_i} = \vec{0}$.</p>
+<p><strong>(c)</strong> Componente $x$: $2 + 4 + (-5) = 1$. Componente $y$: $3 + (-1) + (-2) = 0$. A soma é $(1, 0) \neq \vec{0}$. O circuito <em>não</em> é fechado — a patrulha terminou 1 unidade a leste do abrigo. Para voltar, precisaria percorrer o vetor oposto $(-1, 0)$.</p>
+<div class="formula">
+$$\overrightarrow{AB} + \overrightarrow{BC} + \overrightarrow{CD} + \overrightarrow{DA} = (3, 2) + (-1, 4) + (-4, -1) + (2, -5) = (0, 0) = \vec{0}$$
+$$\vec{p}_1 + \vec{p}_2 + \vec{p}_3 = (2, 3) + (4, -1) + (-5, -2) = (1, 0) \neq \vec{0}$$
+$$\text{Circuito fechado} \iff \sum \overrightarrow{d_i} = \vec{0}$$
+</div>
+<p><strong>Reflexão:</strong> O vetor nulo é o selo de aprovação de um circuito bem planejado. Se a soma não for $\vec{0}$, a patrulha não voltou ao abrigo — e na Zona Devastada, passar a noite fora é um convite para problemas com mutantes. Sempre verifique a soma antes de enviar a equipe.</p>
+</details>
+</div>

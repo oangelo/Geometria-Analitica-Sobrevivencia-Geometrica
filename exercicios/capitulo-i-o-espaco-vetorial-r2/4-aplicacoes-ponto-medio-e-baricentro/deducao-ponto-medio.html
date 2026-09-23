@@ -1,0 +1,24 @@
+<div class="exercise">
+<h3>A DEDUÇÃO DO PONTO MÉDIO</h3>
+<p>Dois sobreviventes estão posicionados em $A(2, 3)$ e $B(8, 9)$. Eles precisam se encontrar em um ponto $M$ que seja <strong>justo</strong>: ambos devem percorrer o mesmo deslocamento vetorial. O objetivo deste exercício é <strong>deduzir</strong> a fórmula do ponto médio, não decorá-la.</p>
+<p><strong>(a)</strong> Se $M$ está exatamente no meio do caminho entre $A$ e $B$, então os vetores $\vec{AM}$ e $\vec{MB}$ devem ser iguais. Escreva $\vec{AM} = (x_M - x_A,\; y_M - y_A)$ e $\vec{MB} = (x_B - x_M,\; y_B - y_M)$. Igualando as duas expressões, o que você obtém para $x_M$ e $y_M$?</p>
+<p><strong>(b)</strong> Generalize: se $A(x_1, y_1)$ e $B(x_2, y_2)$, escreva a fórmula do ponto médio $M$ que você deduziu no item (a).</p>
+<p><strong>(c)</strong> Aplique a fórmula deduzida para calcular $M$ entre $A(2, 3)$ e $B(8, 9)$. Depois, calcule $\vec{AM}$ e $\vec{MB}$ e verifique que são iguais. Desenhe os três pontos no plano cartesiano.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>No item (a), a igualdade $\vec{AM} = \vec{MB}$ fornece duas equações separadas: uma para a coordenada $x$ e outra para a coordenada $y$. Isole $x_M$ em cada equação — o resultado é a média aritmética das coordenadas correspondentes. A mesma ideia se aplica a $y_M$.</p>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Igualando $\vec{AM} = \vec{MB}$ coordenada a coordenada: $x_M - x_A = x_B - x_M$, o que dá $2x_M = x_A + x_B$, ou seja, $x_M = \frac{x_A + x_B}{2}$. Analogamente, $y_M = \frac{y_A + y_B}{2}$.</li>
+<li>A fórmula geral do ponto médio é: $$M = \left(\frac{x_1 + x_2}{2},\; \frac{y_1 + y_2}{2}\right)$$</li>
+<li>Aplicando para $A(2, 3)$ e $B(8, 9)$: $M = \left(\frac{2 + 8}{2}, \frac{3 + 9}{2}\right) = (5, 6)$. Verificação: $\vec{AM} = (5 - 2, 6 - 3) = (3, 3)$ e $\vec{MB} = (8 - 5, 9 - 6) = (3, 3)$. Confirmado: $\vec{AM} = \vec{MB}$.</li>
+</ol>
+<div class="formula">
+$$\text{Se } \vec{AM} = \vec{MB} \text{, então } M = \left(\frac{x_A + x_B}{2}, \frac{y_A + y_B}{2}\right)$$
+$$M = (5, 6), \quad \vec{AM} = (3, 3) = \vec{MB}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A fórmula do ponto médio não é arbitrária — ela nasce da exigência lógica de que o deslocamento de $A$ até $M$ seja idêntico ao deslocamento de $M$ até $B$. Na Zona Devastada, "justo" significa matematicamente igual, e a média aritmética é a operação que garante isso.</p>
+</details>
+</div>

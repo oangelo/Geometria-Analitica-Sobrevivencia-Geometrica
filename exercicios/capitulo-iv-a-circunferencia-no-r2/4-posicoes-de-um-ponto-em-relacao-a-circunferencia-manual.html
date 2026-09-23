@@ -1,0 +1,46 @@
+<section class="manual-contexto" data-context="manual-sobrevivencia">
+    <div class="terminal-border">
+    <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: POSIÇÕES DE PONTOS EM RELAÇÃO À CIRCUNFERÊNCIA</h2>
+
+<p>Nos tópicos anteriores, dominamos a equação da circunferência, aprendemos a determiná-la a partir de três pontos e estudamos as posições relativas entre reta e circunferência. Mas na Zona Devastada, a pergunta mais elementar que um explorador pode fazer é ainda mais simples: dado um ponto — um abrigo, um depósito, um ponto de encontro — ele está dentro da zona de proteção, sobre o perímetro, ou do lado de fora, exposto à radiação? Este tópico responde a essa pergunta usando duas ferramentas equivalentes: a distância do ponto ao centro e a substituição direta na equação.</p>
+
+<p>Seja a circunferência de centro $C(a,b)$ e raio $r$, com equação canônica $(x-a)^2 + (y-b)^2 = r^2$. Dado um ponto $P(x_0, y_0)$, a posição relativa depende da comparação entre a distância $d(P,C)$ e o raio $r$:</p>
+
+<div class="formula">
+$$\begin{cases} d(P,C) &lt; r \quad \Rightarrow \quad \text{ponto interno (dentro da zona)} \\ d(P,C) = r \quad \Rightarrow \quad \text{ponto sobre a circunferência (no perímetro)} \\ d(P,C) &gt; r \quad \Rightarrow \quad \text{ponto externo (fora da zona)} \end{cases}$$
+</div>
+
+<p>Como $d(P,C) = \sqrt{(x_0 - a)^2 + (y_0 - b)^2}$, comparar $d(P,C)$ com $r$ é equivalente a comparar $(x_0 - a)^2 + (y_0 - b)^2$ com $r^2$ — bastando elevar ambos os lados ao quadrado para eliminar a raiz. Essa observação nos dá o <strong>método de substituição</strong>: substituímos as coordenadas de $P$ diretamente na equação da circunferência e analisamos o resultado:</p>
+
+<div class="formula">
+$$\begin{cases} (x_0 - a)^2 + (y_0 - b)^2 &lt; r^2 \quad \Rightarrow \quad \text{interno} \\ (x_0 - a)^2 + (y_0 - b)^2 = r^2 \quad \Rightarrow \quad \text{sobre} \\ (x_0 - a)^2 + (y_0 - b)^2 &gt; r^2 \quad \Rightarrow \quad \text{externo} \end{cases}$$
+</div>
+
+<p>A diferença $(x_0 - a)^2 + (y_0 - b)^2 - r^2$ é chamada <strong>potência do ponto</strong> $P$ em relação à circunferência. Seu sinal classifica o ponto de forma compacta: negativa (interno), zero (sobre), positiva (externo). A potência quantifica o quão "profundamente dentro" ou "longe fora" o ponto está da zona circular.</p>
+
+<div class="formula">
+$$\text{Pot}(P) = (x_0 - a)^2 + (y_0 - b)^2 - r^2$$
+</div>
+
+<p><strong>Equivalência entre os métodos:</strong> calcular $d(P,C)$ e comparar com $r$ é exatamente a mesma coisa que substituir $(x_0, y_0)$ na equação e comparar com $r^2$. A diferença é prática: o método de substituição evita o cálculo da raiz quadrada, o que pode simplificar a álgebra — especialmente quando o ponto contém um parâmetro.</p>
+
+<p><strong>Região entre duas circunferências:</strong> quando duas zonas circulares coexistem no plano — uma de proteção e outra de radiação — o explorador pode precisar identificar pontos que satisfazem condições simultâneas: estar dentro de uma e fora de outra, por exemplo. Isso se traduz em <strong>sistemas de inequações</strong>. Para duas circunferências de mesmo centro $C(a,b)$ e raios $r_1 &lt; r_2$, a região anular (o "anel" entre elas) é descrita por:</p>
+
+<div class="formula">
+$$r_1^2 &lt; (x - a)^2 + (y - b)^2 &lt; r_2^2$$
+</div>
+
+<p>Para circunferências com centros diferentes, cada condição é independente e a região segura é a <strong>interseção</strong> dos conjuntos solução de cada inequação.</p>
+
+<p><strong>Técnicas de resolução:</strong></p>
+
+<p><strong>1. Distância e comparação:</strong> calcule $d(P,C)$ explicitamente e compare com $r$. Método direto, preferido quando os números são simples.</p>
+
+<p><strong>2. Substituição na equação:</strong> substitua $(x_0, y_0)$ na equação canônica e compare o resultado com $r^2$. Evita o cálculo da raiz quadrada. Na forma geral $x^2 + y^2 + Dx + Ey + F = 0$, substitua e verifique: se o resultado é negativo, o ponto é interno; zero, sobre; positivo, externo.</p>
+
+<p><strong>3. Ponto com parâmetro:</strong> quando o ponto contém um parâmetro $k$, a substituição gera uma equação ou inequação em $k$. Resolva para encontrar os valores que colocam o ponto em cada posição.</p>
+
+<p><strong>4. Região entre circunferências:</strong> monte o sistema de inequações e resolva cada uma separadamente, depois faça a interseção dos intervalos.</p>
+
+    </div>
+</section>

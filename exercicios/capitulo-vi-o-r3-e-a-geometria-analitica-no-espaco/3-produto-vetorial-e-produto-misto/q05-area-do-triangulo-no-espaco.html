@@ -1,0 +1,57 @@
+<div class="exercise">
+<h3>ÁREA DO TRIÂNGULO NO ESPAÇO</h3>
+<p>O objetivo deste exercício é estender o cálculo de área do paralelogramo para triângulos no espaço tridimensional, usando a propriedade de que um triângulo é metade de um paralelogramo.</p>
+<p>Três postos de vigilância estão posicionados em $A(1, 2, 3)$, $B(4, 1, 5)$ e $C(2, 4, 2)$. A área triangular entre eles define a zona de patrulhamento segura.</p>
+<p><strong>(a)</strong> Determine os vetores $\overrightarrow{AB}$ e $\overrightarrow{AC}$.</p>
+<p><strong>(b)</strong> Calcule $\overrightarrow{AB} \times \overrightarrow{AC}$.</p>
+<p><strong>(c)</strong> Calcule a área do triângulo $ABC$.</p>
+<p><strong>(d)</strong> Explique por que a fórmula $\dfrac{1}{2}|\overrightarrow{AB} \times \overrightarrow{AC}|$ funciona para qualquer triângulo no espaço, independentemente de sua orientação.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>O vetor $\overrightarrow{AB} = B - A$, componente a componente. O triângulo $ABC$ tem metade da área do paralelogramo formado por $\overrightarrow{AB}$ e $\overrightarrow{AC}$. Isso vale em qualquer dimensão porque é uma propriedade puramente geométrica.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>Item (a):</strong></p>
+<ol class="solution-steps">
+<li>$\overrightarrow{AB} = B - A = (4-1, 1-2, 5-3) = (3, -1, 2)$</li>
+<li>$\overrightarrow{AC} = C - A = (2-1, 4-2, 2-3) = (1, 2, -1)$</li>
+</ol>
+
+<p><strong>Item (b):</strong></p>
+<ol class="solution-steps">
+<li>$\overrightarrow{AB} \times \overrightarrow{AC} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 3 & -1 & 2 \\ 1 & 2 & -1 \end{vmatrix}$</li>
+<li>Componente $\vec{i}$: $(-1)(-1) - (2)(2) = 1 - 4 = -3$</li>
+<li>Componente $\vec{j}$: $-[(3)(-1) - (2)(1)] = -[-3 - 2] = -(-5) = 5$</li>
+<li>Componente $\vec{k}$: $(3)(2) - (-1)(1) = 6 + 1 = 7$</li>
+</ol>
+<div class="formula">
+$$\overrightarrow{AB} \times \overrightarrow{AC} = (-3, 5, 7)$$
+</div>
+
+<p><strong>Item (c):</strong></p>
+<ol class="solution-steps">
+<li>$|\overrightarrow{AB} \times \overrightarrow{AC}| = \sqrt{(-3)^2 + 5^2 + 7^2}$</li>
+<li>$= \sqrt{9 + 25 + 49} = \sqrt{83}$</li>
+<li>Área do triângulo: $\dfrac{1}{2}\sqrt{83}$</li>
+</ol>
+<div class="formula">
+$$\text{Área do } \triangle ABC = \frac{\sqrt{83}}{2} \approx 4{,}56 \text{ unidades}^2$$
+</div>
+
+<p><strong>Item (d):</strong></p>
+<p>A fórmula funciona porque:</p>
+<ul>
+<li>Dois vetores $\overrightarrow{AB}$ e $\overrightarrow{AC}$ com mesma origem $A$ definem um paralelogramo.</li>
+<li>A diagonal $BC$ divide esse paralelogramo em dois triângulos congruentes: $\triangle ABC$ e o triângulo "complementar".</li>
+<li>Portanto, a área do triângulo é exatamente metade da área do paralelogramo.</li>
+<li>O produto vetorial $|\overrightarrow{AB} \times \overrightarrow{AC}|$ dá a área do paralelogramo, independentemente de como o triângulo está orientado no espaço — a operação leva em conta todas as três dimensões automaticamente.</li>
+</ul>
+
+<p><strong>Reflexão de Sobrevivência:</strong> Na Zona Devastada, você não pode assumir que o terreno é plano. Um triângulo de patrulhamento pode estar inclinado em qualquer direção. O produto vetorial lida com isso automaticamente, calculando a área "verdadeira" do triângulo no espaço 3D, não uma projeção distorcida.</p>
+</details>
+</div>

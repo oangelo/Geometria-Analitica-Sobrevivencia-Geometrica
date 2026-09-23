@@ -1,0 +1,30 @@
+<div class="exercise">
+<h3>EXPEDIÇÃO DE RECONHECIMENTO</h3>
+
+<p>No mundo real, os dados dos sensores nem sempre vêm na forma canônica limpa. Um satélite detectou uma zona de anomalia cuja equação bruta é $x^2 + y^2 - 6x + 4y - 12 = 0$. Antes de classificar qualquer ponto, é preciso identificar o centro e o raio dessa circunferência. Complete os quadrados para escrever a equação na forma canônica e determine o centro $C$ e o raio $r$. Depois, classifique os pontos $A(0,2)$, $B(7,-2)$ e $C(1,-5)$ como internos, sobre ou externos à zona de anomalia, usando o método de substituição na equação canônica encontrada.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Agrupe os termos em $x$ e $y$: $(x^2 - 6x) + (y^2 + 4y) = 12$. Para completar quadrados: $x^2 - 6x = (x-3)^2 - 9$ e $y^2 + 4y = (y+2)^2 - 4$. Some $9 + 4$ ao lado direito para compensar. Depois substitua cada ponto na forma canônica.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Agrupe: $(x^2 - 6x) + (y^2 + 4y) = 12$.</li>
+<li>Complete quadrados: $(x-3)^2 - 9 + (y+2)^2 - 4 = 12$, logo $(x-3)^2 + (y+2)^2 = 25$.</li>
+<li>Centro $C(3,-2)$ e raio $r = 5$.</li>
+<li>Ponto $A(0,2)$: $(0-3)^2 + (2+2)^2 = 9 + 16 = 25 = r^2$. $A$ está <strong>sobre</strong> a circunferência.</li>
+<li>Ponto $B(7,-2)$: $(7-3)^2 + (-2+2)^2 = 16 + 0 = 16 < 25$. $B$ é <strong>interno</strong>.</li>
+<li>Ponto $C(1,-5)$: $(1-3)^2 + (-5+2)^2 = 4 + 9 = 13 < 25$. $C$ é <strong>interno</strong>.</li>
+<li>Conclusão: $A$ está exatamente no bordo da anomalia, enquanto $B$ e $C$ estão no interior.</li>
+</ol>
+<div class="formula">
+$$(x-3)^2 + (y+2)^2 = 25 \quad C(3,-2),\; r = 5$$
+$$A(0,2):\; 25 = 25 \;\Rightarrow\; \text{sobre} \qquad B(7,-2):\; 16 &lt; 25 \;\Rightarrow\; \text{interno} \qquad C(1,-5):\; 13 &lt; 25 \;\Rightarrow\; \text{interno}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A forma geral esconde o centro e o raio, mas completar quadrados revela a geometria por trás dos números. Uma vez na forma canônica, a classificação de pontos é imediata — substituição e comparação. Na Zona Devastada, dados brutos exigem processamento antes de serem úteis.</p>
+</details>
+</div>

@@ -1,0 +1,30 @@
+<div class="exercise">
+<h3>RELAÇÃO ENTRE COEFICIENTES ANGULARES</h3>
+
+<p>Nos exercícios anteriores, você verificou perpendicularidade via produto escalar de vetores diretores. Agora vamos descobrir a mesma relação usando coeficientes angulares — uma forma mais rápida quando a reta já está na forma reduzida. Considere duas retas $r_1: y = m_1 x + n_1$ e $r_2: y = m_2 x + n_2$. Os vetores diretores dessas retas são $\vec{d}_1 = (1, m_1)$ e $\vec{d}_2 = (1, m_2)$ — pois quando $x$ aumenta em 1, $y$ aumenta em $m$. Use o produto escalar desses vetores diretores para demonstrar que, se as retas são perpendiculares, então $m_1 \cdot m_2 = -1$. Depois, aplique: a reta $r: y = \frac{2}{3}x + 5$ é perpendicular a $s: y = -\frac{3}{2}x + 1$?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>O produto escalar $\vec{d}_1 \cdot \vec{d}_2 = 1 \times 1 + m_1 \times m_2$ deve ser zero para perpendicularidade. Isole $m_1 \cdot m_2$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Vetores diretores: $\vec{d}_1 = (1, m_1)$ e $\vec{d}_2 = (1, m_2)$.</li>
+<li>Produto escalar: $\vec{d}_1 \cdot \vec{d}_2 = 1 \cdot 1 + m_1 \cdot m_2 = 1 + m_1 m_2$.</li>
+<li>Para perpendicularidade: $1 + m_1 m_2 = 0 \implies m_1 m_2 = -1$.</li>
+<li>Demonstração completa: retas perpendiculares $\iff$ vetores diretores perpendiculares $\iff$ $\vec{d}_1 \cdot \vec{d}_2 = 0$ $\iff$ $m_1 m_2 = -1$.</li>
+<li>Aplicação: para $r$ e $s$, temos $m_1 = \frac{2}{3}$ e $m_2 = -\frac{3}{2}$.</li>
+<li>Verifique: $m_1 \cdot m_2 = \frac{2}{3} \cdot \left(-\frac{3}{2}\right) = -\frac{6}{6} = -1$.</li>
+<li>Conclusão: sim, $r \perp s$.</li>
+</ol>
+<div class="formula">
+$$\vec{d}_1 \cdot \vec{d}_2 = 1 + m_1 m_2 = 0 \implies m_1 m_2 = -1$$
+$$\frac{2}{3} \cdot \left(-\frac{3}{2}\right) = -1 \implies r \perp s$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A relação $m_1 \cdot m_2 = -1$ é o "atalho do SUPERVISOR" — quando você já tem as equações reduzidas, não precisa extrair vetores diretores. Apenas multiplique os coeficientes angulares. Se der $-1$, as retas são perpendiculares. Se forem iguais, são paralelas. Dois cálculos, duas respostas.</p>
+</details>
+</div>

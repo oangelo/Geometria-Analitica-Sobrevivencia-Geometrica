@@ -1,0 +1,40 @@
+<div class="exercise">
+<h3>FRONTEIRA ENTRE ABRIGOS</h3>
+
+<p>Dois abrigos sobreviventes foram mapeados na Zona Devastada: o Abrigo Alfa em $A(2, 3)$ e o Abrigo Beta em $B(6, 7)$. A coordenação militar precisa traçar a <strong>fronteira equidistante</strong> entre os dois abrigos — a linha onde qualquer ponto está à mesma distância de ambos. O objetivo deste exercício é construir essa fronteira a partir da definição de lugar geométrico, sem usar fórmulas prontas.</p>
+
+<p><strong>(a)</strong> Desenhe no papel os pontos $A(2,3)$ e $B(6,7)$. Estime visualmente onde a fronteira equidistante deve passar. Marque o ponto médio do segmento $\overline{AB}$.</p>
+
+<p><strong>(b)</strong> Seja $P(x,y)$ um ponto genérico equidistante de $A$ e de $B$. Escreva a condição $d(P,A) = d(P,B)$ usando coordenadas.</p>
+
+<p><strong>(c)</strong> Eleve ambos os lados ao quadrado, expanda os quadrados e simplifique. Mostre que os termos $x^2$ e $y^2$ se cancelam.</p>
+
+<p><strong>(d)</strong> Obtenha a equação da reta que representa a fronteira. Identifique seu coeficiente angular e verifique que ele é o negativo do inverso do coeficiente angular de $\overline{AB}$.</p>
+
+<p><strong>(e)</strong> Verifique que o ponto médio de $\overline{AB}$ pertence à fronteira encontrada.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>No item (b), use a fórmula da distância: $d(P,A) = \sqrt{(x-2)^2 + (y-3)^2}$. No item (c), lembre que $(a-b)^2 = a^2 - 2ab + b^2$. Os termos quadráticos sempre se cancelam na mediatriz — isso é o que garante que o resultado seja uma reta.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Ponto médio: $M\left(\dfrac{2+6}{2}, \dfrac{3+7}{2}\right) = M(4, 5)$.</li>
+<li>Condição: $\sqrt{(x-2)^2 + (y-3)^2} = \sqrt{(x-6)^2 + (y-7)^2}$.</li>
+<li>Elevando ao quadrado: $(x-2)^2 + (y-3)^2 = (x-6)^2 + (y-7)^2$.</li>
+<li>Expandindo: $x^2 - 4x + 4 + y^2 - 6y + 9 = x^2 - 12x + 36 + y^2 - 14y + 49$.</li>
+<li>Cancelando $x^2$ e $y^2$: $-4x - 6y + 13 = -12x - 14y + 85$.</li>
+<li>Simplificando: $8x + 8y - 72 = 0$, ou seja, $x + y - 9 = 0$.</li>
+<li>Coeficiente angular da fronteira: $m_f = -1$. Coeficiente angular de $\overline{AB}$: $m_{AB} = \dfrac{7-3}{6-2} = 1$. Temos $m_f = -\dfrac{1}{m_{AB}}$, confirmando a perpendicularidade.</li>
+<li>Verificação do ponto médio: $4 + 5 - 9 = 0$ ✓.</li>
+</ol>
+<div class="formula">
+$$x + y - 9 = 0$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A fronteira é uma reta perpendicular ao segmento $\overline{AB}$ passando pelo seu ponto médio. Isso confirma geometricamente o que deduzimos algebricamente. O cancelamento dos termos quadráticos não foi acaso — é a marca algébrica de que o lugar geométrico é uma reta.</p>
+</details>
+</div>

@@ -1,0 +1,41 @@
+<div class="exercise">
+<h3>EIXO DE SIMETRIA</h3>
+
+<p>Dois postos avançados foram estabelecidos em $A(a, 0)$ e $B(-a, 0)$, onde $a > 0$ é um parâmetro que pode variar conforme a expedição avança. A coordenação precisa da fronteira equidistante em termos de $a$. O objetivo deste exercício é trabalhar com coordenadas genéricas e descobrir um padrão geral — o eixo de simetria do sistema.</p>
+
+<p><strong>(a)</strong> Desenhe no papel os pontos $A(a,0)$ e $B(-a,0)$ para um valor específico de $a$ (por exemplo, $a = 3$). Onde você espera que a mediatriz esteja?</p>
+
+<p><strong>(b)</strong> Seja $P(x,y)$ equidistante de $A$ e de $B$. Escreva $d(P,A) = d(P,B)$ com as coordenadas genéricas, eleve ao quadrado e simplifique.</p>
+
+<p><strong>(c)</strong> Mostre que o parâmetro $a$ desaparece da equação final. Qual é a mediatriz? Interprete geometricamente por que o resultado não depende de $a$.</p>
+
+<p><strong>(d)</strong> Verifique que o ponto médio $M(0, 0)$ pertence à mediatriz, independentemente do valor de $a$.</p>
+
+<p><strong>(e)</strong> Se os postos fossem $A(0, a)$ e $B(0, -a)$, qual seria a mediatriz? Deduza sem refazer toda a conta — use simetria.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>No item (b), ao expandir $(x-a)^2$ e $(x+a)^2$, observe que os termos em $x^2$ se cancelam, mas os termos em $a^2$ também se cancelam. O que sobra depende apenas de $x$. No item (e), pense na simetria: se trocarmos $x$ por $y$ e $y$ por $x$, o problema se transforma no original.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Para $a = 3$, os pontos são $A(3,0)$ e $B(-3,0)$, simétricos em relação ao eixo $y$. A mediatriz deve ser o eixo $y$.</li>
+<li>Condição: $\sqrt{(x-a)^2 + y^2} = \sqrt{(x+a)^2 + y^2}$.</li>
+<li>Elevando ao quadrado: $(x-a)^2 + y^2 = (x+a)^2 + y^2$.</li>
+<li>Cancelando $y^2$: $(x-a)^2 = (x+a)^2$.</li>
+<li>Expandindo: $x^2 - 2ax + a^2 = x^2 + 2ax + a^2$.</li>
+<li>Simplificando: $-2ax = 2ax \Rightarrow 4ax = 0$. Como $a > 0$, temos $x = 0$.</li>
+<li>A mediatriz é a reta $x = 0$ (eixo $y$). O parâmetro $a$ desapareceu porque a simetria do problema faz com que a posição da mediatriz seja determinada apenas pela estrutura do sistema, não pela escala.</li>
+<li>Verificação do ponto médio: $M\left(\dfrac{a+(-a)}{2}, \dfrac{0+0}{2}\right) = M(0, 0)$, que satisfaz $x = 0$ ✓.</li>
+<li>Para $A(0, a)$ e $B(0, -a)$, por simetria, a mediatriz é $y = 0$ (eixo $x$). Verificação rápida: $x^2 + (y-a)^2 = x^2 + (y+a)^2 \Rightarrow (y-a)^2 = (y+a)^2 \Rightarrow y = 0$ ✓.</li>
+</ol>
+<div class="formula">
+$$x = 0 \quad \text{(eixo } y\text{)}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Quando os pontos são simétricos em relação a um eixo coordenado, a mediatriz coincide com esse eixo — independentemente da distância entre eles. Este é um padrão geral: a simetria do problema determina a simetria da solução. Reconhecer simetrias economiza cálculos e prevê resultados antes de fazer contas.</p>
+</details>
+</div>

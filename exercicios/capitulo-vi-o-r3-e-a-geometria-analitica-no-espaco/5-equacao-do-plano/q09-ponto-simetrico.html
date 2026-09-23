@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>Ponto Simétrico em Relação a um Plano</h3>
+<p><strong>Objetivo:</strong> Combinar a distância ponto-plano com a reta normal para encontrar o ponto simétrico.</p>
+<p>Um transmissor de sinal está localizado em $P(3, -2, 1)$. Para criar uma zona de interferência simétrica, é necessário encontrar o ponto $P'$ simétrico a $P$ em relação ao plano $\pi: x + y - z + 1 = 0$. Determine as coordenadas de $P'$.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+                O ponto simétrico $P'$ está na reta normal ao plano que passa por $P$. Primeiro encontre o ponto $Q$ (projeção ortogonal de $P$ sobre o plano) resolvendo a interseção da reta normal com o plano. Depois, $Q$ é o ponto médio de $PP'$, logo $P' = 2Q - P$.
+            </div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Vetor normal: $\vec{n} = (1, 1, -1)$. A reta normal por $P$ tem equações paramétricas: $x = 3 + t$, $y = -2 + t$, $z = 1 - t$.</li>
+<li>Substituir na equação do plano para encontrar $t$ do ponto $Q$: $(3 + t) + (-2 + t) - (1 - t) + 1 = 0$.</li>
+<li>Simplificar: $3 + t - 2 + t - 1 + t + 1 = 0 \Rightarrow 3t + 1 = 0 \Rightarrow t = -\frac{1}{3}$.</li>
+<li>Coordenadas de $Q$: $x_Q = 3 - \frac{1}{3} = \frac{8}{3}$, $y_Q = -2 - \frac{1}{3} = -\frac{7}{3}$, $z_Q = 1 + \frac{1}{3} = \frac{4}{3}$.</li>
+<li>Como $Q$ é ponto médio de $PP'$: $Q = \frac{P + P'}{2}$, logo $P' = 2Q - P$.</li>
+<li>$P'_x = 2 \cdot \frac{8}{3} - 3 = \frac{16}{3} - \frac{9}{3} = \frac{7}{3}$.</li>
+<li>$P'_y = 2 \cdot \left(-\frac{7}{3}\right) - (-2) = -\frac{14}{3} + \frac{6}{3} = -\frac{8}{3}$.</li>
+<li>$P'_z = 2 \cdot \frac{4}{3} - 1 = \frac{8}{3} - \frac{3}{3} = \frac{5}{3}$.</li>
+</ol>
+<div class="formula">
+                    $$P'\left(\frac{7}{3}, -\frac{8}{3}, \frac{5}{3}\right)$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Simetria em relação a um plano é uma operação fundamental em design de estruturas espelhadas e em sistemas de interferência de sinal. O plano atua como um "espelho matemático" — a reta normal é a direção de reflexão, e a projeção ortogonal é o ponto de contato.</p>
+</details>
+</div>

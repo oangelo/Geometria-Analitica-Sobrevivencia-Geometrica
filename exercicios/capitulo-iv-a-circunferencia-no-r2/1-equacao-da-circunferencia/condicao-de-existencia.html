@@ -1,0 +1,29 @@
+<div class="exercise">
+<h3>CONDIÇÃO DE EXISTÊNCIA</h3>
+
+<p>No exercício anterior sobre parâmetro e ponto de passagem, o valor de $k$ foi determinado pela substituição de um ponto. Agora a análise é diferente: dado $x^2 + y^2 - 8x + ky + 9 = 0$, determine os valores de $k$ para os quais a equação representa uma circunferência de raio real. A ferramenta combina completar quadrados (exercícios anteriores sobre forma geral) com a análise de $r^2$ (exercício sobre classificação). Após completar os quadrados, expresse $r^2$ em função de $k$ e imponha $r^2 > 0$.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Agrupe: $(x^2 - 8x + 16) + (y^2 + ky + k^2/4) = -9 + 16 + k^2/4$. O lado direito é $r^2$. Analise para quais valores de $k$ esse $r^2$ é positivo. Observe que $k^2$ é sempre não-negativo.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Agrupe os termos: $x^2 - 8x + y^2 + ky = -9$.</li>
+<li>Complete os quadrados: $(x^2 - 8x + 16) + \left(y^2 + ky + \frac{k^2}{4}\right) = -9 + 16 + \frac{k^2}{4}$.</li>
+<li>Resultado: $(x - 4)^2 + \left(y + \frac{k}{2}\right)^2 = 7 + \frac{k^2}{4}$.</li>
+<li>Para ser circunferência: $r^2 = 7 + \frac{k^2}{4} > 0$.</li>
+<li>Como $k^2 \geq 0$ para todo $k$ real, temos $\frac{k^2}{4} \geq 0$, logo $7 + \frac{k^2}{4} \geq 7 > 0$.</li>
+<li>Conclusão: a equação representa uma circunferência para <strong>todo $k \in \mathbb{R}$</strong>.</li>
+<li>Centro: $C\!\left(4,\; -\frac{k}{2}\right)$, raio: $r = \sqrt{7 + \frac{k^2}{4}}$. O parâmetro $k$ desloca o centro verticalmente e altera o raio, mas nunca o anula.</li>
+</ol>
+<div class="formula">
+$$(x-4)^2 + \left(y + \frac{k}{2}\right)^2 = 7 + \frac{k^2}{4} \geq 7 > 0 \quad \forall\, k \in \mathbb{R}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Nem sempre um parâmetro restringe a existência. Neste caso, a combinação dos coeficientes é tão favorável que o raio nunca colapsa — independente do ajuste, sempre há um perímetro real. Na Zona Devastada, equipamentos com essa robustez são raros e valiosos: funcionam em qualquer configuração.</p>
+</details>
+</div>

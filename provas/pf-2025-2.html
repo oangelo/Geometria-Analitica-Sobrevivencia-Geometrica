@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gabarito - Prova Final</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <script>
+        // Configuração do MathJax para funcionar com <details>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            options: {
+                skipHtmlTags: ['details'] // Permite que MathJax renderize dentro de <details>
+            },
+            startup: {
+                ready: () => {
+                    MathJax.startup.defaultReady();
+                }
+            }
+        };
+    </script>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            background-color: #fff;
+            color: #000;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .header h1 {
+            text-align: center;
+            font-size: 16pt;
+            font-weight: bold;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .question {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+        }
+
+        .question:last-child {
+            border-bottom: none;
+        }
+        
+        .question-header {
+            font-weight: bold;
+            font-size: 13pt;
+            color: #000;
+            border-left: 4px solid #000;
+            padding: 8px 10px;
+            background-color: #f0f0f0;
+            margin-bottom: 12px;
+        }
+        
+        .subquestion {
+            margin: 10px 0 10px 20px;
+        }
+        
+        details {
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        summary {
+            font-weight: bold;
+            padding: 8px 12px;
+            cursor: pointer;
+            background-color: #e9e9e9;
+            font-size: 10pt;
+            border-radius: 3px;
+        }
+        .answer {
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            background-color: #fff;
+        }
+        .answer p {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Gabarito - Prova Final</h1>
+        </div>
+        <div class="content">
+            <!-- Questão 1 -->
+            <div class="question">
+                <div class="question-header">Questão 1: Reta e Distância no Plano</div>
+                <p>Considere a reta \((r)\) de equação \(2x - y + 1 = 0\) e o ponto \(P=(4, 5)\).</p>
+                <p><em><b>Justificativa Didática:</b> Avalia competências fundamentais da geometria no plano (R²) em uma sequência lógica, reforçando a consistência dos métodos geométricos e algébricos.</em></p>
+                <div class="subquestion">
+                    <strong>a)</strong> Determine a equação da reta \((s)\) que é perpendicular à reta \((r)\) e que passa pelo ponto \(P\).
+                    <details><summary>Ver Resposta</summary><div class="answer">
+                        <p>O vetor normal de \((r)\) é \(\vec{n}_r = (2, -1)\), que serve como vetor diretor para \((s)\). Um vetor normal para \((s)\) será \(\vec{n}_s = (1, 2)\). A equação de \((s)\) é da forma \(x + 2y + c = 0\). Substituindo \(P(4, 5)\): \(4 + 2(5) + c = 0 \implies 14 + c = 0 \implies c = -14\).</p>
+                        <p><strong>Resposta:</strong> \(x + 2y - 14 = 0\).</p>
+                    </div></details>
+                </div>
+                <div class="subquestion">
+                    <strong>b)</strong> Calcule o ponto de interseção \(I\) entre as retas \((r)\) e \((s)\).
+                    <details><summary>Ver Resposta</summary><div class="answer">
+                        <p>Resolvemos o sistema: \( \begin{cases} 2x - y = -1 \\ x + 2y = 14 \end{cases} \). Multiplicando a primeira equação por 2: \(4x - 2y = -2\). Somando com a segunda: \(5x = 12 \implies x = 12/5\). Substituindo \(x\) em \(y=2x+1\): \(y = 2(12/5) + 1 = 24/5 + 5/5 = 29/5\).</p>
+                        <p><strong>Resposta:</strong> \(I = (12/5, 29/5)\).</p>
+                    </div></details>
+                </div>
+                <div class="subquestion">
+                    <strong>c)</strong> Calcule a distância entre os pontos \(P\) e \(I\).
+                    <details><summary>Ver Resposta</summary><div class="answer">
+                        <p>\(d(P,I) = \sqrt{(4 - \frac{12}{5})^2 + (5 - \frac{29}{5})^2} = \sqrt{(\frac{20-12}{5})^2 + (\frac{25-29}{5})^2} = \sqrt{(\frac{8}{5})^2 + (-\frac{4}{5})^2}\)</p>
+                        <p>\(d(P,I) = \sqrt{\frac{64}{25} + \frac{16}{25}} = \sqrt{\frac{80}{25}} = \frac{\sqrt{16 \cdot 5}}{5} = \frac{4\sqrt{5}}{5}\).</p>
+                        <p><strong>Resposta:</strong> \(\frac{4\sqrt{5}}{5}\).</p>
+                    </div></details>
+                </div>
+                <div class="subquestion">
+                    <strong>d)</strong> Calcule a distância do ponto \(P\) à reta \((r)\) usando a fórmula.
+                    <details><summary>Ver Resposta</summary><div class="answer">
+                        <p>A fórmula é \(d(P,r) = \frac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}}\). Para a reta \(2x-y+1=0\) e o ponto \((4,5)\):</p>
+                        <p>\(d(P,r) = \frac{|2(4) - (5) + 1|}{\sqrt{2^2+(-1)^2}} = \frac{|8 - 5 + 1|}{\sqrt{5}} = \frac{4}{\sqrt{5}} = \frac{4\sqrt{5}}{5}\).</p>
+                        <p><strong>Resposta:</strong> Os resultados são idênticos, como esperado.</p>
+                    </div></details>
+                </div>
+            </div>
+
+            <!-- Questão 2 -->
+            <div class="question">
+                <div class="question-header">Questão 2: Cônicas - Elipse</div>
+                <p>Uma elipse tem seu eixo maior horizontal. Seus vértices principais são \(A_1=(-2, 3)\) e \(A_2=(8, 3)\), e a distância focal é 6.</p>
+                <p><em><b>Justificativa Didática:</b> Avalia a compreensão dos elementos fundamentais de uma elipse e a habilidade de construir sua equação a partir de elementos-chave.</em></p>
+                <div class="subquestion">
+                    <strong>a)</strong> Determine as coordenadas do centro (C) e os valores de \(a\) e \(c\).
+                    <details><summary>Ver Resposta</summary><div class="answer">
+                        <p>O centro \(C\) é o ponto médio dos vértices: \(C = (\frac{-2+8}{2}, \frac{3+3}{2}) = (3, 3)\).</p>
+                        <p>O eixo maior é \(2a = d(A_1, A_2) = 8 - (-2) = 10\), então o semieixo maior é \(a=5\).</p>
+                        <p>A distância focal é \(2c = 6\), então a semidistância focal é \(c=3\).</p>
+                        <p><strong>Resposta:</strong> Centro \(C=(3,3)\), \(a=5\), \(c=3\).</p>
+                    </div></details>
+                </div>
+                <div class="subquestion">
+                    <strong>b)</strong> Calcule o valor de \(b^2\) e escreva a equação reduzida da elipse.
+                    <details><summary>Ver Resposta</summary><div class="answer">
+                        <p>A relação na elipse é \(a^2 = b^2 + c^2\). \(5^2 = b^2 + 3^2 \implies 25 = b^2 + 9 \implies b^2=16\).</p>
+                        <p>A equação é da forma \(\frac{(x-h)^2}{a^2} + \frac{(y-k)^2}{b^2} = 1\).</p>
+                        <p><strong>Resposta:</strong> \(\frac{(x-3)^2}{25} + \frac{(y-3)^2}{16} = 1\).</p>
+                    </div></details>
+                </div>
+                <div class="subquestion">
+                    <strong>c)</strong> Verifique se o ponto \(P=(3, 3+\frac{3\sqrt{3}}{2})\) pertence à elipse.
+                    <details><summary>Ver Resposta</summary><div class="answer">
+                        <p>Substituindo o ponto \(P\) na equação:</p>
+                        <p>\(\frac{(3-3)^2}{25} + \frac{(3+\frac{3\sqrt{3}}{2}-3)^2}{16} = \frac{0^2}{25} + \frac{(\frac{3\sqrt{3}}{2})^2}{16} = 0 + \frac{9 \cdot 3 / 4}{16} = \frac{27/4}{16} = \frac{27}{64}\).</p>
+                        <p>Como \(\frac{27}{64} \neq 1\), o ponto não pertence à elipse.</p>
+                        <p><strong>Resposta:</strong> Não, o ponto não pertence à elipse.</p>
+                    </div></details>
+                </div>
+            </div>
+            
+            <!-- Questão 3 -->
+            <div class="question">
+                <div class="question-header">Questão 3: Posições Relativas no R³</div>
+                <p>Considere a reta \(r: \begin{cases} x = 1 + 2t \\ y = 2 - t \\ z = 3 + t \end{cases}\) e o plano \(\pi: 3x + y - 5z + 1 = 0\).</p>
+                <p><em><b>Justificativa Didática:</b> Avalia de forma abrangente a análise de posições relativas no espaço, cobrindo as interações reta-plano e plano-plano.</em></p>
+                <div class="subquestion">
+                    <strong>a)</strong> Analise a posição relativa entre a reta \(r\) e o plano \(\pi\). Se forem concorrentes, encontre o ponto de interseção.
+                    <details><summary>Ver Resposta</summary><div class="answer">
+                        <p>Substituímos as equações da reta no plano: \(3(1+2t) + (2-t) - 5(3+t) + 1 = 0\).</p>
+                        <p>\(3 + 6t + 2 - t - 15 - 5t + 1 = 0 \implies (6-1-5)t + (3+2-15+1) = 0 \implies 0t - 9 = 0\). Como \(-9=0\) é uma contradição, não há solução. Isso significa que a reta e o plano são paralelos e distintos.</p>
+                        <p><strong>Resposta:</strong> A reta é paralela ao plano.</p>
+                    </div></details>
+                </div>
+                <div class="subquestion">
+                    <strong>b)</strong> Considere um segundo plano \(\sigma: x + 2y + z - 4 = 0\). Analise a posição relativa entre \(\pi\) e \(\sigma\). Se forem concorrentes, encontre a reta de interseção.
+                    <details><summary>Ver Resposta</summary><div class="answer">
+                        <p>Os vetores normais são \(\vec{n}_\pi = (3, 1, -5)\) e \(\vec{n}_\sigma = (1, 2, 1)\). Como não são múltiplos, os planos são concorrentes. O vetor diretor da reta de interseção é \(\vec{v} = \vec{n}_\pi \times \vec{n}_\sigma\).</p>
+                        <p>\(\vec{v} = \det \begin{pmatrix} \vec{i} & \vec{j} & \vec{k} \\ 3 & 1 & -5 \\ 1 & 2 & 1 \end{pmatrix} = (1 - (-10))\vec{i} - (3 - (-5))\vec{j} + (6 - 1)\vec{k} = (11, -8, 5)\).</p>
+                        <p>Para achar um ponto, fazemos \(z=0\): \(\begin{cases} 3x+y= -1 \\ x+2y=4 \end{cases}\). Resolvendo, obtemos \(x=-6/5, y=13/5\).</p>
+                        <p><strong>Resposta:</strong> Planos concorrentes. A reta de interseção é \((x,y,z) = (-6/5, 13/5, 0) + t(11, -8, 5)\).</p>
+                    </div></details>
+                </div>
+            </div>
+
+            <!-- Questão 4 -->
+            <div class="question">
+                <div class="question-header">Questão 4: Interseção de Planos e Sistemas Lineares</div>
+                <p>Considere o sistema de equações lineares: \[ \begin{cases} x - y + z = 1 \\ 2x + y - z = 5 \\ 3x + 3y - 3z = 9 \end{cases} \]</p>
+                <p><em><b>Justificativa Didática:</b> Avalia a capacidade de analisar e resolver um sistema, focando na interpretação geométrica de um caso de sistema possível e indeterminado.</em></p>
+                <div class="subquestion">
+                    <strong>a)</strong> Calcule o determinante da matriz dos coeficientes. O que o resultado sugere?
+                    <details><summary>Ver Resposta</summary><div class="answer">
+                        <p>A matriz dos coeficientes é \( M = \begin{pmatrix} 1 & -1 & 1 \\ 2 & 1 & -1 \\ 3 & 3 & -3 \end{pmatrix} \).</p>
+                        <p>\(\det(M) = 1(-3 - (-3)) - (-1)(-6 - (-3)) + 1(6 - 3) = 1(0) + 1(-3) + 1(3) = 0\).</p>
+                        <p><strong>Resposta:</strong> O determinante é 0. Isso sugere que o sistema não tem solução única, ou seja, é Possível e Indeterminado (SPI) ou Impossível (SI).</p>
+                    </div></details>
+                </div>
+                <div class="subquestion">
+                    <strong>b)</strong> Utilizando o método de escalonamento, confirme a natureza do sistema.
+                    <details><summary>Ver Resposta</summary><div class="answer">
+                        <p>Matriz aumentada: \( \left[ \begin{array}{ccc|c} 1 & -1 & 1 & 1 \\ 2 & 1 & -1 & 5 \\ 3 & 3 & -3 & 9 \end{array} \right] \). Operações \(L_2 \leftarrow L_2 - 2L_1\) e \(L_3 \leftarrow L_3 - 3L_1\):</p>
+                        <p>\( \left[ \begin{array}{ccc|c} 1 & -1 & 1 & 1 \\ 0 & 3 & -3 & 3 \\ 0 & 6 & -6 & 6 \end{array} \right] \). A linha 3 é o dobro da linha 2. A operação \(L_3 \leftarrow L_3 - 2L_2\) resulta em \( \left[ \begin{array}{ccc|c} 1 & -1 & 1 & 1 \\ 0 & 3 & -3 & 3 \\ 0 & 0 & 0 & 0 \end{array} \right] \).</p>
+                        <p><strong>Resposta:</strong> A linha de zeros \(0=0\) confirma que o sistema é Possível e Indeterminado (SPI).</p>
+                    </div></details>
+                </div>
+                <div class="subquestion">
+                    <strong>c)</strong> Encontre as equações paramétricas da reta que representa a solução do sistema.
+                    <details><summary>Ver Resposta</summary><div class="answer">
+                        <p>Do sistema escalonado: \(3y - 3z = 3 \implies y - z = 1 \implies y = 1+z\).</p>
+                        <p>Substituindo na primeira equação: \(x - (1+z) + z = 1 \implies x - 1 = 1 \implies x=2\).</p>
+                        <p>Fazendo \(z=t\), temos \(y=1+t\) e \(x=2\).</p>
+                        <p><strong>Resposta:</strong> A reta solução é \( \begin{cases} x=2 \\ y=1+t \\ z=t \end{cases}, t \in \mathbb{R}\).</p>
+                    </div></details>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

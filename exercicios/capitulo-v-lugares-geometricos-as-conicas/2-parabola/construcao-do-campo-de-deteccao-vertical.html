@@ -1,0 +1,33 @@
+<div class="exercise">
+<h3>Construção do Campo de Detecção Vertical</h3>
+<p>O objetivo deste exercício é entender como a definição de parábola como lugar geométrico gera sua equação algébrica. Uma torre de vigilância está posicionada no foco $F(0,2)$ e uma barreira de detecção está na reta $y = -2$. Todo ponto equidistante da torre e da barreira pertence ao campo de detecção.</p>
+<p><strong>(a)</strong> Desenhe no papel o foco $F$ e a diretriz $d$. Marque o ponto $V$ que é equidistante de $F$ e $d$ — este é o vértice. Onde fica $V$?</p>
+<p><strong>(b)</strong> Seja $P(x,y)$ um ponto qualquer do campo de detecção. Escreva a distância $d(P,F)$ usando a fórmula de distância entre pontos.</p>
+<p><strong>(c)</strong> Escreva a distância de $P$ à diretriz $y = -2$. Lembre-se: distância de ponto a reta horizontal é a diferença vertical em módulo.</p>
+<p><strong>(d)</strong> Aplique a definição $d(P,F) = d(P,d)$, eleve ambos os lados ao quadrado e simplifique até obter a equação do campo de detecção.</p>
+<p><strong>(e)</strong> Identifique o vértice da parábola a partir da equação encontrada.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Na parte (d), depois de elevar ao quadrado, expanda $(y-2)^2$ e $(y+2)^2$. Você verá que os termos $y^2$ e as constantes vão cancelar, sobrando apenas uma relação entre $x^2$ e $y$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>O vértice $V$ é o ponto médio entre $F(0,2)$ e a diretriz $y=-2$, logo $V(0,0)$.</li>
+<li>$d(P,F) = \sqrt{(x-0)^2 + (y-2)^2} = \sqrt{x^2 + (y-2)^2}$</li>
+<li>$d(P,d) = |y - (-2)| = |y + 2|$</li>
+<li>Igualando e elevando ao quadrado: $x^2 + (y-2)^2 = (y+2)^2$</li>
+<li>Expandindo: $x^2 + y^2 - 4y + 4 = y^2 + 4y + 4$</li>
+<li>Simplificando: $x^2 - 4y = 4y$, portanto $x^2 = 8y$</li>
+<li>O vértice é $V(0,0)$, confirmado pela equação $x^2 = 8y$.</li>
+</ol>
+<div class="formula">
+$$x^2 = 8y$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A equação não caiu do céu — ela foi construída a partir da definição. O vértice na origem aparece naturalmente porque posicionamos o foco e a diretriz simetricamente em relação à origem.</p>
+</details>
+</div>

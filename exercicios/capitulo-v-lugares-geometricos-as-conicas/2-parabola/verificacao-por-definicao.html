@@ -1,0 +1,36 @@
+<div class="exercise">
+<h3>Verificação por Definição sem Usar a Equação</h3>
+<p>O objetivo deste exercício é reforçar que a definição $d(P,F) = d(P,d)$ é mais fundamental que qualquer equação. Uma antena parabólica tem foco em $F(0,2)$ e diretriz $y = -2$. Você sabe que um ponto de monitoramento $P$ tem coordenada $x = 6$ e pertence à parábola.</p>
+<p><strong>(a)</strong> Desenhe no papel o foco $F(0,2)$, a diretriz $y = -2$ e o ponto $P(6,y)$ cuja coordenada $y$ é desconhecida. O ponto $P$ está à direita do eixo de simetria.</p>
+<p><strong>(b)</strong> Escreva a distância $d(P,F)$ em função de $y$ (use $x = 6$).</p>
+<p><strong>(c)</strong> Escreva a distância $d(P,d)$ em função de $y$.</p>
+<p><strong>(d)</strong> Aplique a definição $d(P,F) = d(P,d)$, eleve ao quadrado e resolva para $y$. Você deve obter dois valores — um positivo e um negativo. Por que isso acontece?</p>
+<p><strong>(e)</strong> Agora, construa a equação da parábola pela definição (como nos exercícios iniciais) e substitua $x = 6$ para encontrar $y$. Os resultados coincidem?</p>
+<p><strong>(f)</strong> Verifique que o ponto $P(6,4{,}5)$ (ou seja, $y = \frac{9}{2}$) satisfaz tanto a definição quanto a equação. Calcule $d(P,F)$ e $d(P,d)$ explicitamente.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Este exercício demonstra que a definição geométrica e a equação algébrica são equivalentes. Os dois valores de $y$ aparecem porque a parábola é simétrica em relação ao eixo $y$ — para $x = 6$ há dois pontos, um acima e outro abaixo do eixo $x$. Mas espere: com foco em $F(0,2)$ e diretriz $y = -2$, ambos os pontos são válidos?</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>$d(P,F) = \sqrt{(6-0)^2 + (y-2)^2} = \sqrt{36 + (y-2)^2}$</li>
+<li>$d(P,d) = |y - (-2)| = |y + 2|$</li>
+<li>Igualando e elevando ao quadrado: $36 + (y-2)^2 = (y+2)^2$</li>
+<li>Expandindo: $36 + y^2 - 4y + 4 = y^2 + 4y + 4$</li>
+<li>Simplificando: $36 - 4y = 4y$, logo $36 = 8y$, portanto $y = \frac{36}{8} = \frac{9}{2} = 4{,}5$.</li>
+<li>Apenas um valor! A equação $36 = 8y$ é de primeiro grau em $y$, não segundo grau. Isso ocorre porque usamos a definição com $x$ fixo, não a equação geral.</li>
+<li>Construindo a equação: $x^2 + (y-2)^2 = (y+2)^2$ leva a $x^2 = 8y$, ou $y = \frac{x^2}{8}$.</li>
+<li>Substituindo $x = 6$: $y = \frac{36}{8} = 4{,}5$. ✓</li>
+<li>Verificação de $P(6; 4{,}5)$: $d(P,F) = \sqrt{36 + (4{,}5-2)^2} = \sqrt{36 + 6{,}25} = \sqrt{42{,}25} = 6{,}5$. $d(P,d) = |4{,}5 + 2| = 6{,}5$. ✓</li>
+</ol>
+<div class="formula">
+$$y = \frac{9}{2} = 4{,}5, \quad P(6; 4{,}5), \quad d(P,F) = d(P,d) = 6{,}5$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Quando fixamos $x$ e usamos a definição, obtemos uma equação de primeiro grau em $y$ — apenas um ponto válido porque a parábola $x^2 = 8y$ só tem ramo superior ($y \geq 0$). A definição e a equação são duas faces da mesma moeda: a definição é a essência geométrica, a equação é a ferramenta algébrica. Ambas devem ser dominadas.</p>
+</details>
+</div>

@@ -1,0 +1,31 @@
+<div class="exercise">
+<h3>DISTÂNCIA ENTRE DOIS PONTOS NO ESPAÇO</h3>
+<p>O objetivo deste exercício é aplicar a fórmula de distância no R³, estendendo diretamente o que foi construído no Cap II para o plano. A distância entre dois pontos é o módulo do vetor que os conecta.</p>
+<p>Dois abrigos subterrâneos foram mapeados: o Abrigo Norte em $A(1, 2, -4)$ e o Abrigo Sul em $B(7, 10, 2)$. As coordenadas estão em quilômetros, com $z$ negativo indicando profundidade abaixo do nível do solo.</p>
+<p><strong>(a)</strong> Calcule a distância entre os dois abrigos.</p>
+<p><strong>(b)</strong> Um terceiro abrigo $C$ está a mesma distância de $A$ que $B$ está, mas na direção oposta a partir de $A$. Determine as coordenadas de $C$.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>A distância é $d(A, B) = |\overrightarrow{AB}| = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2 + (z_B - z_A)^2}$. Para o item (b), se $C$ está na direção oposta a $B$ a partir de $A$ na mesma distância, então $\overrightarrow{AC} = -\overrightarrow{AB}$, logo $C = A - \overrightarrow{AB}$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Pontos: $A = (1, 2, -4)$ e $B = (7, 10, 2)$</li>
+<li>Vetor conector: $\overrightarrow{AB} = (7 - 1, \; 10 - 2, \; 2 - (-4)) = (6, 8, 6)$</li>
+<li>Distância: $d(A, B) = \sqrt{6^2 + 8^2 + 6^2} = \sqrt{36 + 64 + 36} = \sqrt{136}$</li>
+<li>$d(A, B) = \sqrt{4 \cdot 34} = 2\sqrt{34} \approx 11{,}66$ km</li>
+<li><strong>Item (b)</strong> — $\overrightarrow{AC} = -\overrightarrow{AB} = (-6, -8, -6)$</li>
+<li>$C = A + \overrightarrow{AC} = (1 - 6, \; 2 - 8, \; -4 - 6) = (-5, -6, -10)$</li>
+</ol>
+<div class="formula">
+$$d(A, B) = \sqrt{6^2 + 8^2 + 6^2} = 2\sqrt{34} \approx 11{,}66 \text{ km}$$
+$$C = (-5, -6, -10)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Os abrigos $B$ e $C$ formam uma linha reta passando por $A$, com $A$ exatamente no meio. Esta simetria é valiosa para planejamento de rotas de evacuação — se uma rota está comprometida, a rota oposta pode estar livre.</p>
+</details>
+</div>

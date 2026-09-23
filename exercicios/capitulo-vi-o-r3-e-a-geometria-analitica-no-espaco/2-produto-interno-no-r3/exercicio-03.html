@@ -1,0 +1,32 @@
+<div class="exercise">
+    <h3>Verificação de Ortogonalidade</h3>
+    <p><strong>Objetivo:</strong> Identificar vetores perpendiculares no R³ usando o critério $\vec{u} \cdot \vec{v} = 0$, e observar que no espaço há muito mais pares ortogonais possíveis do que no plano.</p>
+    <p>Considere os vetores:</p>
+    <div class="formula">
+        $$\vec{a} = (1, 2, -1), \quad \vec{b} = (2, -1, 0), \quad \vec{c} = (1, 1, 3)$$
+    </div>
+    <ol>
+        <li>Calcule $\vec{a} \cdot \vec{b}$, $\vec{a} \cdot \vec{c}$ e $\vec{b} \cdot \vec{c}$.</li>
+        <li>Quais pares são ortogonais?</li>
+        <li>No R², dados dois vetores não-nulos, existe no máximo uma direção perpendicular a ambos (a reta normal). No R³, quantas direções perpendiculares a um vetor fixado existem? Explique a diferença.</li>
+    </ol>
+
+    <details class="hint-details">
+        <summary>DICA DE SOBREVIVÊNCIA</summary>
+        <p>Dois vetores são perpendiculares quando seu produto interno é exatamente zero. No R², a equação $u_1x + u_2y = 0$ define uma única reta de direções perpendiculares. No R³, $u_1x + u_2y + u_3z = 0$ define um <em>plano</em> — infinitas direções.</p>
+    </details>
+
+    <details>
+        <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+        <ol class="solution-steps">
+            <li>Produtos internos:
+                $$\vec{a} \cdot \vec{b} = (1)(2) + (2)(-1) + (-1)(0) = 2 - 2 + 0 = 0$$
+                $$\vec{a} \cdot \vec{c} = (1)(1) + (2)(1) + (-1)(3) = 1 + 2 - 3 = 0$$
+                $$\vec{b} \cdot \vec{c} = (2)(1) + (-1)(1) + (0)(3) = 2 - 1 + 0 = 1$$
+            </li>
+            <li>Pares ortogonais: $\vec{a} \perp \vec{b}$ e $\vec{a} \perp \vec{c}$. O par $\vec{b}$ e $\vec{c}$ <em>não</em> é ortogonal ($\vec{b} \cdot \vec{c} = 1 \neq 0$).</li>
+            <li>No R³, fixado $\vec{u} \neq \vec{0}$, a condição $\vec{u} \cdot \vec{v} = 0$ é $u_1v_1 + u_2v_2 + u_3v_3 = 0$. Esta é a equação de um <em>plano</em> passando pela origem, perpendicular a $\vec{u}$. Qualquer vetor neste plano é perpendicular a $\vec{u}$ — há <strong>infinitas</strong> direções perpendiculares. No R², a mesma equação define uma reta (apenas uma direção perpendicular). O espaço tridimensional "tem mais lugar" para vetores perpendiculares.</li>
+        </ol>
+        <p><strong>Reflexão:</strong> No R², perpendicularidade é uma relação rígida: dado $\vec{u}$, há apenas duas direções perpendiculares (sentidos opostos). No R³, perpendicularidade é "mais flexível": um vetor pode ser perpendicular a infinitos outros, todos num plano. Esta é uma diferença qualitativa fundamental entre o plano e o espaço.</p>
+    </details>
+</div>

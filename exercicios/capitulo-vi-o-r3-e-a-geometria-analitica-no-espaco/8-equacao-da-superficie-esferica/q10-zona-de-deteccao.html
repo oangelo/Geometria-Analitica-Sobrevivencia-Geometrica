@@ -1,0 +1,43 @@
+<div class="exercise">
+<h3>ZONA DE DETECÇÃO: TORRE DE ALCANCE ESFÉRICO</h3>
+<p>O objetivo deste exercício é aplicar a equação da superfície esférica a um cenário de detecção em campo, verificando se ameaças estão dentro do alcance de uma torre de monitoramento. Este é um problema direto de posição relativa ponto–esfera com contexto operacional.</p>
+<p>Uma torre de detecção de anomalias está posicionada em $C(4, -2, 5)$. Seu sensor cobre uma zona esférica de raio $r = 10$ unidades. Quatro sinais foram detectados nas seguintes coordenadas:</p>
+<div class="formula">
+$$S_1(12, 4, 8), \quad S_2(-3, 5, 2), \quad S_3(4, -2, 15), \quad S_4(10, -8, 0)$$
+</div>
+<p><strong>(a)</strong> Escreva a equação canônica da zona de detecção.</p>
+<p><strong>(b)</strong> Para cada sinal $S_i$, calcule sua distância à torre e classifique-o como detectado (interior ou sobre a esfera) ou fora de alcance (exterior).</p>
+<p><strong>(c)</strong> Qual é o sinal mais próximo da fronteira da zona? Calcule sua distância à superfície esférica.</p>
+<p><strong>(d)</strong> Se a torre precisasse detectar o sinal $S_5(0, 0, 0)$, qual deveria ser o raio mínimo da zona? Mantendo o centro fixo.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Um sinal é detectado se sua distância ao centro for menor ou igual ao raio. A distância de um ponto à superfície é $|d - r|$. O raio mínimo para detectar um ponto é exatamente a distância desse ponto ao centro.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Torre: $C = (4, -2, 5)$; raio: $r = 10$</li>
+<li><strong>Item (a)</strong> — Equação: $(x-4)^2 + (y+2)^2 + (z-5)^2 = 100$</li>
+<li><strong>Item (b)</strong> — Distâncias:</li>
+<li>$d(S_1, C) = \sqrt{64 + 36 + 9} = \sqrt{109} \approx 10{,}44 > 10$ → \u003cspan class="warning">fora de alcance</span></li>
+<li>$d(S_2, C) = \sqrt{49 + 49 + 9} = \sqrt{107} \approx 10{,}34 > 10$ → \u003cspan class="warning">fora de alcance</span></li>
+<li>$d(S_3, C) = \sqrt{0 + 0 + 100} = 10 = r$ → \u003cspan class="success">detectado (sobre a fronteira)</span></li>
+<li>$d(S_4, C) = \sqrt{36 + 36 + 25} = \sqrt{97} \approx 9{,}85 < 10$ → \u003cspan class="success">detectado (interior)</span></li>
+<li><strong>Item (c)</strong> — Distâncias à fronteira:</li>
+<li>$S_1$: $\sqrt{109} - 10 \approx 0{,}44$; $S_2$: $\sqrt{107} - 10 \approx 0{,}34$; $S_3$: $0$; $S_4$: $10 - \sqrt{97} \approx 0{,}15$</li>
+<li>O sinal \u003cspan class="success">$S_4$</span> é o mais próximo da fronteira (distância $\approx 0{,}15$).</li>
+<li><strong>Item (d)</strong> — $d(S_5, C) = \sqrt{16 + 4 + 25} = \sqrt{45} = 3\sqrt{5} \approx 6{,}71$</li>
+<li>Raio mínimo: $r_{\min} = \sqrt{45} = 3\sqrt{5} \approx 6{,}71$ unidades.</li>
+</ol>
+<div class="formula">
+$$(x-4)^2 + (y+2)^2 + (z-5)^2 = 100$$
+$$S_3 \text{ e } S_4: \text{detectados}; \quad S_1 \text{ e } S_2: \text{fora de alcance}$$
+$$r_{\min}(S_5) = 3\sqrt{5} \approx 6{,}71$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Apenas $S_3$ e $S_4$ estão na zona de detecção. $S_3$ está exatamente na fronteira — um posto avançado na periferia. $S_4$ está confortavelmente dentro, mas muito próximo da borda. Os sinais $S_1$ e $S_2$ estão fora de alcance, mas por margens pequenas ($\approx 0{,}44$ e $\approx 0{,}34$). Uma torre com raio mínimo de $3\sqrt{5} \approx 6{,}71$ alcançaria a origem, bem abaixo dos $10$ atuais — mostrando que a zona atual é generosa, mas não cobre todos os quadrantes igualmente.</p>
+</details>
+</div>

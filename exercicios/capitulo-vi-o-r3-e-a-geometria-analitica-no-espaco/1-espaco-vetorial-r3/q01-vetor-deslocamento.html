@@ -1,0 +1,29 @@
+<div class="exercise">
+<h3>VETOR DESLOCAMENTO NO ESPAÇO</h3>
+<p>O objetivo deste exercício é estender ao R³ o cálculo de vetor deslocamento que você dominou no Cap I. No plano, dois pontos definem um vetor. No espaço, a lógica é idêntica — apenas com uma coordenada a mais.</p>
+<p>Uma patrulha parte do Posto Alpha localizado em $A(2, 1, 5)$ e chega ao Posto Beta em $B(6, 4, 2)$. O terreno entre os postos é acidentado, mas o deslocamento vetorial descreve a mudança de posição independentemente do caminho percorrido.</p>
+<p><strong>(a)</strong> Calcule o vetor deslocamento $\overrightarrow{AB}$.</p>
+<p><strong>(b)</strong> Em um sistema de coordenadas isométrico simples (eixo $x$ para a direita, eixo $y$ em diagonal para cima-esquerda, eixo $z$ vertical), esboce os pontos $A$ e $B$ e represente o vetor $\overrightarrow{AB}$. Indique a componente vertical com uma seta tracejada.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>O vetor de $A$ para $B$ é obtido por $B - A$, componente a componente. No R³: $\overrightarrow{AB} = (x_B - x_A, \; y_B - y_A, \; z_B - z_A)$. Para o desenho, não busque perfeição — uma representação esquemática que mostre a ideia da terceira dimensão é suficiente.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Ponto inicial: $A = (2, 1, 5)$</li>
+<li>Ponto final: $B = (6, 4, 2)$</li>
+<li>Vetor deslocamento: $\overrightarrow{AB} = B - A$</li>
+<li>$\overrightarrow{AB} = (6 - 2, \; 4 - 1, \; 2 - 5)$</li>
+<li>$\overrightarrow{AB} = (4, \; 3, \; -3)$</li>
+</ol>
+<div class="formula">
+$$\overrightarrow{AB} = (4, 3, -3)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A patrulha se deslocou 4 unidades no eixo $x$, 3 no eixo $y$ e <span class="warning">desceu 3 unidades</span> no eixo $z$. A componente negativa indica movimento descendente — saindo de uma torre de vigilância ($z = 5$) e chegando a uma posição mais baixa ($z = 2$). No R³, o sinal de $z$ carrega informação de altitude crítica para navegação.</p>
+</details>
+</div>

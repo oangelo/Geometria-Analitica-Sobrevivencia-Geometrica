@@ -1,0 +1,21 @@
+<div class="exercise">
+<h3>DESLOCAMENTO ENTRE ABRIGOS</h3>
+<p>O objetivo deste exercício é compreender a <strong>subtração de pares ordenados</strong> como uma ferramenta para calcular deslocamentos no plano — e ver geometricamente o que ela representa.</p>
+<p>Uma equipe de resgate parte do Abrigo Gamma em $G(6, 2)$ e precisa chegar ao Abrigo Delta em $D(1, 5)$. O comando quer saber qual é o "deslocamento líquido" entre as duas posições.</p>
+<p><strong>(a)</strong> Calcule $D - G = (1, 5) - (6, 2)$. Interprete cada componente: o que significa o sinal do primeiro componente? E o sinal do segundo?</p>
+<p><strong>(b)</strong> Desenhe os pontos $G(6, 2)$ e $D(1, 5)$ no plano. Represente o deslocamento como uma seta de $G$ até $D$. O deslocamento aponta mais para qual direção — norte, sul, leste ou oeste?</p>
+<p><strong>(c)</strong> Agora calcule $G - D$. Compare com $D - G$. Qual é a relação entre os dois resultados?</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>A subtração é componente a componente: $(a, b) - (c, d) = (a - c,\; b - d)$. Na interpretação, um componente negativo indica deslocamento na direção contrária ao eixo positivo. Em <strong>(c)</strong>, compare os resultados numericamente — há um padrão.</p>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>(a)</strong> $D - G = (1, 5) - (6, 2) = (1 - 6,\; 5 - 2) = (-5,\; 3)$. O primeiro componente é $-5$: deslocamento de 5 unidades para o oeste (esquerda). O segundo componente é $3$: deslocamento de 3 unidades para o norte (cima). O deslocamento total é "5 para oeste, 3 para norte".</p>
+<p><strong>(b)</strong> Ao desenhar: $G(6, 2)$ está à direita e abaixo de $D(1, 5)$. A seta de $G$ para $D$ aponta para o <strong>noroeste</strong> (norte e oeste simultaneamente).</p>
+<p><strong>(c)</strong> $G - D = (6, 2) - (1, 5) = (5,\; -3)$. Comparando: $G - D = -(D - G)$, ou seja, $(5, -3) = -(-5, 3)$. A subtração na ordem inversa produz o <strong>oposto simétrico</strong>. Isso significa que o deslocamento de volta é o inverso do deslocamento de ida.</p>
+<div class="formula">
+$$D - G = (-5,\; 3) \qquad G - D = (5,\; -3) = -(D - G)$$
+</div>
+</details>
+</div>

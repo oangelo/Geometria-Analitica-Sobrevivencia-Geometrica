@@ -1,0 +1,38 @@
+<div class="exercise">
+<h3>CENTRO DE COMANDO</h3>
+
+<p>Três abrigos formam um triângulo de defesa na Zona Devastada: $A(0, 0)$, $B(6, 0)$ e $C(3, 5)$. O Comando precisa instalar um centro de comunicações equidistante dos três abrigos — o ponto onde as três fronteiras equidistantes se encontram. O objetivo deste exercício é construir as três mediatrizes de um triângulo e verificar que elas são concorrentes num único ponto, o circuncentro.</p>
+
+<p><strong>(a)</strong> Desenhe no papel o triângulo $ABC$. Estime visualmente onde as três mediatrizes devem se encontrar. O triângulo é acutângulo, obtusângulo ou retângulo?</p>
+
+<p><strong>(b)</strong> Construa a mediatriz do lado $\overline{AB}$ a partir da definição $d(P,A) = d(P,B)$.</p>
+
+<p><strong>(c)</strong> Construa a mediatriz do lado $\overline{BC}$ a partir da definição $d(P,B) = d(P,C)$.</p>
+
+<p><strong>(d)</strong> Resolva o sistema formado pelas duas mediatrizes para encontrar o ponto de intersecção $O$. Este é o circuncentro.</p>
+
+<p><strong>(e)</strong> Verifique que o circuncentro $O$ também pertence à mediatriz de $\overline{AC}$ (sem construí-la explicitamente, basta verificar que $d(O,A) = d(O,C)$). Calcule o raio da circunferência circunscrita.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>No item (b), o segmento $\overline{AB}$ é horizontal — você já viu este caso no exercício 5. A mediatriz deve ser vertical. No item (c), aplique o método padrão: eleve ao quadrado, expanda, cancele, simplifique. No item (e), se $d(O,A) = d(O,B)$ e $d(O,B) = d(O,C)$, então $d(O,A) = d(O,C)$ por transitividade — não é necessário refazer a conta.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>O triângulo tem vértices $A(0,0)$, $B(6,0)$, $C(3,5)$. É um triângulo isósceles com base $\overline{AB}$. Como a altura de $C$ é $5$ e a metade da base é $3$, temos $\tan(\alpha) = \dfrac{5}{3} > 1$, logo os ângulos da base são maiores que $45°$. O ângulo em $C$ é agudo. O triângulo é <strong>acutângulo</strong>, então o circuncentro está dentro do triângulo.</li>
+<li>Mediatriz de $\overline{AB}$: $\sqrt{x^2 + y^2} = \sqrt{(x-6)^2 + y^2}$. Elevando ao quadrado e simplificando: $x^2 = (x-6)^2 \Rightarrow 12x = 36 \Rightarrow x = 3$.</li>
+<li>Mediatriz de $\overline{BC}$: $\sqrt{(x-6)^2 + y^2} = \sqrt{(x-3)^2 + (y-5)^2}$. Elevando ao quadrado: $(x-6)^2 + y^2 = (x-3)^2 + (y-5)^2$. Expandindo: $x^2 - 12x + 36 + y^2 = x^2 - 6x + 9 + y^2 - 10y + 25$. Simplificando: $-6x + 10y + 2 = 0$, ou $3x - 5y - 1 = 0$.</li>
+<li>Sistema: $\begin{cases} x = 3 \\ 3x - 5y - 1 = 0 \end{cases}$. Substituindo $x = 3$: $9 - 5y - 1 = 0 \Rightarrow 5y = 8 \Rightarrow y = \dfrac{8}{5} = 1{,}6$. Circuncentro: $O\left(3, \dfrac{8}{5}\right)$.</li>
+<li>Verificação de $d(O,A) = d(O,C)$: $d(O,A)^2 = 3^2 + \left(\dfrac{8}{5}\right)^2 = 9 + \dfrac{64}{25} = \dfrac{225 + 64}{25} = \dfrac{289}{25}$. $d(O,C)^2 = (3-3)^2 + \left(\dfrac{8}{5} - 5\right)^2 = 0 + \left(\dfrac{8-25}{5}\right)^2 = \left(\dfrac{-17}{5}\right)^2 = \dfrac{289}{25}$ ✓.</li>
+<li>Raio da circunferência circunscrita: $R = d(O,A) = \sqrt{\dfrac{289}{25}} = \dfrac{17}{5} = 3{,}4$.</li>
+</ol>
+<div class="formula">
+$$O\left(3, \frac{8}{5}\right), \quad R = \frac{17}{5} = 3{,}4$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> As três mediatrizes de um triângulo são sempre concorrentes. Este ponto de concorrência — o circuncentro — é o centro da circunferência que passa pelos três vértices. Na Zona Devastada, este é o ponto ótimo para instalar uma antena de comunicação que alcance os três abrigos com a mesma potência. O fato de que duas mediatrizes determinam o ponto e a terceira passa automaticamente por ele é uma propriedade de congruência: $d(O,A) = d(O,B) = d(O,C)$.</p>
+</details>
+</div>

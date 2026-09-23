@@ -1,0 +1,55 @@
+<section class="manual-contexto" data-context="manual-sobrevivencia">
+    <div class="terminal-border">
+        <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA: PRODUTO INTERNO NO R³</h2>
+
+        <p><strong>O objetivo deste módulo é estender a ferramenta que você já domina no plano para o espaço tridimensional.</strong> No Capítulo II, o produto escalar no R² mediu ângulos, testou perpendicularidade e projetou vetores. No R³, a <em>mesma</em> ferramenta funciona com três componentes — nada precisa ser reconstruído do zero.</p>
+
+        <p class="warning">&gt; REFERÊNCIA CRUZADA: CAPÍTULO II</p>
+        <p>No R², vimos que dados $\vec{u} = (u_1, u_2)$ e $\vec{v} = (v_1, v_2)$, o produto escalar $\vec{u} \cdot \vec{v} = u_1v_1 + u_2v_2$ nos dava tudo: ângulo, módulo, projeção, ortogonalidade. No R³, acrescentamos uma componente. A lógica é idêntica.</p>
+
+        <h3>&gt; DEFINIÇÃO ALGÉBRICA (EXTENSÃO NATURAL)</h3>
+        <p>Para vetores $\vec{u} = (u_1, u_2, u_3)$ e $\vec{v} = (v_1, v_2, v_3)$ no R³:</p>
+        <div class="formula">
+            $$\vec{u} \cdot \vec{v} = u_1v_1 + u_2v_2 + u_3v_3$$
+        </div>
+        <p>Compare com o R²: apenas adicionamos o termo $u_3v_3$. As propriedades (comutatividade, distributividade, bilinearidade) permanecem válidas.</p>
+
+        <h3>&gt; MÓDULO E ÂNGULO (MESMAS FÓRMULAS, UMA COMPONENTE A MAIS)</h3>
+        <p>O módulo no R³ estende Pitágoras para três dimensões:</p>
+        <div class="formula">
+            $$|\vec{v}| = \sqrt{\vec{v} \cdot \vec{v}} = \sqrt{v_1^2 + v_2^2 + v_3^2}$$
+        </div>
+        <p>O ângulo entre dois vetores no espaço usa a mesma fórmula do plano:</p>
+        <div class="formula">
+            $$\cos \theta = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}| \cdot |\vec{v}|}, \quad 0 \leq \theta \leq \pi$$
+        </div>
+        <p>A única diferença é que agora $\vec{u}$ e $\vec{v}$ têm três componentes. O produto interno e os módulos são calculados com três termos, mas a relação geométrica é a mesma.</p>
+
+        <h3>&gt; ORTOGONALIDADE NO ESPAÇO</h3>
+        <p>Dois vetores são perpendiculares (ortogonais) se e somente se:</p>
+        <div class="formula">
+            $$\vec{u} \cdot \vec{v} = 0 \;\Rightarrow\; \vec{u} \perp \vec{v}$$
+        </div>
+        <p><strong>Novidade no R³:</strong> dois vetores podem ser perpendiculares sem estarem no mesmo plano coordenado. No R², se $\vec{u} \perp \vec{v}$, ambos estão necessariamente no plano $Oxy$. No R³, $\vec{u} = (1, 0, 1)$ e $\vec{v} = (1, 2, -1)$ são perpendiculares ($\vec{u} \cdot \vec{v} = 1 + 0 - 1 = 0$) e "apontam" em direções que não estão confinadas a nenhum plano coordenado isolado. O espaço permite muito mais direções perpendiculares.</p>
+
+        <h3>&gt; PROJEÇÃO ORTOGONAL (MESMA FÓRMULA DO R²)</h3>
+        <p>A projeção ortogonal de $\vec{u}$ sobre $\vec{v} \neq \vec{0}$ é:</p>
+        <div class="formula">
+            $$\text{proj}_{\vec{v}} \vec{u} = \frac{\vec{u} \cdot \vec{v}}{|\vec{v}|^2} \vec{v}$$
+        </div>
+        <p>A componente perpendicular é $\vec{u}_{\perp} = \vec{u} - \text{proj}_{\vec{v}} \vec{u}$, e vale $\vec{u}_{\perp} \cdot \vec{v} = 0$.</p>
+
+        <h3>&gt; ÂNGULOS DIRETORES</h3>
+        <p>Os ângulos que um vetor $\vec{v}$ faz com os eixos coordenados ($Ox$, $Oy$, $Oz$) são chamados <em>ângulos diretores</em>. Se $\vec{v} = (v_1, v_2, v_3)$:</p>
+        <div class="formula">
+            $$\cos \alpha = \frac{v_1}{|\vec{v}|}, \quad \cos \beta = \frac{v_2}{|\vec{v}|}, \quad \cos \gamma = \frac{v_3}{|\vec{v}|}$$
+        </div>
+        <p>Estes cossenos satisfazem a relação fundamental:</p>
+        <div class="formula">
+            $$\cos^2 \alpha + \cos^2 \beta + \cos^2 \gamma = 1$$
+        </div>
+        <p>Verificação: $\left(\frac{v_1}{|\vec{v}|}\right)^2 + \left(\frac{v_2}{|\vec{v}|}\right)^2 + \left(\frac{v_3}{|\vec{v}|}\right)^2 = \frac{v_1^2 + v_2^2 + v_3^2}{|\vec{v}|^2} = \frac{|\vec{v}|^2}{|\vec{v}|^2} = 1$.</p>
+
+        <p class="success">&gt; RESUMO EXECUTIVO: Tudo que você aprendeu no Cap II sobre produto escalar aplica-se diretamente ao R³. A única mudança é a adição da terceira componente. As novidades do espaço são: mais direções perpendiculares possíveis, ângulos diretores com três eixos, e a capacidade de construir bases ortogonais com três vetores mutuamente perpendiculares.</p>
+    </div>
+</section>

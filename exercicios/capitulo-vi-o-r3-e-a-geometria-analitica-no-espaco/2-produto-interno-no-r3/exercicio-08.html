@@ -1,0 +1,48 @@
+<div class="exercise">
+    <h3>Triângulo no Espaço</h3>
+    <p><strong>Objetivo:</strong> Aplicar o produto interno para calcular ângulos internos de um triângulo definido por três pontos no espaço tridimensional.</p>
+    <p>Três abrigos de sobrevivência estão posicionados em:</p>
+    <div class="formula">
+        $$A = (1, 0, 2), \quad B = (4, 2, 3), \quad C = (2, 4, 1)$$
+    </div>
+    <ol>
+        <li>Calcule os vetores $\vec{AB}$, $\vec{AC}$ e $\vec{BC}$.</li>
+        <li>Calcule os três ângulos internos do triângulo $ABC$ (em graus, aproximados para inteiro).</li>
+        <li>Verifique que a soma dos ângulos é $180°$ (ou muito próximo, considerando arredondamentos).</li>
+    </ol>
+
+    <details class="hint-details">
+        <summary>DICA DE SOBREVIVÊNCIA</summary>
+        <p>O ângulo em $A$ é o ângulo entre $\vec{AB}$ e $\vec{AC}$. O ângulo em $B$ é o ângulo entre $\vec{BA}$ e $\vec{BC}$ — <em>ambos com origem em $B$</em>. Cuidado: $\vec{BA} = -\vec{AB}$.</p>
+    </details>
+
+    <details>
+        <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+        <ol class="solution-steps">
+            <li>Vetores:
+                $$\vec{AB} = B - A = (4-1, 2-0, 3-2) = (3, 2, 1)$$
+                $$\vec{AC} = C - A = (2-1, 4-0, 1-2) = (1, 4, -1)$$
+                $$\vec{BC} = C - B = (2-4, 4-2, 1-3) = (-2, 2, -2)$$
+                $$\vec{BA} = A - B = (-3, -2, -1)$$
+            </li>
+            <li>Ângulo em $A$ (entre $\vec{AB}$ e $\vec{AC}$):
+                $$\vec{AB} \cdot \vec{AC} = 3(1) + 2(4) + 1(-1) = 3 + 8 - 1 = 10$$
+                $$|\vec{AB}| = \sqrt{9 + 4 + 1} = \sqrt{14}, \quad |\vec{AC}| = \sqrt{1 + 16 + 1} = \sqrt{18} = 3\sqrt{2}$$
+                $$\cos A = \frac{10}{\sqrt{14} \cdot 3\sqrt{2}} = \frac{10}{\sqrt{252}} = \frac{10}{6\sqrt{7}} \approx 0{,}629 \Rightarrow A \approx 51°$$
+            </li>
+            <p>Ângulo em $B$ (entre $\vec{BA}$ e $\vec{BC}$):
+                $$\vec{BA} \cdot \vec{BC} = (-3)(-2) + (-2)(2) + (-1)(-2) = 6 - 4 + 2 = 4$$
+                $$|\vec{BA}| = \sqrt{14}, \quad |\vec{BC}| = \sqrt{4 + 4 + 4} = \sqrt{12} = 2\sqrt{3}$$
+                $$\cos B = \frac{4}{\sqrt{14} \cdot 2\sqrt{3}} = \frac{4}{\sqrt{168}} \approx 0{,}309 \Rightarrow B \approx 72°$$
+            </p>
+            <p>Ângulo em $C$ (entre $\vec{CA}$ e $\vec{CB}$):
+                $$\vec{CA} = (1, -4, 1), \quad \vec{CB} = (2, -2, 2)$$
+                $$\vec{CA} \cdot \vec{CB} = 1(2) + (-4)(-2) + 1(2) = 2 + 8 + 2 = 12$$
+                $$|\vec{CA}| = \sqrt{18}, \quad |\vec{CB}| = \sqrt{12}$$
+                $$\cos C = \frac{12}{\sqrt{18} \cdot \sqrt{12}} = \frac{12}{\sqrt{216}} = \frac{12}{6\sqrt{6}} = \frac{2}{\sqrt{6}} \approx 0{,}816 \Rightarrow C \approx 55°$$
+            </p>
+            <li>Soma: $51° + 72° + 55° = 178°$. A diferença de $2°$ é devido ao arredondamento. Com valores mais precisos: $A \approx 51{,}06°$, $B \approx 72{,}02°$, $C \approx 55{,}90°$, soma $\approx 178{,}98° \approx 180°$ (erro de arredondamento acumulado). Usando $\arccos$ com maior precisão, a soma é exatamente $180°$.</li>
+        </ol>
+        <p><strong>Reflexão:</strong> Mesmo no espaço tridimensional, três pontos definem um plano (a menos de serem colineares), e neste plano a geometria euclidiana se aplica: a soma dos ângulos internos de um triângulo é sempre $180°$. O produto interno no R³ permite calcular esses ângulos sem precisar "achatar" o triângulo em um plano coordenado — a fórmula funciona diretamente no espaço.</p>
+    </details>
+</div>

@@ -1,0 +1,56 @@
+<section class="manual-contexto" data-context="manual-sobrevivencia">
+    <div class="terminal-border">
+        <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: EQUAÇÃO DA SUPERFÍCIE ESFÉRICA</h2>
+
+        <p><strong>Contextualização:</strong> No Capítulo IV, dominamos a circunferência — o lugar geométrico dos pontos a uma distância fixa de um centro, mas restrito ao plano. Na Zona Devastada tridimensional, essa noção se generaliza naturalmente: domos de abrigos subterrâneos, zonas de detecção de radiação em todas as direções, alcance de torres de comunicação que irradiam para cima, para baixo e para os lados. Todos esses cenários compartilham a mesma estrutura matemática — a <strong>superfície esférica</strong>.</p>
+
+        <p>A circunferência era o lugar geométrico no plano. A esfera é a mesma ideia, agora no espaço. A definição é idêntica em espírito: dado um centro fixo $C(a,b,c)$ e uma distância constante $r > 0$, a superfície esférica é o conjunto de todos os pontos $P(x,y,z)$ do espaço tais que $d(P,C) = r$.</p>
+
+        <div class="formula">
+            $$\text{Definição: } \mathcal{S} = \{P(x,y,z) \mid d(P,C) = r\}$$
+        </div>
+
+        <p>Substituindo a fórmula de distância no R³ (Capítulo VI, Tópico 1), obtemos:</p>
+
+        <div class="formula">
+            $$d(P,C) = r$$
+            $$\sqrt{(x-a)^2 + (y-b)^2 + (z-c)^2} = r$$
+            $$(x-a)^2 + (y-b)^2 + (z-c)^2 = r^2$$
+        </div>
+
+        <p>Esta é a <strong>equação canônica</strong> (ou reduzida) da superfície esférica, com centro $C(a,b,c)$ e raio $r$. Quando o centro é a origem $O(0,0,0)$, simplifica para $x^2 + y^2 + z^2 = r^2$.</p>
+
+        <p><strong>Forma geral:</strong> Expandindo os quadrados com os produtos notáveis $(x-a)^2 = x^2 - 2ax + a^2$ e análogos para $y$ e $z$, reunindo termos obtemos:</p>
+
+        <div class="formula">
+            $$x^2 + y^2 + z^2 + Dx + Ey + Fz + G = 0$$
+        </div>
+
+        <p>onde $D = -2a$, $E = -2b$, $F = -2c$ e $G = a^2 + b^2 + c^2 - r^2$. O caminho inverso — da forma geral para a canônica — usa <strong>completar quadrados</strong> em cada variável:</p>
+
+        <div class="formula">
+            $$\text{Centro: } C\!\left(-\frac{D}{2},\; -\frac{E}{2},\; -\frac{F}{2}\right)$$
+            $$\text{Raio: } r = \sqrt{\left(\frac{D}{2}\right)^2 + \left(\frac{E}{2}\right)^2 + \left(\frac{F}{2}\right)^2 - G}$$
+        </div>
+
+        <p><strong>Atenção:</strong> a expressão sob a raiz deve ser positiva para existir uma superfície esférica real. Se for zero, obtemos um único ponto (o centro). Se for negativa, não há pontos reais que satisfaçam a equação.</p>
+
+        <p><strong>Posição de um ponto relativa à esfera:</strong> dado um ponto $P_0(x_0,y_0,z_0)$ e uma esfera de centro $C$ e raio $r$, calculamos $d = d(P_0, C)$:</p>
+
+        <div class="formula">
+            $$d < r \;\Rightarrow\; P_0 \text{ está no \textbf{interior} da esfera}$$
+            $$d = r \;\Rightarrow\; P_0 \text{ está \textbf{sobre} a esfera}$$
+            $$d > r \;\Rightarrow\; P_0 \text{ está no \textbf{exterior} da esfera}$$
+        </div>
+
+        <p><strong>Interseção esfera–plano:</strong> a interseção de uma superfície esférica com um plano pode ser:</p>
+
+        <ul>
+            <li>Um <strong>círculo</strong>, quando a distância $d$ do centro da esfera ao plano satisfaz $d < r$. O raio do círculo de interseção é $\rho = \sqrt{r^2 - d^2}$.</li>
+            <li>Um único <strong>ponto</strong>, quando $d = r$ (plano tangente à esfera).</li>
+            <li>O conjunto <strong>vazio</strong>, quando $d > r$ (plano externo à esfera).</li>
+        </ul>
+
+        <p>Esta classificação é a generalização natural da interseção circunferência–reta do Capítulo IV. Lá, a reta podia ser secante, tangente ou externa. Aqui, o plano desempenha o papel análogo, e a interseção passa de pontos isolados para um círculo completo.</p>
+    </div>
+</section>

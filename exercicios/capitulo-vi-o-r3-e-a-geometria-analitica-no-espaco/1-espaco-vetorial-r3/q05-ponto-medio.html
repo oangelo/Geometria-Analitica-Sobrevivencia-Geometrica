@@ -1,0 +1,35 @@
+<div class="exercise">
+<h3>PONTO MÉDIO NO ESPAÇO</h3>
+<p>O objetivo deste exercício é deduzir a fórmula do ponto médio no R³, generalizando o resultado do Cap I. No plano, o ponto médio tem coordenadas que são médias aritméticas das coordenadas dos extremos. No espaço, a mesma lógica se aplica à terceira coordenada.</p>
+<p>Um cabo de reforço conecta a Torre de Vigilância $A(x_1, y_1, z_1)$ ao Posto de Comunicação $B(x_2, y_2, z_2)$. Você precisa instalar um amplificador de sinal exatamente no ponto médio do cabo para garantir transmissão uniforme.</p>
+<p><strong>(a)</strong> Deduz a fórmula do ponto médio $M$ no R³, justificando por que cada coordenada de $M$ é a média aritmética das coordenadas correspondentes de $A$ e $B$.</p>
+<p><strong>(b)</strong> Aplique a fórmula para $A(2, -3, 8)$ e $B(10, 5, 0)$.</p>
+<p><strong>(c)</strong> Verifique que a distância de $M$ a $A$ é igual à distância de $M$ a $B$.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para deduzir, use a condição de que $M$ é ponto médio se e somente se $\overrightarrow{AM} = \overrightarrow{MB}$. Isso dá três equações, uma para cada componente. A verificação do item (c) confirma que $M$ está equidistante dos extremos.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li><strong>Dedução do item (a)</strong> — Seja $M = (x_M, y_M, z_M)$ o ponto médio.</li>
+<li>Condição: $\overrightarrow{AM} = \overrightarrow{MB}$</li>
+<li>$(x_M - x_1, \; y_M - y_1, \; z_M - z_1) = (x_2 - x_M, \; y_2 - y_M, \; z_2 - z_M)$</li>
+<li>Igualando componente a componente: $x_M - x_1 = x_2 - x_M \Rightarrow 2x_M = x_1 + x_2$</li>
+<li>Portanto: $x_M = \dfrac{x_1 + x_2}{2}$, e analogamente para $y$ e $z$</li>
+<li>$$M = \left(\frac{x_1 + x_2}{2}, \; \frac{y_1 + y_2}{2}, \; \frac{z_1 + z_2}{2}\right)$$</li>
+<li><strong>Item (b)</strong> — $M = \left(\dfrac{2 + 10}{2}, \; \dfrac{-3 + 5}{2}, \; \dfrac{8 + 0}{2}\right) = (6, 1, 4)$</li>
+<li><strong>Item (c)</strong> — $\overrightarrow{AM} = (4, 4, -4)$, $|\overrightarrow{AM}| = \sqrt{16 + 16 + 16} = \sqrt{48} = 4\sqrt{3}$</li>
+<li>$\overrightarrow{MB} = (4, 4, -4)$, $|\overrightarrow{MB}| = 4\sqrt{3}$ ✓</li>
+</ol>
+<div class="formula">
+$$M = \left(\frac{x_1 + x_2}{2}, \; \frac{y_1 + y_2}{2}, \; \frac{z_1 + z_2}{2}\right)$$
+$$M = (6, 1, 4), \quad d(A, M) = d(M, B) = 4\sqrt{3}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A dedução via vetores é elegante e não exige memorização. A condição $\overrightarrow{AM} = \overrightarrow{MB}$ captura geometricamente o que "ponto médio" significa: $M$ está à mesma distância vetorial de ambos os extremos. Esta abordagem funciona em qualquer dimensão.</p>
+</details>
+</div>

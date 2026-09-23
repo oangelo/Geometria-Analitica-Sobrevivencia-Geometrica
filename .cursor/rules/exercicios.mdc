@@ -1,0 +1,74 @@
+---
+description: Padrões para criação de listas de exercícios do curso
+globs: exercicios/**/*.html
+alwaysApply: false
+---
+
+# Exercícios — Sobrevivência Geométrica
+
+Use o `exercicios/template.html` como base estrutural.
+
+**Antes de começar, leia (nesta ordem):**
+1. `exercicios/checklist-conceitos-permitidos.md` — conceitos permitidos por capítulo, progressão narrativa
+2. `exercicios/diretrizes-listas-de-exercicios.md` — 8 princípios de design + formato de enunciado
+3. `exercicios/agents.md` — guia completo do agente (estrutura, pipeline, regras)
+4. `ESTILO.md` — referência de notação matemática
+
+## Temática e Tom
+- Cenário pós-apocalíptico: "Zona Devastada", "Abrigo", "Mutantes", "Traje de Proteção", "RemoveRad", "SUPERVISOR"
+- Tom sério com humor sutil e sarcástico — sem piadas forçadas
+- Cada exercício termina com uma **"Reflexão de Sobrevivência"** conectando o problema ao contexto
+
+## Estrutura
+- Organizar cada tópico em três arquivos:
+  - `<topico>-manual.html` (somente contexto teórico)
+  - `<topico>-enunciados.html` (somente lista de missões/enunciados/soluções) OU pasta `<topico>/` com exercícios individuais
+  - `<topico>.html` (loader que agrega os dois arquivos)
+- Separar conteúdo em dois blocos explícitos:
+  - `manual-contexto` com `data-context="manual-sobrevivencia"` para teoria e fórmulas-base
+  - `enunciados-exercicios` com `data-context="exercicios-enunciados"` para missões/enunciados/soluções
+- **Número de exercícios:** flexível — cobrir o conteúdo é mais importante que um número fixo. Mínimo 6, típico 8-15. Progressão ALFA (básico) → BETA (intermediário) → GAMMA (avançado) → OMEGA (desafiador, sem dica)
+- Introdução de 3–5 parágrafos explicando os conceitos do tópico
+
+## Formato do Enunciado
+- Texto corrido com `<p>` — sem `<div>` wrapper, sem `<ul><li>`
+- Sub-itens: `<p><strong>(a)</strong> texto...</p>`
+- Referências a outros exercícios pelo **conceito**, nunca pelo número
+
+## Classes CSS obrigatórias
+- `mission-counter` — numeração automática das missões
+- `formula` — todas as fórmulas e variáveis matemáticas (MathJax)
+- `hint` — dicas, dentro de `<details class="hint-details">` com `<summary>DICA DE SOBREVIVÊNCIA</summary>`
+- `solution-steps` — passos da solução
+- Estrutura didática obrigatória quando houver dica:
+  1) `<details class="hint-details"><summary>DICA DE SOBREVIVÊNCIA</summary>...</details>`
+  2) `<details><summary>ACESSO NÍVEL: SUPERVISOR</summary>...solução...</details>`
+- Soluções dentro de `<details>` com título "ACESSO NÍVEL: SUPERVISOR"
+
+## Notação (resumo — ver `ESTILO.md` para referência completa)
+- Pontos: letras **maiúsculas** com coordenadas — $A(2, -3)$, $P(x_0, y_0)$
+- Vetores: `\vec{v}` (nunca negrito); índices fora — `\vec{n}_1`, não `\vec{n_1}`
+- Vetores canônicos: $\vec{e}_1, \vec{e}_2, \vec{e}_3$ ou $\vec{i}, \vec{j}, \vec{k}$ — nunca reutilizar essas letras como variáveis
+- Separador decimal: vírgula — `$0{,}6$`
+- Focos de cônicas: sempre LaTeX `$F_1$`, nunca Unicode "F₁"
+
+## Restrições matemáticas
+- **NUNCA** usar cálculo diferencial ou integral
+- Apenas álgebra, geometria e trigonometria básica
+- Respeitar a progressão do curso: não antecipar conceitos de capítulos futuros
+- Referência de progressão detalhada em `exercicios/checklist-conceitos-permitidos.md`
+
+## Princípios de Design (resumo)
+1. **Narrativa** — cada exercício prepara o seguinte
+2. **Transparência** — explicitar por que o exercício está ali
+3. **Construir sobre o sabido** — retomar conceitos anteriores
+4. **Scaffolding** — sub-itens (a, b, c) para problemas complexos
+5. **Significado antes da álgebra** — interpretação geométrica primeiro
+6. **Notação como conteúdo** — exercícios dedicados a notação
+7. **Desenhar** — pedir esboços e diagramas
+8. **Autonomia** — derivar resultados, não decorar fórmulas
+9. **Narrativa por exercício** — parágrafo obrigatório conectando ao anterior (história da matemática)
+
+**Progressão pedagógica (4 fases):** Fase 1 (caso simples com números) → Fase 2 (nova ferramenta isolada) → Fase 3 (combinar com incógnitas) → Fase 4 (aplicação em contexto)
+
+Ver detalhes e exemplos em `exercicios/diretrizes-listas-de-exercicios.md`.

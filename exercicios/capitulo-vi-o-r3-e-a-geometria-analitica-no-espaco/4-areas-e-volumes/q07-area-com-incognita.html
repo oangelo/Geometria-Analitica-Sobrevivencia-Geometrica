@@ -1,0 +1,60 @@
+<div class="exercise">
+<h3>ÁREA COM INCÓGNITA</h3>
+<p>O objetivo deste exercício é trabalhar com uma área conhecida e deduzir condições sobre um vetor desconhecido.</p>
+<p>Um paralelogramo de sustentação é formado pelo vetor conhecido $\vec{u} = (2, 0, 1)$ e pelo vetor $\vec{v} = (x, 3, 2)$, onde $x$ é uma coordenada desconhecida que depende da inclinação do terreno. Sabe-se que a área do paralelogramo é $S = \sqrt{61}$ unidades².</p>
+<p><strong>(a)</strong> Calcule $\vec{u} \times \vec{v}$ em função de $x$.</p>
+<p><strong>(b)</strong> Calcule $|\vec{u} \times \vec{v}|^2$ em função de $x$.</p>
+<p><strong>(c)</strong> Usando que a área é $\sqrt{61}$, encontre o valor (ou valores) de $x$.</p>
+<p><strong>(d)</strong> Interprete geometricamente: por que existem dois valores possíveis de $x$? O que muda no paralelogramo quando $x$ varia entre esses valores?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para o item (b), calcule o módulo ao quadrado — isso elimina a raiz quadrada e dá uma equação polinomial em $x$. Para o item (c), iguale $|\vec{u} \times \vec{v}|^2 = 61$ e resolva a equação quadrática. Para o item (d), pense em como a inclinação de $\vec{v}$ afeta a área do paralelogramo.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>Item (a):</strong></p>
+<ol class="solution-steps">
+<li>$\vec{u} \times \vec{v} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 2 & 0 & 1 \\ x & 3 & 2 \end{vmatrix}$</li>
+<li>Componente $\vec{i}$: $(0)(2) - (1)(3) = 0 - 3 = -3$</li>
+<li>Componente $\vec{j}$: $-[(2)(2) - (1)(x)] = -[4 - x] = x - 4$</li>
+<li>Componente $\vec{k}$: $(2)(3) - (0)(x) = 6 - 0 = 6$</li>
+</ol>
+<div class="formula">
+$$\vec{u} \times \vec{v} = (-3,\; x-4,\; 6)$$
+</div>
+
+<p><strong>Item (b):</strong></p>
+<ol class="solution-steps">
+<li>$|\vec{u} \times \vec{v}|^2 = (-3)^2 + (x-4)^2 + 6^2$</li>
+<li>$= 9 + (x-4)^2 + 36 = (x-4)^2 + 45$</li>
+<li>$= x^2 - 8x + 16 + 45 = x^2 - 8x + 61$</li>
+</ol>
+<div class="formula">
+$$|\vec{u} \times \vec{v}|^2 = x^2 - 8x + 61$$
+</div>
+
+<p><strong>Item (c):</strong></p>
+<ol class="solution-steps">
+<li>Área $S = |\vec{u} \times \vec{v}| = \sqrt{61}$, logo $|\vec{u} \times \vec{v}|^2 = 61$</li>
+<li>$x^2 - 8x + 61 = 61$</li>
+<li>$x^2 - 8x = 0$</li>
+<li>$x(x - 8) = 0$</li>
+<li>$x = 0$ ou $x = 8$</li>
+</ol>
+<div class="formula">
+$$x = 0 \quad \text{ou} \quad x = 8$$
+</div>
+
+<p><strong>Item (d):</strong></p>
+<p>Existem dois valores de $x$ porque a área do paralelogramo depende da componente de $\vec{v}$ perpendicular a $\vec{u}$, e essa componente pode ser a mesma para duas inclinações diferentes do vetor $\vec{v}$.</p>
+<p>Quando $x = 0$: $\vec{v} = (0, 3, 2)$. O produto vetorial é $(-3, -4, 6)$.</p>
+<p>Quando $x = 8$: $\vec{v} = (8, 3, 2)$. O produto vetorial é $(-3, 4, 6)$.</p>
+<p>Note que as componentes $\vec{j}$ são simétricas ($-4$ e $4$), enquanto as componentes $\vec{i}$ e $\vec{k}$ são idênticas. Geometricamente, os dois vetores $\vec{v}$ produzem paralelogramos com a mesma área porque a "altura" perpendicular a $\vec{u}$ é a mesma em ambos os casos — apenas o "lado" do paralelogramo está inclinado em direções opostas no plano perpendicular a $\vec{u}$.</p>
+
+<p><strong>Reflexão de Sobrevivência:</strong> Problemas com incógnitas aparecem constantemente na Zona Devastada: você conhece a área necessária de cobertura, mas precisa ajustar a inclinação de um suporte. A equação quadrática revela que há duas soluções geométricas equivalentes — escolher entre elas depende de restrições práticas (terreno, materiais disponíveis) que a matemática não impõe.</p>
+</details>
+</div>

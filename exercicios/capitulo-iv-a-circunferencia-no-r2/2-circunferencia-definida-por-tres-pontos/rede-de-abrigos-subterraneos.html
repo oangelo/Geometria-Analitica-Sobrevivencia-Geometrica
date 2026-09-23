@@ -1,0 +1,35 @@
+<div class="exercise">
+<h3>REDE DE ABRIGOS SUBTERRÂNEOS</h3>
+
+<p>Uma rede de abrigos subterrâneos foi descoberta com três entradas mapeadas em $A(-5,-1)$, $B(3,5)$ e $C(4,2)$. Antes de qualquer cálculo, verifique se os três pontos são colineares usando o determinante $2 \times 2$. Em seguida, determine a equação da circunferência que passa pelas três entradas e identifique o centro e o raio. No papel, esboce os três pontos, a circunferência e a posição do quarto abrigo $D(1,2)$ em relação a ela.</p>
+<p><strong>(a)</strong> Verifique a colinearidade dos pontos $A$, $B$ e $C$.</p>
+<p><strong>(b)</strong> Determine a equação, o centro e o raio da circunferência.</p>
+<p><strong>(c)</strong> O quarto abrigo $D(1,2)$ está dentro ou fora da circunferência?</p>
+<p><strong>(d)</strong> Qual é o diâmetro da rede de abrigos?</p>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li><strong>(a)</strong> Colinearidade: $\vec{AB} = (3-(-5), 5-(-1)) = (8, 6)$ e $\vec{AC} = (4-(-5), 2-(-1)) = (9, 3)$.</li>
+<li>Determinante: $\det \begin{pmatrix} 8 &amp; 6 \\ 9 &amp; 3 \end{pmatrix} = 8 \cdot 3 - 6 \cdot 9 = 24 - 54 = -30 \neq 0$.</li>
+<li>Como $-30 \neq 0$, os pontos <strong>não são colineares</strong> — a circunferência existe e é única.</li>
+<li><strong>(b)</strong> $A(-5,-1)$: $25 + 1 - 5D - E + F = 0 \Rightarrow -5D - E + F = -26$ &nbsp; ...(1)</li>
+<li>$B(3,5)$: $9 + 25 + 3D + 5E + F = 0 \Rightarrow 3D + 5E + F = -34$ &nbsp; ...(2)</li>
+<li>$C(4,2)$: $16 + 4 + 4D + 2E + F = 0 \Rightarrow 4D + 2E + F = -20$ &nbsp; ...(3)</li>
+<li>(2) $-$ (1): $8D + 6E = -8 \Rightarrow 4D + 3E = -4$ &nbsp; ...(4)</li>
+<li>(3) $-$ (1): $9D + 3E = 6 \Rightarrow 3D + E = 2$ &nbsp; ...(5)</li>
+<li>De (5): $E = 2 - 3D$. Substituindo em (4): $4D + 3(2 - 3D) = -4 \Rightarrow 4D + 6 - 9D = -4 \Rightarrow -5D = -10 \Rightarrow D = 2$.</li>
+<li>$E = 2 - 3(2) = -4$.</li>
+<li>De (1): $-5(2) - (-4) + F = -26 \Rightarrow -10 + 4 + F = -26 \Rightarrow F = -20$.</li>
+<li>Equação: $x^2 + y^2 + 2x - 4y - 20 = 0$.</li>
+<li>Centro: $(-1, 2)$ e $r = \sqrt{1 + 4 + 20} = \sqrt{25} = 5$.</li>
+<li><strong>(c)</strong> $D(1,2)$: $(1-(-1))^2 + (2-2)^2 = 4 + 0 = 4$. Como $4 < 25 = r^2$, o abrigo $D$ está <strong>dentro</strong> da circunferência.</li>
+<li><strong>(d)</strong> Diâmetro $= 2r = 2 \cdot 5 = 10$ unidades.</li>
+</ol>
+<div class="formula">
+$$x^2 + y^2 + 2x - 4y - 20 = 0 \qquad \text{Centro } (-1,2), \quad r = 5$$
+$$D(1,2):\; 4 < 25 \quad(\text{interno}), \qquad \text{Diâmetro} = 10$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Este exercício percorre o ciclo completo: verificar colinearidade, construir a circunferência, classificar um ponto e determinar o diâmetro. Na Zona Devastada, o diâmetro de 10 unidades define o alcance máximo entre dois pontos opostos da rede — informação crucial para planejar rotas de evacuação. O quarto abrigo $D$ está dentro do perímetro, protegido pela rede.</p>
+</details>
+</div>

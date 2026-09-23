@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>CALIBRAÇÃO DO GERADOR: APLICAÇÃO PRÁTICA</h3>
+
+<p>O gerador auxiliar do Refúgio-TEC precisa produzir um campo de força de intensidade 13 na direção do vetor $\vec{d} = (5, -12)$. Primeiro, calcule $|\vec{d}|$. Depois, encontre o vetor unitário $\hat{d}$. Por fim, construa o vetor exato de módulo 13 na direção de $\vec{d}$ e verifique que seu módulo é realmente 13.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Siga os passos em sequência: (1) calcule $|\vec{d}|$, (2) divida $\vec{d}$ por $|\vec{d}|$ para obter $\hat{d}$, (3) multiplique $\hat{d}$ por 13. Use a propriedade $|13\hat{d}| = 13|\hat{d}| = 13$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>$|\vec{d}| = \sqrt{5^2 + (-12)^2} = \sqrt{25 + 144} = \sqrt{169} = 13$.</li>
+<li>Vetor unitário: $\hat{d} = \frac{\vec{d}}{|\vec{d}|} = \frac{1}{13}(5, -12) = \left(\frac{5}{13}{,}\; -\frac{12}{13}\right)$.</li>
+<li>Vetor de módulo 13: $13\hat{d} = 13 \cdot \frac{1}{13}(5, -12) = (5, -12) = \vec{d}$.</li>
+<li>Verificação: $|13\hat{d}| = 13|\hat{d}| = 13 \times 1 = 13$.</li>
+<li>Observação: neste caso, $\vec{d}$ já tinha módulo 13! O vetor procurado é o próprio $\vec{d}$.</li>
+</ol>
+<div class="formula">
+$$\vec{F} = 13\,\hat{d} = 13 \cdot \frac{\vec{d}}{|\vec{d}|} = (5, -12), \quad |\vec{F}| = 13$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O procedimento "calcule o unitário e multiplique pelo módulo desejado" funciona sempre, mesmo quando o vetor original já tem o módulo certo (como neste caso). Na Zona Devastada, quando o SUPERVISOR pede "intensidade $L$ na direção de $\vec{d}$", a receita é sempre a mesma: $\vec{F} = L\,\hat{d}$.</p>
+</details>
+</div>

@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>EXPEDIÇÃO AO HOSPITAL</h3>
+
+<p>No exercício anterior, o ponto de recursos estava exatamente sobre o perímetro — sem margem de segurança. O mesmo Abrigo Alfa, com centro $C(2,1)$ e raio $r = 5$, precisa saber se dois novos alvos estão dentro da zona protegida. O primeiro é um hospital de campanha no ponto $B(-1,1)$; o segundo é um depósito de suprimentos no ponto $D(2,8)$. No papel, esboce a mesma circunferência do exercício anterior e marque os pontos $B$ e $D$. Calcule as distâncias de cada ponto ao centro e classifique cada um como interno, sobre ou externo à zona de proteção.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Calcule $d(B,C)$ e $d(D,C)$ separadamente. Para $B(-1,1)$: as coordenadas $y$ de $B$ e $C$ são iguais, o que simplifica o cálculo. Para $D(2,8)$: as coordenadas $x$ são iguais ao centro. Compare cada distância com $r = 5$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Distância de $B(-1,1)$ ao centro $C(2,1)$: $d(B,C) = \sqrt{(-1-2)^2 + (1-1)^2} = \sqrt{9 + 0} = 3$.</li>
+<li>Como $3 < 5$, o ponto $B$ está <strong>interno</strong> à zona de proteção. O hospital está seguro, com folga.</li>
+<li>Distância de $D(2,8)$ ao centro $C(2,1)$: $d(D,C) = \sqrt{(2-2)^2 + (8-1)^2} = \sqrt{0 + 49} = 7$.</li>
+<li>Como $7 > 5$, o ponto $D$ está <strong>externo</strong> à zona de proteção. O depósito está exposto.</li>
+<li>Conclusão: o hospital está dentro da zona segura, mas o depósito de suprimentos está fora — uma expedição até $D$ requer traje de proteção.</li>
+</ol>
+<div class="formula">
+$$B(-1,1):\; d = 3 &lt; 5 \;\Rightarrow\; \text{interno} \qquad D(2,8):\; d = 7 &gt; 5 \;\Rightarrow\; \text{externo}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Três pontos, três destinos: $B$ está a salvo dentro da zona, $A$ (do exercício anterior) está no limite, e $D$ está fora, exposto. A mesma circunferência, o mesmo raio — apenas a distância ao centro muda. Na Zona Devastada, a geometria dita a sobrevivência.</p>
+</details>
+</div>
