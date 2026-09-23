@@ -1,0 +1,190 @@
+<!-- 04-TÓPICO: ELIPSE (corresponde ao tópico 3 dos exercícios) -->
+<section>
+  <!-- V1: Abertura (motivação + insert narrativo) -->
+  <section class="field-report">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 04 &middot; ELIPSE</div>
+    <h2>A Elipse: Órbitas e Abóbadas</h2>
+    <h3 class="mission-subtitle">Dois Focos, Uma Soma Constante</h3>
+    <p>No Capítulo III, a reta conectava dois pontos. No IV, a circunferência mantinha distância constante de um centro. E se a regra for patrulhar <strong>dois</strong> postos mantendo a soma das distâncias sempre igual? A elipse é a resposta.</p>
+    <div class="survival-tip">
+      <p>Abóbadas subterrâneas têm formato elíptico — mais resistentes que as circulares. Torres de comunicação usam a propriedade reflexiva: um sinal emitido de um foco chega ao outro.</p>
+    </div>
+    <p class="narrative-insert">Entre quem leva mais de uma hora no trajeto casa–trabalho no estado, 63% são pretos e pardos; entre os que levam até 30 minutos, 56%.</p>
+    <p class="chapter-meta">Fonte: IBGE, Censo 2022</p>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V2: Conceito (a ideia antes da fórmula) -->
+  <section class="mission-briefing">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 04 &middot; ELIPSE</div>
+    <h2>Definição: A Elipse</h2>
+    <h3 class="mission-subtitle">Soma Constante de Distâncias</h3>
+    <p>Fixe dois pontos \(F_1\) e \(F_2\) (focos). A elipse é o lugar geométrico dos pontos cuja <strong>soma</strong> das distâncias a eles é constante e igual a \(2a\):</p>
+    <div class="definition-box">
+      <p class="formula">\(\text{Elipse} = \{P(x,y) \mid d(P,F_1) + d(P,F_2) = 2a\}\)</p>
+      <p>Com um barbante de comprimento fixo preso nos dois focos, a ponta esticada desenha a elipse: essa é a construção do jardineiro.</p>
+      <p>O semi-eixo maior \(a\) é metade da soma constante. A distância do centro a cada foco é \(c\), com \(c < a\).</p>
+    </div>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V3: Construção da equação — parte 1 -->
+  <section class="mission-briefing">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 04 &middot; ELIPSE</div>
+    <h2>Construção da Equação (I)</h2>
+    <h3 class="mission-subtitle">Traduzir a Soma em Equação</h3>
+    <p>Centro na origem e focos em \(F_1(-c,0)\) e \(F_2(c,0)\). Para \(P(x,y)\) na elipse:</p>
+    <p class="formula">\[\sqrt{(x+c)^2 + y^2} + \sqrt{(x-c)^2 + y^2} = 2a\]</p>
+    <p><strong>Passo 1 — isolar uma raiz:</strong></p>
+    <p class="formula">\[\sqrt{(x+c)^2 + y^2} = 2a - \sqrt{(x-c)^2 + y^2}\]</p>
+    <p><strong>Passo 2 — elevar ao quadrado</strong> e cancelar os termos comuns:</p>
+    <p class="formula">\[4cx = 4a^2 - 4a\sqrt{(x-c)^2 + y^2} \implies a\sqrt{(x-c)^2 + y^2} = a^2 - cx\]</p>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V4: Construção da equação — parte 2 -->
+  <section class="mission-briefing">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 04 &middot; ELIPSE</div>
+    <h2>Construção da Equação (II)</h2>
+    <h3 class="mission-subtitle">Onde Nasce a Relação \(a^2 = b^2 + c^2\)</h3>
+    <p><strong>Passo 3 — elevar ao quadrado:</strong></p>
+    <p class="formula">\[a^2\big[(x-c)^2 + y^2\big] = (a^2 - cx)^2\]</p>
+    <p>Expandindo e cancelando os termos comuns:</p>
+    <p class="formula">\[(a^2 - c^2)x^2 + a^2y^2 = a^2(a^2 - c^2)\]</p>
+    <p>Com \(b^2 = a^2 - c^2\) e dividindo por \(a^2b^2\):</p>
+    <div class="formula-spotlight">
+      <p>\(\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1\)</p>
+    </div>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V5: Visualização — definição em ação -->
+  <section class="simulator">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 04 &middot; ELIPSE</div>
+    <h3>Definição em Ação: A Soma Constante</h3>
+    <div class="canvas-container">
+      <canvas id="def-elipse-canvas" width="800" height="400"></canvas>
+    </div>
+    <div class="hint-message">
+      <p>O ponto \(P\) percorre a curva. Some os dois segmentos: o total não muda — é sempre \(2a\).</p>
+    </div>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V6: Anatomia — componentes (texto) -->
+  <section class="field-report level-basic">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 04 &middot; ELIPSE</div>
+    <h3>Anatomia da Elipse</h3>
+    <div class="info-panel">
+      <div class="info-screen">
+        <h4>Componentes</h4>
+        <ul>
+          <li><strong>Centro \(O\):</strong> ponto médio entre os focos</li>
+          <li><strong>Eixo maior:</strong> segmento de comprimento \(2a\), passando pelos focos</li>
+          <li><strong>Eixo menor:</strong> segmento de comprimento \(2b\), perpendicular ao maior</li>
+          <li><strong>Focos:</strong> \(F_1(-c,0)\) e \(F_2(c,0)\), com \(c < a\)</li>
+          <li><strong>Excentricidade:</strong> \(e = c/a\), com \(0 < e < 1\)</li>
+        </ul>
+      </div>
+    </div>
+    <p>Quanto menor \(e\), mais circular; quanto maior \(e\), mais achatada.</p>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V7: Anatomia — figura (SVG em slide próprio) -->
+  <section class="field-report level-basic">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 04 &middot; ELIPSE</div>
+    <h3>Anatomia da Elipse: A Figura</h3>
+    <img class="svg-visualization" src="capitulo-v_svgs/elipse_anatomia.svg" alt="Elipse com centro, focos, vértices e semi-eixos a, b, c" />
+    <p>Os focos estão sempre sobre o eixo maior, entre os vértices.</p>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V8: Relação fundamental (texto) -->
+  <section class="field-report level-basic">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 04 &middot; ELIPSE</div>
+    <h3>A Relação \(a^2 = b^2 + c^2\)</h3>
+    <p>No triângulo retângulo formado pelo centro \(O\), um foco \(F_1\) e um co-vértice \(B_1\), valem os catetos \(c\) e \(b\) e a hipotenusa \(a\):</p>
+    <div class="formula-spotlight">
+      <p>\(a^2 = b^2 + c^2 \iff c^2 = a^2 - b^2\)</p>
+    </div>
+    <p>Não é uma fórmula nova: é o Teorema de Pitágoras aplicado à própria construção da elipse. Com dois elementos, descobrimos o terceiro.</p>
+    <div class="survival-tip">
+      <p>Compare com a hipérbole (próximo tópico): lá a relação será \(c^2 = a^2 + b^2\). O sinal muda — e a curva se abre.</p>
+    </div>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V9: Relação fundamental — figura (SVG em slide próprio) -->
+  <section class="field-report level-basic">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 04 &middot; ELIPSE</div>
+    <h3>A Relação no Triângulo</h3>
+    <img class="svg-visualization" src="capitulo-v_svgs/elipse_relacao_abc.svg" alt="Triângulo retângulo OF1B1 com catetos c e b e hipotenusa a" />
+    <p>O triângulo \(OF_1B_1\) mostra a relação diretamente na figura.</p>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V10: Treinamento (exemplos sem solução) + fragmento -->
+  <section class="survival-training">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 04 &middot; ELIPSE</div>
+    <h3>Treinamento: Construir, Identificar, Verificar</h3>
+    <div class="dual-panel">
+      <div class="problem-section">
+        <p><strong>Problema #V.4.1:</strong> Construa, a partir da definição, a equação da elipse com focos \(F_1(-3,0)\) e \(F_2(3,0)\) e soma constante \(2a = 10\).</p>
+        <p><strong>Problema #V.4.2:</strong> Identifique \(a\), \(b\), \(c\), os focos e a excentricidade da elipse \(\dfrac{x^2}{36} + \dfrac{y^2}{16} = 1\). Esboce a curva marcando focos e vértices.</p>
+        <p><strong>Problema #V.4.3:</strong> Verifique a relação \(a^2 = b^2 + c^2\) no triângulo \(OF_1B_1\) com os valores do problema anterior.</p>
+      </div>
+      <div class="v-bar"></div>
+      <div class="narrative-section">
+        <span class="narrative-label">CONTEXTO</span>
+        <p>No município do Rio de Janeiro, a população negra morre, em média, 10 anos mais cedo do que a população branca. Em Japeri, a média não chega aos 60 anos.</p>
+        <p class="chapter-meta">Fonte: SES-RJ/DATASUS, 2022, via Mapa da Desigualdade 2023</p>
+      </div>
+    </div>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V11: Simulador -->
+  <section class="simulator">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 04 &middot; ELIPSE</div>
+    <h3>Simulador: Elipse Interativa</h3>
+    <div class="canvas-container">
+      <canvas id="ellipse-canvas" width="800" height="400"></canvas>
+      <div class="simulator-controls">
+        <div class="control-panel">
+          <label for="a-ellipse-slider">\(a\):</label>
+          <input type="range" min="50" max="250" step="10" value="200" id="a-ellipse-slider" />
+          <span id="a-ellipse-value">200</span>
+          <label for="b-ellipse-slider">\(b\):</label>
+          <input type="range" min="50" max="170" step="10" value="100" id="b-ellipse-slider" />
+          <span id="b-ellipse-value">100</span>
+          <label for="rotation-slider">Rotação:</label>
+          <input type="range" min="0" max="180" step="5" value="0" id="rotation-slider" />
+          <span id="rotation-value">0°</span>
+        </div>
+      </div>
+    </div>
+    <div class="hint-message">
+      <p>Arraste os focos ou ajuste os controles e observe a excentricidade mudar.</p>
+    </div>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V12: Debriefing -->
+  <section class="debriefing">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 04 &middot; ELIPSE</div>
+    <h3>Debriefing: A Curva Fechada</h3>
+    <div class="summary-box">
+      <ul>
+        <li>Elipse = soma constante de distâncias a 2 focos</li>
+        <li>Canônica: \(\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1\), com \(a > b\)</li>
+        <li>Relação fundamental: \(c^2 = a^2 - b^2\)</li>
+        <li>Excentricidade \(0 < e < 1\): mede o achatamento</li>
+      </ul>
+    </div>
+    <div class="next-mission">
+      <p>Próximo briefing: e se a operação for <strong>diferença</strong> em vez de soma? A curva se abre em dois ramos — a hipérbole.</p>
+    </div>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+</section>

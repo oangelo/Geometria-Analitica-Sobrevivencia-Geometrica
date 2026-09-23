@@ -1378,10 +1378,14 @@
   100% { opacity: 0.3; }
 }
 
-/* Estilo para imagens SVG incorporadas */
-.svg-visualization {
-  width: 90%;
-  max-width: 600px;
+/* Estilo para imagens SVG incorporadas.
+   O prefixo `.reveal` garante precedência sobre a regra do tema Reveal
+   (`.reveal img { max-width: 95% }`), que sozinha fazia o SVG transbordar
+   o slide (bug corrigido nos slides de cônicas). */
+.reveal .svg-visualization {
+  width: auto;
+  max-width: min(92%, 720px);
+  max-height: 56vh;
   height: auto;
   background-color: #111;
   border: 1px solid #333;
@@ -1480,6 +1484,7 @@
   justify-content: center;
   height: 100%;
   padding: 2.4em 1.2em;
+  box-sizing: border-box; /* height 100% inclui o padding — sem isso o slide transborda */
   text-align: left;
 }
 
