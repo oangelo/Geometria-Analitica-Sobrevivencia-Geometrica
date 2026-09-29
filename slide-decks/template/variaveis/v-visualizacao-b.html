@@ -1,0 +1,37 @@
+<!-- V-VISUALIZAÇÃO Variante B: Dual-Panel (Canvas | Explicação) -->
+<!-- Uso: a visualização precisa de explicação textual ao lado. -->
+
+<section>
+  <div class="slide-header">SEÇÃO [NN] · [TÓPICO]</div>
+  <div class="slide-body">
+    <h3>Visualização: [Título]</h3>
+    <div class="dual-panel">
+      <div>
+        <canvas id="[topico]-canvas" class="visualization-canvas" width="350" height="350"></canvas>
+      </div>
+      <div>
+        <p>[Explicação do que o canvas mostra]</p>
+        <p>[Como interpretar]</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">GA-CH[N]-[ANO] · CAPÍTULO [N]</div>
+</section>
+
+<script>
+  // Padrão IIFE obrigatório (AGENTS.md §4.4). ID único: [topico]-canvas.
+  (function () {
+    function init() {
+      var canvas = document.getElementById('[topico]-canvas');
+      if (!canvas) return;
+      var ctx = canvas.getContext('2d');
+      // ... lógica de desenho (requestAnimationFrame, nunca setInterval) ...
+    }
+    document.addEventListener('DOMContentLoaded', init);
+    if (window.Reveal) {
+      Reveal.on('slidechanged', function () {
+        if (document.getElementById('[topico]-canvas')) init();
+      });
+    }
+  })();
+</script>

@@ -1,0 +1,88 @@
+<!-- 04-TÓPICO: DETERMINANTES 3×3 (mantido como tópico próprio; serve aos tópicos 05 e 09) -->
+<section>
+  <!-- V1: Abertura (motivação + insert narrativo) -->
+  <section class="field-report">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 04 &middot; DETERMINANTES 3×3</div>
+    <h2>A Chave Mestra</h2>
+    <h3 class="mission-subtitle">Por Que Determinantes 3×3?</h3>
+    <p>No \(R^2\), o determinante 2×2 media a área do paralelogramo gerado por dois vetores. No \(R^3\), três vetores geram um <strong>paralelepípedo</strong>: o determinante 3×3 mede seu <strong>volume</strong>.</p>
+    <p>Além disso, ele é a chave para classificar sistemas 3×3 (Tópico 09) e para calcular o produto vetorial (Tópico 05).</p>
+    <div class="survival-tip">
+      <p>O determinante é a ferramenta que escala nossa análise de 2 para 3 dimensões.</p>
+    </div>
+    <p class="narrative-insert">O teleférico do Complexo do Alemão custou R$ 253 milhões, ficou pronto em 2011 e parou em 2016.</p>
+    <p class="chapter-meta">Fonte: Agência Brasil / G1, 2022</p>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V2: Regra de Sarrus (1/2) -->
+  <section class="field-report">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 04 &middot; DETERMINANTES 3×3</div>
+    <h2>Protocolo Rápido: Regra de Sarrus (1/2)</h2>
+    <p>Para calcular \(\det(A)\) de \(A = \begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{pmatrix}\):</p>
+    <ol>
+      <li>Repita as duas primeiras colunas à direita da matriz.</li>
+      <li>Some os produtos das três diagonais descendentes ↘.</li>
+      <li>Subtraia os produtos das três diagonais ascendentes ↗.</li>
+    </ol>
+    <p class="formula">\[ \begin{array}{|ccc|cc} a_{11} & a_{12} & a_{13} & a_{11} & a_{12} \\ a_{21} & a_{22} & a_{23} & a_{21} & a_{22} \\ a_{31} & a_{32} & a_{33} & a_{31} & a_{32} \end{array} \]</p>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V3: Regra de Sarrus (2/2) -->
+  <section class="field-report">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 04 &middot; DETERMINANTES 3×3</div>
+    <h2>Regra de Sarrus (2/2)</h2>
+    <p class="formula">\[ \det(A) = (a_{11}a_{22}a_{33} + a_{12}a_{23}a_{31} + a_{13}a_{21}a_{32}) - (a_{13}a_{22}a_{31} + a_{11}a_{23}a_{32} + a_{12}a_{21}a_{33}) \]</p>
+    <div class="survival-tip">
+      <p>ATENÇÃO: Sarrus funciona APENAS para matrizes 3×3. Para teoria e generalizações, use a expansão por cofatores.</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V4: Expansão por Cofatores -->
+  <section class="mission-briefing">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 04 &middot; DETERMINANTES 3×3</div>
+    <h2>Expansão por Cofatores</h2>
+    <h3 class="mission-subtitle">O Método Universal</h3>
+    <div class="definition-box">
+      <p><strong>Menor</strong> \(M_{ij}\): determinante da submatriz 2×2 que sobra ao remover a linha \(i\) e a coluna \(j\).</p>
+      <p><strong>Cofator:</strong> \(C_{ij} = (-1)^{i+j} M_{ij}\)</p>
+      <p><strong>Padrão de sinais:</strong> \(\begin{pmatrix} + & - & + \\ - & + & - \\ + & - & + \end{pmatrix}\)</p>
+      <p class="formula">\[ \det(A) = \sum_{j=1}^{3} a_{ij}C_{ij} \quad \text{(qualquer linha } i\text{)} \]</p>
+    </div>
+    <p class="mnemonic">"Escolha uma fila, com zelo e atenção. Multiplique elemento por seu cofator, some tudo e eis a solução!"</p>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V5: Treinamento (sem solução: o professor resolve em sala) -->
+  <section class="survival-training">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 04 &middot; DETERMINANTES 3×3</div>
+    <h3>Exercício: Expansão pela Primeira Linha</h3>
+    <div class="training-problem">
+      <h4>Problema #VI.4.1: Cofatores na Prática</h4>
+      <p>Calcule \(\det(A)\) por expansão na primeira linha:</p>
+      <p class="formula">\[ A = \begin{pmatrix} 2 & 1 & 0 \\ 3 & -1 & 4 \\ -2 & 0 & 5 \end{pmatrix} \]</p>
+    </div>
+    <div class="problem-context">
+      <p>Esta matriz pode ser a chave de um sistema. O determinante não nulo indica funcionalidade.</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V6: Debriefing -->
+  <section class="debriefing">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 04 &middot; DETERMINANTES 3×3</div>
+    <h3>Debriefing: A Chave Mestra Decifrada</h3>
+    <div class="summary-box">
+      <p>Duas técnicas para o mesmo número: Sarrus (rápida, 3×3) e cofatores (universal). O sinal do determinante e seu valor zero carregam informação geométrica.</p>
+    </div>
+    <div class="next-mission">
+      <p>Próximo briefing: o determinante com \(\vec{i}\), \(\vec{j}\), \(\vec{k}\) na primeira linha cria um vetor. Produto Vetorial e Misto.</p>
+    </div>
+    <div class="instructor-note">
+      <p>"Saber determinantes pode ser a diferença entre abrir uma porta... ou disparar uma armadilha."</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+</section>

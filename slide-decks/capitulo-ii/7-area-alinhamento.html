@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Cap. II — Área e Alinhamento</title>
+  <link href="https://unpkg.com/reveal.js@5.1.0/dist/reveal.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/reveal.js@5.1.0/dist/theme/black.css" id="theme" rel="stylesheet"/>
+  <link href="../styles.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+  <!-- SEÇÃO 7: ÁREA E ALINHAMENTO -->
+  <section>
+
+    <!-- Slide 7.1 — Territórios Delimitados por Vetores (Motivação) -->
+    <section class="field-report">
+      <h2>Territórios Delimitados por Vetores</h2>
+      <div class="narrative-text">
+        <p>Dois vetores podem delimitar um território (paralelogramo/triângulo). Como medir esse espaço? E quando três pontos estão alinhados, o "território" desaparece — como detectar isso?</p>
+      </div>
+      <p>A área de um triângulo formado por dois vetores nos dá uma medida do "território" que eles delimitam — um conceito crucial para calcular zonas de influência, áreas de segurança ou territórios controlados por diferentes facções.</p>
+      <div class="survival-tip">
+        <p><span class="emoji-icon">📐</span><strong>Conexão:</strong> Enquanto paralelismo e ortogonalidade descrevem <em>relações angulares</em>, a área descreve uma <em>propriedade dimensional</em> do espaço gerado pelos vetores.</p>
+      </div>
+    </section>
+
+    <!-- Slide 7.2 — Área via Produto Escalar e Seno -->
+    <section class="mission-briefing">
+      <h2>Área via Produto Escalar e Seno</h2>
+      <p>Lembre-se da fórmula clássica da área de um triângulo:</p>
+      <p class="formula">\[ \text{Área} = \frac{\text{base} \times \text{altura}}{2} \]</p>
+      <p>Se considerarmos \(|\vec{u}|\) como a base, então \(|\vec{v}| \sin(\theta)|\) é a altura:</p>
+      <p class="formula">\[ \text{Área} = \frac{1}{2} |\vec{u}| |\vec{v}| \sin(\theta) \]</p>
+      <div class="definition-box">
+        <p><strong>Elementos Essenciais:</strong></p>
+        <ul>
+          <li>\(|\vec{u}|\) e \(|\vec{v}|\): Intensidade dos "movimentos"</li>
+          <li>\(\sin(\theta)\): O grau de divergência entre as direções</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Slide 7.3 — O Atalho do Determinante -->
+    <section class="mission-briefing">
+      <h2>O Atalho do Determinante</h2>
+      <p>A área do <strong>paralelogramo</strong> definido por dois vetores \(\vec{u}\) e \(\vec{v}\) pode ser calculada usando o determinante:</p>
+      <p class="formula">\[ \text{Área do Paralelogramo} = | \det \begin{bmatrix} u_x & v_x \\ u_y & v_y \end{bmatrix} | = |u_x v_y - u_y v_x| \]</p>
+      <p>Para a área do triângulo, basta dividir por 2:</p>
+      <p class="formula">\[ \text{Área do Triângulo} = \frac{1}{2} |u_x v_y - u_y v_x| \]</p>
+      <div class="survival-tip">
+        <p><span class="emoji-icon">💡</span><strong>Vantagem:</strong> Não precisa calcular ângulo! Apenas multiplique cruzado e subtraia.</p>
+      </div>
+      <blockquote class="quote">
+        <p>"O determinante não é só um número — é a medida do 'espaço' criado por dois vetores."</p>
+      </blockquote>
+    </section>
+
+    <!-- Slide 7.4 — Colinearidade: Quando a Área é Zero -->
+    <section class="field-report level-intermediate">
+      <h2>Colinearidade: Quando a Área é Zero</h2>
+      <p>Três pontos são <strong>colineares</strong> (alinhados) quando o triângulo que formam tem área zero:</p>
+      <div class="definition-box">
+        <p><strong>Teste de Colinearidade:</strong> Para pontos \(A\), \(B\), \(C\):</p>
+        <ol>
+          <li>Monte vetores \(\vec{AB}\) e \(\vec{AC}\)</li>
+          <li>Calcule o determinante: \(\det = u_x v_y - u_y v_x\)</li>
+          <li>Se \(\det = 0\), os pontos são colineares</li>
+        </ol>
+        <p class="formula">\[ \text{Área} = 0 \Leftrightarrow \det = 0 \Leftrightarrow \text{pontos colineares} \]</p>
+      </div>
+      <div class="training-problem">
+        <h4>Exemplo</h4>
+        <p>Verifique se \(A(1, 1)\), \(B(3, 5)\), \(C(5, 9)\) são colineares.</p>
+        <p>\(\vec{AB} = (2, 4)\), \(\vec{AC} = (4, 8)\)</p>
+        <p class="formula">\[ \det = 2 \cdot 8 - 4 \cdot 4 = 16 - 16 = 0 \]</p>
+        <p><strong>Conclusão:</strong> Os pontos são colineares! A patrulha está em linha reta.</p>
+      </div>
+    </section>
+
+    <!-- Slide 7.5 — Exemplo Resolvido: Área de Território -->
+    <section class="field-report level-basic">
+      <h2>Exemplo Resolvido: Área de Território</h2>
+      <p>Dois esquadrões patrulham os vetores:</p>
+      <ul>
+        <li>\(\vec{u} = (3, 4)\) com módulo \(|\vec{u}| = 5\)</li>
+        <li>\(\vec{v} = (1, 2)\) com módulo \(|\vec{v}| = \sqrt{5}\)</li>
+      </ul>
+      <div class="training-problem">
+        <h4>Resolução via Determinante</h4>
+        <ol>
+          <li>Calcule o determinante: \(\det \begin{bmatrix} 3 & 1 \\ 4 & 2 \end{bmatrix} = 3 \cdot 2 - 1 \cdot 4 = 6 - 4 = 2\)</li>
+          <li>Área do triângulo: \(A = \frac{1}{2} |2| = 1\) unidade de área</li>
+        </ol>
+        <p><strong>Resultado:</strong> O território patrulhado tem área 1 unidade².</p>
+      </div>
+      <div class="survival-tip">
+        <p>A verificação via \(\sin(\theta)\) é redundante quando já temos o determinante. Use o atalho!</p>
+      </div>
+    </section>
+
+    <!-- Slide 7.6 — Treinamento: Área e Alinhamento -->
+    <section class="survival-training level-intermediate">
+      <h2>Treinamento: Área e Alinhamento</h2>
+      <div class="training-problem">
+        <h4>Missão 1: Área via Determinante</h4>
+        <p>Calcule a área do triângulo formado por \(\vec{u} = (2, 1)\) e \(\vec{v} = (4, 3)\).</p>
+      </div>
+      <div class="training-problem">
+        <h4>Missão 2: Teste de Colinearidade</h4>
+        <p>Verifique se os pontos \(A(0, 0)\), \(B(2, 4)\), \(C(4, 8)\) são colineares. Se não forem, calcule a área do triângulo \(ABC\).</p>
+      </div>
+      <div class="training-problem">
+        <h4>Missão 3: Área com Três Pontos</h4>
+        <p>Calcule a área do triângulo com vértices \(A(0, 0)\), \(B(4, 2)\), \(C(1, 3)\).</p>
+      </div>
+    </section>
+
+    <!-- Slide 7.7 — Debriefing: Fechamento do Capítulo -->
+    <section class="debriefing">
+      <h2>Debriefing: Fechamento do Capítulo II</h2>
+      <div class="summary-box">
+        <h3>Cadeia de Conceitos — Capítulo II</h3>
+        <ul>
+          <li><strong>1. Produto Escalar:</strong> Mede alinhamento entre vetores</li>
+          <li><strong>2. Módulo:</strong> Raiz do auto-produto \(|\vec{v}| = \sqrt{\vec{v} \cdot \vec{v}}\)</li>
+          <li><strong>3. Distância:</strong> Módulo do vetor diferença entre dois pontos</li>
+          <li><strong>4. Projeção:</strong> Extrai componente útil de um vetor na direção de outro</li>
+          <li><strong>5. Paralelismo/Ortogonalidade:</strong> Casos especiais de alinhamento (0° e 90°)</li>
+          <li><strong>6. Ângulo:</strong> Medida exata do desalinhamento via \(\arccos\)</li>
+          <li><strong>7. Área/Alinhamento:</strong> Espaço delimitado por dois vetores; colinearidade quando área é zero</li>
+        </ul>
+      </div>
+      <div class="next-mission">
+        <p><strong>Próxima Missão:</strong> Capítulo III — Retas no Plano. Com vetores, produto escalar e ângulos dominados, estamos prontos para descrever retas e suas relações.</p>
+      </div>
+      <div class="instructor-note">
+        <p><em>Nota do SUPERVISOR:</em> Todo o Capítulo II nasce do produto escalar. Se um sobrevivente domina essa operação, domina o capítulo inteiro. Verifique se todos compreendem a cadeia: PE → módulo → distância → ângulo → área.</p>
+      </div>
+    </section>
+
+  </section>
+
+</div>
+</div>
+
+<script src="https://unpkg.com/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://unpkg.com/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script src="https://unpkg.com/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['\\[', '\\]']]
+    },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    plugins: [RevealNotes, RevealHighlight]
+  });
+</script>
+
+</body>
+</html>

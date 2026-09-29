@@ -1,0 +1,41 @@
+<div class="exercise">
+<h3>LINHA DE DEMARCAÇÃO</h3>
+
+<p>Um novo par de abrigos foi identificado: o Abrigo Gama em $A(-1, 4)$ e o Abrigo Delta em $B(5, -2)$. A equipe de reconhecimento precisa traçar a linha de demarcação equidistante entre eles. O objetivo deste exercício é reforçar o processo de dedução da mediatriz e perceber que o padrão é sempre o mesmo, independentemente das coordenadas.</p>
+
+<p><strong>(a)</strong> Desenhe no papel os pontos $A(-1,4)$ e $B(5,-2)$. Calcule o ponto médio $M$ do segmento $\overline{AB}$ e marque-o no desenho.</p>
+
+<p><strong>(b)</strong> Aplique a definição de lugar geométrico: seja $P(x,y)$ equidistante de $A$ e de $B$. Escreva $d(P,A) = d(P,B)$ com coordenadas, eleve ao quadrado e simplifique.</p>
+
+<p><strong>(c)</strong> Obtenha a equação reduzida da mediatriz na forma $y = mx + n$.</p>
+
+<p><strong>(d)</strong> Calcule o coeficiente angular do segmento $\overline{AB}$ e verifique que $m_{\text{mediatriz}} \cdot m_{AB} = -1$.</p>
+
+<p><strong>(e)</strong> O ponto $Q(8, 1)$ pertence à linha de demarcação? Justifique calculando as distâncias $d(Q,A)$ e $d(Q,B)$.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>No item (b), mantenha a organização: expanda ambos os lados, cancele $x^2$ e $y^2$, e agrupe os termos lineares. No item (e), não substitua $Q$ na equação da reta — calcule as distâncias diretamente para praticar a definição.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Ponto médio: $M\left(\dfrac{-1+5}{2}, \dfrac{4+(-2)}{2}\right) = M(2, 1)$.</li>
+<li>Condição: $\sqrt{(x+1)^2 + (y-4)^2} = \sqrt{(x-5)^2 + (y+2)^2}$.</li>
+<li>Elevando ao quadrado: $(x+1)^2 + (y-4)^2 = (x-5)^2 + (y+2)^2$.</li>
+<li>Expandindo: $x^2 + 2x + 1 + y^2 - 8y + 16 = x^2 - 10x + 25 + y^2 + 4y + 4$.</li>
+<li>Cancelando quadrados: $2x - 8y + 17 = -10x + 4y + 29$.</li>
+<li>Simplificando: $12x - 12y - 12 = 0$, ou $x - y - 1 = 0$.</li>
+<li>Equação reduzida: $y = x - 1$.</li>
+<li>Coeficiente angular de $\overline{AB}$: $m_{AB} = \dfrac{-2-4}{5-(-1)} = \dfrac{-6}{6} = -1$. Coeficiente angular da mediatriz: $m = 1$. Temos $1 \cdot (-1) = -1$ ✓.</li>
+<li>Verificação de $Q(8,1)$: $d(Q,A) = \sqrt{(8+1)^2 + (1-4)^2} = \sqrt{81 + 9} = \sqrt{90} = 3\sqrt{10}$. $d(Q,B) = \sqrt{(8-5)^2 + (1+2)^2} = \sqrt{9 + 9} = \sqrt{18} = 3\sqrt{2}$. As distâncias são diferentes, então $Q$ <strong>não</strong> pertence à mediatriz.</li>
+</ol>
+<div class="formula">
+$$y = x - 1$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Note que o ponto médio $M(2,1)$ satisfaz $y = x - 1$ ($1 = 2 - 1$ ✓), mas $Q(8,1)$ não satisfaz ($1 \neq 8 - 1$). A equação da mediatriz é uma ferramenta de teste rápido: substituir um ponto na equação equivale a verificar se ele é equidistante dos dois abrigos.</p>
+</details>
+</div>

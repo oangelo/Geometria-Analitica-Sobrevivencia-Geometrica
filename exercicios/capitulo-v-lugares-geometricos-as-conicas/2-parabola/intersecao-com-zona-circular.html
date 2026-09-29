@@ -1,0 +1,36 @@
+<div class="exercise">
+<h3>Interseção de Campo Parabólico com Zona Circular</h3>
+<p>O objetivo deste exercício é resolver um sistema envolvendo parábola e circunferência. O campo de detecção de uma antena parabólica tem equação $y^2 = 8x$. Uma zona de exclusão aérea é delimitada pela circunferência $x^2 + y^2 = 25$. Você precisa encontrar os pontos onde o campo da antena toca a zona de exclusão.</p>
+<p><strong>(a)</strong> Desenhe no papel um esboço: a parábola $y^2 = 8x$ (eixo horizontal, abre para a direita, vértice na origem) e a circunferência $x^2 + y^2 = 25$ (centro na origem, raio 5). Estime visualmente os pontos de interseção.</p>
+<p><strong>(b)</strong> Substitua $y^2 = 8x$ na equação da circunferência. Resolva a equação resultante para $x$.</p>
+<p><strong>(c)</strong> Para cada valor válido de $x$, encontre os valores correspondentes de $y$ usando $y^2 = 8x$. Descarte valores de $x$ que não produzam $y$ real.</p>
+<p><strong>(d)</strong> Escreva todas as coordenadas dos pontos de interseção. Verifique um dos pontos substituindo nas duas equações.</p>
+<p><strong>(e)</strong> Quantos pontos de interseção existem? O que isso significa geometricamente sobre a relação entre o campo da antena e a zona de exclusão?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>A substituição elimina $y^2$ e deixa uma equação do segundo grau em $x$. Cuidado: para cada $x$ positivo, $y^2 = 8x$ dá dois valores de $y$ (positivo e negativo). Verifique se todos os valores de $x$ são válidos (devem satisfazer $y^2 = 8x \geq 0$).</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Esboço: circunferência de raio 5 centrada na origem; parábola horizontal com vértice na origem, passando por $(2,4)$ e $(2,-4)$ aproximadamente.</li>
+<li>Substituindo $y^2 = 8x$ em $x^2 + y^2 = 25$: $x^2 + 8x = 25$, logo $x^2 + 8x - 25 = 0$.</li>
+<li>Resolvendo por Bhaskara: $x = \frac{-8 \pm \sqrt{64 + 100}}{2} = \frac{-8 \pm \sqrt{164}}{2} = \frac{-8 \pm 2\sqrt{41}}{2} = -4 \pm \sqrt{41}$.</li>
+<li>Como $\sqrt{41} \approx 6{,}4$, temos $x_1 = -4 + 6{,}4 = 2{,}4 &gt; 0$ e $x_2 = -4 - 6{,}4 = -10{,}4 &lt; 0$.</li>
+<li>Para $y^2 = 8x$ ter solução real, precisamos $x \geq 0$. Logo $x_2 = -4 - \sqrt{41}$ é inválido.</li>
+<li>Para $x = -4 + \sqrt{41}$: $y^2 = 8(-4 + \sqrt{41}) = -32 + 8\sqrt{41}$. Então $y = \pm\sqrt{-32 + 8\sqrt{41}}$.</li>
+<li>Simplificando: $-32 + 8\sqrt{41} = 8(\sqrt{41} - 4)$. Como $\sqrt{41} \approx 6{,}4$, temos $y^2 \approx 8(2{,}4) = 19{,}2$, logo $y \approx \pm 4{,}38$.</li>
+</ol>
+<div class="formula">
+$$x = -4 + \sqrt{41}, \quad y = \pm\sqrt{8\sqrt{41} - 32}$$
+$$
+P_1\left(-4 + \sqrt{41}, \sqrt{8\sqrt{41} - 32}\right), \quad P_2\left(-4 + \sqrt{41}, -\sqrt{8\sqrt{41} - 32}\right)
+$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Apenas dois pontos de interseção — a parábola entra na circunferência por um ponto e sai pelo outro. O fato de $x_2$ ser negativo e descartado mostra que a parábola $y^2 = 8x$ só existe para $x \geq 0$, enquanto a circunferência se estende para $x &lt; 0$. A análise de domínio é tão importante quanto a resolução algébrica.</p>
+</details>
+</div>

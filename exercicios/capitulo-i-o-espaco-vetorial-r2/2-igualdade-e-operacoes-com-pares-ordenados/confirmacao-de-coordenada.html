@@ -1,0 +1,22 @@
+<div class="exercise">
+<h3>CONFIRMAÇÃO DE COORDENADA</h3>
+<p>O objetivo deste exercício é entender quando dois pares ordenados representam exatamente o mesmo ponto no plano — a regra mais básica da navegação nas Zonas Devastadas.</p>
+<p>Dois rádios do Refúgio-TEC captam sinais sobre a posição de um depósito de suprimentos. O Operador Alfa reporta o par $(3, 5)$. O Operador Beta reporta o par $(3, x)$.</p>
+<p><strong>(a)</strong> Para que ambos descrevam o mesmo local no mapa, qual deve ser o valor de $x$? Justifique.</p>
+<p><strong>(b)</strong> Agora o Operador Alfa reporta $(a, 4)$ e o Operador Beta reporta $(7, y)$. Quais devem ser os valores de $a$ e $y$ para que descrevam o mesmo ponto? Existem outras possibilidades?</p>
+<p><strong>(c)</strong> Generalize: escreva a regra completa. Dois pares ordenados $(a, b)$ e $(c, d)$ representam o mesmo ponto se e somente se quais condições são satisfeitas simultaneamente?</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>Um par ordenado tem duas componentes. Pense no mapa: se dois relatos apontam para o mesmo local, cada coordenada deve ser idêntica. Na parte <strong>(b)</strong>, há exatamente uma resposta possível para cada incógnita.</p>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>(a)</strong> O primeiro par é $(3, 5)$ e o segundo é $(3, x)$. A primeira coordenada já coincide ($3 = 3$). Para que se trate do mesmo ponto, a segunda coordenada também deve ser igual: $x = 5$.</p>
+<p><strong>(b)</strong> O Operador Alfa reporta $(a, 4)$ e o Beta reporta $(7, y)$. Pela regra de igualdade, precisamos que $a = 7$ e $4 = y$, ou seja, $a = 7$ e $y = 4$. Não há outras possibilidades — a igualdade componente a componente não admite alternativas.</p>
+<p><strong>(c)</strong> Regra geral da igualdade de pares ordenados:</p>
+<div class="formula">
+$$(a, b) = (c, d) \iff a = c \;\text{ e }\; b = d$$
+</div>
+<p>Ambas as condições devem ser verdadeiras ao mesmo tempo. Se uma única componente diferir, os pares representam pontos distintos no plano.</p>
+</details>
+</div>

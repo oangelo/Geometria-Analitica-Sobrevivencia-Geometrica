@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <circle
+    cx="100"
+    cy="100"
+    r="80"
+    fill="rgba(173, 255, 47, 0.2)"
+    stroke="#ADFF2F"
+    stroke-width="3"
+  />
+  <!-- Centro -->
+  <circle cx="100" cy="100" r="4" fill="#ADFF2F" />
+  <!-- Raio -->
+  <line
+    x1="100"
+    y1="100"
+    x2="180"
+    y2="100"
+    stroke="#FFD700"
+    stroke-width="3"
+  />
+  <text x="140" y="90" fill="#FFD700" font-size="14" font-family="monospace" text-anchor="middle">
+    raio (r)
+  </text>
+</svg>

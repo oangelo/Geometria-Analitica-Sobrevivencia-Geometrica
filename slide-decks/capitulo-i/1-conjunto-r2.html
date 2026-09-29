@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Cap. I — O Conjunto R²</title>
+  <link href="https://unpkg.com/reveal.js@5.1.0/dist/reveal.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/reveal.js@5.1.0/dist/theme/black.css" id="theme" rel="stylesheet"/>
+  <link href="../styles.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+  <!-- SEÇÃO 1: O CONJUNTO R² -->
+  <section>
+
+    <!-- Slide 1.1 — Título do Capítulo -->
+    <section class="title-screen title-canvas-slide">
+      <h1>Capítulo I: O Espaço Vetorial R²</h1>
+      <h2 class="subtitle">Navegando no Deserto Matemático</h2>
+      <div class="canvas-container">
+        <canvas id="r2Canvas" width="700" height="400"></canvas>
+      </div>
+      <div class="warning-text">
+        <span>COORDENADAS: A linguagem da sobrevivência</span>
+      </div>
+    </section>
+
+    <!-- Slide 1.2 — A Geografia da Sobrevivência (Motivação) -->
+    <section class="field-report">
+      <h2>A Geografia da Sobrevivência</h2>
+      <div class="narrative-text">
+        <p>Quando as redes digitais colapsaram e os satélites caíram, os sobreviventes precisaram redescobrir algo que a humanidade tinha esquecido: como mapear o mundo com apenas régua e compasso.</p>
+      </div>
+      <p>O espaço \(\mathbb{R}^2\) se tornou não apenas um conceito matemático, mas a <strong>linguagem universal</strong> da reconstrução.</p>
+      <div class="survival-tip">
+        <p>Lição de Sobrevivência: "Aquele que compreende o plano coordenado nunca está verdadeiramente perdido."</p>
+      </div>
+    </section>
+
+    <!-- Slide 1.3 — Por que R² Importa? (Necessidade) -->
+    <section class="field-report">
+      <h2>Por que \(\mathbb{R}^2\) Importa?</h2>
+      <p>Em um mundo devastado, compreender o espaço vetorial bidimensional oferece três vantagens cruciais:</p>
+      <ul>
+        <li><strong>Otimização de Rotas</strong>: Economizar recursos calculando o caminho mais curto entre abrigos</li>
+        <li><strong>Mapeamento Territorial</strong>: Estabelecer fronteiras seguras e zonas de recursos</li>
+        <li><strong>Planejamento Estrutural</strong>: Base para toda reconstrução arquitetônica dos assentamentos</li>
+      </ul>
+      <p>O plano cartesiano transformou-se de abstração matemática em <em>ferramenta de sobrevivência</em>.</p>
+    </section>
+
+    <!-- Slide 1.4 — O Mapa Universal (Definição Formal) -->
+    <section class="mission-briefing">
+      <h2>O Conjunto \(\mathbb{R}^2\): O Mapa Universal</h2>
+      <div class="concept-definition">
+        <p class="formula">\[ \mathbb{R}^2 = \{(x, y)\,\mid\, x, y \in \mathbb{R}\} \]</p>
+        <p>O conjunto de todos os pares ordenados de números reais, representando cada possível localização no nosso plano de sobrevivência.</p>
+      </div>
+      <p>Imagine o deserto pós-apocalíptico como uma vasta folha de papel quadriculado, onde cada junção das linhas é um potencial ponto de interesse: um refúgio, um depósito de recursos, ou uma zona contaminada.</p>
+    </section>
+
+    <!-- Slide 1.5 — Visualização: O Plano Cartesiano -->
+    <section class="simulator">
+      <h3>Visualização: O Plano Cartesiano</h3>
+      <div class="visualization-container">
+        <img src="svg/plano-cartesiano-r2.svg" alt="Plano cartesiano R² com eixos x e y"/>
+      </div>
+    </section>
+
+    <!-- Slide 1.6 — A Linguagem dos Pares Ordenados -->
+    <section class="mission-briefing">
+      <h3>A Linguagem dos Pares Ordenados</h3>
+      <div class="concept-definition">
+        <p class="formula">\((x, y) \neq (y, x)\) quando \(x \neq y\)</p>
+        <p>A ordem dos componentes é <em>crucial</em> — confundir coordenadas pode ser fatal.</p>
+      </div>
+      <div class="narrative-text">
+        <p>O Cartógrafo Jensen confundiu as coordenadas da Fonte Limpa. Anotou \((8, 3)\) quando deveria ser \((3, 8)\). Sua equipe nunca mais foi vista após partir em busca de água.</p>
+      </div>
+      <div class="survival-tip">
+        <p>Protocolo de Registro: "Sempre anote coordenadas no formato (Leste, Norte) e confirme a leitura duas vezes."</p>
+      </div>
+    </section>
+
+    <!-- Slide 1.6b — Visualização: Pares Ordenados -->
+    <section class="simulator">
+      <h3>Visualização: Pares Ordenados no Plano</h3>
+      <div class="visualization-container">
+        <img alt="Exemplos de pares ordenados no plano cartesiano" src="svg/pares-ordenados-r2.svg"/>
+      </div>
+    </section>
+
+    <!-- Slide 1.7 — Treinamento: Coordenadas e Quadrantes (Exercícios) -->
+    <section class="survival-training level-basic">
+      <h3>Treinamento de Sobrevivência <span class="level-indicator">BÁSICO</span></h3>
+
+      <div class="training-problem">
+        <h4>Problema #1: Identificação de Quadrantes</h4>
+        <p>Classifique cada ponto no quadrante correto: \(A(3,5)\), \(B(-2,4)\), \(C(-1,-3)\), \(D(6,-2)\). Qual ponto está mais próximo do eixo \(x\)? E do eixo \(y\)?</p>
+      </div>
+
+      <div class="training-problem">
+        <h4>Problema #2: Ordem dos Pares</h4>
+        <p>Se o Explorador Marcus anotou a localização de um depósito como \((2,7)\), mas o protocolo exige formato (Norte, Leste), para onde a equipe foi parar se o depósito está de fato em \((7,2)\)? Descreva o erro.</p>
+      </div>
+
+      <div class="training-problem">
+        <h4>Problema #3: Erro de Registro</h4>
+        <p>O Cartógrafo Jensen anotou \((8, 3)\) em vez de \((3, 8)\). Explique o erro e suas possíveis consequências na navegação.</p>
+      </div>
+
+      <div class="problem-context">
+        <p>Os sistemas de navegação exigem precisão absoluta. Cada coordenada fora do lugar pode enviar uma expedição para o território errado. Confirme, classifique e registre com atenção.</p>
+      </div>
+    </section>
+
+  </section>
+
+</div>
+</div>
+<script src="https://unpkg.com/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(','\\)']],
+      displayMath: [['\\[','\\]']]
+    }
+  };
+  Reveal.initialize({ hash: true, slideNumber: true });
+</script>
+</body>
+</html>

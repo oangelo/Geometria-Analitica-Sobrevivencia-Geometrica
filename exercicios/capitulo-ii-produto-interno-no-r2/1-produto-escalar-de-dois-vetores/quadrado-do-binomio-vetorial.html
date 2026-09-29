@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>QUADRADO DO BINÔMIO VETORIAL</h3>
+
+<p>No exercício anterior, usamos as propriedades para simplificar uma expressão. Agora vamos descobrir uma identidade que conecta o produto escalar com algo que já vimos no Capítulo 0 — os produtos notáveis. No Capítulo 0, você verificou que $(a + b)^2 = a^2 + 2ab + b^2$. Com vetores, a notação $\vec{v}^2$ significa $\vec{v} \cdot \vec{v}$. A pergunta: será que $(\vec{v} + \vec{w})^2 = \vec{v}^2 + 2(\vec{v} \cdot \vec{w}) + \vec{w}^2$? Usando $\vec{v} = (3, 1)$ e $\vec{w} = (-2, 4)$, calcule ambos os lados e verifique. Se a identidade for verdadeira, derive-a passo a passo usando as propriedades já verificadas.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Escreva $(\vec{v}+\vec{w})^2 = (\vec{v}+\vec{w}) \cdot (\vec{v}+\vec{w})$ e expanda usando distributividade, como faria com $(a+b)(a+b)$. Lembre-se da comutatividade para juntar os termos cruzados.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Desenvolvimento algébrico: $(\vec{v}+\vec{w}) \cdot (\vec{v}+\vec{w}) = \vec{v} \cdot \vec{v} + \vec{v} \cdot \vec{w} + \vec{w} \cdot \vec{v} + \vec{w} \cdot \vec{w}$.</li>
+<li>Pela comutatividade: $\vec{v} \cdot \vec{w} = \vec{w} \cdot \vec{v}$, logo os dois termos centrais são iguais: $2(\vec{v} \cdot \vec{w})$.</li>
+<li>Portanto: $(\vec{v}+\vec{w})^2 = \vec{v}^2 + 2(\vec{v} \cdot \vec{w}) + \vec{w}^2$. A identidade é verdadeira.</li>
+<li>Verificação numérica: $\vec{v}+\vec{w} = (1, 5)$, $(\vec{v}+\vec{w})^2 = 1 + 25 = 26$.</li>
+<li>Lado direito: $\vec{v}^2 = 9+1 = 10$, $\vec{w}^2 = 4+16 = 20$, $\vec{v} \cdot \vec{w} = -6+4 = -2$.</li>
+<li>$10 + 2 \times (-2) + 20 = 10 - 4 + 20 = 26$. Confirma!</li>
+</ol>
+<div class="formula">
+$$(\vec{v} + \vec{w})^2 = \vec{v}^2 + 2(\vec{v} \cdot \vec{w}) + \vec{w}^2$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Os produtos notáveis do Capítulo 0 reaparecem no contexto vetorial — e a estrutura é idêntica. Isso não é coincidência: os vetores herdam as propriedades da multiplicação de números porque o produto escalar é, no fundo, uma combinação de multiplicações de números. Reconhecer padrões entre contextos diferentes é uma habilidade de sobrevivência matemática — quem enxerga a conexão precisa memorizar menos.</p>
+</details>
+</div>

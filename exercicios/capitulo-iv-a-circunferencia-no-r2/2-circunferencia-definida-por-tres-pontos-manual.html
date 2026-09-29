@@ -1,0 +1,45 @@
+<section class="manual-contexto" data-context="manual-sobrevivencia">
+    <div class="terminal-border">
+    <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: CIRCUNFERÊNCIA POR TRÊS PONTOS</h2>
+
+<p>No Tópico 1, aprendemos a escrever a equação da circunferência a partir do centro e do raio, e a verificar se um ponto pertence a ela. Mas na Zona Devastada, ninguém entrega as coordenadas do centro e o valor do raio num formulário — o que os exploradores encontram são <strong>marcos</strong>: postos de vigilância, pontos de radiação detectada, antenas de comunicação. Três marcos no terreno. A pergunta que o SUPERVISOR faz é: esses três pontos definem uma zona circular de segurança? Se sim, qual é a sua equação? Para responder, invertemos o processo — em vez de partir do centro e do raio, vamos partir de três pontos e descobrir quais seriam o centro e o raio que os unem.</p>
+
+<p>A <strong>forma geral</strong> da circunferência, $x^2 + y^2 + Dx + Ey + F = 0$, tem três coeficientes desconhecidos: $D$, $E$ e $F$. Se um ponto $P(x_0, y_0)$ pertence à circunferência, suas coordenadas satisfazem a equação — ou seja, $x_0^2 + y_0^2 + Dx_0 + Ey_0 + F = 0$. Se <strong>três</strong> pontos pertencem à mesma circunferência, temos três equações lineares, uma para cada ponto. Substituindo as coordenadas de $A(x_1, y_1)$, $B(x_2, y_2)$ e $C(x_3, y_3)$, obtemos o sistema:</p>
+
+<div class="formula">
+$$\begin{cases}
+x_1^2 + y_1^2 + Dx_1 + Ey_1 + F = 0 \\[6pt]
+x_2^2 + y_2^2 + Dx_2 + Ey_2 + F = 0 \\[6pt]
+x_3^2 + y_3^2 + Dx_3 + Ey_3 + F = 0
+\end{cases}$$
+</div>
+
+<p>Três equações, três incógnitas — um sistema $3 \times 3$. Mas existe um <strong>atalho poderoso</strong>: observe que cada equação contém os termos $x_i^2 + y_i^2$ (valores numéricos conhecidos) e a incógnita $F$ (a mesma em todas). Ao subtrair a primeira equação da segunda, e a primeira da terceira, tanto os termos constantes $x_i^2 + y_i^2$ quanto $F$ são eliminados. O resultado é um sistema $2 \times 2$ apenas em $D$ e $E$:</p>
+
+<div class="formula">
+$$\begin{cases}
+\bigl(x_2^2 + y_2^2\bigr) - \bigl(x_1^2 + y_1^2\bigr) + D(x_2 - x_1) + E(y_2 - y_1) = 0 \\[6pt]
+\bigl(x_3^2 + y_3^2\bigr) - \bigl(x_1^2 + y_1^2\bigr) + D(x_3 - x_1) + E(y_3 - y_1) = 0
+\end{cases}$$
+</div>
+
+<p>Resolvendo esse sistema $2 \times 2$ por substituição ou eliminação (ferramentas do Capítulo 0), encontramos $D$ e $E$. Depois, basta substituir $D$ e $E$ em qualquer uma das equações originais para obter $F$. Com os três coeficientes em mãos, recuperamos o centro e o raio pelas fórmulas do Tópico 1:</p>
+
+<div class="formula">
+$$\text{Centro: } C\!\left(-\dfrac{D}{2},\; -\dfrac{E}{2}\right) \qquad \text{Raio: } r = \sqrt{\left(\dfrac{D}{2}\right)^2 + \left(\dfrac{E}{2}\right)^2 - F}$$
+</div>
+
+<p><strong>Atenção:</strong> nem sempre três pontos definem uma circunferência. Se os pontos são <strong>colineares</strong> — isto é, estão sobre uma mesma reta —, o sistema não terá solução consistente. Antes de montar o sistema, convém verificar a colinearidade usando a ferramenta do Capítulo II: a área do triângulo com vértices $A$, $B$ e $C$. Essa área é dada por $\frac{1}{2}|D_{AB,AC}|$, onde:</p>
+
+<div class="formula">
+$$D_{AB,AC} = \det \begin{pmatrix} x_2 - x_1 &amp; y_2 - y_1 \\ x_3 - x_1 &amp; y_3 - y_1 \end{pmatrix}$$
+</div>
+
+<p>Se $D_{AB,AC} = 0$, os pontos são colineares e <strong>não existe</strong> circunferência que passe por todos eles — imagine três pontos sobre uma reta: por mais que tente, nenhum círculo passa exatamente por todos os três. Se $D_{AB,AC} \neq 0$, os pontos não são colineares e a circunferência é <strong>única</strong>. Três pontos não colineares determinam uma e apenas uma circunferência — assim como dois pontos determinam uma reta.</p>
+
+<p><strong>Caso particular útil:</strong> se um dos três pontos é a origem $O(0,0)$, a primeira equação do sistema se reduz a $F = 0$ — o que elimina $F$ imediatamente e deixa apenas duas equações em $D$ e $E$. Se os três pontos são equidistantes da origem (ou seja, $x_i^2 + y_i^2$ é o mesmo para todos), o centro da circunferência será a própria origem, com $D = 0$ e $E = 0$.</p>
+
+<p>O caminho completo está traçado: (1) verificar colinearidade pelo determinante $2 \times 2$, (2) montar o sistema simplificado por subtração de equações, (3) resolver o sistema $2 \times 2$ para $D$ e $E$, (4) encontrar $F$ por substituição, (5) recuperar centro e raio. Com a equação em mãos, todas as ferramentas do Tópico 1 estão disponíveis — verificar pertencimento, classificar pontos, completar quadrados. Nos próximos tópicos, usaremos essas circunferências para estudar as posições relativas entre retas e circunferências, e entre pontos e circunferências.</p>
+
+    </div>
+</section>

@@ -1,0 +1,25 @@
+<div class="exercise">
+<h3>VERIFICANDO O PONTO MÉDIO</h3>
+<p>Nem toda informação recebida pelo rádio é confiável. Um batedor relata que o ponto $P(4, 5)$ seria o ponto médio do segmento entre os postos $A(1, 3)$ e $B(7, 8)$. Outro batedor afirma que $Q(3, 1)$ é o ponto médio entre $C(0, 2)$ e $D(6, 0)$. O objetivo deste exercício é desenvolver o <strong>critério de verificação</strong>: dado um ponto, confirmar ou refutar se ele é ponto médio de um segmento. Desenhe os pontos no plano cartesiano.</p>
+<p><strong>(a)</strong> Calcule o ponto médio real de $A(1, 3)$ e $B(7, 8)$ e compare com $P(4, 5)$. O batedor está correto?</p>
+<p><strong>(b)</strong> Calcule o ponto médio real de $C(0, 2)$ e $D(6, 0)$ e compare com $Q(3, 1)$. O segundo batedor está correto?</p>
+<p><strong>(c)</strong> Um terceiro batedor garante que $R(2, 3)$ é ponto médio de $E(-1, 5)$ e $F(5, 1)$. Verifique sem recalcular o ponto médio — use os vetores $\vec{ER}$ e $\vec{RF}$. Se forem iguais, $R$ é ponto médio. O que você conclui? Desenhe todos os casos.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>Existem dois métodos de verificação: (1) calcular o ponto médio pela fórmula e comparar com o ponto dado; (2) verificar se os vetores do ponto dado a cada extremidade são iguais ($\vec{AM} = \vec{MB}$). Ambos são equivalentes, mas o método vetorial é mais direto quando você já tem as coordenadas do ponto candidato.</p>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Ponto médio de $AB$: $\left(\frac{1 + 7}{2}, \frac{3 + 8}{2}\right) = (4, 5{,}5)$. Como $(4, 5{,}5) \neq (4, 5)$, o primeiro batedor está <strong>errado</strong> — $P$ não é ponto médio de $AB$.</li>
+<li>Ponto médio de $CD$: $\left(\frac{0 + 6}{2}, \frac{2 + 0}{2}\right) = (3, 1)$. Como $(3, 1) = Q$, o segundo batedor está <strong>correto</strong>.</li>
+<li>Método vetorial: $\vec{ER} = (2 - (-1), 3 - 5) = (3, -2)$ e $\vec{RF} = (5 - 2, 1 - 3) = (3, -2)$. Como $\vec{ER} = \vec{RF}$, $R$ <strong>é</strong> ponto médio de $EF$. Pela fórmula: $\left(\frac{-1 + 5}{2}, \frac{5 + 1}{2}\right) = (2, 3) = R$. Confirmado.</li>
+</ol>
+<div class="formula">
+$$M_{AB} = (4, 5{,}5) \neq P(4, 5) \quad \text{(FALSO)}$$
+$$M_{CD} = (3, 1) = Q(3, 1) \quad \text{(VERDADEIRO)}$$
+$$\vec{ER} = (3, -2) = \vec{RF} \quad \Rightarrow \quad R \text{ é ponto médio (VERDADEIRO)}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Na Zona Devastada, informações imprecisas custam vidas. Verificar se um ponto é realmente o ponto médio — seja pela fórmula, seja pela igualdade dos vetores — é um protocolo essencial de checagem. O método vetorial $\vec{AM} = \vec{MB}$ é particularmente eficiente: dois vetores iguais garantem que $M$ está no meio do caminho.</p>
+</details>
+</div>

@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>CONSTRUÇÃO DE ROTA PERPENDICULAR</h3>
+
+<p>No exercício anterior, você usou o produto escalar para verificar perpendicularidade. Agora vamos construir uma reta perpendicular. Uma estrada de suprimentos segue a direção do vetor $\vec{d} = (2, 3)$ e passa pela origem $O(0, 0)$. O SUPERVISOR precisa construir uma estrada perpendicular a essa, passando pelo ponto $P(4, 1)$. No papel, esboce a estrada original, o ponto $P$, e a nova estrada perpendicular. Para construir o vetor diretor perpendicular, troque as componentes de $\vec{d}$ e mude o sinal de uma delas. Qual vetor perpendicular você obtém? Escreva a equação vetorial da nova estrada.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Se $\vec{d} = (a, b)$, um vetor perpendicular é $\vec{d}_\perp = (-b, a)$ (ou $(b, -a)$). Troque as componentes e mude o sinal de uma. Verifique com o produto escalar: $\vec{d} \cdot \vec{d}_\perp$ deve ser zero.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Vetor diretor da estrada original: $\vec{d} = (2, 3)$.</li>
+<li>Construa o vetor perpendicular: $\vec{d}_\perp = (-3, 2)$ (trocou $2 \leftrightarrow 3$, mudou sinal do primeiro).</li>
+<li>Verifique: $\vec{d} \cdot \vec{d}_\perp = 2 \times (-3) + 3 \times 2 = -6 + 6 = 0$ ✓.</li>
+<li>A nova estrada passa por $P(4, 1)$, então $\vec{r}_0 = (4, 1)$.</li>
+<li>Equação vetorial: $\vec{r} = (4, 1) + t \cdot (-3, 2)$, com $t \in \mathbb{R}$.</li>
+</ol>
+<div class="formula">
+$$\vec{d} = (2, 3) \implies \vec{d}_\perp = (-3, 2)$$
+$$\vec{r} = (4, 1) + t \cdot (-3, 2), \quad t \in \mathbb{R}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A técnica de "trocar e mudar sinal" é uma das ferramentas mais rápidas da geometria analítica. Em campo, quando você precisa construir uma defesa perpendicular a uma rota existente, não precisa de transferidor — apenas troque as componentes do vetor diretor e mude um sinal. O produto escalar confirma que o ângulo é exatamente $90°$.</p>
+</details>
+</div>

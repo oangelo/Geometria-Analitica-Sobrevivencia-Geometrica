@@ -1,0 +1,34 @@
+<!-- V-VISUALIZAÇÃO Variante C: Canvas com overlay de fórmula -->
+<!-- Uso: fórmula e visual devem ser vistas simultaneamente. -->
+
+<section>
+  <div class="slide-header">SEÇÃO [NN] · [TÓPICO]</div>
+  <div class="slide-body">
+    <h3>Visualização: [Título]</h3>
+    <div class="canvas-overlay">
+      <canvas id="[topico]-canvas" class="visualization-canvas" width="700" height="400"></canvas>
+      <div class="formula">
+        <p>\[ [Fórmula relacionada] \]</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">GA-CH[N]-[ANO] · CAPÍTULO [N]</div>
+</section>
+
+<script>
+  // Padrão IIFE obrigatório (AGENTS.md §4.4). ID único: [topico]-canvas.
+  (function () {
+    function init() {
+      var canvas = document.getElementById('[topico]-canvas');
+      if (!canvas) return;
+      var ctx = canvas.getContext('2d');
+      // ... lógica de desenho (requestAnimationFrame, nunca setInterval) ...
+    }
+    document.addEventListener('DOMContentLoaded', init);
+    if (window.Reveal) {
+      Reveal.on('slidechanged', function () {
+        if (document.getElementById('[topico]-canvas')) init();
+      });
+    }
+  })();
+</script>

@@ -1,0 +1,30 @@
+<div class="exercise">
+<h3>INTERSEÇÃO POR SUBSTITUIÇÃO NA FORMA GERAL</h3>
+
+<p>Um sobrevivente relata uma trilha segura pela reta $r: x + 2y - 8 = 0$. Outro sobrevivente relata uma segunda trilha pela reta $s: 3x - y + 1 = 0$. Para verificar se as duas rotas realmente se cruzam — e onde — monte o sistema 2×2 e resolva-o pelo método da substituição. Encontre as coordenadas exatas do ponto de interseção e verifique se ele satisfaz ambas as equações originais.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Isole $x$ na primeira equação (é mais simples) e substitua na segunda. Ou isole $y$ na segunda equação — ela tem coeficiente $-1$, o que facilita a divisão.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Sistema: $\begin{cases} x + 2y - 8 = 0 \\ 3x - y + 1 = 0 \end{cases}$.</li>
+<li>Da segunda equação: $y = 3x + 1$.</li>
+<li>Substituímos na primeira: $x + 2(3x + 1) - 8 = 0$.</li>
+<li>Desenvolvendo: $x + 6x + 2 - 8 = 0$, ou seja, $7x - 6 = 0$.</li>
+<li>Portanto $x = \frac{6}{7}$.</li>
+<li>Substituindo em $y = 3x + 1$: $y = 3 \cdot \frac{6}{7} + 1 = \frac{18}{7} + \frac{7}{7} = \frac{25}{7}$.</li>
+<li>Verificação na primeira equação: $\frac{6}{7} + 2 \cdot \frac{25}{7} - 8 = \frac{6 + 50 - 56}{7} = 0$ ✓</li>
+<li>Verificação na segunda equação: $3 \cdot \frac{6}{7} - \frac{25}{7} + 1 = \frac{18 - 25 + 7}{7} = 0$ ✓</li>
+</ol>
+<div class="formula">
+$$P\left(\frac{6}{7}, \frac{25}{7}\right)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O ponto $\left(\frac{6}{7}, \frac{25}{7}\right)$ é a coordenada exata onde as duas trilhas se cruzam. Na Zona Devastada, coordenadas fracionárias são tão válidas quanto inteiras — o GPS do Traje de Proteção não arredonda. A verificão final (substituir de volta nas equações originais) é o protocolo de segurança que evita erros fatais de navegação.</p>
+</details>
+</div>

@@ -1,0 +1,77 @@
+<div class="exercise">
+<h3>CAPACIDADE DE RESERVATÓRIO</h3>
+<p>O objetivo deste exercício é calcular o volume de água que cabe em um reservatório de formato tetraédrico, definido por quatro pontos no espaço.</p>
+<p>Um reservatório de água de emergência tem formato de tetraedro com vértices em $A(0, 0, 0)$, $B(5, 0, 0)$, $C(2, 4, 0)$ e $D(2, 2, 3)$. A base $ABC$ está no plano do chão ($z = 0$) e o vértice $D$ está acima do chão.</p>
+<p><strong>(a)</strong> Determine os vetores $\overrightarrow{AB}$, $\overrightarrow{AC}$ e $\overrightarrow{AD}$.</p>
+<p><strong>(b)</strong> Calcule o produto misto $[\overrightarrow{AB}, \overrightarrow{AC}, \overrightarrow{AD}]$.</p>
+<p><strong>(c)</strong> Calcule o volume do reservatório em unidades cúbicas.</p>
+<p><strong>(d)</strong> Sabendo que cada unidade cúbica corresponde a $1000$ litros, qual a capacidade do reservatório em litros?</p>
+<p><strong>(e)</strong> Verifique o resultado do item (c) usando a fórmula alternativa: $V = \frac{1}{3} \times (\text{área da base}) \times (\text{altura})$. A base é o triângulo $ABC$ e a altura é a coordenada $z$ de $D$ (pois a base está no plano $z = 0$).</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para o item (e), a área da base $ABC$ pode ser calculada como $\frac{1}{2}|\overrightarrow{AB} \times \overrightarrow{AC}|$. A altura do tetraedro é a distância do vértice $D$ ao plano da base, que neste caso é simplesmente a coordenada $z$ de $D$ pois a base está em $z = 0$. A fórmula do volume de uma pirâmide é $\frac{1}{3} \times \text{base} \times \text{altura}$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>Item (a):</strong></p>
+<ol class="solution-steps">
+<li>$\overrightarrow{AB} = B - A = (5, 0, 0)$</li>
+<li>$\overrightarrow{AC} = C - A = (2, 4, 0)$</li>
+<li>$\overrightarrow{AD} = D - A = (2, 2, 3)$</li>
+</ol>
+
+<p><strong>Item (b):</strong></p>
+<ol class="solution-steps">
+<li>$[\overrightarrow{AB}, \overrightarrow{AC}, \overrightarrow{AD}] = \begin{vmatrix} 5 & 0 & 0 \\ 2 & 4 & 0 \\ 2 & 2 & 3 \end{vmatrix}$</li>
+<li>Expansão pela primeira linha: $5 \cdot \begin{vmatrix} 4 & 0 \\ 2 & 3 \end{vmatrix} - 0 + 0$</li>
+<li>$= 5[(4)(3) - (0)(2)] = 5(12) = 60$</li>
+</ol>
+<div class="formula">
+$$[\overrightarrow{AB}, \overrightarrow{AC}, \overrightarrow{AD}] = 60$$
+</div>
+
+<p><strong>Item (c):</strong></p>
+<ol class="solution-steps">
+<li>Volume do tetraedro: $V = \frac{1}{6}|60| = 10$</li>
+</ol>
+<div class="formula">
+$$V = 10 \text{ unidades}^3$$
+</div>
+
+<p><strong>Item (d):</strong></p>
+<ol class="solution-steps">
+<li>Capacidade = $10 \times 1000 = 10000$ litros</li>
+</ol>
+<div class="formula">
+$$\text{Capacidade} = 10000 \text{ litros}$$
+</div>
+
+<p><strong>Item (e):</strong></p>
+<p>Cálculo da área da base $ABC$:</p>
+<ol class="solution-steps">
+<li>$\overrightarrow{AB} \times \overrightarrow{AC} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 5 & 0 & 0 \\ 2 & 4 & 0 \end{vmatrix} = (0, 0, 20)$</li>
+<li>$|\overrightarrow{AB} \times \overrightarrow{AC}| = 20$</li>
+<li>Área da base: $\dfrac{1}{2} \times 20 = 10$ unidades²</li>
+</ol>
+<p>Cálculo da altura:</p>
+<ol class="solution-steps">
+<li>A base está no plano $z = 0$, e $D = (2, 2, 3)$</li>
+<li>Altura = coordenada $z$ de $D$ = $3$ unidades</li>
+</ol>
+<p>Volume pela fórmula da pirâmide:</p>
+<ol class="solution-steps">
+<li>$V = \frac{1}{3} \times (\text{área da base}) \times (\text{altura})$</li>
+<li>$V = \frac{1}{3} \times 10 \times 3 = 10$ unidades³ ✓</li>
+</ol>
+<div class="formula">
+$$V = \frac{1}{3} \times 10 \times 3 = 10 \text{ unidades}^3$$
+</div>
+<p>Os dois métodos coincidem, confirmando o cálculo.</p>
+
+<p><strong>Reflexão de Sobrevivência:</strong> Na Zona Devastada, água potável é o recurso mais precioso. Calcular com precisão a capacidade de um reservatório tetraédrico — usando tanto o produto misto quanto a fórmula clássica de pirâmide — permite planejar o consumo da comunidade. Um reservatório de 10000 litros sustenta uma pequena equipe por vários dias, mas apenas se o cálculo for correto.</p>
+</details>
+</div>

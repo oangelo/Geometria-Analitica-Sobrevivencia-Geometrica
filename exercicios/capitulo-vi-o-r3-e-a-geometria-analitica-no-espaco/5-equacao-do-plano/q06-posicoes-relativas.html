@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>Posições Relativas de Planos Defensivos</h3>
+<p><strong>Objetivo:</strong> Verificar se dois planos são paralelos ou perpendiculares analisando seus vetores normais.</p>
+<p>O Refúgio-Tec possui dois sistemas de barreiras planas. A primeira barreira é descrita pelo plano $\pi_1: 2x - y + 3z + 5 = 0$ e a segunda pelo plano $\pi_2: 4x - 2y + 6z - 1 = 0$. Uma terceira barreira é dada por $\pi_3: x + 2y + z - 4 = 0$. Determine:</p>
+<p>(a) Se $\pi_1$ e $\pi_2$ são paralelos, coincidentes ou concorrentes.</p>
+<p>(b) Se $\pi_1$ e $\pi_3$ são perpendiculares.</p>
+<p>(c) Se $\pi_2$ e $\pi_3$ são perpendiculares.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+                Compare os vetores normais: $\pi_1$ tem $\vec{n}_1 = (2, -1, 3)$, $\pi_2$ tem $\vec{n}_2 = (4, -2, 6)$, $\pi_3$ tem $\vec{n}_3 = (1, 2, 1)$. Planos são paralelos se $\vec{n}_1 = k\vec{n}_2$. São perpendiculares se $\vec{n}_1 \cdot \vec{n}_3 = 0$.
+            </div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Vetores normais: $\vec{n}_1 = (2, -1, 3)$, $\vec{n}_2 = (4, -2, 6)$, $\vec{n}_3 = (1, 2, 1)$.</li>
+<li>Item (a): Verificar se $\vec{n}_1$ e $\vec{n}_2$ são paralelos. Note que $(4, -2, 6) = 2(2, -1, 3)$, logo $\vec{n}_2 = 2\vec{n}_1$. Os vetores normais são paralelos, portanto <strong>$\pi_1$ e $\pi_2$ são paralelos</strong>.</li>
+<li>Verificar se são coincidentes: $\pi_1$ tem $d = 5$, $\pi_2$ tem $d = -1$. Como $-1 \neq 2 \cdot 5$, os planos <strong>não são coincidentes</strong> (são paralelos distintos).</li>
+<li>Item (b): Verificar perpendicularidade de $\pi_1$ e $\pi_3$: $\vec{n}_1 \cdot \vec{n}_3 = (2)(1) + (-1)(2) + (3)(1) = 2 - 2 + 3 = 3 \neq 0$. <strong>Não são perpendiculares.</strong></li>
+<li>Item (c): Verificar perpendicularidade de $\pi_2$ e $\pi_3$: $\vec{n}_2 \cdot \vec{n}_3 = (4)(1) + (-2)(2) + (6)(1) = 4 - 4 + 6 = 6 \neq 0$. <strong>Não são perpendiculares.</strong></li>
+</ol>
+<div class="formula">
+                    $$\pi_1 \parallel \pi_2 \text{ (paralelos distintos)}, \quad \pi_1 \not\perp \pi_3, \quad \pi_2 \not\perp \pi_3$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Barreiras paralelas criam corredores de contenção; barreiras perpendiculares formam cantos retos em estruturas. Saber a posição relativa de planos permite projetar abrigos com geometria eficiente e sem desperdício de materiais.</p>
+</details>
+</div>

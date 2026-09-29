@@ -1,0 +1,34 @@
+<div class="exercise">
+<h3>CÚPULA DE PROTEÇÃO</h3>
+
+<p>O sistema de defesa do abrigo gera uma cúpula de proteção circular. Três ancoragens definem a cúpula: $A(0,0)$, $B(4,0)$ e $C(2,k)$, onde $k$ é a altura de ajuste da terceira ancoragem.</p>
+<p><strong>(a)</strong> Qual valor de $k$ torna os três pontos colineares? Use o determinante $2 \times 2$ para responder — esse valor representa o limite em que a cúpula deixa de existir.</p>
+<p><strong>(b)</strong> Para $k = 4$, determine a equação da circunferência, o centro e o raio da cúpula. A origem como um dos pontos simplifica o cálculo.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>No item (a), calcule $\vec{AB}$ e $\vec{AC}$ em função de $k$ e imponha o determinante igual a zero. No item (b), use $F = 0$ e resolva o sistema $2 \times 2$ normalmente.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li><strong>(a)</strong> $\vec{AB} = (4, 0)$ e $\vec{AC} = (2, k)$.</li>
+<li>Determinante: $\det \begin{pmatrix} 4 &amp; 0 \\ 2 &amp; k \end{pmatrix} = 4k - 0 = 4k$.</li>
+<li>Para colinearidade: $4k = 0 \Rightarrow k = 0$. Quando $k = 0$, os três pontos ficam sobre o eixo $x$ e a cúpula não existe.</li>
+<li><strong>(b)</strong> Com $k = 4$: os pontos são $A(0,0)$, $B(4,0)$ e $C(2,4)$.</li>
+<li>$F = 0$ (origem).</li>
+<li>$B(4,0)$: $16 + 0 + 4D + 0 = 0 \Rightarrow D = -4$.</li>
+<li>$C(2,4)$: $4 + 16 + 2(-4) + 4E = 0 \Rightarrow 20 - 8 + 4E = 0 \Rightarrow 4E = -12 \Rightarrow E = -3$.</li>
+<li>Equação: $x^2 + y^2 - 4x - 3y = 0$.</li>
+<li>Centro: $(2, 1{,}5)$ e $r = \sqrt{4 + 2{,}25 - 0} = \sqrt{6{,}25} = 2{,}5$.</li>
+</ol>
+<div class="formula">
+$$\text{(a)}\quad k = 0 \;\Longrightarrow\; \text{colineares, sem cúpula}$$
+$$\text{(b)}\quad x^2 + y^2 - 4x - 3y = 0 \qquad \text{Centro } (2;\, 1{,}5), \quad r = 2{,}5$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Este exercício revela a fronteira entre existência e não-existência. O valor $k = 0$ é o ponto crítico — abaixo ou acima dele, a cúpula se forma; exatamente nele, os pontos colapsam sobre uma reta e o sistema de defesa falha. Na Zona Devastada, conhecer o limite de operação de um sistema é questão de sobrevivência.</p>
+</details>
+</div>

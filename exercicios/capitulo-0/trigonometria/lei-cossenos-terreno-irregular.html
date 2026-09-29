@@ -1,0 +1,40 @@
+<div class="exercise">
+<h3>Lei dos Cossenos: Distância em Terreno Irregular</h3>
+
+<p><strong>Objetivo:</strong> Aplicar a Lei dos Cossenos quando dois lados e o ângulo entre eles são conhecidos.</p>
+
+<p>Você está planejando uma rota de suprimentos entre dois depósitos ($A$ e $B$) passando por um ponto de passagem ($C$). A distância do depósito $A$ até o ponto de passagem $C$ é $50$ m. A distância do depósito $B$ até o ponto de passagem $C$ é $70$ m. O ângulo entre essas duas rotas, medido em $C$, é $120°$. <strong>Desenhe no papel</strong> esta situação, representando os pontos $A$, $B$, $C$ e o ângulo de $120°$.</p>
+
+<p><strong>(a)</strong> Explique por que não podemos usar o Teorema de Pitágoras diretamente nesta situação.</p>
+
+<p><strong>(b)</strong> Escreva a Lei dos Cossenos para encontrar o lado $AB$ (a distância em linha reta entre os dois depósitos).</p>
+
+<p><strong>(c)</strong> Substitua os valores conhecidos e calcule $AB^2$.</p>
+
+<p><strong>(d)</strong> Calcule a distância $AB$.</p>
+
+<p><strong>(e)</strong> Compare a distância em linha reta $AB$ com a rota $A \to C \to B$. Qual é mais curta e por quanto?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>O Teorema de Pitágoras só vale para triângulos retângulos. Aqui o ângulo é $120°$, não $90°$. A Lei dos Cossenos generaliza o Teorema de Pitágoras: $c^2 = a^2 + b^2 - 2ab\cos(C)$. Quando $C = 90°$, o cosseno é zero e a fórmula se reduz ao Teorema de Pitágoras. Lembre-se: $\cos(120°) = -\frac{1}{2}$.</p>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>(a)</strong> O Teorema de Pitágoras só se aplica a triângulos retângulos, ou seja, triângulos com um ângulo de $90°$. Nesta situação, o ângulo em $C$ é $120°$, então o triângulo não é retângulo e o Teorema de Pitágoras não pode ser usado diretamente.</p>
+
+<p><strong>(b)</strong> A Lei dos Cossenos para o lado $AB$ (que chamaremos de $c$) é:</p>
+<p>$$c^2 = a^2 + b^2 - 2ab\cos(C)$$</p>
+<p>Onde $a = BC = 70$ m, $b = AC = 50$ m, e $C = 120°$.</p>
+
+<p><strong>(c)</strong> Substituindo:</p>
+<p>$$c^2 = 70^2 + 50^2 - 2 \cdot 70 \cdot 50 \cdot \cos(120°)$$</p>
+<p>$$c^2 = 4900 + 2500 - 7000 \cdot \left(-\frac{1}{2}\right)$$</p>
+<p>$$c^2 = 7400 + 3500 = 10900$$</p>
+
+<p><strong>(d)</strong> $$c = \sqrt{10900} = 10\sqrt{109} \approx 104{,}4 \text{ m}$$</p>
+
+<p><strong>(e)</strong> A rota $A \to C \to B$ mede $50 + 70 = 120$ m. A distância em linha reta é $10\sqrt{109} \approx 104{,}4$ m. A rota em linha reta é mais curta por aproximadamente $15{,}6$ m, mas pode não ser viável devido ao terreno.</p>
+</details>
+</div>

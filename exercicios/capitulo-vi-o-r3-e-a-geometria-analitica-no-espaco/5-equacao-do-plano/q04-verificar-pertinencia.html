@@ -1,0 +1,24 @@
+<div class="exercise">
+<h3>Verificação de Pertinência a Superfície</h3>
+<p><strong>Objetivo:</strong> Verificar se um ponto pertence a um plano por substituição direta.</p>
+<p>A cobertura de um abrigo subterrâneo é modelada pelo plano $x - 2y + 3z + 4 = 0$. Verifique quais dos seguintes pontos pertencem à cobertura: $P_1(1, 1, -1)$, $P_2(2, 0, -2)$, $P_3(-1, 2, 0)$ e $P_4(0, 2, 0)$. Para os pontos que não pertencem, indique se estão acima ou abaixo do plano (analise o sinal da expressão).</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+                Substitua as coordenadas de cada ponto na equação $ax + by + cz + d$. Se o resultado for zero, o ponto está no plano. Se for positivo, o ponto está de um lado; se negativo, do outro. O sinal divide o espaço em dois semiespaços.
+            </div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Para $P_1(1, 1, -1)$: $1 - 2(1) + 3(-1) + 4 = 1 - 2 - 3 + 4 = 0$. <strong>Pertence ao plano.</strong></li>
+<li>Para $P_2(2, 0, -2)$: $2 - 2(0) + 3(-2) + 4 = 2 + 0 - 6 + 4 = 0$. <strong>Pertence ao plano.</strong></li>
+<li>Para $P_3(-1, 2, 0)$: $(-1) - 2(2) + 3(0) + 4 = -1 - 4 + 0 + 4 = -1$. <strong>Não pertence.</strong> Valor negativo indica um dos semiespaços.</li>
+<li>Para $P_4(0, 2, 0)$: $0 - 2(2) + 3(0) + 4 = 0 - 4 + 0 + 4 = 0$. <strong>Pertence ao plano.</strong></li>
+</ol>
+<div class="formula">
+                    $$P_1, P_2, P_4 \in \text{plano} \qquad P_3 \notin \text{plano} \quad (\text{semiespaço negativo})$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> A equação do plano funciona como um "detector de posição": avaliada em um ponto, ela responde zero (no plano), positivo (um lado) ou negativo (outro lado). Isso é útil para determinar se uma ameaça está do lado de fora ou de dentro de uma barreira plana.</p>
+</details>
+</div>

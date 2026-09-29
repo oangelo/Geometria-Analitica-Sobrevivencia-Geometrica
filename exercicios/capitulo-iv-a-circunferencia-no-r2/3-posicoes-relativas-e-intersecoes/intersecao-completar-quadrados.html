@@ -1,0 +1,32 @@
+<div class="exercise">
+<h3>INTERSEÇÃO COM CIRCUNFERÊNCIA NA FORMA GERAL</h3>
+
+<p>Nos exercícios anteriores, a circunferência era dada na forma canônica. Na Zona Devastada, os dados dos sensores frequentemente fornecem a <strong>forma geral</strong>. Os sensores registraram a equação $x^2 + y^2 - 6x - 2y - 15 = 0$. Uma rota de reconhecimento segue a reta $x - y - 1 = 0$. Primeiro, complete os quadrados para determinar o centro e o raio da circunferência. Depois, encontre os pontos de interseção entre a rota e a zona, substituindo a equação da reta na equação da circunferência. Verifique que a distância centro-reta confirma o resultado.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para completar quadrados: $x^2 - 6x = (x - 3)^2 - 9$ e $y^2 - 2y = (y - 1)^2 - 1$. Reorganize a equação. Para a interseção, isole $y = x - 1$ na reta e substitua na equação original (ou na canônica).</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Complete os quadrados: $x^2 - 6x + y^2 - 2y = 15 \Rightarrow (x - 3)^2 - 9 + (y - 1)^2 - 1 = 15 \Rightarrow (x - 3)^2 + (y - 1)^2 = 25$.</li>
+<li>Centro $C(3, 1)$, raio $r = 5$.</li>
+<li>Verificação pela distância: reta $x - y - 1 = 0$, $d = \frac{|3 - 1 - 1|}{\sqrt{2}} = \frac{1}{\sqrt{2}} = \frac{\sqrt{2}}{2} \approx 0{,}71 < 5$. Secante confirmada.</li>
+<li>Substituição: $y = x - 1$ em $(x - 3)^2 + (y - 1)^2 = 25$:</li>
+<li>$(x - 3)^2 + (x - 1 - 1)^2 = 25 \Rightarrow (x - 3)^2 + (x - 2)^2 = 25$.</li>
+<li>$x^2 - 6x + 9 + x^2 - 4x + 4 = 25 \Rightarrow 2x^2 - 10x - 12 = 0 \Rightarrow x^2 - 5x - 6 = 0$.</li>
+<li>Fatore: $(x - 6)(x + 1) = 0 \Rightarrow x = 6$ ou $x = -1$.</li>
+<li>Pontos: $x = 6 \Rightarrow y = 5$, ponto $A(6, 5)$. $x = -1 \Rightarrow y = -2$, ponto $B(-1, -2)$.</li>
+<li>Verificação: $(6-3)^2 + (5-1)^2 = 9 + 16 = 25$ ✓, $(-1-3)^2 + (-2-1)^2 = 16 + 9 = 25$ ✓.</li>
+</ol>
+<div class="formula">
+$$(x - 3)^2 + (y - 1)^2 = 25, \quad C(3,1), \quad r = 5$$
+$$A(6, 5) \text{ e } B(-1, -2)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Na prática, os dados chegam na forma geral — é o formato natural dos sensores. Completar quadrados é a ponte entre os dados brutos e a interpretação geométrica (centro e raio). Uma vez na forma canônica, todas as ferramentas de posição relativa ficam disponíveis. A interseção por substituição funciona com qualquer forma da equação da circunferência.</p>
+</details>
+</div>

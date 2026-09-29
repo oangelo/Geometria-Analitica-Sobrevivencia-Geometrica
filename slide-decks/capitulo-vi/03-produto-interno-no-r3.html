@@ -1,0 +1,91 @@
+<!-- 03-TÓPICO: PRODUTO INTERNO EM R³ (corresponde ao tópico 2 dos exercícios) -->
+<section>
+  <!-- V1: Abertura (motivação + insert narrativo) -->
+  <section class="field-report">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 03 &middot; PRODUTO INTERNO EM R³</div>
+    <h2>Ângulos no Espaço</h2>
+    <h3 class="mission-subtitle">Sintonizando Sinais e Ângulos em 3D</h3>
+    <p>Um holofote aponta na direção \(\vec{h} = (1, 1, 2)\). Um drone cruza o céu com velocidade \(\vec{d} = (-2, 0, 1)\). As trajetórias são perpendiculares? Qual o ângulo entre elas?</p>
+    <div class="survival-tip">
+      <p>No \(R^2\), o produto escalar resolveu isso. No \(R^3\), a ferramenta é a mesma: só soma uma componente.</p>
+    </div>
+    <p class="narrative-insert">A sombra de um prédio de 40 andares cobre uma quadra inteira. Ninguém consulta quem vive nela.</p>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V2: Definição formal -->
+  <section class="mission-briefing">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 03 &middot; PRODUTO INTERNO EM R³</div>
+    <h2>Produto Interno (Escalar) em \(R^3\)</h2>
+    <div class="definition-box">
+      <p class="formula">\[ \vec{u} \cdot \vec{v} = u_x v_x + u_y v_y + u_z v_z \]</p>
+      <p class="formula">\[ \cos \theta = \frac{\vec{u} \cdot \vec{v}}{\|\vec{u}\| \cdot \|\vec{v}\|} \]</p>
+      <p><strong>Ortogonalidade:</strong> \(\vec{u} \perp \vec{v} \iff \vec{u} \cdot \vec{v} = 0\)</p>
+    </div>
+    <p><strong>Interpretações:</strong> alinhar antenas, verificar perpendicularidade de estruturas, calcular trabalho de uma força.</p>
+    <p class="mnemonic">"Multiplique componente a componente, some tudo e o ângulo você terá."</p>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V3: Simulador -->
+  <section class="simulator">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 03 &middot; PRODUTO INTERNO EM R³</div>
+    <h3>Simulador: Ângulos e Ortogonalidade em 3D</h3>
+    <div class="canvas-container">
+      <canvas id="produto-interno-r3-canvas" width="800" height="400"></canvas>
+      <div class="simulator-controls">
+        <p>Vetor \(\vec{u}\):</p>
+        <div class="control-panel">
+          <label for="pi-r3-ux">\(u_x\):</label> <input type="range" id="pi-r3-ux" min="-5" max="5" value="2" step="0.1"> <span id="pi-r3-ux-value">2</span>
+          <label for="pi-r3-uy">\(u_y\):</label> <input type="range" id="pi-r3-uy" min="-5" max="5" value="1" step="0.1"> <span id="pi-r3-uy-value">1</span>
+          <label for="pi-r3-uz">\(u_z\):</label> <input type="range" id="pi-r3-uz" min="-5" max="5" value="1" step="0.1"> <span id="pi-r3-uz-value">1</span>
+        </div>
+        <p>Vetor \(\vec{v}\):</p>
+        <div class="control-panel">
+          <label for="pi-r3-vx">\(v_x\):</label> <input type="range" id="pi-r3-vx" min="-5" max="5" value="-1" step="0.1"> <span id="pi-r3-vx-value">-1</span>
+          <label for="pi-r3-vy">\(v_y\):</label> <input type="range" id="pi-r3-vy" min="-5" max="5" value="2" step="0.1"> <span id="pi-r3-vy-value">2</span>
+          <label for="pi-r3-vz">\(v_z\):</label> <input type="range" id="pi-r3-vz" min="-5" max="5" value="0" step="0.1"> <span id="pi-r3-vz-value">0</span>
+        </div>
+        <p>Produto interno: <span id="pi-r3-dot-value" class="formula">0</span> | Ângulo: <span id="pi-r3-angle-value" class="formula">90°</span></p>
+      </div>
+    </div>
+    <div class="hint-message">
+      <p>Ajuste os vetores e observe quando o produto interno chega a zero: vetores perpendiculares.</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V4: Treinamento (exemplo clássico, sem solução: o professor resolve em sala) -->
+  <section class="survival-training">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 03 &middot; PRODUTO INTERNO EM R³</div>
+    <h3>Treinamento: Alvo Iluminado</h3>
+    <div class="training-problem">
+      <h4>Problema #VI.3.1: Perpendicularidade de Trajetórias</h4>
+      <p>O holofote aponta na direção \(\vec{h} = (1, 1, 2)\) e o drone passa com velocidade \(\vec{d} = (-2, 0, 1)\). Sabe-se que \(\|\vec{h}\| \approx 2{,}45\) e \(\|\vec{d}\| \approx 2{,}24\).</p>
+      <ol>
+        <li>As trajetórias são perpendiculares? Justifique usando o produto interno.</li>
+        <li>Calcule o ângulo \(\theta\) entre \(\vec{h}\) e \(\vec{d}\).</li>
+      </ol>
+    </div>
+    <div class="problem-context">
+      <p>Um alinhamento errado pode ser o último erro.</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V5: Debriefing -->
+  <section class="debriefing">
+    <div class="slide-header">CAPÍTULO VI &middot; TÓPICO 03 &middot; PRODUTO INTERNO EM R³</div>
+    <h3>Debriefing: Precisão Angular</h3>
+    <div class="summary-box">
+      <p>O produto interno em \(R^3\) mede alinhamento entre direções no espaço: ângulos, ortogonalidade e projeções.</p>
+    </div>
+    <div class="next-mission">
+      <p>Próximo briefing: um único número que decide volumes e interseções. Determinantes 3×3.</p>
+    </div>
+    <div class="instructor-note">
+      <p>"Saber o ângulo certo pode salvar sua vida."</p>
+    </div>
+    <div class="slide-footer">GA-CH6 &middot; R³ &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+</section>

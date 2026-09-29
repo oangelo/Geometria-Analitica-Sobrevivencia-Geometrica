@@ -1,0 +1,67 @@
+<div class="exercise">
+<h3>PROBLEMA ABERTO: MÓDULO E PERPENDICULARIDADE</h3>
+<p>O objetivo deste exercício é sintetizar as propriedades do produto vetorial em um problema que exige múltiplas verificações e interpretações geométricas.</p>
+<p>Dados dois vetores unitários $\vec{u}$ e $\vec{v}$ no $\mathbb{R}^3$ (ou seja, $|\vec{u}| = |\vec{v}| = 1$) com um ângulo de $30°$ entre eles, defina $\vec{w} = \vec{u} \times \vec{v}$.</p>
+<p><strong>(a)</strong> Calcule $|\vec{w}|$ usando a fórmula do módulo do produto vetorial.</p>
+<p><strong>(b)</strong> Sem conhecer as coordenadas específicas de $\vec{u}$ e $\vec{v}$, explique por que $\vec{w}$ é necessariamente perpendicular a $\vec{u}$ e a $\vec{v}$. Cite a propriedade da definição geométrica.</p>
+<p><strong>(c)</strong> Suponha que $\vec{u} = (1, 0, 0)$ e $\vec{v} = \left(\cos 30°, \sin 30°, 0\right) = \left(\frac{\sqrt{3}}{2}, \frac{1}{2}, 0\right)$. Calcule $\vec{w} = \vec{u} \times \vec{v}$ explicitamente e verifique que $|\vec{w}|$ coincide com o resultado do item (a).</p>
+<p><strong>(d)</strong> Se o ângulo entre $\vec{u}$ e $\vec{v}$ fosse $0°$ (vetores paralelos) ou $180°$ (vetores antiparalelos), qual seria $|\vec{w}|$? Interprete geometricamente.</p>
+<p><strong>(e)</strong> Se o ângulo entre $\vec{u}$ e $\vec{v}$ fosse $90°$, qual seria $|\vec{w}|$? O que isso diz sobre a relação entre o produto vetorial e a "ortogonalização" de vetores?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Lembre-se: $|\vec{u} \times \vec{v}| = |\vec{u}||\vec{v}|\sin\theta$. Para vetores unitários, isso se simplifica para $\sin\theta$. No item (c), use $\sin 30° = \frac{1}{2}$. Para o item (d), $\sin 0° = 0$ e $\sin 180° = 0$. Para o item (e), $\sin 90° = 1$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>Item (a):</strong></p>
+<ol class="solution-steps">
+<li>Fórmula do módulo: $|\vec{w}| = |\vec{u} \times \vec{v}| = |\vec{u}||\vec{v}|\sin\theta$</li>
+<li>Dados: $|\vec{u}| = 1$, $|\vec{v}| = 1$, $\theta = 30°$</li>
+<li>$|\vec{w}| = 1 \cdot 1 \cdot \sin 30° = \frac{1}{2}$</li>
+</ol>
+<div class="formula">
+$$|\vec{w}| = \frac{1}{2}$$
+</div>
+
+<p><strong>Item (b):</strong></p>
+<p>Pela <strong>definição geométrica do produto vetorial</strong>, o vetor $\vec{u} \times \vec{v}$ é construído especificamente para ser perpendicular a ambos $\vec{u}$ e $\vec{v}$. Esta é uma das três propriedades definidoras:</p>
+<ul>
+<li>Direção: $\vec{u} \times \vec{v}$ é perpendicular ao plano determinado por $\vec{u}$ e $\vec{v}$.</li>
+<li>Sentido: dado pela regra da mão direita.</li>
+<li>Módulo: $|\vec{u}||\vec{v}|\sin\theta$.</li>
+</ul>
+<p>A perpendicularidade é garantida pela própria definição, independentemente das coordenadas. Isso pode ser verificado algebraicamente: $(\vec{u} \times \vec{v}) \cdot \vec{u} = 0$ e $(\vec{u} \times \vec{v}) \cdot \vec{v} = 0$ para quaisquer vetores $\vec{u}$, $\vec{v}$ — é uma identidade algébrica, não uma coincidência.</p>
+
+<p><strong>Item (c):</strong></p>
+<ol class="solution-steps">
+<li>$\vec{w} = \vec{u} \times \vec{v} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 1 & 0 & 0 \\ \frac{\sqrt{3}}{2} & \frac{1}{2} & 0 \end{vmatrix}$</li>
+<li>Componente $\vec{i}$: $(0)(0) - (0)(\frac{1}{2}) = 0$</li>
+<li>Componente $\vec{j}$: $-[(1)(0) - (0)(\frac{\sqrt{3}}{2})] = 0$</li>
+<li>Componente $\vec{k}$: $(1)(\frac{1}{2}) - (0)(\frac{\sqrt{3}}{2}) = \frac{1}{2}$</li>
+<li>$\vec{w} = (0, 0, \frac{1}{2}) = \frac{1}{2}\vec{k}$</li>
+<li>$|\vec{w}| = \sqrt{0^2 + 0^2 + (\frac{1}{2})^2} = \frac{1}{2}$ ✓</li>
+</ol>
+<div class="formula">
+$$\vec{w} = \frac{1}{2}\vec{k} \quad \text{e} \quad |\vec{w}| = \frac{1}{2}$$
+</div>
+
+<p><strong>Item (d):</strong></p>
+<ul>
+<li>Se $\theta = 0°$: $\sin 0° = 0$, logo $|\vec{w}| = 1 \cdot 1 \cdot 0 = 0$.</li>
+<li>Se $\theta = 180°$: $\sin 180° = 0$, logo $|\vec{w}| = 1 \cdot 1 \cdot 0 = 0$.</li>
+</ul>
+<p>Geometricamente, quando dois vetores são paralelos (ou antiparalelos), eles não definem um plano — estão sobre a mesma reta. O "paralelogramo" formado por eles tem área zero (está degenerado em um segmento de reta), logo o produto vetorial é o vetor nulo. Não há uma direção perpendicular única porque não há um plano único.</p>
+
+<p><strong>Item (e):</strong></p>
+<ul>
+<li>Se $\theta = 90°$: $\sin 90° = 1$, logo $|\vec{w}| = 1 \cdot 1 \cdot 1 = 1$.</li>
+</ul>
+<p>Quando $\vec{u}$ e $\vec{v}$ são ortogonais e unitários, $|\vec{u} \times \vec{v}| = 1$. Isso significa que $\vec{w}$ também é um vetor unitário. Temos três vetores mutuamente perpendiculares, cada um de módulo 1 — eles formam uma <strong>base ortonormal</strong> direita para o $\mathbb{R}^3$. O produto vetorial, nesse caso, está "completando" o sistema: dados dois vetores ortogonais unitários, ele produz o terceiro vetor da base ortonormal. Esta é a essência da "ortogonalização" — o produto vetorial constrói direções perpendiculares de forma sistemática.</p>
+
+<p><strong>Reflexão de Sobrevivência:</strong> Este exercício mostra que o produto vetorial é sensível ao ângulo entre os vetores: máximo quando eles são perpendiculares, zero quando são paralelos. Na prática, isso significa que antenas perpendiculares aos cabos de sustentação são mais estáveis (maior módulo do vetor de reação), enquanto cabos alinhados não geram torção. Entender essa relação ângulo-resultado é essencial para otimizar estruturas na Zona Devastada.</p>
+</details>
+</div>

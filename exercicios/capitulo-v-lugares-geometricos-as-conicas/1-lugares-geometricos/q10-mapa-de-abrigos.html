@@ -1,0 +1,43 @@
+<div class="exercise">
+<h3>MAPA DE ABRIGOS</h3>
+
+<p>Dois abrigos principais da Zona Devastada estão em $A(-2, 1)$ e $B(4, 5)$. Um terceiro local de interesse, um poço de água, está em $P(1, 6)$. O Comando precisa saber: (1) qual é a fronteira equidistante entre os abrigos, e (2) qual abrigo está mais próximo do poço. O objetivo deste exercício é aplicar a mediatriz em um contexto de tomada de decisão logística.</p>
+
+<p><strong>(a)</strong> Desenhe no papel os pontos $A(-2,1)$, $B(4,5)$ e $P(1,6)$. Estime visualmente a posição da fronteira equidistante e de qual lado do poço ela passa.</p>
+
+<p><strong>(b)</strong> Construa a equação da mediatriz de $\overline{AB}$ a partir da definição $d(Q,A) = d(Q,B)$. Escreva-a na forma geral.</p>
+
+<p><strong>(c)</strong> Para determinar qual abrigo está mais próximo do poço, substitua $P(1,6)$ na expressão da mediatriz $ax + by + c$. O sinal do resultado indica de qual lado $P$ está. Compare com os sinais obtidos para $A$ e $B$.</p>
+
+<p><strong>(d)</strong> Calcule as distâncias exatas $d(P,A)$ e $d(P,B)$. Confirme que o abrigo mais próximo é o mesmo indicado pelo teste de lado.</p>
+
+<p><strong>(e)</strong> Um sobrevivente em $Q(0, 4)$ precisa ir ao abrigo mais próximo. Sem calcular distâncias, use apenas a equação da mediatriz para decidir se ele deve ir para $A$ ou para $B$.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>No item (c), se $P$ e $A$ derem o mesmo sinal quando substituídos na expressão $ax + by + c$, então $P$ está do mesmo lado da mediatriz que $A$ — e portanto $P$ está mais próximo de $A$. No item (e), o teste de lado funciona para qualquer ponto, não apenas para $P$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Visualmente: $A$ está à esquerda, $B$ à direita e acima, $P$ está acima de ambos. A mediatriz deve passar entre $A$ e $B$, e o poço parece estar mais próximo de $B$.</li>
+<li>Condição: $\sqrt{(x+2)^2 + (y-1)^2} = \sqrt{(x-4)^2 + (y-5)^2}$.</li>
+<li>Elevando ao quadrado: $(x+2)^2 + (y-1)^2 = (x-4)^2 + (y-5)^2$.</li>
+<li>Expandindo: $x^2 + 4x + 4 + y^2 - 2y + 1 = x^2 - 8x + 16 + y^2 - 10y + 25$.</li>
+<li>Simplificando: $12x + 8y - 36 = 0$, ou $3x + 2y - 9 = 0$.</li>
+<li>Teste de lado para $P(1,6)$: $3(1) + 2(6) - 9 = 3 + 12 - 9 = 6 > 0$.</li>
+<li>Teste de lado para $A(-2,1)$: $3(-2) + 2(1) - 9 = -6 + 2 - 9 = -13 < 0$.</li>
+<li>Teste de lado para $B(4,5)$: $3(4) + 2(5) - 9 = 12 + 10 - 9 = 13 > 0$.</li>
+<li>$P$ e $B$ têm o mesmo sinal (positivo), logo $P$ está do mesmo lado que $B$ — mais próximo de $B$.</li>
+<li>Distâncias: $d(P,A) = \sqrt{(1+2)^2 + (6-1)^2} = \sqrt{9 + 25} = \sqrt{34} \approx 5{,}83$. $d(P,B) = \sqrt{(1-4)^2 + (6-5)^2} = \sqrt{9 + 1} = \sqrt{10} \approx 3{,}16$. Confirmação: $B$ é mais próximo ✓.</li>
+<li>Para $Q(0,4)$: $3(0) + 2(4) - 9 = 8 - 9 = -1 < 0$. Mesmo sinal que $A$ (negativo). Logo $Q$ deve ir para $A$. Verificação: $d(Q,A) = \sqrt{(0+2)^2 + (4-1)^2} = \sqrt{4+9} = \sqrt{13} \approx 3{,}61$. $d(Q,B) = \sqrt{(0-4)^2 + (4-5)^2} = \sqrt{16+1} = \sqrt{17} \approx 4{,}12$. Confirmação: $A$ é mais próximo ✓.</li>
+</ol>
+<div class="formula">
+$$3x + 2y - 9 = 0$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A mediatriz divide o plano em duas regiões: pontos mais próximos de $A$ e pontos mais próximos de $B$. O teste de lado usando a expressão $ax + by + c$ é uma ferramenta computacionalmente eficiente — em vez de calcular duas raízes quadradas para cada ponto, basta avaliar uma expressão linear. Em operações de campo com milhares de pontos, essa economia é decisiva.</p>
+</details>
+</div>

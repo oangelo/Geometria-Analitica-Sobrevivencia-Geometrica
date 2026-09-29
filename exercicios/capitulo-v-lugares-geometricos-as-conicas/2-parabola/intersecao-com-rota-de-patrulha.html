@@ -1,0 +1,32 @@
+<div class="exercise">
+<h3>Interseção de Parábola com Rota de Patrulha</h3>
+<p>O objetivo deste exercício é combinar parábola com reta, resolvendo um sistema de equações. O campo de detecção de uma antena parabólica tem equação $x^2 = 4y$. Uma rota de patrulha retilínea segue a reta $y = x + 1$. Você precisa encontrar os pontos onde a patrulha entra e sai do campo de detecção.</p>
+<p><strong>(a)</strong> Desenhe no papel um esboço: a parábola $x^2 = 4y$ (vértice na origem, abre para cima) e a reta $y = x + 1$ (intercepta o eixo $y$ em $(0,1)$, inclinada para cima). Estime visualmente quantos pontos de interseção existem.</p>
+<p><strong>(b)</strong> Para encontrar os pontos de interseção, substitua $y = x + 1$ na equação da parábola. Resolva a equação resultante para $x$.</p>
+<p><strong>(c)</strong> Para cada valor de $x$ encontrado, calcule o valor correspondente de $y$ usando a equação da reta.</p>
+<p><strong>(d)</strong> Escreva as coordenadas dos pontos de interseção. Verifique substituindo um deles na equação da parábola.</p>
+<p><strong>(e)</strong> Marque os pontos de interseção no seu desenho. A patrulha cruza o campo de detecção em quantos pontos?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>A substituição gera uma equação do segundo grau em $x$. Use a fórmula de Bhaskara ou fatore se possível. Lembre-se: toda equação do segundo grau tem 0, 1 ou 2 soluções reais — isso corresponde geometricamente à reta não intersectar, ser tangente, ou secante à parábola.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Esboço: parábola com vértice em $(0,0)$ abrindo para cima; reta passando por $(0,1)$ e $(-1,0)$. Visualmente, a reta corta a parábola em dois pontos.</li>
+<li>Substituindo: $x^2 = 4(x+1) = 4x + 4$, logo $x^2 - 4x - 4 = 0$.</li>
+<li>Resolvendo por Bhaskara: $x = \frac{4 \pm \sqrt{16 + 16}}{2} = \frac{4 \pm \sqrt{32}}{2} = \frac{4 \pm 4\sqrt{2}}{2} = 2 \pm 2\sqrt{2}$.</li>
+<li>Para $x_1 = 2 + 2\sqrt{2}$: $y_1 = (2 + 2\sqrt{2}) + 1 = 3 + 2\sqrt{2}$. Ponto $P_1(2 + 2\sqrt{2}, 3 + 2\sqrt{2})$.</li>
+<li>Para $x_2 = 2 - 2\sqrt{2}$: $y_2 = (2 - 2\sqrt{2}) + 1 = 3 - 2\sqrt{2}$. Ponto $P_2(2 - 2\sqrt{2}, 3 - 2\sqrt{2})$.</li>
+<li>Verificação de $P_2$: $x_2^2 = (2 - 2\sqrt{2})^2 = 4 - 8\sqrt{2} + 8 = 12 - 8\sqrt{2}$. E $4y_2 = 4(3 - 2\sqrt{2}) = 12 - 8\sqrt{2}$. ✓</li>
+</ol>
+<div class="formula">
+$$P_1(2 + 2\sqrt{2}, 3 + 2\sqrt{2}), \quad P_2(2 - 2\sqrt{2}, 3 - 2\sqrt{2})$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A interseção de curvas é fundamental em navegação e planejamento de rotas. Aqui, a parábola (campo de detecção) e a reta (rota de patrulha) se cruzam em dois pontos — a patrulha entra pelo primeiro ponto e sai pelo segundo.</p>
+</details>
+</div>

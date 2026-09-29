@@ -1,0 +1,49 @@
+<section class="manual-contexto" data-context="manual-sobrevivencia">
+    <div class="terminal-border">
+        <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: ÁREAS E VOLUMES NO R³</h2>
+
+        <h3>1. DA FERRAMENTA À MEDIÇÃO</h3>
+        <p>No Tópico anterior, construímos o produto vetorial e o produto misto. Agora vamos usá-los como ferramentas de medição — áreas de superfícies e volumes de sólidos no espaço.</p>
+        <p>Sobrevivente, na Zona Devastada tridimensional você precisa calcular quanto material cabe num depósito, quanta lona cobre uma estrutura, ou se quatro pontos de ancoragem estão no mesmo plano. As fórmulas já foram construídas; agora aplicamos.</p>
+
+        <h3>2. ÁREA DO PARALELOGRAMO</h3>
+        <p>Dados dois vetores $\vec{u}$ e $\vec{v}$ no $\mathbb{R}^3$, o módulo do produto vetorial mede a área do paralelogramo que eles formam:</p>
+        <div class="formula">
+            $$A_{\text{paralelogramo}} = |\vec{u} \times \vec{v}|$$
+        </div>
+        <p>Isso já foi demonstrado no Tópico 3: pela definição geométrica, $|\vec{u} \times \vec{v}| = |\vec{u}||\vec{v}|\sin\theta$, que é exatamente a fórmula da área de um paralelogramo de lados $|\vec{u}|$ e $|\vec{v}|$ com ângulo $\theta$ entre eles.</p>
+
+        <h3>3. ÁREA DO TRIÂNGULO</h3>
+        <p>Um triângulo definido por dois vetores $\vec{u}$ e $\vec{v}$ (com mesma origem) tem metade da área do paralelogramo correspondente:</p>
+        <div class="formula">
+            $$A_{\text{triângulo}} = \frac{1}{2}|\vec{u} \times \vec{v}|$$
+        </div>
+        <p><strong>Por que metade?</strong> A diagonal do paralelogramo divide-o em dois triângulos congruentes. Portanto, cada triângulo tem área igual à metade da área do paralelogramo. Isso vale em qualquer dimensão — é uma propriedade puramente geométrica, independente de coordenadas.</p>
+
+        <h3>4. VOLUME DO PARALELEPÍPEDO</h3>
+        <p>Dados três vetores $\vec{u}$, $\vec{v}$, $\vec{w}$ no $\mathbb{R}^3$, o valor absoluto do produto misto dá o volume do paralelepípedo que eles formam:</p>
+        <div class="formula">
+            $$V_{\text{paralelepípedo}} = |\vec{u} \cdot (\vec{v} \times \vec{w})|$$
+        </div>
+        <p><strong>Interpretação "base × altura":</strong> O produto vetorial $\vec{v} \times \vec{w}$ tem módulo igual à área da base do paralelepípedo. O produto escalar com $\vec{u}$ projeta $\vec{u}$ na direção perpendicular à base, dando a altura. Logo, $|\vec{u} \cdot (\vec{v} \times \vec{w})| = (\text{área da base}) \times (\text{altura}) = \text{volume}$.</p>
+
+        <h3>5. VOLUME DO TETRAEDRO</h3>
+        <p>Um tetraedro definido por três vetores (com mesma origem) tem um sexto do volume do paralelepípedo correspondente:</p>
+        <div class="formula">
+            $$V_{\text{tetraedro}} = \frac{1}{6}|\vec{u} \cdot (\vec{v} \times \vec{w})|$$
+        </div>
+        <p><strong>Por que um sexto?</strong> Um paralelepípedo pode ser decomposto em 6 tetraedros de mesmo volume. Imagine o paralelepípedo com vértice na origem e arestas $\vec{u}$, $\vec{v}$, $\vec{w}$. A diagonal principal divide o paralelepípedo em duas pirâmides triangulares (tetraedros maiores), e cada uma dessas pode ser subdividida em 3 tetraedros congruentes. Total: 6 tetraedros, cada um com volume $\frac{1}{6}$ do paralelepípedo.</p>
+
+        <h3>6. RESUMO DAS FERRAMENTAS</h3>
+        <div class="formula">
+            $$\begin{aligned}
+            \text{Área do paralelogramo} &= |\vec{u} \times \vec{v}| \\
+            \text{Área do triângulo} &= \tfrac{1}{2}|\vec{u} \times \vec{v}| \\
+            \text{Volume do paralelepípedo} &= |\vec{u} \cdot (\vec{v} \times \vec{w})| \\
+            \text{Volume do tetraedro} &= \tfrac{1}{6}|\vec{u} \cdot (\vec{v} \times \vec{w})|
+            \end{aligned}$$
+        </div>
+
+        <p><strong>Regra de sobrevivência:</strong> O produto vetorial mede superfícies; o produto misto mede volumes. Ambos herdam do Tópico 3 a capacidade de detectar degeneração: módulo zero significa vetores colineares (área zero) ou coplanares (volume zero). Na Zona Devastada, um cálculo de volume zero detecta uma estrutura plana antes que ela seja construída.</p>
+    </div>
+</section>

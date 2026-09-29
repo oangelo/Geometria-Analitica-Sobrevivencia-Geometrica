@@ -1,0 +1,64 @@
+<div class="exercise">
+<h3>Verificação de Ponto na Rota</h3>
+<p><strong>Objetivo:</strong> Desenvolver o critério de pertinência de um ponto a uma reta no R³, verificando consistência nas três coordenadas.</p>
+<p>Uma patrulha aérea segue a rota dada por:</p>
+<div class="formula">
+        $$r: \begin{cases} x = 1 + 2t \\ y = 3 - t \\ z = -2 + 3t \end{cases}$$
+    </div>
+<p>Verifique quais dos seguintes pontos pertencem à rota da patrulha:</p>
+<ol type="a">
+    <li>$P_1(5, 1, 4)$</li>
+    <li>$P_2(-1, 4, -5)$</li>
+    <li>$P_3(3, 2, 1)$</li>
+    <li>$P_4(7, 0, 7)$</li>
+</ol>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+            Para cada ponto, substitua suas coordenadas $(x, y, z)$ nas três equações paramétricas e resolva para $t$. O ponto pertence à reta <strong>se e somente se</strong> os três valores de $t$ forem idênticos. Se algum valor diferir, o ponto está fora da rota.
+        </div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+
+<p><strong>Item (a) — $P_1(5, 1, 4)$:</strong></p>
+<ol class="solution-steps">
+<li>De $x$: $5 = 1 + 2t \Rightarrow t = 2$</li>
+<li>De $y$: $1 = 3 - t \Rightarrow t = 2$</li>
+<li>De $z$: $4 = -2 + 3t \Rightarrow t = 2$</li>
+</ol>
+<p class="success">✓ $t = 2$ em todos — $P_1$ pertence à reta.</p>
+
+<p><strong>Item (b) — $P_2(-1, 4, -5)$:</strong></p>
+<ol class="solution-steps">
+<li>De $x$: $-1 = 1 + 2t \Rightarrow t = -1$</li>
+<li>De $y$: $4 = 3 - t \Rightarrow t = -1$</li>
+<li>De $z$: $-5 = -2 + 3t \Rightarrow 3t = -3 \Rightarrow t = -1$</li>
+</ol>
+<p class="success">✓ $t = -1$ em todos — $P_2$ pertence à reta.</p>
+
+<p><strong>Item (c) — $P_3(3, 2, 1)$:</strong></p>
+<ol class="solution-steps">
+<li>De $x$: $3 = 1 + 2t \Rightarrow t = 1$</li>
+<li>De $y$: $2 = 3 - t \Rightarrow t = 1$</li>
+<li>De $z$: $1 = -2 + 3t \Rightarrow 3t = 3 \Rightarrow t = 1$</li>
+</ol>
+<p class="success">✓ $t = 1$ em todos — $P_3$ pertence à reta.</p>
+
+<p><strong>Item (d) — $P_4(7, 0, 7)$:</strong></p>
+<ol class="solution-steps">
+<li>De $x$: $7 = 1 + 2t \Rightarrow t = 3$</li>
+<li>De $y$: $0 = 3 - t \Rightarrow t = 3$</li>
+<li>De $z$: $7 = -2 + 3t \Rightarrow 3t = 9 \Rightarrow t = 3$</li>
+</ol>
+<p class="success">✓ $t = 3$ em todos — $P_4$ pertence à reta.</p>
+
+<div class="formula">
+            $$P_1, P_2, P_3, P_4 \text{ todos pertencem à reta } r$$
+            $$\text{Parâmetros: } t = 2, -1, 1, 3 \text{ respectivamente}$$
+        </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Todos os quatro pontos pertencem à mesma reta! Isso mostra que uma reta no R³ contém infinitos pontos, e a forma paramétrica nos permite localizar qualquer um deles através do parâmetro $t$. Note que os pontos estão ordenados ao longo da reta: $P_2$ ($t=-1$) → $P_0$ ($t=0$) → $P_3$ ($t=1$) → $P_1$ ($t=2$) → $P_4$ ($t=3$). O parâmetro $t$ funciona como um "cronômetro" ao longo da trajetória.</p>
+</details>
+</div>

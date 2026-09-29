@@ -1,0 +1,42 @@
+<div class="exercise">
+<h3>Dois Pontos Definem uma Rota</h3>
+<p><strong>Objetivo:</strong> Aprender a construir a equação de uma reta quando são dados dois pontos distintos — situação comum ao traçar rotas entre abrigos ou pontos de interesse.</p>
+<p>Dois abrigos subterrâneos estão localizados nos pontos $A(1, 3, -2)$ e $B(4, 1, 3)$. Determine:</p>
+<ol>
+    <li>O vetor diretor $\vec{v}$ da reta que passa por $A$ e $B$.</li>
+    <li>A equação vetorial da reta (usando $A$ como ponto inicial).</li>
+    <li>As equações paramétricas da reta.</li>
+    <li>Verifique se o ponto $P(7, -1, 8)$ pertence à reta.</li>
+</ol>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+            O vetor diretor é obtido subtraindo as coordenadas: $\vec{v} = \vec{AB} = B - A$. Para verificar se um ponto pertence à reta, substitua suas coordenadas nas equações paramétricas e resolva para $t$ — todos os três valores de $t$ devem ser iguais.
+        </div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Calcular o vetor diretor: $\vec{v} = \vec{AB} = B - A = (4-1, 1-3, 3-(-2)) = (3, -2, 5)$.</li>
+<li>Equação vetorial usando $A$ como ponto inicial: $\vec{r} = (1, 3, -2) + t(3, -2, 5)$.</li>
+<li>Equações paramétricas: $x = 1 + 3t$, $y = 3 - 2t$, $z = -2 + 5t$.</li>
+<li>Verificar $P(7, -1, 8)$:
+            <ul>
+                <li>De $x$: $7 = 1 + 3t \Rightarrow t = 2$</li>
+                <li>De $y$: $-1 = 3 - 2t \Rightarrow t = 2$</li>
+                <li>De $z$: $8 = -2 + 5t \Rightarrow t = 2$</li>
+            </ul>
+            Como $t = 2$ em todas as equações, o ponto $P$ pertence à reta.
+        </li>
+</ol>
+<div class="formula">
+            $$\vec{v} = \vec{AB} = (3, -2, 5)$$
+            $$\vec{r} = (1, 3, -2) + t(3, -2, 5), \quad t \in \mathbb{R}$$
+            $$\begin{cases} x = 1 + 3t \\ y = 3 - 2t \\ z = -2 + 5t \end{cases}$$
+            $$P(7, -1, 8) \in r \text{ (para } t = 2\text{)}$$
+        </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Note que poderíamos usar $B$ como ponto inicial e obter uma equação equivalente (com um deslocamento no parâmetro $t$). A escolha do ponto inicial é arbitrária — o que importa é a direção. A verificação de pertinência exige consistência em <em>todas</em> as três coordenadas; se os valores de $t$ diferirem, o ponto não está na reta.</p>
+</details>
+</div>

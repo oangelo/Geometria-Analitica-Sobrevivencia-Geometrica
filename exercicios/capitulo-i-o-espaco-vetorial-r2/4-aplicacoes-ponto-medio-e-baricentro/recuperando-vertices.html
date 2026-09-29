@@ -1,0 +1,24 @@
+<div class="exercise">
+<h3>RECUPERANDO VÉRTICES PERDIDOS</h3>
+<p>Após um ataque ao sistema de dados, as coordenadas dos vértices de um território triangular foram corrompidas. Tudo que resta são os pontos médios dos lados: $M_1(2, 1)$, $M_2(5, 4)$ e $M_3(3, 5)$. O objetivo deste exercício é <strong>recuperar os vértices $A$, $B$, $C$</strong> a partir dos pontos médios — uma aplicação inversa que domina completamente a fórmula. Desenhe os pontos médios e os vértices recuperados.</p>
+<p><strong>(a)</strong> Sejam os vértices $A(x_A, y_A)$, $B(x_B, y_B)$ e $C(x_C, y_C)$. Sabendo que $M_1$ é ponto médio de $AB$, $M_2$ é ponto médio de $BC$ e $M_3$ é ponto médio de $AC$, escreva as seis equações que relacionam os vértices com os pontos médios.</p>
+<p><strong>(b)</strong> Resolva o sistema de seis equações para encontrar $A$, $B$ e $C$. (Dica: some as equações de $M_1$ e $M_3$ e subtraia as de $M_2$ para isolar $A$. Analogamente para $B$ e $C$.)</p>
+<p><strong>(c)</strong> Verifique sua resposta: calcule os pontos médios dos lados do triângulo $ABC$ recuperado e confirme que são $M_1$, $M_2$ e $M_3$. Calcule também o baricentro de $ABC$ e verifique que coincide com o baricentro do triângulo $M_1 M_2 M_3$.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>As seis equações são: $\frac{x_A + x_B}{2} = 2$, $\frac{y_A + y_B}{2} = 1$, $\frac{x_B + x_C}{2} = 5$, $\frac{y_B + y_C}{2} = 4$, $\frac{x_A + x_C}{2} = 3$, $\frac{y_A + y_C}{2} = 5$. Some a 1ª e a 5ª equações (coordenada $x$) e subtraia a 3ª para isolar $x_A$. Repita o padrão para as outras coordenadas.</p>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Equações: $x_A + x_B = 4$, $y_A + y_B = 2$, $x_B + x_C = 10$, $y_B + y_C = 8$, $x_A + x_C = 6$, $y_A + y_C = 10$.</li>
+<li>Para $x_A$: $(x_A + x_B) + (x_A + x_C) - (x_B + x_C) = 4 + 6 - 10 = 0$, logo $2x_A = 0$, $x_A = 0$. Analogamente: $y_A$: $2 + 10 - 8 = 4$, logo $y_A = 2$. $x_B$: $4 + 10 - 6 = 8$, logo $x_B = 4$. $y_B$: $2 + 8 - 10 = 0$, logo $y_B = 0$. $x_C$: $10 + 6 - 4 = 12$, logo $x_C = 6$. $y_C$: $8 + 10 - 2 = 16$, logo $y_C = 8$. Portanto: $A(0, 2)$, $B(4, 0)$, $C(6, 8)$.</li>
+<li>Verificação: $M_1 = \left(\frac{0 + 4}{2}, \frac{2 + 0}{2}\right) = (2, 1)$ ✓. $M_2 = \left(\frac{4 + 6}{2}, \frac{0 + 8}{2}\right) = (5, 4)$ ✓. $M_3 = \left(\frac{0 + 6}{2}, \frac{2 + 8}{2}\right) = (3, 5)$ ✓. Baricentro de $ABC$: $G = \left(\frac{0 + 4 + 6}{3}, \frac{2 + 0 + 8}{3}\right) = \left(\frac{10}{3}, \frac{10}{3}\right)$. Baricentro de $M_1 M_2 M_3$: $G' = \left(\frac{2 + 5 + 3}{3}, \frac{1 + 4 + 5}{3}\right) = \left(\frac{10}{3}, \frac{10}{3}\right)$. Coincidem: $G = G'$ ✓.</li>
+</ol>
+<div class="formula">
+$$A(0, 2), \quad B(4, 0), \quad C(6, 8)$$
+$$G_{ABC} = G_{M_1 M_2 M_3} = \left(\frac{10}{3}, \frac{10}{3}\right)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A recuperação de vértices a partir dos pontos médios é possível porque o sistema de equações tem solução única — seis equações e seis incógnitas. A descoberta final de que os baricentros coincidem revela uma propriedade profunda: o triângulo médio e o triângulo original compartilham o mesmo baricentro. Na Zona Devastada, mesmo com dados parciais, a matemática permite reconstruir a informação completa.</p>
+</details>
+</div>
