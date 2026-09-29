@@ -1,0 +1,172 @@
+<!-- 02-TÓPICO: LUGARES GEOMÉTRICOS (corresponde ao tópico 1 dos exercícios) -->
+<section>
+  <!-- V1: Abertura (motivação + insert narrativo) -->
+  <section class="field-report">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 02 &middot; LUGARES GEOMÉTRICOS</div>
+    <h2>Por Que "Lugares"?</h2>
+    <h3 class="mission-subtitle">A Regra Antes da Figura</h3>
+    <p>Nos capítulos anteriores, conhecíamos a figura (reta, circunferência) e buscávamos sua equação. Agora invertemos: sabemos a <strong>regra</strong> — "fique a 5 km do centro" — e precisamos descobrir que <strong>forma</strong> essa regra cria.</p>
+    <div class="survival-tip">
+      <p>Antes: figura → equação. Agora: condição → figura. Essa inversão é a chave de todo o capítulo.</p>
+    </div>
+    <p class="narrative-insert">Em 12 municípios da região metropolitana do Rio, menos de 5% do esgoto é coletado e tratado. Há linhas que nenhum mapa de serviço desenha.</p>
+    <p class="chapter-meta">Fonte: Mapa da Desigualdade 2023 (Casa Fluminense), dados SES-RJ, 2022</p>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V2: Conceito (a ideia antes da fórmula) -->
+  <section class="mission-briefing">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 02 &middot; LUGARES GEOMÉTRICOS</div>
+    <h2>Lugar Geométrico: A Regra que Cria a Forma</h2>
+    <h3 class="mission-subtitle">Um Filtro Sobre o Plano</h3>
+    <p>Imagine todos os pontos do plano. Aplicamos uma condição — "distância ao centro igual a 5" — e descartamos todos os que não obedecem. O que sobra é o <strong>lugar geométrico</strong>.</p>
+    <p>É um filtro: de infinitos pontos, selecionamos apenas os que satisfazem a mesma condição geométrica.</p>
+    <div class="survival-tip">
+      <p>Identificar a condição é mais importante que memorizar a equação: a equação nasce da condição.</p>
+    </div>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V3: Formalização -->
+  <section class="mission-briefing">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 02 &middot; LUGARES GEOMÉTRICOS</div>
+    <h2>Definição: Lugar Geométrico</h2>
+    <div class="definition-box">
+      <p><strong>Lugar Geométrico (L.G.)</strong> é o conjunto de todos os pontos do plano que satisfazem uma mesma condição geométrica.</p>
+      <p class="formula">\(\text{L.G.} = \{P(x,y) \mid P \text{ satisfaz a condição}\}\)</p>
+      <p><strong>Requisito de mão dupla:</strong></p>
+      <ul>
+        <li>Todo ponto do L.G. satisfaz a condição.</li>
+        <li>Todo ponto que satisfaz a condição pertence ao L.G.</li>
+      </ul>
+    </div>
+    <p>É a mão dupla que permite <strong>verificar</strong> se um ponto pertence à curva: basta testar a condição.</p>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V4: Aplicação — mediatriz -->
+  <section class="field-report level-basic">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 02 &middot; LUGARES GEOMÉTRICOS</div>
+    <h3>Primeiro L.G.: A Mediatriz</h3>
+    <p><strong>Condição:</strong> pontos equidistantes de dois pontos \(A\) e \(B\).</p>
+    <div class="formula-spotlight">
+      <p>\(\{P(x,y) \mid d(P,A) = d(P,B)\}\)</p>
+    </div>
+    <p>Escrevendo as distâncias ao quadrado:</p>
+    <p class="formula">\[(x-x_A)^2 + (y-y_A)^2 = (x-x_B)^2 + (y-y_B)^2\]</p>
+    <p>Expandindo, os termos \(x^2\) e \(y^2\) cancelam. O que sobra é uma <strong>equação do 1º grau</strong> — uma reta.</p>
+    <div class="survival-tip">
+      <p>A mediatriz já era conhecida do Capítulo III. Agora sabemos <strong>por que</strong> ela é uma reta: a condição de equidistância gera uma equação linear.</p>
+    </div>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V5: Aplicação — circunferência -->
+  <section class="field-report level-basic">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 02 &middot; LUGARES GEOMÉTRICOS</div>
+    <h3>A Circunferência Revisitada</h3>
+    <p><strong>Condição:</strong> pontos a uma distância constante \(r\) de um centro \(C(x_0, y_0)\).</p>
+    <p class="formula">\[d(P,C) = r \implies \sqrt{(x-x_0)^2 + (y-y_0)^2} = r\]</p>
+    <p>Elevando ao quadrado:</p>
+    <div class="formula-spotlight">
+      <p>\((x-x_0)^2 + (y-y_0)^2 = r^2\)</p>
+    </div>
+    <p>Não é uma fórmula mágica: é a tradução algébrica da condição "distância constante ao centro".</p>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V6: Método universal -->
+  <section class="field-report level-intermediate">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 02 &middot; LUGARES GEOMÉTRICOS</div>
+    <h3>O Método Universal</h3>
+    <div class="info-panel">
+      <div class="info-screen">
+        <h4>Pipeline de Tradução</h4>
+        <ul>
+          <li><strong>1) TRADUZIR:</strong> converter a condição geométrica em equação algébrica</li>
+          <li><strong>2) MANIPULAR:</strong> simplificar (elevar ao quadrado, expandir, cancelar)</li>
+          <li><strong>3) INTERPRETAR:</strong> identificar a figura e verificar</li>
+        </ul>
+      </div>
+    </div>
+    <p>Atenção: ao elevar ao quadrado, podemos introduzir soluções espúrias — sempre verifique na equação original.</p>
+    <div class="survival-tip">
+      <p>Este pipeline resolve <strong>todas</strong> as cônicas. Cada curva nasce de uma condição diferente, mas o método é sempre o mesmo.</p>
+    </div>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V7: Preview das três cônicas -->
+  <section class="field-report level-intermediate">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 02 &middot; LUGARES GEOMÉTRICOS</div>
+    <h3>Três Condições, Três Curvas</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Condição</th>
+          <th>Curva</th>
+          <th>Elementos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(d(P,F) = d(P,d)\)</td>
+          <td>Parábola</td>
+          <td>1 foco + 1 diretriz</td>
+        </tr>
+        <tr>
+          <td>\(d(P,F_1) + d(P,F_2) = 2a\)</td>
+          <td>Elipse</td>
+          <td>2 focos, curva fechada</td>
+        </tr>
+        <tr>
+          <td>\(|d(P,F_1) - d(P,F_2)| = 2a\)</td>
+          <td>Hipérbole</td>
+          <td>2 focos, 2 ramos</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="mnemonic">
+      <p><strong>PEH:</strong> <strong>P</strong>arábolas Projetam, <strong>E</strong>lipses Economizam, <strong>H</strong>ipérboles Localizam</p>
+    </div>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V8: Treinamento (exemplos sem solução) + fragmento -->
+  <section class="survival-training">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 02 &middot; LUGARES GEOMÉTRICOS</div>
+    <h3>Treinamento: Condição → Equação</h3>
+    <div class="dual-panel">
+      <div class="problem-section">
+        <p><strong>Problema #V.2.1:</strong> Determine a equação da mediatriz do segmento \(AB\), com \(A(1,2)\) e \(B(5,2)\), partindo da condição \(d(P,A) = d(P,B)\).</p>
+        <p><strong>Problema #V.2.2:</strong> Escreva a equação da circunferência de centro \(C(2,-1)\) e raio \(r = 3\), partindo da definição de lugar geométrico.</p>
+        <p><strong>Problema #V.2.3:</strong> Verifique, pela definição, se o ponto \(P(2,3)\) pertence à mediatriz de \(A(1,1)\) e \(B(3,5)\).</p>
+      </div>
+      <div class="v-bar"></div>
+      <div class="narrative-section">
+        <span class="narrative-label">CONTEXTO</span>
+        <p>No Rio de Janeiro, estudantes cujo trajeto mais curto cruza áreas de alto crime levam 48,6% mais tempo até a escola mais próxima. A rota mais curta não é a rota possível.</p>
+        <p class="chapter-meta">Fonte: AOP-Lab/IPEA, <em>Cities</em>, 2025</p>
+      </div>
+    </div>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V9: Debriefing -->
+  <section class="debriefing">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 02 &middot; LUGARES GEOMÉTRICOS</div>
+    <h3>Debriefing: A Regra que Cria a Forma</h3>
+    <div class="summary-box">
+      <ul>
+        <li>L.G. = conjunto de pontos que satisfazem uma condição</li>
+        <li>Pipeline: traduzir → manipular → interpretar</li>
+        <li>Mediatriz e circunferência são L.G. já conhecidos</li>
+        <li>As três cônicas são novos L.G. com condições mais sofisticadas</li>
+      </ul>
+    </div>
+    <div class="next-mission">
+      <p>Próximo briefing: a primeira cônica. Quando a distância a um ponto iguala a distância a uma reta, uma curva aberta surge — a parábola.</p>
+    </div>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+</section>

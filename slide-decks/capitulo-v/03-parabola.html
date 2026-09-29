@@ -1,0 +1,159 @@
+<!-- 03-TÓPICO: PARÁBOLA (corresponde ao tópico 2 dos exercícios) -->
+<section>
+  <!-- V1: Abertura (motivação + insert narrativo) -->
+  <section class="field-report">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 03 &middot; PARÁBOLA</div>
+    <h2>A Parábola: Antenas e Projéteis</h2>
+    <h3 class="mission-subtitle">Um Ponto, Uma Reta, Uma Curva</h3>
+    <p>Toda antena de comunicação tem forma parabólica porque raios paralelos ao eixo refletem para um único ponto: o <strong>foco</strong>. A condição geométrica por trás disso é simples — a distância de qualquer ponto da curva ao foco é igual à distância à diretriz.</p>
+    <div class="survival-tip">
+      <p>Se você precisa concentrar energia (sinal, luz, onda) em um ponto, a parábola é a forma ideal. A natureza matemática garante a eficiência.</p>
+    </div>
+    <p class="narrative-insert">Entre 2007 e 2022, o Rio de Janeiro registrou 19.198 operações policiais. Em 3,3% delas houve chacinas — e essas operações concentraram 40% das mortes.</p>
+    <p class="chapter-meta">Fonte: GENI/UFF, relatório Chacinas Policiais, 2023</p>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V2: Conceito (a ideia antes da fórmula) -->
+  <section class="mission-briefing">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 03 &middot; PARÁBOLA</div>
+    <h2>Definição: A Parábola</h2>
+    <h3 class="mission-subtitle">Equidistância Entre Foco e Diretriz</h3>
+    <p>A parábola é o lugar geométrico dos pontos equidistantes de um ponto fixo \(F\) (foco) e de uma reta fixa \(d\) (diretriz):</p>
+    <div class="definition-box">
+      <p class="formula">\(\text{Parábola} = \{P(x,y) \mid d(P,F) = d(P,d)\}\)</p>
+      <p>O <strong>vértice</strong> \(V\) é o ponto médio entre o foco e a diretriz. O <strong>parâmetro</strong> \(p\) é a distância do vértice ao foco — e também do vértice à diretriz.</p>
+    </div>
+    <p>Não há fórmula pronta ainda: a equação vai <strong>nascer</strong> dessa condição, como no pipeline de lugares geométricos.</p>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V3: Construção da equação — parte 1 -->
+  <section class="mission-briefing">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 03 &middot; PARÁBOLA</div>
+    <h2>Construção da Equação (I)</h2>
+    <h3 class="mission-subtitle">Traduzir a Condição em Distâncias</h3>
+    <p>Posicione o vértice na origem, o foco em \(F(0,p)\) e a diretriz na reta \(y = -p\), com \(p \neq 0\). Para um ponto \(P(x,y)\) qualquer:</p>
+    <div class="formula-spotlight">
+      <p>\(d(P,F) = \sqrt{x^2 + (y-p)^2}\)</p>
+    </div>
+    <p>A distância de \(P\) à diretriz é a distância vertical até a reta \(y = -p\):</p>
+    <div class="formula-spotlight">
+      <p>\(d(P,d) = |y + p|\)</p>
+    </div>
+    <p>A condição \(d(P,F) = d(P,d)\) vira uma equação com raiz — que resolvemos elevando ao quadrado.</p>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V4: Construção da equação — parte 2 -->
+  <section class="mission-briefing">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 03 &middot; PARÁBOLA</div>
+    <h2>Construção da Equação (II)</h2>
+    <h3 class="mission-subtitle">Igualar, Elevar ao Quadrado, Simplificar</h3>
+    <p class="formula">\[\sqrt{x^2 + (y-p)^2} = |y+p| \implies x^2 + (y-p)^2 = (y+p)^2\]</p>
+    <p class="formula">\[x^2 + y^2 - 2py + p^2 = y^2 + 2py + p^2\]</p>
+    <p>Os termos \(y^2\) e \(p^2\) cancelam dos dois lados. Sobra:</p>
+    <div class="formula-spotlight">
+      <p>\(x^2 = 4py\)</p>
+    </div>
+    <p><strong>Equação canônica da parábola</strong> com vértice na origem e eixo vertical. Se \(p > 0\), abre para cima; se \(p < 0\), para baixo.</p>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V5: Visualização — definição em ação -->
+  <section class="simulator">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 03 &middot; PARÁBOLA</div>
+    <h3>Definição em Ação: Foco e Diretriz</h3>
+    <div class="canvas-container">
+      <canvas id="def-parabola-canvas" width="800" height="400"></canvas>
+    </div>
+    <div class="hint-message">
+      <p>O ponto \(P\) percorre a curva. Observe os dois segmentos: \(d(P,F)\) e \(d(P,d)\) permanecem iguais.</p>
+    </div>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V6: Elementos e casos -->
+  <section class="field-report level-basic">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 03 &middot; PARÁBOLA</div>
+    <h3>Elementos e Casos</h3>
+    <p>Da equação \(x^2 = 4py\), <strong>descobrimos</strong> cada elemento sem decorar:</p>
+    <div class="info-panel">
+      <div class="info-screen">
+        <h4>Leitura da Equação</h4>
+        <ul>
+          <li><strong>Foco:</strong> \(F(0,p)\), com \(4p\) igual ao coeficiente de \(y\)</li>
+          <li><strong>Diretriz:</strong> a reta \(y = -p\)</li>
+          <li><strong>Vértice:</strong> a origem \(V(0,0)\)</li>
+          <li><strong>Eixo de simetria:</strong> a reta \(x = 0\), que passa por \(V\) e \(F\)</li>
+        </ul>
+      </div>
+    </div>
+    <p><strong>Caso horizontal:</strong> com foco em \(F(p,0)\) e diretriz \(x = -p\), a mesma construção leva a \(y^2 = 4px\). Se \(p > 0\), abre para a direita.</p>
+    <p><strong>Vértice fora da origem:</strong> trocando \(x \to (x-h)\) e \(y \to (y-k)\), obtemos \((x-h)^2 = 4p(y-k)\).</p>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V7: Treinamento (exemplos sem solução) + fragmento -->
+  <section class="survival-training">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 03 &middot; PARÁBOLA</div>
+    <h3>Treinamento: Construir e Verificar</h3>
+    <div class="dual-panel">
+      <div class="problem-section">
+        <p><strong>Problema #V.3.1:</strong> Construa, a partir de \(d(P,F) = d(P,d)\), a equação da parábola de foco \(F(0,3)\) e diretriz \(y = -3\).</p>
+        <p><strong>Problema #V.3.2:</strong> Identifique foco, diretriz e vértice da parábola \(x^2 = 8y\). Esboce a curva marcando os três elementos.</p>
+        <p><strong>Problema #V.3.3:</strong> Verifique se o ponto \(P(3,6)\) pertence à parábola \(y^2 = 12x\), comparando as distâncias ao foco e à diretriz.</p>
+      </div>
+      <div class="v-bar"></div>
+      <div class="narrative-section">
+        <span class="narrative-label">CONTEXTO</span>
+        <p>No estado do Rio de Janeiro, o tempo médio de deslocamento para parto hospitalar subiu de 76,4 para 96,1 minutos entre 2010 e 2019. A distância até o cuidado também é uma trajetória.</p>
+        <p class="chapter-meta">Fonte: Cadernos de Saúde Pública/Fiocruz, 2024</p>
+      </div>
+    </div>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V8: Simulador -->
+  <section class="simulator">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 03 &middot; PARÁBOLA</div>
+    <h3>Simulador: Parábola Interativa</h3>
+    <div class="canvas-container">
+      <canvas id="parabola-canvas" width="800" height="400"></canvas>
+      <div class="simulator-controls">
+        <div class="control-panel">
+          <label for="a-slider">\(a\):</label>
+          <input type="range" min="-2" max="2" step="0.1" value="1" id="a-slider" />
+          <span id="a-value">1,0</span>
+          <label for="b-slider">\(b\):</label>
+          <input type="range" min="-5" max="5" step="0.5" value="0" id="b-slider" />
+          <span id="b-value">0,0</span>
+          <label for="c-slider">\(c\):</label>
+          <input type="range" min="-5" max="5" step="0.5" value="0" id="c-slider" />
+          <span id="c-value">0,0</span>
+        </div>
+      </div>
+    </div>
+    <div class="hint-message">
+      <p>Ajuste os coeficientes e veja foco, vértice e diretriz mudarem junto com a curva.</p>
+    </div>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V9: Debriefing -->
+  <section class="debriefing">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 03 &middot; PARÁBOLA</div>
+    <h3>Debriefing: A Primeira Cônica</h3>
+    <div class="summary-box">
+      <ul>
+        <li>Parábola = equidistância entre foco e diretriz</li>
+        <li>Canônica: \(x^2 = 4py\) (vertical) ou \(y^2 = 4px\) (horizontal)</li>
+        <li>Propriedade reflexiva: raios paralelos convergem no foco</li>
+      </ul>
+    </div>
+    <div class="next-mission">
+      <p>Próximo briefing: e se houver <strong>dois</strong> focos e a <strong>soma</strong> das distâncias for constante? Uma curva fechada surge — a elipse.</p>
+    </div>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+</section>

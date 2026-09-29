@@ -3,7 +3,6 @@
    width="500"
    height="400"
    viewBox="-125 -100 250 200"
-   style="background-color: #111;"
    version="1.1"
    id="svg9"
    sodipodi:docname="elipse_relacao_abc.svg"
@@ -39,6 +38,7 @@
     .focus-point { fill: #FFD700; }
     .vertex-point { fill: #FFD700; }
     .text-label { fill: #FFFFFF; font-family: 'Courier New', monospace; font-size: 10px; text-anchor: middle; }
+    .text-title { fill: #FFFFFF; font-family: 'Courier New', monospace; font-size: 12px; font-weight: bold; text-anchor: middle; }
     .text-side-label { fill: #4682B4; font-family: 'Courier New', monospace; font-size: 12px; font-weight: bold; text-anchor: middle; }
     .text-formula { fill: #ADFF2F; font-family: 'Courier New', monospace; font-size: 12px; font-weight: bold; text-anchor: middle; }
     .text-bg { fill: rgba(0,0,0,0.6); stroke: #ADFF2F; stroke-width: 0.5px; }
@@ -96,7 +96,7 @@
      x="80"
      y="-7"
      class="text-label"
-     id="text3">F₁</text>
+     id="text3">F1</text>
   <circle
      cx="0"
      cy="-60"
@@ -108,14 +108,14 @@
      x="10"
      y="-65.006256"
      class="text-label"
-     id="text4">B₁</text>
-  <!-- Triângulo Retângulo OF₁B₁ -->
+     id="text4">B1</text>
+  <!-- Triângulo Retângulo OF1B1 -->
   <polygon
      points="0,0 80,0 0,-60"
      class="triangle"
      id="polygon4" />
   <!-- Lados do Triângulo com rótulos -->
-  <!-- Cateto c (OF₁) -->
+  <!-- Cateto c (OF1) -->
   <line
      x1="0"
      y1="0"
@@ -128,7 +128,7 @@
      y="12"
      class="text-side-label"
      id="text5">c</text>
-  <!-- Cateto b (OB₁) -->
+  <!-- Cateto b (OB1) -->
   <line
      x1="0"
      y1="0"
@@ -141,7 +141,7 @@
      y="-30"
      class="text-side-label"
      id="text6">b</text>
-  <!-- Hipotenusa a (F₁B₁) -->
+  <!-- Hipotenusa a (F1B1) -->
   <line
      x1="80"
      y1="0"
@@ -176,7 +176,6 @@
   <text
      x="0"
      y="-85"
-     class="text-label"
-     style="font-size:12px; font-weight:bold;"
+     class="text-title"
      id="text9">Elipse: Relação a,b,c</text>
 </svg>

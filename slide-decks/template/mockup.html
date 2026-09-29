@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catálogo de Templates — Sobrevivência Geométrica</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js@5.1.0/dist/reveal.css" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js@5.1.0/dist/theme/black.css" />
+    <link rel="stylesheet" href="../styles.css" />
+
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['\\(', '\\)']],
+          displayMath: [['\\[', '\\]']]
+        },
+        svg: { fontCache: 'global' }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+    <script src="https://unpkg.com/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js@5.1.0/plugin/math/math.js"></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <!-- ============ CAPA DO CATÁLOGO (A1 em ação) ============ -->
+        <section>
+          <div class="title-screen">
+            <p class="doc-code">DOC. REF: TEMPLATE-CATALOG-v1.0</p>
+            <h1>Sistema de Templates</h1>
+            <h2 class="subtitle">Sobrevivência Geométrica</h2>
+            <canvas id="capa-glyph-canvas" class="cover-glyph" width="560" height="260"></canvas>
+            <p class="subtitle-warning">CONFIDENCIAL: MANUAL DE TREINAMENTO</p>
+            <p class="chapter-meta">Catálogo &middot; Âncoras e Variantes &middot; Issue #45</p>
+          </div>
+        </section>
+
+        <!-- ============ ÂNCORAS ============ -->
+        <section>
+          <section>
+            <div class="slide-header">ÂNCORA A2 · NARRATIVA</div>
+            <div class="slide-body">
+              <h2>Será que o mundo já não acabou?</h2>
+              <div class="dual-panel">
+                <div class="narrative-section">
+                  <span class="narrative-label">RELATÓRIO DE CAMPO</span>
+                  <p>[3-5 frases: o sintoma do "mundo que já acabou" que este capítulo examina. Tom seco, sem fórmulas, sem moralismo.]</p>
+                  <p class="narrative-insert">[Pergunta aberta que o capítulo carrega — sem resposta]</p>
+                </div>
+                <div class="v-bar"></div>
+                <div>
+                  <p class="narrative-text">[Dado/justaposição — todo número com fonte: IBGE, IPEA, ONU, ISP-RJ]</p>
+                  <small>Fonte: [IBGE/IPEA/ONU/ISP-RJ, ano]</small>
+                </div>
+              </div>
+            </div>
+            <div class="slide-footer">TEMPLATE-CATALOG-v1.0 · ÂNCORAS</div>
+          </section>
+
+          <section>
+            <div class="slide-header">ÂNCORA A3 · ABERTURA DE TÓPICO (V1)</div>
+            <div class="slide-body">
+              <h2>[Nome do Tópico]</h2>
+              <p>[Pergunta-problema que motiva o tópico]</p>
+              <p>[Conexão com o tópico anterior — progressão]</p>
+              <p class="narrative-insert">[Insert narrativo: 1-2 frases, tom seco. Obrigatório em todo tópico 02–NN.]</p>
+            </div>
+            <div class="slide-footer">TEMPLATE-CATALOG-v1.0 · ÂNCORAS</div>
+          </section>
+
+          <section>
+            <div class="slide-header">ÂNCORA A4 · RESUMO (2 SLIDES)</div>
+            <div class="slide-body">
+              <h2>Resumo — Fórmulas-Chave</h2>
+              <div class="summary-box">
+                <p class="formula">\[ d(A,B) = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2} \]</p>
+                <p class="formula">\[ \vec{v} = \vec{AB} = (x_B - x_A,\; y_B - y_A) \]</p>
+              </div>
+            </div>
+            <div class="slide-footer">TEMPLATE-CATALOG-v1.0 · ÂNCORAS</div>
+          </section>
+
+          <section>
+            <div class="slide-header">ÂNCORA A4 · RESUMO (CONEXÕES)</div>
+            <div class="slide-body">
+              <h2>Conexões</h2>
+              <p>[Como os tópicos do capítulo se conectam — por conceito, nunca por número de slide]</p>
+              <div class="next-mission">
+                <p>[Ponte com o próximo capítulo]</p>
+              </div>
+            </div>
+            <div class="slide-footer">TEMPLATE-CATALOG-v1.0 · ÂNCORAS</div>
+          </section>
+
+          <section>
+            <div class="slide-header">ÂNCORA A5 · REFLEXÃO</div>
+            <div class="slide-body">
+              <div class="narrative-section">
+                <span class="narrative-label">REFLEXÃO</span>
+                <p>[1 frase de dissonância final — retoma a tese do capítulo]</p>
+                <p class="narrative-insert">[Pergunta aberta sem resposta — o aluno sai com o desconforto]</p>
+              </div>
+            </div>
+            <div class="slide-footer">TEMPLATE-CATALOG-v1.0 · ÂNCORAS</div>
+          </section>
+        </section>
+
+        <!-- ============ V-CONCEITO ============ -->
+        <section>
+          <section>
+            <div class="slide-header">V-CONCEITO · VARIANTE A (TEXTO + ANALOGIA)</div>
+            <div class="slide-body">
+              <h3>[Título do Conceito]</h3>
+              <p>[Explicação intuitiva em 2-3 frases. A ideia ANTES da fórmula.]</p>
+              <p>[Analogia temática: sobrevivência ou cotidiano]</p>
+              <div class="definition-box">
+                <p>[Exemplo intuitivo, ainda sem fórmula geral]</p>
+              </div>
+            </div>
+            <div class="slide-footer">TEMPLATE-CATALOG-v1.0 · CONCEITO</div>
+          </section>
+
+          <section>
+            <div class="slide-header">V-CONCEITO · VARIANTE B (ANALOGIA | DEFINIÇÃO)</div>
+            <div class="slide-body">
+              <h3>[Título do Conceito]</h3>
+              <div class="dual-panel">
+                <div>
+                  <p><strong>Analogia:</strong></p>
+                  <p>[Analogia temática: sobrevivência ou cotidiano]</p>
+                </div>
+                <div class="v-bar"></div>
+                <div>
+                  <p><strong>Definição informal:</strong></p>
+                  <p>[Descrição em palavras do conceito]</p>
+                </div>
+              </div>
+            </div>
+            <div class="slide-footer">TEMPLATE-CATALOG-v1.0 · CONCEITO</div>
+          </section>
+
+          <section>
+            <div class="slide-header">V-CONCEITO · VARIANTE C (3 INTERPRETAÇÕES)</div>
+            <div class="slide-body">
+              <h3>Três Interpretações</h3>
+              <div class="triple-panel">
+                <div>
+                  <p><strong>[Nome 1]</strong></p>
+                  <p>[Descrição curta]</p>
+                </div>
+                <div>
+                  <p><strong>[Nome 2]</strong></p>
+                  <p>[Descrição curta]</p>
+                </div>
+                <div>
+                  <p><strong>[Nome 3]</strong></p>
+                  <p>[Descrição curta]</p>
+                </div>
+              </div>
+            </div>
+            <div class="slide-footer">TEMPLATE-CATALOG-v1.0 · CONCEITO</div>
+          </section>
+        </section>
+
+        <!-- ============ V-FÓRMULA ============ -->
+        <section>
+          <section>
+            <div class="slide-header">V-FÓRMULA · VARIANTE A (SPOTLIGHT + TERMOS)</div>
+            <div class="slide-body">
+              <h3>[Título]</h3>
+              <div class="formula-spotlight">
+                <p>\[ d(A,B) = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2} \]</p>
+              </div>
+              <div class="definition-box">
+                <p><strong>Onde:</strong></p>
+                <ul>
+                  <li>\(A(x_A, y_A)\) e \(B(x_B, y_B)\) = pontos no plano</li>
+                </ul>
+                <p><strong>Validade:</strong> [quando a fórmula se aplica]</p>
+              </div>
+            </div>
+            <div class="slide-footer">TEMPLATE-CATALOG-v1.0 · FÓRMULA</div>
+          </section>
+
+          <section>
+            <div class="slide-header">V-FÓRMULA · VARIANTE B (FÓRMULA | GEOMETRIA)</div>
+            <div class="slide-body">
+              <h3>[Título]</h3>
+              <div class="dual-panel">
+                <div class="definition-box">
+                  <p><strong>Definição:</strong></p>
+                  <p>\[ \vec{v} = (x_B - x_A,\; y_B - y_A) \]</p>
+                  <p><strong>Onde:</strong> [termos]</p>
+                </div>
+                <div class="v-bar"></div>
+                <div>
+                  <p><strong>Geometricamente:</strong></p>
+                  <p>[Interpretação visual]</p>
+                </div>
+              </div>
+            </div>
+            <div class="slide-footer">TEMPLATE-CATALOG-v1.0 · FÓRMULA</div>
+          </section>
+
+          <section>
+            <div class="slide-header">V-FÓRMULA · VARIANTE C (FÓRMULA + PROPRIEDADES)</div>
+            <div class="slide-body">
+              <h3>[Título]</h3>
+              <div class="formula-spotlight">
+                <p>\[ [Fórmula grande] \]</p>
+              </div>
+              <div class="h-bar"></div>
+              <div>
+                <p><strong>Propriedades:</strong></p>
+                <ul>
+                  <li>[Propriedade 1]</li>
+                  <li>[Propriedade 2]</li>
+                </ul>
+              </div>
+            </div>
+            <div class="slide-footer">TEMPLATE-CATALOG-v1.0 · FÓRMULA</div>
+          </section>
+        </section>
+
+        <!-- ============ V-EXEMPLO ============ -->
+        <section>
+          <section>
+            <div class="slide-header">V-EXEMPLO · VARIANTE A (MATEMÁTICA | NARRATIVA)</div>
+            <div class="slide-body">
+              <h3>Exemplo: [Título]</h3>
+              <div class="dual-panel">
+                <div class="problem-section">
+                  <p>[Enunciado matemático — calculável em aula. Sem solução: o professor resolve.]</p>
+                </div>
+                <div class="v-bar"></div>
+                <div class="narrative-section">
+                  <span class="narrative-label">CONTEXTO</span>
+                  <p>[Fragmento: 2-4 frases, tom seco. Justaposição emocional — não precisa ter relação lógica.]</p>
+                </div>
+              </div>
+            </div>
+            <div class="slide-footer">TEMPLATE-CATALOG-v1.0 · EXEMPLO</div>
+          </section>
+
+          <section>
+            <div class="slide-header">V-EXEMPLO · VARIANTE B (NARRATIVA | MATEMÁTICA)</div>
+            <div class="slide-body">
+              <h3>Exemplo: [Título]</h3>
+              <div class="dual-panel">
+                <div class="narrative-section">
+                  <span class="narrative-label">CONTEXTO</span>
+                  <p>[Fragmento vem primeiro quando o contexto motiva o problema.]</p>
+                </div>
+                <div class="v-bar"></div>
+                <div class="problem-section">
+                  <p>[Enunciado matemático — calculável em aula.]</p>
+                </div>
+              </div>
+            </div>
+            <div class="slide-footer">TEMPLATE-CATALOG-v1.0 · EXEMPLO</div>
+          </section>
+
+          <section>
+            <div class="slide-header">V-EXEMPLO · VARIANTE C (EMPILHADO)</div>
+            <div class="slide-body">
+              <h3>Exemplo: [Título]</h3>
+              <div class="problem-section">
+                <p>[Enunciado matemático — mais espaço horizontal para a conta.]</p>
+              </div>
+              <div class="h-bar"></div>
+              <div class="narrative-section">
+                <span class="narrative-label">CONTEXTO</span>
+                <p>[Fragmento: 2-4 frases, tom seco.]</p>
+              </div>
+            </div>
+            <div class="slide-footer">TEMPLATE-CATALOG-v1.0 · EXEMPLO</div>
+          </section>
+
+          <section>
+            <div class="slide-header">V-EXEMPLO · VARIANTE D (MATEMÁTICA PURA)</div>
+            <div class="slide-body">
+              <h3>Exemplo: [Título]</h3>
+              <div class="problem-section">
+                <p>[Enunciado matemático. Sem fragmento — quando já houve narrativa nos exemplos anteriores.]</p>
+              </div>
+            </div>
+            <div class="slide-footer">TEMPLATE-CATALOG-v1.0 · EXEMPLO</div>
+          </section>
+        </section>
+
+        <!-- ============ V-VISUALIZAÇÃO ============ -->
+        <section>
+          <section>
+            <div class="slide-header">V-VISUALIZAÇÃO · VARIANTE A (CANVAS GRANDE + CONTROLES)</div>
+            <div class="slide-body">
+              <h3>Visualização: [Título]</h3>
+              <canvas id="mock-canvas-a" class="visualization-canvas" width="700" height="300"></canvas>
+              <div class="controls-container">
+                <div class="control-slider">
+                  <label>[Label]:</label>
+                  <input type="range" min="0" max="100" value="50" step="1" />
+                </div>
+                <button class="control-button">Reiniciar</button>
+              </div>
+            </div>
+            <div class="slide-footer">TEMPLATE-CATALOG-v1.0 · VISUALIZAÇÃO</div>
+          </section>
+
+          <section>
+            <div class="slide-header">V-VISUALIZAÇÃO · VARIANTE B (CANVAS | EXPLICAÇÃO)</div>
+            <div class="slide-body">
+              <h3>Visualização: [Título]</h3>
+              <div class="dual-panel">
+                <div>
+                  <canvas id="mock-canvas-b" class="visualization-canvas" width="350" height="300"></canvas>
+                </div>
+                <div>
+                  <p>[Explicação do que o canvas mostra]</p>
+                  <p>[Como interpretar]</p>
+                </div>
+              </div>
+            </div>
+            <div class="slide-footer">TEMPLATE-CATALOG-v1.0 · VISUALIZAÇÃO</div>
+          </section>
+
+          <section>
+            <div class="slide-header">V-VISUALIZAÇÃO · VARIANTE C (CANVAS + OVERLAY)</div>
+            <div class="slide-body">
+              <h3>Visualização: [Título]</h3>
+              <div class="canvas-overlay">
+                <canvas id="mock-canvas-c" class="visualization-canvas" width="700" height="300"></canvas>
+                <div class="formula">
+                  <p>\( \vec{v} = (3, 2) \)</p>
+                </div>
+              </div>
+            </div>
+            <div class="slide-footer">TEMPLATE-CATALOG-v1.0 · VISUALIZAÇÃO</div>
+          </section>
+        </section>
+
+      </div>
+    </div>
+
+    <script>
+      /* Glifo da capa (espelha template/ancoras/a1-capa.html) */
+      (function () {
+        var canvasId = 'capa-glyph-canvas';
+        var rafId = null;
+
+        function init() {
+          var canvas = document.getElementById(canvasId);
+          if (!canvas) return;
+          var ctx = canvas.getContext('2d');
+          var W = canvas.width, H = canvas.height;
+          var ox = W / 2, oy = H / 2;
+          var R = Math.min(W, H) * 0.36;
+          var t = 0;
+
+          function frame() {
+            t += 0.008;
+            ctx.fillStyle = '#0c0c0c';
+            ctx.fillRect(0, 0, W, H);
+            ctx.strokeStyle = 'rgba(76, 175, 80, 0.15)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            for (var x = ox % 40; x < W; x += 40) { ctx.moveTo(x, 0); ctx.lineTo(x, H); }
+            for (var y = oy % 40; y < H; y += 40) { ctx.moveTo(0, y); ctx.lineTo(W, y); }
+            ctx.stroke();
+            ctx.strokeStyle = 'rgba(173, 255, 47, 0.4)';
+            ctx.beginPath();
+            ctx.moveTo(0, oy); ctx.lineTo(W, oy);
+            ctx.moveTo(ox, 0); ctx.lineTo(ox, H);
+            ctx.stroke();
+            ctx.strokeStyle = 'rgba(173, 255, 47, 0.25)';
+            ctx.setLineDash([4, 6]);
+            ctx.beginPath();
+            ctx.arc(ox, oy, R, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            var px = ox + R * Math.cos(t);
+            var py = oy - R * Math.sin(t);
+            ctx.strokeStyle = '#ADFF2F';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(ox, oy);
+            ctx.lineTo(px, py);
+            ctx.stroke();
+            var a = Math.atan2(oy - py, px - ox);
+            ctx.fillStyle = '#ADFF2F';
+            ctx.beginPath();
+            ctx.moveTo(px, py);
+            ctx.lineTo(px - 10 * Math.cos(a - 0.4), py + 10 * Math.sin(a - 0.4));
+            ctx.lineTo(px - 10 * Math.cos(a + 0.4), py + 10 * Math.sin(a + 0.4));
+            ctx.closePath();
+            ctx.fill();
+            ctx.fillStyle = '#FFD700';
+            ctx.beginPath(); ctx.arc(ox, oy, 4, 0, Math.PI * 2); ctx.fill();
+            ctx.beginPath(); ctx.arc(px, py, 4, 0, Math.PI * 2); ctx.fill();
+            rafId = requestAnimationFrame(frame);
+          }
+          rafId = requestAnimationFrame(frame);
+        }
+
+        function cleanup() {
+          if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+        }
+
+        window.vizCapa = { init: init, cleanup: cleanup };
+        init();
+      })();
+
+      (function () {
+        function drawMock(canvasId) {
+          var canvas = document.getElementById(canvasId);
+          if (!canvas) return;
+          var ctx = canvas.getContext('2d');
+          var W = canvas.width, H = canvas.height;
+          var ox = W / 2, oy = H / 2;
+          ctx.fillStyle = '#0c0c0c';
+          ctx.fillRect(0, 0, W, H);
+          ctx.strokeStyle = 'rgba(76, 175, 80, 0.15)';
+          ctx.beginPath();
+          for (var x = ox % 50; x < W; x += 50) { ctx.moveTo(x, 0); ctx.lineTo(x, H); }
+          for (var y = oy % 50; y < H; y += 50) { ctx.moveTo(0, y); ctx.lineTo(W, y); }
+          ctx.stroke();
+          ctx.strokeStyle = 'rgba(76, 175, 80, 0.5)';
+          ctx.beginPath();
+          ctx.moveTo(ox, oy); ctx.lineTo(ox + 100, oy - 60);
+          ctx.stroke();
+          ctx.fillStyle = '#ffeb3b';
+          ctx.beginPath();
+          ctx.arc(ox + 100, oy - 60, 4, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ['mock-canvas-a', 'mock-canvas-b', 'mock-canvas-c'].forEach(drawMock);
+      })();
+
+      Reveal.initialize({
+        width: 1366,
+        height: 768,
+        margin: 0.04,
+        minScale: 0.2,
+        maxScale: 2.0,
+        center: true,
+        hash: true,
+        slideNumber: true,
+        plugins: [RevealMath]
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>[TÍTULO] - Geometria Analítica: Sobrevivência Geométrica</title>
+
+    <!-- Reveal.js (CDN) -->
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js@5.1.0/dist/reveal.css" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js@5.1.0/dist/theme/black.css" />
+
+    <!-- ÚNICA fonte de CSS do curso — zero estilo inline permitido -->
+    <link rel="stylesheet" href="../styles.css" />
+
+    <!-- MathJax: barras duplas aqui são JavaScript (exceção permitida, AGENTS.md §1.2) -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['\\(', '\\)']],
+          displayMath: [['\\[', '\\]']]
+        },
+        svg: { fontCache: 'global' }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+    <script src="https://unpkg.com/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+    <script src="https://unpkg.com/reveal.js@5.1.0/plugin/math/math.js"></script>
+    <script src="https://unpkg.com/reveal.js@5.1.0/plugin/zoom/zoom.js"></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides" id="slides-container"></div>
+    </div>
+
+    <script>
+      /* Loader genérico — editar apenas: <title> e o array SECTIONS.
+         As seções são fragmentos <section> diretos no body (template/ancoras/ e template/variaveis/).
+         A ordem do array define a navegação horizontal. */
+      async function loadSlides() {
+        var SECTIONS = [
+          '00-capa.html',
+          '01-narrativa.html',
+          '02-topico-1.html',
+          /* ... adicionar tópicos na ordem das listas de exercícios ... */
+          'NN-resumo.html',
+          'NN-reflexao.html'
+        ];
+
+        var container = document.getElementById('slides-container');
+
+        for (var i = 0; i < SECTIONS.length; i++) {
+          var file = SECTIONS[i];
+          try {
+            var response = await fetch(file);
+            if (!response.ok) throw new Error('Falha ao carregar ' + file);
+
+            var html = await response.text();
+            var doc = new DOMParser().parseFromString(html, 'text/html');
+
+            // Fragmento: <section> direto no body (sem wrapper .slides) — decisão #45
+            doc.querySelectorAll('body > section').forEach(function (section) {
+              container.appendChild(document.adoptNode(section));
+            });
+
+            // Scripts inline da seção (IIFE das visualizações) são re-executados
+            doc.querySelectorAll('script:not([src])').forEach(function (old) {
+              if (!old.textContent.trim()) return;
+              var script = document.createElement('script');
+              script.textContent = old.textContent;
+              document.body.appendChild(script);
+            });
+          } catch (error) {
+            console.error(error);
+          }
+        }
+
+        Reveal.initialize({
+          width: 1366,
+          height: 768,
+          margin: 0.02,
+          minScale: 0.2,
+          maxScale: 2.0,
+          center: true,
+          hash: true,
+          slideNumber: true,
+          plugins: [RevealNotes, RevealHighlight, RevealMath, RevealZoom]
+        });
+
+        // MathJax: garante renderização após as seções estarem no DOM
+        if (window.MathJax) {
+          MathJax.startup.promise.then(function () {
+            return MathJax.typesetPromise();
+          });
+        }
+      }
+
+      window.addEventListener('load', loadSlides);
+    </script>
+  </body>
+</html>

@@ -3,7 +3,6 @@
    width="600"
    height="400"
    viewBox="-150 -100 300 200"
-   style="background-color: #111;"
    version="1.1"
    id="svg13"
    sodipodi:docname="elipse_anatomia.svg"
@@ -58,13 +57,6 @@
          id="path1" />
     </marker>
   </defs>
-  <!-- Valores para a elipse -->
-  <script
-     id="script1">
-    const a = 100; // Semi-eixo maior
-    const b = 60;  // Semi-eixo menor
-    const c = Math.sqrt(a*a - b*b); // Distância focal
-  </script>
   <!-- Elipse -->
   <ellipse
      cx="0"
