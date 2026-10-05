@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>PLANEJAMENTO DE ROTA DE EVACUAÇÃO</h3>
+
+<p>O Refúgio-7 está em $A(1, 1)$ e o Refúgio-22 em $B(7, 5)$. O SUPERVISOR ordenou que você trace a rota de evacuação entre eles, determine se o ponto de encontro de emergência $E(4, 3)$ está sobre essa rota e verifique se o ponto $F(10, 7)$ também está alinhado — ele poderia ser um ponto de extensão da rota para um terceiro refúgio. No papel, esboce todos os pontos e a reta. Escreva a equação paramétrica, a geral e a reduzida da rota. Finalmente, calcule onde a rota cruza o eixo $x$ — esse intercepto pode ser um ponto de passagem obrigatória por uma ponte sobre um rio.</p>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Vetor diretor: $\overrightarrow{AB} = B - A = (7-1, 5-1) = (6, 4)$, que simplifica para $(3, 2)$.</li>
+<li><strong>Equação paramétrica:</strong> usando $A(1, 1)$: $x = 1 + 3t$, $y = 1 + 2t$.</li>
+<li><strong>Equação geral:</strong> $t = \frac{x-1}{3}$, então $y = 1 + 2 \cdot \frac{x-1}{3} = \frac{3 + 2x - 2}{3} = \frac{2x+1}{3}$.
+   Multiplicando: $3y = 2x + 1$, ou $2x - 3y + 1 = 0$.</li>
+<li><strong>Equação reduzida:</strong> $y = \frac{2}{3}x + \frac{1}{3}$. Coeficiente angular $m = \frac{2}{3}$, coeficiente linear $n = \frac{1}{3}$.</li>
+<li>Verificação de $E(4, 3)$: $2(4) - 3(3) + 1 = 8 - 9 + 1 = 0$ ✓. O ponto pertence à reta.
+   Alternativamente, na paramétrica: $4 = 1 + 3t \Rightarrow t = 1$, e $y = 1 + 2(1) = 3$ ✓.</li>
+<li>Verificação de $F(10, 7)$: $2(10) - 3(7) + 1 = 20 - 21 + 1 = 0$ ✓. O ponto também pertence à reta, com $t = 3$.</li>
+<li>Intercepto no eixo $x$: faça $y = 0$ na equação geral: $2x + 1 = 0 \Rightarrow x = -\frac{1}{2}$.
+   A rota cruza o eixo $x$ em $(-\frac{1}{2}, 0)$.</li>
+</ol>
+<div class="formula">
+$$x = 1 + 3t, \quad y = 1 + 2t$$
+$$2x - 3y + 1 = 0$$
+$$y = \frac{2}{3}x + \frac{1}{3}$$
+$$E(4,3) \in r, \quad F(10,7) \in r, \quad \text{intercepto } x: \left(-\frac{1}{2}, 0\right)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Este exercício integra tudo: construção de vetor diretor, três formas da equação, verificação de pertinência e interpretação geométrica de interceptos. Na Zona Devastada, uma rota de evacuação não é apenas uma linha no mapa — é uma promessa de que, seguindo essa equação, cada ponto intermediário foi verificado, cada extensão foi confirmada e cada obstáculo (como o rio no eixo $x$) foi antecipado. A matemática não garante segurança, mas elimina surpresas.</p>
+</details>
+</div>

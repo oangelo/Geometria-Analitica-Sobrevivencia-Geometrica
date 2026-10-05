@@ -1,0 +1,72 @@
+            <svg
+              width="350"
+              height="200"
+              viewBox="0 0 350 200"
+              style="margin: 10px auto; display: block"
+              version="1.1"
+              id="svg4"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!-- Corrigido: Semicírculo para o ângulo θ -->
+              <g
+                id="g5"
+                transform="matrix(1.6503759,0,0,1.6503759,-43.657159,-77.353127)"
+              >
+                <polygon
+                  points="50,150 200,150 200,50 "
+                  fill="none"
+                  stroke="#ADFF2F"
+                  stroke-width="3"
+                  id="polygon1"
+                />
+                <g id="g4">
+                  <text
+                    x="95.434784"
+                    y="163.91304"
+                    fill="#ffd700"
+                    font-size="12px"
+                    id="text1"
+                   font-family="monospace">
+                    Adjacente (x)
+                  </text>
+                  <text
+                    x="74.402725"
+                    y="-206.49954"
+                    fill="#ffd700"
+                    font-size="12px"
+                    id="text2"
+                    transform="rotate(88.57281)"
+                   font-family="monospace">
+                    Oposto (y)
+                  </text>
+                  <text
+                    x="5.6984224"
+                    y="140.30913"
+                    fill="#ffd700"
+                    font-size="12px"
+                    id="text3"
+                    transform="rotate(-34.30849)"
+                   font-family="monospace">
+                    Hipotenusa (r)
+                  </text>
+                  <path
+                    d="m 72.861994,134.20759 a 15,15 0 0 1 8.548075,14.6605"
+                    fill="none"
+                    stroke="#ffd700"
+                    stroke-width="1.5"
+                    id="path3"
+                    inkscape:transform-center-x="9.0815115"
+                    inkscape:transform-center-y="2.2941955"
+                  />
+                  <text
+                    x="90"
+                    y="143.76811"
+                    fill="#ffd700"
+                    font-size="12px"
+                    id="text4"
+                   font-family="monospace">
+                    θ
+                  </text>
+                </g>
+              </g>
+            </svg>

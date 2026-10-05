@@ -1,0 +1,38 @@
+<div class="exercise">
+<h3>DOMO DE ABRIGO: ESFERA COM CENTRO NO SOLO</h3>
+<p>O objetivo deste exercício é modelar um domo de abrigo como uma superfície esférica com centro no plano do solo ($z = 0$), calculando dimensões práticas como altura máxima e área da base. Este problema conecta a geometria esférica com aplicações de engenharia de abrigos.</p>
+<p>Um domo de abrigo subterrâneo é construído como uma semiesfera (metade inferior de uma esfera) com centro no solo em $C(5, 3, 0)$ e raio $R = 8$ metros. O solo corresponde ao plano $z = 0$.</p>
+<p><strong>(a)</strong> Escreva a equação da superfície esférica completa.</p>
+<p><strong>(b)</strong> Qual é a altura máxima do domo (ponto mais baixo da semiesfera inferior)?</p>
+<p><strong>(c)</strong> Determine o raio do círculo de interseção do domo com o solo (plano $z = 0$).</p>
+<p><strong>(d)</strong> Calcule a área do círculo de base no solo.</p>
+<p><strong>(e)</strong> Um pilar de sustentação deve ser instalado no ponto mais profundo do domo. Quais são as coordenadas desse ponto?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Como o centro está no plano $z = 0$ e a semiesfera é a metade inferior, o domo estende-se de $z = 0$ (solo) até $z = -R$ (ponto mais profundo). O círculo de interseção com o solo tem centro em $C$ e raio igual ao raio da esfera (pois o plano passa pelo centro). A área de um círculo de raio $\rho$ é $\pi \rho^2$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Centro: $C = (5, 3, 0)$; raio: $R = 8$</li>
+<li><strong>Item (a)</strong> — Equação: $(x-5)^2 + (y-3)^2 + z^2 = 64$</li>
+<li><strong>Item (b)</strong> — A semiesfera inferior vai de $z = 0$ até $z = -8$</li>
+<li>Altura máxima (profundidade): $h = 8$ metros</li>
+<li><strong>Item (c)</strong> — Interseção com $z = 0$: $(x-5)^2 + (y-3)^2 = 64$</li>
+<li>O plano $z = 0$ passa pelo centro, logo o círculo tem raio $\rho = R = 8$</li>
+<li><strong>Item (d)</strong> — Área da base: $A = \pi \rho^2 = 64\pi \approx 201{,}06$ m²</li>
+<li><strong>Item (e)</strong> — O ponto mais profundo está na vertical do centro, $R$ unidades abaixo:</li>
+<li>$P_{\min} = (5, 3, -8)$</li>
+</ol>
+<div class="formula">
+$$(x-5)^2 + (y-3)^2 + z^2 = 64$$
+$$h = 8 \text{ m}, \quad \rho = 8 \text{ m}, \quad A = 64\pi \approx 201{,}06 \text{ m}^2$$
+$$P_{\min} = (5, 3, -8)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O domo tem $8$ metros de profundidade máxima e uma base circular de $64\pi \approx 201$ m² no solo — espaço suficiente para abrigar equipamentos e pessoal. O pilar de sustentação em $(5, 3, -8)$ marca o ponto mais profundo, onde a pressão do solo é máxima. Notavelmente, como o centro está no solo, o círculo de base tem o mesmo raio da esfera; se o domo fosse uma calota (centro acima do solo), a base seria menor.</p>
+</details>
+</div>

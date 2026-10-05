@@ -1,0 +1,59 @@
+<div class="exercise">
+<h3>VOLUME DO PARALELEPÍPEDO</h3>
+<p>O objetivo deste exercício é aplicar o produto misto para calcular o volume de um paralelepípedo definido por três vetores no espaço.</p>
+<p>Três vetores definem as arestas de um depósito subterrâneo a partir de um canto: $\vec{u} = (1, 2, 1)$, $\vec{v} = (3, 0, 2)$ e $\vec{w} = (2, 1, -1)$.</p>
+<p><strong>(a)</strong> Calcule $\vec{v} \times \vec{w}$.</p>
+<p><strong>(b)</strong> Calcule o produto misto $[\vec{u}, \vec{v}, \vec{w}] = \vec{u} \cdot (\vec{v} \times \vec{w})$.</p>
+<p><strong>(c)</strong> Qual o volume do paralelepípedo formado pelos três vetores?</p>
+<p><strong>(d)</strong> Verifique, usando o produto misto como determinante 3×3 diretamente, que obtém o mesmo resultado do item (b).</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>O produto misto pode ser calculado de duas formas: (1) calcular $\vec{v} \times \vec{w}$ primeiro, depois fazer o produto escalar com $\vec{u}$; ou (2) calcular o determinante 3×3 diretamente com as coordenadas dos três vetores. O valor absoluto do produto misto é o volume do paralelepípedo.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>Item (a):</strong></p>
+<ol class="solution-steps">
+<li>$\vec{v} \times \vec{w} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 3 & 0 & 2 \\ 2 & 1 & -1 \end{vmatrix}$</li>
+<li>Componente $\vec{i}$: $(0)(-1) - (2)(1) = 0 - 2 = -2$</li>
+<li>Componente $\vec{j}$: $-[(3)(-1) - (2)(2)] = -[-3 - 4] = -(-7) = 7$</li>
+<li>Componente $\vec{k}$: $(3)(1) - (0)(2) = 3 - 0 = 3$</li>
+</ol>
+<div class="formula">
+$$\vec{v} \times \vec{w} = (-2, 7, 3)$$
+</div>
+
+<p><strong>Item (b):</strong></p>
+<ol class="solution-steps">
+<li>$[\vec{u}, \vec{v}, \vec{w}] = \vec{u} \cdot (\vec{v} \times \vec{w}) = (1, 2, 1) \cdot (-2, 7, 3)$</li>
+<li>$= (1)(-2) + (2)(7) + (1)(3) = -2 + 14 + 3 = 15$</li>
+</ol>
+<div class="formula">
+$$[\vec{u}, \vec{v}, \vec{w}] = 15$$
+</div>
+
+<p><strong>Item (c):</strong></p>
+<ol class="solution-steps">
+<li>Volume do paralelepípedo: $|[\vec{u}, \vec{v}, \vec{w}]| = |15| = 15$ unidades cúbicas</li>
+</ol>
+<div class="formula">
+$$V_{\text{paralelepípedo}} = 15$$
+</div>
+
+<p><strong>Item (d):</strong></p>
+<ol class="solution-steps">
+<li>$[\vec{u}, \vec{v}, \vec{w}] = \begin{vmatrix} 1 & 2 & 1 \\ 3 & 0 & 2 \\ 2 & 1 & -1 \end{vmatrix}$</li>
+<li>Expansão por Laplace (primeira linha): $1 \cdot \begin{vmatrix} 0 & 2 \\ 1 & -1 \end{vmatrix} - 2 \cdot \begin{vmatrix} 3 & 2 \\ 2 & -1 \end{vmatrix} + 1 \cdot \begin{vmatrix} 3 & 0 \\ 2 & 1 \end{vmatrix}$</li>
+<li>$= 1[(0)(-1) - (2)(1)] - 2[(3)(-1) - (2)(2)] + 1[(3)(1) - (0)(2)]$</li>
+<li>$= 1(0 - 2) - 2(-3 - 4) + 1(3 - 0)$</li>
+<li>$= -2 - 2(-7) + 3 = -2 + 14 + 3 = 15$</li>
+</ol>
+<p>O resultado coincide: $[\vec{u}, \vec{v}, \vec{w}] = 15$.</p>
+
+<p><strong>Reflexão de Sobrevivência:</strong> O produto misto é uma ferramenta dupla: seu valor absoluto mede capacidade de armazenamento (volume), e seu sinal indica orientação. Se o produto misto fosse zero, os três vetores estariam no mesmo plano — o depósito teria altura zero e capacidade nula. Na Zona Devastada, isso detectaria uma falha estrutural antes que ela se tornasse catastrófica.</p>
+</details>
+</div>

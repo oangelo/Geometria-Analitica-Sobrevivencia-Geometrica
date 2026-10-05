@@ -1,0 +1,25 @@
+<div class="exercise">
+<h3>O CAMINHO LONGO</h3>
+<p>No exercício anterior, os vetores eram ortogonais e a área era direta: base × altura. Mas e quando os vetores <strong>não são ortogonais</strong>? Uma zona de plantação foi mapeada a partir do ponto $A(0, 0)$, com postos nos pontos $B(4, 0)$ e $C(3, 2)$. Os vetores $\overrightarrow{AB} = (4, 0)$ e $\overrightarrow{AC} = (3, 2)$ definem a área cultivável. Calcule a área do paralelogramo e do triângulo $ABC$ pelo método da base × altura: primeiro encontre o ângulo $\theta$ entre os vetores (usando a fórmula do cosseno do Tópico 5), depois calcule a altura $h = |\overrightarrow{AC}|\sin\theta$, e finalmente a área.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint"><p>Use a fórmula do ângulo: $\cos\theta = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}||\vec{v}|}$. Depois, obtenha $\sin\theta$ a partir de $\sin^2\theta + \cos^2\theta = 1$. A altura em relação à base $\overrightarrow{AB}$ é $h = |\overrightarrow{AC}|\sin\theta$.</p></div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Identificamos os vetores: $\vec{u} = \overrightarrow{AB} = (4, 0)$ e $\vec{v} = \overrightarrow{AC} = (3, 2)$</li>
+<li>Calculamos o produto escalar: $\vec{u} \cdot \vec{v} = 4 \cdot 3 + 0 \cdot 2 = 12$</li>
+<li>Calculamos os módulos: $|\vec{u}| = \sqrt{16 + 0} = 4$ e $|\vec{v}| = \sqrt{9 + 4} = \sqrt{13}$</li>
+<li>Calculamos $\cos\theta$: $\cos\theta = \frac{12}{4\sqrt{13}} = \frac{3}{\sqrt{13}}$</li>
+<li>Calculamos $\sin\theta$: $\sin^2\theta = 1 - \frac{9}{13} = \frac{4}{13}$, logo $\sin\theta = \frac{2}{\sqrt{13}}$</li>
+<li>Calculamos a altura: $h = |\vec{v}|\sin\theta = \sqrt{13} \cdot \frac{2}{\sqrt{13}} = 2$</li>
+<li>Área do paralelogramo = base × altura = $4 \cdot 2 = 8$ unidades quadradas</li>
+<li>Área do triângulo $ABC$ = $\frac{8}{2} = 4$ unidades quadradas</li>
+</ol>
+<div class="formula">$$\cos\theta = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}||\vec{v}|} = \frac{12}{4\sqrt{13}} = \frac{3}{\sqrt{13}}$$
+$$\sin\theta = \frac{2}{\sqrt{13}}, \quad h = |\vec{v}|\sin\theta = \sqrt{13} \cdot \frac{2}{\sqrt{13}} = 2$$
+$$\text{Área}_{par.} = 4 \cdot 2 = 8, \quad \text{Área}_{tri.} = 4$$</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Funciona, mas foram necessários 8 passos: produto escalar, dois módulos, cosseno, seno, altura, área do paralelogramo e área do triângulo. E se as coordenadas fossem menos amigáveis? Existe um caminho mais curto...</p>
+</details>
+</div>

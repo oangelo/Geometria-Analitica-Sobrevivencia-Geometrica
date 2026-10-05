@@ -1,0 +1,37 @@
+                <svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180">
+                  <rect
+                    x="10"
+                    y="10"
+                    width="160"
+                    height="160"
+                    fill="none"
+                    stroke="#ADFF2F"
+                    stroke-width="3"
+                  />
+                  <!-- a² -->
+                  <rect
+                    x="10"
+                    y="10"
+                    width="160"
+                    height="160"
+                    fill="none"
+                    stroke="#ADFF2F"
+                    stroke-width="3"
+                  />
+                  <!-- b² -->
+                  <rect
+                    x="50"
+                    y="50"
+                    width="80"
+                    height="80"
+                    fill="rgba(255, 0, 0, 0.2)"
+                    stroke="#ff3333"
+                    stroke-width="3"
+                  />
+                  <!-- Rótulos -->
+                  <text x="30" y="30" fill="#ADFF2F" font-size="16" font-family="monospace">a²</text>
+                  <text x="90" y="90" fill="#ff3333" font-size="16" font-family="monospace">b²</text>
+                  <text x="90" y="160" fill="#FFD700" font-size="12" font-family="monospace">
+                    a² - b² = área em verde
+                  </text>
+                </svg>

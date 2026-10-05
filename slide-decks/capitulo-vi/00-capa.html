@@ -1,0 +1,113 @@
+<!-- 00-CAPA — Capítulo VI (âncora a1-capa; glifo: eixo z subindo do plano, R²→R³) -->
+<section>
+  <div class="title-screen">
+    <p class="doc-code">DOC. REF: GA-CH6-2026</p>
+    <h1>Geometria Analítica no Espaço</h1>
+    <h2 class="subtitle">Sobrevivência Geométrica</h2>
+    <canvas id="capa-eixo-z-canvas" class="cover-glyph" width="560" height="260"></canvas>
+    <p class="subtitle-warning">CONFIDENCIAL: MANUAL DE TREINAMENTO</p>
+    <p class="chapter-meta">Capítulo VI &middot; Da Planície à Conquista Vertical</p>
+  </div>
+</section>
+
+<script>
+(function () {
+  var canvasId = 'capa-eixo-z-canvas';
+  var rafId = null;
+
+  function init() {
+    var canvas = document.getElementById(canvasId);
+    if (!canvas || canvas.dataset.initialized) return;
+    canvas.dataset.initialized = 'true';
+    var ctx = canvas.getContext('2d');
+    var W = canvas.width, H = canvas.height;
+    var cx = W * 0.44;
+    var gy = H * 0.80;
+    var s = W / 17;
+    var t = 0;
+
+    function proj(x, y, z) {
+      return {
+        x: cx + s * (x + 0.45 * y),
+        y: gy - s * (0.45 * y + z)
+      };
+    }
+
+    function frame() {
+      t += 0.012;
+      ctx.fillStyle = '#0c0c0c';
+      ctx.fillRect(0, 0, W, H);
+
+      // Grade do plano (z = 0) — pulso sutil de opacidade
+      var gridAlpha = 0.20 + 0.06 * Math.sin(t * 0.8);
+      ctx.strokeStyle = 'rgba(76, 175, 80, ' + gridAlpha.toFixed(3) + ')';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      for (var i = -6; i <= 6; i++) {
+        var a = proj(i, -6, 0), b = proj(i, 6, 0);
+        ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+        var c = proj(-6, i, 0), d = proj(6, i, 0);
+        ctx.moveTo(c.x, c.y); ctx.lineTo(d.x, d.y);
+      }
+      ctx.stroke();
+
+      // Eixos x e y no plano
+      ctx.strokeStyle = 'rgba(173, 255, 47, 0.55)';
+      ctx.beginPath();
+      var o = proj(0, 0, 0), xe = proj(6.5, 0, 0), ye = proj(0, 6.5, 0);
+      ctx.moveTo(o.x, o.y); ctx.lineTo(xe.x, xe.y);
+      ctx.moveTo(o.x, o.y); ctx.lineTo(ye.x, ye.y);
+      ctx.stroke();
+
+      // Eixo z subindo
+      var zTop = proj(0, 0, 5.5);
+      ctx.strokeStyle = '#ADFF2F';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(o.x, o.y);
+      ctx.lineTo(zTop.x, zTop.y);
+      ctx.stroke();
+
+      // Ponto pulsando no eixo z (sobe e desce) + rastro
+      var phase = (Math.sin(t) + 1) / 2;
+      var zp = 5.0 * phase;
+      for (var k = 1; k <= 4; k++) {
+        var zk = zp - k * 0.35;
+        if (zk < 0) continue;
+        var tr = proj(0, 0, zk);
+        ctx.fillStyle = 'rgba(173, 255, 47, ' + (0.35 - k * 0.08).toFixed(2) + ')';
+        ctx.beginPath();
+        ctx.arc(tr.x, tr.y, 3, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      var p = proj(0, 0, zp);
+      ctx.save();
+      ctx.shadowColor = '#ADFF2F';
+      ctx.shadowBlur = 12;
+      ctx.fillStyle = '#FFD700';
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 4.5, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+
+      // Origem
+      ctx.fillStyle = '#FFD700';
+      ctx.beginPath();
+      ctx.arc(o.x, o.y, 3, 0, Math.PI * 2);
+      ctx.fill();
+
+      rafId = requestAnimationFrame(frame);
+    }
+    rafId = requestAnimationFrame(frame);
+  }
+
+  function cleanup() {
+    if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+    var canvas = document.getElementById(canvasId);
+    if (canvas) canvas.dataset.initialized = '';
+  }
+
+  window.vizCapaR3 = { init: init, cleanup: cleanup };
+  init();
+})();
+</script>

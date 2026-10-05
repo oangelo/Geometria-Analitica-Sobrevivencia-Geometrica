@@ -1,0 +1,44 @@
+<div class="exercise">
+    <h3>Decomposição Paralela e Perpendicular</h3>
+    <p><strong>Objetivo:</strong> Decompor um vetor em componentes paralela e perpendicular a outro vetor no R³, verificando a decomposição $\vec{u} = \vec{u}_{\parallel} + \vec{u}_{\perp}$.</p>
+    <p>Dados $\vec{u} = (6, -3, 2)$ e $\vec{v} = (2, 1, -2)$:</p>
+    <ol>
+        <li>Calcule $\vec{u}_{\parallel} = \text{proj}_{\vec{v}} \vec{u}$.</li>
+        <li>Calcule $\vec{u}_{\perp} = \vec{u} - \vec{u}_{\parallel}$.</li>
+        <li>Verifique que $\vec{u}_{\parallel} \parallel \vec{v}$ (são múltiplos) e que $\vec{u}_{\perp} \perp \vec{v}$.</li>
+        <li>Verifique que $|\vec{u}|^2 = |\vec{u}_{\parallel}|^2 + |\vec{u}_{\perp}|^2$ (Teorema de Pitágoras para a decomposição).</li>
+    </ol>
+
+    <details class="hint-details">
+        <summary>DICA DE SOBREVIVÊNCIA</summary>
+        <p>A projeção $\vec{u}_{\parallel}$ é sempre um múltiplo de $\vec{v}$. A componente perpendicular $\vec{u}_{\perp}$ deve satisfazer $\vec{u}_{\perp} \cdot \vec{v} = 0$. A identidade $|\vec{u}|^2 = |\vec{u}_{\parallel}|^2 + |\vec{u}_{\perp}|^2$ é o análogo do teorema de Pitágoras para a decomposição ortogonal.</p>
+    </details>
+
+    <details>
+        <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+        <ol class="solution-steps">
+            <li>Produto interno e módulo ao quadrado:
+                $$\vec{u} \cdot \vec{v} = (6)(2) + (-3)(1) + (2)(-2) = 12 - 3 - 4 = 5$$
+                $$|\vec{v}|^2 = 4 + 1 + 4 = 9$$
+                $$\vec{u}_{\parallel} = \frac{5}{9}\vec{v} = \frac{5}{9}(2, 1, -2) = \left(\frac{10}{9}, \frac{5}{9}, -\frac{10}{9}\right)$$
+            </li>
+            <li>Componente perpendicular:
+                $$\vec{u}_{\perp} = \vec{u} - \vec{u}_{\parallel} = (6, -3, 2) - \left(\frac{10}{9}, \frac{5}{9}, -\frac{10}{9}\right)$$
+                $$= \left(\frac{54 - 10}{9}, \frac{-27 - 5}{9}, \frac{18 + 10}{9}\right) = \left(\frac{44}{9}, -\frac{32}{9}, \frac{28}{9}\right)$$
+            </li>
+            <li>Verificações:
+                <p>Paralelismo: $\vec{u}_{\parallel} = \frac{5}{9}\vec{v}$, logo $\vec{u}_{\parallel} \parallel \vec{v}$. </p>
+                <p>Perpendicularidade:
+                    $$\vec{u}_{\perp} \cdot \vec{v} = \frac{44}{9}(2) + \left(-\frac{32}{9}\right)(1) + \frac{28}{9}(-2) = \frac{88 - 32 - 56}{9} = \frac{0}{9} = 0 \; \checkmark$$
+                </p>
+            </li>
+            <li>Teorema de Pitágoras:
+                $$|\vec{u}|^2 = 36 + 9 + 4 = 49$$
+                $$|\vec{u}_{\parallel}|^2 = \left(\frac{10}{9}\right)^2 + \left(\frac{5}{9}\right)^2 + \left(-\frac{10}{9}\right)^2 = \frac{100 + 25 + 100}{81} = \frac{225}{81} = \frac{25}{9}$$
+                $$|\vec{u}_{\perp}|^2 = \left(\frac{44}{9}\right)^2 + \left(-\frac{32}{9}\right)^2 + \left(\frac{28}{9}\right)^2 = \frac{1936 + 1024 + 784}{81} = \frac{3744}{81} = \frac{416}{9}$$
+                $$|\vec{u}_{\parallel}|^2 + |\vec{u}_{\perp}|^2 = \frac{25 + 416}{9} = \frac{441}{9} = 49 = |\vec{u}|^2 \; \checkmark$$
+            </li>
+        </ol>
+        <p><strong>Reflexão:</strong> A decomposição $\vec{u} = \vec{u}_{\parallel} + \vec{u}_{\perp}$ é única e funciona em qualquer dimensão. A identidade $|\vec{u}|^2 = |\vec{u}_{\parallel}|^2 + |\vec{u}_{\perp}|^2$ reflete que $\vec{u}_{\parallel}$ e $\vec{u}_{\perp}$ formam um triângulo retângulo com $\vec{u}$ como hipotenusa. No R³, a "sombra" $\vec{u}_{\parallel}$ ainda é um múltiplo de $\vec{v}$, e o "resto" $\vec{u}_{\perp}$ aponta em uma direção perpendicular no espaço tridimensional.</p>
+    </details>
+</div>

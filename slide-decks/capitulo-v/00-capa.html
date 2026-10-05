@@ -1,0 +1,94 @@
+<!-- 00-CAPA — Capítulo V (âncora a1-capa; glifo: ponto traçando uma cônica pela definição de focos) -->
+<section>
+  <div class="title-screen">
+    <p class="doc-code">DOC. REF: GA-CH5-2026</p>
+    <h1>Lugares Geométricos: As Cônicas</h1>
+    <h2 class="subtitle">Sobrevivência Geométrica</h2>
+    <canvas id="capa-conicas-canvas" class="cover-glyph" width="560" height="260"></canvas>
+    <p class="subtitle-warning">CONFIDENCIAL: MANUAL DE TREINAMENTO</p>
+    <p class="chapter-meta">Capítulo V &middot; Órbitas da Exclusão</p>
+  </div>
+</section>
+
+<script>
+(function () {
+  var canvasId = 'capa-conicas-canvas';
+  var rafId = null;
+
+  function init() {
+    var canvas = document.getElementById(canvasId);
+    if (!canvas || canvas.dataset.initialized) return;
+    canvas.dataset.initialized = 'true';
+    var ctx = canvas.getContext('2d');
+    var W = canvas.width, H = canvas.height;
+    var cx = W / 2, cy = H / 2 + 4;
+    var a = W * 0.34, b = H * 0.34;
+    var c = Math.sqrt(a * a - b * b);
+    var t = 0;
+
+    function frame() {
+      t += 0.018;
+      if (t > Math.PI * 2) t = 0;
+
+      ctx.fillStyle = '#0c0c0c';
+      ctx.fillRect(0, 0, W, H);
+
+      ctx.strokeStyle = 'rgba(76, 175, 80, 0.14)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      for (var gx = cx % 40; gx < W; gx += 40) { ctx.moveTo(gx, 0); ctx.lineTo(gx, H); }
+      for (var gy = cy % 40; gy < H; gy += 40) { ctx.moveTo(0, gy); ctx.lineTo(W, gy); }
+      ctx.stroke();
+
+      ctx.strokeStyle = 'rgba(173, 255, 47, 0.22)';
+      ctx.setLineDash([4, 6]);
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, a, b, 0, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      ctx.strokeStyle = '#ADFF2F';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      for (var s = 0; s <= t; s += 0.02) {
+        var px = cx + a * Math.cos(s);
+        var py = cy - b * Math.sin(s);
+        if (s === 0) ctx.moveTo(px, py);
+        else ctx.lineTo(px, py);
+      }
+      ctx.stroke();
+
+      var Px = cx + a * Math.cos(t);
+      var Py = cy - b * Math.sin(t);
+      var F1x = cx - c, F2x = cx + c;
+
+      ctx.strokeStyle = 'rgba(173, 255, 47, 0.45)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(F1x, cy); ctx.lineTo(Px, Py);
+      ctx.moveTo(F2x, cy); ctx.lineTo(Px, Py);
+      ctx.stroke();
+
+      ctx.fillStyle = '#FFD700';
+      ctx.beginPath(); ctx.arc(F1x, cy, 3.5, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.arc(F2x, cy, 3.5, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.arc(cx, cy, 2.5, 0, Math.PI * 2); ctx.fill();
+
+      ctx.fillStyle = '#ff3333';
+      ctx.beginPath(); ctx.arc(Px, Py, 4.5, 0, Math.PI * 2); ctx.fill();
+
+      rafId = requestAnimationFrame(frame);
+    }
+    rafId = requestAnimationFrame(frame);
+  }
+
+  function cleanup() {
+    if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+    var canvas = document.getElementById(canvasId);
+    if (canvas) canvas.dataset.initialized = '';
+  }
+
+  window.vizCapaConicas = { init: init, cleanup: cleanup };
+  init();
+})();
+</script>

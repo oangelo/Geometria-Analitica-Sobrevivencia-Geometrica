@@ -1,0 +1,68 @@
+<div class="exercise">
+<h3>TETRAEDRO COM INCÓGNITA</h3>
+<p>O objetivo deste exercício é encontrar possíveis posições de um vértice desconhecido de um tetraedro, dado seu volume e três vértices conhecidos.</p>
+<p>Três postos de ancoragem de uma cúpula de proteção estão em $A(1, 0, 0)$, $B(3, 1, 1)$ e $C(2, 3, 0)$. O quarto posto $D$ deve ser posicionado em algum ponto da forma $D(t, 2, t)$, onde $t$ é um parâmetro a determinar. O volume do tetraedro $ABCD$ deve ser exatamente $V = 2$ unidades³.</p>
+<p><strong>(a)</strong> Determine os vetores $\overrightarrow{AB}$, $\overrightarrow{AC}$ e $\overrightarrow{AD}$ em função de $t$.</p>
+<p><strong>(b)</strong> Calcule o produto misto $[\overrightarrow{AB}, \overrightarrow{AC}, \overrightarrow{AD}]$ em função de $t$.</p>
+<p><strong>(c)</strong> Usando que o volume do tetraedro é $2$, encontre o valor (ou valores) de $t$.</p>
+<p><strong>(d)</strong> Para cada valor de $t$ encontrado, determine as coordenadas de $D$ e verifique o volume.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>O volume do tetraedro é $\frac{1}{6}$ do valor absoluto do produto misto. Logo, $| [\overrightarrow{AB}, \overrightarrow{AC}, \overrightarrow{AD}] | = 6V = 12$. Calcule o produto misto como determinante 3×3 e resolva a equação resultante em $t$. Lembre-se de considerar tanto o caso positivo quanto o negativo do valor absoluto.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>Item (a):</strong></p>
+<ol class="solution-steps">
+<li>$\overrightarrow{AB} = B - A = (3-1, 1-0, 1-0) = (2, 1, 1)$</li>
+<li>$\overrightarrow{AC} = C - A = (2-1, 3-0, 0-0) = (1, 3, 0)$</li>
+<li>$\overrightarrow{AD} = D - A = (t-1, 2-0, t-0) = (t-1, 2, t)$</li>
+</ol>
+
+<p><strong>Item (b):</strong></p>
+<ol class="solution-steps">
+<li>$[\overrightarrow{AB}, \overrightarrow{AC}, \overrightarrow{AD}] = \begin{vmatrix} 2 & 1 & 1 \\ 1 & 3 & 0 \\ t-1 & 2 & t \end{vmatrix}$</li>
+<li>$= 2 \cdot \begin{vmatrix} 3 & 0 \\ 2 & t \end{vmatrix} - 1 \cdot \begin{vmatrix} 1 & 0 \\ t-1 & t \end{vmatrix} + 1 \cdot \begin{vmatrix} 1 & 3 \\ t-1 & 2 \end{vmatrix}$</li>
+<li>$= 2[(3)(t) - (0)(2)] - 1[(1)(t) - (0)(t-1)] + 1[(1)(2) - (3)(t-1)]$</li>
+<li>$= 2(3t) - 1(t) + 1[2 - 3(t-1)]$</li>
+<li>$= 6t - t + 2 - 3t + 3 = 2t + 5$</li>
+</ol>
+<div class="formula">
+$$[\overrightarrow{AB}, \overrightarrow{AC}, \overrightarrow{AD}] = 2t + 5$$
+</div>
+
+<p><strong>Item (c):</strong></p>
+<ol class="solution-steps">
+<li>Volume do tetraedro: $V = \frac{1}{6}| [\overrightarrow{AB}, \overrightarrow{AC}, \overrightarrow{AD}] | = 2$</li>
+<li>$|2t + 5| = 12$</li>
+<li>Caso 1: $2t + 5 = 12 \Rightarrow 2t = 7 \Rightarrow t = \frac{7}{2}$</li>
+<li>Caso 2: $2t + 5 = -12 \Rightarrow 2t = -17 \Rightarrow t = -\frac{17}{2}$</li>
+</ol>
+<div class="formula">
+$$t = \frac{7}{2} \quad \text{ou} \quad t = -\frac{17}{2}$$
+</div>
+
+<p><strong>Item (d):</strong></p>
+<p>Para $t = \frac{7}{2}$:</p>
+<ol class="solution-steps">
+<li>$D = \left(\frac{7}{2}, 2, \frac{7}{2}\right)$</li>
+<li>$\overrightarrow{AD} = \left(\frac{7}{2}-1, 2, \frac{7}{2}\right) = \left(\frac{5}{2}, 2, \frac{7}{2}\right)$</li>
+<li>Produto misto: $2 \cdot \frac{7}{2} + 5 = 7 + 5 = 12$</li>
+<li>Volume: $\frac{1}{6}|12| = 2$ ✓</li>
+</ol>
+<p>Para $t = -\frac{17}{2}$:</p>
+<ol class="solution-steps">
+<li>$D = \left(-\frac{17}{2}, 2, -\frac{17}{2}\right)$</li>
+<li>$\overrightarrow{AD} = \left(-\frac{17}{2}-1, 2, -\frac{17}{2}\right) = \left(-\frac{19}{2}, 2, -\frac{17}{2}\right)$</li>
+<li>Produto misto: $2 \cdot \left(-\frac{17}{2}\right) + 5 = -17 + 5 = -12$</li>
+<li>Volume: $\frac{1}{6}|-12| = 2$ ✓</li>
+</ol>
+<p>Os dois pontos $D$ produzem tetraedros com o mesmo volume, mas com orientações opostas (produto misto positivo vs. negativo).</p>
+
+<p><strong>Reflexão de Sobrevivência:</strong> Na Zona Devastada, você frequentemente conhece a capacidade necessária de um abrigo mas precisa ajustar a posição de um ponto de ancoragem. A equação linear em $t$ (depois de remover o valor absoluto) revela duas soluções simétricas — o quarto vértice pode estar de um lado ou de outro do plano definido pelos três pontos conhecidos, produzindo o mesmo volume.</p>
+</details>
+</div>

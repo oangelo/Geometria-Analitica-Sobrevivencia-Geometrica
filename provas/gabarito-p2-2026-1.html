@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gabarito - P2 2026.1 - Geometria Analítica</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <script>
+        // Configuração do MathJax para funcionar com <details>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            options: {
+                skipHtmlTags: ['details'] // Permite que MathJax renderize dentro de <details>
+            },
+            startup: {
+                ready: () => {
+                    MathJax.startup.defaultReady();
+                }
+            }
+        };
+    </script>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            background-color: #fff;
+            color: #000;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .header h1 {
+            text-align: center;
+            font-size: 16pt;
+            font-weight: bold;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .question {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+        }
+
+        .question:last-child {
+            border-bottom: none;
+        }
+        
+        .question-header {
+            font-weight: bold;
+            font-size: 13pt;
+            color: #000;
+            border-left: 4px solid #000;
+            padding: 8px 10px;
+            background-color: #f0f0f0;
+            margin-bottom: 12px;
+        }
+        
+        .subquestion {
+            margin: 10px 0 10px 20px;
+        }
+        
+        details {
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        summary {
+            font-weight: bold;
+            padding: 8px 12px;
+            cursor: pointer;
+            background-color: #e9e9e9;
+            font-size: 10pt;
+            border-radius: 3px;
+        }
+        .answer {
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            background-color: #fff;
+        }
+        .answer p {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Gabarito - P2 2026.1</h1>
+        </div>
+        <div class="content">
+            <!-- Questão 1 -->
+            <div class="question">
+                <div class="question-header">Questão 1: Produto vetorial, produto misto e coplanaridade (2,5 pts)</div>
+                <p>Considere os pontos \(A = (1, 1, 0)\), \(B = (3, 2, 1)\), \(C = (2, 0, 2)\) e \(D = (0, 1, 3)\) no espaço.</p>
+                <p><em><b>Justificativa Didática:</b> Esta questão avalia o núcleo do Capítulo VI no espaço: o produto vetorial como ferramenta de área e ortogonalidade e o produto misto como ferramenta de volume e coplanaridade. O item final é um item de verificação duplo: confirma a ortogonalidade de \(\vec{AB} \times \vec{AC}\) com \(\vec{AB}\) e \(\vec{AC}\) via produto escalar (Cap. VI.2) e usa o produto misto para decidir a coplanaridade dos quatro pontos.</em></p>
+                
+                <div class="subquestion">
+                    <strong>a)</strong> (0,5 pt) Determine os vetores \(\vec{AB}\) e \(\vec{AC}\) e calcule o produto vetorial \(\vec{AB} \times \vec{AC}\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>\[\vec{AB} = B - A = (3-1, 2-1, 1-0) = (2, 1, 1)\]</p>
+                            <p>\[\vec{AC} = C - A = (2-1, 0-1, 2-0) = (1, -1, 2)\]</p>
+                            <p>Produto vetorial:</p>
+                            <p>\[\vec{AB} \times \vec{AC} = \begin{vmatrix} \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\ 2 & 1 & 1 \\ 1 & -1 & 2 \end{vmatrix} = (1 \cdot 2 - 1 \cdot (-1))\vec{e}_1 - (2 \cdot 2 - 1 \cdot 1)\vec{e}_2 + (2 \cdot (-1) - 1 \cdot 1)\vec{e}_3\]</p>
+                            <p>\[= (2 + 1)\vec{e}_1 - (4 - 1)\vec{e}_2 + (-2 - 1)\vec{e}_3 = (3, -3, -3)\]</p>
+                            <p><strong>Resposta:</strong> \(\vec{AB} = (2, 1, 1)\), \(\vec{AC} = (1, -1, 2)\) e \(\vec{AB} \times \vec{AC} = (3, -3, -3)\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>b)</strong> (0,6 pt) Calcule a área do triângulo de vértices \(A\), \(B\) e \(C\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>A área do triângulo é metade do módulo do produto vetorial:</p>
+                            <p>\[|\vec{AB} \times \vec{AC}| = \sqrt{3^2 + (-3)^2 + (-3)^2} = \sqrt{9 + 9 + 9} = \sqrt{27} = 3\sqrt{3}\]</p>
+                            <p>\[\text{Área} = \frac{1}{2}\,|\vec{AB} \times \vec{AC}| = \frac{3\sqrt{3}}{2}\]</p>
+                            <p><strong>Resposta:</strong> Área \(= \frac{3\sqrt{3}}{2}\) unidades de área.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>c)</strong> (0,7 pt) Determine o vetor \(\vec{AD}\) e o produto misto \([\vec{AB}, \vec{AC}, \vec{AD}]\); calcule o volume do paralelepípedo definido por \(\vec{AB}\), \(\vec{AC}\) e \(\vec{AD}\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>\[\vec{AD} = D - A = (0-1, 1-1, 3-0) = (-1, 0, 3)\]</p>
+                            <p>O produto misto é o produto escalar de \(\vec{AB} \times \vec{AC}\) com \(\vec{AD}\):</p>
+                            <p>\[[\vec{AB}, \vec{AC}, \vec{AD}] = (3, -3, -3) \cdot (-1, 0, 3) = 3(-1) + (-3)(0) + (-3)(3) = -3 - 9 = -12\]</p>
+                            <p>O volume do paralelepípedo é o módulo do produto misto:</p>
+                            <p>\[V = |[\vec{AB}, \vec{AC}, \vec{AD}]| = |-12| = 12\]</p>
+                            <p><strong>Resposta:</strong> \(\vec{AD} = (-1, 0, 3)\), \([\vec{AB}, \vec{AC}, \vec{AD}] = -12\) e \(V = 12\) unidades de volume.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>d)</strong> (0,7 pt) Verifique que \(\vec{AB} \times \vec{AC}\) é ortogonal a \(\vec{AB}\) e a \(\vec{AC}\) e use o produto misto para decidir se os pontos \(A\), \(B\), \(C\) e \(D\) são coplanares.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p><b>Ortogonalidade com \(\vec{AB}\):</b></p>
+                            <p>\[(3, -3, -3) \cdot (2, 1, 1) = 6 - 3 - 3 = 0 \quad \textbf{(Ok)}\]</p>
+                            <p><b>Ortogonalidade com \(\vec{AC}\):</b></p>
+                            <p>\[(3, -3, -3) \cdot (1, -1, 2) = 3 + 3 - 6 = 0 \quad \textbf{(Ok)}\]</p>
+                            <p><b>Coplanaridade:</b> quatro pontos são coplanares se, e somente se, o produto misto dos três vetores que partem de um deles é nulo. Como \([\vec{AB}, \vec{AC}, \vec{AD}] = -12 \neq 0\), os vetores não são coplanares e, portanto, os pontos \(A\), \(B\), \(C\) e \(D\) <strong>não são coplanares</strong>.</p>
+                            <p><strong>Resposta:</strong> O produto vetorial é ortogonal a \(\vec{AB}\) e a \(\vec{AC}\), e como o produto misto é não nulo, os quatro pontos não são coplanares.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Questão 2 -->
+            <div class="question">
+                <div class="question-header">Questão 2: Interseções no espaço — retas e planos (2,5 pts)</div>
+                <p>Considere as retas \(r: (x, y, z) = (1, 2, 3) + t(2, -1, 1)\), com \(t \in \mathbb{R}\), e \(s: (x, y, z) = (3, 1, 4) + u(0, 1, -1)\), com \(u \in \mathbb{R}\), e os planos \(\pi_1: x + y - z = 2\), \(\pi_2: 2x - y + z = 1\) e \(\pi_3: x + z = 5\).</p>
+                <p><em><b>Justificativa Didática:</b> Esta questão percorre os três tipos de interseção do Capítulo VI — reta com reta, plano com plano e reta com plano — sempre reduzindo cada caso a um sistema de equações. O item final verifica por substituição todos os pontos obtidos e antecipa a leitura geométrica dos sistemas da Questão 3.</em></p>
+                
+                <div class="subquestion">
+                    <strong>a)</strong> (0,6 pt) Determine a interseção \(r \cap s\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Igualando as coordenadas:</p>
+                            <p>\[(1 + 2t, 2 - t, 3 + t) = (3, 1 + u, 4 - u)\]</p>
+                            <p>Da primeira coordenada: \(1 + 2t = 3 \Rightarrow t = 1\).</p>
+                            <p>Da segunda: \(2 - t = 1 + u \Rightarrow 2 - 1 = 1 + u \Rightarrow u = 0\).</p>
+                            <p>Conferindo na terceira: \(3 + t = 4 - u \Rightarrow 3 + 1 = 4 - 0 \Rightarrow 4 = 4\). <strong>(Ok)</strong></p>
+                            <p><strong>Resposta:</strong> \(r \cap s = (3, 1, 4)\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>b)</strong> (0,6 pt) Determine a interseção \(\pi_1 \cap \pi_2\), escrevendo as equações paramétricas da reta obtida.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Resolvemos o sistema formado pelas duas equações de plano:</p>
+                            <p>\[\begin{cases} x + y - z = 2 \\ 2x - y + z = 1 \end{cases}\]</p>
+                            <p>Somando as duas equações: \(3x = 3 \Rightarrow x = 1\).</p>
+                            <p>Substituindo na primeira: \(1 + y - z = 2 \Rightarrow y = 1 + z\).</p>
+                            <p>Fazendo \(z = \lambda\), com \(\lambda \in \mathbb{R}\):</p>
+                            <p>\[(x, y, z) = (1, 1 + \lambda, \lambda) = (1, 1, 0) + \lambda(0, 1, 1)\]</p>
+                            <p><strong>Resposta:</strong> A interseção é a reta \( (x, y, z) = (1, 1, 0) + \lambda(0, 1, 1)\), \(\lambda \in \mathbb{R}\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>c)</strong> (0,7 pt) Determine a interseção da reta obtida no item (b) com o plano \(\pi_3\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Substituindo \(x = 1\), \(y = 1 + \lambda\) e \(z = \lambda\) na equação de \(\pi_3\):</p>
+                            <p>\[x + z = 5 \Rightarrow 1 + \lambda = 5 \Rightarrow \lambda = 4\]</p>
+                            <p>Logo o ponto de interseção é:</p>
+                            <p>\[(1, 1 + 4, 4) = (1, 5, 4)\]</p>
+                            <p><strong>Resposta:</strong> A interseção é o ponto \(P = (1, 5, 4)\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>d)</strong> (0,6 pt) Verifique que o ponto encontrado em (a) pertence às retas \(r\) e \(s\) e que o ponto encontrado em (c) pertence aos três planos.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p><b>\(I = (3, 1, 4)\) em \(r\):</b> com \(t = 1\), \((1 + 2, 2 - 1, 3 + 1) = (3, 1, 4)\). <strong>(Ok)</strong></p>
+                            <p><b>\(I = (3, 1, 4)\) em \(s\):</b> com \(u = 0\), \((3, 1 + 0, 4 - 0) = (3, 1, 4)\). <strong>(Ok)</strong></p>
+                            <p><b>\(P = (1, 5, 4)\) em \(\pi_1\):</b> \(1 + 5 - 4 = 2\). <strong>(Ok)</strong></p>
+                            <p><b>\(P = (1, 5, 4)\) em \(\pi_2\):</b> \(2(1) - 5 + 4 = 1\). <strong>(Ok)</strong></p>
+                            <p><b>\(P = (1, 5, 4)\) em \(\pi_3\):</b> \(1 + 4 = 5\). <strong>(Ok)</strong></p>
+                            <p>Como \(P\) satisfaz os três planos simultaneamente, ele é o único ponto comum a \(\pi_1\), \(\pi_2\) e \(\pi_3\).</p>
+                            <p><strong>Resposta:</strong> \(I = (3, 1, 4)\) pertence a \(r\) e a \(s\); \(P = (1, 5, 4)\) pertence aos três planos.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Questão 3 -->
+            <div class="question">
+                <div class="question-header">Questão 3: Três sistemas lineares e a forma das soluções (2,5 pts)</div>
+                <p>Para cada um dos sistemas abaixo, escreva a matriz aumentada, aplique o escalonamento, discuta a forma da matriz final (posto, linhas nulas e linhas impossíveis) e classifique o sistema, descrevendo a forma do conjunto-solução.</p>
+                <p><em><b>Justificativa Didática:</b> Os três sistemas têm o mesmo formato (três equações, três incógnitas) mas levam a matrizes finais qualitativamente diferentes: no Sistema I sobra uma linha de zeros \(0 = 0\), indicando um grau de liberdade e um conjunto-solução que é uma reta; no Sistema II aparece uma linha impossível \(0 = k\) com \(k \neq 0\), indicando conjunto-solução vazio; no Sistema III há três pivôs, indicando solução única. A questão treina a leitura de \(\text{posto}(A)\) versus \(\text{posto}(A|b)\) e conecta Álgebra Linear e posições relativas de planos.</em></p>
+                
+                <div class="subquestion">
+                    <strong>a)</strong> (0,8 pt) Sistema I.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Matriz aumentada:</p>
+                            <p>\[\left[ \begin{array}{ccc|c} 1 & 2 & -1 & 1 \\ 2 & 4 & -2 & 2 \\ 1 & -1 & 0 & 0 \end{array} \right]\]</p>
+                            <p>Operações: \(L_2 \leftarrow L_2 - 2L_1\) e \(L_3 \leftarrow L_3 - L_1\):</p>
+                            <p>\[\left[ \begin{array}{ccc|c} 1 & 2 & -1 & 1 \\ 0 & 0 & 0 & 0 \\ 0 & -3 & 1 & -1 \end{array} \right]\]</p>
+                            <p><b>Forma da matriz:</b> há \(2\) pivôs e uma linha nula (\(0 = 0\)), sem linhas impossíveis. Logo \(\text{posto}(A) = \text{posto}(A|b) = 2 < 3\): o sistema é possível e indeterminado (SPI), com \(3 - 2 = 1\) variável livre.</p>
+                            <p><b>Solução:</b> da segunda equação, \(-3y + z = -1 \Rightarrow z = 3y - 1\). Fazendo \(y = \lambda\):</p>
+                            <p>\[z = 3\lambda - 1, \qquad x + 2\lambda - (3\lambda - 1) = 1 \Rightarrow x = \lambda\]</p>
+                            <p>\[(x, y, z) = (\lambda, \lambda, 3\lambda - 1), \quad \lambda \in \mathbb{R}\]</p>
+                            <p>Geometricamente, os planos \(\pi_1\) e \(\pi_2\) são coincidentes e o plano \(\pi_3: x - y = 0\) os corta segundo uma reta.</p>
+                            <p><strong>Resposta:</strong> SPI; conjunto-solução é a reta \((\lambda, \lambda, 3\lambda - 1)\), \(\lambda \in \mathbb{R}\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>b)</strong> (0,8 pt) Sistema II.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Matriz aumentada:</p>
+                            <p>\[\left[ \begin{array}{ccc|c} 1 & 1 & 1 & 1 \\ 1 & 1 & 1 & 3 \\ 1 & -1 & 0 & 0 \end{array} \right]\]</p>
+                            <p>Operações: \(L_2 \leftarrow L_2 - L_1\) e \(L_3 \leftarrow L_3 - L_1\):</p>
+                            <p>\[\left[ \begin{array}{ccc|c} 1 & 1 & 1 & 1 \\ 0 & 0 & 0 & 2 \\ 0 & -2 & -1 & -1 \end{array} \right]\]</p>
+                            <p><b>Forma da matriz:</b> há \(2\) pivôs, mas a linha \((0\ 0\ 0 \mid 2)\) é uma linha impossível, pois corresponde a \(0 = 2\). Logo \(\text{posto}(A) = 2 \neq 3 = \text{posto}(A|b)\): o sistema é impossível (SI).</p>
+                            <p><b>Leitura geométrica:</b> os planos \(\pi_1: x + y + z = 1\) e \(\pi_2: x + y + z = 3\) são paralelos distintos, e o plano \(\pi_3: x - y = 0\) é ortogonal a ambos, pois \((1, 1, 1) \cdot (1, -1, 0) = 0\). Como \(\pi_1\) e \(\pi_2\) não se intersectam, não existe ponto comum aos três planos.</p>
+                            <p><strong>Resposta:</strong> SI; conjunto-solução vazio, \(\emptyset\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>c)</strong> (0,9 pt) Sistema III — determine explicitamente a solução e verifique-a nas três equações.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Matriz aumentada:</p>
+                            <p>\[\left[ \begin{array}{ccc|c} 1 & 1 & 1 & 6 \\ 2 & -1 & 1 & 3 \\ 1 & 2 & -1 & 2 \end{array} \right]\]</p>
+                            <p>Operações: \(L_2 \leftarrow L_2 - 2L_1\) e \(L_3 \leftarrow L_3 - L_1\):</p>
+                            <p>\[\left[ \begin{array}{ccc|c} 1 & 1 & 1 & 6 \\ 0 & -3 & -1 & -9 \\ 0 & 1 & -2 & -4 \end{array} \right]\]</p>
+                            <p>Trocando \(L_2 \leftrightarrow L_3\) e fazendo \(L_3 \leftarrow L_3 + 3L_2\):</p>
+                            <p>\[\left[ \begin{array}{ccc|c} 1 & 1 & 1 & 6 \\ 0 & 1 & -2 & -4 \\ 0 & 0 & -7 & -21 \end{array} \right]\]</p>
+                            <p><b>Forma da matriz:</b> três pivôs e nenhuma linha nula ou impossível. Logo \(\text{posto}(A) = \text{posto}(A|b) = 3\): o sistema é possível e determinado (SPD), com solução única. (O determinante da matriz dos coeficientes é \(7 \neq 0\), confirmando o SPD.)</p>
+                            <p><b>Retrosubstituição:</b></p>
+                            <p>\[-7z = -21 \Rightarrow z = 3\]</p>
+                            <p>\[y - 2z = -4 \Rightarrow y - 6 = -4 \Rightarrow y = 2\]</p>
+                            <p>\[x + y + z = 6 \Rightarrow x + 2 + 3 = 6 \Rightarrow x = 1\]</p>
+                            <p><b>Verificação nas três equações:</b></p>
+                            <p>\[1 + 2 + 3 = 6 \quad \textbf{(Ok)}\]</p>
+                            <p>\[2(1) - 2 + 3 = 3 \quad \textbf{(Ok)}\]</p>
+                            <p>\[1 + 2(2) - 3 = 2 \quad \textbf{(Ok)}\]</p>
+                            <p><strong>Resposta:</strong> SPD; solução única \((x, y, z) = (1, 2, 3)\).</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Questão 4 -->
+            <div class="question">
+                <div class="question-header">Questão 4: A elipse — forma transladada e elementos (2,5 pts)</div>
+                <p>Considere a equação \(9x^2 + 25y^2 - 36x + 50y - 164 = 0\).</p>
+                <p><em><b>Justificativa Didática:</b> Esta questão cobra a etapa final do Capítulo V: reconhecer uma elipse de centro fora da origem, completar quadrados para obter a forma reduzida e extrair dela os elementos (semieixos, focos, vértices e excentricidade). O item final é a verificação clássica pela definição da elipse: no vértice, a soma das distâncias aos focos deve ser exatamente \(2a\).</em></p>
+                
+                <div class="subquestion">
+                    <strong>a)</strong> (0,6 pt) Complete os quadrados, escreva a forma reduzida e determine o centro \(C\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Agrupando os termos em \(x\) e em \(y\):</p>
+                            <p>\[9(x^2 - 4x) + 25(y^2 + 2y) = 164\]</p>
+                            <p>Completando os quadrados:</p>
+                            <p>\[9\left[(x - 2)^2 - 4\right] + 25\left[(y + 1)^2 - 1\right] = 164\]</p>
+                            <p>\[9(x - 2)^2 - 36 + 25(y + 1)^2 - 25 = 164\]</p>
+                            <p>\[9(x - 2)^2 + 25(y + 1)^2 = 225\]</p>
+                            <p>Dividindo por \(225\):</p>
+                            <p>\[\frac{(x - 2)^2}{25} + \frac{(y + 1)^2}{9} = 1\]</p>
+                            <p><strong>Resposta:</strong> Forma reduzida \(\frac{(x - 2)^2}{25} + \frac{(y + 1)^2}{9} = 1\) e centro \(C = (2, -1)\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>b)</strong> (0,6 pt) Determine os semieixos \(a\) e \(b\), a semidistância focal \(c\) e os focos \(F_1\) e \(F_2\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Como o denominador maior está sob \((x - 2)^2\), o eixo maior é horizontal:</p>
+                            <p>\[a^2 = 25 \Rightarrow a = 5, \qquad b^2 = 9 \Rightarrow b = 3\]</p>
+                            <p>Pela relação fundamental da elipse, \(c^2 = a^2 - b^2\):</p>
+                            <p>\[c^2 = 25 - 9 = 16 \Rightarrow c = 4\]</p>
+                            <p>Os focos estão a uma distância \(c = 4\) do centro, sobre a horizontal \(y = -1\):</p>
+                            <p>\[F_1 = (2 + 4, -1) = (6, -1), \qquad F_2 = (2 - 4, -1) = (-2, -1)\]</p>
+                            <p><strong>Resposta:</strong> \(a = 5\), \(b = 3\), \(c = 4\), \(F_1 = (6, -1)\) e \(F_2 = (-2, -1)\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>c)</strong> (0,7 pt) Determine os vértices do eixo maior e do eixo menor e a excentricidade \(e\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p><b>Vértices do eixo maior</b> (a uma distância \(a = 5\) do centro, na horizontal):</p>
+                            <p>\[A_1 = (2 + 5, -1) = (7, -1), \qquad A_2 = (2 - 5, -1) = (-3, -1)\]</p>
+                            <p><b>Vértices do eixo menor</b> (a uma distância \(b = 3\) do centro, na vertical):</p>
+                            <p>\[B_1 = (2, -1 + 3) = (2, 2), \qquad B_2 = (2, -1 - 3) = (2, -4)\]</p>
+                            <p><b>Excentricidade:</b></p>
+                            <p>\[e = \frac{c}{a} = \frac{4}{5} = 0{,}8\]</p>
+                            <p><strong>Resposta:</strong> \(A_1 = (7, -1)\), \(A_2 = (-3, -1)\), \(B_1 = (2, 2)\), \(B_2 = (2, -4)\) e \(e = 0{,}8\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>d)</strong> (0,6 pt) Verifique, no vértice \((7, -1)\), que \(PF_1 + PF_2 = 2a\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Para \(P = (7, -1)\), com \(F_1 = (6, -1)\) e \(F_2 = (-2, -1)\):</p>
+                            <p>\[PF_1 = d(P, F_1) = \sqrt{(7 - 6)^2 + (-1 + 1)^2} = \sqrt{1} = 1\]</p>
+                            <p>\[PF_2 = d(P, F_2) = \sqrt{(7 + 2)^2 + (-1 + 1)^2} = \sqrt{81} = 9\]</p>
+                            <p>\[PF_1 + PF_2 = 1 + 9 = 10 = 2a\]</p>
+                            <p><strong>Resposta:</strong> A soma é \(10 = 2a\), confirmando que o ponto \((7, -1)\) pertence à elipse.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

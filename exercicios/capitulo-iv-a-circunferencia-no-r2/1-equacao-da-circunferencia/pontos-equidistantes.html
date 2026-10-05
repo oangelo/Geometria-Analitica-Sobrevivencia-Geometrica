@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>PONTOS A DISTÂNCIA CONSTANTE</h3>
+
+<p>Uma circunferência é, por definição, o conjunto de pontos do plano equidistantes de um ponto fixo chamado centro. No abrigo, o perímetro de emergência segue essa regra: todos os pontos exatamente a 5 unidades do centro de comando $C(2,3)$. A ferramenta para verificar se um ponto pertence ao perímetro é a distância entre dois pontos, estudada no Capítulo II: $d(P,C) = \sqrt{(x_P - x_C)^2 + (y_P - y_C)^2}$. No papel, marque o centro $C$ e os pontos candidatos $A(5,7)$, $B(-1,3)$, $P(2,-2)$ e $D(6,0)$, e calcule a distância de cada um ao centro — quais estão exatamente a 5 unidades?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para cada ponto candidato, calcule $d = \sqrt{(x - 2)^2 + (y - 3)^2}$. Compare o resultado com $r = 5$. Se $d = 5$, o ponto está no perímetro.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Ponto $A(5,7)$: $d(A,C) = \sqrt{(5-2)^2 + (7-3)^2} = \sqrt{9 + 16} = \sqrt{25} = 5$. Está no perímetro ✓.</li>
+<li>Ponto $B(-1,3)$: $d(B,C) = \sqrt{(-1-2)^2 + (3-3)^2} = \sqrt{9 + 0} = 3$. Não está no perímetro (distância 3 ≠ 5).</li>
+<li>Ponto $P(2,-2)$: $d(P,C) = \sqrt{(2-2)^2 + (-2-3)^2} = \sqrt{0 + 25} = 5$. Está no perímetro ✓.</li>
+<li>Ponto $D(6,0)$: $d(D,C) = \sqrt{(6-2)^2 + (0-3)^2} = \sqrt{16 + 9} = \sqrt{25} = 5$. Está no perímetro ✓.</li>
+<li>Conclusão: $A$, $P$ e $D$ pertencem ao perímetro (distância exata 5). $B$ está dentro do perímetro (distância 3 &lt; 5).</li>
+</ol>
+<div class="formula">
+$$d(A,C) = d(P,C) = d(D,C) = 5 \quad(\text{no perímetro}), \qquad d(B,C) = 3 \quad(\text{interno})$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Na Zona Devastada, o perímetro de emergência não é uma parede — é uma condição matemática. Cada ponto do plano é testado pela mesma pergunta: "está a exatamente 5 unidades do centro?" A ferramenta que resolve essa pergunta é a distância, que o explorador já domina. A circunferência nasce da repetição infinita desse teste.</p>
+</details>
+</div>

@@ -1,0 +1,99 @@
+<section class="exercicio" data-topico="operacoes-linha" data-dificuldade="facil">
+  <p class="exercicio-enunciado">
+    <span class="exercicio-numero">2.</span>
+    Para escalonar, usamos <strong>operações elementares sobre as linhas</strong>.
+    A operação $L_i \leftarrow L_i + kL_j$ substitui a linha $i$ por ela mesma
+    somada a um múltiplo $k$ da linha $j$. Essas operações <strong>não mudam a
+    solução</strong> do sistema. Partimos de
+    $\begin{cases} x + y + z = 6 \\ x - y + z = 2 \\ x + y - z = 0 \end{cases}$
+    e de sua matriz aumentada
+    $\left[\begin{array}{ccc|c} 1 & 1 & 1 & 6 \\ 1 & -1 & 1 & 2 \\ 1 & 1 & -1 & 0 \end{array}\right]$.
+  </p>
+
+  <p class="questao">
+    Aplique a operação dada $L_2 \leftarrow L_2 - L_1$.
+  </p>
+
+  <p class="dialogo">
+    Subtrair $L_1$ é somar $(-1)\cdot L_1$. Calcule cada posição da nova linha 2
+    operando termo a termo com a linha 1.
+  </p>
+  <p class="subitem">
+    a) Coeficiente de $x$: $1 + (-1)(1) =$ <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    b) Coeficiente de $y$: $-1 + (-1)(1) =$ <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    c) Coeficiente de $z$: $1 + (-1)(1) =$ <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    d) Termo independente: $2 + (-1)(6) =$ <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verifique: o objetivo era zerar o coeficiente de $x$ na linha 2. O primeiro
+    número deve ter dado $0$. Se não deu, você multiplicou ou somou o termo
+    errado — refaça posição por posição.
+  </p>
+
+  <p class="questao">
+    Aplique a operação dada $L_3 \leftarrow L_3 - L_1$.
+  </p>
+
+  <p class="dialogo">
+    Mesmo procedimento, agora na linha 3. Calcule cada posição.
+  </p>
+  <p class="subitem">
+    a) Coeficiente de $x$: $1 + (-1)(1) =$ <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    b) Coeficiente de $y$: $1 + (-1)(1) =$ <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    c) Coeficiente de $z$: $-1 + (-1)(1) =$ <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    d) Termo independente: $0 + (-1)(6) =$ <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verifique: a linha 1 permanece intacta — só a linha 3 mudou. O primeiro
+    coeficiente deve ter dado $0$.
+  </p>
+
+  <p class="questao">
+    Escreva a matriz resultante e leia as incógnitas.
+  </p>
+
+  <p class="dialogo">
+    Depois das duas operações, a matriz fica triangular: abaixo da diagonal
+    principal só há zeros. Escreva-a e depois traduza cada linha de volta para
+    uma equação.
+  </p>
+  <p class="subitem">
+    a) Escreva a matriz aumentada após as duas operações:
+  </p>
+  <div class="workspace"></div>
+  <p class="subitem">
+    b) Linha 3 → que equação em $z$ ela representa? <span class="lacuna-grande"></span>
+  </p>
+  <p class="subitem">
+    c) Resolvendo a linha 3: $z =$ <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    d) Linha 2 → que equação em $y$ ela representa? <span class="lacuna-grande"></span>
+  </p>
+  <p class="subitem">
+    e) Resolvendo a linha 2: $y =$ <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verifique: na matriz triangular, cada linha tem um pivô (primeiro número
+    não nulo) mais à direita que o da linha de cima. Os pivôs aqui estão nas
+    colunas de $x$, $y$ e $z$, um por linha. Achar $x$ é o passo do exercício 5.
+  </p>
+</section>

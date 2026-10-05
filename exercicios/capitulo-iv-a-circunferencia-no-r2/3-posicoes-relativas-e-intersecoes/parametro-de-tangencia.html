@@ -1,0 +1,30 @@
+<div class="exercise">
+<h3>AJUSTE DE ÂNGULO PARA TANGÊNCIA</h3>
+
+<p>Uma zona de radiação é descrita pela circunferência $(x - 2)^2 + (y - 3)^2 = 4$ — centro $C(2,3)$, raio $r = 2$. O explorador precisa planejar uma rota reta que passe pelo ponto $(0, -1)$ e seja <strong>tangente</strong> à zona de radiação — ou seja, que a toque sem penetrá-la. A reta tem equação $y = kx - 1$, onde $k$ é o coeficiente angular (o "ângulo" da rota). Determine o valor de $k$ para o qual a reta é tangente à circunferência. Depois, classifique a posição relativa para $k = 0$ e $k = 1$.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>A reta $y = kx - 1$ na forma geral é $kx - y - 1 = 0$. A distância do centro $C(2,3)$ a essa reta é $d = \frac{|2k - 3 - 1|}{\sqrt{k^2 + 1}} = \frac{|2k - 4|}{\sqrt{k^2 + 1}}$. Para tangência, imponha $d = r = 2$ e resolva a equação em $k$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Reta $y = kx - 1$ na forma geral: $kx - y - 1 = 0$.</li>
+<li>Distância do centro $C(2,3)$: $d = \frac{|2k - 3 - 1|}{\sqrt{k^2 + 1}} = \frac{|2k - 4|}{\sqrt{k^2 + 1}}$.</li>
+<li>Imponha tangência $d = 2$: $\frac{|2k - 4|}{\sqrt{k^2 + 1}} = 2$.</li>
+<li>Eleve ao quadrado: $(2k - 4)^2 = 4(k^2 + 1) \Rightarrow 4k^2 - 16k + 16 = 4k^2 + 4 \Rightarrow -16k + 16 = 4 \Rightarrow -16k = -12 \Rightarrow k = \frac{3}{4}$.</li>
+<li>Verificação: reta $y = \frac{3}{4}x - 1$, ou $3x - 4y - 4 = 0$. $d = \frac{|6 - 12 - 4|}{5} = \frac{|{-10}|}{5} = 2 = r$ ✓.</li>
+<li><strong>Para $k = 0$:</strong> reta $y = -1$, $d = \frac{|0 - 4|}{1} = 4 > 2$. <strong>Externa</strong> — a rota não toca a zona.</li>
+<li><strong>Para $k = 1$:</strong> reta $y = x - 1$, $d = \frac{|2 - 4|}{\sqrt{2}} = \frac{2}{\sqrt{2}} = \sqrt{2} \approx 1{,}41 < 2$. <strong>Secante</strong> — a rota penetra a zona.</li>
+</ol>
+<div class="formula">
+$$k = \frac{3}{4}: \quad d = 2 = r \;\Rightarrow\; \text{tangente}$$
+$$k = 0: \quad d = 4 > 2 \;\Rightarrow\; \text{externa} \qquad k = 1: \quad d = \sqrt{2} &lt; 2 \;\Rightarrow\; \text{secante}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O parâmetro $k$ controla a inclinação da rota. Ao variar $k$, o explorador "rotaciona" a reta em torno do ponto fixo $(0, -1)$. Existe um ângulo preciso — $k = 3/4$ — em que a rota tangencia a zona de radiação. Para inclinações menores, a rota fica fora; para maiores, penetra. A tangência é o limite entre a segurança e o perigo.</p>
+</details>
+</div>

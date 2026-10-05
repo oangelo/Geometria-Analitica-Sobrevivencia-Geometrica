@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Geometria Analítica: Mapeamento Espacial — Capítulo III</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js@5.1.0/dist/reveal.css" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js@5.1.0/dist/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js@5.1.0/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides" id="slides"></div>
+    </div>
+    <script src="https://unpkg.com/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+    <script src="https://unpkg.com/reveal.js@5.1.0/plugin/math/math.js"></script>
+    <script src="https://unpkg.com/reveal.js@5.1.0/plugin/zoom/zoom.js"></script>
+    <script>
+      window.MathJax = {
+        tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+        svg: { fontCache: 'global' },
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script>
+      const SECTIONS = [
+        "capitulo-iii/1-equacao-da-reta.html",
+        "capitulo-iii/2-posicoes-relativas.html",
+        "capitulo-iii/3-paralelismo-perpendicularidade.html",
+        "capitulo-iii/4-ponto-e-reta.html",
+        "capitulo-iii/5-equacao-reduzida.html",
+        "capitulo-iii/6-conclusao.html"
+      ];
+
+      async function loadAndInit() {
+        const container = document.getElementById('slides');
+        const pendingScripts = [];
+
+        for (const url of SECTIONS) {
+          const res  = await fetch(url);
+          const text = await res.text();
+          const doc  = new DOMParser().parseFromString(text, 'text/html');
+
+          const wrapper = doc.body.querySelector('section');
+          if (wrapper) container.appendChild(document.adoptNode(wrapper));
+
+          doc.querySelectorAll('script:not([src])').forEach(s => {
+            const content = s.textContent.trim();
+            if (content &&
+                !content.includes('Reveal.initialize') &&
+                !content.includes('window.MathJax =')) {
+              pendingScripts.push(content);
+            }
+          });
+        }
+
+        for (const content of pendingScripts) {
+          const s = document.createElement('script');
+          s.textContent = `(function() {
+  const _orig = document.addEventListener.bind(document);
+  document.addEventListener = function(type, fn, opts) {
+    if (type === 'DOMContentLoaded') { fn(); return; }
+    return _orig(type, fn, opts);
+  };
+  ${content}
+  document.addEventListener = _orig;
+})();`;
+          document.body.appendChild(s);
+        }
+
+        Reveal.initialize({
+          width: 1366,
+          height: 768,
+          margin: 0.02,
+          minScale: 0.2,
+          maxScale: 2.0,
+          center: true,
+          hash: true,
+          slideNumber: 'c/t',
+          transition: 'slide',
+          backgroundTransition: 'fade',
+          math: {
+            mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js',
+            config: 'TeX-AMS_HTML-full',
+          },
+          plugins: [RevealNotes, RevealHighlight, RevealMath, RevealZoom],
+        });
+
+        const reinitVisualizations = (slide) => {
+          if (slide.querySelector('[id^="tres-formas-canvas"]'))
+            window.tresFormasVisualization?.init();
+          if (slide.querySelector('[id^="distancia-ponto-reta-canvas"]'))
+            window.distanciaPontoRetaVisualization?.init();
+          if (slide.querySelector('[id^="intersecao-retas-canvas"]'))
+            window.intersecaoRetasVisualization?.init();
+          if (slide.querySelector('[id^="reduzida-canvas"]'))
+            window.reduzidaVisualization?.init();
+        };
+        Reveal.addEventListener('slidechanged', (event) => {
+          reinitVisualizations(event.currentSlide);
+          if (window.MathJax?.typesetPromise) MathJax.typesetPromise();
+        });
+        Reveal.on('ready', (event) => reinitVisualizations(event.currentSlide));
+
+        if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
+      }
+
+      loadAndInit();
+    </script>
+  </body>
+</html>

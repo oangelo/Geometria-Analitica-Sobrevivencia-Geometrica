@@ -1,0 +1,29 @@
+<section class="manual-contexto" data-context="manual-sobrevivencia">
+    <div class="terminal-border">
+        <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: EQUAÇÃO DA RETA</h2>
+
+        <p>Na Zona Devastada, saber a posição de dois abrigos não basta — você precisa descrever <strong>todos</strong> os pontos do caminho entre eles. Dois pontos definem uma reta, mas a equação da reta é o mapa completo: ela diz se um ponto qualquer do plano pertence ou não àquele caminho. Sem essa ferramenta, toda decisão de rota seria um tiro no escuro.</p>
+
+        <p>O ponto de partida é o que já sabemos do Capítulo I: dados dois pontos $A$ e $B$, o vetor $\overrightarrow{AB} = B - A$ indica a direção do caminho. A partir de um ponto conhecido $P_0(x_0, y_0)$ e de um vetor diretor $\vec{d} = (d_1, d_2)$, qualquer ponto $P(x, y)$ da reta pode ser alcançado "andando" uma certa distância na direção de $\vec{d}$. Isso nos dá a <strong>equação paramétrica</strong>:</p>
+
+        <div class="formula">
+        $$x = x_0 + t \cdot d_1, \quad y = y_0 + t \cdot d_2$$
+        </div>
+
+        <p>O parâmetro $t$ é um número real que controla "quanto andamos" na direção do vetor. Cada valor de $t$ gera um ponto diferente da reta. Para eliminar $t$ e obter uma relação direta entre $x$ e $y$, isolamos $t$ em cada equação e igualamos — ou usamos o vetor normal $\vec{n} = (a, b)$, perpendicular ao diretor, que nos leva à <strong>equação geral</strong>:</p>
+
+        <div class="formula">
+        $$ax + by + c = 0$$
+        </div>
+
+        <p>Quando $b \neq 0$, podemos isolar $y$ e obter a <strong>equação reduzida</strong> $y = mx + n$, onde $m$ é o <strong>coeficiente angular</strong> (inclinação) e $n$ é o <strong>coeficiente linear</strong> (intercepto no eixo $y$). Já a <strong>equação segmentária</strong> $\frac{x}{p} + \frac{y}{q} = 1$ destaca os interceptos nos eixos — útil quando precisamos saber onde a reta cruça os limites do território.</p>
+
+        <p><strong>Técnicas principais:</strong></p>
+        <p><strong>(1)</strong> Dois pontos $\rightarrow$ vetor diretor $\overrightarrow{AB} = B - A$ $\rightarrow$ equação paramétrica com $P_0 = A$.</p>
+        <p><strong>(2)</strong> Paramétrica $\rightarrow$ geral: elimine $t$ resolvendo o sistema ou use o vetor normal perpendicular a $\vec{d}$.</p>
+        <p><strong>(3)</strong> Geral $\rightarrow$ reduzida: isole $y$ (quando possível).</p>
+        <p><strong>(4)</strong> Verificação: um ponto $P(x_0, y_0)$ pertence à reta se suas coordenadas satisfazem a equação.</p>
+
+        <p>Com isso, podemos agora não apenas traçar rotas, mas também converter entre representações, verificar se um ponto está no caminho e preparar o terreno para os próximos tópicos: posições relativas de retas, perpendicularidade e distância ponto-reta.</p>
+    </div>
+</section>

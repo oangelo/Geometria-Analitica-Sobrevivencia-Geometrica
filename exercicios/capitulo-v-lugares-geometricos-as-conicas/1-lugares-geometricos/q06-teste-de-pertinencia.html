@@ -1,0 +1,40 @@
+<div class="exercise">
+<h3>TESTE DE PERTINÊNCIA</h3>
+
+<p>Dois depósitos de suprimentos estão localizados em $A(-3, 1)$ e $B(5, 5)$. A linha de demarcação equidistante entre eles foi calculada pela equipe técnica. Um sobrevivente relata estar em um ponto $P$ que "parece equidistante" dos dois depósitos. O objetivo deste exercício é construir a mediatriz e desenvolver um teste rigoroso de pertinência.</p>
+
+<p><strong>(a)</strong> Desenhe no papel os pontos $A(-3,1)$, $B(5,5)$ e estime a posição da mediatriz. Calcule o ponto médio $M$.</p>
+
+<p><strong>(b)</strong> A partir da definição $d(P,A) = d(P,B)$, deduza a equação da mediatriz. Escreva-a na forma geral $ax + by + c = 0$.</p>
+
+<p><strong>(c)</strong> O sobrevivente está em $P_1(1, 3)$. Substitua na equação da mediatriz. O resultado é zero? Calcule também $d(P_1, A)$ e $d(P_1, B)$ para confirmar.</p>
+
+<p><strong>(d)</strong> Outro sobrevivente está em $P_2(7, 0)$. Aplique o mesmo teste duplo (equação e distâncias). O ponto pertence à mediatriz?</p>
+
+<p><strong>(e)</strong> O ponto $P_3(9, -1)$ está do mesmo lado da mediatriz que $A$ ou que $B$? Justifique substituindo $P_3$ na expressão $ax + by + c$ e comparando com o sinal obtido para $A$ e $B$.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>No item (e), lembre do Capítulo III: a expressão $ax + by + c$ tem sinais opostos em pontos situados em lados opostos da reta $ax + by + c = 0$. Se $P_3$ e $A$ derem o mesmo sinal, estão do mesmo lado; se derem sinais opostos, estão em lados opostos.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Ponto médio: $M\left(\dfrac{-3+5}{2}, \dfrac{1+5}{2}\right) = M(1, 3)$.</li>
+<li>Condição: $\sqrt{(x+3)^2 + (y-1)^2} = \sqrt{(x-5)^2 + (y-5)^2}$.</li>
+<li>Elevando ao quadrado: $(x+3)^2 + (y-1)^2 = (x-5)^2 + (y-5)^2$.</li>
+<li>Expandindo: $x^2 + 6x + 9 + y^2 - 2y + 1 = x^2 - 10x + 25 + y^2 - 10y + 25$.</li>
+<li>Simplificando: $16x + 8y - 40 = 0$, ou $2x + y - 5 = 0$.</li>
+<li>Teste de $P_1(1, 3)$: $2(1) + 3 - 5 = 0$ ✓. Distâncias: $d(P_1, A) = \sqrt{(1+3)^2 + (3-1)^2} = \sqrt{16+4} = \sqrt{20} = 2\sqrt{5}$. $d(P_1, B) = \sqrt{(1-5)^2 + (3-5)^2} = \sqrt{16+4} = \sqrt{20} = 2\sqrt{5}$ ✓.</li>
+<li>Teste de $P_2(7, 0)$: $2(7) + 0 - 5 = 9 \neq 0$. Distâncias: $d(P_2, A) = \sqrt{(7+3)^2 + (0-1)^2} = \sqrt{100+1} = \sqrt{101}$. $d(P_2, B) = \sqrt{(7-5)^2 + (0-5)^2} = \sqrt{4+25} = \sqrt{29}$. Como $\sqrt{101} \neq \sqrt{29}$, $P_2$ <strong>não</strong> pertence à mediatriz.</li>
+<li>Teste de lado para $P_3(9, -1)$: $2(9) + (-1) - 5 = 18 - 1 - 5 = 12 > 0$. Para $A(-3, 1)$: $2(-3) + 1 - 5 = -6 + 1 - 5 = -10 < 0$. Para $B(5, 5)$: $2(5) + 5 - 5 = 10 > 0$. Logo $P_3$ está do <strong>mesmo lado que $B$</strong> (ambos dão positivo).</li>
+</ol>
+<div class="formula">
+$$2x + y - 5 = 0$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O teste de pertinência tem duas camadas: algébrica (substituir na equação) e geométrica (calcular distâncias). Ambas devem concordar. O teste de lado é uma ferramenta adicional do Capítulo III que nos diz não apenas se um ponto está sobre a reta, mas de qual lado ele está — crucial para decisões de rota na Zona Devastada.</p>
+</details>
+</div>

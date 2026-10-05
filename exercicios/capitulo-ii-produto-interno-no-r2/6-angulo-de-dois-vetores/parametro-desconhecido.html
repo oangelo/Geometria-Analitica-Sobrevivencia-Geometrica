@@ -1,0 +1,39 @@
+<div class="exercise">
+<h3>O PARÂMETRO DESCONHECIDO</h3>
+<p>O sistema de defesa do Refúgio-TEC precisa calibrar um campo de força representado por dois vetores: $\vec{u} = (3,1)$ e $\vec{v} = (k,4)$. Para que o campo opere com eficiência máxima, o ângulo entre os vetores deve ser $45°$. Determine o valor de $k$ que satisfaz essa condição. Ao resolver a equação, verifique todas as soluções encontradas — o processo de elevar ambos os lados ao quadrado pode introduzir soluções que não pertencem ao problema original.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Monte a equação $\frac{\vec{u} \cdot \vec{v}}{|\vec{u}| \cdot |\vec{v}|} = \cos 45° = \frac{\sqrt{2}}{2}$. Após elevar ao quadrado e resolver a equação do segundo grau, teste cada raiz na equação original.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Montamos a equação:
+$$\frac{3k + 4}{\sqrt{10} \cdot \sqrt{k^2 + 16}} = \frac{\sqrt{2}}{2}$$</li>
+<li>Multiplicamos cruzado:
+$$2(3k + 4) = \sqrt{2} \cdot \sqrt{10(k^2 + 16)}$$
+$$2(3k + 4) = \sqrt{20(k^2 + 16)}$$</li>
+<li>Elevamos ao quadrado:
+$$4(3k + 4)^2 = 20(k^2 + 16)$$
+$$4(9k^2 + 24k + 16) = 20k^2 + 320$$
+$$36k^2 + 96k + 64 = 20k^2 + 320$$</li>
+<li>Simplificamos:
+$$16k^2 + 96k - 256 = 0$$
+$$k^2 + 6k - 16 = 0$$</li>
+<li>Fatoramos e resolvemos:
+$$(k + 8)(k - 2) = 0 \implies k = 2 \text{ ou } k = -8$$</li>
+<li><strong>Verificação de $k = 2$:</strong>
+$$\frac{3(2) + 4}{\sqrt{10} \cdot \sqrt{4 + 16}} = \frac{10}{\sqrt{10} \cdot 2\sqrt{5}} = \frac{10}{2\sqrt{50}} = \frac{10}{10\sqrt{2}} = \frac{\sqrt{2}}{2} \checkmark$$
+$\theta = 45°$ — solução válida.</li>
+<li><strong>Verificação de $k = -8$:</strong>
+$$\frac{3(-8) + 4}{\sqrt{10} \cdot \sqrt{64 + 16}} = \frac{-20}{\sqrt{10} \cdot 4\sqrt{5}} = \frac{-20}{4\sqrt{50}} = \frac{-20}{20\sqrt{2}} = \frac{-\sqrt{2}}{2} \neq \frac{\sqrt{2}}{2}$$
+$\theta = 135°$ — não satisfaz a condição de $45°$. Solução estranha introduzida pelo quadrado.</li>
+</ol>
+<div class="formula">
+$$k = 2 \quad (\text{ângulo} = 45°)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Ao elevar uma equação ao quadrado, o sinal se perde: $\cos\theta = \frac{\sqrt{2}}{2}$ e $\cos\theta = -\frac{\sqrt{2}}{2}$ geram o mesmo quadrado. Por isso a verificação é obrigatória — sem ela, o sistema de defesa seria calibrado com $k = -8$, gerando um ângulo de $135°$ em vez de $45°$, com consequências potencialmente fatais.</p>
+</details>
+</div>

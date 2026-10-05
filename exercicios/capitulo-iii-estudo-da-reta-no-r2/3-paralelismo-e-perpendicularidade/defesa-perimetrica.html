@@ -1,0 +1,33 @@
+<div class="exercise">
+<h3>DEFESA PERIMÉTRICA DO ABRIGO</h3>
+
+<p>O SUPERVISOR precisa projetar as defesas do Abrigo-29. A fronteira norte passa pelos pontos $A(2, 3)$ e $B(6, 5)$. O plano exige: <strong>(1)</strong> uma segunda fronteira paralela à primeira, a uma distância segura, passando pelo ponto $C(2, 0)$; <strong>(2)</strong> uma terceira fronteira perpendicular às duas anteriores, passando por $B$, para fechar a área de defesa. No papel, esboce os pontos $A$, $B$, $C$ e as três fronteiras. Encontre as equações reduzidas das três fronteiras e identifique o ponto $D$ onde a terceira fronteira cruza a segunda. O quadrilátero $ABDC$ é um retângulo?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Passo 1: encontre $m_{AB}$. Passo 2: fronteira 2 é paralela, então mesmo $m$, passando por $C$. Passo 3: fronteira 3 é perpendicular, então $m_3 = -1/m_{AB}$, passando por $B$. Passo 4: encontre $D$ resolvendo o sistema das fronteiras 2 e 3.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Coeficiente angular de $AB$: $m_{AB} = \frac{5-3}{6-2} = \frac{2}{4} = \frac{1}{2}$.</li>
+<li>Fronteira 1 (dada): passa por $A(2, 3)$ com $m = \frac{1}{2}$. Equação: $y - 3 = \frac{1}{2}(x - 2) \implies y = \frac{1}{2}x + 2$.</li>
+<li>Fronteira 2 (paralela, passa por $C$): $m = \frac{1}{2}$, passa por $C(2, 0)$. Equação: $y - 0 = \frac{1}{2}(x - 2) \implies y = \frac{1}{2}x - 1$.</li>
+<li>Fronteira 3 (perpendicular, passa por $B$): $m_3 = -\frac{1}{m_{AB}} = -2$. Passa por $B(6, 5)$. Equação: $y - 5 = -2(x - 6) \implies y = -2x + 17$.</li>
+<li>Encontre $D$ (interseção das fronteiras 2 e 3): resolva $\frac{1}{2}x - 1 = -2x + 17$.</li>
+<li>$\frac{1}{2}x + 2x = 18 \implies \frac{5}{2}x = 18 \implies x = \frac{36}{5} = 7{,}2$.</li>
+<li>$y = \frac{1}{2} \cdot \frac{36}{5} - 1 = \frac{18}{5} - 1 = \frac{13}{5} = 2{,}6$. Então $D\left(\frac{36}{5}, \frac{13}{5}\right)$.</li>
+<li>Verifique se $ABDC$ é retângulo: $AB \parallel CD$ (ambos têm $m = \frac{1}{2}$) e $AC \parallel BD$? Verifique $m_{AC} = \frac{0-3}{2-2}$ — indefinido (vertical). $m_{BD} = \frac{2{,}6-5}{7{,}2-6} = \frac{-2{,}4}{1{,}2} = -2$. Não são paralelos.</li>
+<li>Reavalie: $ABDC$ tem $AB \parallel CD$ (sim), mas $AC$ é vertical e $BD$ tem $m = -2$ — não são paralelos. Portanto, $ABDC$ não é retângulo.</li>
+</ol>
+<div class="formula">
+$$r_1: y = \frac{1}{2}x + 2, \quad r_2: y = \frac{1}{2}x - 1, \quad r_3: y = -2x + 17$$
+$$D\left(\frac{36}{5}, \frac{13}{5}\right)$$
+$$<strong>Resultado:</strong> ABDC \text{ não é retângulo (apenas um par de lados paralelos)}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A construção de defesas exige precisão matemática. O SUPERVISOR descobriu que, com os pontos dados, não é possível formar um retângulo perfeito — apenas um paralelogramo generalizado. Na Zona Devastada, saber que a geometria não fecha como esperado permite ajustar as posições antes de gastar concreto e arame farpado. A matemática é o primeiro teste de viabilidade de qualquer construção.</p>
+</details>
+</div>

@@ -1,0 +1,30 @@
+<div class="exercise">
+<h3>BARICENTRO E AS SEIS ÁREAS</h3>
+
+<p>No Capítulo I, vimos que o baricentro $G$ de um triângulo $ABC$ é o ponto médio entre os vértices e os pontos médios dos lados opostos. Agora vamos conectar isso com a área. Dado o triângulo $A(0, 0)$, $B(6, 0)$ e $C(3, 6)$, o baricentro é $G = \left(\frac{0+6+3}{3}, \frac{0+0+6}{3}\right) = (3, 2)$. As medianas (segmentos que ligam cada vértice ao ponto médio do lado oposto) se cruzam em $G$ e dividem o triângulo em 6 subtriângulos. Calcule a área do triângulo $ABC$ e a área de um dos subtriângulos (por exemplo, o triângulo $AGM_{BC}$, onde $M_{BC}$ é o ponto médio de $BC$). Que proporção você observa?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Primeiro calcule a área total via determinante. Depois encontre $M_{BC}$ (ponto médio, Cap I), construa os vetores para o subtriângulo $AGM_{BC}$ e calcule sua área. Divida a área total por 6 — o resultado deve ser a área do subtriângulo.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Área de $ABC$: $\overrightarrow{AB} = (6, 0)$ e $\overrightarrow{AC} = (3, 6)$. Área $= \frac{1}{2}|6 \times 6 - 0 \times 3| = \frac{1}{2} \times 36 = 18$.</li>
+<li>Ponto médio de $BC$: $M_{BC} = \left(\frac{6+3}{2}, \frac{0+6}{2}\right) = \left(\frac{9}{2}, 3\right)$.</li>
+<li>Subtriângulo $AGM_{BC}$: $\overrightarrow{AG} = (3, 2)$ e $\overrightarrow{AM_{BC}} = \left(\frac{9}{2}, 3\right)$.</li>
+<li>Área de $AGM_{BC}$: $\frac{1}{2}\left|3 \times 3 - 2 \times \frac{9}{2}\right| = \frac{1}{2}|9 - 9| = 0$?</li>
+<li>Hmm — os pontos $A$, $G$ e $M_{BC}$ são colineares! Isso faz sentido: a mediana é uma linha reta de $A$ a $M_{BC}$, e $G$ está sobre ela. Vamos escolher um subtriângulo melhor: $GM_{AB}M_{BC}$.</li>
+<li>Ponto médio de $AB$: $M_{AB} = (3, 0)$. Subtriângulo $GM_{AB}M_{BC}$: $\overrightarrow{GM_{AB}} = (3,0)-(3,2) = (0,-2)$ e $\overrightarrow{GM_{BC}} = \left(\frac{9}{2},3\right)-(3,2) = \left(\frac{3}{2},1\right)$.</li>
+<li>Área: $\frac{1}{2}\left|0 \times 1 - (-2) \times \frac{3}{2}\right| = \frac{1}{2} \times 3 = 3$.</li>
+<li>Proporção: área total $= 18$, subtriângulo $= 3$. Razão $= \frac{18}{3} = 6$. Cada um dos 6 subtriângulos tem área $\frac{18}{6} = 3$. As medianas dividem o triângulo em 6 regiões de mesma área!</li>
+</ol>
+<div class="formula">
+$$\text{Área}_{ABC} = 18, \quad \text{Área}_{GM_{AB}M_{BC}} = 3 = \frac{18}{6}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> As medianas não apenas se cruzam no baricentro — elas dividem o triângulo em 6 partes exatamente iguais. Este resultado conecta o Capítulo I (baricentro, ponto médio) com o Capítulo II (área via determinante). Na Zona Devastada, se você precisa dividir um terreno triangular entre 6 grupos de sobreviventes, as medianas garantem que cada um recebe a mesma área — justiça matemática.</p>
+</details>
+</div>

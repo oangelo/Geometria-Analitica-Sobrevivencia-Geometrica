@@ -1,0 +1,24 @@
+<div class="exercise">
+<h3>ROTA DE INFILTRAÇÃO PELA ZONA DE VIGILÂNCIA</h3>
+
+<p>Uma zona de vigilância de mutantes é monitorada por sensores dispostos em um perímetro circular descrito por $(x - 3)^2 + (y - 2)^2 = 25$ — centro $C(3,2)$, raio $r = 5$. Uma rota de infiltração segue a reta $x + 2y - 12 = 0$. No papel, esboce a circunferência com centro $C(3,2)$ e raio 5, e trace a reta. Determine se a rota de infiltração atravessa a zona de vigilância. Se sim, calcule os pontos exatos de entrada e saída — as coordenadas onde o explorador entra na zona e onde emerge do outro lado.</p>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Distância do centro à reta: $d = \frac{|3 + 2 \cdot 2 - 12|}{\sqrt{1 + 4}} = \frac{|3 + 4 - 12|}{\sqrt{5}} = \frac{5}{\sqrt{5}} = \sqrt{5} \approx 2{,}24$.</li>
+<li>Como $\sqrt{5} < 5$, a reta é <strong>secante</strong> — a rota atravessa a zona.</li>
+<li>Pontos de interseção: da reta, $x = 12 - 2y$. Substitua na circunferência: $(12 - 2y - 3)^2 + (y - 2)^2 = 25$.</li>
+<li>$(9 - 2y)^2 + (y - 2)^2 = 25 \Rightarrow 81 - 36y + 4y^2 + y^2 - 4y + 4 = 25 \Rightarrow 5y^2 - 40y + 60 = 0$.</li>
+<li>Simplifique: $y^2 - 8y + 12 = 0 \Rightarrow (y - 2)(y - 6) = 0 \Rightarrow y = 2$ ou $y = 6$.</li>
+<li>Coordenadas: $y = 2 \Rightarrow x = 12 - 4 = 8$, ponto $A(8, 2)$. $y = 6 \Rightarrow x = 12 - 12 = 0$, ponto $B(0, 6)$.</li>
+<li>Verificação: $(8-3)^2 + (2-2)^2 = 25 + 0 = 25$ ✓, $(0-3)^2 + (6-2)^2 = 9 + 16 = 25$ ✓.</li>
+<li>Conclusão: o explorador entra na zona de vigilância no ponto $B(0, 6)$ e emerge no ponto $A(8, 2)$.</li>
+</ol>
+<div class="formula">
+$$d = \sqrt{5} \approx 2{,}24 &lt; 5 \quad \Rightarrow \quad \text{secante}$$
+$$B(0, 6): \text{entrada} \qquad A(8, 2): \text{saída}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O explorador que conhece os pontos de entrada e saída pode planejar a infiltração com precisão: sabe onde a zona começa, onde termina e quanto tempo ficará exposto. O segmento interno (de $B$ a $A$) mede $\sqrt{(8-0)^2 + (2-6)^2} = \sqrt{64 + 16} = \sqrt{80} = 4\sqrt{5} \approx 8{,}94$ unidades — a extensão da rota dentro do perigo.</p>
+</details>
+</div>

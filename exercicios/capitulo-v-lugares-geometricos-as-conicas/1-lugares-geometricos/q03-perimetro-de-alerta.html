@@ -1,0 +1,39 @@
+<div class="exercise">
+<h3>PERÍMETRO DE ALERTA</h3>
+
+<p>O Centro de Comando da Zona Devastada está localizado em $C(3, -2)$. Sensores de movimento detectam qualquer presença a uma distância de $5$ unidades do centro. O objetivo deste exercício é construir a equação do <strong>perímetro de alerta</strong> a partir da definição de lugar geométrico — a circunferência como conjunto de pontos a distância constante do centro.</p>
+
+<p><strong>(a)</strong> Desenhe no papel o ponto $C(3,-2)$ e esboce mentalmente todos os pontos que distam $5$ unidades de $C$. Que figura geométrica você espera obter?</p>
+
+<p><strong>(b)</strong> Seja $P(x,y)$ um ponto genérico do perímetro de alerta. Escreva a condição $d(P,C) = 5$ usando coordenadas.</p>
+
+<p><strong>(c)</strong> Eleve ambos os lados ao quadrado e obtenha a equação da circunferência na forma reduzida $(x-x_0)^2 + (y-y_0)^2 = r^2$.</p>
+
+<p><strong>(d)</strong> Expanda a equação obtida e escreva-a na forma geral $x^2 + y^2 + Dx + Ey + F = 0$, identificando os valores de $D$, $E$ e $F$.</p>
+
+<p><strong>(e)</strong> O ponto $P_1(7, 1)$ está dentro, sobre ou fora do perímetro de alerta? E o ponto $P_2(3, 3)$? Justifique comparando $d(P_i, C)$ com o raio.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>No item (c), lembre que elevar ao quadrado elimina a raiz: $[\sqrt{(x-3)^2 + (y+2)^2}]^2 = 5^2$. No item (e), não é necessário calcular a raiz quadrada — compare o quadrado da distância com $r^2 = 25$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>A figura esperada é uma circunferência de centro $C(3,-2)$ e raio $r = 5$.</li>
+<li>Condição: $\sqrt{(x-3)^2 + (y+2)^2} = 5$.</li>
+<li>Elevando ao quadrado: $(x-3)^2 + (y+2)^2 = 25$.</li>
+<li>Expandindo: $x^2 - 6x + 9 + y^2 + 4y + 4 = 25$.</li>
+<li>Forma geral: $x^2 + y^2 - 6x + 4y - 12 = 0$, com $D = -6$, $E = 4$, $F = -12$.</li>
+<li>Para $P_1(7,1)$: $d(P_1,C)^2 = (7-3)^2 + (1+2)^2 = 16 + 9 = 25 = r^2$. Logo $P_1$ está <strong>sobre</strong> o perímetro.</li>
+<li>Para $P_2(3,3)$: $d(P_2,C)^2 = (3-3)^2 + (3+2)^2 = 0 + 25 = 25 = r^2$. Logo $P_2$ também está <strong>sobre</strong> o perímetro (é o ponto mais ao norte).</li>
+</ol>
+<div class="formula">
+$$(x-3)^2 + (y+2)^2 = 25 \quad \text{ou} \quad x^2 + y^2 - 6x + 4y - 12 = 0$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A circunferência é o lugar geométrico da condição "distância constante". Ao contrário da mediatriz, onde os termos quadráticos se cancelam, aqui eles permanecem — é a marca algébrica de uma curva de segundo grau. A transição de reta para circunferência está no cancelamento (ou não) dos termos $x^2$ e $y^2$.</p>
+</details>
+</div>

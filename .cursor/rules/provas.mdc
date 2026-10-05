@@ -1,0 +1,36 @@
+---
+description: Padrões para criação de provas, gabaritos e folhas de resposta
+globs: provas/**/*.html
+alwaysApply: false
+---
+
+# Provas — Sobrevivência Geométrica
+
+Templates em `provas/prompt-engineering/`: `template-prova.html`, `gabarito.html`, `folha-resposta.html`.
+
+## Fluxo obrigatório (não pular etapas)
+
+1. **Coletar** tipo da prova (P1, P2, PS, PF) e tópicos a cobrir
+2. **Propor plano** detalhado e aguardar aprovação explícita
+3. **Só então** gerar os três arquivos HTML
+
+> **NUNCA** gerar HTML antes da aprovação do professor.
+
+## Estrutura da prova
+- **4 questões**, total **10,0 pontos**, cada questão vale **2,5 pontos**
+- Cada questão tem **2–4 itens** com pontuação variável (itens mais difíceis valem mais)
+- Soma dos itens = 2,5 por questão
+
+## Qualidade das questões
+- Incluir **justificativa didática** para cada questão no plano
+- Onde possível, o último item deve ser um **item de verificação** (ex: após achar a inversa, pedir para verificar multiplicando pela original)
+- Para tópicos sem verificação direta, o último item pode ser conceitual
+
+## Saída: três arquivos
+| Arquivo | Template |
+|---|---|
+| `{tipo}-{ano}-{semestre}.html` | `template-prova.html` |
+| `gabarito-{tipo}-{ano}-{semestre}.html` | `gabarito.html` |
+| `folha-{tipo}-{ano}-{semestre}.html` | `folha-resposta.html` |
+
+Nomear sempre em **minúsculas com hífens** (padrão do repositório).

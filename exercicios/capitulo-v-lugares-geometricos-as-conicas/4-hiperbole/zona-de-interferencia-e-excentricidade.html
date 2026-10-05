@@ -1,0 +1,36 @@
+<div class="exercise">
+<h3>Zona de Interferência e Excentricidade</h3>
+<p>O objetivo deste exercício é introduzir a excentricidade da hipérbole e interpretá-la geometricamente. Uma zona de interferência entre dois campos de energia tem focos em $F_1(-5,0)$ e $F_2(5,0)$, e passa pelo ponto $(4,0)$.</p>
+<p><strong>(a)</strong> A partir dos focos, identifique $c$. A partir do ponto $(4,0)$, identifique $a$ (pois $(4,0)$ é um vértice).</p>
+<p><strong>(b)</strong> Use $c^2 = a^2 + b^2$ para calcular $b^2$ e escreva a equação canônica.</p>
+<p><strong>(c)</strong> Calcule as assíntotas. Verifique que o ponto $(4,0)$ satisfaz a equação.</p>
+<p><strong>(d)</strong> A <strong>excentricidade</strong> de uma hipérbole é definida como $e = \frac{c}{a}$. Calcule $e$ para esta hipérbole. Compare com a elipse, onde $e = \frac{c}{a} < 1$. O que $e > 1$ significa geometricamente?</p>
+<p><strong>(e)</strong> Se $e$ fosse muito próximo de 1 (por exemplo, $e = 1{,}01$), como seria a hipérbole? E se $e$ fosse muito grande (por exemplo, $e = 10$)? Interprete geometricamente.</p>
+<p><strong>(f)</strong> Faça um esboço mostrando a hipérbole, os focos, os vértices, e as assíntotas.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>No item (e), pense na relação $c^2 = a^2 + b^2$. Se $e = \frac{c}{a} \approx 1$, então $c \approx a$, logo $b^2 = c^2 - a^2$ é pequeno. As assíntotas têm inclinação $\frac{b}{a} \approx 0$ — a hipérbole é muito "fechada". Se $e$ é grande, $c \gg a$, logo $b \approx c$ é grande. As assíntotas são íngremes — a hipérbole se abre rapidamente.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Focos em $(\pm 5, 0)$, logo $c = 5$.</li>
+<li>Vértice em $(4, 0)$, logo $a = 4$.</li>
+<li>$c^2 = a^2 + b^2 \Rightarrow 25 = 16 + b^2 \Rightarrow b^2 = 9$, logo $b = 3$.</li>
+<li>Equação: $\frac{x^2}{16} - \frac{y^2}{9} = 1$.</li>
+<li>Assíntotas: $y = \pm \frac{3}{4}x$.</li>
+<li>Verificação de $(4,0)$: $\frac{16}{16} - 0 = 1$ ✓</li>
+<li>Excentricidade: $e = \frac{c}{a} = \frac{5}{4} = 1{,}25$.</li>
+<li>Interpretação de $e > 1$: na hipérbole, $c > a$ sempre. Quanto maior $e$, mais os focos estão afastados dos vértices em proporção.</li>
+<li>Se $e \approx 1$: $b \approx 0$, assíntotas quase horizontais. A hipérbole tem ramos muito "comprimidos" próximos ao eixo $x$.</li>
+<li>Se $e = 10$: $c = 10a$, $b^2 = 100a^2 - a^2 = 99a^2$, $b \approx 9{,}95a$. As assíntotas têm inclinação $\approx 10$, quase verticais. A hipérbole se abre muito rapidamente.</li>
+</ol>
+<div class="formula">$$\text{Equação: } \frac{x^2}{16} - \frac{y^2}{9} = 1 \quad \text{com } a = 4,\; b = 3,\; c = 5,\; e = 1{,}25$$</div>
+<div class="formula">$$\text{Assíntotas: } y = \pm \frac{3}{4}x$$</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A excentricidade $e = c/a$ mede o "grau de abertura" da hipérbole. Valores próximos a 1 indicam hipérboles muito alongadas (focos quase nos vértices); valores grandes indicam hipérboles que se abrem rapidamente. Em sistemas de detecção, hipérboles com $e$ próximo de 1 são mais sensíveis a erros de medição — pequenas variações na diferença de distâncias causam grandes deslocamentos ao longo da curva.</p>
+</details>
+</div>

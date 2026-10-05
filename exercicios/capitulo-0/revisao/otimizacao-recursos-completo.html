@@ -1,0 +1,40 @@
+<div class="exercise">
+<h3>Otimização de Recursos: Problema Completo</h3>
+
+<p><strong>Objetivo:</strong> Este exercício integra os <strong>4 conceitos</strong>: Álgebra, Frações, Sistemas e Trigonometria. Você otimizará o uso de recursos em um cenário completo de sobrevivência.</p>
+
+<p>O acampamento possui $120$ litros de água e $80$ kg de alimentos para $20$ pessoas durante $5$ dias. Cada pessoa precisa de $x$ litros de água e $y$ kg de alimentos por dia. Sabe-se que a quantidade de água é o triplo da quantidade de alimentos ($x = 3y$). Além disso, $\frac{2}{5}$ da água deve ser reservada para higiene, e o restante para consumo.</p>
+
+<p><strong>(a)</strong> Monte um sistema de equações para $x$ e $y$ considerando apenas o consumo de água (excluindo a reserva para higiene).</p>
+<p><strong>(b)</strong> Resolva o sistema encontrando $x$ e $y$.</p>
+<p><strong>(c)</strong> Verifique se os recursos são suficientes para $20$ pessoas durante $5$ dias.</p>
+<p><strong>(d)</strong> Um reservatório de água deve ser construído em formato de prisma triangular. A base do prisma é um triângulo retângulo com ângulo de $30°$ e cateto adjacente de $2$ metros. A altura do prisma é $3$ metros. <strong>Desenhe no papel</strong> e calcule o volume do reservatório. O volume é suficiente para armazenar os $120$ litros? (Lembre-se: $1$ m³ = $1000$ litros)</p>
+<p><strong>(e)</strong> Se cada pessoa reduzir o consumo diário em $\frac{1}{5}$, por quantos dias os recursos agora duram?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>Para a água disponível para consumo: $\frac{3}{5}$ de $120$ litros (pois $\frac{2}{5}$ é para higiene). Divida pelo número de pessoas e pelo número de dias para encontrar o consumo diário por pessoa. Para o volume do prisma triangular, primeiro encontre o outro cateto usando $\tan(30°)$, depois calcule a área da base e multiplique pela altura do prisma.</p>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>Resolução passo a passo:</strong></p>
+<p><strong>(a)</strong> Água para consumo: $\frac{3}{5} \cdot 120 = 72$ litros.</p>
+<p>Consumo diário por pessoa: $x$ litros.</p>
+<p>Total para $20$ pessoas em $5$ dias: $20 \cdot 5 \cdot x = 100x$.</p>
+<p>Sistema:</p>
+<p>$$\begin{cases} 100x = 72 \\ x = 3y \end{cases}$$</p>
+<p><strong>(b)</strong> Da primeira equação: $x = \frac{72}{100} = 0{,}72$ litros/dia.</p>
+<p>Da segunda equação: $y = \frac{x}{3} = \frac{0{,}72}{3} = 0{,}24$ kg/dia.</p>
+<p><strong>(c)</strong> Água: $100 \cdot 0{,}72 = 72$ litros (dentro dos $72$ disponíveis). ✓</p>
+<p>Alimentos: $100 \cdot 0{,}24 = 24$ kg (dentro dos $80$ disponíveis). ✓</p>
+<p><strong>(d)</strong> No triângulo da base: $\tan(30°) = \frac{\text{cateto oposto}}{2}$, logo cateto oposto $= 2 \cdot \frac{\sqrt{3}}{3} = \frac{2\sqrt{3}}{3} \approx 1{,}15$ m.</p>
+<p>Área da base: $\frac{1}{2} \cdot 2 \cdot \frac{2\sqrt{3}}{3} = \frac{2\sqrt{3}}{3} \approx 1{,}15$ m².</p>
+<p>Volume: $1{,}15 \cdot 3 = 3{,}46$ m³ $= 3460$ litros.</p>
+<p>Sim, o reservatório comporta facilmente os $120$ litros.</p>
+<p><strong>(e)</strong> Redução de $\frac{1}{5}$ significa consumir $\frac{4}{5}$ do original.</p>
+<p>Novo consumo de água: $\frac{4}{5} \cdot 72 = 57{,}6$ litros para $5$ dias.</p>
+<p>Dias com $72$ litros: $72 \div (20 \cdot \frac{4}{5} \cdot 0{,}72) = 72 \div 11{,}52 = 6{,}25$ dias.</p>
+<p>Ou simplesmente: $5 \cdot \frac{5}{4} = 6{,}25$ dias.</p>
+</details>
+</div>

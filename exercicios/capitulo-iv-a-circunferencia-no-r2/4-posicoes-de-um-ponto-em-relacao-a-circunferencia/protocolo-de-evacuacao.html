@@ -1,0 +1,21 @@
+<div class="exercise">
+<h3>PROTOCOLO DE EVACUAÇÃO</h3>
+
+<p>O conhecimento acumulado — classificação de pontos, substituição na equação, inequações — se une num cenário de evacuação. Uma zona de radiação ativa é descrita por $(x-4)^2 + (y-5)^2 = 9$ (centro $(4,5)$, raio $3$), e uma zona de proteção é descrita por $(x-1)^2 + (y-2)^2 = 25$ (centro $(1,2)$, raio $5$). Um abrigo é considerado <strong>seguro</strong> se está dentro da zona de proteção <strong>e</strong> fora da zona de radiação. Quatro abrigos foram registrados: $A(3,4)$, $B(-3,2)$, $C(1,-3)$ e $D(4,5)$. No papel, esboce as duas circunferências com seus centros e marque os quatro abrigos. Para cada abrigo, verifique as duas condições e determine qual é o único seguro para evacuação.</p>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Abrigo $A(3,4)$: Proteção: $(3-1)^2 + (4-2)^2 = 4 + 4 = 8 &lt; 25$ ✓ (dentro). Radiação: $(3-4)^2 + (4-5)^2 = 1 + 1 = 2 &lt; 9$ (dentro da radiação). <strong>Não seguro</strong>.</li>
+<li>Abrigo $B(-3,2)$: Proteção: $(-3-1)^2 + (2-2)^2 = 16 + 0 = 16 &lt; 25$ ✓ (dentro). Radiação: $(-3-4)^2 + (2-5)^2 = 49 + 9 = 58 &gt; 9$ ✓ (fora). <strong>Seguro</strong>.</li>
+<li>Abrigo $C(1,-3)$: Proteção: $(1-1)^2 + (-3-2)^2 = 0 + 25 = 25 = 25$ (sobre o perímetro). <strong>Não seguro</strong> — está no bordo da proteção, sem margem.</li>
+<li>Abrigo $D(4,5)$: Proteção: $(4-1)^2 + (5-2)^2 = 9 + 9 = 18 &lt; 25$ ✓ (dentro). Radiação: $(4-4)^2 + (5-5)^2 = 0 + 0 = 0 &lt; 9$ (no centro da radiação!). <strong>Não seguro</strong>.</li>
+<li>Conclusão: o único abrigo seguro é $B(-3,2)$. $A$ e $D$ estão dentro da radiação, e $C$ está sobre o perímetro de proteção.</li>
+</ol>
+<div class="formula">
+$$A(3,4):\; \text{Prot } 8 &lt; 25\;\checkmark \;\text{ Rad } 2 &lt; 9\;\times \qquad B(-3,2):\; \text{Prot } 16 &lt; 25\;\checkmark \;\text{ Rad } 58 &gt; 9\;\checkmark$$
+$$C(1,-3):\; \text{Prot } 25 = 25\;\times \qquad D(4,5):\; \text{Prot } 18 &lt; 25\;\checkmark \;\text{ Rad } 0 &lt; 9\;\times$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Cada abrigo falha por um motivo diferente: $A$ e $D$ estão dentro da radiação (um na borda, outro no centro), $C$ está sobre o perímetro de proteção (sem margem), e apenas $B$ satisfaz ambas as condições. Na Zona Devastada, uma evacuação bem-sucedida exige verificar <strong>todas</strong> as restrições — estar dentro da proteção não basta se estiver dentro da radiação.</p>
+</details>
+</div>

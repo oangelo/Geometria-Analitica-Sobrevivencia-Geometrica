@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>ENCADEANDO DESLOCAMENTOS: A RELAÇÃO DE CHASLES</h3>
+
+<p>Uma patrulha parte do abrigo $A(1, 1)$, passa pelo posto de suprimentos $B(4, 3)$ e chega à torre de vigia $C(3, 6)$. Cada trecho é um vetor deslocamento: $\overrightarrow{AB}$ e $\overrightarrow{BC}$. O objetivo deste exercício é descobrir o que acontece quando encadeamos dois deslocamentos — será que o vetor direto $\overrightarrow{AC}$ tem alguma relação com os trechos intermediários?</p>
+
+<p><strong>(a)</strong> Calcule $\overrightarrow{AB} = B - A$ e $\overrightarrow{BC} = C - B$.</p>
+
+<p><strong>(b)</strong> Calcule $\overrightarrow{AC} = C - A$ diretamente.</p>
+
+<p><strong>(c)</strong> Agora some $\overrightarrow{AB} + \overrightarrow{BC}$ e compare com $\overrightarrow{AC}$. O que você observa? Desenhe os três vetores no plano: $\overrightarrow{AB}$ saindo de $A$, $\overrightarrow{BC}$ saindo de $B$, e $\overrightarrow{AC}$ ligando $A$ diretamente a $C$.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>Calcule cada vetor separadamente usando a fórmula $\overrightarrow{PQ} = Q - P$. Depois some $\overrightarrow{AB} + \overrightarrow{BC}$ e veja se o resultado coincide com $\overrightarrow{AC}$. Essa é uma propriedade fundamental dos vetores chamada <em>relação de Chasles</em>.</p>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>(a)</strong> $\overrightarrow{AB} = B - A = (4, 3) - (1, 1) = (3, 2)$. $\overrightarrow{BC} = C - B = (3, 6) - (4, 3) = (-1, 3)$.</p>
+<p><strong>(b)</strong> $\overrightarrow{AC} = C - A = (3, 6) - (1, 1) = (2, 5)$.</p>
+<p><strong>(c)</strong> $\overrightarrow{AB} + \overrightarrow{BC} = (3, 2) + (-1, 3) = (2, 5) = \overrightarrow{AC}$. A soma dos trechos é igual ao deslocamento direto! No esboço, a seta de $A$ a $B$ seguida da seta de $B$ a $C$ forma um caminho em "L" — e a seta direta de $A$ a $C$ é o atalho.</p>
+<div class="formula">
+$$\overrightarrow{AB} + \overrightarrow{BC} = \overrightarrow{AC} \quad \text{(Relação de Chasles)}$$
+$$(3, 2) + (-1, 3) = (2, 5) = (3,6) - (1,1) = \overrightarrow{AC} \quad \checkmark$$
+</div>
+<p><strong>Reflexão:</strong> A relação de Chasles $\overrightarrow{AB} + \overrightarrow{BC} = \overrightarrow{AC}$ funciona para <em>quaisquer</em> três pontos $A$, $B$, $C$. Na Zona Devastada, isso significa que podemos planejar paradas intermediárias sem perder a noção do deslocamento total — ou calcular o atalho direto quando o tempo é crítico.</p>
+</details>
+</div>

@@ -1,0 +1,91 @@
+<div class="exercise">
+<h3>Interseção e Reta Contida</h3>
+<p><strong>Objetivo:</strong> Sintetizar todos os conceitos do tópico: resolver sistema 3&times;3, encontrar reta de interseção, e verificar condição de contenção.</p>
+
+<p>Dados os três planos:</p>
+
+<div class="formula">
+$$\begin{cases}
+\pi_1: x + y + z = 1 \\
+\pi_2: 2x - y + z = 2 \\
+\pi_3: x + 2y - z = 3
+\end{cases}$$
+</div>
+
+<p><strong>a)</strong> Calcule $\det A$ para a matriz de coeficientes. O sistema é SPD, SPI ou SI?</p>
+
+<p><strong>b)</strong> Resolva o sistema por eliminação, encontrando o ponto $P$ de interseção dos três planos (se existir).</p>
+
+<p><strong>c)</strong> Encontre a reta $r = \pi_1 \cap \pi_2$, ou seja, a interseção dos dois primeiros planos. Escreva as equações paramétricas de $r$.</p>
+
+<p><strong>d)</strong> Verifique se a reta $r$ está contida no plano $\pi_3$. Para isso, verifique se dois pontos distintos de $r$ pertencem a $\pi_3$.</p>
+
+<p><strong>e)</strong> Se a reta $r$ não estiver contida em $\pi_3$, encontre o ponto de interseção $r \cap \pi_3$. Compare com o ponto $P$ encontrado no item (b).</p>
+
+<p><strong>f)</strong> Considere agora o plano $\pi_4: 3x + z = 3$. Verifique se $\pi_4$ contém a reta $r$. Se não, encontre $r \cap \pi_4$.</p>
+
+<p><strong>g)</strong> <em>Desafio:</em> Determine a equação geral de todos os planos que contêm a reta $r = \pi_1 \cap \pi_2$. Dica: use combinação linear das equações de $\pi_1$ e $\pi_2$.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>Para verificar se uma reta está contida num plano, basta verificar se dois pontos distintos da reta satisfazem a equação do plano. Se um plano contém uma reta, então todo ponto da reta satisfaz a equação do plano. A família de planos por uma reta é dada por $\alpha \cdot \pi_1 + \beta \cdot \pi_2 = 0$ (combinação linear das equações).</p>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+
+<p><strong>a)</strong> Matriz:</p>
+<div class="formula">
+$$A = \begin{pmatrix} 1 & 1 & 1 \\ 2 & -1 & 1 \\ 1 & 2 & -1 \end{pmatrix}$$
+</div>
+<p>$\det A = 1(-1)(-1) + 1(1)(1) + 1(2)(2) - 1(-1)(1) - 1(1)(2) - 1(2)(-1)$
+$= 1 + 1 + 4 + 1 - 2 + 2 = 7 \neq 0$.</p>
+<p>O sistema é <span class="success">SPD</span> &mdash; solução única.</p>
+
+<p><strong>b)</strong> Escalonamento:</p>
+<p>Eq. (I) &times; $(-2)$ + Eq. (II): $-3y - z = 0$ (II')</p>
+<p>Eq. (I) &times; $(-1)$ + Eq. (III): $y - 2z = 2$ (III')</p>
+
+<p>De (III'): $y = 2z + 2$. Substituindo em (II'): $-3(2z+2) - z = 0 \Rightarrow -6z - 6 - z = 0 \Rightarrow -7z = 6 \Rightarrow z = -\frac{6}{7}$.</p>
+<p>Logo $y = 2(-\frac{6}{7}) + 2 = -\frac{12}{7} + \frac{14}{7} = \frac{2}{7}$.</p>
+<p>Da equação (I): $x = 1 - y - z = 1 - \frac{2}{7} + \frac{6}{7} = \frac{7 - 2 + 6}{7} = \frac{11}{7}$.</p>
+
+<p>Solução: $P\left(\dfrac{11}{7}, \dfrac{2}{7}, -\dfrac{6}{7}\right)$.</p>
+
+<p><strong>c)</strong> Reta $r = \pi_1 \cap \pi_2$:</p>
+<div class="formula">
+$$\begin{cases} x + y + z = 1 \\ 2x - y + z = 2 \end{cases}$$
+</div>
+<p>Subtraindo (I) de (II): $x - 2y = 1 \Rightarrow x = 2y + 1$.</p>
+<p>Substituindo em (I): $(2y+1) + y + z = 1 \Rightarrow z = -3y$.</p>
+<p>Fazendo $y = t$:</p>
+<div class="formula">
+$$r: \begin{cases} x = 1 + 2t \\ y = t \\ z = -3t \end{cases}, \quad t \in \mathbb{R}$$
+</div>
+
+<p><strong>d)</strong> Verificando se $r \subset \pi_3$:</p>
+<p>Tomando dois pontos de $r$:</p>
+<ul>
+<li>$t = 0$: $A(1, 0, 0)$. Em $\pi_3$: $1 + 2(0) - 0 = 1 \neq 3$. <strong>$A \notin \pi_3$</strong>.</li>
+</ul>
+<p>Como $A \notin \pi_3$, a reta $r$ <strong>não está contida</strong> em $\pi_3$.</p>
+
+<p><strong>e)</strong> Interseção $r \cap \pi_3$: substituímos as equações paramétricas de $r$ em $\pi_3$:</p>
+<div class="formula">$$(1 + 2t) + 2(t) - (-3t) = 3 \Rightarrow 1 + 2t + 2t + 3t = 3 \Rightarrow 7t = 2 \Rightarrow t = \frac{2}{7}$$</div>
+<p>Logo: $x = 1 + \frac{4}{7} = \frac{11}{7}$, $y = \frac{2}{7}$, $z = -\frac{6}{7}$.</p>
+<p>O ponto de interseção é $\left(\frac{11}{7}, \frac{2}{7}, -\frac{6}{7}\right) = P$, <strong>coincidente com a solução do sistema</strong>. Isso confirma que $P$ é o único ponto comum aos três planos.</p>
+
+<p><strong>f)</strong> Verificando $\pi_4: 3x + z = 3$:</p>
+<p>Substituindo $r$: $3(1+2t) + (-3t) = 3 + 6t - 3t = 3 + 3t = 3 \Rightarrow 3t = 0 \Rightarrow t = 0$.</p>
+<p>A reta $r$ <strong>não está contida</strong> em $\pi_4$ (só intersecta no ponto $t=0$, ou seja, $A(1,0,0)$).</p>
+<p>$r \cap \pi_4 = \{(1, 0, 0)\}$.</p>
+
+<p><strong>g)</strong> A família de planos que contêm a reta $r = \pi_1 \cap \pi_2$ é dada pela combinação linear:</p>
+<div class="formula">
+$$\alpha(x + y + z - 1) + \beta(2x - y + z - 2) = 0$$
+</div>
+<p>onde $\alpha, \beta \in \mathbb{R}$ e não ambos nulos.</p>
+<p>Expandindo: $(\alpha + 2\beta)x + (\alpha - \beta)y + (\alpha + \beta)z - (\alpha + 2\beta) = 0$.</p>
+<p>Para $\alpha = 1, \beta = 0$: recuperamos $\pi_1$. Para $\alpha = 0, \beta = 1$: recuperamos $\pi_2$. Para $\alpha = 1, \beta = 1$: obtemos $3x + z = 3$, que é $\pi_4$! Isso explica por que $\pi_4$ intersecta $r$ num único ponto: $\pi_4$ pertence à família, mas como é combinação com $\alpha = \beta = 1$, ele contém a reta $r$? Verificação: $3(1+2t) + (-3t) = 3 + 3t$. Para que seja identicamente 3, precisaríamos $3t = 0$ para todo $t$, o que é falso. <em>Correção:</em> $\pi_4$ não contém $r$ completamente, apenas intersecta em $t=0$. A família correta é toda combinação linear não trivial de $\pi_1$ e $\pi_2$.</p>
+</details>
+</div>

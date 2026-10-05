@@ -1,0 +1,31 @@
+<div class="exercise">
+<h3>ÂNGULO A PARTIR DE PONTOS</h3>
+<p>Um sobrevivente na posição $A(3,1)$ avista dois postos de suprimentos: o posto Beta em $B(7,4)$ e o posto Gamma em $C(8,-3)$. Para decidir qual rota exige menos mudança de direção em relação à sua orientação atual, o sistema de navegação precisa do ângulo entre os vetores $\overrightarrow{AB}$ e $\overrightarrow{AC}$. Construa esses vetores a partir das coordenadas dos pontos e determine o ângulo entre eles.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Construa $\overrightarrow{AB} = B - A$ e $\overrightarrow{AC} = C - A$. Depois aplique a fórmula do cosseno com produto escalar e módulos.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Construímos os vetores a partir das coordenadas:
+$$\overrightarrow{AB} = (7-3, 4-1) = (4,3)$$
+$$\overrightarrow{AC} = (8-3, -3-1) = (5,-4)$$</li>
+<li>Calculamos o produto escalar:
+$$\overrightarrow{AB} \cdot \overrightarrow{AC} = 4 \cdot 5 + 3 \cdot (-4) = 20 - 12 = 8$$</li>
+<li>Calculamos os módulos:
+$$|\overrightarrow{AB}| = \sqrt{16 + 9} = \sqrt{25} = 5$$
+$$|\overrightarrow{AC}| = \sqrt{25 + 16} = \sqrt{41}$$</li>
+<li>Aplicamos a fórmula:
+$$\cos\theta = \frac{8}{5\sqrt{41}} = \frac{8}{5 \cdot 6{,}403...} \approx 0{,}250$$</li>
+<li>Concluímos:
+$$\theta = \arccos(0{,}250) \approx 75{,}5°$$</li>
+</ol>
+<div class="formula">
+$$\theta = \arccos\left(\frac{\overrightarrow{AB} \cdot \overrightarrow{AC}}{|\overrightarrow{AB}| \cdot |\overrightarrow{AC}|}\right) = \arccos\left(\frac{8}{5\sqrt{41}}\right) \approx 75{,}5°$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Um ângulo de aproximadamente $75{,}5°$ indica que as duas rotas divergem significativamente. Na Zona Devastada, isso significa que escolher um posto não permite facilmente desviar para o outro — a mudança de direção seria brusca. A decisão precisa ser tomada antes de se mover.</p>
+</details>
+</div>

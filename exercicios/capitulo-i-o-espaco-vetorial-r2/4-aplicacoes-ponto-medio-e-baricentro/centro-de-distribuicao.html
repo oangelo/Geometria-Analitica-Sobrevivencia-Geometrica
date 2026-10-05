@@ -1,0 +1,24 @@
+<div class="exercise">
+<h3>CENTRO DE DISTRIBUIÇÃO DE RECURSOS</h3>
+<p>Uma rede de abastecimento triangular conecta três depósitos em $A(2, 2)$, $B(10, 2)$ e $C(6, 8)$. Suprimentos chegam pelo ponto médio de cada lado e precisam ser redirecionados para um centro de distribuição central. O objetivo deste exercício é integrar os conceitos de ponto médio e baricentro em um problema logístico. Desenhe o triângulo, os pontos médios e o centro de distribuição.</p>
+<p><strong>(a)</strong> Calcule os três pontos médios $M_1$ (de $AB$), $M_2$ (de $BC$) e $M_3$ (de $AC$). Estes são os portais de entrada de suprimentos.</p>
+<p><strong>(b)</strong> Calcule o baricentro $G$ do triângulo $ABC$. Este será o centro de distribuição.</p>
+<p><strong>(c)</strong> Para cada portal, calcule a distância até o centro de distribuição: $\|M_1 G\|$, $\|M_2 G\|$ e $\|M_3 G\|$. Compare com os $\frac{1}{3}$ das respectivas medianas completas (do vértice ao ponto médio oposto). O que a propriedade da razão $2:1$ implica sobre a distância de cada portal ao centro?</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>Lembre que o baricentro divide cada mediana na razão $2:1$ a partir do vértice. Isso significa que a distância do baricentro ao ponto médio é $\frac{1}{3}$ da mediana completa. Calcule as medianas inteiras e verifique que $\|M_i G\| = \frac{1}{3}\|\text{mediana}_i\|$.</p>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>$M_1 = \left(\frac{2 + 10}{2}, \frac{2 + 2}{2}\right) = (6, 2)$, $M_2 = \left(\frac{10 + 6}{2}, \frac{2 + 8}{2}\right) = (8, 5)$, $M_3 = \left(\frac{2 + 6}{2}, \frac{2 + 8}{2}\right) = (4, 5)$.</li>
+<li>$G = \left(\frac{2 + 10 + 6}{3}, \frac{2 + 2 + 8}{3}\right) = (6, 4)$.</li>
+<li>Mediana $AM_2$: $\|AM_2\| = \sqrt{(8 - 2)^2 + (5 - 2)^2} = \sqrt{36 + 9} = \sqrt{45} = 3\sqrt{5}$. $\|M_2 G\| = \sqrt{(6 - 8)^2 + (4 - 5)^2} = \sqrt{4 + 1} = \sqrt{5}$. Razão: $\frac{\|M_2 G\|}{\|AM_2\|} = \frac{\sqrt{5}}{3\sqrt{5}} = \frac{1}{3}$. Mediana $BM_3$: $\|BM_3\| = \sqrt{(4 - 10)^2 + (5 - 2)^2} = \sqrt{36 + 9} = 3\sqrt{5}$. $\|M_3 G\| = \sqrt{(6 - 4)^2 + (4 - 5)^2} = \sqrt{5}$. Razão: $\frac{1}{3}$. Mediana $CM_1$: $\|CM_1\| = \sqrt{(6 - 6)^2 + (2 - 8)^2} = 6$. $\|M_1 G\| = \sqrt{(6 - 6)^2 + (4 - 2)^2} = 2$. Razão: $\frac{2}{6} = \frac{1}{3}$. Confirmado: cada portal está a $\frac{1}{3}$ da mediana a partir do ponto médio.</li>
+</ol>
+<div class="formula">
+$$G = (6, 4), \quad \|M_i G\| = \frac{1}{3}\|\text{mediana}_i\| \text{ para todo } i$$
+$$\text{A razão 2:1 garante: do vértice a } G \text{ são } \frac{2}{3}, \text{ de } G \text{ ao ponto médio são } \frac{1}{3}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A propriedade da razão $2:1$ tem consequência direta na logística: se suprimentos chegam pelos pontos médios (portais), a distância até o centro de distribuição é sempre $\frac{1}{3}$ da mediana. Isso permite planejar rotas de entrega com precisão, sabendo exatamente a proporção do percurso de cada portal ao centro.</p>
+</details>
+</div>

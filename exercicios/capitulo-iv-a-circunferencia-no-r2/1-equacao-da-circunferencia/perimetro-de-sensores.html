@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>PERÍMETRO DE SENSORES</h3>
+
+<p>Sensores de radiação do abrigo devem ser posicionados a exatamente 3 unidades do núcleo central, localizado em $C(1,-2)$. Nos exercícios anteriores, o caminho foi: definição → distância → elevar ao quadrado → equação. Agora o SUPERVISOR agiliza — a equação canônica $(x - a)^2 + (y - b)^2 = r^2$ já entrega a resposta diretamente. Escreva a equação canônica da circunferência de sensores e, no papel, esboce o centro $C$ e a circunferência com raio 3. Depois, verifique se as posições $P_1(4,-2)$, $P_2(1,1)$ e $P_3(3,0)$ podem receber sensores — basta substituir cada par de coordenadas na equação.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Na forma canônica $(x - a)^2 + (y - b)^2 = r^2$, os sinais importam. Se $C(1,-2)$, então $a = 1$ e $b = -2$. Cuidado: $y - (-2) = y + 2$. Para verificar pertencimento, substitua as coordenadas e confira se a igualdade é satisfeita.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Identifique os parâmetros: centro $C(1,-2)$, raio $r = 3$.</li>
+<li>Escreva a equação canônica: $(x - 1)^2 + (y + 2)^2 = 9$.</li>
+<li>Posição $P_1(4,-2)$: $(4-1)^2 + (-2+2)^2 = 9 + 0 = 9 = 9$ ✓. Pode receber sensor.</li>
+<li>Posição $P_2(1,1)$: $(1-1)^2 + (1+2)^2 = 0 + 9 = 9 = 9$ ✓. Pode receber sensor.</li>
+<li>Posição $P_3(3,0)$: $(3-1)^2 + (0+2)^2 = 4 + 4 = 8 \neq 9$. Não está no perímetro — não pode receber sensor.</li>
+</ol>
+<div class="formula">
+$$(x - 1)^2 + (y + 2)^2 = 9$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A equação canônica é uma ferramenta de triagem instantânea: substitua e compare. Se o resultado é $r^2$, o ponto está no perímetro; se é menor, está dentro; se é maior, está fora. Na Zona Devastada, posicionamento preciso de sensores pode ser a diferença entre detectar contaminação a tempo ou ser pego de surpresa.</p>
+</details>
+</div>

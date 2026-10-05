@@ -1,0 +1,25 @@
+<div class="exercise">
+<h3>MEDIATRIZ — O LUGAR DOS PONTOS EQUIDISTANTES</h3>
+<p>Dois depósitos de suprimentos foram localizados em $A(-2{,}1)$ e $B(4{,}1)$. O comando do Refúgio-TEC quer posicionar um posto de distribuição que esteja exatamente à mesma distância de ambos os depósitos, para garantir equidade no acesso. Determine a condição que as coordenadas $(x{,}y)$ do posto devem satisfazer para que $d(P,A) = d(P,B)$. Depois, verifique que o ponto $M(1{,}4)$ satisfaz essa condição.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Igual as duas distâncias: $\sqrt{(x+2)^2+(y-1)^2} = \sqrt{(x-4)^2+(y-1)^2}$. Eleve ao quadrado e simplifique — os termos $(y-1)^2$ cancelam. O resultado é uma equação em $x$ apenas.</p>
+</div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Imponha $d(P,A) = d(P,B)$: $\sqrt{(x+2)^2+(y-1)^2} = \sqrt{(x-4)^2+(y-1)^2}$.</li>
+<li>Eleve ao quadrado: $(x+2)^2 + (y-1)^2 = (x-4)^2 + (y-1)^2$.</li>
+<li>Cancele $(y-1)^2$: $(x+2)^2 = (x-4)^2$.</li>
+<li>Expanda: $x^2 + 4x + 4 = x^2 - 8x + 16$, logo $12x = 12$, portanto $x = 1$.</li>
+<li>O lugar geométrico é a reta vertical $x = 1$ — a <strong>mediatriz</strong> do segmento $AB$.</li>
+<li>Verificação com $M(1{,}4)$: $d(M,A) = \sqrt{9+9} = \sqrt{18} = 3\sqrt{2}$ e $d(M,B) = \sqrt{9+9} = \sqrt{18} = 3\sqrt{2}$. Confirmado ✓</li>
+</ol>
+<div class="formula">
+$$d(P,A) = d(P,B) \implies x = 1 \qquad \text{(mediatriz do segmento } AB\text{)}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O conjunto de pontos equidistantes de $A$ e $B$ é uma reta perpendicular ao segmento $AB$ que passa pelo seu ponto médio — a <em>mediatriz</em>. Este é o nosso primeiro exemplo de <em>lugar geométrico</em>: uma equação que descreve uma curva a partir de uma propriedade métrica. No Capítulo V, estudaremos lugares geométricos de forma sistemática.</p>
+</details>
+</div>

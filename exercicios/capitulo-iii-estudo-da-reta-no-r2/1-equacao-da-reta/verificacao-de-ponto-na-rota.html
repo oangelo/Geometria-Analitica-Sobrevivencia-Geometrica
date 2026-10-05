@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>VERIFICAÇÃO DE PONTO NA ROTA</h3>
+
+<p>Uma patrulha reportou a posição de um suprimento perdido em $S(5, 1)$. A rota oficial entre o Refúgio-8 e o Refúgio-15 tem equação paramétrica $x = 2 + 3t$, $y = -1 + 2t$. Você precisa determinar se o suprimento está exatamente sobre a rota — o que permitiria recuperá-lo sem desvio — ou se será necessário sair do caminho seguro. Verifique se $S$ pertence à reta e, em caso positivo, encontre o valor do parâmetro $t$ correspondente.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para um ponto pertencer à reta, as duas coordenadas devem ser geradas pelo <em>mesmo</em> valor de $t$. Use a coordenada $x$ para encontrar $t$ e depois teste se esse $t$ produz a coordenada $y$ correta.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Substitua $x = 5$ na equação paramétrica: $5 = 2 + 3t \Rightarrow 3t = 3 \Rightarrow t = 1$.</li>
+<li>Teste esse $t$ na equação de $y$: $y = -1 + 2 \times 1 = -1 + 2 = 1$.</li>
+<li>A coordenada $y$ do ponto $S$ é $1$, que coincide com o resultado.</li>
+<li>Conclusão: $S(5, 1)$ pertence à reta, com $t = 1$. O suprimento está sobre a rota oficial.</li>
+</ol>
+<div class="formula">
+$$x: \; 5 = 2 + 3t \Rightarrow t = 1$$
+$$y: \; -1 + 2(1) = 1 \; \checkmark$$
+$$</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A verificação de ponto na reta é uma operação de rotina na Zona Devastada: antes de enviar uma expedição para um ponto qualquer, confirmamos se ele está sobre uma rota conhecida. Se o $t$ encontrado em uma coordenada não satisfizer a outra, o ponto está fora do caminho — e fora do caminho significa risco desconhecido.</p>
+</details>
+</div>

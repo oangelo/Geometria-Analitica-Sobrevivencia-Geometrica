@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>PARÂMETRO PARA ORTOGONALIDADE</h3>
+
+<p>Até agora, verificamos ortogonalidade e paralelismo em vetores conhecidos. Mas o engenheiro do Refúgio-TEC frequentemente precisa <strong>projetar</strong> sistemas com essas propriedades. Vamos usar o produto escalar como ferramenta de projeto: impor ortogonalidade como condição e resolver para um parâmetro desconhecido.</p>
+
+<p>Os sensores detectaram dois vetores de campo eletromagnético: $\vec{u} = (3, 2)$ e $\vec{v} = (k, -3)$. Para que os campos não interfiram entre si, os vetores devem ser ortogonais. Determine o valor de $k$ que garante $\vec{u} \perp \vec{v}$.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Ortogonalidade exige $\vec{u} \cdot \vec{v} = 0$. Substitua as componentes e resolva a equação para $k$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Imponha a condição de ortogonalidade: $\vec{u} \cdot \vec{v} = 0$.</li>
+<li>Substitua: $3 \cdot k + 2 \cdot (-3) = 0$.</li>
+<li>Resolva: $3k - 6 = 0 \Longrightarrow 3k = 6 \Longrightarrow k = 2$.</li>
+<li>Confirmação: $\vec{u} = (3, 2)$ e $\vec{v} = (2, -3)$. Produto escalar: $3 \cdot 2 + 2 \cdot (-3) = 6 - 6 = 0$ ✓.</li>
+</ol>
+<div class="formula">
+$$\vec{u} \cdot \vec{v} = 3k + 2(-3) = 3k - 6 = 0 \quad \Longrightarrow \quad k = 2$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Este exercício inverte o raciocínio: em vez de verificar ortogonalidade, você a impõe como condição. Na prática, isso equivale a ajustar um parâmetro do sistema para eliminar interferência. O produto escalar deixa de ser ferramenta de verificação e passa a ser ferramenta de <strong>projeto</strong> — você constrói a ortogonalidade desejada resolvendo uma equação simples.</p>
+</details>
+</div>

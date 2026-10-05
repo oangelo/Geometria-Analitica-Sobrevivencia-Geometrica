@@ -1,0 +1,322 @@
+              <svg xmlns="http://www.w3.org/2000/svg" width="780" height="250" viewBox="0 0 780 250">
+                <!-- Cubo a³ (amarelo) -->
+                <g transform="translate(30,60)">
+                  <!-- Face frontal -->
+                  <polygon
+                    points="0,0 0,80 80,80 80,0"
+                    fill="#FFED97"
+                    stroke="#ADFF2F"
+                    stroke-width="3"
+                  />
+                  <!-- Face superior -->
+                  <polygon
+                    points="0,0 30,-20 110,-20 80,0"
+                    fill="#FFE970"
+                    stroke="#ADFF2F"
+                    stroke-width="3"
+                  />
+                  <!-- Face lateral -->
+                  <polygon
+                    points="80,0 110,-20 110,60 80,80"
+                    fill="#FFD970"
+                    stroke="#ADFF2F"
+                    stroke-width="3"
+                  />
+                  <text
+                    x="40"
+                    y="40"
+                    fill="#000"
+                    font-size="24"
+                    text-anchor="middle"
+                    dominant-baseline="middle"
+                   font-family="monospace">
+                    a³
+                  </text>
+                </g>
+                <!-- Sinal de + -->
+                <text
+                  x="150"
+                  y="100"
+                  fill="#ADFF2F"
+                  font-size="36"
+                  text-anchor="middle"
+                 font-family="monospace">
+                  +
+                </text>
+                <!-- 3a²b (três prismas retangulares) em azul claro -->
+                <g transform="translate(190,60)">
+                  <!-- Primeiro prisma a²b -->
+                  <polygon
+                    points="0,0 0,80 20,80 20,0"
+                    fill="#97CAFF"
+                    stroke="#ADFF2F"
+                    stroke-width="3"
+                  />
+                  <polygon
+                    points="0,0 10,-8 30,-8 20,0"
+                    fill="#AAD4FF"
+                    stroke="#ADFF2F"
+                    stroke-width="3"
+                  />
+                  <polygon
+                    points="20,0 30,-8 30,72 20,80"
+                    fill="#88C0FF"
+                    stroke="#ADFF2F"
+                    stroke-width="3"
+                  />
+                  <!-- Segundo prisma a²b (deslocado) -->
+                  <g transform="translate(25,0)">
+                    <polygon
+                      points="0,0 0,80 20,80 20,0"
+                      fill="#97CAFF"
+                      stroke="#ADFF2F"
+                      stroke-width="3"
+                    />
+                    <polygon
+                      points="0,0 10,-8 30,-8 20,0"
+                      fill="#AAD4FF"
+                      stroke="#ADFF2F"
+                      stroke-width="3"
+                    />
+                    <polygon
+                      points="20,0 30,-8 30,72 20,80"
+                      fill="#88C0FF"
+                      stroke="#ADFF2F"
+                      stroke-width="3"
+                    />
+                  </g>
+                  <!-- Terceiro prisma a²b (deslocado mais) -->
+                  <g transform="translate(50,0)">
+                    <polygon
+                      points="0,0 0,80 20,80 20,0"
+                      fill="#97CAFF"
+                      stroke="#ADFF2F"
+                      stroke-width="3"
+                    />
+                    <polygon
+                      points="0,0 10,-8 30,-8 20,0"
+                      fill="#AAD4FF"
+                      stroke="#ADFF2F"
+                      stroke-width="3"
+                    />
+                    <polygon
+                      points="20,0 30,-8 30,72 20,80"
+                      fill="#88C0FF"
+                      stroke="#ADFF2F"
+                      stroke-width="3"
+                    />
+                  </g>
+                  <text
+                    x="40"
+                    y="95"
+                    fill="#FFD700"
+                    font-size="16"
+                    text-anchor="middle"
+                   font-family="monospace">
+                    3a²b
+                  </text>
+                </g>
+                <!-- Sinal de + -->
+                <text
+                  x="310"
+                  y="100"
+                  fill="#ADFF2F"
+                  font-size="36"
+                  text-anchor="middle"
+                 font-family="monospace">
+                  +
+                </text>
+                <!-- 3ab² (três prismas planos) em laranja -->
+                <g transform="translate(350,60)">
+                  <!-- Primeiro prisma ab² -->
+                  <polygon
+                    points="0,0 0,20 80,20 80,0"
+                    fill="#FFAA77"
+                    stroke="#ADFF2F"
+                    stroke-width="3"
+                  />
+                  <polygon
+                    points="0,0 15,-10 95,-10 80,0"
+                    fill="#FFBB88"
+                    stroke="#ADFF2F"
+                    stroke-width="3"
+                  />
+                  <polygon
+                    points="80,0 95,-10 95,10 80,20"
+                    fill="#FF9966"
+                    stroke="#ADFF2F"
+                    stroke-width="3"
+                  />
+                  <!-- Segundo prisma ab² (deslocado para baixo) -->
+                  <g transform="translate(0,25)">
+                    <polygon
+                      points="0,0 0,20 80,20 80,0"
+                      fill="#FFAA77"
+                      stroke="#ADFF2F"
+                      stroke-width="3"
+                    />
+                    <polygon
+                      points="0,0 15,-10 95,-10 80,0"
+                      fill="#FFBB88"
+                      stroke="#ADFF2F"
+                      stroke-width="3"
+                    />
+                    <polygon
+                      points="80,0 95,-10 95,10 80,20"
+                      fill="#FF9966"
+                      stroke="#ADFF2F"
+                      stroke-width="3"
+                    />
+                  </g>
+                  <!-- Terceiro prisma ab² (deslocado mais para baixo) -->
+                  <g transform="translate(0,50)">
+                    <polygon
+                      points="0,0 0,20 80,20 80,0"
+                      fill="#FFAA77"
+                      stroke="#ADFF2F"
+                      stroke-width="3"
+                    />
+                    <polygon
+                      points="0,0 15,-10 95,-10 80,0"
+                      fill="#FFBB88"
+                      stroke="#ADFF2F"
+                      stroke-width="3"
+                    />
+                    <polygon
+                      points="80,0 95,-10 95,10 80,20"
+                      fill="#FF9966"
+                      stroke="#ADFF2F"
+                      stroke-width="3"
+                    />
+                  </g>
+                  <text
+                    x="45"
+                    y="115"
+                    fill="#FFD700"
+                    font-size="16"
+                    text-anchor="middle"
+                   font-family="monospace">
+                    3ab²
+                  </text>
+                </g>
+                <!-- Sinal de + -->
+                <text
+                  x="470"
+                  y="100"
+                  fill="#ADFF2F"
+                  font-size="36"
+                  text-anchor="middle"
+                 font-family="monospace">
+                  +
+                </text>
+                <!-- b³ (cubo vermelho) -->
+                <g transform="translate(500,75)">
+                  <polygon
+                    points="0,0 0,30 30,30 30,0"
+                    fill="#FF6655"
+                    stroke="#ADFF2F"
+                    stroke-width="3"
+                  />
+                  <polygon
+                    points="0,0 15,-10 45,-10 30,0"
+                    fill="#FF7766"
+                    stroke="#ADFF2F"
+                    stroke-width="3"
+                  />
+                  <polygon
+                    points="30,0 45,-10 45,20 30,30"
+                    fill="#FF5544"
+                    stroke="#ADFF2F"
+                    stroke-width="3"
+                  />
+                  <text
+                    x="15"
+                    y="45"
+                    fill="#FFD700"
+                    font-size="16"
+                    text-anchor="middle"
+                   font-family="monospace">
+                    b³
+                  </text>
+                </g>
+                <!-- Sinal de = -->
+                <text
+                  x="570"
+                  y="100"
+                  fill="#ADFF2F"
+                  font-size="36"
+                  text-anchor="middle"
+                 font-family="monospace">
+                  =
+                </text>
+                <!-- Cubo completo (a+b)³ -->
+                <g transform="translate(610,30)">
+                  <!-- Face frontal -->
+                  <polygon
+                    points="0,0 0,110 110,110 110,0"
+                    fill="rgba(255,255,220,0.2)"
+                    stroke="#FFD700"
+                    stroke-width="3"
+                  />
+                  <!-- Face superior -->
+                  <polygon
+                    points="0,0 30,-20 140,-20 110,0"
+                    fill="rgba(230,230,255,0.2)"
+                    stroke="#FFD700"
+                    stroke-width="3"
+                  />
+                  <!-- Face lateral -->
+                  <polygon
+                    points="110,0 140,-20 140,90 110,110"
+                    fill="rgba(255,220,200,0.2)"
+                    stroke="#FFD700"
+                    stroke-width="3"
+                  />
+                  <!-- Linhas internas para mostrar a divisão -->
+                  <line
+                    x1="80"
+                    y1="0"
+                    x2="80"
+                    y2="110"
+                    stroke="#FFD700"
+                    stroke-width="1"
+                    stroke-dasharray="4,2"
+                  />
+                  <line
+                    x1="0"
+                    y1="80"
+                    x2="110"
+                    y2="80"
+                    stroke="#FFD700"
+                    stroke-width="1"
+                    stroke-dasharray="4,2"
+                  />
+                  <line
+                    x1="30"
+                    y1="-20"
+                    x2="30"
+                    y2="90"
+                    stroke="#FFD700"
+                    stroke-width="1"
+                    stroke-dasharray="4,2"
+                  />
+                  <line
+                    x1="110"
+                    y1="30"
+                    x2="140"
+                    y2="10"
+                    stroke="#FFD700"
+                    stroke-width="1"
+                    stroke-dasharray="4,2"
+                  />
+                  <text
+                    x="55"
+                    y="130"
+                    fill="#FFD700"
+                    font-size="18"
+                    text-anchor="middle"
+                   font-family="monospace">
+                    (a+b)³
+                  </text>
+                </g>
+              </svg>

@@ -1,0 +1,46 @@
+<div class="exercise">
+    <h3>Base Ortogonal no Espaço</h3>
+    <p><strong>Objetivo:</strong> Verificar se três vetores no R³ são mutuamente ortogonais, construindo uma base ortogonal — algo impossível no R², onde no máximo dois vetores podem ser mutuamente perpendiculares.</p>
+    <p>Considere os vetores:</p>
+    <div class="formula">
+        $$\vec{u} = (1, 2, -2), \quad \vec{v} = (2, -1, 0), \quad \vec{w} = (2, 4, 5)$$
+    </div>
+    <ol>
+        <li>Verifique se $\vec{u} \perp \vec{v}$, $\vec{u} \perp \vec{w}$ e $\vec{v} \perp \vec{w}$.</li>
+        <li>Se os três forem mutuamente ortogonais, calcule os módulos $|\vec{u}|$, $\vec{v}|$ e $|\vec{w}|$.</li>
+        <li>Construa os vetores unitários $\vec{e}_u = \frac{\vec{u}}{|\vec{u}|}$, $\vec{e}_v = \frac{\vec{v}}{|\vec{v}|}$, $\vec{e}_w = \frac{\vec{w}}{|\vec{w}|}$ e verifique que formam uma base ortonormal (produtos internos entre vetores diferentes são zero, e cada um tem módulo 1).</li>
+    </ol>
+
+    <details class="hint-details">
+        <summary>DICA DE SOBREVIVÊNCIA</summary>
+        <p>Base ortogonal = três vetores, cada par perpendicular. Base ortonormal = base ortogonal onde todos os vetores têm módulo 1. No R² só cabem 2 vetores mutuamente ortogonais; no R³ cabem 3 — esta é uma das vantagens do espaço tridimensional.</p>
+    </details>
+
+    <details>
+        <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+        <ol class="solution-steps">
+            <li>Produtos internos:
+                $$\vec{u} \cdot \vec{v} = (1)(2) + (2)(-1) + (-2)(0) = 2 - 2 + 0 = 0 \; \checkmark \; (\vec{u} \perp \vec{v})$$
+                $$\vec{u} \cdot \vec{w} = (1)(2) + (2)(4) + (-2)(5) = 2 + 8 - 10 = 0 \; \checkmark \; (\vec{u} \perp \vec{w})$$
+                $$\vec{v} \cdot \vec{w} = (2)(2) + (-1)(4) + (0)(5) = 4 - 4 + 0 = 0 \; \checkmark \; (\vec{v} \perp \vec{w})$$
+                <p>Os três vetores são <strong>mutuamente ortogonais</strong>.</p>
+            </li>
+            <li>Módulos:
+                $$|\vec{u}| = \sqrt{1 + 4 + 4} = \sqrt{9} = 3$$
+                $$|\vec{v}| = \sqrt{4 + 1 + 0} = \sqrt{5}$$
+                $$|\vec{w}| = \sqrt{4 + 16 + 25} = \sqrt{45} = 3\sqrt{5}$$
+            </li>
+            <li>Vetores unitários:
+                $$\vec{e}_u = \frac{1}{3}(1, 2, -2) = \left(\frac{1}{3}, \frac{2}{3}, -\frac{2}{3}\right)$$
+                $$\vec{e}_v = \frac{1}{\sqrt{5}}(2, -1, 0) = \left(\frac{2}{\sqrt{5}}, -\frac{1}{\sqrt{5}}, 0\right)$$
+                $$\vec{e}_w = \frac{1}{3\sqrt{5}}(2, 4, 5) = \left(\frac{2}{3\sqrt{5}}, \frac{4}{3\sqrt{5}}, \frac{5}{3\sqrt{5}}\right)$$
+                <p>Verificação de ortonormalidade:
+                    $$\vec{e}_u \cdot \vec{e}_v = \frac{1}{3}\cdot\frac{2}{\sqrt{5}} + \frac{2}{3}\cdot\left(-\frac{1}{\sqrt{5}}\right) + \left(-\frac{2}{3}\right)\cdot 0 = \frac{2 - 2}{3\sqrt{5}} = 0$$
+                    $$|\vec{e}_u|^2 = \frac{1}{9} + \frac{4}{9} + \frac{4}{9} = 1 \; \checkmark$$
+                </p>
+                <p>(As outras verificações são análogas.)</p>
+            </li>
+        </ol>
+        <p><strong>Reflexão:</strong> Uma base ortonormal no R³ é o "sistema de coordenadas perfeito": cada direção é independente das outras. No R², a base canônica $\{(1,0), (0,1)\}$ é a única ortonormal "óbvia". No R³, existem infinitas bases ortonormais — qualquer rotação da base canônica gera outra. A capacidade de encontrar três direções mutuamente perpendiculares é exclusiva do espaço tridimensional.</p>
+    </details>
+</div>

@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>TRIANGULAÇÃO DE SINAIS</h3>
+
+<p>Três torres de rádio captaram um sinal de socorro. As torres estão em $A(2,1)$, $B(6,3)$ e $C(4,7)$. A origem do sinal está no centro da circunferência que passa pelas três torres. Determine a equação dessa circunferência, identifique o centro e o raio. Um quarto sinal fraco foi detectado em $D(4,3)$ — esse ponto está dentro, sobre ou fora da circunferência? No papel, esboce os quatro pontos, a circunferência e a posição de $D$ em relação a ela.</p>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>$A(2,1)$: $4 + 1 + 2D + E + F = 0 \Rightarrow 2D + E + F = -5$ &nbsp; ...(1)</li>
+<li>$B(6,3)$: $36 + 9 + 6D + 3E + F = 0 \Rightarrow 6D + 3E + F = -45$ &nbsp; ...(2)</li>
+<li>$C(4,7)$: $16 + 49 + 4D + 7E + F = 0 \Rightarrow 4D + 7E + F = -65$ &nbsp; ...(3)</li>
+<li>(2) $-$ (1): $4D + 2E = -40 \Rightarrow 2D + E = -20$ &nbsp; ...(4)</li>
+<li>(3) $-$ (1): $2D + 6E = -60 \Rightarrow D + 3E = -30$ &nbsp; ...(5)</li>
+<li>De (4): $E = -20 - 2D$. Substituindo em (5): $D + 3(-20 - 2D) = -30 \Rightarrow D - 60 - 6D = -30 \Rightarrow -5D = 30 \Rightarrow D = -6$.</li>
+<li>$E = -20 - 2(-6) = -20 + 12 = -8$.</li>
+<li>De (1): $2(-6) + (-8) + F = -5 \Rightarrow -12 - 8 + F = -5 \Rightarrow F = 15$.</li>
+<li>Equação: $x^2 + y^2 - 6x - 8y + 15 = 0$.</li>
+<li>Centro: $(3, 4)$ e $r = \sqrt{9 + 16 - 15} = \sqrt{10}$.</li>
+<li>Verificação de $D(4,3)$: $(4-3)^2 + (3-4)^2 = 1 + 1 = 2$. Como $2 < 10 = r^2$, o ponto $D(4,3)$ está <strong>dentro</strong> da circunferência.</li>
+</ol>
+<div class="formula">
+$$x^2 + y^2 - 6x - 8y + 15 = 0 \qquad \text{Centro } (3,4), \quad r = \sqrt{10}$$
+$$D(4,3):\; 1 + 1 = 2 < 10 = r^2 \quad(\text{interno})$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Sem dicas, sem atalhos — apenas o método sistemático: substituir, subtrair, resolver. A triangulação converteu três sinais isolados em uma zona circular completa. O quarto sinal em $D$ ficou dentro do perímetro, o que significa que a fonte original do socorro pode estar mais próxima do que as torres indicavam.</p>
+</details>
+</div>

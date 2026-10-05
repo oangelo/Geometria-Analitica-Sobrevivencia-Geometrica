@@ -1,0 +1,57 @@
+<div class="exercise">
+<h3>TORRE DE COMUNICAÇÃO — FORÇA PERPENDICULAR</h3>
+<p>O objetivo deste exercício é aplicar o produto vetorial em um cenário de engenharia: calcular uma força perpendicular resultante de duas forças de tração em cabos de sustentação.</p>
+<p>Uma torre de comunicação é sustentada por dois cabos de tração fixados no topo da torre. Os cabos exercem forças representadas pelos vetores $\vec{F}_1 = (5, 2, -3)$ (em kN) e $\vec{F}_2 = (1, -4, 2)$ (em kN). O engenheiro precisa calcular a força resultante perpendicular que o pilar central da torre deve suportar para manter o equilíbrio.</p>
+<p><strong>(a)</strong> Calcule o vetor $\vec{F}_{\perp} = \vec{F}_1 \times \vec{F}_2$. Este vetor representa a direção perpendicular ao plano formado pelos dois cabos.</p>
+<p><strong>(b)</strong> Calcule o módulo $|\vec{F}_{\perp}|$. Interprete fisicamente: este valor está relacionado à intensidade da força de torção que o pilar deve resistir.</p>
+<p><strong>(c)</strong> Verifique que $\vec{F}_{\perp}$ é de fato perpendicular a $\vec{F}_1$ e a $\vec{F}_2$.</p>
+<p><strong>(d)</strong> Se um terceiro cabo fosse adicionado com força $\vec{F}_3 = (2, 1, 1)$, o sistema de três cabos estaria em equilíbrio de torção (sem momento resultante perpendicular) se $\vec{F}_1 \times \vec{F}_2 + \vec{F}_2 \times \vec{F}_3 + \vec{F}_3 \times \vec{F}_1 = \vec{0}$? Verifique se essa condição é satisfeita.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>O produto vetorial de duas forças dá um vetor momento (torque) perpendicular ao plano delas. O módulo representa a intensidade desse momento. Para o item (d), calcule cada produto vetorial separadamente e some-os — lembre-se da anticomutatividade.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>Item (a):</strong></p>
+<ol class="solution-steps">
+<li>$\vec{F}_{\perp} = \vec{F}_1 \times \vec{F}_2 = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 5 & 2 & -3 \\ 1 & -4 & 2 \end{vmatrix}$</li>
+<li>Componente $\vec{i}$: $(2)(2) - (-3)(-4) = 4 - 12 = -8$</li>
+<li>Componente $\vec{j}$: $-[(5)(2) - (-3)(1)] = -[10 + 3] = -13$</li>
+<li>Componente $\vec{k}$: $(5)(-4) - (2)(1) = -20 - 2 = -22$</li>
+</ol>
+<div class="formula">
+$$\vec{F}_{\perp} = (-8, -13, -22) \text{ kN}^2$$
+</div>
+
+<p><strong>Item (b):</strong></p>
+<ol class="solution-steps">
+<li>$|\vec{F}_{\perp}| = \sqrt{(-8)^2 + (-13)^2 + (-22)^2}$</li>
+<li>$= \sqrt{64 + 169 + 484} = \sqrt{717} \approx 26{,}78$</li>
+</ol>
+<div class="formula">
+$$|\vec{F}_{\perp}| = \sqrt{717} \approx 26{,}78 \text{ (unidades de momento)}$$
+</div>
+<p>Fisicamente, este valor representa a intensidade do momento de torção que tende a fazer o pilar girar em torno do eixo perpendicular ao plano dos cabos. Quanto maior este valor, mais robusto deve ser o pilar.</p>
+
+<p><strong>Item (c):</strong></p>
+<ol class="solution-steps">
+<li>$\vec{F}_{\perp} \cdot \vec{F}_1 = (-8)(5) + (-13)(2) + (-22)(-3) = -40 - 26 + 66 = 0$ ✓</li>
+<li>$\vec{F}_{\perp} \cdot \vec{F}_2 = (-8)(1) + (-13)(-4) + (-22)(2) = -8 + 52 - 44 = 0$ ✓</li>
+</ol>
+
+<p><strong>Item (d):</strong></p>
+<ol class="solution-steps">
+<li>$\vec{F}_2 \times \vec{F}_3 = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 1 & -4 & 2 \\ 2 & 1 & 1 \end{vmatrix} = ((-4)(1)-(2)(1), -[(1)(1)-(2)(2)], (1)(1)-(-4)(2)) = (-6, 3, 9)$</li>
+<li>$\vec{F}_3 \times \vec{F}_1 = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 2 & 1 & 1 \\ 5 & 2 & -3 \end{vmatrix} = ((1)(-3)-(1)(2), -[(2)(-3)-(1)(5)], (2)(2)-(1)(5)) = (-5, 11, -1)$</li>
+<li>Soma: $\vec{F}_1 \times \vec{F}_2 + \vec{F}_2 \times \vec{F}_3 + \vec{F}_3 \times \vec{F}_1 = (-8, -13, -22) + (-6, 3, 9) + (-5, 11, -1)$</li>
+<li>$= (-8-6-5, -13+3+11, -22+9-1) = (-19, 1, -14) \neq \vec{0}$</li>
+</ol>
+<p>A condição <strong>não é satisfeita</strong>. O sistema com três cabos ainda apresenta um momento resultante perpendicular não-nulo $\vec{M} = (-19, 1, -14)$. Isso significa que o pilar central sofreria uma torção adicional com a adição do terceiro cabo. Para equilíbrio completo, seria necessário ajustar as forças ou adicionar mais cabos de forma simétrica.</p>
+
+<p><strong>Reflexão de Sobrevivência:</strong> Torres de comunicação em zonas de desastre precisam resistir a ventos imprevisíveis e cargas assimétricas. O produto vetorial quantifica a torção resultante de múltiplas forças, permitindo ao engenheiro dimensionar o pilar corretamente. Um pilar subdimensionado pode torcer e colapsar; um superdimensionado desperdiça material escasso.</p>
+</details>
+</div>

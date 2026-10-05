@@ -1,0 +1,98 @@
+<!-- A1 — CAPA (âncora: layout fixo, sempre igual) -->
+<!-- O que muda: título do capítulo, número, tema/período e o GLIFO do canvas.
+     A estrutura NÃO muda. Cada capítulo troca o glifo pelo seu motivo geométrico
+     (reta, círculo, cônica, eixo z...). Glifo padrão: vetor girando em R². -->
+
+<section>
+  <div class="title-screen">
+    <p class="doc-code">DOC. REF: GA-CH[N]-[ANO]</p>
+    <h1>[TÍTULO DO CAPÍTULO]</h1>
+    <h2 class="subtitle">Sobrevivência Geométrica</h2>
+    <canvas id="capa-glyph-canvas" class="cover-glyph" width="560" height="260"></canvas>
+    <p class="subtitle-warning">CONFIDENCIAL: MANUAL DE TREINAMENTO</p>
+    <p class="chapter-meta">Capítulo [N] &middot; [TEMA DO CAPÍTULO]</p>
+  </div>
+</section>
+
+<script>
+(function () {
+  var canvasId = 'capa-glyph-canvas';
+  var rafId = null;
+
+  function init() {
+    var canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var W = canvas.width, H = canvas.height;
+    var ox = W / 2, oy = H / 2;
+    var R = Math.min(W, H) * 0.36; // raio do vetor
+    var t = 0;
+
+    function frame() {
+      t += 0.008; // rotação sutil contínua
+
+      // Fundo
+      ctx.fillStyle = '#0c0c0c';
+      ctx.fillRect(0, 0, W, H);
+
+      // Grade cartesiana
+      ctx.strokeStyle = 'rgba(76, 175, 80, 0.15)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      for (var x = ox % 40; x < W; x += 40) { ctx.moveTo(x, 0); ctx.lineTo(x, H); }
+      for (var y = oy % 40; y < H; y += 40) { ctx.moveTo(0, y); ctx.lineTo(W, y); }
+      ctx.stroke();
+
+      // Eixos
+      ctx.strokeStyle = 'rgba(173, 255, 47, 0.4)';
+      ctx.beginPath();
+      ctx.moveTo(0, oy); ctx.lineTo(W, oy);
+      ctx.moveTo(ox, 0); ctx.lineTo(ox, H);
+      ctx.stroke();
+
+      // Órbita (rastro do vetor)
+      ctx.strokeStyle = 'rgba(173, 255, 47, 0.25)';
+      ctx.setLineDash([4, 6]);
+      ctx.beginPath();
+      ctx.arc(ox, oy, R, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Vetor girando
+      var px = ox + R * Math.cos(t);
+      var py = oy - R * Math.sin(t);
+      ctx.strokeStyle = '#ADFF2F';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(ox, oy);
+      ctx.lineTo(px, py);
+      ctx.stroke();
+
+      // Ponta (seta)
+      var a = Math.atan2(oy - py, px - ox);
+      ctx.fillStyle = '#ADFF2F';
+      ctx.beginPath();
+      ctx.moveTo(px, py);
+      ctx.lineTo(px - 10 * Math.cos(a - 0.4), py + 10 * Math.sin(a - 0.4));
+      ctx.lineTo(px - 10 * Math.cos(a + 0.4), py + 10 * Math.sin(a + 0.4));
+      ctx.closePath();
+      ctx.fill();
+
+      // Origem e ponto da ponta
+      ctx.fillStyle = '#FFD700';
+      ctx.beginPath(); ctx.arc(ox, oy, 4, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.arc(px, py, 4, 0, Math.PI * 2); ctx.fill();
+
+      rafId = requestAnimationFrame(frame);
+    }
+    rafId = requestAnimationFrame(frame);
+  }
+
+  function cleanup() {
+    if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+  }
+
+  window.vizCapa = { init: init, cleanup: cleanup };
+  init();
+})();
+</script>

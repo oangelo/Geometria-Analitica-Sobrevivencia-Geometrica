@@ -1,0 +1,87 @@
+<div class="exercise">
+<h3>Síntese de RemoveRad</h3>
+<p><strong>Objetivo:</strong> Montar e resolver um sistema 3&times;3 modelando um problema de mistura com restrições físicas.</p>
+
+<p>A síntese de RemoveRad requer três ingredientes: composto Alfa ($x$ gramas), composto Beta ($y$ gramas) e catalisador Gama ($z$ gramas). As restrições do processo são:</p>
+
+<ul>
+<li>A massa total deve ser 50 gramas.</li>
+<li>A quantidade de Alfa deve ser o dobro da quantidade de Beta.</li>
+<li>A quantidade de Gama deve ser 5 gramas a menos que a soma de Alfa e Beta.</li>
+</ul>
+
+<p><strong>a)</strong> Traduza as três restrições em um sistema de equações lineares.</p>
+
+<p><strong>b)</strong> Calcule o determinante da matriz de coeficientes.</p>
+
+<p><strong>c)</strong> Resolva o sistema por substituição (em vez de eliminação), usando a segunda equação para reduzir o número de variáveis.</p>
+
+<p><strong>d)</strong> Verifique que as quantidades encontradas são todas positivas e satisfazem as restrições.</p>
+
+<p><strong>e)</strong> Se a restrição 3 fosse alterada para "Gama é 10 gramas a menos que a soma de Alfa e Beta", o sistema ainda teria solução física válida? Resolva e interprete.</p>
+
+<p><strong>f)</strong> Interprete geometricamente: os três planos do item (a) se intersectam em que tipo de objeto? E no item (e)?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>A segunda restrição diz $x = 2y$. Use isso para substituir $x$ nas outras duas equações, reduzindo para um sistema 2&times;2 em $y$ e $z$. Sempre verifique se as soluções fazem sentido físico (quantidades positivas).</p>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+
+<p><strong>a)</strong> Sistema:</p>
+<div class="formula">
+$$\begin{cases}
+x + y + z = 50 \\
+x - 2y = 0 \\
+x + y - z = 5
+\end{cases}$$
+</div>
+
+<p><strong>b)</strong> Matriz de coeficientes:</p>
+<div class="formula">
+$$A = \begin{pmatrix} 1 & 1 & 1 \\ 1 & -2 & 0 \\ 1 & 1 & -1 \end{pmatrix}$$
+</div>
+<p>$\det A = 1(-2)(-1) + 1(0)(1) + 1(1)(1) - 1(-2)(1) - 1(0)(1) - 1(1)(-1)$
+$= 2 + 0 + 1 + 2 - 0 + 1 = 6 \neq 0$. SPD.</p>
+
+<p><strong>c)</strong> Por substituição: $x = 2y$.</p>
+<p>Substituindo em (I): $2y + y + z = 50 \Rightarrow 3y + z = 50$.</p>
+<p>Substituindo em (III): $2y + y - z = 5 \Rightarrow 3y - z = 5$.</p>
+
+<p>Sistema 2&times;2:</p>
+<div class="formula">$$\begin{cases} 3y + z = 50 \\ 3y - z = 5 \end{cases}$$</div>
+
+<p>Somando: $6y = 55 \Rightarrow y = \frac{55}{6}$.</p>
+<p>Logo $z = 3y - 5 = \frac{55}{2} - 5 = \frac{45}{2}$.</p>
+<p>E $x = 2y = \frac{55}{3}$.</p>
+
+<p>Solução: $x = \dfrac{55}{3}$, $y = \dfrac{55}{6}$, $z = \dfrac{45}{2}$.</p>
+
+<p><strong>d)</strong> Verificação:</p>
+<ul>
+<li>Total: $\frac{55}{3} + \frac{55}{6} + \frac{45}{2} = \frac{110 + 55 + 135}{6} = \frac{300}{6} = 50$ &check;</li>
+<li>$x = 2y$: $\frac{55}{3} = 2 \cdot \frac{55}{6} = \frac{55}{3}$ &check;</li>
+<li>$x + y - z = 5$: $\frac{55}{3} + \frac{55}{6} - \frac{45}{2} = \frac{110 + 55 - 135}{6} = \frac{30}{6} = 5$ &check;</li>
+</ul>
+<p>Todas as quantidades são positivas: $x \approx 18{,}33$, $y \approx 9{,}17$, $z = 22{,}5$.</p>
+
+<p><strong>e)</strong> Nova restrição: $z = x + y - 10$, ou seja, $x + y - z = 10$.</p>
+<p>Sistema:</p>
+<div class="formula">
+$$\begin{cases}
+x + y + z = 50 \\
+x - 2y = 0 \\
+x + y - z = 10
+\end{cases}$$
+</div>
+<p>Com $x = 2y$:</p>
+<p>$3y + z = 50$ e $3y - z = 10$.</p>
+<p>Somando: $6y = 60 \Rightarrow y = 10$. Logo $x = 20$.</p>
+<p>E $z = 3(10) - 10 = 20$.</p>
+<p>Solução: $(20, 10, 20)$ &mdash; todas positivas e válidas! O sistema continua SPD.</p>
+
+<p><strong>f)</strong> Em ambos os casos, os três planos se intersectam num <strong>único ponto</strong> (SPD), pois $\det A = 6 \neq 0$ em ambos. A mudança no termo independente apenas desloca o ponto de interseção, não altera a classificação.</p>
+</details>
+</div>

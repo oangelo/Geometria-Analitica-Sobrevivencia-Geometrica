@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>CALIBRAÇÃO DE POTÊNCIA: ESCALAR DESCONHECIDO</h3>
+
+<p>O gerador do Refúgio-TEC produz energia na direção do vetor $\vec{g} = (2, -3)$. O SUPERVISOR determinou que a potência necessária é exatamente 10 unidades — ou seja, precisamos de um vetor na direção de $\vec{g}$ com módulo igual a 10. Encontre o escalar $k$ tal que $|k\vec{g}| = 10$. Quantos valores de $k$ satisfazem essa condição?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Use a propriedade $|k\vec{g}| = |k||\vec{g}|$. Primeiro calcule $|\vec{g}|$, depois resolva $|k| \cdot |\vec{g}| = 10$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Módulo de $\vec{g}$: $|\vec{g}| = \sqrt{2^2 + (-3)^2} = \sqrt{4 + 9} = \sqrt{13}$.</li>
+<li>Condição: $|k| \cdot \sqrt{13} = 10$, logo $|k| = \frac{10}{\sqrt{13}}$.</li>
+<li>Isto dá dois valores: $k = \frac{10}{\sqrt{13}}$ ou $k = -\frac{10}{\sqrt{13}}$.</li>
+<li>Racionalizando: $k = \pm\frac{10\sqrt{13}}{13}$.</li>
+<li>O vetor com módulo 10 na direção de $\vec{g}$ é $\frac{10}{\sqrt{13}}(2, -3) = \left(\frac{20}{\sqrt{13}}{,}\; -\frac{30}{\sqrt{13}}\right)$, e o negativo aponta na direção oposta com mesmo tamanho.</li>
+</ol>
+<div class="formula">
+$$|k| = \frac{10}{\sqrt{13}} \implies k = \pm \frac{10\sqrt{13}}{13}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Equações com módulo produzem duas soluções porque tanto $k$ quanto $-k$ dão o mesmo tamanho. Na prática, a direção (sinal) importa: $k$ positivo mantém a direção original, $k$ negativo inverte. Na Zona Devastada, "potência 10 para o norte" e "potência 10 para o sul" são operações muito diferentes.</p>
+</details>
+</div>

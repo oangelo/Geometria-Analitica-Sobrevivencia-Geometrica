@@ -1,0 +1,46 @@
+<div class="exercise">
+    <h3>Triângulo Retângulo no Espaço</h3>
+    <p><strong>Objetivo:</strong> Verificar se três pontos no espaço formam um triângulo retângulo usando o critério de ortogonalidade dos vetores-lado.</p>
+    <p>Três abrigos de sobrevivência estão posicionados em:</p>
+    <div class="formula">
+        $$P = (2, 1, 3), \quad Q = (5, 3, 1), \quad R = (3, 5, 5)$$
+    </div>
+    <ol>
+        <li>Calcule os vetores $\vec{PQ}$, $\vec{PR}$ e $\vec{QR}$.</li>
+        <li>Teste a ortogonalidade de cada par de vetores com origem comum. O triângulo $PQR$ é retângulo? Em qual vértice?</li>
+        <li>Calcule as áreas dos quadrados construídos sobre cada lado e verifique o Teorema de Pitágoras: $a^2 + b^2 = c^2$, onde $c$ é o lado oposto ao ângulo reto.</li>
+    </ol>
+
+    <details class="hint-details">
+        <summary>DICA DE SOBREVIVÊNCIA</summary>
+        <p>Um triângulo é retângulo em $P$ se $\vec{PQ} \perp \vec{PR}$, ou seja, $\vec{PQ} \cdot \vec{PR} = 0$. Teste os três vértices. O Teorema de Pitágoras deve valer com os quadrados dos comprimentos dos lados.</p>
+    </details>
+
+    <details>
+        <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+        <ol class="solution-steps">
+            <li>Vetores:
+                $$\vec{PQ} = (5-2, 3-1, 1-3) = (3, 2, -2)$$
+                $$\vec{PR} = (3-2, 5-1, 5-3) = (1, 4, 2)$$
+                $$\vec{QR} = (3-5, 5-3, 5-1) = (-2, 2, 4)$$
+            </li>
+            <li>Testes de ortogonalidade:
+                <p>Em $P$: $\vec{PQ} \cdot \vec{PR} = (3)(1) + (2)(4) + (-2)(2) = 3 + 8 - 4 = 7 \neq 0$</p>
+                <p>Em $Q$: $\vec{QP} = (-3, -2, 2)$, $\vec{QR} = (-2, 2, 4)$
+                    $$\vec{QP} \cdot \vec{QR} = (-3)(-2) + (-2)(2) + (2)(4) = 6 - 4 + 8 = 10 \neq 0$$
+                </p>
+                <p>Em $R$: $\vec{RP} = (-1, -4, -2)$, $\vec{RQ} = (2, -2, -4)$
+                    $$\vec{RP} \cdot \vec{RQ} = (-1)(2) + (-4)(-2) + (-2)(-4) = -2 + 8 + 8 = 14 \neq 0$$
+                </p>
+                <p class="danger">Nenhum par é ortogonal! O triângulo $PQR$ <strong>não é retângulo</strong>.</p>
+            </li>
+            <li>Verificação pelo Teorema de Pitágoras:
+                $$|\vec{PQ}|^2 = 9 + 4 + 4 = 17$$
+                $$|\vec{PR}|^2 = 1 + 16 + 4 = 21$$
+                $$|\vec{QR}|^2 = 4 + 4 + 16 = 24$$
+                <p>Testando: $17 + 21 = 38 \neq 24$, $17 + 24 = 41 \neq 21$, $21 + 24 = 45 \neq 17$. Nenhuma combinação satisfaz Pitágoras. Confirmado: não é triângulo retângulo.</p>
+            </li>
+        </ol>
+        <p><strong>Reflexão:</strong> No espaço tridimensional, a maioria dos triângulos <em>não</em> é retângula. A condição de ortogonalidade é restritiva: exige que dois vetores-lado tenham produto interno exatamente zero. Este exercício mostra que o produto interno é uma ferramenta de <em>diagnóstico</em>: ele não apenas calcula ângulos, mas também classifica triângulos. Um triângulo é retângulo se e somente se o produto interno de dois de seus vetores-lado é zero.</p>
+    </details>
+</div>
