@@ -1,0 +1,23 @@
+<div class="exercise">
+<h3>SINAL NO LIMITE</h3>
+
+<p>Um sistema de defesa perimétrico obedece à equação $x^2 + y^2 + 2x - 10y + 17 = 0$. Identifique o centro e o raio completando os quadrados. Depois, verifique se $P(4,7)$ está no perímetro. Por fim, determine se existe algum ponto do perímetro com coordenada $y = 9$. No papel, esboce a circunferência, o ponto $P$ e a reta $y = 9$.</p>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Agrupe: $(x^2 + 2x) + (y^2 - 10y) = -17$.</li>
+<li>Complete os quadrados: $(x^2 + 2x + 1) + (y^2 - 10y + 25) = -17 + 1 + 25 = 9$.</li>
+<li>Resultado: $(x + 1)^2 + (y - 5)^2 = 9$. Centro $C(-1, 5)$, raio $r = 3$.</li>
+<li>Verifique $P(4,7)$: $(4+1)^2 + (7-5)^2 = 25 + 4 = 29 \neq 9$. $P$ <strong>não</strong> está no perímetro. Como $29 > 9$, está fora da zona de cobertura.</li>
+<li>Para $y = 9$: substitua na equação $(x+1)^2 + (9-5)^2 = 9$, ou seja, $(x+1)^2 + 16 = 9$, logo $(x+1)^2 = -7$.</li>
+<li>Como $(x+1)^2 \geq 0$ para todo $x$ real, a igualdade $(x+1)^2 = -7$ <strong>não tem solução real</strong>.</li>
+<li>Interpretação geométrica: o ponto mais alto da circunferência tem $y = 5 + 3 = 8$. A reta $y = 9$ está acima do topo — não há interseção.</li>
+</ol>
+<div class="formula">
+$$(x+1)^2 + (y-5)^2 = 9, \quad C(-1,5),\; r = 3$$
+$$P(4,7):\; 29 > 9 \quad(\text{externo}) \qquad y = 9:\; (x+1)^2 = -7 \quad(\text{sem ponto real})$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Este exercício percorre todas as ferramentas do tópico: completar quadrados para decodificar a equação, substituição para verificar pertencimento, e análise algébrica para explorar as fronteiras do perímetro. A reta $y = 9$ está acima do alcance do sistema — uma "zona morta" que o perímetro não alcança. Na Zona Devastada, conhecer os limites exatos da cobertura é tão importante quanto conhecer o centro: o que fica fora do alcance precisa de outra estratégia.</p>
+</details>
+</div>

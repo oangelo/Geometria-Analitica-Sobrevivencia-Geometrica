@@ -1,0 +1,26 @@
+<div class="exercise">
+<h3>INTEGRAÇÃO: PONTO MÉDIO E BARICENTRO</h3>
+<p>Este exercício integra todos os conceitos estudados. Um território é delimitado por três fortes: $A(0, 0)$, $B(8, 0)$ e $C(4, 6)$. O planejamento estratégico exige determinar múltiplos pontos de interesse usando ponto médio e baricentro. Desenhe o território completo com todos os pontos calculados.</p>
+<p><strong>(a)</strong> Calcule os pontos médios $M_1$ (de $AB$), $M_2$ (de $BC$) e $M_3$ (de $AC$). Em seguida, calcule o baricentro $G$ do triângulo $ABC$.</p>
+<p><strong>(b)</strong> O comando quer instalar um quarto forte $D$ tal que $A$, $B$, $C$, $D$ formem um paralelogramo. Sabendo que num paralelogramo as diagonais se bissectam, use o fato de que o ponto médio de $AC$ deve ser igual ao ponto médio de $BD$ para encontrar $D$.</p>
+<p><strong>(c)</strong> Calcule o baricentro do triângulo médio $M_1 M_2 M_3$ e compare com $G$. O que você conclui?</p>
+<p><strong>(d)</strong> Verifique a propriedade da razão $2:1$: calcule as distâncias ao longo da mediana $CM_1$ e mostre que $\|CG\| = 2 \cdot \|GM_1\|$.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>No item (b), use o fato de que o ponto médio de $AC$ é $M_3$. Então $M_3$ também deve ser ponto médio de $BD$: $\frac{x_B + x_D}{2} = x_{M_3}$ e $\frac{y_B + y_D}{2} = y_{M_3}$. Isole $D$. No item (d), verifique que $C$, $G$ e $M_1$ são colineares antes de calcular as distâncias.</p>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>$M_1 = \left(\frac{0 + 8}{2}, \frac{0 + 0}{2}\right) = (4, 0)$. $M_2 = \left(\frac{8 + 4}{2}, \frac{0 + 6}{2}\right) = (6, 3)$. $M_3 = \left(\frac{0 + 4}{2}, \frac{0 + 6}{2}\right) = (2, 3)$. $G = \left(\frac{0 + 8 + 4}{3}, \frac{0 + 0 + 6}{3}\right) = (4, 2)$.</li>
+<li>$M_3 = (2, 3)$ é ponto médio de $BD$. Então: $\frac{8 + x_D}{2} = 2$, logo $x_D = -4$. $\frac{0 + y_D}{2} = 3$, logo $y_D = 6$. Portanto $D = (-4, 6)$. Verificação: ponto médio de $AC = M_3 = (2, 3)$ e ponto médio de $BD = \left(\frac{8 + (-4)}{2}, \frac{0 + 6}{2}\right) = (2, 3)$ ✓. $ABDC$ é paralelogramo.</li>
+<li>Baricentro de $M_1 M_2 M_3$: $G' = \left(\frac{4 + 6 + 2}{3}, \frac{0 + 3 + 3}{3}\right) = (4, 2) = G$. Conclusão: o triângulo original e o triângulo médio compartilham o <strong>mesmo baricentro</strong> — propriedade universal.</li>
+<li>Mediana $CM_1$: $C(4, 6)$ a $M_1(4, 0)$. $\vec{CM_1} = (0, -6)$. Verificando colinearidade: $G = (4, 2)$ e $C + \frac{2}{3}\vec{CM_1} = (4, 6) + \frac{2}{3}(0, -6) = (4, 6 - 4) = (4, 2) = G$ ✓. Distâncias: $\|CG\| = |6 - 2| = 4$ e $\|GM_1\| = |2 - 0| = 2$. Razão: $\frac{4}{2} = 2$ ✓. A mediana é vertical (ambos têm $x = 4$), facilitando o cálculo.</li>
+</ol>
+<div class="formula">
+$$G = G' = (4, 2), \quad D = (-4, 6)$$
+$$\|CG\| = 4, \quad \|GM_1\| = 2, \quad \frac{\|CG\|}{\|GM_1\|} = 2 \quad \text{(razão 2:1 confirmada)}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Este exercício encerra a lista conectando todos os conceitos: ponto médio gera o triângulo médio e as medianas; o baricentro é o ponto de convergência; a razão $2:1$ é a assinatura geométrica; e a coincidência dos baricentros ($G = G'$) revela que o triângulo médio e o original compartilham o mesmo centro de gravidade. Na Zona Devastada, dominar essas conexões significa poder planejar, reconstruir e otimizar qualquer território triangular.</p>
+</details>
+</div>

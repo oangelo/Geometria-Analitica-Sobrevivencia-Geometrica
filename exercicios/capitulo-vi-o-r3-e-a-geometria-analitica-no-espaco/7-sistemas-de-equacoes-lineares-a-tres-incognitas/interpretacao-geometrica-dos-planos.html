@@ -1,0 +1,51 @@
+<div class="exercise">
+<h3>Interpretação Geométrica dos Planos</h3>
+<p><strong>Objetivo:</strong> Associar a descrição geométrica de três planos à classificação do sistema correspondente.</p>
+
+<p>Para cada configuração geométrica abaixo, esboce mentalmente (ou descreva por escrito) a disposição dos planos e determine se o sistema resultante é SPD, SPI ou SI.</p>
+
+<p><strong>a)</strong> Três planos se intersectam dois a dois em retas distintas, e as três retas de interseção se encontram num único ponto.</p>
+
+<p><strong>b)</strong> Dois planos são paralelos distintos; o terceiro plano intersecta ambos.</p>
+
+<p><strong>c)</strong> Os três planos contêm uma mesma reta comum.</p>
+
+<p><strong>d)</strong> Os três planos são coincidentes (a mesma equação multiplicada por constantes não nulas).</p>
+
+<p><strong>e)</strong> Cada par de planos se intersecta numa reta, mas as três retas de interseção são paralelas distintas (configuração de prisma triangular).</p>
+
+<p><strong>f)</strong> Dois planos são coincidentes; o terceiro os intersecta numa reta.</p>
+
+<p><strong>g)</strong> Para o item (a), escreva um exemplo numérico de sistema 3&times;3 que tenha essa configuração (dica: use o sistema do Q1).</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>Pense no que acontece com o número de soluções em cada caso. SPD = 1 ponto, SPI = infinitos pontos (reta ou plano), SI = nenhum ponto. Para o item (g), lembre-se de que três planos em posição geral (normais linearmente independentes) se intersectam num ponto.</p>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+
+<p><strong>a)</strong> <span class="success">SPD</span>. Os três planos se encontram num único ponto. É a configuração genérica: os vetores normais são linearmente independentes.</p>
+
+<p><strong>b)</strong> <span class="danger">SI</span>. Dois planos paralelos distintos nunca se intersectam, logo não há ponto comum aos três. O terceiro plano intersecta cada um dos paralelos em retas paralelas distintas.</p>
+
+<p><strong>c)</strong> <span class="warning">SPI</span>. Infinitas soluções: todos os pontos da reta comum. Os três planos são distintos mas compartilham uma reta.</p>
+
+<p><strong>d)</strong> <span class="warning">SPI</span>. Todos os pontos do plano são solução. Geometricamente, os três planos são o mesmo plano. O sistema tem duas variáveis livres.</p>
+
+<p><strong>e)</strong> <span class="danger">SI</span>. Cada par de planos se intersecta, mas não há ponto comum aos três. As três retas de interseção são paralelas distintas, como as arestas de um prisma triangular.</p>
+
+<p><strong>f)</strong> <span class="warning">SPI</span>. Dois planos coincidentes formam um único plano; o terceiro o intersecta numa reta. Infinitas soluções (pontos dessa reta).</p>
+
+<p><strong>g)</strong> Exemplo (sistema do Q1):</p>
+<div class="formula">
+$$\begin{cases}
+x + y + z = 6 \\
+2x - y + z = 3 \\
+x + 2y - z = 2
+\end{cases}$$
+</div>
+<p>Vetores normais: $\vec{n}_1 = (1,1,1)$, $\vec{n}_2 = (2,-1,1)$, $\vec{n}_3 = (1,2,-1)$. Como $\det A = -9 \neq 0$, os vetores são linearmente independentes e os planos se intersectam num único ponto: $P(1, 2, 3)$.</p>
+</details>
+</div>

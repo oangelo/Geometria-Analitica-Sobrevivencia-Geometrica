@@ -1,0 +1,38 @@
+<div class="exercise">
+    <h3>Otimização de Antena de Comunicação</h3>
+    <p><strong>Objetivo:</strong> Aplicar o cálculo de ângulo entre vetores para otimizar o posicionamento de uma antena receptora.</p>
+    <p>Uma torre de comunicação em $T = (0, 0, 0)$ recebe sinais de duas outras torres:</p>
+    <div class="formula">
+        $$\text{Torre } A \text{ em } (10, 5, 8), \quad \text{Torre } B \text{ em } (6, -8, 4)$$
+    </div>
+    <p>A antena da torre $T$ pode ser orientada em qualquer direção. Para receber sinais de múltiplas fontes, o técnico quer saber o ângulo entre as direções dos dois sinais.</p>
+    <ol>
+        <li>Calcule os vetores direção $\vec{TA}$ e $\vec{TB}$.</li>
+        <li>Calcule o ângulo entre as duas direções de sinal (em graus, aproximado para inteiro).</li>
+        <li>Se uma antena direcional tem campo de visão de $60°$, ela consegue captar ambos os sinais simultaneamente se apontada na bisetriz das duas direções? Justifique.</li>
+    </ol>
+
+    <details class="hint-details">
+        <summary>DICA DE SOBREVIVÊNCIA</summary>
+        <p>O vetor direção de $T$ para $A$ é $\vec{TA} = A - T = A$. O ângulo entre as direções é o ângulo entre $\vec{TA}$ e $\vec{TB}$. Para a antena captar ambos, o ângulo entre cada direção e a bisetriz deve ser $\leq 30°$ (metade do campo de visão).</p>
+    </details>
+
+    <details>
+        <summary>ACESSO NÍVEL: SUPERVISOR</summary>
+        <ol class="solution-steps">
+            <li>Vetores direção:
+                $$\vec{TA} = (10, 5, 8), \quad \vec{TB} = (6, -8, 4)$$
+            </li>
+            <li>Produto interno e módulos:
+                $$\vec{TA} \cdot \vec{TB} = (10)(6) + (5)(-8) + (8)(4) = 60 - 40 + 32 = 52$$
+                $$|\vec{TA}| = \sqrt{100 + 25 + 64} = \sqrt{189} = 3\sqrt{21}$$
+                $$|\vec{TB}| = \sqrt{36 + 64 + 16} = \sqrt{116} = 2\sqrt{29}$$
+                $$\cos \theta = \frac{52}{3\sqrt{21} \cdot 2\sqrt{29}} = \frac{52}{6\sqrt{609}} = \frac{26}{3\sqrt{609}}$$
+                $$\sqrt{609} \approx 24{,}678 \Rightarrow \cos \theta \approx \frac{26}{74{,}035} \approx 0{,}351$$
+                $$\theta \approx \arccos(0{,}351) \approx 69°$$
+            </li>
+            <li>A bisetriz (na direção $\vec{TA} + \vec{TB}$) divide o ângulo de $69°$ em duas partes de aproximadamente $34{,}5°$ cada. Como $34{,}5° > 30°$, <strong>a antena com campo de $60°$ NÃO consegue captar ambos os sinais simultaneamente</strong>. Seria necessário um campo de visão de pelo menos $69°$, ou instalar duas antenas direcionais.</li>
+        </ol>
+        <p><strong>Reflexão:</strong> Este é um problema real de engenharia de telecomunicações. A antena direcional tem um "cone" de recepção; se dois transmissores estão separados por um ângulo maior que o campo de visão, não há orientação única que capture ambos. No espaço tridimensional, este problema é ainda mais complexo que no plano, pois as torres podem estar em alturas diferentes (componente $z$).</p>
+    </details>
+</div>

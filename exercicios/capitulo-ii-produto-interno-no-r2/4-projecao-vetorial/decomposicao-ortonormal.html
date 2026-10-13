@@ -1,0 +1,26 @@
+<div class="exercise">
+<h3>A BASE ORTONORMAL NATURAL</h3>
+
+<p>Nos exercícios anteriores, usamos direções arbitrárias para projetar. Mas o plano $\mathbb{R}^2$ possui uma base especial: os vetores canônicos $\vec{e}_1 = (1, 0)$ e $\vec{e}_2 = (0, 1)$. Eles são <strong>ortogonais</strong> ($\vec{e}_1 \cdot \vec{e}_2 = 0$) e <strong>unitários</strong> ($|\vec{e}_1| = |\vec{e}_2| = 1$). Dado $\vec{v} = (7, -3)$, mostre que a projeção de $\vec{v}$ sobre $\vec{e}_1$ é exatamente a componente $x$ de $\vec{v}$, e a projeção sobre $\vec{e}_2$ é a componente $y$. Depois, verifique que $\text{proj}_{\vec{e}_1}\,\vec{v} + \text{proj}_{\vec{e}_2}\,\vec{v} = \vec{v}$. Por que isso funciona? O que a ortogonalidade entre $\vec{e}_1$ e $\vec{e}_2$ tem a ver com o fato de a soma das projeções reconstruir o vetor original?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVÊNCIA</summary>
+<div class="hint">
+<p>Aplique a fórmula de projeção para cada base. Quando o vetor de direção é unitário ($|\vec{b}| = 1$), a fórmula simplifica: $\text{proj}_{\vec{b}}\,\vec{a} = (\vec{a} \cdot \vec{b})\vec{b}$. E quando $\vec{b} = \vec{e}_1 = (1,0)$, o que é $\vec{a} \cdot \vec{e}_1$?</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Projeção sobre $\vec{e}_1$: $\text{proj}_{\vec{e}_1}\,\vec{v} = \frac{\vec{v} \cdot \vec{e}_1}{\vec{e}_1 \cdot \vec{e}_1}\vec{e}_1 = \frac{7}{1}(1, 0) = (7, 0)$. Essa é a componente $x$.</li>
+<li>Projeção sobre $\vec{e}_2$: $\text{proj}_{\vec{e}_2}\,\vec{v} = \frac{\vec{v} \cdot \vec{e}_2}{\vec{e}_2 \cdot \vec{e}_2}\vec{e}_2 = \frac{-3}{1}(0, 1) = (0, -3)$. Essa é a componente $y$.</li>
+<li>Soma: $(7, 0) + (0, -3) = (7, -3) = \vec{v}$ ✓.</li>
+<li>A razão: como $\vec{e}_1$ e $\vec{e}_2$ são ortogonais, as duas projeções capturam componentes independentes — uma "vê" apenas $x$, a outra apenas $y$. Juntas, reconstruem o vetor completo sem sobreposição nem perda.</li>
+</ol>
+<div class="formula">
+$$\text{proj}_{\vec{e}_1}\,\vec{v} = (7, 0), \quad \text{proj}_{\vec{e}_2}\,\vec{v} = (0, -3), \quad (7, 0) + (0, -3) = \vec{v}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> As coordenadas $(x, y)$ que usamos desde o Capítulo I são, na verdade, projeções sobre a base ortonatural. Cada coordenada é o quanto do vetor "aparece" naquela direção canônica. Isso significa que toda a linguagem de componentes que vimos até agora tem uma explicação profunda em termos de projeção — a ferramenta que acabamos de aprender unifica tudo.</p>
+</details>
+</div>

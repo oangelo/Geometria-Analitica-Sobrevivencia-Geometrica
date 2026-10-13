@@ -1,0 +1,54 @@
+<div class="exercise">
+<h3>ESFERA POR QUATRO PONTOS: SISTEMA ABERTO</h3>
+<p>O objetivo deste exercício é resolver um problema de construção onde quatro pontos do espaço determinam uma única superfície esférica. Diferentemente dos exercícios anteriores, aqui o estudante deve montar o sistema completo e resolvê-lo do zero — uma habilidade essencial para situações de campo onde os dados vêm sem processamento.</p>
+<p>Quatro postos de monitoramento foram estabelecidos nas posições:</p>
+<div class="formula">
+$$A(1, 0, 0), \quad B(0, 1, 0), \quad C(0, 0, 1), \quad O(0, 0, 0)$$
+</div>
+<p>Sabe-se que existe uma única esfera passando por esses quatro pontos (desde que não sejam coplanares).</p>
+<p><strong>(a)</strong> Explique por que os quatro pontos não são coplanares. <em>Dica:</em> verifique se $O$, $A$, $B$, $C$ satisfazem uma equação de plano $ax + by + cz = d$.</p>
+<p><strong>(b)</strong> Suponha a esfera na forma geral $x^2 + y^2 + z^2 + Dx + Ey + Fz + G = 0$. Substitua cada um dos quatro pontos para obter um sistema de 4 equações lineares nas incógnitas $D$, $E$, $F$, $G$.</p>
+<p><strong>(c)</strong> Resolva o sistema passo a passo, determinando $G$ primeiro, depois $D$, $E$, $F$.</p>
+<p><strong>(d)</strong> Escreva a equação da esfera na forma geral e converta para a forma canônica completando quadrados.</p>
+<p><strong>(e)</strong> Identifique o centro $C$ e o raio $r$ da esfera. Verifique que todos os quatro pontos satisfazem a equação canônica.</p>
+<p><strong>(f)</strong> <span class="warning">Desafio:</span> O centro da esfera é equidistante dos quatro pontos. Verifique calculando $d(C, A)$, $d(C, B)$, $d(C, C)$ e $d(C, O)$.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para o item (a), se os pontos fossem coplanares, existiriam $a, b, c, d$ não todos nulos tais que $ax + by + cz = d$ para todos os quatro pontos. Teste com $O(0,0,0)$ primeiro — isso força $d = 0$. Depois teste $A$, $B$, $C$ e veja se um sistema consistente emerge. Para o sistema em (b), cada ponto gera uma equação linear em $D, E, F, G$ porque os termos quadráticos são conhecidos.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Pontos: $O(0,0,0)$, $A(1,0,0)$, $B(0,1,0)$, $C(0,0,1)$</li>
+<li><strong>Item (a)</strong> — Suponha plano $ax + by + cz = d$</li>
+<li>$O(0,0,0)$: $0 = d$ → $d = 0$</li>
+<li>$A(1,0,0)$: $a = 0$; $B(0,1,0)$: $b = 0$; $C(0,0,1)$: $c = 0$</li>
+<li>Como $a = b = c = d = 0$, não existe plano — os pontos são \u003cspan class="success">não coplanares</span>.</li>
+<li><strong>Item (b)</strong> — Substituindo em $x^2 + y^2 + z^2 + Dx + Ey + Fz + G = 0$:</li>
+<li>$O$: $0 + 0 + 0 + 0 + 0 + 0 + G = 0$ → $G = 0$</li>
+<li>$A$: $1 + 0 + 0 + D + 0 + 0 + 0 = 0$ → $D = -1$</li>
+<li>$B$: $0 + 1 + 0 + 0 + E + 0 + 0 = 0$ → $E = -1$</li>
+<li>$C$: $0 + 0 + 1 + 0 + 0 + F + 0 = 0$ → $F = -1$</li>
+<li><strong>Item (c)</strong> — Sistema resolvido: $D = E = F = -1$, $G = 0$</li>
+<li><strong>Item (d)</strong> — Forma geral: $x^2 + y^2 + z^2 - x - y - z = 0$</li>
+<li>Completando quadrados: $\left(x-\frac{1}{2}\right)^2 + \left(y-\frac{1}{2}\right)^2 + \left(z-\frac{1}{2}\right)^2 = \frac{3}{4}$</li>
+<li><strong>Item (e)</strong> — Centro: $C = \left(\frac{1}{2}, \frac{1}{2}, \frac{1}{2}\right)$; raio: $r = \frac{\sqrt{3}}{2}$</li>
+<li>Verificação para $O$: $\frac{1}{4} + \frac{1}{4} + \frac{1}{4} = \frac{3}{4}$ ✓</li>
+<li>Verificação para $A$: $\frac{1}{4} + \frac{1}{4} + \frac{1}{4} = \frac{3}{4}$ ✓</li>
+<li><strong>Item (f)</strong> — Distâncias do centro:</li>
+<li>$d(C, O) = \sqrt{\frac{1}{4} + \frac{1}{4} + \frac{1}{4}} = \frac{\sqrt{3}}{2} = r$ ✓</li>
+<li>$d(C, A) = \sqrt{\frac{1}{4} + \frac{1}{4} + \frac{1}{4}} = \frac{\sqrt{3}}{2} = r$ ✓</li>
+<li>$d(C, B) = d(C, C) = \frac{\sqrt{3}}{2} = r$ ✓</li>
+</ol>
+<div class="formula">
+$$x^2 + y^2 + z^2 - x - y - z = 0$$
+$$C = \left(\frac{1}{2}, \frac{1}{2}, \frac{1}{2}\right), \quad r = \frac{\sqrt{3}}{2}$$
+$$	ext{Todas as distâncias ao centro são iguais a } \frac{\sqrt{3}}{2}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A esfera circunscreve o tetraedro regular de vértices $O$, $A$, $B$, $C$ — um tetraedro com três arestas iguais a $1$ partindo da origem. O centro em $\left(\frac{1}{2}, \frac{1}{2}, \frac{1}{2}\right)$ é o ponto médio da diagonal do cubo unitário, e o raio $\frac{\sqrt{3}}{2}$ é metade da diagonal espacial. Esta simetria não é coincidência: quatro pontos equidistantes na origem e nos eixos coordenados geram uma configuração altamente simétrica. Em campo, este resultado mostra que postos posicionados nos eixos a igual distância da origem definem uma zona esférica centrada no ponto médio da diagonal.</p>
+</details>
+</div>

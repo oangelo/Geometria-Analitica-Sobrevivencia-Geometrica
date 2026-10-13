@@ -1,0 +1,36 @@
+<div class="exercise">
+<h3>Construção da Hipérbole Vertical</h3>
+<p>O objetivo deste exercício é construir a equação de uma hipérbole vertical a partir da definição. Duas antenas de comunicação estão posicionadas em $F_1(0,-3)$ e $F_2(0,3)$. Um sensor móvel registra sinais em todos os pontos onde a diferença absoluta das distâncias às duas antenas é $2a = 4$.</p>
+<p><strong>(a)</strong> Escreva a equação da definição para um ponto genérico $P(x,y)$. Substitua as coordenadas dos focos e escreva com raízes quadradas.</p>
+<p><strong>(b)</strong> Manipule algebraicamente (isole raiz, eleve ao quadrado, simplifique, eleve ao quadrado novamente) até obter a forma $Ay^2 - Bx^2 = C$.</p>
+<p><strong>(c)</strong> Divida por $C$ para obter a forma canônica. Identifique $a$, $b$ e $c$ e verifique que $c^2 = a^2 + b^2$.</p>
+<p><strong>(d)</strong> Faça um esboço no papel: marque os focos em $(0, \pm c)$, os vértices em $(0, \pm a)$, desenhe o retângulo de vértices $(\pm b, \pm a)$, trace as assíntotas e esboce os dois ramos da hipérbole (um para cima, um para baixo).</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>O processo é idêntico ao da hipérbole horizontal, mas agora as distâncias envolvem $(y+3)^2$ e $(y-3)^2$. Ao elevar ao quadrado e simplificar, os termos em $y$ serão os que sobrevivem, não os em $x$. O resultado final deve ter $y^2$ positivo e $x^2$ negativo.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Definição com $F_1(0,-3)$, $F_2(0,3)$, $c = 3$, $2a = 4$:
+$$\left|\sqrt{x^2 + (y+3)^2} - \sqrt{x^2 + (y-3)^2}\right| = 4$$</li>
+<li>Isolando e elevando ao quadrado:
+$$x^2 + (y+3)^2 = 16 \pm 8\sqrt{x^2 + (y-3)^2} + x^2 + (y-3)^2$$</li>
+<li>Expandindo: $y^2 + 6y + 9 = 16 \pm 8\sqrt{\dots} + y^2 - 6y + 9$</li>
+<li>Simplificando: $12y - 16 = \pm 8\sqrt{x^2 + (y-3)^2}$, ou $3y - 4 = \pm 2\sqrt{x^2 + (y-3)^2}$</li>
+<li>Elevando ao quadrado: $(3y - 4)^2 = 4[x^2 + (y-3)^2]$
+$$9y^2 - 24y + 16 = 4x^2 + 4(y^2 - 6y + 9) = 4x^2 + 4y^2 - 24y + 36$$</li>
+<li>O termo $-24y$ cancela! Resta: $9y^2 + 16 = 4x^2 + 4y^2 + 36$</li>
+<li>$5y^2 - 4x^2 = 20$</li>
+<li>Dividindo por 20: $\frac{y^2}{4} - \frac{x^2}{5} = 1$</li>
+<li>Identificando: $a^2 = 4 \Rightarrow a = 2$, $b^2 = 5 \Rightarrow b = \sqrt{5}$</li>
+<li>Verificando: $c^2 = a^2 + b^2 = 4 + 5 = 9$, logo $c = 3$ ✓</li>
+</ol>
+<div class="formula">$$\text{Equação: } \frac{y^2}{4} - \frac{x^2}{5} = 1 \quad \text{com } a = 2,\; b = \sqrt{5},\; c = 3$$</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Note que a hipérbole vertical tem $y^2$ positivo e $x^2$ negativo. Os vértices ficam no eixo $y$, e a curva se abre para cima e para baixo. O retângulo guia tem dimensões $2b$ (horizontal) por $2a$ (vertical).</p>
+</details>
+</div>

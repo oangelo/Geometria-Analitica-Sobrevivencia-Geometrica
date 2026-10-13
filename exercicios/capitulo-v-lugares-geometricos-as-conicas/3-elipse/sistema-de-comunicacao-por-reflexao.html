@@ -1,0 +1,56 @@
+<div class="exercise">
+<h3>SISTEMA DE COMUNICAÇÃO POR REFLEXÃO</h3>
+
+<p>O objetivo deste exercício é resolver um problema aberto onde os parâmetros da elipse são desconhecidos e devem ser determinados a partir de condições. Uma antena parabólica degradada opera como uma elipse com equação $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$. Dois pontos de calibração foram medidos: $P_1(3, 2)$ e $P_2(4, 1)$ pertencem à elipse.</p>
+
+<p><strong>(a)</strong> Substitua as coordenadas de $P_1(3, 2)$ na equação da elipse para obter uma equação em $a^2$ e $b^2$.</p>
+
+<p><strong>(b)</strong> Substitua as coordenadas de $P_2(4, 1)$ na equação da elipse para obter uma segunda equação em $a^2$ e $b^2$.</p>
+
+<p><strong>(c)</strong> Chame $u = a^2$ e $v = b^2$. Resolva o sistema linear em $u$ e $v$:</p>
+<div class="formula">
+$$\frac{9}{u} + \frac{4}{v} = 1, \quad \frac{16}{u} + \frac{1}{v} = 1$$
+</div>
+<p>Dica: faça $A = \frac{1}{u}$ e $B = \frac{1}{v}$ para obter um sistema linear em $A$ e $B$.</p>
+
+<p><strong>(d)</strong> Encontre $a^2$ e $b^2$, depois $a$ e $b$. Verifique que $a > b$ para que seja de fato uma elipse horizontal.</p>
+
+<p><strong>(e)</strong> Calcule $c$ e a excentricidade $e$. Escreva a equação final da elipse.</p>
+
+<p><strong>(f)</strong> No papel, esboce a elipse e marque os dois pontos de calibração $P_1$ e $P_2$.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>O sistema em $A = 1/u$ e $B = 1/v$ é: $9A + 4B = 1$ e $16A + B = 1$. Da segunda equação, $B = 1 - 16A$. Substitua na primeira: $9A + 4(1 - 16A) = 1$. Resolva para $A$, depois encontre $B$. Finalmente, $u = 1/A$ e $v = 1/B$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Ponto $P_1(3, 2)$ na elipse: $\frac{9}{a^2} + \frac{4}{b^2} = 1$.</li>
+<li>Ponto $P_2(4, 1)$ na elipse: $\frac{16}{a^2} + \frac{1}{b^2} = 1$.</li>
+<li>Seja $A = \frac{1}{a^2}$ e $B = \frac{1}{b^2}$. O sistema é:
+\begin{cases} 9A + 4B = 1 \\ 16A + B = 1 \end{cases}</li>
+<li>Da segunda equação: $B = 1 - 16A$.</li>
+<li>Substitua na primeira: $9A + 4(1 - 16A) = 1$.</li>
+<li>$9A + 4 - 64A = 1$.</li>
+<li>$-55A = -3$.</li>
+<li>$A = \frac{3}{55}$.</li>
+<li>$B = 1 - 16 \cdot \frac{3}{55} = 1 - \frac{48}{55} = \frac{7}{55}$.</li>
+<li>Logo $a^2 = \frac{1}{A} = \frac{55}{3} \approx 18{,}33$ e $b^2 = \frac{1}{B} = \frac{55}{7} \approx 7{,}86$.</li>
+<li>$a = \sqrt{\frac{55}{3}} = \frac{\sqrt{165}}{3} \approx 4{,}28$.</li>
+<li>$b = \sqrt{\frac{55}{7}} = \frac{\sqrt{385}}{7} \approx 2{,}80$.</li>
+<li>Verificação: $a > b$ ✓ ($4{,}28 > 2{,}80$), logo é uma elipse horizontal válida.</li>
+<li>Calcule $c$: $c^2 = a^2 - b^2 = \frac{55}{3} - \frac{55}{7} = 55\left(\frac{7-3}{21}\right) = 55 \cdot \frac{4}{21} = \frac{220}{21}$.</li>
+<li>$c = \sqrt{\frac{220}{21}} = \frac{2\sqrt{1155}}{21} \approx 3{,}24$.</li>
+<li>Excentricidade: $e = \frac{c}{a} = \sqrt{\frac{220/21}{55/3}} = \sqrt{\frac{220}{21} \cdot \frac{3}{55}} = \sqrt{\frac{660}{1155}} = \sqrt{\frac{4}{7}} = \frac{2}{\sqrt{7}} = \frac{2\sqrt{7}}{7} \approx 0{,}756$.</li>
+<li>Equação final: $\frac{x^2}{55/3} + \frac{y^2}{55/7} = 1$, ou $\frac{3x^2}{55} + \frac{7y^2}{55} = 1$, ou ainda $3x^2 + 7y^2 = 55$.</li>
+</ol>
+<div class="formula">
+$$3x^2 + 7y^2 = 55, \quad a^2 = \frac{55}{3}, \quad b^2 = \frac{55}{7}, \quad e = \frac{2\sqrt{7}}{7} \approx 0{,}756$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Este exercício demonstra que dois pontos bastam para determinar uma elipse centrada na origem com eixos alinhados aos coordenados. O sistema não-linear em $a^2$ e $b^2$ transformou-se num sistema linear simples através da substituição $A = 1/a^2$, $B = 1/b^2$. Na Zona Devastada, saber reformular um problema é tão importante quanto resolvê-lo — às vezes, a transformação certa revela uma solução que parecia inacessível.</p>
+</details>
+</div>

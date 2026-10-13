@@ -1,0 +1,32 @@
+<div class="exercise">
+<h3>CONSTRUIR A EQUAÇÃO PELA DEFINIÇÃO</h3>
+<p>O objetivo deste exercício é construir a equação de uma superfície esférica a partir da definição como lugar geométrico, exatamente como fizemos com a circunferência no Capítulo IV. A única diferença é a dimensão: agora trabalhamos no espaço R³.</p>
+<p>Um sensor de detecção de anomalias está instalado no ponto $C(1, 2, 3)$. Sua zona de alcance é esférica com raio $r = 5$ unidades. Um ponto genérico da zona é denotado por $P(x, y, z)$.</p>
+<p><strong>(a)</strong> Escreva a condição que define a superfície esférica usando a distância: $d(P, C) = r$.</p>
+<p><strong>(b)</strong> Substitua a fórmula de distância no R³ e obtenha a equação com raiz quadrada.</p>
+<p><strong>(c)</strong> Elimine a raiz elevando ambos os lados ao quadrado. Apresente a equação canônica da esfera.</p>
+<p><strong>(d)</strong> Verifique se o ponto $P_1(5, 5, 6)$ pertence à superfície esférica substituindo na equação.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>A distância entre $P(x,y,z)$ e $C(a,b,c)$ no R³ é $d(P,C) = \sqrt{(x-a)^2 + (y-b)^2 + (z-c)^2}$. Para eliminar a raiz, eleve ao quadrado. Para verificar se um ponto pertence à esfera, substitua suas coordenadas na equação canônica — se a igualdade for satisfeita, o ponto está sobre a superfície.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Centro: $C = (1, 2, 3)$; raio: $r = 5$; ponto genérico: $P(x, y, z)$</li>
+<li><strong>Item (a)</strong> — Condição: $d(P, C) = 5$</li>
+<li><strong>Item (b)</strong> — $\sqrt{(x-1)^2 + (y-2)^2 + (z-3)^2} = 5$</li>
+<li><strong>Item (c)</strong> — Elevando ao quadrado: $(x-1)^2 + (y-2)^2 + (z-3)^2 = 25$</li>
+<li><strong>Item (d)</strong> — Para $P_1(5, 5, 6)$: $(5-1)^2 + (5-2)^2 + (6-3)^2 = 16 + 9 + 9 = 34$</li>
+<li>Como $34 \neq 25$, o ponto $P_1$ <span class="warning">não pertence</span> à superfície esférica.</li>
+</ol>
+<div class="formula">
+$$(x-1)^2 + (y-2)^2 + (z-3)^2 = 25$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A construção da esfera pela definição é idêntica à da circunferência — apenas acrescentamos a coordenada $z$. O ponto $P_1$ está a distância $\sqrt{34} \approx 5{,}83$ do centro, ou seja, \u003cspan class="warning">fora da zona de detecção</span>. O sensor não detectaria essa anomalia.</p>
+</details>
+</div>

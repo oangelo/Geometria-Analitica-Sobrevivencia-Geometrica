@@ -1,0 +1,25 @@
+<div class="exercise">
+<h3>MENOR DISTÂNCIA ENTRE FRONTEIRAS PARALELAS</h3>
+
+<p>O Refúgio-29 delimitou duas fronteiras paralelas para criar um corredor seguro de evacuação. A fronteira norte é $r: 2x + y - 8 = 0$ e a fronteira sul é $s: 2x + y + 3 = 0$. No papel, esboce as duas retas — note que ambas têm a mesma inclinação (coeficiente angular $-2$) mas cortam o eixo $y$ em pontos diferentes. Como as fronteiras são paralelas, não há ponto de interseção. Mas a largura do corredor é a distância entre as retas. Usando a fórmula da distância entre duas retas paralelas $ax + by + c_1 = 0$ e $ax + by + c_2 = 0$, calcule essa largura. O corredor é suficientemente largo para uma coluna de veículos (protocolo exige pelo menos $2{,}2$ unidades)?</p>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>As retas são $r: 2x + y - 8 = 0$ e $s: 2x + y + 3 = 0$.</li>
+<li>Verificação de paralelismo: $\frac{2}{2} = \frac{1}{1} = 1 \neq \frac{-8}{3}$ → paralelas distintas.</li>
+<li>A fórmula da distância entre retas paralelas $ax + by + c_1 = 0$ e $ax + by + c_2 = 0$ é:
+$$d = \frac{|c_1 - c_2|}{\sqrt{a^2 + b^2}}$$
+</li>
+<li>Identificamos: $a = 2$, $b = 1$, $c_1 = -8$, $c_2 = 3$.</li>
+<li>Substituindo: $d = \frac{|-8 - 3|}{\sqrt{2^2 + 1^2}} = \frac{|-11|}{\sqrt{5}} = \frac{11}{\sqrt{5}}$.</li>
+<li>Racionalizando: $d = \frac{11\sqrt{5}}{5} = \frac{11}{5}\sqrt{5} = 2{,}2\sqrt{5}$.</li>
+<li>Como $\sqrt{5} \approx 2{,}236$, temos $d \approx 2{,}2 \times 2{,}236 \approx 4{,}92$ unidades.</li>
+<li>Como $4{,}92 > 2{,}2$, o corredor <strong>atende ao protocolo</strong>.</li>
+</ol>
+<div class="formula">
+$$d = \frac{|c_1 - c_2|}{\sqrt{a^2 + b^2}} = \frac{|-8 - 3|}{\sqrt{4 + 1}} = \frac{11}{\sqrt{5}} = \frac{11\sqrt{5}}{5} \approx 4{,}92 \text{ unidades}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A distância entre fronteiras paralelas é a "largura do corredor de vida". Na Zona Devastada, corredores estreitos são armadilhas — veículos não conseguem manobrar, e mutantes podem bloquear ambas as extremidades. Saber que a largura é de aproximadamente $4{,}92$ unidades, bem acima do mínimo de $2{,}2$, significa que essa rota de evacuação é viável. A matemática mede não apenas distâncias, mas chances de sobrevivência.</p>
+</details>
+</div>

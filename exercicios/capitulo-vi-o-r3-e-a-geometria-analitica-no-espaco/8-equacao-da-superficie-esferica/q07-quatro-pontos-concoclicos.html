@@ -1,0 +1,46 @@
+<div class="exercise">
+<h3>QUATRO PONTOS CONCOCÚLICOS</h3>
+<p>O objetivo deste exercício é verificar se quatro pontos no espaço pertencem a uma mesma superfície esférica — são <em>concoclícos</em>. Este problema é a generalização natural de três pontos determinarem uma circunferência no plano (Capítulo IV, Tópico 2).</p>
+<p>Quatro sensores de detecção foram instalados nas posições:</p>
+<div class="formula">
+$$A(1, 0, 0), \quad B(0, 1, 0), \quad C(0, 0, 1), \quad D(1, 1, 1)$$
+</div>
+<p>Pretende-se verificar se existe uma esfera única que passa por todos eles.</p>
+<p><strong>(a)</strong> Suponha que a esfera tenha equação $x^2 + y^2 + z^2 + Dx + Ey + Fz + G = 0$. Substitua as coordenadas de $A$, $B$ e $C$ para obter três equações lineares em $D$, $E$, $F$, $G$.</p>
+<p><strong>(b)</strong> Resolva o sistema para $D$, $E$, $F$ em função de $G$.</p>
+<p><strong>(c)</strong> Use o ponto $D$ para determinar o valor de $G$ e, consequentemente, $D$, $E$, $F$.</p>
+<p><strong>(d)</strong> Escreva a equação da esfera na forma geral e, completando quadrados, na forma canônica. Identifique centro e raio.</p>
+<p><strong>(e)</strong> Verifique que todos os quatro pontos satisfazem a equação encontrada.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Substituir um ponto $(x_0, y_0, z_0)$ na forma geral dá $x_0^2 + y_0^2 + z_0^2 + Dx_0 + Ey_0 + Fz_0 + G = 0$. Para $A(1,0,0)$ isso simplifica para $1 + D + G = 0$. Faça o mesmo para $B$ e $C$ — você obterá um sistema simples. O ponto $D$ fornece a quarta equação para fechar o sistema.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Forma geral: $x^2 + y^2 + z^2 + Dx + Ey + Fz + G = 0$</li>
+<li><strong>Item (a)</strong> — Substituindo:</li>
+<li>$A(1,0,0)$: $1 + D + G = 0$ → $D = -1 - G$</li>
+<li>$B(0,1,0)$: $1 + E + G = 0$ → $E = -1 - G$</li>
+<li>$C(0,0,1)$: $1 + F + G = 0$ → $F = -1 - G$</li>
+<li><strong>Item (b)</strong> — De (a): $D = E = F = -1 - G$</li>
+<li><strong>Item (c)</strong> — Substituindo $D(1,1,1)$: $3 + D + E + F + G = 0$</li>
+<li>$3 + 3(-1-G) + G = 0$ → $3 - 3 - 3G + G = 0$ → $-2G = 0$ → $G = 0$</li>
+<li>Logo: $D = E = F = -1$</li>
+<li><strong>Item (d)</strong> — Forma geral: $x^2 + y^2 + z^2 - x - y - z = 0$</li>
+<li>Completando quadrados: $\left(x-\frac{1}{2}\right)^2 - \frac{1}{4} + \left(y-\frac{1}{2}\right)^2 - \frac{1}{4} + \left(z-\frac{1}{2}\right)^2 - \frac{1}{4} = 0$</li>
+<li>$\left(x-\frac{1}{2}\right)^2 + \left(y-\frac{1}{2}\right)^2 + \left(z-\frac{1}{2}\right)^2 = \frac{3}{4}$</li>
+<li>Centro: $C = \left(\frac{1}{2}, \frac{1}{2}, \frac{1}{2}\right)$; raio: $r = \frac{\sqrt{3}}{2}$</li>
+<li><strong>Item (e)</strong> — Verificação para $A$: $1 - 1 + 0 + 0 = 0$ ✓; para $D$: $3 - 1 - 1 - 1 = 0$ ✓</li>
+</ol>
+<div class="formula">
+$$x^2 + y^2 + z^2 - x - y - z = 0$$
+$$C = \left(\frac{1}{2}, \frac{1}{2}, \frac{1}{2}\right), \quad r = \frac{\sqrt{3}}{2}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Os quatro pontos são concoclícos, com esfera centrada no ponto médio do cubo unitário. O raio $\frac{\sqrt{3}}{2}$ é exatamente a metade da diagonal espacial do cubo de vértices $(0,0,0)$ a $(1,1,1)$. Geometricamente, a esfera circunscreve o tetraedro $ABCD$ — uma configuração simétrica que emerge naturalmente da estrutura do cubo.</p>
+</details>
+</div>

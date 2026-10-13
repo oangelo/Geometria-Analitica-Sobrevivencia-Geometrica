@@ -1,0 +1,29 @@
+<div class="exercise">
+<h3>CAMPO DE DISTORÇÃO TEMPORAL</h3>
+
+<p>Combinando a região anular com um ponto que contém parâmetro, o SUPERVISOR prepara o cenário mais exigente até agora. Um campo de distorção temporal forma um anel em torno de $C(3,1)$: a fronteira interna é $(x-3)^2 + (y-1)^2 = 4$ (raio $r_1 = 2$) e a fronteira externa é $(x-3)^2 + (y-1)^2 = 16$ (raio $r_2 = 4$). A região estável é o anel entre elas: $4 &lt; (x-3)^2 + (y-1)^2 &lt; 16$. Um equipamento de navegação precisa ser instalado no ponto $P(k, 1)$, sobre a reta horizontal que passa pelo centro. Substitua $P(k,1)$ na expressão $(x-3)^2 + (y-1)^2$ e determine para quais valores de $k$ o equipamento fica na região estável.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>A substituição dá $(k-3)^2 + (1-1)^2 = (k-3)^2$. A condição do anel fica $4 &lt; (k-3)^2 &lt; 16$. Resolva cada inequação separadamente: $(k-3)^2 &gt; 4$ e $(k-3)^2 &lt; 16$, depois faça a interseção dos intervalos.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Substituição: $(k-3)^2 + 0 = (k-3)^2$.</li>
+<li>Condição do anel: $4 &lt; (k-3)^2 &lt; 16$.</li>
+<li>Inequação da fronteira interna: $(k-3)^2 &gt; 4 \Rightarrow |k-3| &gt; 2 \Rightarrow k &lt; 1$ ou $k &gt; 5$.</li>
+<li>Inequação da fronteira externa: $(k-3)^2 &lt; 16 \Rightarrow |k-3| &lt; 4 \Rightarrow -1 &lt; k &lt; 7$.</li>
+<li>Interseção: os valores de $k$ que satisfazem ambas são $-1 &lt; k &lt; 1$ ou $5 &lt; k &lt; 7$.</li>
+<li>Conclusão: o equipamento opera na região estável quando $k \in (-1, 1) \cup (5, 7)$.</li>
+</ol>
+<div class="formula">
+$$(k-3)^2 &gt; 4 \;\Rightarrow\; k &lt; 1 \text{ ou } k &gt; 5 \qquad (k-3)^2 &lt; 16 \;\Rightarrow\; {-1} &lt; k &lt; 7$$
+$$\text{Interseção: } {-1} &lt; k &lt; 1 \;\text{ ou }\; 5 &lt; k &lt; 7$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O resultado é a união de dois intervalos — o equipamento pode ficar à esquerda do centro (entre $k = -1$ e $k = 1$) ou à direita (entre $k = 5$ e $k = 7$), mas nunca no meio, onde a distorção interna é letal. Na Zona Devastada, nem toda zona segura é conexa: o anel abre duas "janelas" de operação ao longo da reta.</p>
+</details>
+</div>

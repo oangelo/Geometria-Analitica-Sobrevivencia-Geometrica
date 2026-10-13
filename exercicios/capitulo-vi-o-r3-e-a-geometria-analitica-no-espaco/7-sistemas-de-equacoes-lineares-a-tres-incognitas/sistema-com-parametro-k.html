@@ -1,0 +1,103 @@
+<div class="exercise">
+<h3>Sistema com Parâmetro $k$</h3>
+<p><strong>Objetivo:</strong> Analisar como um parâmetro afeta a classificação de um sistema 3&times;3, determinando valores críticos.</p>
+
+<p>O sistema de filtragem de água do Refúgio-TEC opera com três tanques interligados. A vazão entre eles depende de um parâmetro de controle $k$:</p>
+
+<div class="formula">
+$$\begin{cases}
+x + ky + z = 2 \\
+2x + y + kz = 3 \\
+kx + y + z = 1
+\end{cases}$$
+</div>
+
+<p><strong>a)</strong> Escreva a matriz de coeficientes $A$ em função de $k$.</p>
+
+<p><strong>b)</strong> Calcule $\det A$ em função de $k$. Mostre todos os passos da regra de Sarrus.</p>
+
+<p><strong>c)</strong> Para que valor(es) de $k$ o sistema tem solução única? Justifique.</p>
+
+<p><strong>d)</strong> Analise o caso $k = 1$: substitua $k = 1$ no sistema original, escalone e classifique (SPI ou SI).</p>
+
+<p><strong>e)</strong> Analise o caso $k = -2$: substitua $k = -2$ no sistema original, escalone e classifique (SPI ou SI).</p>
+
+<p><strong>f)</strong> Resuma em uma tabela: para cada valor de $k$, a classificação e a interpretação geométrica.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>O determinante será um polinômio em $k$. Os valores que anulam o determinante são os candidatos a mudar a classificação. Para cada valor crítico, você deve escalonar o sistema específico para distinguir SPI de SI. Fique atento: $k = 1$ torna duas equações idênticas após manipulação, enquanto $k = -2$ pode gerar contradição.</p>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+
+<p><strong>a)</strong> Matriz de coeficientes:</p>
+<div class="formula">
+$$A = \begin{pmatrix} 1 & k & 1 \\ 2 & 1 & k \\ k & 1 & 1 \end{pmatrix}$$
+</div>
+
+<p><strong>b)</strong> Regra de Sarrus:</p>
+<div class="formula">
+$$\det A = 1 \cdot 1 \cdot 1 + k \cdot k \cdot k + 1 \cdot 2 \cdot 1 - 1 \cdot 1 \cdot k - 1 \cdot k \cdot 1 - k \cdot 2 \cdot 1$$
+$$= 1 + k^3 + 2 - k - k - 2k = k^3 - 4k + 3$$
+</div>
+
+<p>Fatorando: $k^3 - 4k + 3$. Testando $k = 1$: $1 - 4 + 3 = 0$, logo $(k-1)$ é fator.</p>
+<p>Divisão: $(k^3 - 4k + 3) \div (k-1) = k^2 + k - 3$.</p>
+<p>Raízes de $k^2 + k - 3 = 0$: $k = \dfrac{-1 \pm \sqrt{1 + 12}}{2} = \dfrac{-1 \pm \sqrt{13}}{2}$.</p>
+<p>Portanto: $\det A = (k-1)(k^2 + k - 3) = (k-1)\left(k - \dfrac{-1+\sqrt{13}}{2}\right)\left(k - \dfrac{-1-\sqrt{13}}{2}\right)$.</p>
+
+<p><strong>c)</strong> O sistema tem solução única quando $\det A \neq 0$, ou seja, para <strong>$k \neq 1$ e $k \neq \dfrac{-1 \pm \sqrt{13}}{2}$</strong>. Para todos esses valores, o sistema é SPD.</p>
+
+<p><strong>d)</strong> Caso $k = 1$:</p>
+<div class="formula">
+$$\begin{cases}
+x + y + z = 2 \\
+2x + y + z = 3 \\
+x + y + z = 1
+\end{cases}$$
+</div>
+<p>Note que as equações (I) e (III) são $x + y + z = 2$ e $x + y + z = 1$ &mdash; <strong>contradição direta</strong>. Subtraindo: $0 = 1$. O sistema é <span class="danger">SI</span>. Geometricamente, os planos (I) e (III) são paralelos distintos.</p>
+
+<p><strong>e)</strong> Caso $k = -2$:</p>
+<div class="formula">
+$$\begin{cases}
+x - 2y + z = 2 \\
+2x + y - 2z = 3 \\
+-2x + y + z = 1
+\end{cases}$$
+</div>
+<p>Escalonamento: Eq. (I) &times; $(-2)$ + Eq. (II): $5y - 4z = -1$ (II')</p>
+<p>Eq. (I) &times; $2$ + Eq. (III): $-3y + 3z = 5$ (III')</p>
+<p>De (III'): $y = z - \frac{5}{3}$. Substituindo em (II'): $5(z - \frac{5}{3}) - 4z = -1 \Rightarrow z - \frac{25}{3} = -1 \Rightarrow z = \frac{22}{3}$.</p>
+<p>Logo $y = \frac{22}{3} - \frac{5}{3} = \frac{17}{3}$. Da (I): $x = 2 + 2(\frac{17}{3}) - \frac{22}{3} = 2 + \frac{34-22}{3} = 2 + 4 = 6$.</p>
+<p>Verificação: $\det A$ para $k = -2$: $(-2)^3 - 4(-2) + 3 = -8 + 8 + 3 = 3 \neq 0$. O sistema é <span class="success">SPD</span> com solução $\left(6, \frac{17}{3}, \frac{22}{3}\right)$.</p>
+
+<p><em>Nota: $k = -2$ não anula o determinante. O único valor inteiro crítico é $k = 1$.</em></p>
+
+<p><strong>f)</strong> Resumo:</p>
+<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+<tr style="border-bottom: 1px solid #4caf50;">
+<th style="text-align:left; padding:8px; color:#4caf50;">Condição</th>
+<th style="text-align:left; padding:8px; color:#4caf50;">Classificação</th>
+<th style="text-align:left; padding:8px; color:#4caf50;">Geometria</th>
+</tr>
+<tr style="border-bottom: 1px solid #333;">
+<td style="padding:8px;">$k \neq 1$ e $k \neq \frac{-1\pm\sqrt{13}}{2}$</td>
+<td style="padding:8px;"><span class="success">SPD</span></td>
+<td style="padding:8px;">Três planos num ponto</td>
+</tr>
+<tr style="border-bottom: 1px solid #333;">
+<td style="padding:8px;">$k = 1$</td>
+<td style="padding:8px;"><span class="danger">SI</span></td>
+<td style="padding:8px;">Dois planos paralelos distintos</td>
+</tr>
+<tr>
+<td style="padding:8px;">$k = \frac{-1\pm\sqrt{13}}{2}$</td>
+<td style="padding:8px;">SPI ou SI (escalonar)</td>
+<td style="padding:8px;">Análise caso a caso</td>
+</tr>
+</table>
+</details>
+</div>

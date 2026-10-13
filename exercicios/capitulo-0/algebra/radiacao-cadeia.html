@@ -1,0 +1,17 @@
+<div class="exercise">
+<h3>Radiação em Cadeia</h3>
+
+<p>O objetivo deste exercício é dominar as propriedades de potências através de cálculos numéricos concretos. Os sensores de radiação do Refúgio-TEC registram níveis de contaminação usando potências de base $2$. <strong>(a)</strong> Calcule $2^3 \times 2^4$ de duas formas: primeiro expandindo cada potência ($2 \times 2 \times 2$ e $2 \times 2 \times 2 \times 2$) e multiplicando tudo, depois usando a propriedade $a^m \times a^n = a^{m+n}$. Os resultados coincidem? <strong>(b)</strong> Calcule $\frac{2^7}{2^4}$ de duas formas: primeiro expandindo e cancelando fatores comuns, depois usando $a^m \div a^n = a^{m-n}$. <strong>(c)</strong> Calcule $(2^3)^2$ de duas formas: primeiro calculando $2^3$ e elevando ao quadrado, depois usando $(a^m)^n = a^{m \times n}$. Em cada caso, explique por que a propriedade funciona contando os fatores.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>Uma potência é apenas multiplicação repetida. Quando você multiplica potências de mesma base, está apenas juntando os fatores. Quando divide, está cancelando fatores comuns.</p>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>(a)</strong> Primeira forma: $2^3 \times 2^4 = (2 \times 2 \times 2) \times (2 \times 2 \times 2 \times 2) = 8 \times 16 = 128$. Segunda forma: $2^{3+4} = 2^7 = 128$. Coincidem. Explicação: $2^3$ tem $3$ fatores $2$ e $2^4$ tem $4$ fatores $2$. Juntos, temos $3+4=7$ fatores $2$, ou seja, $2^7$.</p>
+<p><strong>(b)</strong> Primeira forma: $\frac{2^7}{2^4} = \frac{2 \times 2 \times 2 \times 2 \times 2 \times 2 \times 2}{2 \times 2 \times 2 \times 2} = 2 \times 2 \times 2 = 8$. Segunda forma: $2^{7-4} = 2^3 = 8$. Coincidem. Explicação: dos $7$ fatores no numerador, cancelamos $4$ com os do denominador, sobrando $7-4=3$ fatores.</p>
+<p><strong>(c)</strong> Primeira forma: $(2^3)^2 = 8^2 = 64$. Segunda forma: $2^{3 \times 2} = 2^6 = 64$. Coincidem. Explicação: $(2^3)^2$ significa $2^3 \times 2^3$, que pelo item (a) é $2^{3+3} = 2^6$.</p>
+</details>
+</div>

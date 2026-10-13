@@ -1,0 +1,22 @@
+<div class="exercise">
+<h3>FORÇA EFETIVA NO GANCHO DE CARGA</h3>
+
+<p>O guindaste do abrigo precisa levantar destroços. O cabo exerce força $\vec{F} = (5, 8)$ — 5 unidades horizontalmente e 8 verticalmente —, mas o trilho de deslizamento só permite movimento na direção $\vec{d} = (1, 1)$ (diagonal a 45°). No papel, esboce o vetor força $\vec{F}$ e a direção $\vec{d}$ a partir da mesma origem, e decomponha $\vec{F}$ nas componentes paralela e perpendicular a $\vec{d}$. A componente paralela é a <strong>força efetiva</strong> — o que realmente move a carga no trilho. Qual é o módulo dessa força efetiva? Se o trilho só suporta até 10 unidades de força, o sistema está seguro ou há risco de ruptura?</p>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Produto escalar: $\vec{F} \cdot \vec{d} = 5 \times 1 + 8 \times 1 = 13$.</li>
+<li>Auto-produto: $\vec{d} \cdot \vec{d} = 1 + 1 = 2$.</li>
+<li>Força efetiva (projeção): $\vec{F}_{\parallel} = \frac{13}{2}(1, 1) = (6{,}5,\; 6{,}5)$.</li>
+<li>Módulo da força efetiva: $|\vec{F}_{\parallel}| = \sqrt{6{,}5^2 + 6{,}5^2} = 6{,}5\sqrt{2} \approx 9{,}19$.</li>
+<li>Componente perpendicular: $\vec{F}_{\perp} = (5, 8) - (6{,}5, 6{,}5) = (-1{,}5,\; 1{,}5)$.</li>
+<li>Verificação: $\vec{F}_{\perp} \cdot \vec{d} = -1{,}5 + 1{,}5 = 0$ ✓.</li>
+<li>Como $|\vec{F}_{\parallel}| \approx 9{,}19 < 10$, o sistema está dentro do limite — mas marginalmente. Qualquer aumento de carga pode causar ruptura.</li>
+</ol>
+<div class="formula">
+$$\vec{F}_{\parallel} = (6{,}5,\; 6{,}5), \quad |\vec{F}_{\parallel}| = 6{,}5\sqrt{2} \approx 9{,}19 < 10 \quad \text{(seguro, mas no limite)}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Engenharia na Zona Devastada é engenharia de recursos limitados. Não basta ter uma força grande — é preciso saber quanto dessa força realmente contribui para o objetivo. A projeção revela que, de $\vec{F} = (5, 8)$ com módulo $\sqrt{89} \approx 9{,}43$, apenas $\approx 9{,}19$ unidades atuam na direção útil. O resto empurra contra as laterais do trilho, gerando atrito e tensão. Projetar antes de operar pode evitar que o guindaste — e o abrigo — venha abaixo.</p>
+</details>
+</div>

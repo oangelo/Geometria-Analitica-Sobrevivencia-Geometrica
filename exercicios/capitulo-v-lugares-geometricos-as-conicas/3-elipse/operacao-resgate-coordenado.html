@@ -1,0 +1,44 @@
+<div class="exercise">
+<h3>OPERAÇÃO RESGATE COORDENADO</h3>
+
+<p>O objetivo deste exercício é construir a equação de uma elipse vertical, onde o eixo maior está no eixo $y$. Dois postos de evacuação estão em $F_1(0, -4)$ e $F_2(0, 4)$. Um veículo de resgate deve percorrer rotas onde a soma das distâncias aos dois postos seja $12$. Parta da definição e construa a equação.</p>
+
+<p><strong>(a)</strong> Escreva a equação da definição com as coordenadas dos focos. Identifique $c$ e $2a$.</p>
+
+<p><strong>(b)</strong> Isole uma raiz, eleve ao quadrado, simplifique e isole a raiz restante.</p>
+
+<p><strong>(c)</strong> Eleve ao quadrado novamente, simplifique até chegar à forma canônica. Identifique $a$, $b$ e verifique $c^2 = a^2 - b^2$.</p>
+
+<p><strong>(d)</strong> No papel, esboce a elipse. Note que ela é "deitada" (vertical) — os vértices principais estão no eixo $y$. Marque focos e vértices.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>A distância entre os focos é $2c = 8$, logo $c = 4$. A soma constante é $2a = 12$, logo $a = 6$. O processo é idêntico ao exercício anterior, mas agora as coordenadas dos focos são $(0, \pm c)$. A equação final terá $a^2$ sob $y^2$ porque o eixo maior é vertical.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Dados: $F_1(0, -4)$, $F_2(0, 4)$, logo $c = 4$. Soma $2a = 12$, logo $a = 6$.</li>
+<li>Definição: $\sqrt{x^2 + (y+4)^2} + \sqrt{x^2 + (y-4)^2} = 12$.</li>
+<li>Isole: $\sqrt{x^2 + (y+4)^2} = 12 - \sqrt{x^2 + (y-4)^2}$.</li>
+<li>Eleve ao quadrado: $x^2 + (y+4)^2 = 144 - 24\sqrt{x^2 + (y-4)^2} + x^2 + (y-4)^2$.</li>
+<li>Expanda: $x^2 + y^2 + 8y + 16 = 144 - 24\sqrt{x^2 + (y-4)^2} + x^2 + y^2 - 8y + 16$.</li>
+<li>Cancele $x^2$, $y^2$, $16$: $8y = 144 - 24\sqrt{x^2 + (y-4)^2} - 8y$.</li>
+<li>$16y - 144 = -24\sqrt{x^2 + (y-4)^2}$, ou $24\sqrt{x^2 + (y-4)^2} = 144 - 16y$.</li>
+<li>Divida por 8: $3\sqrt{x^2 + (y-4)^2} = 18 - 2y$.</li>
+<li>Eleve ao quadrado: $9[x^2 + (y-4)^2] = (18 - 2y)^2 = 324 - 72y + 4y^2$.</li>
+<li>Expanda: $9x^2 + 9y^2 - 72y + 144 = 324 - 72y + 4y^2$.</li>
+<li>Cancele $-72y$: $9x^2 + 9y^2 + 144 = 324 + 4y^2$.</li>
+<li>$9x^2 + 5y^2 = 180$.</li>
+<li>Divida por 180: $\frac{x^2}{20} + \frac{y^2}{36} = 1$.</li>
+</ol>
+<div class="formula">
+$$\frac{x^2}{20} + \frac{y^2}{36} = 1$$
+</div>
+<p>Identificação: $a^2 = 36 \Rightarrow a = 6$ (eixo maior vertical), $b^2 = 20 \Rightarrow b = \sqrt{20} = 2\sqrt{5}$. Verificação: $c^2 = a^2 - b^2 = 36 - 20 = 16$, logo $c = 4$ ✓.</p>
+<p><strong>Reflexão de Sobrevivência:</strong> A elipse vertical tem a mesma "receita de construção" que a horizontal. A única diferença é que $a^2$ aparece sob a variável cujo eixo contém os focos. Não decore — observe o padrão.</p>
+</details>
+</div>

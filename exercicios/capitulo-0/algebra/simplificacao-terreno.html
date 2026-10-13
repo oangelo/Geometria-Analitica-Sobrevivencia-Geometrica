@@ -1,0 +1,24 @@
+<div class="exercise">
+<h3>Simplificação de Terreno</h3>
+
+<p>O objetivo deste exercício é usar a diferença de quadrados para simplificar expressões algébricas. Dois terrenos adjacentes na Zona Devastada têm formato quadrado. O primeiro tem lado $(x+5)$ metros e o segundo tem lado $(x-5)$ metros. Um engenheiro precisa calcular a diferença entre suas áreas. <strong>(a)</strong> Escreva a expressão para a diferença de áreas usando a fórmula $A_1 - A_2 = (x+5)^2 - (x-5)^2$. <strong>(b)</strong> Em vez de expandir ambos os quadrados e subtrair, use a identidade $a^2 - b^2 = (a+b)(a-b)$ com $a = x+5$ e $b = x-5$ para simplificar a expressão. Mostre que o resultado é $20x$. <strong>(c)</strong> Verifique seu resultado expandindo diretamente $(x+5)^2 - (x-5)^2$ e mostrando que também dá $20x$. Qual método foi mais rápido?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>Quando você vê $a^2 - b^2$, pense imediatamente em $(a+b)(a-b)$. Neste caso, $a = x+5$ e $b = x-5$, então $a+b$ e $a-b$ simplificam de forma elegante — os $x$ cancelam em um dos fatores.</p>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>(a)</strong> A diferença de áreas é $(x+5)^2 - (x-5)^2$.</p>
+<p><strong>(b)</strong> Usando $a^2 - b^2 = (a+b)(a-b)$:</p>
+<p>$$a+b = (x+5) + (x-5) = 2x$$</p>
+<p>$$a-b = (x+5) - (x-5) = x+5-x+5 = 10$$</p>
+<p>Portanto: $(x+5)^2 - (x-5)^2 = (2x)(10) = 20x$.</p>
+<p><strong>(c)</strong> Expansão direta:</p>
+<p>$(x+5)^2 = x^2 + 10x + 25$</p>
+<p>$(x-5)^2 = x^2 - 10x + 25$</p>
+<p>Diferença: $(x^2 + 10x + 25) - (x^2 - 10x + 25) = x^2 + 10x + 25 - x^2 + 10x - 25 = 20x$.</p>
+<p>O método da diferença de quadrados foi significativamente mais rápido e elegante.</p>
+</details>
+</div>

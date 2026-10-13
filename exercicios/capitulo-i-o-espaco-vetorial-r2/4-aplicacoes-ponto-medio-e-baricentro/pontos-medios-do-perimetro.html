@@ -1,0 +1,30 @@
+<div class="exercise">
+<h3>OS PONTOS MÉDIOS DO PERÍMETRO</h3>
+<p>Um território triangular é delimitado por três torres de comunicação nas posições $A(0, 0)$, $B(6, 0)$ e $C(0, 6)$. O planejamento defensivo exige que pontos de apoio sejam instalados no meio de cada lado do perímetro. O objetivo deste exercício é calcular os três pontos médios, desenhá-los e observar a estrutura que eles formam.</p>
+<p><strong>(a)</strong> Calcule o ponto médio $M_1$ do lado $AB$, o ponto médio $M_2$ do lado $BC$ e o ponto médio $M_3$ do lado $CA$.</p>
+<p><strong>(b)</strong> Desenhe o triângulo $ABC$ no plano cartesiano. marque os três pontos médios $M_1$, $M_2$, $M_3$ e conecte-os formando um novo triângulo. O que você observa sobre a forma geométrica resultante?</p>
+<p><strong>(c)</strong> Para cada ponto médio, calcule o vetor do vértice oposto até ele. Por exemplo: $\vec{AM_2}$ (de $A$ até o ponto médio de $BC$). Estes três vetores são as <strong>medianas</strong> do triângulo — conceito que usaremos nos próximos exercícios. Anote os resultados.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVÊNCIA</summary>
+<p>Aplique a fórmula do ponto médio três vezes, uma para cada lado do triângulo. No item (c), cada mediana é o vetor que vai de um vértice até o ponto médio do lado oposto. Guarde estes resultados — eles serão fundamentais para deduzir o baricentro.</p>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Pontos médios dos lados:
+$M_1 = \text{médio de } AB = \left(\frac{0 + 6}{2}, \frac{0 + 0}{2}\right) = (3, 0)$
+$M_2 = \text{médio de } BC = \left(\frac{6 + 0}{2}, \frac{0 + 6}{2}\right) = (3, 3)$
+$M_3 = \text{médio de } CA = \left(\frac{0 + 0}{2}, \frac{6 + 0}{2}\right) = (0, 3)$</li>
+<li>O triângulo $M_1 M_2 M_3$ tem vértices $(3, 0)$, $(3, 3)$ e $(0, 3)$. Observe que este triângulo é um triângulo menor inscrito no original. Cada lado do novo triângulo é paralelo a um lado do triângulo original e mede a metade.</li>
+<li>Vetores das medianas:
+$\vec{AM_2} = M_2 - A = (3, 3)$ (de $A$ ao médio de $BC$)
+$\vec{BM_3} = M_3 - B = (0 - 6, 3 - 0) = (-6, 3)$ (de $B$ ao médio de $CA$)
+$\vec{CM_1} = M_1 - C = (3 - 0, 0 - 6) = (3, -6)$ (de $C$ ao médio de $AB$)</li>
+</ol>
+<div class="formula">
+$$M_1 = (3, 0), \quad M_2 = (3, 3), \quad M_3 = (0, 3)$$
+$$\vec{AM_2} = (3, 3), \quad \vec{BM_3} = (-6, 3), \quad \vec{CM_1} = (3, -6)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Os três pontos médios de um triângulo sempre formam um novo triângulo, chamado <strong>triângulo médio</strong>. Ele possui propriedades notáveis: cada lado é paralelo a um lado do triângulo original e mede a metade. As medianas calculadas no item (c) convergem para um ponto especial — o baricentro — que exploraremos nos próximos exercícios.</p>
+</details>
+</div>

@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>AMPLIFICADOR DE SINAL</h3>
+
+<p>Na Zona Devastada, nem toda região útil é um disco perfeito. Um amplificador de rádio gera um sinal forte num raio de $r_2 = 4$ a partir de $C(1,2)$, mas próximo ao centro o sinal é tão intenso que queima os receptores — a zona de exclusão tem raio $r_1 = 2$ com o mesmo centro. A região segura para operação é o <strong>anel</strong> entre as duas circunferências: $(x-1)^2 + (y-2)^2 = 4$ (fronteira interna) e $(x-1)^2 + (y-2)^2 = 16$ (fronteira externa). No papel, esboce as duas circunferências concêntricas com centro $C(1,2)$ e raios $2$ e $4$, e marque os pontos $A(4,2)$, $B(1,5)$, $C(1,4)$ e $D(2,2)$. Para cada ponto, substitua na expressão $(x-1)^2 + (y-2)^2$ e verifique se o resultado satisfaz a condição $4 &lt; (x-1)^2 + (y-2)^2 &lt; 16$, isto é, se está na região segura.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para cada ponto, calcule $(x-1)^2 + (y-2)^2$. Se o resultado está entre 4 e 16 (excluindo os extremos), o ponto está no anel seguro. Se é menor ou igual a 4, está na zona de exclusão. Se é maior ou igual a 16, está fora do alcance.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Ponto $A(4,2)$: $(4-1)^2 + (2-2)^2 = 9 + 0 = 9$. Como $4 &lt; 9 &lt; 16$, $A$ está <strong>na região segura</strong>.</li>
+<li>Ponto $B(1,5)$: $(1-1)^2 + (5-2)^2 = 0 + 9 = 9$. Como $4 &lt; 9 &lt; 16$, $B$ está <strong>na região segura</strong>.</li>
+<li>Ponto $C(1,4)$: $(1-1)^2 + (4-2)^2 = 0 + 4 = 4$. Como $4 = 4$, $C$ está <strong>sobre a fronteira interna</strong> — na zona de exclusão, não é seguro.</li>
+<li>Ponto $D(2,2)$: $(2-1)^2 + (2-2)^2 = 1 + 0 = 1$. Como $1 &lt; 4$, $D$ está <strong>dentro da zona de exclusão</strong> — sinal letal.</li>
+<li>Conclusão: apenas $A$ e $B$ estão em posição segura. $C$ está no limite da exclusão e $D$ está na zona perigosa.</li>
+</ol>
+<div class="formula">
+$$A(4,2):\; 9 \;\Rightarrow\; 4 &lt; 9 &lt; 16 \;\checkmark \qquad B(1,5):\; 9 \;\Rightarrow\; 4 &lt; 9 &lt; 16 \;\checkmark$$
+$$C(1,4):\; 4 \;\Rightarrow\; \text{fronteira interna} \qquad D(2,2):\; 1 \;\Rightarrow\; \text{zona de exclusão}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A região entre duas circunferências concêntricas é um anel — nem tão perto do centro (sinal letal), nem tão longe (sem cobertura). O sistema de inequações $4 &lt; (x-1)^2 + (y-2)^2 &lt; 16$ codifica essa região com precisão. Na Zona Devastada, o equilíbrio entre "perto demais" e "longe demais" é uma questão de vida ou morte.</p>
+</details>
+</div>

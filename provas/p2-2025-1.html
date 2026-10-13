@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova de Geometria Analítica</title>
+    
+    <!-- Script do MathJax para renderizar LaTeX -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(', '\\)']],
+          displayMath: [['\\[', '\\]']]
+        },
+        svg: {
+          fontCache: 'global'
+        }
+      };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+
+    <!-- Estilos CSS para formatação -->
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 20px;
+        }
+        h2 {
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        ol {
+            list-style-type: lower-alpha;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 15px;
+        }
+        details {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+            color: #0056b3;
+        }
+        .solution {
+            padding-top: 10px;
+            margin-top: 10px;
+            border-top: 1px dashed #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Prova de Geometria Analítica</h1>
+
+    <h2>Questão 1</h2>
+    <p>Considere os pontos no R³: \( A = (1, 2, 0) \), \( B = (3, 0, -1) \) e \( C = (-1, 1, 1) \).</p>
+    <ol>
+        <li>
+            Calcule a área do triângulo formado pelos pontos A, B e C.
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>Primeiro, determinamos os vetores \(\overrightarrow{AB}\) e \(\overrightarrow{AC}\):</p>
+                    <p>\(\overrightarrow{AB} = B - A = (3-1, 0-2, -1-0) = (2, -2, -1)\)</p>
+                    <p>\(\overrightarrow{AC} = C - A = (-1-1, 1-2, 1-0) = (-2, -1, 1)\)</p>
+                    <p>A área do triângulo é metade do módulo do produto vetorial desses vetores:</p>
+                    <p>\( \overrightarrow{AB} \times \overrightarrow{AC} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 2 & -2 & -1 \\ -2 & -1 & 1 \end{vmatrix} = \vec{i}(-2 - 1) - \vec{j}(2 - 2) + \vec{k}(-2 - 4) = (-3, 0, -6) \)</p>
+                    <p>O módulo do vetor resultante é:</p>
+                    <p>\( |\overrightarrow{AB} \times \overrightarrow{AC}| = \sqrt{(-3)^2 + 0^2 + (-6)^2} = \sqrt{9 + 36} = \sqrt{45} = 3\sqrt{5} \)</p>
+                    <p>A área do triângulo é:</p>
+                    \[ \text{Área} = \frac{1}{2} |\overrightarrow{AB} \times \overrightarrow{AC}| = \frac{3\sqrt{5}}{2} \text{ u.a.} \]
+                </div>
+            </details>
+        </li>
+        <li>
+            Encontre a equação geral do plano (\(\pi\)) que contém os pontos A, B e C.
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>O vetor normal \(\vec{n}\) ao plano é o produto vetorial \(\overrightarrow{AB} \times \overrightarrow{AC}\), que já calculamos: \(\vec{n} = (-3, 0, -6)\). Podemos usar um vetor paralelo mais simples, dividindo por -3: \(\vec{n'} = (1, 0, 2)\).</p>
+                    <p>A equação do plano é da forma \(ax + by + cz + d = 0\). Usando \(\vec{n'} = (1, 0, 2)\) e o ponto \(A = (1, 2, 0)\):</p>
+                    \[ 1(x - 1) + 0(y - 2) + 2(z - 0) = 0 \]
+                    \[ x - 1 + 2z = 0 \]
+                    <p>A equação geral do plano é:</p>
+                    \[ x + 2z - 1 = 0 \]
+                </div>
+            </details>
+        </li>
+        <li>
+            Determine as equações paramétricas da reta (r) que contém o segmento de reta AB.
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>Usamos um ponto (por exemplo, A) e o vetor diretor \(\overrightarrow{AB}\).</p>
+                    <p>Ponto: \(A = (1, 2, 0)\)</p>
+                    <p>Vetor diretor: \(\overrightarrow{AB} = (2, -2, -1)\)</p>
+                    <p>As equações paramétricas são:</p>
+                    \[ r: \begin{cases} x = 1 + 2t \\ y = 2 - 2t \\ z = -t \end{cases}, \quad t \in \mathbb{R} \]
+                </div>
+            </details>
+        </li>
+        <li>
+            Verifique se o ponto \(D = (3, 3, 3)\) pertence ao plano \(\pi\) encontrado no item (b).
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>Substituímos as coordenadas do ponto D na equação do plano \(\pi: x + 2z - 1 = 0\):</p>
+                    \[ (3) + 2(3) - 1 = 3 + 6 - 1 = 8 \]
+                    <p>Como \(8 \neq 0\), o ponto D <strong>não pertence</strong> ao plano \(\pi\).</p>
+                </div>
+            </details>
+        </li>
+    </ol>
+    
+    <h2>Questão 2</h2>
+    <p>Dada a reta \(r\) e o plano \(\pi\) a seguir:</p>
+    <ul>
+        <li>Reta \(r\): \( (x, y, z) = (1, 0, 2) + t(2, -1, 3) \), com \( t \in \mathbb{R} \)</li>
+        <li>Plano \(\pi\): \( x + 4y + z - 5 = 0 \)</li>
+    </ul>
+    <ol>
+        <li>
+            Determine a posição relativa entre a reta \(r\) e o plano \(\pi\).
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>O vetor diretor da reta é \(\vec{v_r} = (2, -1, 3)\) e o vetor normal ao plano é \(\vec{n_\pi} = (1, 4, 1)\).</p>
+                    <p>Calculamos o produto escalar entre eles:</p>
+                    \[ \vec{v_r} \cdot \vec{n_\pi} = (2)(1) + (-1)(4) + (3)(1) = 2 - 4 + 3 = 1 \]
+                    <p>Como \(\vec{v_r} \cdot \vec{n_\pi} \neq 0\), a reta não é paralela ao plano. Portanto, a reta e o plano são <strong>concorrentes</strong>.</p>
+                </div>
+            </details>
+        </li>
+        <li>
+            Caso sejam concorrentes, encontre o ponto de interseção P. Caso contrário, calcule a distância entre eles.
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>Como são concorrentes, encontramos o ponto de interseção substituindo as equações paramétricas da reta \( (x=1+2t, y=-t, z=2+3t) \) na equação do plano:</p>
+                    \[ (1+2t) + 4(-t) + (2+3t) - 5 = 0 \]
+                    \[ 1 + 2t - 4t + 2 + 3t - 5 = 0 \]
+                    \[ t - 2 = 0 \implies t = 2 \]
+                    <p>Substituímos \(t=2\) nas equações da reta para encontrar o ponto P:</p>
+                    \[ P = (1 + 2(2), -2, 2 + 3(2)) = (5, -2, 8) \]
+                    <p>O ponto de interseção é \(P = (5, -2, 8)\).</p>
+                </div>
+            </details>
+        </li>
+        <li>
+            Calcule o ângulo entre a reta \(r\) e o plano \(\pi\).
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>O ângulo \(\theta\) entre a reta e o plano é dado pela fórmula \( \sin(\theta) = \frac{|\vec{v_r} \cdot \vec{n_\pi}|}{|\vec{v_r}| |\vec{n_\pi}|} \).</p>
+                    <p>Já sabemos que \( \vec{v_r} \cdot \vec{n_\pi} = 1 \).</p>
+                    <p>Calculamos os módulos dos vetores:</p>
+                    <p>\( |\vec{v_r}| = \sqrt{2^2 + (-1)^2 + 3^2} = \sqrt{4+1+9} = \sqrt{14} \)</p>
+                    <p>\( |\vec{n_\pi}| = \sqrt{1^2 + 4^2 + 1^2} = \sqrt{1+16+1} = \sqrt{18} = 3\sqrt{2} \)</p>
+                    <p>Agora, calculamos o seno do ângulo:</p>
+                    \[ \sin(\theta) = \frac{|1|}{\sqrt{14} \cdot \sqrt{18}} = \frac{1}{\sqrt{252}} = \frac{1}{6\sqrt{7}} \]
+                    <p>O ângulo é \( \theta = \arcsin\left(\frac{1}{6\sqrt{7}}\right) \).</p>
+                </div>
+            </details>
+        </li>
+    </ol>
+
+    <h2>Questão 3</h2>
+    <p>Considere o sistema:</p>
+    \[
+    \begin{cases}
+    x + 2y - 3z = 4 \\
+    3x - y + 5z = 2 \\
+    4x + y + (a^2 - 14)z = a + 2
+    \end{cases}
+    \]
+    <p>Para que valores de \(a\) o sistema:</p>
+    <ol>
+        <li>não tem solução?
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>O sistema não tem solução (Sistema Impossível - SI) quando, no processo de escalonamento, chegamos a uma equação do tipo \(0 \cdot z = k\), com \(k \neq 0\).</p>
+                    <p>Analisando a última linha da matriz escalonada, \((a^2 - 16)z = a - 4\), isso ocorre quando:</p>
+                    <p>\(a^2 - 16 = 0 \implies a = 4\) ou \(a = -4\).</p>
+                    <p>\(a - 4 \neq 0 \implies a \neq 4\).</p>
+                    <p>A única condição que satisfaz ambos é \(a = -4\). Para este valor, temos \(0 \cdot z = -8\), o que é impossível.</p>
+                    <p>Portanto, o sistema não tem solução para <strong>\(a = -4\)</strong>.</p>
+                </div>
+            </details>
+        </li>
+        <li>tem uma única solução?
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>O sistema tem uma única solução (Sistema Possível e Determinado - SPD) quando o determinante da matriz dos coeficientes é diferente de zero. No escalonamento, isso corresponde a ter o coeficiente da última variável diferente de zero.</p>
+                    <p>Da equação \((a^2 - 16)z = a - 4\), o coeficiente de \(z\) deve ser não nulo:</p>
+                    \[ a^2 - 16 \neq 0 \]
+                    \[ (a - 4)(a + 4) \neq 0 \]
+                    <p>Isso significa que o sistema tem uma única solução para <strong>\( a \neq 4 \) e \( a \neq -4 \)</strong>.</p>
+                </div>
+            </details>
+        </li>
+        <li>tem infinitas soluções?
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>O sistema tem infinitas soluções (Sistema Possível e Indeterminado - SPI) quando, no escalonamento, obtemos uma equação do tipo \(0 \cdot z = 0\).</p>
+                    <p>Na equação \((a^2 - 16)z = a - 4\), isso ocorre quando ambos os lados são zero:</p>
+                    <p>\(a^2 - 16 = 0 \implies a = 4\) ou \(a = -4\).</p>
+                    <p>\(a - 4 = 0 \implies a = 4\).</p>
+                    <p>A única condição que satisfaz ambas as equações é <strong>\(a = 4\)</strong>. Para este valor, temos \(0 \cdot z = 0\), o que indica infinitas soluções.</p>
+                </div>
+            </details>
+        </li>
+    </ol>
+
+    <h2>Questão 4</h2>
+    <p>Considere a elipse de equação reduzida \( \frac{x^2}{16} + \frac{y^2}{25} = 1 \). Determine:</p>
+    <ol>
+        <li>
+            As coordenadas do centro (C).
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>A equação \( \frac{x^2}{16} + \frac{y^2}{25} = 1 \) está na forma padrão \( \frac{(x-h)^2}{b^2} + \frac{(y-k)^2}{a^2} = 1 \), centrada na origem.</p>
+                    <p>Portanto, o centro é \( C=(h,k) = (0,0) \).</p>
+                </div>
+            </details>
+        </li>
+        <li>
+            A medida dos semieixos, \(a\) e \(b\), e a distância focal \(c\).
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>Como o denominador maior (25) está sob a variável \(y\), o eixo maior é vertical.</p>
+                    <p>\( a^2 = 25 \implies a = 5 \) (semieixo maior)</p>
+                    <p>\( b^2 = 16 \implies b = 4 \) (semieixo menor)</p>
+                    <p>A distância focal \(c\) é encontrada pela relação fundamental da elipse \( a^2 = b^2 + c^2 \):</p>
+                    \[ c^2 = a^2 - b^2 = 25 - 16 = 9 \implies c = 3 \]
+                </div>
+            </details>
+        </li>
+        <li>
+            As coordenadas dos vértices do eixo maior (\(A_1, A_2\)) e do eixo menor (\(B_1, B_2\)).
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>Os vértices do eixo maior estão no eixo y, a uma distância \(a=5\) do centro:</p>
+                    <p>\( A_1 = (0, a) = (0, 5) \)</p>
+                    <p>\( A_2 = (0, -a) = (0, -5) \)</p>
+                    <p>Os vértices do eixo menor estão no eixo x, a uma distância \(b=4\) do centro:</p>
+                    <p>\( B_1 = (b, 0) = (4, 0) \)</p>
+                    <p>\( B_2 = (-b, 0) = (-4, 0) \)</p>
+                </div>
+            </details>
+        </li>
+        <li>
+            As coordenadas dos focos (\(F_1, F_2\)).
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>Os focos estão no eixo maior (eixo y), a uma distância \(c=3\) do centro:</p>
+                    <p>\( F_1 = (0, c) = (0, 3) \)</p>
+                    <p>\( F_2 = (0, -c) = (0, -3) \)</p>
+                </div>
+            </details>
+        </li>
+        <li>
+            O comprimento do eixo maior, do eixo menor e a excentricidade da elipse.
+             <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p><strong>Comprimento do Eixo Maior:</strong> \( 2a = 2(5) = 10 \)</p>
+                    <p><strong>Comprimento do Eixo Menor:</strong> \( 2b = 2(4) = 8 \)</p>
+                    <p><strong>Excentricidade (e):</strong> Mede o "achatamento" da elipse e é dada por \( e = \frac{c}{a} \).</p>
+                    \[ e = \frac{3}{5} = 0.6 \]
+                </div>
+            </details>
+        </li>
+         <li>
+            Esboce o gráfico da elipse, indicando todos os pontos notáveis.
+            <details>
+                <summary>Ver Resolução</summary>
+                <div class="solution">
+                    <p>O gráfico é uma elipse vertical centrada na origem. Para desenhar:</p>
+                    <ol>
+                        <li>Marque o centro \(C(0,0)\).</li>
+                        <li>Marque os vértices do eixo maior em \(A_1(0,5)\) e \(A_2(0,-5)\).</li>
+                        <li>Marque os vértices do eixo menor em \(B_1(4,0)\) e \(B_2(-4,0)\).</li>
+                        <li>Marque os focos no eixo y em \(F_1(0,3)\) e \(F_2(0,-3)\).</li>
+                        <li>Desenhe uma curva suave conectando os vértices \(A_1, B_1, A_2, B_2\).</li>
+                    </ol>
+                </div>
+            </details>
+        </li>
+    </ol>
+    
+</body>
+</html>

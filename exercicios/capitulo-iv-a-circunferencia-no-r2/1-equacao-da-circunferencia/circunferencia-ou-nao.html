@@ -1,0 +1,30 @@
+<div class="exercise">
+<h3>CIRCUNFERÊNCIA OU NÃO?</h3>
+
+<p>Nos exercícios anteriores sobre completar quadrados, todas as equações resultaram em circunferências válidas. Mas o SUPERVISOR alerta: <strong>nem toda equação</strong> do tipo $x^2 + y^2 + Dx + Ey + F = 0$ representa uma circunferência. Após completar os quadrados, o lado direito é $r^2$. Se $r^2 > 0$, temos uma circunferência; se $r^2 = 0$, todos os pontos colapsam no centro; se $r^2 < 0$, nenhum ponto real satisfaz. Para cada equação abaixo, complete os quadrados e classifique:</p>
+
+<p><strong>(a)</strong> $x^2 + y^2 - 4x + 6y + 4 = 0$</p>
+<p><strong>(b)</strong> $x^2 + y^2 + 6x - 2y + 10 = 0$</p>
+<p><strong>(c)</strong> $x^2 + y^2 + 2x + 4y + 7 = 0$</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para cada equação, agrupe os termos em $x$ e em $y$, complete os quadrados e passe as constantes para a direita. Depois, analise o sinal do lado direito: positivo, zero ou negativo.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li><strong>(a)</strong> $x^2 - 4x + y^2 + 6y = -4$. Completando: $(x^2 - 4x + 4) + (y^2 + 6y + 9) = -4 + 4 + 9 = 9$. Logo $(x - 2)^2 + (y + 3)^2 = 9$. Como $r^2 = 9 > 0$, é <strong>circunferência</strong> com $C(2,-3)$ e $r = 3$.</li>
+<li><strong>(b)</strong> $x^2 + 6x + y^2 - 2y = -10$. Completando: $(x^2 + 6x + 9) + (y^2 - 2y + 1) = -10 + 9 + 1 = 0$. Logo $(x + 3)^2 + (y - 1)^2 = 0$. Como $r^2 = 0$, é um <strong>ponto único</strong>: $C(-3, 1)$.</li>
+<li><strong>(c)</strong> $x^2 + 2x + y^2 + 4y = -7$. Completando: $(x^2 + 2x + 1) + (y^2 + 4y + 4) = -7 + 1 + 4 = -2$. Logo $(x + 1)^2 + (y + 2)^2 = -2$. Como $r^2 = -2 < 0$, é <strong>conjunto vazio</strong> — nenhum ponto real satisfaz.</li>
+</ol>
+<div class="formula">
+$$(a)\; (x-2)^2+(y+3)^2=9 \quad(\text{circunferência}) \qquad (b)\; (x+3)^2+(y-1)^2=0 \quad(\text{ponto})$$
+$$(c)\; (x+1)^2+(y+2)^2=-2 \quad(\text{vazio})$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Na Zona Devastada, nem todo sinal captado corresponde a um perímetro real. A equação (b) descreve um ponto isolado — como um transmissor que só alcança a si mesmo. A equação (c) descreve o nada — como um sensor com alcance impossível. Verificar $r^2$ antes de concluir é o protocolo de segurança: economiza recursos evitando buscas em territórios inexistentes.</p>
+</details>
+</div>

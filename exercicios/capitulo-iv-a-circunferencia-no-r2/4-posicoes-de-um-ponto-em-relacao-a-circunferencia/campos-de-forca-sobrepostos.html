@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>CAMPOS DE FORÇA SOBREPOSTOS</h3>
+
+<p>Quando os centros são diferentes, a região segura é definida por duas condições independentes. O acampamento principal está protegido por dois geradores de campo de força: o Gerador Alfa produz um campo circular descrito por $(x-2)^2 + (y-3)^2 = 16$ (centro $(2,3)$, raio $4$), e o Gerador Beta produz $(x+1)^2 + (y-1)^2 = 25$ (centro $(-1,1)$, raio $5$). Um ponto é considerado <strong>protegido</strong> se está dentro de <strong>ambos</strong> os campos simultaneamente. No papel, esboce as duas circunferências com centros $(2,3)$ e $(-1,1)$, e marque os pontos $P(1,3)$, $Q(3,6)$ e $R(0,2)$. Para cada ponto, verifique se está dentro de ambas as circunferências e determine quais estão protegidos.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para cada ponto, faça dois testes separados: (1) substitua na equação do Gerador Alfa e verifique se o resultado é menor que 16; (2) substitua na equação do Gerador Beta e verifique se é menor que 25. Só está protegido quem passa nos dois testes.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Ponto $P(1,3)$: Alfa: $(1-2)^2 + (3-3)^2 = 1 + 0 = 1 &lt; 16$ ✓. Beta: $(1+1)^2 + (3-1)^2 = 4 + 4 = 8 &lt; 25$ ✓. <strong>Protegido</strong>.</li>
+<li>Ponto $Q(3,6)$: Alfa: $(3-2)^2 + (6-3)^2 = 1 + 9 = 10 &lt; 16$ ✓. Beta: $(3+1)^2 + (6-1)^2 = 16 + 25 = 41 > 25$ ✗. <strong>Não protegido</strong> — fora do campo Beta.</li>
+<li>Ponto $R(0,2)$: Alfa: $(0-2)^2 + (2-3)^2 = 4 + 1 = 5 &lt; 16$ ✓. Beta: $(0+1)^2 + (2-1)^2 = 1 + 1 = 2 &lt; 25$ ✓. <strong>Protegido</strong>.</li>
+<li>Conclusão: $P(1,3)$ e $R(0,2)$ estão na região de proteção dupla. $Q(3,6)$ está dentro do campo Alfa, mas fora do campo Beta — parcialmente exposto.</li>
+</ol>
+<div class="formula">
+$$P(1,3):\; \text{Alfa: } 1 &lt; 16\;\checkmark \quad \text{Beta: } 8 &lt; 25\;\checkmark \quad \Rightarrow \text{protegido}$$
+$$Q(3,6):\; \text{Alfa: } 10 &lt; 16\;\checkmark \quad \text{Beta: } 41 &gt; 25\;\times \quad \Rightarrow \text{exposto}$$
+$$R(0,2):\; \text{Alfa: } 5 &lt; 16\;\checkmark \quad \text{Beta: } 2 &lt; 25\;\checkmark \quad \Rightarrow \text{protegido}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Com centros diferentes, cada campo de força é independente — estar dentro de um não garante estar dentro do outro. A região de proteção dupla é a <strong>interseção</strong> dos dois discos, que pode ser bem menor que cada disco individualmente. Na Zona Devastada, redundantcia tem custo: dois geradores, dois testes, uma região de segurança restrita.</p>
+</details>
+</div>

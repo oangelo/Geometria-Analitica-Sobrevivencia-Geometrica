@@ -1,0 +1,85 @@
+<div class="exercise">
+<h3>PROBLEMA ABERTO: TRANSFORMAÇÕES DE VOLUME</h3>
+<p>O objetivo deste exercício é explorar como o volume de um paralelepípedo se comporta sob transformações lineares simples em suas arestas, generalizando padrões geométricos.</p>
+<p>Considere um paralelepípedo com arestas $\vec{u} = (1, 0, 0)$, $\vec{v} = (0, 2, 0)$ e $\vec{w} = (0, 0, 3)$. Seu volume inicial é $V_0 = | [\vec{u}, \vec{v}, \vec{w}] |$.</p>
+<p><strong>(a)</strong> Calcule o volume inicial $V_0$.</p>
+<p><strong>(b)</strong> Se dobrarmos $\vec{u}$ (ou seja, usamos $2\vec{u}$ em vez de $\vec{u}$), qual o novo volume $V_1$? Qual a razão $\frac{V_1}{V_0}$?</p>
+<p><strong>(c)</strong> Se trocarmos $\vec{u}$ e $\vec{v}$ (usando $\vec{v}$, $\vec{u}$, $\vec{w}$ como arestas), qual o novo volume $V_2$? O que acontece com o sinal do produto misto?</p>
+<p><strong>(d)</strong> Se somarmos $\vec{u}$ a $\vec{v}$ (usando $\vec{u}$, $\vec{u}+\vec{v}$, $\vec{w}$), qual o novo volume $V_3$? Explique por que o volume não mudou.</p>
+<p><strong>(e)</strong> Generalize: se $\vec{u}' = a\vec{u} + b\vec{v} + c\vec{w}$, $\vec{v}' = d\vec{u} + e\vec{v} + f\vec{w}$ e $\vec{w}' = g\vec{u} + h\vec{v} + i\vec{w}$, como o novo volume $V'$ se relaciona com $V_0$ e com a matriz de transformação?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para o item (d), lembre-se que o produto misto é trilinear — é linear em cada argumento quando os outros são fixos. Use a propriedade de que $\vec{u} \times \vec{u} = \vec{0}$. Para o item (e), pense no determinante da matriz que transforma $(\vec{u}, \vec{v}, \vec{w})$ em $(\vec{u}', \vec{v}', \vec{w}')$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>Item (a):</strong></p>
+<ol class="solution-steps">
+<li>$[\vec{u}, \vec{v}, \vec{w}] = \begin{vmatrix} 1 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 3 \end{vmatrix} = 1 \cdot 2 \cdot 3 = 6$</li>
+<li>$V_0 = |6| = 6$</li>
+</ol>
+<div class="formula">
+$$V_0 = 6 \text{ unidades}^3$$
+</div>
+
+<p><strong>Item (b):</strong></p>
+<ol class="solution-steps">
+<li>$[2\vec{u}, \vec{v}, \vec{w}] = 2[\vec{u}, \vec{v}, \vec{w}] = 2 \times 6 = 12$ (linearidade no primeiro argumento)</li>
+<li>$V_1 = |12| = 12$</li>
+<li>Razão: $\dfrac{V_1}{V_0} = \dfrac{12}{6} = 2$</li>
+</ol>
+<div class="formula">
+$$V_1 = 12, \quad \frac{V_1}{V_0} = 2$$
+</div>
+<p>Dobrar uma aresta dobra o volume. Geometricamente, isso corresponde a esticar o paralelepípedo na direção de $\vec{u}$ pelo fator 2.</p>
+
+<p><strong>Item (c):</strong></p>
+<ol class="solution-steps">
+<li>$[\vec{v}, \vec{u}, \vec{w}] = -[\vec{u}, \vec{v}, \vec{w}] = -6$ (troca de duas colunas inverte o sinal do determinante)</li>
+<li>$V_2 = |-6| = 6$</li>
+</ol>
+<div class="formula">
+$$V_2 = 6, \quad [\vec{v}, \vec{u}, \vec{w}] = -6$$
+</div>
+<p>O volume não muda, mas o sinal do produto misto inverte. Isso reflete a mudança de orientação: a regra da mão direita aplicada a $(\vec{v}, \vec{u}, \vec{w})$ dá o sentido oposto ao de $(\vec{u}, \vec{v}, \vec{w})$.</p>
+
+<p><strong>Item (d):</strong></p>
+<ol class="solution-steps">
+<li>$[\vec{u}, \vec{u}+\vec{v}, \vec{w}] = [\vec{u}, \vec{u}, \vec{w}] + [\vec{u}, \vec{v}, \vec{w}]$ (linearidade no segundo argumento)</li>
+<li>$[\vec{u}, \vec{u}, \vec{w}] = 0$ (dois vetores iguais no produto misto dão determinante nulo)</li>
+<li>$[\vec{u}, \vec{u}+\vec{v}, \vec{w}] = 0 + 6 = 6$</li>
+<li>$V_3 = |6| = 6$</li>
+</ol>
+<div class="formula">
+$$V_3 = 6$$
+</div>
+<p>O volume não mudou porque somar $\vec{u}$ a $\vec{v}$ é uma <strong>cisalhamento</strong> (shear) do paralelepípedo. A base no plano de $\vec{u}$ e $\vec{v}$ é deformada, mas a altura perpendicular a essa base permanece a mesma. Geometricamente, cisalhamentos preservam áreas e volumes — é como empurrar uma pilha de cartas: a pilha fica torta, mas o volume de papel não muda.</p>
+
+<p><strong>Item (e):</strong></p>
+<p>Sejam $\vec{u}'$, $\vec{v}'$, $\vec{w}'$ combinações lineares de $\vec{u}$, $\vec{v}$, $\vec{w}$ com matriz de coeficientes:</p>
+<div class="formula">
+$$M = \begin{pmatrix} a & b & c \\ d & e & f \\ g & h & i \end{pmatrix}$$
+</div>
+<p>Então:</p>
+<ol class="solution-steps">
+<li>$[\vec{u}', \vec{v}', \vec{w}'] = \det(M) \cdot [\vec{u}, \vec{v}, \vec{w}]$</li>
+<li>$V' = |\det(M)| \cdot V_0$</li>
+</ol>
+<div class="formula">
+$$V' = |\det(M)| \cdot V_0$$
+</div>
+<p>Isso generaliza todos os itens anteriores:</p>
+<ul>
+<li>Item (b): $M = \text{diag}(2, 1, 1)$, $\det(M) = 2$, $V' = 2V_0$ ✓</li>
+<li>Item (c): $M$ é matriz de permutação com $\det(M) = -1$, $V' = |-1|V_0 = V_0$ ✓</li>
+<li>Item (d): $M = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}$, $\det(M) = 1$, $V' = V_0$ ✓</li>
+</ul>
+<p>O determinante da matriz de transformação é o <strong>fator de escala de volume</strong>. Transformações lineares expandem ou contraem volumes pelo fator $|\det(M)|$.</p>
+
+<p><strong>Reflexão de Sobrevivência:</strong> Na Zona Devastada, você frequentemente precisa redimensionar estruturas. Saber que dobrar uma dimensão dobra o volume, que trocar arestas preserva o volume, e que cisalhamentos não alteram o volume permite estimar rapidamente a capacidade de estruturas modificadas sem recalcular tudo do zero. O determinante como "fator de volume" é uma das ferramentas mais poderosas da álgebra linear aplicada.</p>
+</details>
+</div>
