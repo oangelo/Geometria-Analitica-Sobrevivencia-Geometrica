@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>PS 2026.1 - Geometria Analítica</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <script>
+        // Configuração padrão do MathJax
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            startup: {
+                ready: () => {
+                    MathJax.startup.defaultReady();
+                }
+            }
+        };
+    </script>
+    <style>
+        @page {
+            size: A4;
+            margin: 1cm;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            font-size: 9pt;
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        .container {
+            width: 100%;
+            height: 27.7cm; /* A4 height (29.7cm) - vertical margins (2cm) */
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-header {
+            text-align: center;
+            border-bottom: 1px solid #000;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            flex-shrink: 0;
+        }
+
+        .main-header h1 {
+            margin: 0;
+            font-size: 11pt;
+            font-weight: bold;
+        }
+
+        .main-header h2 {
+            margin: 0;
+            font-size: 10pt;
+            font-weight: normal;
+        }
+        
+        .content {
+            display: flex;
+            gap: 1.5cm; /* Espaço entre as colunas */
+            flex-grow: 1;
+        }
+
+        .column {
+            flex: 1;
+            min-width: 0; /* Previne overflow do flexbox */
+        }
+        
+        .student-details {
+            margin-bottom: 20px;
+        }
+
+        .student-details div {
+            margin-bottom: 4px;
+        }
+        
+        .student-details span {
+            border-bottom: 1px solid #000;
+            min-width: 350px;
+            display: inline-block;
+            margin-left: 5px;
+        }
+        
+        .grade-table {
+            margin-bottom: 10px;
+        }
+        
+        .grade-table table {
+            border-collapse: collapse;
+            font-size: 8pt;
+            text-align: center;
+            width: 100%;
+        }
+
+        .grade-table th, .grade-table td {
+            border: 1px solid #000;
+            padding: 4px;
+            height: 0.8cm; /* Altura fixa para a célula de nota */
+        }
+
+        .instructions {
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-size: 8.5pt;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question-header {
+            font-weight: bold;
+            font-size: 10pt;
+            color: #000;
+            border-left: 3px solid #000;
+            padding: 5px 8px;
+            background-color: #f5f5f5;
+            margin-bottom: 8px;
+        }
+
+        .subquestion {
+            margin: 8px 0 8px 15px;
+        }
+
+        .system {
+            margin: 6px 0 6px 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-header">
+            <h1>Universidade do Estado do Rio de Janeiro - UERJ</h1>
+            <h2>PS 2026.1 - Geometria Analítica</h2>
+        </div>
+
+        <div class="content">
+            <div class="column">
+                <div class="student-details">
+                    <div><strong>Curso:</strong> <span></span></div>
+                    <div><strong>Nome:</strong> <span></span></div>
+                    <div><strong>Matrícula:</strong> <span></span></div>
+                </div>
+
+                <!-- Questão 1 -->
+                <div class="question">
+                    <div class="question-header">Questão 1: A circunferência definida por três pontos</div>
+                    <p>Determine a equação da circunferência que passa pelos pontos \(A = (1, 7)\), \(B = (-3, -1)\) e \(C = (-3, 5)\).</p>
+                    <div class="subquestion"><strong>a)</strong> (0,6 pt) Calcule os pontos médios \(M_{AB}\) e \(M_{AC}\) e escreva as equações das mediatrizes dos lados \(AB\) e \(AC\) (retas perpendiculares a esses lados que passam pelos respectivos pontos médios).</div>
+                    <div class="subquestion"><strong>b)</strong> (0,6 pt) Determine o circuncentro \(O\), interseção das duas mediatrizes.</div>
+                    <div class="subquestion"><strong>c)</strong> (0,7 pt) Calcule o raio \(R\) (distância de \(O\) a um dos vértices) e escreva a equação da circunferência.</div>
+                    <div class="subquestion"><strong>d)</strong> (0,6 pt) Verifique que \(OA = OB = OC = R\) e substitua os pontos \(A\), \(B\) e \(C\) na equação obtida, confirmando que os três pertencem à circunferência.</div>
+                </div>
+
+                <!-- Questão 2 -->
+                <div class="question">
+                    <div class="question-header">Questão 2: A hipérbole — forma transladada e elementos</div>
+                    <p>Considere a equação \(9x^2 - 16y^2 - 54x - 64y - 127 = 0\).</p>
+                    <div class="subquestion"><strong>a)</strong> (0,6 pt) Complete os quadrados, escreva a forma reduzida e determine o centro \(C\).</div>
+                    <div class="subquestion"><strong>b)</strong> (0,6 pt) Determine os semieixos \(a\) e \(b\), a semidistância focal \(c\) e os focos \(F_1\) e \(F_2\).</div>
+                    <div class="subquestion"><strong>c)</strong> (0,7 pt) Determine os vértices, a excentricidade \(e\) e as equações das assíntotas.</div>
+                    <div class="subquestion"><strong>d)</strong> (0,6 pt) Verifique, no vértice \((7, -2)\), que \(\bigl|\,|\overrightarrow{PF_1}| - |\overrightarrow{PF_2}|\,\bigr| = 2a\).</div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="grade-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Q1</th>
+                                <th>Q2</th>
+                                <th>Q3</th>
+                                <th>Q4</th>
+                                <th>TOTAL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="instructions">
+                    Instruções: Resolva todas as questões apresentando os cálculos detalhadamente. Cada questão vale 2,5 pontos.
+                </div>
+
+                <!-- Questão 3 -->
+                <div class="question">
+                    <div class="question-header">Questão 3: Posições relativas no R³</div>
+                    <p>Considere o plano \(\pi: 2x + y - z = 4\), a reta \(r: (x, y, z) = (1, 0, 0) + t(1, 1, 1)\), com \(t \in \mathbb{R}\), e o plano \(\sigma: x - y + 2z = 1\).</p>
+                    <div class="subquestion"><strong>a)</strong> (0,6 pt) Estude a posição relativa entre a reta \(r\) e o plano \(\pi\), considerando as possibilidades: paralela (distinta de \(\pi\) ou contida em \(\pi\)) ou concorrente (perpendicular ou não). Se houver interseção, determine o ponto.</div>
+                    <div class="subquestion"><strong>b)</strong> (0,7 pt) Estude a posição relativa entre os planos \(\pi\) e \(\sigma\), considerando as possibilidades: paralelos (distintos ou coincidentes) ou concorrentes (perpendiculares ou não). Caso sejam concorrentes, escreva as equações paramétricas da reta de interseção.</div>
+                    <div class="subquestion"><strong>c)</strong> (0,6 pt) Encontre a equação geral do plano \(\gamma\) perpendicular a \(\pi\) e a \(\sigma\) que passa pela origem.</div>
+                    <div class="subquestion"><strong>d)</strong> (0,6 pt) Verificação: mostre que o ponto obtido no item (a) pertence à reta \(r\) e ao plano \(\pi\), e que o vetor normal de \(\gamma\) é ortogonal aos vetores normais de \(\pi\) e de \(\sigma\).</div>
+                </div>
+
+                <!-- Questão 4 -->
+                <div class="question">
+                    <div class="question-header">Questão 4: Sistema linear com parâmetro</div>
+                    <p>Considere o sistema linear</p>
+                    <div class="system">
+                        \[\begin{cases} x + y + z = 1 \\ x + 2y + kz = 2 \\ x + ky + 2z = 2 \end{cases}\]
+                    </div>
+                    <div class="subquestion"><strong>a)</strong> (0,6 pt) Calcule o determinante da matriz dos coeficientes. Determine para quais valores de \(k\) o determinante é zero e para quais é diferente de zero, e explique o que cada caso significa para a solução do sistema.</div>
+                    <div class="subquestion"><strong>b)</strong> (0,6 pt) Para \(k = 0\), escreva a matriz aumentada, escalone e classifique o sistema (SPD, SPI ou SI), indicando a solução, se existir.</div>
+                    <div class="subquestion"><strong>c)</strong> (0,7 pt) Para \(k = 2\), escreva a matriz aumentada, escalone, classifique o sistema e determine o conjunto-solução.</div>
+                    <div class="subquestion"><strong>d)</strong> (0,6 pt) Verificação: tome \(k = 1\) (determinante diferente de zero), determine a solução única do sistema e verifique-a nas três equações.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
