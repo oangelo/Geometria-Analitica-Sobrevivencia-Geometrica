@@ -11,8 +11,8 @@
   --color-muted: #666;
   --color-border: #333;
   --color-accent: #4caf50;
-  --font-size-base: 10pt;
-  --line-height: 1.4;
+  --font-size-base: 9pt;
+  --line-height: 1.25;
 }
 
 /* === TELA (Visualização antes de imprimir) === */
@@ -39,14 +39,14 @@
     width: 210mm;
     min-height: 297mm;
     margin: 20px auto;
-    padding: 15mm;
+    padding: 10mm;
     background: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
 
   .columns {
     column-count: 2;
-    column-gap: 8mm;
+    column-gap: 6mm;
     column-rule: 1px solid #ccc;
   }
 }
@@ -55,7 +55,7 @@
 @media print {
   @page {
     size: A4;
-    margin: 15mm;
+    margin: 10mm;
   }
 
   html,
@@ -81,7 +81,7 @@
 
   .columns {
     column-count: 2;
-    column-gap: 8mm;
+    column-gap: 6mm;
   }
 
   .questao,
@@ -107,7 +107,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 4mm;
+  margin-bottom: 2.5mm;
   padding-bottom: 2mm;
   border-bottom: 1px solid var(--color-border);
 }
@@ -118,33 +118,33 @@
 
 .header-right {
   text-align: right;
-  font-size: 9pt;
+  font-size: 8pt;
   color: var(--color-muted);
 }
 
 .title {
-  font-size: 14pt;
+  font-size: 12pt;
   font-weight: bold;
   margin: 0;
   color: var(--color-text);
 }
 
 .subtitle {
-  font-size: 10pt;
+  font-size: 9pt;
   color: var(--color-muted);
   margin: 2pt 0 0 0;
 }
 
 .course-info {
-  font-size: 9pt;
+  font-size: 8pt;
 }
 
 /* === INSTRUÇÕES === */
 .instructions {
-  font-size: 9pt;
+  font-size: 8pt;
   color: var(--color-muted);
-  margin-bottom: 4mm;
-  padding: 2mm;
+  margin-bottom: 2mm;
+  padding: 1.5mm;
   background: #f9f9f9;
   border-left: 2pt solid var(--color-muted);
 }
@@ -159,14 +159,14 @@
 /* === CONTEÚDO EM COLUNAS === */
 .columns {
   column-count: 2;
-  column-gap: 8mm;
+  column-gap: 6mm;
 }
 
 /* === EXERCÍCIOS === */
 .exercicio {
-  margin-bottom: 4mm;
-  padding: 3mm;
-  padding-bottom: 2mm;
+  margin-bottom: 2mm;
+  padding: 1.5mm;
+  padding-bottom: 1mm;
   border: 1px solid #ddd;
   border-left: 3pt solid var(--color-accent);
   background: #fafafa;
@@ -187,7 +187,7 @@
   background: var(--color-accent);
   padding: 1pt 4pt;
   margin-right: 2mm;
-  font-size: 11pt;
+  font-size: 10pt;
 }
 
 .exercicio-enunciado {
@@ -203,30 +203,30 @@
 .questao {
   font-weight: 600;
   color: #333;
-  margin: 3mm 0 2mm 0;
+  margin: 1.5mm 0 1mm 0;
   padding-left: 2mm;
   border-left: 2pt solid #888;
 }
 
 /* === DIÁLOGO (texto explicativo) === */
 .dialogo {
-  font-size: 9pt;
+  font-size: 8pt;
   color: #555;
-  margin: 1mm 0;
+  margin: 0.5mm 0;
   font-style: italic;
 }
 
 /* === SUBITENS (a, b, c) === */
 .subitem {
-  margin: 2mm 0 1.5mm 0;
+  margin: 1.5mm 0 1mm 0;
   padding-left: 4mm;
-  line-height: 1.5;
+  line-height: 1.35;
 }
 
 /* === LACUNAS === */
 .lacuna {
   display: inline-block;
-  min-width: 20mm;
+  min-width: 16mm;
   border-bottom: 1px solid var(--color-text);
   text-align: center;
   margin: 0 1mm;
@@ -235,14 +235,14 @@
 .lacuna-grande {
   display: block;
   min-width: 100%;
-  height: 8mm;
+  height: 6mm;
   border-bottom: 1px solid var(--color-text);
   margin: 2mm 0;
 }
 
 /* === CAIXA DE TRABALHO === */
 .workspace {
-  height: 15mm;
+  height: 12mm;
   border: 1px dashed var(--color-muted);
   margin: 2mm 0;
   background: repeating-linear-gradient(
@@ -262,10 +262,10 @@
 
 /* === CHECKPOINT === */
 .checkpoint {
-  font-size: 9pt;
+  font-size: 8pt;
   color: var(--color-muted);
-  margin: 2mm 0;
-  padding: 1mm 2mm;
+  margin: 1mm 0;
+  padding: 0.5mm 1.5mm;
   border-left: 2pt solid var(--color-accent);
   background: #f5f5f5;
 }
@@ -287,10 +287,10 @@
 
 /* === DICA === */
 .dica {
-  font-size: 9pt;
+  font-size: 8pt;
   color: var(--color-muted);
   font-style: italic;
-  margin: 1mm 0;
+  margin: 0.5mm 0;
 }
 
 .dica::before {
@@ -304,7 +304,7 @@
   width: 100%;
   border-collapse: collapse;
   margin: 2mm 0;
-  font-size: 9pt;
+  font-size: 8pt;
 }
 
 .tabela th,
@@ -341,7 +341,7 @@
 .formula {
   text-align: center;
   margin: 2mm 0;
-  font-size: 11pt;
+  font-size: 10pt;
 }
 
 /* === RODAPÉ === */
@@ -349,7 +349,7 @@
   margin-top: 4mm;
   padding-top: 2mm;
   border-top: 1px solid var(--color-border);
-  font-size: 8pt;
+  font-size: 7pt;
   color: var(--color-muted);
   text-align: center;
 }
@@ -371,8 +371,13 @@
   font-weight: bold;
 }
 .small {
-  font-size: 9pt;
+  font-size: 8pt;
 }
 .muted {
   color: var(--color-muted);
+}
+
+/* === KATEX (matemática próxima do tamanho do corpo) === */
+.katex {
+  font-size: 1.05em;
 }
