@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gabarito - PS 2026.1 - Geometria Analítica</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <script>
+        // Configuração do MathJax para funcionar com <details>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            options: {
+                skipHtmlTags: ['details'] // Permite que MathJax renderize dentro de <details>
+            },
+            startup: {
+                ready: () => {
+                    MathJax.startup.defaultReady();
+                }
+            }
+        };
+    </script>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            background-color: #fff;
+            color: #000;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .header h1 {
+            text-align: center;
+            font-size: 16pt;
+            font-weight: bold;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .question {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+        }
+
+        .question:last-child {
+            border-bottom: none;
+        }
+        
+        .question-header {
+            font-weight: bold;
+            font-size: 13pt;
+            color: #000;
+            border-left: 4px solid #000;
+            padding: 8px 10px;
+            background-color: #f0f0f0;
+            margin-bottom: 12px;
+        }
+        
+        .subquestion {
+            margin: 10px 0 10px 20px;
+        }
+        
+        details {
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        summary {
+            font-weight: bold;
+            padding: 8px 12px;
+            cursor: pointer;
+            background-color: #e9e9e9;
+            font-size: 10pt;
+            border-radius: 3px;
+        }
+        .answer {
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            background-color: #fff;
+        }
+        .answer p {
+            margin-top: 0;
+        }
+        .system {
+            margin: 6px 0 6px 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Gabarito - PS 2026.1</h1>
+        </div>
+        <div class="content">
+            <!-- Questão 1 -->
+            <div class="question">
+                <div class="question-header">Questão 1: A circunferência definida por três pontos (2,5 pts)</div>
+                <p>Determine a equação da circunferência que passa pelos pontos \(A = (1, 7)\), \(B = (-3, -1)\) e \(C = (-3, 5)\).</p>
+                <p><em><b>Justificativa Didática:</b> Esta questão integra lugares geométricos (mediatriz), posições relativas de retas (interseção de mediatrizes) e a circunferência definida por três pontos — a síntese dos Capítulos III e IV. O item final é um item de verificação: confirma por substituição que os três vértices satisfazem a equação obtida e que o ponto encontrado é equidistante deles.</em></p>
+
+                <div class="subquestion">
+                    <strong>a)</strong> (0,6 pt) Calcule os pontos médios \(M_{AB}\) e \(M_{AC}\) e escreva as equações das mediatrizes dos lados \(AB\) e \(AC\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p><b>Pontos médios:</b></p>
+                            <p>\[M_{AB} = \left(\frac{1 + (-3)}{2}, \frac{7 + (-1)}{2}\right) = \left(\frac{-2}{2}, \frac{6}{2}\right) = (-1, 3)\]</p>
+                            <p>\[M_{AC} = \left(\frac{1 + (-3)}{2}, \frac{7 + 5}{2}\right) = \left(\frac{-2}{2}, \frac{12}{2}\right) = (-1, 6)\]</p>
+                            <p><b>Mediatriz de \(AB\):</b> o vetor \(\vec{AB} = B - A = (-4, -8)\) é paralelo a \((1, 2)\), que é a direção do lado. A mediatriz é perpendicular a \(AB\), logo o vetor \((1, 2)\) é normal a ela. Sua equação é da forma \(x + 2y + c = 0\). Usando \(M_{AB} = (-1, 3)\):</p>
+                            <p>\[-1 + 2(3) + c = 0 \Rightarrow -1 + 6 + c = 0 \Rightarrow c = -5\]</p>
+                            <p><b>Mediatriz de \(AC\):</b> o vetor \(\vec{AC} = C - A = (-4, -2)\) é paralelo a \((2, 1)\). Um vetor normal à mediatriz é \((2, 1)\), e a equação é da forma \(2x + y + c = 0\). Usando \(M_{AC} = (-1, 6)\):</p>
+                            <p>\[2(-1) + 6 + c = 0 \Rightarrow -2 + 6 + c = 0 \Rightarrow c = -4\]</p>
+                            <p><strong>Resposta:</strong> \(M_{AB} = (-1, 3)\), \(M_{AC} = (-1, 6)\); mediatrizes \(x + 2y - 5 = 0\) e \(2x + y - 4 = 0\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>b)</strong> (0,6 pt) Determine o circuncentro \(O\), interseção das duas mediatrizes.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Resolvemos o sistema formado pelas duas mediatrizes:</p>
+                            <p>\[\begin{cases} x + 2y = 5 \\ 2x + y = 4 \end{cases}\]</p>
+                            <p>Da segunda equação: \(y = 4 - 2x\). Substituindo na primeira:</p>
+                            <p>\[x + 2(4 - 2x) = 5 \Rightarrow x + 8 - 4x = 5 \Rightarrow -3x = -3 \Rightarrow x = 1\]</p>
+                            <p>Logo \(y = 4 - 2(1) = 2\).</p>
+                            <p><strong>Resposta:</strong> O circuncentro é \(O = (1, 2)\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>c)</strong> (0,7 pt) Calcule o raio \(R\) e escreva a equação da circunferência.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>O raio é a distância do circuncentro a qualquer um dos vértices. Usando \(A = (1, 7)\):</p>
+                            <p>\[R = \sqrt{(1 - 1)^2 + (7 - 2)^2} = \sqrt{0 + 25} = 5\]</p>
+                            <p>A equação da circunferência de centro \(O = (1, 2)\) e raio \(R = 5\) é \((x - 1)^2 + (y - 2)^2 = 25\).</p>
+                            <p><strong>Resposta:</strong> \(R = 5\) e \((x - 1)^2 + (y - 2)^2 = 25\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>d)</strong> (0,6 pt) Verifique que \(OA = OB = OC = R\) e substitua os pontos \(A\), \(B\) e \(C\) na equação obtida.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p><b>Distâncias ao circuncentro \(O = (1, 2)\):</b></p>
+                            <p>\[OA = \sqrt{(1-1)^2 + (7-2)^2} = 5\]</p>
+                            <p>\[OB = \sqrt{(-3-1)^2 + (-1-2)^2} = \sqrt{16 + 9} = \sqrt{25} = 5\]</p>
+                            <p>\[OC = \sqrt{(-3-1)^2 + (5-2)^2} = \sqrt{16 + 9} = \sqrt{25} = 5\]</p>
+                            <p><b>Substituição na equação \((x-1)^2 + (y-2)^2 = 25\):</b></p>
+                            <p>\(A = (1,7)\): \((1-1)^2 + (7-2)^2 = 0 + 25 = 25\). <strong>(Ok)</strong></p>
+                            <p>\(B = (-3,-1)\): \((-3-1)^2 + (-1-2)^2 = 16 + 9 = 25\). <strong>(Ok)</strong></p>
+                            <p>\(C = (-3,5)\): \((-3-1)^2 + (5-2)^2 = 16 + 9 = 25\). <strong>(Ok)</strong></p>
+                            <p><strong>Resposta:</strong> \(OA = OB = OC = 5\), e os três vértices pertencem à circunferência.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Questão 2 -->
+            <div class="question">
+                <div class="question-header">Questão 2: A hipérbole — forma transladada e elementos (2,5 pts)</div>
+                <p>Considere a equação \(9x^2 - 16y^2 - 54x - 64y - 127 = 0\).</p>
+                <p><em><b>Justificativa Didática:</b> A P2 cobrou a elipse; a PS avalia a hipérbole, que exige os mesmos procedimentos (completar quadrados, relação \(c^2 = a^2 + b^2\)) acrescidos das assíntotas. O item final é um item de verificação: usa a definição geométrica \(\bigl|\,|\overrightarrow{PF_1}| - |\overrightarrow{PF_2}|\,\bigr| = 2a\) para conferir os elementos obtidos.</em></p>
+
+                <div class="subquestion">
+                    <strong>a)</strong> (0,6 pt) Complete os quadrados, escreva a forma reduzida e determine o centro \(C\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Agrupamos os termos em \(x\) e em \(y\):</p>
+                            <p>\[(9x^2 - 54x) - (16y^2 + 64y) = 127\]</p>
+                            <p>\[9(x^2 - 6x) - 16(y^2 + 4y) = 127\]</p>
+                            <p>Completando os quadrados: \(x^2 - 6x = (x-3)^2 - 9\) e \(y^2 + 4y = (y+2)^2 - 4\). Assim:</p>
+                            <p>\[9\left[(x-3)^2 - 9\right] - 16\left[(y+2)^2 - 4\right] = 127\]</p>
+                            <p>\[9(x-3)^2 - 81 - 16(y+2)^2 + 64 = 127\]</p>
+                            <p>\[9(x-3)^2 - 16(y+2)^2 = 144\]</p>
+                            <p>Dividindo tudo por \(144\):</p>
+                            <p><strong>Resposta:</strong> \(\frac{(x-3)^2}{16} - \frac{(y+2)^2}{9} = 1\), com centro \(C = (3, -2)\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>b)</strong> (0,6 pt) Determine os semieixos \(a\) e \(b\), a semidistância focal \(c\) e os focos \(F_1\) e \(F_2\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Da forma reduzida: \(a^2 = 16 \Rightarrow a = 4\) e \(b^2 = 9 \Rightarrow b = 3\). Como o termo positivo é o de \(x\), o eixo real (transverso) é horizontal.</p>
+                            <p>Relação da hipérbole: \(c^2 = a^2 + b^2 = 16 + 9 = 25 \Rightarrow c = 5\).</p>
+                            <p>Os focos estão no eixo horizontal, à distância \(c\) do centro: \(F_{1,2} = (3 \pm 5, -2)\).</p>
+                            <p><strong>Resposta:</strong> \(a = 4\), \(b = 3\), \(c = 5\); \(F_1 = (-2, -2)\) e \(F_2 = (8, -2)\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>c)</strong> (0,7 pt) Determine os vértices, a excentricidade \(e\) e as equações das assíntotas.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p><b>Vértices:</b> estão no eixo real, à distância \(a = 4\) do centro: \(V_{1,2} = (3 \pm 4, -2)\). Logo \(V_1 = (-1, -2)\) e \(V_2 = (7, -2)\).</p>
+                            <p><b>Excentricidade:</b></p>
+                            <p>\[e = \frac{c}{a} = \frac{5}{4}\]</p>
+                            <p><b>Assíntotas:</b> para hipérbole horizontal com centro \((h, k)\):</p>
+                            <p>\[y - k = \pm \frac{b}{a}(x - h) \Rightarrow y + 2 = \pm \frac{3}{4}(x - 3)\]</p>
+                            <p>Com sinal positivo: \(4y + 8 = 3x - 9 \Rightarrow 3x - 4y - 17 = 0\).</p>
+                            <p>Com sinal negativo: \(4y + 8 = -3x + 9 \Rightarrow 3x + 4y - 1 = 0\).</p>
+                            <p><strong>Resposta:</strong> Vértices \((-1, -2)\) e \((7, -2)\); \(e = \frac{5}{4}\); assíntotas \(3x - 4y - 17 = 0\) e \(3x + 4y - 1 = 0\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>d)</strong> (0,6 pt) Verifique, no vértice \((7, -2)\), que \(\bigl|\,|\overrightarrow{PF_1}| - |\overrightarrow{PF_2}|\,\bigr| = 2a\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Para \(P = (7, -2)\), \(F_1 = (-2, -2)\) e \(F_2 = (8, -2)\), os vetores \(\overrightarrow{PF_1}\) e \(\overrightarrow{PF_2}\) são horizontais, e seus módulos (as distâncias de \(P\) aos focos) são:</p>
+                            <p>\[|\overrightarrow{PF_1}| = |7 - (-2)| = 9, \qquad |\overrightarrow{PF_2}| = |7 - 8| = 1\]</p>
+                            <p>\[\bigl|\,|\overrightarrow{PF_1}| - |\overrightarrow{PF_2}|\,\bigr| = |9 - 1| = 8\]</p>
+                            <p>Como \(2a = 2(4) = 8\), a igualdade é satisfeita. Vale notar que, no vértice, as distâncias aos focos são \(a + c = 9\) e \(c - a = 1\), e a diferença é sempre \((a+c) - (c-a) = 2a\).</p>
+                            <p><strong>Resposta:</strong> \(\bigl|\,|\overrightarrow{PF_1}| - |\overrightarrow{PF_2}|\,\bigr| = 8 = 2a\). <strong>(Ok)</strong></p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Questão 3 -->
+            <div class="question">
+                <div class="question-header">Questão 3: Posições relativas no R³ (2,5 pts)</div>
+                <p>Considere o plano \(\pi: 2x + y - z = 4\), a reta \(r: (x, y, z) = (1, 0, 0) + t(1, 1, 1)\), com \(t \in \mathbb{R}\), e o plano \(\sigma: x - y + 2z = 1\).</p>
+                <p><em><b>Justificativa Didática:</b> Esta questão percorre os casos de posição relativa do Capítulo VI — reta-plano e plano-plano, com as possibilidades listadas no enunciado (paralelos, coincidentes, concorrentes, perpendiculares) — e a construção de um plano simultaneamente perpendicular a dois outros, todos decididos por produtos escalares e vetoriais. O estudante precisa classificar a posição antes de exibir a solução: um ponto, no caso reta-plano, e uma reta, no caso plano-plano. O item final é um item de verificação: confirma por substituição o ponto de interseção e um ponto da reta obtida e, por dois produtos escalares nulos, a ortogonalidade exigida.</em></p>
+
+                <div class="subquestion">
+                    <strong>a)</strong> (0,6 pt) Estude a posição relativa entre a reta \(r\) e o plano \(\pi\), considerando as possibilidades: paralela (distinta de \(\pi\) ou contida em \(\pi\)) ou concorrente (perpendicular ou não). Se houver interseção, determine o ponto.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Vetor normal de \(\pi\): \(\vec{n}_\pi = (2, 1, -1)\). Vetor diretor de \(r\): \(\vec{v}_r = (1, 1, 1)\).</p>
+                            <p>\[\vec{n}_\pi \cdot \vec{v}_r = 2(1) + 1(1) + (-1)(1) = 2 + 1 - 1 = 2 \neq 0\]</p>
+                            <p>Como o produto escalar é diferente de zero, a reta não é paralela ao plano: \(\pi\) e \(r\) são concorrentes.</p>
+                            <p>Além disso, \(\vec{v}_r = (1, 1, 1)\) não é múltiplo de \(\vec{n}_\pi = (2, 1, -1)\), logo a reta não é perpendicular ao plano.</p>
+                            <p><b>Ponto de interseção:</b> substituímos as coordenadas de \(r\), \((x, y, z) = (1 + t, t, t)\), na equação de \(\pi\):</p>
+                            <p>\[2(1 + t) + t - t = 4 \Rightarrow 2 + 2t = 4 \Rightarrow t = 1\]</p>
+                            <p>Para \(t = 1\): \((x, y, z) = (1 + 1, 1, 1) = (2, 1, 1)\).</p>
+                            <p><strong>Resposta:</strong> A reta e o plano são concorrentes (não perpendiculares), com interseção no ponto \(P = (2, 1, 1)\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>b)</strong> (0,7 pt) Estude a posição relativa entre os planos \(\pi\) e \(\sigma\), considerando as possibilidades: paralelos (distintos ou coincidentes) ou concorrentes (perpendiculares ou não). Caso sejam concorrentes, escreva as equações paramétricas da reta de interseção.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Vetores normais: \(\vec{n}_\pi = (2, 1, -1)\) e \(\vec{n}_\sigma = (1, -1, 2)\). Como \(\vec{n}_\sigma\) não é múltiplo de \(\vec{n}_\pi\), os planos não são paralelos nem coincidentes: são concorrentes.</p>
+                            <p>Além disso, \(\vec{n}_\pi \cdot \vec{n}_\sigma = 2(1) + 1(-1) + (-1)(2) = 2 - 1 - 2 = -1 \neq 0\), logo os planos não são perpendiculares.</p>
+                            <p>O vetor diretor da reta de interseção é \(\vec{v} = \vec{n}_\pi \times \vec{n}_\sigma\):</p>
+                            <p>\[\vec{v} = \begin{vmatrix} \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\ 2 & 1 & -1 \\ 1 & -1 & 2 \end{vmatrix} = (1, -5, -3)\]</p>
+                            <p>Para achar um ponto da reta, resolvemos o sistema \(\begin{cases} 2x + y - z = 4 \\ x - y + 2z = 1 \end{cases}\) com \(x = 1\):</p>
+                            <p>\[2 + y - z = 4 \Rightarrow y - z = 2 \qquad \text{e} \qquad 1 - y + 2z = 1 \Rightarrow y = 2z\]</p>
+                            <p>Substituindo: \(2z - z = 2 \Rightarrow z = 2\) e \(y = 4\). Ponto da reta: \((1, 4, 2)\).</p>
+                            <p><strong>Resposta:</strong> \(\pi\) e \(\sigma\) são concorrentes; a reta de interseção é \((x, y, z) = (1, 4, 2) + t(1, -5, -3)\), \(t \in \mathbb{R}\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>c)</strong> (0,6 pt) Encontre a equação geral do plano \(\gamma\) perpendicular a \(\pi\) e a \(\sigma\) que passa pela origem.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Se \(\gamma\) é perpendicular a \(\pi\) e a \(\sigma\), seu vetor normal \(\vec{n}_\gamma\) é ortogonal a \(\vec{n}_\pi\) e a \(\vec{n}_\sigma\) e, portanto, paralelo a \(\vec{n}_\pi \times \vec{n}_\sigma = (1, -5, -3)\), calculado no item (b).</p>
+                            <p>A equação é da forma \(1x - 5y - 3z + d = 0\). Como \(\gamma\) passa pela origem \((0, 0, 0)\), temos \(d = 0\).</p>
+                            <p><strong>Resposta:</strong> \(x - 5y - 3z = 0\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>d)</strong> (0,6 pt) Verificação: mostre que o ponto obtido no item (a) pertence à reta \(r\) e ao plano \(\pi\), e que o vetor normal de \(\gamma\) é ortogonal aos vetores normais de \(\pi\) e de \(\sigma\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p><b>Ponto \(P = (2, 1, 1)\) em \(r\):</b> com \(t = 1\), \((1 + 1, 1, 1) = (2, 1, 1)\). <strong>(Ok)</strong></p>
+                            <p><b>Ponto \(P = (2, 1, 1)\) em \(\pi\):</b> \(2(2) + 1 - 1 = 4\). <strong>(Ok)</strong></p>
+                            <p><b>Ortogonalidade de \(\vec{n}_\gamma = (1, -5, -3)\) com \(\vec{n}_\pi = (2, 1, -1)\):</b></p>
+                            <p>\[(1)(2) + (-5)(1) + (-3)(-1) = 2 - 5 + 3 = 0 \quad \textbf{(Ok)}\]</p>
+                            <p><b>Ortogonalidade com \(\vec{n}_\sigma = (1, -1, 2)\):</b></p>
+                            <p>\[(1)(1) + (-5)(-1) + (-3)(2) = 1 + 5 - 6 = 0 \quad \textbf{(Ok)}\]</p>
+                            <p><strong>Resposta:</strong> O ponto \(P = (2, 1, 1)\) pertence a \(r\) e a \(\pi\), e \(\gamma\) é perpendicular a \(\pi\) e a \(\sigma\).</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Questão 4 -->
+            <div class="question">
+                <div class="question-header">Questão 4: Sistema linear com parâmetro (2,5 pts)</div>
+                <p>Considere o sistema linear</p>
+                <div class="system">
+                    \[\begin{cases} x + y + z = 1 \\ x + 2y + kz = 2 \\ x + ky + 2z = 2 \end{cases}\]
+                </div>
+                <p><em><b>Justificativa Didática:</b> A questão parte do determinante — o critério que separa o caso de solução única (determinante não nulo) dos casos singulares — e só então examina cada valor de \(k\) que anula o determinante, exigindo escalonamento e leitura da matriz final (linha impossível versus linha nula). O item final é um item de verificação: resolve o sistema para um valor de \(k\) com determinante não nulo e confere a solução nas três equações.</em></p>
+
+                <div class="subquestion">
+                    <strong>a)</strong> (0,6 pt) Calcule o determinante da matriz dos coeficientes. Determine para quais valores de \(k\) o determinante é zero e para quais é diferente de zero, e explique o que cada caso significa para a solução do sistema.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>A matriz dos coeficientes é</p>
+                            <p>\[A = \begin{pmatrix} 1 & 1 & 1 \\ 1 & 2 & k \\ 1 & k & 2 \end{pmatrix}\]</p>
+                            <p>Expandindo pela primeira linha:</p>
+                            <p>\[\det(A) = 1\cdot(2\cdot 2 - k\cdot k) - 1\cdot(1\cdot 2 - k\cdot 1) + 1\cdot(1\cdot k - 2\cdot 1)\]</p>
+                            <p>\[\det(A) = (4 - k^2) - (2 - k) + (k - 2) = 4 - k^2 - 2 + k + k - 2 = 2k - k^2 = k(2-k)\]</p>
+                            <p><b>Determinante zero:</b> \(k(2-k) = 0 \Rightarrow k = 0\) ou \(k = 2\).</p>
+                            <p><b>Determinante diferente de zero:</b> \(k \neq 0\) e \(k \neq 2\).</p>
+                            <p><b>Significado para a solução:</b> se \(\det(A) \neq 0\), o sistema é possível e determinado (SPD), com solução única. Se \(\det(A) = 0\), o sistema não tem solução única: pode ser possível e indeterminado (SPI) ou impossível (SI), e o escalonamento da matriz aumentada decide qual dos dois casos ocorre.</p>
+                            <p><strong>Resposta:</strong> \(\det(A) = k(2-k)\), zero para \(k = 0\) e \(k = 2\), diferente de zero para \(k \neq 0,2\). Determinante não nulo garante solução única; determinante nulo exige análise da matriz aumentada (SPI ou SI).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>b)</strong> (0,6 pt) Para \(k = 0\), escreva a matriz aumentada, escalone e classifique o sistema (SPD, SPI ou SI), indicando a solução, se existir.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Para \(k = 0\), a matriz aumentada é</p>
+                            <p>\[\left[ \begin{array}{ccc|c} 1 & 1 & 1 & 1 \\ 1 & 2 & 0 & 2 \\ 1 & 0 & 2 & 2 \end{array} \right]\]</p>
+                            <p>\(L_2 \leftarrow L_2 - L_1\) e \(L_3 \leftarrow L_3 - L_1\):</p>
+                            <p>\[\left[ \begin{array}{ccc|c} 1 & 1 & 1 & 1 \\ 0 & 1 & -1 & 1 \\ 0 & -1 & 1 & 1 \end{array} \right]\]</p>
+                            <p>\(L_3 \leftarrow L_3 + L_2\):</p>
+                            <p>\[\left[ \begin{array}{ccc|c} 1 & 1 & 1 & 1 \\ 0 & 1 & -1 & 1 \\ 0 & 0 & 0 & 2 \end{array} \right]\]</p>
+                            <p>A última linha corresponde à equação \(0 = 2\), uma linha impossível.</p>
+                            <p><strong>Resposta:</strong> Para \(k = 0\), o sistema é impossível (SI): o escalonamento produz uma linha impossível, logo não há solução. Geometricamente, os três planos não possuem ponto comum.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>c)</strong> (0,7 pt) Para \(k = 2\), escreva a matriz aumentada, escalone, classifique o sistema e determine o conjunto-solução.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Para \(k = 2\), a matriz aumentada é</p>
+                            <p>\[\left[ \begin{array}{ccc|c} 1 & 1 & 1 & 1 \\ 1 & 2 & 2 & 2 \\ 1 & 2 & 2 & 2 \end{array} \right]\]</p>
+                            <p>As linhas 2 e 3 são idênticas. \(L_2 \leftarrow L_2 - L_1\) e \(L_3 \leftarrow L_3 - L_1\):</p>
+                            <p>\[\left[ \begin{array}{ccc|c} 1 & 1 & 1 & 1 \\ 0 & 1 & 1 & 1 \\ 0 & 1 & 1 & 1 \end{array} \right]\]</p>
+                            <p>\(L_3 \leftarrow L_3 - L_2\):</p>
+                            <p>\[\left[ \begin{array}{ccc|c} 1 & 1 & 1 & 1 \\ 0 & 1 & 1 & 1 \\ 0 & 0 & 0 & 0 \end{array} \right]\]</p>
+                            <p>A linha nula mostra que o posto da matriz é 2, menor que o número de incógnitas (3): o sistema é possível e indeterminado, com um grau de liberdade. Da segunda linha: \(y + z = 1 \Rightarrow y = 1 - z\). Da primeira: \(x + y + z = 1 \Rightarrow x + 1 = 1 \Rightarrow x = 0\).</p>
+                            <p><strong>Resposta:</strong> Para \(k = 2\), o sistema é possível e indeterminado (SPI), com conjunto-solução \(\{(0, 1 - z, z) : z \in \mathbb{R}\}\). Geometricamente, os três planos se interceptam em uma reta.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>d)</strong> (0,6 pt) Verificação: tome \(k = 1\) (determinante diferente de zero), determine a solução única do sistema e verifique-a nas três equações.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Para \(k = 1\), \(\det(A) = 1\cdot(2 - 1) = 1 \neq 0\), então o sistema é SPD. O sistema fica</p>
+                            <p>\[\begin{cases} x + y + z = 1 \\ x + 2y + z = 2 \\ x + y + 2z = 2 \end{cases}\]</p>
+                            <p>Subtraindo a primeira equação da segunda: \(y = 1\). Subtraindo a primeira da terceira: \(z = 1\). Substituindo na primeira: \(x + 1 + 1 = 1 \Rightarrow x = -1\).</p>
+                            <p><b>Verificação da solução \((-1, 1, 1)\) nas três equações:</b></p>
+                            <p>\[x + y + z = -1 + 1 + 1 = 1 \quad \textbf{(Ok)}\]</p>
+                            <p>\[x + 2y + z = -1 + 2(1) + 1 = 2 \quad \textbf{(Ok)}\]</p>
+                            <p>\[x + y + 2z = -1 + 1 + 2(1) = 2 \quad \textbf{(Ok)}\]</p>
+                            <p><strong>Resposta:</strong> A solução única é \((-1, 1, 1)\), que satisfaz as três equações.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
