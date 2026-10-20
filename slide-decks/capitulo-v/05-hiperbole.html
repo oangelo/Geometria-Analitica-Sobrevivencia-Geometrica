@@ -1,0 +1,210 @@
+<!-- 05-TÓPICO: HIPÉRBOLE (corresponde ao tópico 4 dos exercícios) -->
+<section>
+  <!-- V1: Abertura (motivação + insert narrativo) -->
+  <section class="field-report">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 05 &middot; HIPÉRBOLE</div>
+    <h2>A Hipérbole: Localização por Diferença</h2>
+    <h3 class="mission-subtitle">Da Soma para a Diferença</h3>
+    <p>Duas torres de rádio emitem sinais. Você mede a <strong>diferença</strong> nos tempos de chegada — não a soma. Essa diferença constante define uma curva com dois ramos. O sistema LORAN de navegação usava exatamente isso para localizar posições no oceano.</p>
+    <div class="survival-tip">
+      <p>Com duas torres, você está sobre uma hipérbole. Com três torres, duas hipérboles se cruzam — e a posição fica determinada.</p>
+    </div>
+    <p class="narrative-insert">Em 2024, 703 pessoas morreram por intervenção de agentes do Estado no Rio de Janeiro. Quatro das sete maiores taxas do estado estão na Região Metropolitana.</p>
+    <p class="chapter-meta">Fonte: ISP-RJ, 2024</p>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V2: Conceito (a ideia antes da fórmula) -->
+  <section class="mission-briefing">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 05 &middot; HIPÉRBOLE</div>
+    <h2>Definição: A Hipérbole</h2>
+    <h3 class="mission-subtitle">Diferença Constante de Distâncias</h3>
+    <p>Fixe dois focos \(F_1\) e \(F_2\). A hipérbole é o lugar geométrico dos pontos cuja <strong>diferença</strong>, em valor absoluto, das distâncias a eles é constante e igual a \(2a\):</p>
+    <div class="definition-box">
+      <p class="formula">\(\text{Hipérbole} = \{P(x,y) \mid |d(P,F_1) - d(P,F_2)| = 2a\}\)</p>
+      <p>O valor absoluto gera <strong>dois ramos</strong>: um onde \(P\) está mais perto de \(F_1\), outro onde está mais perto de \(F_2\).</p>
+      <p>Aqui a distância focal \(c\) é <strong>maior</strong> que \(a\): \(c > a\).</p>
+    </div>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V3: Construção da equação — parte 1 -->
+  <section class="mission-briefing">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 05 &middot; HIPÉRBOLE</div>
+    <h2>Construção da Equação (I)</h2>
+    <h3 class="mission-subtitle">Traduzir a Diferença em Equação</h3>
+    <p>Centro na origem e focos em \(F_1(-c,0)\) e \(F_2(c,0)\). No ramo direito vale \(d(P,F_1) - d(P,F_2) = 2a\):</p>
+    <p class="formula">\[\sqrt{(x+c)^2 + y^2} - \sqrt{(x-c)^2 + y^2} = 2a\]</p>
+    <p><strong>Passo 1 — isolar uma raiz:</strong></p>
+    <p class="formula">\[\sqrt{(x+c)^2 + y^2} = 2a + \sqrt{(x-c)^2 + y^2}\]</p>
+    <p><strong>Passo 2 — elevar ao quadrado</strong> e cancelar os termos comuns:</p>
+    <p class="formula">\[4cx = 4a^2 + 4a\sqrt{(x-c)^2 + y^2} \implies cx - a^2 = a\sqrt{(x-c)^2 + y^2}\]</p>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V4: Construção da equação — parte 2 -->
+  <section class="mission-briefing">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 05 &middot; HIPÉRBOLE</div>
+    <h2>Construção da Equação (II)</h2>
+    <h3 class="mission-subtitle">Onde Nasce a Relação \(c^2 = a^2 + b^2\)</h3>
+    <p><strong>Passo 3 — elevar ao quadrado:</strong></p>
+    <p class="formula">\[a^2\big[(x-c)^2 + y^2\big] = (cx - a^2)^2\]</p>
+    <p>Expandindo e cancelando os termos comuns:</p>
+    <p class="formula">\[(c^2 - a^2)x^2 - a^2y^2 = a^2(c^2 - a^2)\]</p>
+    <p>Com \(b^2 = c^2 - a^2\) e dividindo por \(a^2b^2\):</p>
+    <div class="formula-spotlight">
+      <p>\(\dfrac{x^2}{a^2} - \dfrac{y^2}{b^2} = 1\)</p>
+    </div>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V5: Visualização — definição em ação -->
+  <section class="simulator">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 05 &middot; HIPÉRBOLE</div>
+    <h3>Definição em Ação: A Diferença Constante</h3>
+    <div class="canvas-container">
+      <canvas id="def-hiperbole-canvas" width="800" height="400"></canvas>
+    </div>
+    <div class="hint-message">
+      <p>O ponto \(P\) percorre o ramo direito. Subtraia os dois segmentos: a diferença é sempre \(2a\).</p>
+    </div>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V6: Anatomia — componentes (texto) -->
+  <section class="field-report level-basic">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 05 &middot; HIPÉRBOLE</div>
+    <h3>Anatomia da Hipérbole</h3>
+    <div class="info-panel">
+      <div class="info-screen">
+        <h4>Componentes</h4>
+        <ul>
+          <li><strong>Centro \(O\):</strong> ponto médio entre os focos</li>
+          <li><strong>Vértices:</strong> \(V_1(-a,0)\) e \(V_2(a,0)\), o ponto mais próximo do centro em cada ramo</li>
+          <li><strong>Eixo transverso:</strong> segmento \(V_1V_2\), de comprimento \(2a\)</li>
+          <li><strong>Eixo conjugado:</strong> segmento de comprimento \(2b\), perpendicular ao transverso</li>
+          <li><strong>Assíntotas:</strong> \(y = \pm \dfrac{b}{a}x\) — guias que a curva se aproxima sem tocar</li>
+          <li><strong>Excentricidade:</strong> \(e = c/a > 1\)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V7: Anatomia — figura (SVG em slide próprio) -->
+  <section class="field-report level-basic">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 05 &middot; HIPÉRBOLE</div>
+    <h3>Anatomia da Hipérbole: A Figura</h3>
+    <img class="svg-visualization" src="capitulo-v_svgs/hiperbole_anatomia.svg" alt="Hipérbole com centro, focos, vértices, retângulo auxiliar e assíntotas" />
+    <p>O retângulo auxiliar tem lados \(2a\) e \(2b\); suas diagonais são as assíntotas.</p>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V8: Relação fundamental (texto) -->
+  <section class="field-report level-basic">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 05 &middot; HIPÉRBOLE</div>
+    <h3>A Relação \(c^2 = a^2 + b^2\)</h3>
+    <p>No triângulo retângulo formado pelo centro \(O\), o vértice \(V(a,0)\) e o ponto \(Q(a,b)\) do retângulo auxiliar, valem os catetos \(a\) e \(b\) e a hipotenusa \(c\):</p>
+    <div class="formula-spotlight">
+      <p>\(c^2 = a^2 + b^2 \iff b^2 = c^2 - a^2\)</p>
+    </div>
+    <p>É o mesmo Pitágoras da elipse, com papéis trocados: aqui \(c\) é a hipotenusa. Compare as duas relações:</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Elipse</th>
+          <th>Hipérbole</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(c^2 = a^2 - b^2\)</td>
+          <td>\(c^2 = a^2 + b^2\)</td>
+        </tr>
+        <tr>
+          <td>\(c < a\)</td>
+          <td>\(c > a\)</td>
+        </tr>
+        <tr>
+          <td>\(0 < e < 1\)</td>
+          <td>\(e > 1\)</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V9: Relação fundamental — figura (SVG em slide próprio) -->
+  <section class="field-report level-basic">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 05 &middot; HIPÉRBOLE</div>
+    <h3>A Relação no Triângulo</h3>
+    <img class="svg-visualization" src="capitulo-v_svgs/hiperbole_relacao_abc.svg" alt="Triângulo retângulo OVQ com catetos a e b e hipotenusa c" />
+    <p>A distância \(OQ\) é igual à distância \(OF\): ambas valem \(c\).</p>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V10: Treinamento (exemplos sem solução) + fragmento -->
+  <section class="survival-training">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 05 &middot; HIPÉRBOLE</div>
+    <h3>Treinamento: Construir, Identificar, Desenhar</h3>
+    <div class="dual-panel">
+      <div class="problem-section">
+        <p><strong>Problema #V.5.1:</strong> Construa, a partir da definição, a equação da hipérbole com focos \(F_1(-5,0)\) e \(F_2(5,0)\) e diferença constante \(2a = 6\).</p>
+        <p><strong>Problema #V.5.2:</strong> Identifique \(a\), \(b\), \(c\), focos, vértices e assíntotas de \(\dfrac{x^2}{9} - \dfrac{y^2}{16} = 1\). Esboce a curva com o retângulo auxiliar e as assíntotas.</p>
+        <p><strong>Problema #V.5.3:</strong> Duas torres estão a 50 km uma da outra e você detecta estar 30 km mais próximo da segunda. Determine a equação da hipérbole com focos no eixo \(x\).</p>
+      </div>
+      <div class="v-bar"></div>
+      <div class="narrative-section">
+        <span class="narrative-label">CONTEXTO</span>
+        <p>Em sete de nove cidades analisadas pelo IPEA, menos de 50% dos jovens alcançam três escolas de ensino médio em 30 minutos de transporte público.</p>
+        <p class="chapter-meta">Fonte: IPEA, Texto para Discussão 2854, 2023</p>
+      </div>
+    </div>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V11: Simulador -->
+  <section class="simulator">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 05 &middot; HIPÉRBOLE</div>
+    <h3>Simulador: Hipérbole Interativa</h3>
+    <div class="canvas-container">
+      <canvas id="hyperbola-canvas" width="800" height="400"></canvas>
+      <div class="simulator-controls">
+        <div class="control-panel">
+          <label for="a-hyper-slider">\(a\):</label>
+          <input type="range" min="20" max="150" step="5" value="80" id="a-hyper-slider" />
+          <span id="a-hyper-value">80</span>
+          <label for="b-hyper-slider">\(b\):</label>
+          <input type="range" min="20" max="150" step="5" value="60" id="b-hyper-slider" />
+          <span id="b-hyper-value">60</span>
+          <label for="orientation-slider">Orientação:</label>
+          <input type="range" min="0" max="1" step="1" value="0" id="orientation-slider" />
+          <span id="orientation-value">Eixo X</span>
+        </div>
+      </div>
+    </div>
+    <div class="hint-message">
+      <p>Ajuste os parâmetros e observe as assíntotas mudarem de inclinação.</p>
+    </div>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+
+  <!-- V12: Debriefing -->
+  <section class="debriefing">
+    <div class="slide-header">CAPÍTULO V &middot; TÓPICO 05 &middot; HIPÉRBOLE</div>
+    <h3>Debriefing: A Curva de Dois Ramos</h3>
+    <div class="summary-box">
+      <ul>
+        <li>Hipérbole = diferença constante de distâncias a 2 focos</li>
+        <li>Canônica: \(\dfrac{x^2}{a^2} - \dfrac{y^2}{b^2} = 1\)</li>
+        <li>Relação fundamental: \(c^2 = a^2 + b^2\)</li>
+        <li>Excentricidade \(e > 1\): quanto maior, mais aberta</li>
+        <li>Assíntotas \(y = \pm \dfrac{b}{a}x\): guias que a curva não ultrapassa</li>
+      </ul>
+    </div>
+    <div class="next-mission">
+      <p>Próximo briefing: o resumo do arsenal das cônicas — e a pergunta que o capítulo deixou em aberto.</p>
+    </div>
+    <div class="slide-footer">GA-CH5 &middot; CÔNICAS &middot; SOBREVIVÊNCIA GEOMÉTRICA</div>
+  </section>
+</section>

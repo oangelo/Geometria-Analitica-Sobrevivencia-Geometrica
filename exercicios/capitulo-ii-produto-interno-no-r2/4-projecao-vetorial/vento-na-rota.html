@@ -1,0 +1,22 @@
+<div class="exercise">
+<h3>VENTO CONTRA NA ROTA DE EVACUAÇÃO</h3>
+
+<p>Uma expedição de evacuação precisa seguir a rota indicada pelo vetor $\vec{r} = (6, 2)$ — predominantemente para leste com leve inclinação ao norte. No entanto, rajadas de vento radioativo empurram a expedição com força $\vec{v} = (-1, 4)$ — vento do leste com componente norte forte. A questão que o SUPERVISOR precisa responder é: quanto do vento atua efetivamente na direção da rota? Essa componente "efetiva" do vento na rota é a projeção vetorial de $\vec{v}$ sobre $\vec{r}$. No papel, esboce os vetores $\vec{r}$ e $\vec{v}$ a partir da mesma origem, trace a projeção e a componente perpendicular, e determine: a componente do vento na direção da rota favorece ou dificulta a evacuação?</p>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Produto escalar: $\vec{v} \cdot \vec{r} = (-1) \times 6 + 4 \times 2 = -6 + 8 = 2$.</li>
+<li>Auto-produto: $\vec{r} \cdot \vec{r} = 36 + 4 = 40$.</li>
+<li>Projeção vetorial: $\text{proj}_{\vec{r}}\,\vec{v} = \frac{2}{40}(6, 2) = \frac{1}{20}(6, 2) = (0{,}3,\; 0{,}1)$.</li>
+<li>Projeção escalar: $\frac{2}{\sqrt{40}} = \frac{2}{2\sqrt{10}} = \frac{1}{\sqrt{10}} \approx 0{,}316$.</li>
+<li>A projeção escalar é positiva, mas pequena. O vento tem uma componente mínima favorável na direção da rota — quase nada.</li>
+<li>Componente perpendicular: $\vec{v}_{\perp} = \vec{v} - \text{proj}_{\vec{r}}\,\vec{v} = (-1 - 0{,}3,\; 4 - 0{,}1) = (-1{,}3,\; 3{,}9)$. Essa componente é grande e empurra fortemente para o norte, fora da rota.</li>
+<li>Conclusão: o vento quase não ajuda na direção da evacuação. A maior parte da força desvia a expedição da rota planejada, exigindo correção constante.</li>
+</ol>
+<div class="formula">
+$$\text{proj}_{\vec{r}}\,\vec{v} = (0{,}3,\; 0{,}1), \quad \vec{v}_{\perp} = (-1{,}3,\; 3{,}9), \quad |\vec{v}_{\perp}| \gg |\text{proj}_{\vec{r}}\,\vec{v}|$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Nem todo vento que sopra contra você é totalmente prejudicial, nem todo vento a favor é totalmente útil. A projeção separa a componente efetiva da lateral. Neste caso, a expedição enfrenta um cenário desfavorável: quase nenhuma ajuda na direção desejada e um desvio lateral significativo. Na Zona Devastada, decidir se compensa seguir a rota original ou se adaptar ao vento é uma decisão tática — e a projeção fornece os números para tomá-la.</p>
+</details>
+</div>

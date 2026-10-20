@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>PONTO E VETOR: DUAS FACES DO MESMO PAR</h3>
+
+<p>O terminal do Refúgio-Tec exibe o par ordenado $(4, 3)$ em duas situações distintas. Primeiro, como coordenadas do ponto $P(4, 3)$ — a localização exata de um depósito de suprimentos no mapa da Zona Devastada. Segundo, como componentes do vetor $\vec{v} = (4, 3)$ — uma instrução de deslocamento que diz "ande 4 unidades na horizontal e 3 na vertical". O objetivo deste exercício é distinguir esses dois significados e entender por que a mesma estrutura numérica serve a propósitos diferentes.</p>
+
+<p><strong>(a)</strong> No papel, desenhe um sistema de eixos cartesianos. Marque o ponto $P(4, 3)$ com um ponto (ou um pequeno círculo). Esse ponto representa uma <em>posição fixa</em> no plano.</p>
+
+<p><strong>(b)</strong> Agora, a partir da origem $O(0, 0)$, desenhe uma seta (com ponta de flecha) até o ponto $(4, 3)$. Essa seta é a representação geométrica do vetor $\vec{v} = (4, 3)$. Ele representa um <em>deslocamento</em>.</p>
+
+<p><strong>(c)</strong> Aplique o vetor $\vec{v}$ ao ponto $Q(1, 2)$: some as componentes e encontre o ponto de chegada $R$. O que isso representa no contexto de navegação?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>Ponto é "onde" (localização). Vetor é "como chegar" (deslocamento). Para aplicar um vetor a um ponto, some as componentes: $Q + \vec{v} = (1+4, 2+3) = (5, 5)$.</p>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>(a)</strong> O ponto $P(4, 3)$ é uma localização fixa — um pino no mapa marcando o depósito.</p>
+<p><strong>(b)</strong> O vetor $\vec{v} = (4, 3)$ é a seta da origem até $(4, 3)$. Ele descreve um movimento: 4 para leste, 3 para norte. Pode ser aplicado a partir de <em>qualquer</em> ponto.</p>
+<p><strong>(c)</strong> $R = Q + \vec{v} = (1, 2) + (4, 3) = (5, 5)$. Significa que, partindo do posto $Q$, seguindo o deslocamento $\vec{v}$, chegamos ao ponto $R(5, 5)$. Na Zona Devastada, isso equivale a dizer: "do posto de rádio $Q$, ande 4 para leste e 3 para norte — você chegará em $R$".</p>
+<div class="formula">
+$$\text{Ponto } P(4,3): \text{localização} \qquad \vec{v} = (4,3): \text{deslocamento}$$
+$$R = Q + \vec{v} = (1, 2) + (4, 3) = (5, 5)$$
+</div>
+<p><strong>Reflexão:</strong> Confundir ponto com vetor é como confundir "o depósito <em>está</em> em $(4,3)$" com "ande $(4,3)$ unidades". O primeiro diz onde; o segundo, como mover-se. Na Zona Devastada, essa distinção evita navegação errada.</p>
+</details>
+</div>

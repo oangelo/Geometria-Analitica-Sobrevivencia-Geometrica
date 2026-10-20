@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>ESTAÇÃO RETRANSMISSORA</h3>
+
+<p>A paramétrica funciona mesmo quando o centro da circunferência não está na origem. Uma estação de rádio interceptada transmite as coordenadas $x = 1 + 4\cos t$ e $y = -2 + 4\sin t$. Identifique o centro e o raio da circunferência descrita por essa transmissão, e calcule as posições correspondentes a $t = 0°$ e $t = 180°$. No papel, desenhe os eixos, marque o centro $C$ e os dois pontos sobre a circunferência.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Compare com a forma geral: $x = a + r\cos t$, $y = b + r\sin t$. Os termos que não acompanham $\cos t$ ou $\sin t$ são as coordenadas do centro. O coeficiente que acompanha $\cos t$ e $\sin t$ é o raio.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Comparando $x = 1 + 4\cos t$ e $y = -2 + 4\sin t$ com $x = a + r\cos t$, $y = b + r\sin t$: centro $C(1, -2)$ e raio $r = 4$.</li>
+<li>$t = 0°$: $x = 1 + 4\cos 0° = 1 + 4 = 5$, $y = -2 + 4\sin 0° = -2 + 0 = -2$. Ponto: $(5, -2)$.</li>
+<li>$t = 180°$: $x = 1 + 4\cos 180° = 1 - 4 = -3$, $y = -2 + 4\sin 180° = -2 + 0 = -2$. Ponto: $(-3, -2)$.</li>
+<li>Verificação na canônica $(x-1)^2 + (y+2)^2 = 16$: $(5-1)^2 + (-2+2)^2 = 16 + 0 = 16$ ✓ e $(-3-1)^2 + (-2+2)^2 = 16 + 0 = 16$ ✓.</li>
+</ol>
+<div class="formula">
+$$C(1, -2), \quad r = 4$$
+$$t = 0° \to (5, -2), \qquad t = 180° \to (-3, -2)$$
+$$(x-1)^2 + (y+2)^2 = 16 \;\checkmark$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Quando o centro está na origem, $a = 0$ e $b = 0$ nas equações paramétricas, e os termos constantes desaparecem. Aqui, os termos $1$ e $-2$ deslocam toda a circunferência — cada ponto é "empurrado" para longe da origem. Reconhecer o centro e o raio escondidos na paramétrica é como identificar a posição de uma estação de rádio pelo padrão do sinal.</p>
+</details>
+</div>

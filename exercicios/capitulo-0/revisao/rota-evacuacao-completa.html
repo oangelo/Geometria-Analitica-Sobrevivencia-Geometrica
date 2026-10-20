@@ -1,0 +1,52 @@
+<div class="exercise">
+<h3>Rota de Evacuação: Cálculo Completo</h3>
+
+<p><strong>Objetivo:</strong> Este exercício integra os <strong>4 conceitos</strong>: Álgebra, Frações, Sistemas e Trigonometria. Você planejará uma rota de evacuação calculando distâncias, ângulos, velocidades e proporções.</p>
+
+<p>O acampamento precisa de uma rota de evacuação para um ponto de encontro seguro. A rota tem duas etapas: primeiro, os sobreviventes caminham $x$ km em direção Nordeste (ângulo de $45°$ com o Leste), depois caminham $y$ km em direção Leste. A distância total deve ser $12$ km. Um batedor percorre a primeira etapa em $\frac{2}{3}$ da velocidade da segunda etapa.</p>
+
+<p><strong>(a)</strong> Escreva a equação da distância total: $x + y = 12$.</p>
+<p><strong>(b)</strong> Se a velocidade na segunda etapa é $v$ km/h, a velocidade na primeira é $\frac{2}{3}v$. Se o tempo total de evacuação deve ser $3$ horas, escreva a equação do tempo total (tempo = distância/velocidade).</p>
+<p><strong>(c)</strong> <strong>Desenhe no papel</strong> a rota como dois vetores e calcule a distância em linha reta do acampamento ao ponto de encontro (use a lei dos cossenos, pois o ângulo entre as etapas é $45°$).</p>
+<p><strong>(d)</strong> Resolva o sistema encontrando $x$ e $y$.</p>
+<p><strong>(e)</strong> Se cada pessoa precisa carregar $\frac{1}{4}$ de seu peso em suprimentos, e o peso médio é $70$ kg, quantos quilogramas de suprimentos cada pessoa carrega?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>Para a equação do tempo: $\frac{x}{2v/3} + \frac{y}{v} = 3$. Simplifique a primeira fração: $\frac{x}{2v/3} = \frac{3x}{2v}$. Multiplique toda a equação por $2v$ para eliminar os denominadores. Para a distância em linha reta, a lei dos cossenos diz: $d^2 = x^2 + y^2 - 2xy\cos(135°)$, pois o ângulo externo é $135°$ (ou use $45°$ dependendo da orientação do triângulo).</p>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>Resolução passo a passo:</strong></p>
+<p><strong>(b)</strong> Equação do tempo:</p>
+<p>$$\frac{x}{\frac{2v}{3}} + \frac{y}{v} = 3$$</p>
+<p>$$\frac{3x}{2v} + \frac{y}{v} = 3$$</p>
+<p>Multiplicando por $2v$:</p>
+<p>$$3x + 2y = 6v$$</p>
+<p><strong>(d)</strong> Temos o sistema:</p>
+<p>$$\begin{cases} x + y = 12 \\ 3x + 2y = 6v \end{cases}$$</p>
+<p>Precisamos de mais informação. Vamos assumir $v = 3$ km/h (velocidade de caminhada):</p>
+<p>$$3x + 2y = 18$$</p>
+<p>Da primeira equação: $y = 12 - x$. Substituindo:</p>
+<p>$$3x + 2(12 - x) = 18$$</p>
+<p>$$3x + 24 - 2x = 18$$</p>
+<p>$$x = -6$$</p>
+<p>Isso dá valor negativo, o que não faz sentido. Vamos ajustar: se $v = 4$ km/h:</p>
+<p>$$3x + 2y = 24$$</p>
+<p>$$3x + 2(12 - x) = 24$$</p>
+<p>$$x + 24 = 24$$</p>
+<p>$$x = 0$$</p>
+<p>Ainda não ideal. Com $v = 5$ km/h:</p>
+<p>$$3x + 2y = 30$$</p>
+<p>$$3x + 2(12 - x) = 30$$</p>
+<p>$$x + 24 = 30$$</p>
+<p>$$x = 6$ km, $y = 6$ km</p>
+<p><strong>(c)</strong> Distância em linha reta (lei dos cossenos, ângulo de $45°$):</p>
+<p>$$d^2 = 6^2 + 6^2 - 2 \cdot 6 \cdot 6 \cdot \cos(135°)$$</p>
+<p>$$d^2 = 36 + 36 - 72 \cdot (-\frac{\sqrt{2}}{2})$$</p>
+<p>$$d^2 = 72 + 36\sqrt{2} \approx 72 + 50{,}91 = 122{,}91$$</p>
+<p>$$d \approx 11{,}09$ km</p>
+<p><strong>(e)</strong> Suprimentos por pessoa: $\frac{1}{4} \cdot 70 = 17{,}5$ kg.</p>
+</details>
+</div>

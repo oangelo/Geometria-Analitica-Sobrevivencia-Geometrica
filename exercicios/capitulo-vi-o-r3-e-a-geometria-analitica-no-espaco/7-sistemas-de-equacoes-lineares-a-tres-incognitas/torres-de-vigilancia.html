@@ -1,0 +1,80 @@
+<div class="exercise">
+<h3>Torres de Vigilância</h3>
+<p><strong>Objetivo:</strong> Aplicar sistemas lineares para modelar regiões de cobertura e encontrar interseções no contexto de vigilância.</p>
+
+<p>Três torres de vigilância do Refúgio-TEC monitoram a Zona Devastada. Cada torre cobre um semiespaço definido por uma desigualdade linear. As fronteiras das regiões de cobertura são os planos:</p>
+
+<div class="formula">
+$$\begin{cases}
+\pi_1: x + y + 2z = 8 \\
+\pi_2: 2x - y + z = 5 \\
+\pi_3: x + 2y - z = 3
+\end{cases}$$
+</div>
+
+<p>Cada torre cobre o semiespaço que contém a origem (verifique que $(0,0,0)$ satisfaz $0 < 8$, $0 < 5$, $0 < 3$).</p>
+
+<p><strong>a)</strong> Resolva o sistema formado pelas três equações dos planos, encontrando o ponto $P$ onde as três fronteiras se encontram.</p>
+
+<p><strong>b)</strong> Calcule o determinante da matriz de coeficientes e confirme que o sistema é SPD.</p>
+
+<p><strong>c)</strong> A torre 4 foi instalada no ponto $Q(2, 1, 2)$. Verifique se $Q$ está dentro da região comum de cobertura das três torres (ou seja, se $Q$ satisfaz as três desigualdades $x + y + 2z \leq 8$, $2x - y + z \leq 5$, $x + 2y - z \leq 3$).</p>
+
+<p><strong>d)</strong> O ponto $R(1, 2, 3)$ está dentro da região comum? Justifique.</p>
+
+<p><strong>e)</strong> A região comum de cobertura das três torres é um poliedro convexo. O ponto $P$ (interseção das fronteiras) é um vértice desse poliedro. Explique por que.</p>
+
+<p><strong>f)</strong> Se uma quarta torre com fronteira $\pi_4: x + y + z = 6$ for instalada, encontre o novo vértice da região comum (interseção de $\pi_1$, $\pi_2$ e $\pi_4$).</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>Para verificar se um ponto está na região comum, substitua as coordenadas nas três desigualdades. Todas devem ser satisfeitas simultaneamente. A interseção de três planos em um ponto é um vértice do poliedro formado pelos semiespaços.</p>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+
+<p><strong>a)</strong> Escalonamento:</p>
+<p>Eq. (I) &times; $(-2)$ + Eq. (II): $-3y - 3z = -11$ (II')</p>
+<p>Eq. (I) &times; $(-1)$ + Eq. (III): $y - 3z = -5$ (III')</p>
+
+<p>De (III'): $y = 3z - 5$. Substituindo em (II'): $-3(3z-5) - 3z = -11 \Rightarrow -9z + 15 - 3z = -11 \Rightarrow -12z = -26 \Rightarrow z = \frac{13}{6}$.</p>
+<p>Logo $y = 3(\frac{13}{6}) - 5 = \frac{13}{2} - \frac{10}{2} = \frac{3}{2}$.</p>
+<p>Da equação (I): $x = 8 - y - 2z = 8 - \frac{3}{2} - \frac{13}{3} = \frac{48 - 9 - 26}{6} = \frac{13}{6}$.</p>
+
+<p>Solução: $P\left(\dfrac{13}{6}, \dfrac{3}{2}, \dfrac{13}{6}\right)$.</p>
+
+<p><strong>b)</strong> $\det A = 1(-1)(-1) + 1(1)(1) + 2(2)(2) - 2(-1)(1) - 1(1)(2) - 1(2)(-1)$
+$= 1 + 1 + 8 + 2 - 2 + 2 = 12 \neq 0$. SPD confirmado.</p>
+
+<p><strong>c)</strong> Verificando $Q(2, 1, 2)$:</p>
+<ul>
+<li>$\pi_1$: $2 + 1 + 2(2) = 7 \leq 8$ &check;</li>
+<li>$\pi_2$: $2(2) - 1 + 2 = 5 \leq 5$ &check;</li>
+<li>$\pi_3$: $2 + 2(1) - 2 = 2 \leq 3$ &check;</li>
+</ul>
+<p><strong>$Q$ está na região comum</strong> (inclusive na fronteira de $\pi_2$).</p>
+
+<p><strong>d)</strong> Verificando $R(1, 2, 3)$:</p>
+<ul>
+<li>$\pi_1$: $1 + 2 + 2(3) = 9 \not\leq 8$ &mdash; <strong>violação</strong></li>
+</ul>
+<p>$R$ <strong>não</strong> está na região comum (está fora da cobertura da torre 1).</p>
+
+<p><strong>e)</strong> O ponto $P$ é um vértice porque é a interseção de <strong>três planos</strong> (fronteiras). No poliedro convexo definido pelos semiespaços, cada vértice é determinado pela interseção de pelo menos três planos de suporte. Como o sistema é SPD, esses três planos se encontram num único ponto, que é um vértice do poliedro de cobertura.</p>
+
+<p><strong>f)</strong> Sistema com $\pi_1$, $\pi_2$, $\pi_4$:</p>
+<div class="formula">
+$$\begin{cases}
+x + y + 2z = 8 \\
+2x - y + z = 5 \\
+x + y + z = 6
+\end{cases}$$
+</div>
+<p>Subtraindo (III) de (I): $z = 2$.</p>
+<p>Substituindo $z = 2$ em (II): $2x - y + 2 = 5 \Rightarrow 2x - y = 3$.</p>
+<p>Substituindo $z = 2$ em (III): $x + y + 2 = 6 \Rightarrow x + y = 4$.</p>
+<p>Somando: $3x = 7 \Rightarrow x = \frac{7}{3}$. Logo $y = 4 - \frac{7}{3} = \frac{5}{3}$.</p>
+<p>Novo vértice: $\left(\dfrac{7}{3}, \dfrac{5}{3}, 2\right)$.</p>
+</details>
+</div>

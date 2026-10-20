@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>P2 2026.1 - Geometria Analítica</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <script>
+        // Configuração padrão do MathJax
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            startup: {
+                ready: () => {
+                    MathJax.startup.defaultReady();
+                }
+            }
+        };
+    </script>
+    <style>
+        @page {
+            size: A4;
+            margin: 1cm;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            font-size: 9pt;
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        .container {
+            width: 100%;
+            height: 27.7cm; /* A4 height (29.7cm) - vertical margins (2cm) */
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-header {
+            text-align: center;
+            border-bottom: 1px solid #000;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            flex-shrink: 0;
+        }
+
+        .main-header h1 {
+            margin: 0;
+            font-size: 11pt;
+            font-weight: bold;
+        }
+
+        .main-header h2 {
+            margin: 0;
+            font-size: 10pt;
+            font-weight: normal;
+        }
+        
+        .content {
+            display: flex;
+            gap: 1.5cm; /* Espaço entre as colunas */
+            flex-grow: 1;
+        }
+
+        .column {
+            flex: 1;
+            min-width: 0; /* Previne overflow do flexbox */
+        }
+        
+        .student-details {
+            margin-bottom: 20px;
+        }
+
+        .student-details div {
+            margin-bottom: 4px;
+        }
+        
+        .student-details span {
+            border-bottom: 1px solid #000;
+            min-width: 350px;
+            display: inline-block;
+            margin-left: 5px;
+        }
+        
+        .grade-table {
+            margin-bottom: 10px;
+        }
+        
+        .grade-table table {
+            border-collapse: collapse;
+            font-size: 8pt;
+            text-align: center;
+            width: 100%;
+        }
+
+        .grade-table th, .grade-table td {
+            border: 1px solid #000;
+            padding: 4px;
+            height: 0.8cm; /* Altura fixa para a célula de nota */
+        }
+
+        .instructions {
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-size: 8.5pt;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question-header {
+            font-weight: bold;
+            font-size: 10pt;
+            color: #000;
+            border-left: 3px solid #000;
+            padding: 5px 8px;
+            background-color: #f5f5f5;
+            margin-bottom: 8px;
+        }
+
+        .subquestion {
+            margin: 8px 0 8px 15px;
+        }
+
+        .system {
+            margin: 6px 0 6px 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-header">
+            <h1>Universidade do Estado do Rio de Janeiro - UERJ</h1>
+            <h2>P2 2026.1 - Geometria Analítica</h2>
+        </div>
+
+        <div class="content">
+            <div class="column">
+                <div class="student-details">
+                    <div><strong>Curso:</strong> <span></span></div>
+                    <div><strong>Nome:</strong> <span></span></div>
+                    <div><strong>Matrícula:</strong> <span></span></div>
+                </div>
+
+                <!-- Questão 1 -->
+                <div class="question">
+                    <div class="question-header">Questão 1: Produto vetorial, produto misto e coplanaridade</div>
+                    <p>Considere os pontos \(A = (1, 1, 0)\), \(B = (3, 2, 1)\), \(C = (2, 0, 2)\) e \(D = (0, 1, 3)\) no espaço.</p>
+                    <div class="subquestion"><strong>a)</strong> (0,5 pt) Determine os vetores \(\vec{AB}\) e \(\vec{AC}\) e calcule o produto vetorial \(\vec{AB} \times \vec{AC}\).</div>
+                    <div class="subquestion"><strong>b)</strong> (0,6 pt) Calcule a área do triângulo de vértices \(A\), \(B\) e \(C\).</div>
+                    <div class="subquestion"><strong>c)</strong> (0,7 pt) Determine o vetor \(\vec{AD}\) e o produto misto \([\vec{AB}, \vec{AC}, \vec{AD}]\); calcule o volume do paralelepípedo definido por \(\vec{AB}\), \(\vec{AC}\) e \(\vec{AD}\).</div>
+                    <div class="subquestion"><strong>d)</strong> (0,7 pt) Verifique que \(\vec{AB} \times \vec{AC}\) é ortogonal a \(\vec{AB}\) e a \(\vec{AC}\) e use o produto misto para decidir se os pontos \(A\), \(B\), \(C\) e \(D\) são coplanares.</div>
+                </div>
+
+                <!-- Questão 2 -->
+                <div class="question">
+                    <div class="question-header">Questão 2: Interseções no espaço — retas e planos</div>
+                    <p>Considere as retas \(r: (x, y, z) = (1, 2, 3) + t(2, -1, 1)\), com \(t \in \mathbb{R}\), e \(s: (x, y, z) = (3, 1, 4) + u(0, 1, -1)\), com \(u \in \mathbb{R}\), e os planos \(\pi_1: x + y - z = 2\), \(\pi_2: 2x - y + z = 1\) e \(\pi_3: x + z = 5\).</p>
+                    <div class="subquestion"><strong>a)</strong> (0,6 pt) Determine a interseção \(r \cap s\).</div>
+                    <div class="subquestion"><strong>b)</strong> (0,6 pt) Determine a interseção \(\pi_1 \cap \pi_2\), escrevendo as equações paramétricas da reta obtida.</div>
+                    <div class="subquestion"><strong>c)</strong> (0,7 pt) Determine a interseção da reta obtida no item (b) com o plano \(\pi_3\).</div>
+                    <div class="subquestion"><strong>d)</strong> (0,6 pt) Verifique que o ponto encontrado em (a) pertence às retas \(r\) e \(s\) e que o ponto encontrado em (c) pertence aos três planos.</div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="grade-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Q1</th>
+                                <th>Q2</th>
+                                <th>Q3</th>
+                                <th>Q4</th>
+                                <th>TOTAL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="instructions">
+                    Instruções: Resolva todas as questões apresentando os cálculos detalhadamente. Cada questão vale 2,5 pontos.
+                </div>
+
+                <!-- Questão 3 -->
+                <div class="question">
+                    <div class="question-header">Questão 3: Três sistemas lineares e a forma das soluções</div>
+                    <p>Para cada um dos sistemas abaixo, escreva a matriz aumentada, aplique o escalonamento, discuta a forma da matriz final (posto, linhas nulas e linhas impossíveis) e classifique o sistema, descrevendo a forma do conjunto-solução.</p>
+                    <div class="system">
+                        <p><strong>Sistema I</strong></p>
+                        \[\begin{cases} x + 2y - z = 1 \\ 2x + 4y - 2z = 2 \\ x - y = 0 \end{cases}\]
+                    </div>
+                    <div class="system">
+                        <p><strong>Sistema II</strong></p>
+                        \[\begin{cases} x + y + z = 1 \\ x + y + z = 3 \\ x - y = 0 \end{cases}\]
+                    </div>
+                    <div class="system">
+                        <p><strong>Sistema III</strong></p>
+                        \[\begin{cases} x + y + z = 6 \\ 2x - y + z = 3 \\ x + 2y - z = 2 \end{cases}\]
+                    </div>
+                    <div class="subquestion"><strong>a)</strong> (0,8 pt) Sistema I.</div>
+                    <div class="subquestion"><strong>b)</strong> (0,8 pt) Sistema II.</div>
+                    <div class="subquestion"><strong>c)</strong> (0,9 pt) Sistema III — determine explicitamente a solução e verifique-a nas três equações.</div>
+                </div>
+
+                <!-- Questão 4 -->
+                <div class="question">
+                    <div class="question-header">Questão 4: A elipse — forma transladada e elementos</div>
+                    <p>Considere a equação \(9x^2 + 25y^2 - 36x + 50y - 164 = 0\).</p>
+                    <div class="subquestion"><strong>a)</strong> (0,6 pt) Complete os quadrados, escreva a forma reduzida e determine o centro \(C\).</div>
+                    <div class="subquestion"><strong>b)</strong> (0,6 pt) Determine os semieixos \(a\) e \(b\), a semidistância focal \(c\) e os focos \(F_1\) e \(F_2\).</div>
+                    <div class="subquestion"><strong>c)</strong> (0,7 pt) Determine os vértices do eixo maior e do eixo menor e a excentricidade \(e\).</div>
+                    <div class="subquestion"><strong>d)</strong> (0,6 pt) Verifique, no vértice \((7, -1)\), que \(PF_1 + PF_2 = 2a\).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

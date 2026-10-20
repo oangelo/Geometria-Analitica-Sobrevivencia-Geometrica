@@ -1,0 +1,21 @@
+<div class="exercise">
+<h3>DEMARCAÇÃO ORTOGONAL</h3>
+<p>No exercício anterior sobre ponto médio, usamos vetores no R². Agora vamos medir a área que dois vetores delimitam — começando pelo caso mais simples. O depósito de suprimentos do Refúgio-TEC está no ponto $A(0, 0)$. Um posto de vigilância foi instalado em $B(3, 0)$ e outro em $C(0, 4)$. No papel, desenhe os pontos $A$, $B$ e $C$ e esboce o paralelogramo e o triângulo $ABC$ — você vai ver que, com vetores ortogonais, a área é direta: base × altura, ferramenta que você já domina do ensino médio. Calcule a área do paralelogramo e do triângulo.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint"><p>Os vetores $\overrightarrow{AB}$ e $\overrightarrow{AC}$ são ortogonais — verifique com o produto escalar! Quando dois vetores são perpendiculares, a "altura" de um coincide com o módulo do outro, e a área do paralelogramo é simplesmente $|\overrightarrow{AB}| \cdot |\overrightarrow{AC}|$.</p></div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Calculamos os vetores: $\overrightarrow{AB} = (3 - 0, 0 - 0) = (3, 0)$ e $\overrightarrow{AC} = (0 - 0, 4 - 0) = (0, 4)$</li>
+<li>Verificamos ortogonalidade: $\overrightarrow{AB} \cdot \overrightarrow{AC} = 3 \cdot 0 + 0 \cdot 4 = 0$. São ortogonais!</li>
+<li>Base = $|\overrightarrow{AB}| = \sqrt{9 + 0} = 3$ e altura = $|\overrightarrow{AC}| = \sqrt{0 + 16} = 4$</li>
+<li>Área do paralelogramo = base × altura = $3 \cdot 4 = 12$ unidades quadradas</li>
+<li>Área do triângulo $ABC$ = $\frac{12}{2} = 6$ unidades quadradas</li>
+</ol>
+<div class="formula">$$\text{Como } \overrightarrow{AB} \perp \overrightarrow{AC}: \quad \text{Área}_{par.} = |\overrightarrow{AB}| \cdot |\overrightarrow{AC}| = 3 \cdot 4 = 12$$
+$$\text{Área}_{tri.} = \frac{12}{2} = 6$$</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Quando os vetores são ortogonais, o cálculo é direto — a altura já é o módulo do outro vetor. Mas o que acontece quando os vetores NÃO são perpendiculares? Os próximos exercícios vão mostrar que o caminho fica bem mais longo... a menos que encontremos um atalho.</p>
+</details>
+</div>

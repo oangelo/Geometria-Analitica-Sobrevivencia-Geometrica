@@ -1,0 +1,79 @@
+<div class="exercise">
+<h3>Interseção e Ponto Extra</h3>
+<p><strong>Objetivo:</strong> Encontrar a interseção de três planos e verificar se um ponto adicional pertence à mesma configuração.</p>
+
+<p>Três barreiras de contenção são modeladas pelos planos:</p>
+
+<div class="formula">
+$$\begin{cases}
+\pi_1: x + 2y - z = 4 \\
+\pi_2: 2x - y + z = 3 \\
+\pi_3: x + y + z = 5
+\end{cases}$$
+</div>
+
+<p><strong>a)</strong> Calcule $\det A$ para a matriz de coeficientes e classifique o sistema antes de resolvê-lo.</p>
+
+<p><strong>b)</strong> Resolva o sistema por eliminação, encontrando o ponto $P$ de interseção dos três planos.</p>
+
+<p><strong>c)</strong> Um quarto plano $\pi_4: 3x + y + z = 8$ foi proposto como barreira adicional. Verifique se o ponto $P$ pertence a $\pi_4$.</p>
+
+<p><strong>d)</strong> Se $P \in \pi_4$, os quatro planos têm interseção comum? Explique.</p>
+
+<p><strong>e)</strong> Encontre a reta de interseção $r = \pi_1 \cap \pi_2$ (equações paramétricas). Verifique se $P \in r$.</p>
+
+<p><strong>f)</strong> O ponto $Q(2, 1, 2)$ pertence a algum dos três planos? A todos? Justifique.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>Para encontrar a reta de interseção de dois planos, resolva o sistema formado por essas duas equações, deixando uma variável livre (parâmetro). Para verificar se um ponto pertence a um plano, simplesmente substitua as coordenadas na equação do plano.</p>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+
+<p><strong>a)</strong> Matriz de coeficientes:</p>
+<div class="formula">
+$$A = \begin{pmatrix} 1 & 2 & -1 \\ 2 & -1 & 1 \\ 1 & 1 & 1 \end{pmatrix}$$
+</div>
+<p>$\det A = 1(-1)(1) + 2(1)(1) + (-1)(2)(1) - (-1)(-1)(1) - 1(1)(1) - 2(2)(1)$
+$= -1 + 2 - 2 - 1 - 1 - 4 = -7 \neq 0$.</p>
+<p>O sistema é <span class="success">SPD</span> &mdash; solução única.</p>
+
+<p><strong>b)</strong> Escalonamento:</p>
+<p>Eq. (I) &times; $(-2)$ + Eq. (II): $-5y + 3z = -5$ (II')</p>
+<p>Eq. (I) &times; $(-1)$ + Eq. (III): $-y + 2z = 1$ (III')</p>
+
+<p>De (III'): $y = 2z - 1$. Substituindo em (II'): $-5(2z-1) + 3z = -5 \Rightarrow -10z + 5 + 3z = -5 \Rightarrow -7z = -10 \Rightarrow z = \frac{10}{7}$.</p>
+<p>Logo $y = 2(\frac{10}{7}) - 1 = \frac{20}{7} - \frac{7}{7} = \frac{13}{7}$.</p>
+<p>Da equação (I): $x = 4 - 2(\frac{13}{7}) + \frac{10}{7} = 4 - \frac{26}{7} + \frac{10}{7} = \frac{28 - 26 + 10}{7} = \frac{12}{7}$.</p>
+
+<p>Solução: $P\left(\dfrac{12}{7}, \dfrac{13}{7}, \dfrac{10}{7}\right)$.</p>
+
+<p><strong>c)</strong> Verificando $P$ em $\pi_4$:</p>
+<div class="formula">$$3\left(\frac{12}{7}\right) + \frac{13}{7} + \frac{10}{7} = \frac{36 + 13 + 10}{7} = \frac{59}{7} \neq 8 = \frac{56}{7}$$</div>
+<p><strong>$P \notin \pi_4$</strong>. O ponto de interseção dos três primeiros planos <strong>não</strong> pertence ao quarto plano.</p>
+
+<p><strong>d)</strong> Não. Como $P \notin \pi_4$, os quatro planos não têm interseção comum. Os três primeiros se encontram em $P$, mas $\pi_4$ passa por outro lugar. Geometricamente, $\pi_4$ intersecta cada um dos três planos em retas que passam por $P$? Não &mdash; como $P \notin \pi_4$, as retas de interseção de $\pi_4$ com cada plano não passam por $P$.</p>
+
+<p><strong>e)</strong> Reta $r = \pi_1 \cap \pi_2$:</p>
+<div class="formula">
+$$\begin{cases} x + 2y - z = 4 \\ 2x - y + z = 3 \end{cases}$$
+</div>
+<p>Somando as equações: $3x + y = 7 \Rightarrow y = 7 - 3x$.</p>
+<p>Da primeira equação: $z = x + 2y - 4 = x + 2(7-3x) - 4 = x + 14 - 6x - 4 = 10 - 5x$.</p>
+<p>Fazendo $x = t$:</p>
+<div class="formula">
+$$r: \begin{cases} x = t \\ y = 7 - 3t \\ z = 10 - 5t \end{cases}, \quad t \in \mathbb{R}$$
+</div>
+<p>Verificando $P$: para $t = \frac{12}{7}$: $y = 7 - 3(\frac{12}{7}) = \frac{49-36}{7} = \frac{13}{7}$ &check;, $z = 10 - 5(\frac{12}{7}) = \frac{70-60}{7} = \frac{10}{7}$ &check;. Logo <strong>$P \in r$</strong>.</p>
+
+<p><strong>f)</strong> Verificando $Q(2, 1, 2)$:</p>
+<ul>
+<li>$\pi_1$: $2 + 2(1) - 2 = 2 \neq 4$ &mdash; $Q \notin \pi_1$</li>
+<li>$\pi_2$: $2(2) - 1 + 2 = 3$ &check; &mdash; $Q \in \pi_2$</li>
+<li>$\pi_3$: $2 + 1 + 2 = 5$ &check; &mdash; $Q \in \pi_3$</li>
+</ul>
+<p>$Q$ pertence a $\pi_2$ e $\pi_3$, mas <strong>não</strong> a $\pi_1$. Portanto, $Q$ não pertence à interseção dos três planos.</p>
+</details>
+</div>

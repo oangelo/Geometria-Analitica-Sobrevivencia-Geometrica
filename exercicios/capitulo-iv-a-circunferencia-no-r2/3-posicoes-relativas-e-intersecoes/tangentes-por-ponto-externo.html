@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>LINHAS DE VISTA TANGENTES AO PERÍMETRO</h3>
+
+<p>Um posto de observação avançado está posicionado no ponto $P(5, 0)$. A zona de radiação mais próxima é a circunferência $x^2 + y^2 = 9$ — centro na origem, raio $r = 3$. O observador precisa traçar <strong>retas tangentes</strong> à zona de radiação que passem por $P$ — são as "linhas de visada" que tocam o perímetro sem penetrá-lo. No papel, esboce a circunferência com raio 3, o ponto $P(5,0)$ e as duas retas tangentes. Determine as equações das retas tangentes à circunferência que passam por $P$ e encontre os respectivos pontos de tangência.</p>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Verifique que $P(5,0)$ é externo à circunferência: $5^2 + 0^2 = 25 > 9$. Distância de $P$ ao centro: $5 > 3$ ✓ — ponto externo, existem duas tangentes.</li>
+<li>Seja a reta por $P(5,0)$ com coeficiente angular $m$: $y = m(x - 5)$, ou $mx - y - 5m = 0$.</li>
+<li>Distância do centro $(0,0)$ à reta: $d = \frac{|{-5m}|}{\sqrt{m^2 + 1}} = \frac{5|m|}{\sqrt{m^2 + 1}}$.</li>
+<li>Imponha tangência: $\frac{5|m|}{\sqrt{m^2 + 1}} = 3 \Rightarrow 25m^2 = 9(m^2 + 1) \Rightarrow 16m^2 = 9 \Rightarrow m = \pm\frac{3}{4}$.</li>
+<li>Retas tangentes: $y = \frac{3}{4}(x - 5)$, ou $3x - 4y - 15 = 0$, e $y = -\frac{3}{4}(x - 5)$, ou $3x + 4y - 15 = 0$.</li>
+<li>Ponto de tangência com $m = 3/4$: substitua $y = \frac{3}{4}(x - 5)$ em $x^2 + y^2 = 9$:</li>
+<li>$x^2 + \frac{9}{16}(x - 5)^2 = 9 \Rightarrow 16x^2 + 9(x - 5)^2 = 144 \Rightarrow 16x^2 + 9x^2 - 90x + 225 = 144 \Rightarrow 25x^2 - 90x + 81 = 0$.</li>
+<li>$(5x - 9)^2 = 0 \Rightarrow x = \frac{9}{5}$. Então $y = \frac{3}{4}\!\left(\frac{9}{5} - 5\right) = \frac{3}{4} \cdot \frac{-16}{5} = -\frac{12}{5}$. Ponto $T_1\!\left(\frac{9}{5}, -\frac{12}{5}\right)$.</li>
+<li>Verificação: $\left(\frac{9}{5}\right)^2 + \left(-\frac{12}{5}\right)^2 = \frac{81}{25} + \frac{144}{25} = \frac{225}{25} = 9$ ✓.</li>
+<li>Por simetria (a configuração é simétrica em relação ao eixo $x$), o outro ponto é $T_2\!\left(\frac{9}{5}, \frac{12}{5}\right)$.</li>
+<li>Verificação: $\frac{81}{25} + \frac{144}{25} = 9$ ✓.</li>
+</ol>
+<div class="formula">
+$$r_1: 3x - 4y - 15 = 0, \quad T_1\!\left(\tfrac{9}{5},\, -\tfrac{12}{5}\right)$$
+$$r_2: 3x + 4y - 15 = 0, \quad T_2\!\left(\tfrac{9}{5},\, \tfrac{12}{5}\right)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> De um ponto externo, sempre existem exatamente duas retas tangentes à circunferência — as "linhas de visada limite" que tocam a zona sem penetrá-la. O ângulo entre essas duas retas define o "cone de perigo" visto pelo observador: tudo dentro desse cone está na zona de radiação. A distância de $P$ ao centro ($5$) é maior que o raio ($3$) — condição necessária para que as tangentes existam. Se $P$ estivesse sobre ou dentro da circunferência, o problema não teria duas soluções tangentes.</p>
+</details>
+</div>

@@ -1,0 +1,34 @@
+<div class="exercise">
+<h3>VETOR UNITÁRIO NO R³</h3>
+<p>O objetivo deste exercício é construir um vetor unitário (de módulo 1) na mesma direção de um vetor dado. Esta operação — chamada de <em>normalização</em> — é essencial para descrever direções sem se preocupar com magnitude, como quando um drone precisa seguir uma rota independentemente de sua velocidade.</p>
+<p>Uma sonda de reconhecimento deve ser lançada na direção do vetor $\vec{v} = (2, -4, 4)$, mas com velocidade unitária para economia de combustível.</p>
+<p><strong>(a)</strong> Calcule $|\vec{v}|$.</p>
+<p><strong>(b)</strong> Determine o vetor unitário $\vec{u} = \dfrac{\vec{v}}{|\vec{v}|}$.</p>
+<p><strong>(c)</strong> Verifique que $|\vec{u}| = 1$.</p>
+<p><strong>(d)</strong> O que acontece com $\vec{u}$ se multiplicarmos $\vec{v}$ por $-3$ antes de normalizar? Explique.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Um vetor unitário na direção de $\vec{v}$ é obtido dividindo cada componente pelo módulo de $\vec{v}$. A verificação do item (c) confirma que a normalização funcionou. Para o item (d), lembre-se de que multiplicar por um escalar negativo inverte a direção.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Dado: $\vec{v} = (2, -4, 4)$</li>
+<li><strong>Item (a)</strong> — $|\vec{v}| = \sqrt{2^2 + (-4)^2 + 4^2} = \sqrt{4 + 16 + 16} = \sqrt{36} = 6$</li>
+<li><strong>Item (b)</strong> — $\vec{u} = \dfrac{\vec{v}}{|\vec{v}|} = \left(\dfrac{2}{6}, \; \dfrac{-4}{6}, \; \dfrac{4}{6}\right) = \left(\dfrac{1}{3}, \; -\dfrac{2}{3}, \; \dfrac{2}{3}\right)$</li>
+<li><strong>Item (c)</strong> — $|\vec{u}| = \sqrt{\left(\dfrac{1}{3}\right)^2 + \left(-\dfrac{2}{3}\right)^2 + \left(\dfrac{2}{3}\right)^2} = \sqrt{\dfrac{1 + 4 + 4}{9}} = \sqrt{\dfrac{9}{9}} = 1$ ✓</li>
+<li><strong>Item (d)</strong> — Seja $\vec{w} = -3\vec{v} = (-6, 12, -12)$</li>
+<li>$|\vec{w}| = |-3| \cdot |\vec{v}| = 3 \cdot 6 = 18$</li>
+<li>Vetor unitário de $\vec{w}$: $\dfrac{\vec{w}}{|\vec{w}|} = \dfrac{-3\vec{v}}{3|\vec{v}|} = -\dfrac{\vec{v}}{|\vec{v}|} = -\vec{u} = \left(-\dfrac{1}{3}, \; \dfrac{2}{3}, \; -\dfrac{2}{3}\right)$</li>
+</ol>
+<div class="formula">
+$$\vec{u} = \left(\frac{1}{3}, -\frac{2}{3}, \frac{2}{3}\right), \quad |\vec{u}| = 1$$
+$$\text{Normalização de } (-3\vec{v}) \text{ produz } -\vec{u}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O vetor unitário captura apenas a direção, descartando a magnitude. Multiplicar por escalar negativo antes de normalizar inverte a direção do unitário resultante. Isso é intuitivo: se a sonda deve ir para o lado oposto, o vetor unitário aponta para o lado oposto.</p>
+</details>
+</div>

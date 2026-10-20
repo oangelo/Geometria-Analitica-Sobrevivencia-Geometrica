@@ -1,0 +1,34 @@
+<div class="exercise">
+<h3>COLETA DE ÁGUA</h3>
+
+<p>Três poços de captação foram escavados nas posições $A(0,4)$, $B(7,5)$ e $C(4,6)$. O geólogo do abrigo propôs que a nascente subterrânea está no centro da circunferência que passa pelos três poços — o raio representaria a profundidade uniforme do aquífero. Determine a equação dessa circunferência e identifique o centro e o raio. Depois, classifique a posição de um quarto ponto de sondagem $D(1,3)$: ele está dentro, sobre ou fora da circunferência?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>$A(0,4)$ não é a origem, mas tem $x = 0$, o que simplifica o termo $Dx$ na substituição. Monte as três equações, subtraia a primeira das outras duas para eliminar $F$, e resolva o sistema $2 \times 2$ resultante.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>$A(0,4)$: $0 + 16 + 0 + 4E + F = 0 \Rightarrow 4E + F = -16$ &nbsp; ...(1)</li>
+<li>$B(7,5)$: $49 + 25 + 7D + 5E + F = 0 \Rightarrow 7D + 5E + F = -74$ &nbsp; ...(2)</li>
+<li>$C(4,6)$: $16 + 36 + 4D + 6E + F = 0 \Rightarrow 4D + 6E + F = -52$ &nbsp; ...(3)</li>
+<li>(2) $-$ (1): $7D + E = -58$ &nbsp; ...(4)</li>
+<li>(3) $-$ (1): $4D + 2E = -36 \Rightarrow 2D + E = -18$ &nbsp; ...(5)</li>
+<li>(4) $-$ (5): $5D = -40 \Rightarrow D = -8$.</li>
+<li>De (5): $2(-8) + E = -18 \Rightarrow E = -2$.</li>
+<li>De (1): $4(-2) + F = -16 \Rightarrow F = -8$.</li>
+<li>Equação: $x^2 + y^2 - 8x - 2y - 8 = 0$.</li>
+<li>Centro: $(4, 1)$ e $r = \sqrt{16 + 1 + 8} = \sqrt{25} = 5$.</li>
+<li>Classificação de $D(1,3)$: $(1-4)^2 + (3-1)^2 = 9 + 4 = 13$. Como $13 < 25 = r^2$, o ponto $D$ está <strong>dentro</strong> da circunferência.</li>
+</ol>
+<div class="formula">
+$$x^2 + y^2 - 8x - 2y - 8 = 0 \qquad \text{Centro } (4,1), \quad r = 5$$
+$$D(1,3):\; 9 + 4 = 13 < 25 = r^2 \quad(\text{interno})$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Este exercício conecta duas ferramentas: a construção da circunferência por três pontos e a classificação de posição estudada no Tópico 1. O resultado — $D$ está dentro — significa que a sondagem em $D$ atingirá o aquífero sem necessidade de escavar até a profundidade total.</p>
+</details>
+</div>

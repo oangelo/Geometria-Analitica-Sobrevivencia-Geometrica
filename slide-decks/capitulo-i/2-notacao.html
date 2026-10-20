@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Cap. I — Notação e Igualdade</title>
+  <link href="https://unpkg.com/reveal.js@5.1.0/dist/reveal.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/reveal.js@5.1.0/dist/theme/black.css" id="theme" rel="stylesheet"/>
+  <link href="../styles.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+  <!-- SEÇÃO 2: Notação e Igualdade -->
+  <section>
+
+    <!-- Slide 2.1 — Por que Notação Importa? (Motivação) -->
+    <section class="field-report">
+      <h2>Por Que Notação Importa?</h2>
+      <h3 class="mission-subtitle">O Incidente do Mensageiro Perdido</h3>
+      <div class="narrative-text">
+        <p>
+          No dia 14, um mensageiro confundiu a notação em uma transmissão urgente.
+          O que deveria ser o <strong>ponto</strong> \(A(3,4)\) — localização do depósito de água —
+          foi interpretado como o <strong>vetor</strong> \((3,4)\), um deslocamento.
+        </p>
+        <p>
+          Em vez de ir até o depósito, a equipe partiu do Abrigo e andou 3 unidades a leste
+          e 4 unidades ao norte... diretamente para um ninho de criaturas.
+        </p>
+      </div>
+      <div class="survival-tip">
+        <p>
+          A notação correta não é formalismo vazio. É a diferença entre chegar ao destino
+          e caminhar para a morte.
+        </p>
+      </div>
+      <p class="mnemonic">
+        Se você recebe \(A(3,4)\), vá até lá. Se recebe \(\vec{v}=(3,4)\), desloque-se assim.
+        São ferramentas diferentes para missões diferentes.
+      </p>
+    </section>
+
+    <!-- Slide 2.2 — Notação de Pontos, Vetores e Escalares -->
+    <section class="mission-briefing">
+      <h2>Notação de Pontos, Vetores e Escalares</h2>
+      <h3 class="mission-subtitle">Protocolo de Comunicação Padrão</h3>
+      <div class="concept-definition">
+        <ul>
+          <li>
+            <strong>Pontos</strong>: letras maiúsculas \(A\), \(B\), \(P\).
+            Indicam uma <em>posição</em> específica no plano.
+            Exemplo: \(A(2,3)\), \(B(-1,4)\).
+          </li>
+          <li>
+            <strong>Vetores</strong>: letras minúsculas com seta \(\vec{u}\), \(\vec{v}\), \(\vec{w}\).
+            Indicam <em>deslocamento</em> com direção e magnitude.
+            Exemplo: \(\vec{u} = (2,3)\), \(\vec{v} = (-1,4)\).
+          </li>
+          <li>
+            <strong>Escalares</strong>: letras gregas minúsculas \(\alpha\), \(\beta\), \(\theta\).
+            Representam valores numéricos que escalonam ou medem.
+            Exemplo: \(\alpha = 2\), \(\theta = 60^\circ\).
+          </li>
+        </ul>
+      </div>
+      <div class="survival-tip">
+        <p>
+          Protocolo de Comunicação: "Usar a notação correta evita confusões fatais.
+          Um ponto marca um lugar, um vetor marca um caminho, um escalar marca uma intensidade."
+        </p>
+      </div>
+    </section>
+
+    <!-- Slide 2.3 — Igualdade de Pares Ordenados -->
+    <section class="mission-briefing">
+      <h2>Igualdade de Pares Ordenados</h2>
+      <h3 class="mission-subtitle">Verificando Coordenadas</h3>
+      <div class="concept-definition">
+        <p>
+          Dois pares ordenados são iguais se, e somente se, suas coordenadas correspondentes forem iguais:
+        </p>
+        <p class="formula">
+          \[(a,b) = (c,d) \iff a = c \;\text{e}\; b = d\]
+        </p>
+      </div>
+      <div class="definition-box">
+        <p><strong>Exemplo numérico:</strong></p>
+        <p>
+          Verifique se \((3, 5) = (3, 5)\). Sim: \(3 = 3\) e \(5 = 5\).
+        </p>
+        <p>
+          Verifique se \((2, 7) = (2, 4)\). Não: embora \(2 = 2\), temos \(7 \neq 4\).
+        </p>
+      </div>
+      <div class="survival-tip">
+        <p>
+          Esta condição é a base para verificar se duas coordenadas apontam para o mesmo local
+          ou se dois deslocamentos são idênticos.
+        </p>
+      </div>
+    </section>
+
+    <!-- Slide 2.4 — Treinamento: Notação e Igualdade -->
+    <section class="survival-training level-basic">
+      <h2>Treinamento: Notação e Igualdade</h2>
+      <h3 class="mission-subtitle">Nível Básico <span class="level-indicator">BÁSICO</span></h3>
+
+      <div class="training-problem">
+        <h4>Problema #1: Classificação de Sinais</h4>
+        <p>Classifique cada item abaixo como ponto, vetor ou escalar:</p>
+        <ul>
+          <li>\(A(3,4)\)</li>
+          <li>\(\vec{v} = (3,4)\)</li>
+          <li>\(\alpha = 3\)</li>
+        </ul>
+        <p class="mnemonic">
+          Dica: observe o símbolo que acompanha o par ordenado — ou a ausência dele.
+        </p>
+      </div>
+
+      <div class="training-problem">
+        <h4>Problema #2: Igualdade de Pares Ordenados</h4>
+        <p>
+          Encontre os valores de \(x\) e \(y\) tais que:
+        </p>
+        <p class="formula">
+          \[(x + 2,\; 3y) = (5,\; 9)\]
+        </p>
+        <p class="mnemonic">
+          Dica: aplique a condição de igualdade — coordenadas correspondentes devem coincidir.
+        </p>
+      </div>
+
+      <div class="problem-context">
+        <p>
+          Uma equipe de reconhecimento precisa confirmar coordenadas antes de marcar
+          um ponto de extração de suprimentos. Erros de igualdade custam vidas.
+        </p>
+      </div>
+    </section>
+
+  </section>
+
+</div>
+</div>
+<script src="https://unpkg.com/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(','\\)')],
+      displayMath: [['\\[','\\]']]
+    }
+  };
+  Reveal.initialize({ hash: true, slideNumber: true });
+</script>
+</body>
+</html>

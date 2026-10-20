@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>DISTÂNCIA PRESCRITA</h3>
+
+<p>O Refúgio-Delta está em $P(2, k)$, onde $k$ é um parâmetro desconhecido que depende da altitude do terreno. Uma fronteira de contaminação é representada pela reta $r: 3x - 4y + 12 = 0$. O manual de segurança do SUPERVISOR exige que todo abrigo mantenha distância mínima de $2$ unidades da fronteira. Encontre o valor (ou valores) de $k$ para que a distância de $P$ a $r$ seja exatamente $2$. Há mais de uma possibilidade? Interprete geometricamente.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Aplique a fórmula da distância ponto-reta com $x_0 = 2$ e $y_0 = k$, e iguale a $2$. Você terá uma equação com valor absoluto — lembre-se de que $|X| = 2$ significa $X = 2$ ou $X = -2$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Aplique a fórmula: $d = \frac{|3(2) - 4(k) + 12|}{\sqrt{3^2 + (-4)^2}} = \frac{|6 - 4k + 12|}{5} = \frac{|18 - 4k|}{5}$.</li>
+<li>Iguale a $2$: $\frac{|18 - 4k|}{5} = 2 \Rightarrow |18 - 4k| = 10$.</li>
+<li>Caso 1: $18 - 4k = 10 \Rightarrow 4k = 8 \Rightarrow k = 2$.</li>
+<li>Caso 2: $18 - 4k = -10 \Rightarrow 4k = 28 \Rightarrow k = 7$.</li>
+<li>Verificação: para $k = 2$, $d = \frac{|18 - 8|}{5} = \frac{10}{5} = 2$ ✓; para $k = 7$, $d = \frac{|18 - 28|}{5} = \frac{10}{5} = 2$ ✓.</li>
+</ol>
+<div class="formula">
+$$\frac{|18 - 4k|}{5} = 2 \implies |18 - 4k| = 10 \implies k = 2 \text{ ou } k = 7$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Existem duas posições possíveis para o Refúgio-Delta: uma acima da fronteira ($k = 7$) e uma abaixo ($k = 2$). Geometricamente, os pontos à distância $2$ de uma reta formam duas retas paralelas, uma de cada lado. Na Zona Devastada, isso significa que há duas "faixas de segurança" paralelas à fronteira — escolher qual delas ocupar depende de fatores além da matemática, como acesso a água e terreno defendível.</p>
+</details>
+</div>

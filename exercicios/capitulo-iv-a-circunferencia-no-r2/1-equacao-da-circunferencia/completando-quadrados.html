@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>COMPLETANDO QUADRADOS NO REFÚGIO</h3>
+
+<p>No exercício anterior sobre expansão de formas, a passagem foi canônica → geral. O caminho inverso também existe e é fundamental: dada a forma geral, recuperar centro e raio. A técnica é <strong>completar quadrados</strong> — a mesma manipulação dos produtos notáveis, aplicada ao contrário. Dada a equação $x^2 + y^2 - 6x + 4y - 3 = 0$, agrupe os termos em $x$ e em $y$, complete os quadrados e identifique o centro e o raio. No papel, esboce a circunferência encontrada com seu centro e raio.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Reescreva a equação agrupando: $(x^2 - 6x + \;) + (y^2 + 4y + \;) = 3$. Para completar $x^2 - 6x$, some $(6/2)^2 = 9$. Para completar $y^2 + 4y$, some $(4/2)^2 = 4$. Lembre-se: o que você soma de um lado deve ser somado do outro.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Reescreva: $x^2 - 6x + y^2 + 4y = 3$. Passe o $-3$ para a direita.</li>
+<li>Complete os quadrados: $x^2 - 6x \to (x^2 - 6x + 9) - 9$, isto é, $(x - 3)^2 - 9$.</li>
+<li>$y^2 + 4y \to (y^2 + 4y + 4) - 4$, isto é, $(y + 2)^2 - 4$.</li>
+<li>Substitua: $(x - 3)^2 - 9 + (y + 2)^2 - 4 = 3$.</li>
+<li>Simplifique: $(x - 3)^2 + (y + 2)^2 = 3 + 9 + 4 = 16$.</li>
+<li>Identifique: centro $C(3, -2)$, raio $r = \sqrt{16} = 4$.</li>
+</ol>
+<div class="formula">
+$$(x - 3)^2 + (y + 2)^2 = 16 \qquad C(3,-2),\; r = 4$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Completar quadrados é como decodificar um sinal embaralhado — a informação do centro e do raio estava escondida nos coeficientes da forma geral, e a técnica a recupera. Na Zona Devastada, sinais interceptados raramente vêm em formato limpo; saber extrair a informação essencial é habilidade de sobrevivência.</p>
+</details>
+</div>
