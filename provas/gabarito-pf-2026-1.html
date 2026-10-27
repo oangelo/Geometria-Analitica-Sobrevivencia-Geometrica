@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gabarito - PF 2026.1 - Geometria Analítica</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <script>
+        // Configuração do MathJax para funcionar com <details>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            options: {
+                skipHtmlTags: ['details'] // Permite que MathJax renderize dentro de <details>
+            },
+            startup: {
+                ready: () => {
+                    MathJax.startup.defaultReady();
+                }
+            }
+        };
+    </script>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            background-color: #fff;
+            color: #000;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .header h1 {
+            text-align: center;
+            font-size: 16pt;
+            font-weight: bold;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .question {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+        }
+
+        .question:last-child {
+            border-bottom: none;
+        }
+        
+        .question-header {
+            font-weight: bold;
+            font-size: 13pt;
+            color: #000;
+            border-left: 4px solid #000;
+            padding: 8px 10px;
+            background-color: #f0f0f0;
+            margin-bottom: 12px;
+        }
+        
+        .subquestion {
+            margin: 10px 0 10px 20px;
+        }
+        
+        details {
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        summary {
+            font-weight: bold;
+            padding: 8px 12px;
+            cursor: pointer;
+            background-color: #e9e9e9;
+            font-size: 10pt;
+            border-radius: 3px;
+        }
+        .answer {
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            background-color: #fff;
+        }
+        .answer p {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Gabarito - PF 2026.1</h1>
+        </div>
+        <div class="content">
+            <!-- Questão 1 -->
+            <div class="question">
+                <div class="question-header">Questão 1: A circunferência definida por três pontos (2,5 pts)</div>
+                <p>Determine a equação da circunferência que passa pelos pontos \(A = (7, -1)\), \(B = (2, 4)\) e \(C = (-1, 3)\).</p>
+                <p><em><b>Justificativa Didática:</b> Esta questão integra os Capítulos III e IV: as mediatrizes exigem ponto médio, coeficiente angular e perpendicularismo; o circuncentro é a interseção de retas; o raio conecta distância entre pontos e equação da circunferência. O item final verifica o resultado por duas vias — distâncias iguais e substituição dos três pontos — consolidando a coerência entre geometria e álgebra.</em></p>
+                
+                <div class="subquestion">
+                    <strong>a)</strong> (0,6 pt) Calcule os pontos médios \(M_{AB}\) e \(M_{AC}\) e escreva as equações das mediatrizes dos lados \(AB\) e \(AC\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p><b>Ponto médio \(M_{AB}\):</b></p>
+                            <p>\[M_{AB} = \left(\frac{7 + 2}{2}, \frac{-1 + 4}{2}\right) = \left(\frac{9}{2}, \frac{3}{2}\right)\]</p>
+                            <p><b>Coeficiente angular de \(AB\):</b></p>
+                            <p>\[m_{AB} = \frac{4 - (-1)}{2 - 7} = \frac{5}{-5} = -1\]</p>
+                            <p>A mediatriz é perpendicular a \(AB\), logo seu coeficiente angular é \(m_{\perp} = 1\). Assim:</p>
+                            <p>\[y - \frac{3}{2} = 1\left(x - \frac{9}{2}\right) \Rightarrow y = x - 3 \Rightarrow x - y - 3 = 0\]</p>
+                            <p><b>Ponto médio \(M_{AC}\):</b></p>
+                            <p>\[M_{AC} = \left(\frac{7 + (-1)}{2}, \frac{-1 + 3}{2}\right) = (3, 1)\]</p>
+                            <p><b>Coeficiente angular de \(AC\):</b></p>
+                            <p>\[m_{AC} = \frac{3 - (-1)}{-1 - 7} = \frac{4}{-8} = -\frac{1}{2}\]</p>
+                            <p>A mediatriz é perpendicular a \(AC\), logo \(m_{\perp} = 2\). Assim:</p>
+                            <p>\[y - 1 = 2(x - 3) \Rightarrow y = 2x - 5 \Rightarrow 2x - y - 5 = 0\]</p>
+                            <p><strong>Resposta:</strong> \(M_{AB} = \left(\frac{9}{2}, \frac{3}{2}\right)\), mediatriz \(x - y - 3 = 0\); \(M_{AC} = (3, 1)\), mediatriz \(2x - y - 5 = 0\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>b)</strong> (0,6 pt) Determine o circuncentro \(O\), interseção das duas mediatrizes.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Resolvemos o sistema formado pelas duas mediatrizes:</p>
+                            <p>\[\begin{cases} x - y = 3 \\ 2x - y = 5 \end{cases}\]</p>
+                            <p>Subtraindo a primeira equação da segunda:</p>
+                            <p>\[(2x - y) - (x - y) = 5 - 3 \Rightarrow x = 2\]</p>
+                            <p>Substituindo em \(x - y = 3\):</p>
+                            <p>\[2 - y = 3 \Rightarrow y = -1\]</p>
+                            <p><strong>Resposta:</strong> \(O = (2, -1)\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>c)</strong> (0,7 pt) Calcule o raio \(R\) e escreva a equação da circunferência nas formas reduzida e geral.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>O raio é a distância do centro \(O\) ao vértice \(A\):</p>
+                            <p>\[R = d(O, A) = \sqrt{(7 - 2)^2 + (-1 - (-1))^2} = \sqrt{5^2 + 0^2} = 5\]</p>
+                            <p><b>Forma reduzida:</b></p>
+                            <p>\[(x - 2)^2 + (y + 1)^2 = 25\]</p>
+                            <p><b>Forma geral:</b> expandindo os quadrados:</p>
+                            <p>\[x^2 - 4x + 4 + y^2 + 2y + 1 = 25 \Rightarrow x^2 + y^2 - 4x + 2y - 20 = 0\]</p>
+                            <p><strong>Resposta:</strong> \(R = 5\); \((x - 2)^2 + (y + 1)^2 = 25\) ou \(x^2 + y^2 - 4x + 2y - 20 = 0\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>d)</strong> (0,6 pt) Verifique que \(OA = OB = OC = R\) e substitua os pontos \(A\), \(B\) e \(C\) na equação obtida.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p><b>Distâncias ao centro:</b></p>
+                            <p>\[OA = \sqrt{(7 - 2)^2 + (-1 + 1)^2} = 5\]</p>
+                            <p>\[OB = \sqrt{(2 - 2)^2 + (4 + 1)^2} = \sqrt{25} = 5\]</p>
+                            <p>\[OC = \sqrt{(-1 - 2)^2 + (3 + 1)^2} = \sqrt{9 + 16} = 5\]</p>
+                            <p>Logo \(OA = OB = OC = R = 5\). <strong>(Ok)</strong></p>
+                            <p><b>Substituição na equação \(x^2 + y^2 - 4x + 2y - 20 = 0\):</b></p>
+                            <p>\[A(7, -1): \quad 49 + 1 - 28 - 2 - 20 = 0 \quad \textbf{(Ok)}\]</p>
+                            <p>\[B(2, 4): \quad 4 + 16 - 8 + 8 - 20 = 0 \quad \textbf{(Ok)}\]</p>
+                            <p>\[C(-1, 3): \quad 1 + 9 + 4 + 6 - 20 = 0 \quad \textbf{(Ok)}\]</p>
+                            <p><strong>Resposta:</strong> Os três pontos equidistam do centro e satisfazem a equação, confirmando a circunferência.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Questão 2 -->
+            <div class="question">
+                <div class="question-header">Questão 2: A hipérbole — forma transladada e elementos (2,5 pts)</div>
+                <p>Considere a equação \(16x^2 - 9y^2 - 32x + 36y - 164 = 0\).</p>
+                <p><em><b>Justificativa Didática:</b> Esta questão cobra o Capítulo V: reconhecer uma hipérbole de centro fora da origem, completar quadrados e extrair semieixos, focos, vértices, excentricidade e assíntotas. O item final usa a definição focal da hipérbole como verificação independente da forma reduzida.</em></p>
+                
+                <div class="subquestion">
+                    <strong>a)</strong> (0,6 pt) Complete os quadrados, escreva a forma reduzida e determine o centro \(C\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Agrupando os termos em \(x\) e em \(y\):</p>
+                            <p>\[16(x^2 - 2x) - 9(y^2 - 4y) = 164\]</p>
+                            <p>Completando os quadrados:</p>
+                            <p>\[16\left[(x - 1)^2 - 1\right] - 9\left[(y - 2)^2 - 4\right] = 164\]</p>
+                            <p>\[16(x - 1)^2 - 16 - 9(y - 2)^2 + 36 = 164\]</p>
+                            <p>\[16(x - 1)^2 - 9(y - 2)^2 = 144\]</p>
+                            <p>Dividindo por \(144\):</p>
+                            <p>\[\frac{(x - 1)^2}{9} - \frac{(y - 2)^2}{16} = 1\]</p>
+                            <p><strong>Resposta:</strong> Forma reduzida \(\frac{(x - 1)^2}{9} - \frac{(y - 2)^2}{16} = 1\) e centro \(C = (1, 2)\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>b)</strong> (0,6 pt) Determine os semieixos \(a\) e \(b\), a semidistância focal \(c\) e os focos \(F_1\) e \(F_2\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Como o termo positivo está em \((x - 1)^2\), o eixo real é horizontal:</p>
+                            <p>\[a^2 = 9 \Rightarrow a = 3, \qquad b^2 = 16 \Rightarrow b = 4\]</p>
+                            <p>Na hipérbole, \(c^2 = a^2 + b^2\):</p>
+                            <p>\[c^2 = 9 + 16 = 25 \Rightarrow c = 5\]</p>
+                            <p>Os focos estão a uma distância \(c = 5\) do centro, sobre a horizontal \(y = 2\):</p>
+                            <p>\[F_1 = (1 + 5, 2) = (6, 2), \qquad F_2 = (1 - 5, 2) = (-4, 2)\]</p>
+                            <p><strong>Resposta:</strong> \(a = 3\), \(b = 4\), \(c = 5\), \(F_1 = (6, 2)\) e \(F_2 = (-4, 2)\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>c)</strong> (0,7 pt) Determine os vértices, a excentricidade \(e\) e as equações das assíntotas.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p><b>Vértices</b> (a uma distância \(a = 3\) do centro, na horizontal):</p>
+                            <p>\[V_1 = (1 + 3, 2) = (4, 2), \qquad V_2 = (1 - 3, 2) = (-2, 2)\]</p>
+                            <p><b>Excentricidade:</b></p>
+                            <p>\[e = \frac{c}{a} = \frac{5}{3}\]</p>
+                            <p><b>Assíntotas:</b> como o eixo real é horizontal,</p>
+                            <p>\[y - 2 = \pm\frac{b}{a}(x - 1) = \pm\frac{4}{3}(x - 1)\]</p>
+                            <p>Logo:</p>
+                            <p>\[y = \frac{4}{3}x + \frac{2}{3} \qquad \text{e} \qquad y = -\frac{4}{3}x + \frac{10}{3}\]</p>
+                            <p><strong>Resposta:</strong> \(V_1 = (4, 2)\), \(V_2 = (-2, 2)\), \(e = \frac{5}{3}\) e assíntotas \(y = \frac{4}{3}x + \frac{2}{3}\) e \(y = -\frac{4}{3}x + \frac{10}{3}\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>d)</strong> (0,6 pt) Verifique, no vértice \((4, 2)\), que \(\bigl|\,|\overrightarrow{PF_1}| - |\overrightarrow{PF_2}|\,\bigr| = 2a\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Para \(P = (4, 2)\), com \(F_1 = (6, 2)\) e \(F_2 = (-4, 2)\):</p>
+                            <p>\[PF_1 = d(P, F_1) = \sqrt{(4 - 6)^2 + (2 - 2)^2} = \sqrt{4} = 2\]</p>
+                            <p>\[PF_2 = d(P, F_2) = \sqrt{(4 + 4)^2 + (2 - 2)^2} = \sqrt{64} = 8\]</p>
+                            <p>\[\bigl|\,PF_1 - PF_2\,\bigr| = |2 - 8| = 6 = 2a\]</p>
+                            <p><strong>Resposta:</strong> A diferença das distâncias é \(6 = 2a\), confirmando que o ponto \((4, 2)\) pertence à hipérbole.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Questão 3 -->
+            <div class="question">
+                <div class="question-header">Questão 3: Produto vetorial, produto misto e coplanaridade (2,5 pts)</div>
+                <p>Considere os pontos \(A = (2, 0, 1)\), \(B = (4, 1, 2)\), \(C = (3, -1, 3)\) e \(D = (1, 2, 4)\) no espaço.</p>
+                <p><em><b>Justificativa Didática:</b> Esta questão avalia o núcleo do Capítulo VI: o produto vetorial como ferramenta de área e ortogonalidade e o produto misto como ferramenta de volume e coplanaridade. O item final verifica a ortogonalidade por produto escalar e usa o produto misto para decidir a coplanaridade dos quatro pontos.</em></p>
+                
+                <div class="subquestion">
+                    <strong>a)</strong> (0,6 pt) Determine os vetores \(\vec{AB}\) e \(\vec{AC}\) e calcule o produto vetorial \(\vec{AB} \times \vec{AC}\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>\[\vec{AB} = B - A = (4 - 2, 1 - 0, 2 - 1) = (2, 1, 1)\]</p>
+                            <p>\[\vec{AC} = C - A = (3 - 2, -1 - 0, 3 - 1) = (1, -1, 2)\]</p>
+                            <p>Produto vetorial:</p>
+                            <p>\[\vec{AB} \times \vec{AC} = \begin{vmatrix} \vec{e}_1 & \vec{e}_2 & \vec{e}_3 \\ 2 & 1 & 1 \\ 1 & -1 & 2 \end{vmatrix} = (1 \cdot 2 - 1 \cdot (-1))\vec{e}_1 - (2 \cdot 2 - 1 \cdot 1)\vec{e}_2 + (2 \cdot (-1) - 1 \cdot 1)\vec{e}_3\]</p>
+                            <p>\[= (2 + 1)\vec{e}_1 - (4 - 1)\vec{e}_2 + (-2 - 1)\vec{e}_3 = (3, -3, -3)\]</p>
+                            <p><strong>Resposta:</strong> \(\vec{AB} = (2, 1, 1)\), \(\vec{AC} = (1, -1, 2)\) e \(\vec{AB} \times \vec{AC} = (3, -3, -3)\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>b)</strong> (0,6 pt) Calcule a área do triângulo de vértices \(A\), \(B\) e \(C\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>A área do triângulo é metade do módulo do produto vetorial:</p>
+                            <p>\[|\vec{AB} \times \vec{AC}| = \sqrt{3^2 + (-3)^2 + (-3)^2} = \sqrt{9 + 9 + 9} = \sqrt{27} = 3\sqrt{3}\]</p>
+                            <p>\[\text{Área} = \frac{1}{2}\,|\vec{AB} \times \vec{AC}| = \frac{3\sqrt{3}}{2}\]</p>
+                            <p><strong>Resposta:</strong> Área \(= \frac{3\sqrt{3}}{2}\) unidades de área.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>c)</strong> (0,7 pt) Determine o vetor \(\vec{AD}\) e o produto misto \([\vec{AB}, \vec{AC}, \vec{AD}]\); calcule o volume do paralelepípedo definido por \(\vec{AB}\), \(\vec{AC}\) e \(\vec{AD}\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>\[\vec{AD} = D - A = (1 - 2, 2 - 0, 4 - 1) = (-1, 2, 3)\]</p>
+                            <p>O produto misto é o produto escalar de \(\vec{AB} \times \vec{AC}\) com \(\vec{AD}\):</p>
+                            <p>\[[\vec{AB}, \vec{AC}, \vec{AD}] = (3, -3, -3) \cdot (-1, 2, 3) = 3(-1) + (-3)(2) + (-3)(3) = -3 - 6 - 9 = -18\]</p>
+                            <p>O volume do paralelepípedo é o módulo do produto misto:</p>
+                            <p>\[V = |[\vec{AB}, \vec{AC}, \vec{AD}]| = |-18| = 18\]</p>
+                            <p><strong>Resposta:</strong> \(\vec{AD} = (-1, 2, 3)\), \([\vec{AB}, \vec{AC}, \vec{AD}] = -18\) e \(V = 18\) unidades de volume.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>d)</strong> (0,6 pt) Verifique que \(\vec{AB} \times \vec{AC}\) é ortogonal a \(\vec{AB}\) e a \(\vec{AC}\) e use o produto misto para decidir se os pontos \(A\), \(B\), \(C\) e \(D\) são coplanares.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p><b>Ortogonalidade com \(\vec{AB}\):</b></p>
+                            <p>\[(3, -3, -3) \cdot (2, 1, 1) = 6 - 3 - 3 = 0 \quad \textbf{(Ok)}\]</p>
+                            <p><b>Ortogonalidade com \(\vec{AC}\):</b></p>
+                            <p>\[(3, -3, -3) \cdot (1, -1, 2) = 3 + 3 - 6 = 0 \quad \textbf{(Ok)}\]</p>
+                            <p><b>Coplanaridade:</b> quatro pontos são coplanares se, e somente se, o produto misto dos três vetores que partem de um deles é nulo. Como \([\vec{AB}, \vec{AC}, \vec{AD}] = -18 \neq 0\), os vetores não são coplanares e, portanto, os pontos \(A\), \(B\), \(C\) e \(D\) <strong>não são coplanares</strong>.</p>
+                            <p><strong>Resposta:</strong> O produto vetorial é ortogonal a \(\vec{AB}\) e a \(\vec{AC}\), e como o produto misto é não nulo, os quatro pontos não são coplanares.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Questão 4 -->
+            <div class="question">
+                <div class="question-header">Questão 4: Sistema linear com parâmetro (2,5 pts)</div>
+                <p>Considere o sistema linear</p>
+                <p>\[\begin{cases} x + y + z = 1 \\ 2x + ky + z = 0 \\ x + y + kz = 3 \end{cases}\]</p>
+                <p><em><b>Justificativa Didática:</b> Esta questão conecta sistemas lineares e geometria no Capítulo VI. O determinante identifica os valores críticos do parâmetro; o escalonamento distingue SI, SPI e SPD; o item final verifica a solução única por substituição nas três equações.</em></p>
+                
+                <div class="subquestion">
+                    <strong>a)</strong> (0,6 pt) Calcule o determinante da matriz dos coeficientes e determine para quais valores de \(k\) ele é zero.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>A matriz dos coeficientes é</p>
+                            <p>\[M = \begin{pmatrix} 1 & 1 & 1 \\ 2 & k & 1 \\ 1 & 1 & k \end{pmatrix}\]</p>
+                            <p>Calculando o determinante pela primeira linha:</p>
+                            <p>\[\det(M) = 1 \cdot (k \cdot k - 1 \cdot 1) - 1 \cdot (2 \cdot k - 1 \cdot 1) + 1 \cdot (2 \cdot 1 - k \cdot 1)\]</p>
+                            <p>\[= (k^2 - 1) - (2k - 1) + (2 - k)\]</p>
+                            <p>\[= k^2 - 1 - 2k + 1 + 2 - k = k^2 - 3k + 2\]</p>
+                            <p>Fatorando:</p>
+                            <p>\[\det(M) = (k - 1)(k - 2)\]</p>
+                            <p><b>Leitura:</b> se \(k \neq 1\) e \(k \neq 2\), então \(\det(M) \neq 0\) e o sistema é possível e determinado (SPD), com solução única. Se \(k = 1\) ou \(k = 2\), então \(\det(M) = 0\) e o sistema pode ser possível e indeterminado (SPI) ou impossível (SI); é necessário escalonar.</p>
+                            <p><strong>Resposta:</strong> \(\det(M) = (k - 1)(k - 2)\); o determinante é zero para \(k = 1\) e \(k = 2\), e diferente de zero para \(k \neq 1\) e \(k \neq 2\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>b)</strong> (0,6 pt) Para \(k = 1\), escreva a matriz aumentada, escalone e classifique o sistema.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Para \(k = 1\), a matriz aumentada é</p>
+                            <p>\[\left[ \begin{array}{ccc|c} 1 & 1 & 1 & 1 \\ 2 & 1 & 1 & 0 \\ 1 & 1 & 1 & 3 \end{array} \right]\]</p>
+                            <p>Operações: \(L_2 \leftarrow L_2 - 2L_1\) e \(L_3 \leftarrow L_3 - L_1\):</p>
+                            <p>\[\left[ \begin{array}{ccc|c} 1 & 1 & 1 & 1 \\ 0 & -1 & -1 & -2 \\ 0 & 0 & 0 & 2 \end{array} \right]\]</p>
+                            <p>A última linha corresponde a \(0 = 2\), uma linha impossível. Logo \(\text{posto}(M) = 2\) e \(\text{posto}(M|b) = 3\): o sistema é impossível.</p>
+                            <p><strong>Resposta:</strong> SI; o conjunto-solução é vazio, \(\emptyset\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>c)</strong> (0,7 pt) Para \(k = 2\), escreva a matriz aumentada, escalone, classifique o sistema e determine o conjunto-solução.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Para \(k = 2\), a matriz aumentada é</p>
+                            <p>\[\left[ \begin{array}{ccc|c} 1 & 1 & 1 & 1 \\ 2 & 2 & 1 & 0 \\ 1 & 1 & 2 & 3 \end{array} \right]\]</p>
+                            <p>Operações: \(L_2 \leftarrow L_2 - 2L_1\) e \(L_3 \leftarrow L_3 - L_1\):</p>
+                            <p>\[\left[ \begin{array}{ccc|c} 1 & 1 & 1 & 1 \\ 0 & 0 & -1 & -2 \\ 0 & 0 & 1 & 2 \end{array} \right]\]</p>
+                            <p>Somando \(L_3\) com \(L_2\):</p>
+                            <p>\[\left[ \begin{array}{ccc|c} 1 & 1 & 1 & 1 \\ 0 & 0 & -1 & -2 \\ 0 & 0 & 0 & 0 \end{array} \right]\]</p>
+                            <p>Da segunda linha, \(-z = -2 \Rightarrow z = 2\). Substituindo na primeira:</p>
+                            <p>\[x + y + 2 = 1 \Rightarrow x + y = -1\]</p>
+                            <p>Fazendo \(x = t\), obtemos \(y = -1 - t\). Há um pivô livre e uma variável livre, então o sistema é possível e indeterminado.</p>
+                            <p>\[(x, y, z) = (t, -1 - t, 2), \quad t \in \mathbb{R}\]</p>
+                            <p><strong>Resposta:</strong> SPI; conjunto-solução \((t, -1 - t, 2)\), \(t \in \mathbb{R}\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>d)</strong> (0,6 pt) Verificação: tome \(k = 0\), determine a solução única do sistema e verifique-a nas três equações.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Para \(k = 0\), o sistema é</p>
+                            <p>\[\begin{cases} x + y + z = 1 \\ 2x + z = 0 \\ x + y = 3 \end{cases}\]</p>
+                            <p>Da terceira equação, \(y = 3 - x\). Substituindo na primeira:</p>
+                            <p>\[x + (3 - x) + z = 1 \Rightarrow 3 + z = 1 \Rightarrow z = -2\]</p>
+                            <p>Substituindo em \(2x + z = 0\):</p>
+                            <p>\[2x - 2 = 0 \Rightarrow x = 1\]</p>
+                            <p>Logo \(y = 3 - 1 = 2\). A solução é \((x, y, z) = (1, 2, -2)\).</p>
+                            <p><b>Verificação nas três equações:</b></p>
+                            <p>\[1 + 2 + (-2) = 1 \quad \textbf{(Ok)}\]</p>
+                            <p>\[2(1) + 0 \cdot 2 + (-2) = 0 \quad \textbf{(Ok)}\]</p>
+                            <p>\[1 + 2 + 0 \cdot (-2) = 3 \quad \textbf{(Ok)}\]</p>
+                            <p><strong>Resposta:</strong> Para \(k = 0\), a solução única é \((1, 2, -2)\), que satisfaz as três equações.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
