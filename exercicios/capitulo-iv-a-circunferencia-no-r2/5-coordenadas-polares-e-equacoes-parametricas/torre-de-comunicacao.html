@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>TORRE DE COMUNICAÇÃO</h3>
+
+<p>Nos exercícios anteriores, a equação paramétrica foi dada e você extraiu informações dela. Agora o caminho se inverte: uma torre de comunicação está instalada em $C(3, 1)$ e seu sinal atinge um raio de $5$ unidades. Escreva a equação paramétrica da circunferência de cobertura. Depois, determine a posição do ponto mais ao norte da torre — o ponto de maior altitude que ainda recebe sinal — substituindo o valor adequado de $t$. No papel, esboce o centro $C(3, 1)$, a circunferência de raio $5$, e destaque o ponto mais ao norte.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>A paramétrica de uma circunferência com centro $(a, b)$ e raio $r$ é $x = a + r\cos t$, $y = b + r\sin t$. O ponto mais ao norte corresponde ao maior valor possível de $y$. Na expressão $y = b + r\sin t$, qual valor de $t$ maximiza $\sin t$?</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Centro $C(3, 1)$ e raio $r = 5$. Equação paramétrica: $x = 3 + 5\cos t$, $y = 1 + 5\sin t$.</li>
+<li>O ponto mais ao norte tem o maior $y$: $y = 1 + 5\sin t$ é máximo quando $\sin t = 1$, ou seja, $t = 90°$.</li>
+<li>Substituindo $t = 90°$: $x = 3 + 5\cos 90° = 3 + 0 = 3$, $y = 1 + 5\sin 90° = 1 + 5 = 6$.</li>
+<li>Ponto mais ao norte: $(3, 6)$. Distância ao centro: $\sqrt{(3-3)^2 + (6-1)^2} = 5 = r$ ✓.</li>
+</ol>
+<div class="formula">
+$$x = 3 + 5\cos t, \qquad y = 1 + 5\sin t$$
+$$t = 90° \to (3, 6) \quad(\text{ponto mais ao norte})$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Construir a paramétrica a partir do centro e do raio é a habilidade complementar à extração. Uma permite ler o sinal interceptado; a outra permite programar o próprio equipamento. Juntas, formam o ciclo completo de comunicação na Zona Devastada.</p>
+</details>
+</div>

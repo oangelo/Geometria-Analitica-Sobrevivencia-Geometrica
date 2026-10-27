@@ -1,0 +1,26 @@
+<div class="exercise">
+<h3>A DEDUÇÃO DO BARICENTRO</h3>
+<p>Três colônias formam um triângulo defensivo: $A(0, 0)$, $B(6, 0)$ e $C(0, 6)$. O Conselho precisa instalar um ponto de comando central $G$ — o <strong>baricentro</strong> do triângulo — que será o centro de gravidade do território. O objetivo deste exercício é <strong>deduzir</strong> a fórmula do baricentro usando medianas e pontos médios, não decorá-la. Desenhe o triângulo e as medianas no plano cartesiano.</p>
+<p><strong>(a)</strong> Calcule os pontos médios $M_1$ (de $AB$), $M_2$ (de $BC$) e $M_3$ (de $CA$). Estas são as bases das três medianas.</p>
+<p><strong>(b)</strong> Escreva a parametrização da mediana que vai de $A$ até $M_2$: $P(t) = A + t \cdot \vec{AM_2}$, com $t \in [0, 1]$. Analogamente, parametrize a mediana que vai de $B$ até $M_3$: $Q(s) = B + s \cdot \vec{BM_3}$, com $s \in [0, 1]$.</p>
+<p><strong>(c)</strong> O baricentro $G$ é o ponto onde as duas medianas se encontram. Iguale $P(t) = Q(s)$ e resolva o sistema para encontrar $t$, $s$ e as coordenadas de $G$. O que você observa sobre os valores de $t$ e $s$?</p>
+<p><strong>(d)</strong> Generalize: se os vértices são $A(x_1, y_1)$, $B(x_2, y_2)$ e $C(x_3, y_3)$, substitua na expressão encontrada e escreva a fórmula geral do baricentro $G$.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>No item (b), a parametrização $P(t) = A + t \cdot \vec{AM_2}$ percorre a mediana de $A$ (quando $t = 0$) até $M_2$ (quando $t = 1$). No item (c), igualar as duas expressões coordenada a coordenada gera duas equações com duas incógnitas ($t$ e $s$). O valor de $t = \frac{2}{3}$ revela que o baricentro está a $\frac{2}{3}$ do caminho de cada vértice até o ponto médio oposto.</p>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>$M_1 = (3, 0)$, $M_2 = (3, 3)$, $M_3 = (0, 3)$. (Estes são os mesmos pontos médios calculados no Exercício 3.)</li>
+<li>Mediana de $A$ a $M_2$: $\vec{AM_2} = (3, 3)$, logo $P(t) = (0 + 3t,\; 0 + 3t) = (3t, 3t)$. Mediana de $B$ a $M_3$: $\vec{BM_3} = (-6, 3)$, logo $Q(s) = (6 - 6s,\; 0 + 3s) = (6 - 6s, 3s)$.</li>
+<li>Igualando $P(t) = Q(s)$ coordenada a coordenada: $3t = 6 - 6s$ e $3t = 3s$. Da segunda: $t = s$. Substituindo na primeira: $3t = 6 - 6t$, logo $9t = 6$, ou seja $t = \frac{2}{3}$. Portanto $G = P\left(\frac{2}{3}\right) = (2, 2)$. Observação: $t = s = \frac{2}{3}$, confirmando que as medianas se encontram no mesmo ponto.</li>
+<li>Fórmula geral: $G = A + \frac{2}{3}\vec{AM_2}$. Como $M_2 = \left(\frac{x_2 + x_3}{2}, \frac{y_2 + y_3}{2}\right)$, temos: $$G = \left(x_1 + \frac{2}{3}\left(\frac{x_2 + x_3}{2} - x_1\right),\; y_1 + \frac{2}{3}\left(\frac{y_2 + y_3}{2} - y_1\right)\right)$$ Simplificando: $$G = \left(\frac{x_1 + x_2 + x_3}{3},\; \frac{y_1 + y_2 + y_3}{3}\right)$$</li>
+</ol>
+<div class="formula">
+$$G = A + \frac{2}{3}\vec{AM_2} = \left(\frac{x_1 + x_2 + x_3}{3}, \frac{y_1 + y_2 + y_3}{3}\right)$$
+$$G = (2, 2), \quad t = s = \frac{2}{3}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O baricentro não é uma fórmula arbitrária — ele emerge da interseção das medianas. O fato de $t = \frac{2}{3}$ significa que o baricentro está sempre a dois terços do caminho do vértice até o ponto médio oposto. Esta dedução mostra como três conceitos (ponto médio, parametrização, interseção) se unem para revelar um ponto de equilíbrio natural do triângulo.</p>
+</details>
+</div>

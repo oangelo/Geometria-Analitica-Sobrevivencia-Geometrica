@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>DISTRIBUTIVIDADE — SOMAR DEPOIS OU ANTES?</h3>
+
+<p>No exercício anterior, verificamos que a ordem dos vetores não importa (comutatividade). Agora outra pergunta prática: se três expedições partem com vetores $\vec{u} = (2, 1)$, $\vec{v} = (3, -1)$ e $\vec{w} = (-1, 4)$, será que $\vec{u} \cdot (\vec{v} + \vec{w})$ dá o mesmo que $\vec{u} \cdot \vec{v} + \vec{u} \cdot \vec{w}$? Em outras palavras: posso somar os vetores primeiro e depois fazer o produto escalar, ou fazer os produtos escalares primeiro e depois somar? Calcule ambos os lados e compare.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Lado esquerdo: primeiro some $\vec{v} + \vec{w}$, depois faça o produto escalar com $\vec{u}$. Lado direito: faça os dois produtos escalares separadamente, depois some os resultados numéricos.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Calcule a soma: $\vec{v} + \vec{w} = (3 + (-1), (-1) + 4) = (2, 3)$.</li>
+<li>Lado esquerdo: $\vec{u} \cdot (\vec{v} + \vec{w}) = (2, 1) \cdot (2, 3) = 2 \times 2 + 1 \times 3 = 4 + 3 = 7$.</li>
+<li>Lado direito — primeiro termo: $\vec{u} \cdot \vec{v} = 2 \times 3 + 1 \times (-1) = 6 - 1 = 5$.</li>
+<li>Lado direito — segundo termo: $\vec{u} \cdot \vec{w} = 2 \times (-1) + 1 \times 4 = -2 + 4 = 2$.</li>
+<li>Soma do lado direito: $5 + 2 = 7$.</li>
+<li>Compare: ambos os lados dão $7$. A distributividade é válida.</li>
+</ol>
+<div class="formula">
+$$\vec{u} \cdot (\vec{v} + \vec{w}) = 7 = \vec{u} \cdot \vec{v} + \vec{u} \cdot \vec{w}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A distributividade nos dá uma escolha tática: em vez de somar vetores primeiro (o que exige coordenadas completas), podemos fazer produtos escalares individuais e somar os resultados. Quando os dados chegam de fontes separadas — rádio A reporta $\vec{v}$, rádio B reporta $\vec{w}$ — não precisamos esperar pela soma para começar a calcular.</p>
+</details>
+</div>

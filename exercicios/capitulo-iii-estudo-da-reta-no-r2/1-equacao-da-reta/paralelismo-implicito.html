@@ -1,0 +1,32 @@
+<div class="exercise">
+<h3>PARALELISMO IMPLÍCITO</h3>
+
+<p>O Refúgio-31 precisa estabelecer uma rota de suprimentos que parta do ponto $P(1, 3)$ e siga na mesma direção de uma rota existente cuja equação paramétrica é $x = 2 + 4t$, $y = -1 + 3t$. No Capítulo I, aprendemos que retas paralelas compartilham a mesma direção — ou seja, o mesmo vetor diretor. Determine a equação paramétrica da nova rota e converta-a para a forma geral. Depois, verifique se a nova rota passa pelo ponto $Q(9, 9)$ — ele seria um depósito intermediário viável.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>O vetor diretor está explícito na equação paramétrica da reta existente: $\vec{d} = (4, 3)$. A nova reta usa o mesmo vetor diretor mas parte de $P(1, 3)$. A forma geral pode ser obtida eliminando $t$ ou usando o vetor normal $\vec{n} = (3, -4)$, que é perpendicular a $(4, 3)$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Identifique o vetor diretor da reta existente: $\vec{d} = (4, 3)$.</li>
+<li>A nova reta é paralela, então usa o mesmo vetor diretor e passa por $P(1, 3)$:
+   $x = 1 + 4t$, $y = 3 + 3t$.</li>
+<li>Elimine $t$: da primeira equação, $t = \frac{x-1}{4}$. Substituindo na segunda:
+   $y = 3 + 3 \cdot \frac{x-1}{4} = 3 + \frac{3x-3}{4} = \frac{12 + 3x - 3}{4} = \frac{3x + 9}{4}$.</li>
+<li>Multiplique por 4: $4y = 3x + 9$, ou $3x - 4y + 9 = 0$.</li>
+<li>Verificação de $Q(9, 9)$: $3(9) - 4(9) + 9 = 27 - 36 + 9 = 0$ ✓. O ponto pertence à nova reta.</li>
+<li>Alternativa pelo vetor normal: $\vec{n} = (3, -4)$ é perpendicular a $(4, 3)$ pois $(4, 3) \cdot (3, -4) = 12 - 12 = 0$. A equação geral é $3(x-1) + (-4)(y-3) = 0$, ou seja, $3x - 3 - 4y + 12 = 0$, que simplifica para $3x - 4y + 9 = 0$.</li>
+</ol>
+<div class="formula">
+$$\vec{d} = (4, 3), \quad x = 1 + 4t, \quad y = 3 + 3t$$
+$$3x - 4y + 9 = 0$$
+$$Q(9,9): \; 3(9) - 4(9) + 9 = 0 \; \checkmark$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Paralelismo significa mesma direção, caminhos que nunca se cruzam. Na Zona Devastada, rotas paralelas são usadas para criar corredores de evacuação redundantes — se uma rota é bloqueada, a outra mantém a mesma direção e pode ser usada sem recalcular orientação. O vetor normal, que aprendemos no Capítulo II via produto escalar, oferece um atalho elegante para construir a equação geral sem eliminar $t$.</p>
+</details>
+</div>

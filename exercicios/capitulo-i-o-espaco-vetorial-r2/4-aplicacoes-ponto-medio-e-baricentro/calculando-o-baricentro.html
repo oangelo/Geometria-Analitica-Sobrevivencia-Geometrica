@@ -1,0 +1,23 @@
+<div class="exercise">
+<h3>CALCULANDO O BARICENTRO</h3>
+<p>Com a fórmula do baricentro deduzida, é hora de aplicá-la em diferentes territórios da Zona Devastada. O objetivo deste exercício é ganhar fluência no cálculo e desenvolver intuição sobre a posição do baricentro em relação aos vértices. Use a fórmula: $G = \left(\frac{x_1 + x_2 + x_3}{3}, \frac{y_1 + y_2 + y_3}{3}\right)$. Desenhe cada triângulo e seu baricentro.</p>
+<p><strong>(a)</strong> Três torres de vigia estão em $A(0, 0)$, $B(9, 0)$ e $C(0, 6)$. Calcule o baricentro $G$. Em qual posição relativa ele se encontra? (Dica: compare as coordenadas de $G$ com as dos vértices.)</p>
+<p><strong>(b)</strong> Um acampamento triangular tem vértices em $D(2, 1)$, $E(8, 3)$ e $F(4, 7)$. Calcule o baricentro $G$. Verifique que $G$ está <strong>dentro</strong> do triângulo observando o desenho.</p>
+<p><strong>(c)</strong> O território de três facções é delimitado por $P(-3, 0)$, $Q(3, 0)$ e $R(0, 4{,}5)$. Calcule o baricentro. Que propriedade especial este triângulo possui? (Dica: olhe para as coordenadas de $P$ e $Q$.)</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>Aplique a fórmula do baricentro diretamente em cada caso. No item (a), observe que o baricentro divide cada coordenada pela razão das distâncias dos vértices. No item (c), $P$ e $Q$ são simétricos em relação ao eixo $y$ — isso implica uma propriedade geométrica especial (triângulo isósceles). O baricentro herda essa simetria.</p>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>$G = \left(\frac{0 + 9 + 0}{3}, \frac{0 + 0 + 6}{3}\right) = (3, 2)$. Posição relativa: $G$ está no interior do triângulo, com $x_G = \frac{9}{3} = 3$ (um terço da base) e $y_G = \frac{6}{3} = 2$ (um terço da altura). O baricentro está "puxado" para o lado do vértice com mais peso posicional.</li>
+<li>$G = \left(\frac{2 + 8 + 4}{3}, \frac{1 + 3 + 7}{3}\right) = \left(\frac{14}{3}, \frac{11}{3}\right) \approx (4{,}67, 3{,}67)$. Pelo desenho, $G$ está no interior do triângulo $DEF$ — o baricentro de um triângulo sempre fica no seu interior.</li>
+<li>$G = \left(\frac{-3 + 3 + 0}{3}, \frac{0 + 0 + 4{,}5}{3}\right) = (0, 1{,}5)$. Propriedade: $P(-3, 0)$ e $Q(3, 0)$ são simétricos em relação ao eixo $y$, e $R(0, 4{,}5)$ está sobre o eixo $y$ — portanto o triângulo é isósceles com eixo de simetria no eixo $y$. O baricentro $G(0, 1{,}5)$ também está sobre o eixo $y$, confirmando que o baricentro preserva a simetria do triângulo.</li>
+</ol>
+<div class="formula">
+$$G_{ABC} = (3, 2), \quad G_{DEF} = \left(\frac{14}{3}, \frac{11}{3}\right), \quad G_{PQR} = (0, 1{,}5)$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O baricentro sempre fica no interior do triângulo — é uma garantia geométrica. Além disso, se o triângulo possui simetria (como o isósceles), o baricentro herda essa simetria, ficando sobre o eixo de simetria. Na Zona Devastada, isso significa que territórios simétricos têm centros de comando igualmente simétricos.</p>
+</details>
+</div>

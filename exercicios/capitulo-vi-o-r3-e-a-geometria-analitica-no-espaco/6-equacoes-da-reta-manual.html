@@ -1,0 +1,54 @@
+<section class="manual-contexto" data-context="manual-sobrevivencia">
+    <div class="terminal-border">
+        <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: EQUAÇÕES DA RETA NO R³</h2>
+
+        <p><strong class="warning">ALERTA DE NAVEGAÇÃO:</strong> No R², uma única equação linear definia uma reta. No R³, uma única equação linear define um <em>plano</em> — não uma reta. Para descrever uma reta no espaço tridimensional, precisamos de uma abordagem diferente: ou duas equações de planos (interseção) ou uma representação paramétrica. Esta é a diferença crucial entre navegar no mapa terrestre e navegar no espaço aéreo/subterrâneo.</p>
+
+        <p>Túneis de fuga, trajetórias de projéteis, rotas de drones — tudo são retas no espaço. Cada uma dessas aplicações exige que você descreva uma direção no R³ com precisão matemática. A ferramenta fundamental é a mesma de sempre: <strong>um ponto de partida + uma direção</strong>.</p>
+
+        <h3>1. Equação Vetorial da Reta</h3>
+        <p>Dado um ponto $P_0(x_0, y_0, z_0)$ sobre a reta e um vetor diretor $\vec{v} = (v_1, v_2, v_3)$ não-nulo, todo ponto $P$ da reta pode ser escrito como:</p>
+        <div class="formula">
+            $$\vec{r} = \vec{r}_0 + t\vec{v} \quad \text{ou} \quad P = P_0 + t\vec{v}, \quad t \in \mathbb{R}$$
+        </div>
+        <p>Aqui, $t$ é o <strong>parâmetro</strong>: cada valor de $t$ gera um ponto diferente sobre a reta. O vetor $\vec{v}$ indica a direção e o sentido da trajetória; seu módulo $|\vec{v}|$ está relacionado à "velocidade" de percorrimento.</p>
+
+        <h3>2. Equações Paramétricas</h3>
+        <p>Decompondo a equação vetorial nas coordenadas:</p>
+        <div class="formula">
+            $$\begin{cases} x = x_0 + tv_1 \\ y = y_0 + tv_2 \\ z = z_0 + tv_3 \end{cases} \quad t \in \mathbb{R}$$
+        </div>
+        <p>Esta forma é ideal para cálculos computacionais: dado um $t$, você obtém diretamente as coordenadas $(x, y, z)$ do ponto.</p>
+
+        <h3>3. Equações Simétricas</h3>
+        <p>Isolando $t$ em cada equação paramétrica (quando $v_1, v_2, v_3 \neq 0$):</p>
+        <div class="formula">
+            $$\frac{x - x_0}{v_1} = \frac{y - y_0}{v_2} = \frac{z - z_0}{v_3}$$
+        </div>
+        <p class="warning">ATENÇÃO: Se alguma componente do vetor diretor for zero (por exemplo, $v_1 = 0$), a equação correspondente se torna $x = x_0$, sem denominador. A reta é paralela ao plano $yz$.</p>
+
+        <h3>4. Reta como Interseção de Dois Planos</h3>
+        <p>Uma reta no R³ pode ser vista como a interseção de dois planos não-paralelos:</p>
+        <div class="formula">
+            $$\begin{cases} \pi_1: a_1x + b_1y + c_1z + d_1 = 0 \\ \pi_2: a_2x + b_2y + c_2z + d_2 = 0 \end{cases}$$
+        </div>
+        <p>Para encontrar o vetor diretor da reta, calcule o <strong>produto vetorial</strong> dos normais dos planos: $\vec{v} = \vec{n}_1 \times \vec{n}_2$. Para encontrar um ponto da reta, resolva o sistema atribuindo um valor a uma das variáveis.</p>
+
+        <h3>5. Posições Relativas: Reta e Plano</h3>
+        <p>Dada uma reta $r$ com vetor diretor $\vec{v}$ e um plano $\pi$ com vetor normal $\vec{n}$:</p>
+        <ul>
+            <li><strong>Reta paralela ao plano:</strong> $\vec{v} \perp \vec{n}$ (ou seja, $\vec{v} \cdot \vec{n} = 0$) e nenhum ponto da reta pertence ao plano.</li>
+            <li><strong>Reta contida no plano:</strong> $\vec{v} \perp \vec{n}$ e algum ponto da reta pertence ao plano.</li>
+            <li><strong>Reta concorrente com o plano:</strong> $\vec{v} \cdot \vec{n} \neq 0$ — há exatamente um ponto de interseção.</li>
+        </ul>
+
+        <h3>6. Distância de Ponto a Reta no Espaço</h3>
+        <p>Dados um ponto $Q$ fora da reta $r$ (ponto $P_0$, diretor $\vec{v}$), a distância é:</p>
+        <div class="formula">
+            $$d(Q, r) = \frac{|\vec{P_0Q} \times \vec{v}|}{|\vec{v}|}$$
+        </div>
+        <p>Geometricamente: o produto vetorial $\vec{P_0Q} \times \vec{v}$ tem módulo igual à área do paralelogramo formado pelos dois vetores. Dividindo pela base $|\vec{v}|$, obtemos a altura — que é exatamente a distância perpendicular procurada.</p>
+
+        <p><strong class="success">PROTOCOLO DE SOBREVIVÊNCIA:</strong> Sempre que precisar descrever uma trajetória no R³, comece identificando <em>um ponto conhecido</em> e <em>um vetor diretor</em>. A partir daí, todas as formas de equação (vetorial, paramétrica, simétrica) são consequências diretas.</p>
+    </div>
+</section>

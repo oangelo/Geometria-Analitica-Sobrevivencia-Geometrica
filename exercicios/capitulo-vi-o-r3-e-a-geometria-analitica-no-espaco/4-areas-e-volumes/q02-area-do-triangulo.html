@@ -1,0 +1,62 @@
+<div class="exercise">
+<h3>ÁREA DO TRIÂNGULO</h3>
+<p>O objetivo deste exercício é calcular a área de um triângulo no espaço a partir de três pontos, usando a relação entre triângulo e paralelogramo.</p>
+<p>Três torres de vigia estão posicionadas em $A(2, 1, 0)$, $B(5, 3, 2)$ e $C(3, 5, 1)$. A área triangular entre elas define a zona de patrulhamento segura.</p>
+<p><strong>(a)</strong> Determine os vetores $\overrightarrow{AB}$ e $\overrightarrow{AC}$.</p>
+<p><strong>(b)</strong> Calcule $\overrightarrow{AB} \times \overrightarrow{AC}$.</p>
+<p><strong>(c)</strong> Calcule a área do triângulo $ABC$.</p>
+<p><strong>(d)</strong> Esboce no papel o paralelogramo formado por $\overrightarrow{AB}$ e $\overrightarrow{AC}$ e marque a diagonal que divide esse paralelogramo em dois triângulos congruentes. Explique por que a área do triângulo é metade da área do paralelogramo.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>O vetor $\overrightarrow{AB} = B - A$, componente a componente. O triângulo $ABC$ tem metade da área do paralelogramo formado por $\overrightarrow{AB}$ e $\overrightarrow{AC}$ porque a diagonal $BC$ divide o paralelogramo em dois triângulos congruentes. Isso vale em qualquer dimensão.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>Item (a):</strong></p>
+<ol class="solution-steps">
+<li>$\overrightarrow{AB} = B - A = (5-2, 3-1, 2-0) = (3, 2, 2)$</li>
+<li>$\overrightarrow{AC} = C - A = (3-2, 5-1, 1-0) = (1, 4, 1)$</li>
+</ol>
+
+<p><strong>Item (b):</strong></p>
+<ol class="solution-steps">
+<li>$\overrightarrow{AB} \times \overrightarrow{AC} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 3 & 2 & 2 \\ 1 & 4 & 1 \end{vmatrix}$</li>
+<li>Componente $\vec{i}$: $(2)(1) - (2)(4) = 2 - 8 = -6$</li>
+<li>Componente $\vec{j}$: $-[(3)(1) - (2)(1)] = -[3 - 2] = -1$</li>
+<li>Componente $\vec{k}$: $(3)(4) - (2)(1) = 12 - 2 = 10$</li>
+</ol>
+<div class="formula">
+$$\overrightarrow{AB} \times \overrightarrow{AC} = (-6, -1, 10)$$
+</div>
+
+<p><strong>Item (c):</strong></p>
+<ol class="solution-steps">
+<li>$|\overrightarrow{AB} \times \overrightarrow{AC}| = \sqrt{(-6)^2 + (-1)^2 + 10^2}$</li>
+<li>$= \sqrt{36 + 1 + 100} = \sqrt{137}$</li>
+<li>Área do triângulo: $\dfrac{1}{2}\sqrt{137}$</li>
+</ol>
+<div class="formula">
+$$\text{Área do } \triangle ABC = \frac{\sqrt{137}}{2} \approx 5{,}85 \text{ unidades}^2$$
+</div>
+
+<p><strong>Item (d):</strong></p>
+<p>O paralelogramo tem vértices $A$, $B$, $C$ e o quarto vértice $D = B + \overrightarrow{AC} = A + \overrightarrow{AB} + \overrightarrow{AC}$. A diagonal $BC$ conecta $B$ a $C$ e divide o paralelogramo em dois triângulos:</p>
+<ul>
+<li>$\triangle ABC$ (com vértices $A$, $B$, $C$)</li>
+<li>$\triangle BCD$ (com vértices $B$, $C$, $D$)</li>
+</ul>
+<p>Esses dois triângulos são congruentes porque:</p>
+<ul>
+<li>$\overrightarrow{AB} = \overrightarrow{DC}$ (lados opostos do paralelogramo)</li>
+<li>$\overrightarrow{AC} = \overrightarrow{BD}$ (lados opostos do paralelogramo)</li>
+<li>$\overrightarrow{BC}$ é lado comum</li>
+</ul>
+<p>Portanto, cada triângulo tem exatamente metade da área do paralelogramo. A fórmula $\frac{1}{2}|\overrightarrow{AB} \times \overrightarrow{AC}|$ funciona para qualquer triângulo no espaço porque o produto vetorial calcula a área do paralelogramo automaticamente, independentemente da orientação do triângulo.</p>
+
+<p><strong>Reflexão de Sobrevivência:</strong> Na Zona Devastada, você não pode assumir que o terreno é plano. Um triângulo de patrulhamento pode estar inclinado em qualquer direção. O produto vetorial lida com isso automaticamente, calculando a área "verdadeira" do triângulo no espaço 3D, não uma projeção distorcida sobre o chão.</p>
+</details>
+</div>

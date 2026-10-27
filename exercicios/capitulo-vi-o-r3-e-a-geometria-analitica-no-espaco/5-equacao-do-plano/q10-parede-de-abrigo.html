@@ -1,0 +1,30 @@
+<div class="exercise">
+<h3>Parede de Abrigo: Equação e Distância de Ameaça</h3>
+<p><strong>Objetivo:</strong> Aplicar a construção do plano por três pontos e a distância ponto-plano em um cenário integrado.</p>
+<p>Uma parede de abrigo será construída ancorada em três pontos de fixação: $A(1, 0, 0)$, $B(0, 2, 0)$ e $C(0, 0, 1)$. Um sensor detectou uma ameaça em $P(3, 3, 3)$.</p>
+<p>(a) Determine a equação do plano da parede.</p>
+<p>(b) Calcule a distância da ameaça até a parede.</p>
+<p>(c) Verifique se a ameaça está do mesmo lado da parede que a origem $O(0,0,0)$.</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+                Para (a): use três pontos → dois vetores → produto vetorial → normal → equação. Para (b): aplique a fórmula da distância. Para (c): avalie a equação do plano em $P$ e em $O$; se os sinais forem iguais, estão do mesmo lado.
+            </div>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Item (a) — Vetores no plano: $\overrightarrow{AB} = (-1, 2, 0)$, $\overrightarrow{AC} = (-1, 0, 1)$.</li>
+<li>Produto vetorial: $\vec{n} = \overrightarrow{AB} \times \overrightarrow{AC} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ -1 & 2 & 0 \\ -1 & 0 & 1 \end{vmatrix} = (2, 1, 2)$.</li>
+<li>Equação com ponto $A(1, 0, 0)$: $2(x - 1) + 1(y - 0) + 2(z - 0) = 0 \Rightarrow 2x + y + 2z - 2 = 0$.</li>
+<li>Item (b) — Distância de $P(3, 3, 3)$ ao plano: $d = \frac{|2(3) + 3 + 2(3) - 2|}{\sqrt{4 + 1 + 4}} = \frac{|6 + 3 + 6 - 2|}{3} = \frac{13}{3}$.</li>
+<li>Item (c) — Avaliar em $P(3, 3, 3)$: $2(3) + 3 + 2(3) - 2 = 13 > 0$.</li>
+<li>Avaliar em $O(0, 0, 0)$: $2(0) + 0 + 2(0) - 2 = -2 < 0$.</li>
+<li>Os sinais são diferentes ($+13$ e $-2$), logo <strong>a ameaça e a origem estão em lados opostos</strong> da parede. A ameaça está do lado de fora do abrigo.</li>
+</ol>
+<div class="formula">
+                    $$\text{(a) } 2x + y + 2z - 2 = 0 \qquad \text{(b) } d = \frac{13}{3} \text{ u.} \qquad \text{(c) Lados opostos}$$
+                </div>
+<p><strong>Reflexão de Sobrevivência:</strong> Uma parede de abrigo é um plano que separa o seguro do perigoso. A distância mede quão longe a ameaça está, e o sinal da equação revela de qual lado ela se encontra — informação crítica para decidir se é necessário evacuar ou reforçar a barreira.</p>
+</details>
+</div>

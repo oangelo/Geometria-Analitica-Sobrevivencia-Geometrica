@@ -1,0 +1,29 @@
+<div class="exercise">
+<h3>PARÂMETRO PARA RETAS COINCIDENTES</h3>
+
+<p>O SUPERVISOR suspeita que dois relatórios de patrulha descrevem a mesma rota, mas com equações diferentes. A primeira descrição é $r: 2x + 4y + c = 0$, onde $c$ é um parâmetro desconhecido (o relatório foi parcialmente danificado). A segunda descrição é $s: x + 2y - 3 = 0$. Encontre o valor de $c$ que faz as duas retas serem coincidentes — ou seja, a mesma rota descrita duas vezes. Depois verifique que, com esse valor, toda solução de $s$ também satisfaz $r$.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Retas coincidentes exigem $\frac{a_1}{a_2} = \frac{b_1}{b_2} = \frac{c_1}{c_2}$. Primeiro verifique que $\frac{2}{1} = \frac{4}{2} = 2$ — os coeficientes de $x$ e $y$ já são proporcionais. Depois use essa mesma proporção para encontrar $c$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Coeficientes de $r$: $a_1 = 2$, $b_1 = 4$, $c_1 = c$.</li>
+<li>Coeficientes de $s$: $a_2 = 1$, $b_2 = 2$, $c_2 = -3$.</li>
+<li>Verificamos a proporção dos coeficientes de $x$ e $y$: $\frac{2}{1} = \frac{4}{2} = 2$.</li>
+<li>Para coincidentes, precisamos $\frac{c_1}{c_2} = 2$, ou seja, $\frac{c}{-3} = 2$.</li>
+<li>Portanto $c = -6$.</li>
+<li>Verificação: com $c = -6$, a equação $r$ fica $2x + 4y - 6 = 0$. Dividindo por 2: $x + 2y - 3 = 0$, que é exatamente $s$. Toda solução de $s$ satisfaz $r$ — são a mesma reta.</li>
+</ol>
+<div class="formula">
+$$\frac{2}{1} = \frac{4}{2} = \frac{c}{-3} = 2 \Rightarrow c = -6$$
+$$r: 2x + 4y - 6 = 0 \xrightarrow{\div 2} x + 2y - 3 = 0 = s$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Dois relatórios coincidentes podem parecer redundância, mas na Zona Devastada isso é confirmação: duas fontes independentes descrevendo a mesma rota aumentam a confiança no dado. Saber que $c = -6$ transforma duas equações aparentemente diferentes numa única verdade é o tipo de clareza que evita expedições duplicadas e desperdício de recursos.</p>
+</details>
+</div>

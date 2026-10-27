@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>P1 2026.1 - Geometria Analítica</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <script>
+        // Configuração padrão do MathJax
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            startup: {
+                ready: () => {
+                    MathJax.startup.defaultReady();
+                }
+            }
+        };
+    </script>
+    <style>
+        @page {
+            size: A4;
+            margin: 1cm;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            font-size: 9pt;
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        .container {
+            width: 100%;
+            height: 27.7cm; /* A4 height (29.7cm) - vertical margins (2cm) */
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-header {
+            text-align: center;
+            border-bottom: 1px solid #000;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            flex-shrink: 0;
+        }
+
+        .main-header h1 {
+            margin: 0;
+            font-size: 11pt;
+            font-weight: bold;
+        }
+
+        .main-header h2 {
+            margin: 0;
+            font-size: 10pt;
+            font-weight: normal;
+        }
+        
+        .content {
+            display: flex;
+            gap: 1.5cm; /* Espaço entre as colunas */
+            flex-grow: 1;
+        }
+
+        .column {
+            flex: 1;
+            min-width: 0; /* Previne overflow do flexbox */
+        }
+        
+        .student-details {
+            margin-bottom: 20px;
+        }
+
+        .student-details div {
+            margin-bottom: 4px;
+        }
+        
+        .student-details span {
+            border-bottom: 1px solid #000;
+            min-width: 350px;
+            display: inline-block;
+            margin-left: 5px;
+        }
+        
+        .grade-table {
+            margin-bottom: 10px;
+        }
+        
+        .grade-table table {
+            border-collapse: collapse;
+            font-size: 8pt;
+            text-align: center;
+            width: 100%;
+        }
+
+        .grade-table th, .grade-table td {
+            border: 1px solid #000;
+            padding: 4px;
+            height: 0.8cm; /* Altura fixa para a célula de nota */
+        }
+
+        .instructions {
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-size: 8.5pt;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question-header {
+            font-weight: bold;
+            font-size: 10pt;
+            color: #000;
+            border-left: 3px solid #000;
+            padding: 5px 8px;
+            background-color: #f5f5f5;
+            margin-bottom: 8px;
+        }
+
+        .subquestion {
+            margin: 8px 0 8px 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-header">
+            <h1>Universidade do Estado do Rio de Janeiro - UERJ</h1>
+            <h2>P1 2026.1 - Geometria Analítica</h2>
+        </div>
+
+        <div class="content">
+            <div class="column">
+                <div class="student-details">
+                    <div><strong>Curso:</strong> <span></span></div>
+                    <div><strong>Nome:</strong> <span></span></div>
+                    <div><strong>Matrícula:</strong> <span></span></div>
+                </div>
+
+                <!-- Questão 1 -->
+                <div class="question">
+                    <div class="question-header">Questão 1: Vetor, ângulo com o eixo x e inclinação da reta</div>
+                    <p>Considere o vetor \(\vec{v} = (3, 3\sqrt{3})\) representado a partir da origem do plano cartesiano, e a reta \(r\) que passa pela origem e pela extremidade de \(\vec{v}\).</p>
+                    <div class="subquestion"><strong>a)</strong> (0,5 pt) Represente \(\vec{v}\) geometricamente a partir da origem, destacando o triângulo retângulo formado com o eixo \(x\). Calcule o módulo \(|\vec{v}|\).</div>
+                    <div class="subquestion"><strong>b)</strong> (0,7 pt) Usando a função tangente no triângulo retângulo, determine o ângulo \(\theta\) que \(\vec{v}\) forma com o eixo \(x\) positivo.</div>
+                    <div class="subquestion"><strong>c)</strong> (0,7 pt) Escreva a equação da reta \(r\) na forma reduzida \(y = ax + b\). Relacione o coeficiente angular \(a\) com \(\tan \theta\) e determine \(a\) e \(b\).</div>
+                    <div class="subquestion"><strong>d)</strong> (0,6 pt) Tome o ponto \(P = 2\vec{v}\). Verifique que \(P\) pertence à reta \(r\) e que a inclinação \(\frac{y_P}{x_P}\) é igual a \(\tan \theta\).</div>
+                </div>
+
+                <!-- Questão 2 -->
+                <div class="question">
+                    <div class="question-header">Questão 2: Produto escalar, projeção vetorial e área</div>
+                    <p>Considere os vetores \(\vec{u} = (3, 3\sqrt{3})\) e \(\vec{w} = (-2, 2\sqrt{3})\).</p>
+                    <div class="subquestion"><strong>a)</strong> (0,4 pt) Calcule o produto escalar \(\vec{u} \cdot \vec{w}\) e o cosseno do ângulo entre os vetores.</div>
+                    <div class="subquestion"><strong>b)</strong> (0,6 pt) Calcule a projeção do vetor \(\vec{u}\) sobre o vetor \(\vec{w}\).</div>
+                    <div class="subquestion"><strong>c)</strong> (0,7 pt) Determine o seno do ângulo entre \(\vec{u}\) e \(\vec{w}\) usando a relação fundamental \(\sin^2\theta + \cos^2\theta = 1\) e calcule a área do triângulo determinado pelos vetores, com origem comum, tomando \(|\vec{w}|\) como base e \(|\vec{u}|\sin\theta\) como altura.</div>
+                    <div class="subquestion"><strong>d)</strong> (0,8 pt) Verifique que a área é metade do módulo do determinante \(\det(\vec{u}, \vec{w})\) e que a razão \(\frac{|\det(\vec{u}, \vec{w})|}{|\vec{u}|\,|\vec{w}|}\) reproduz o seno obtido no item (c).</div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="grade-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Q1</th>
+                                <th>Q2</th>
+                                <th>Q3</th>
+                                <th>Q4</th>
+                                <th>TOTAL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="instructions">
+                    Instruções: Resolva todas as questões apresentando os cálculos detalhadamente. Cada questão vale 2,5 pontos.
+                </div>
+
+                <!-- Questão 3 -->
+                <div class="question">
+                    <div class="question-header">Questão 3: Estudo da reta — perpendicularidade, interseção e distância</div>
+                    <p>Seja \(r\) a reta de equação \(y = \sqrt{3}\,x\) e o ponto \(P = (5, 2)\).</p>
+                    <div class="subquestion"><strong>a)</strong> (0,5 pt) Identifique o coeficiente angular de \(r\) e reescreva sua equação na forma geral \(ax + by + c = 0\).</div>
+                    <div class="subquestion"><strong>b)</strong> (0,7 pt) Determine a equação da reta \(s\), perpendicular a \(r\), que passa por \(P\), nas formas geral e reduzida. Verifique que \(m_r \cdot m_s = -1\).</div>
+                    <div class="subquestion"><strong>c)</strong> (0,7 pt) Calcule a interseção \(I = r \cap s\).</div>
+                    <div class="subquestion"><strong>d)</strong> (0,6 pt) Verifique que \(I\) pertence a \(r\) e a \(s\), e que a distância de \(P\) a \(r\), calculada pela fórmula de distância de ponto a reta \(d = \frac{|ax_0 + by_0 + c|}{\sqrt{a^2 + b^2}}\), é igual a \(|\vec{PI}|\).</div>
+                </div>
+
+                <!-- Questão 4 -->
+                <div class="question">
+                    <div class="question-header">Questão 4: A circunferência definida por três pontos</div>
+                    <p>Determine a equação da circunferência que passa pelos pontos \(A = (7, 3)\), \(B = (2, 8)\) e \(C = (6, 6)\).</p>
+                    <div class="subquestion"><strong>a)</strong> (0,6 pt) Calcule os pontos médios \(M_{AB}\) e \(M_{AC}\) e escreva as equações das mediatrizes dos lados \(AB\) e \(AC\) (retas perpendiculares aos lados pelos respectivos pontos médios).</div>
+                    <div class="subquestion"><strong>b)</strong> (0,6 pt) Determine o circuncentro \(O\), interseção das duas mediatrizes.</div>
+                    <div class="subquestion"><strong>c)</strong> (0,7 pt) Calcule o raio \(R\) e escreva a equação da circunferência.</div>
+                    <div class="subquestion"><strong>d)</strong> (0,6 pt) Substitua o ponto \(C\) na equação obtida e confirme que ele pertence à circunferência.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

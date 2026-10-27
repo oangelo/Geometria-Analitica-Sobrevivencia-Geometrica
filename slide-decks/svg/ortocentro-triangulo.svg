@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 500 400"
+   version="1.1"
+   id="svg44"
+   sodipodi:docname="extracted_8.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs44" />
+  <sodipodi:namedview
+     id="namedview44"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.3316667"
+     inkscape:cx="115.26909"
+     inkscape:cy="141.55194"
+     inkscape:window-width="2560"
+     inkscape:window-height="1008"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g38" />
+  <!-- Fundo estilizado -->
+  <rect
+     fill="#1d3557"
+     height="400"
+     opacity="0.9"
+     width="500"
+     id="rect1"
+     x="0"
+     y="0" />
+  <!-- Grade de fundo esmaecida -->
+  <g
+     opacity="0.2"
+     stroke="#a8dadc"
+     stroke-width="0.5"
+     id="g16">
+    <!-- Linhas verticais da grade -->
+    <line
+       x1="50"
+       x2="50"
+       y1="50"
+       y2="350"
+       id="line1" />
+    <line
+       x1="100"
+       x2="100"
+       y1="50"
+       y2="350"
+       id="line2" />
+    <line
+       x1="150"
+       x2="150"
+       y1="50"
+       y2="350"
+       id="line3" />
+    <line
+       x1="200"
+       x2="200"
+       y1="50"
+       y2="350"
+       id="line4" />
+    <line
+       x1="250"
+       x2="250"
+       y1="50"
+       y2="350"
+       id="line5" />
+    <line
+       x1="300"
+       x2="300"
+       y1="50"
+       y2="350"
+       id="line6" />
+    <line
+       x1="350"
+       x2="350"
+       y1="50"
+       y2="350"
+       id="line7" />
+    <line
+       x1="400"
+       x2="400"
+       y1="50"
+       y2="350"
+       id="line8" />
+    <line
+       x1="450"
+       x2="450"
+       y1="50"
+       y2="350"
+       id="line9" />
+    <!-- Linhas horizontais da grade -->
+    <line
+       x1="50"
+       x2="450"
+       y1="50"
+       y2="50"
+       id="line10" />
+    <line
+       x1="50"
+       x2="450"
+       y1="100"
+       y2="100"
+       id="line11" />
+    <line
+       x1="50"
+       x2="450"
+       y1="150"
+       y2="150"
+       id="line12" />
+    <line
+       x1="50"
+       x2="450"
+       y1="200"
+       y2="200"
+       id="line13" />
+    <line
+       x1="50"
+       x2="450"
+       y1="250"
+       y2="250"
+       id="line14" />
+    <line
+       x1="50"
+       x2="450"
+       y1="300"
+       y2="300"
+       id="line15" />
+    <line
+       x1="50"
+       x2="450"
+       y1="350"
+       y2="350"
+       id="line16" />
+  </g>
+  <!-- Eixos coordenados principais -->
+  <g
+     stroke="#f0f0f0"
+     stroke-width="2"
+     id="g18">
+    <!-- Eixo X -->
+    <line
+       x1="50"
+       x2="450"
+       y1="200"
+       y2="200"
+       id="line17" />
+    <!-- Eixo Y -->
+    <line
+       x1="250"
+       x2="250"
+       y1="50"
+       y2="350"
+       id="line18" />
+  </g>
+  <!-- Pontos dos vértices do triângulo -->
+  <!-- Estrutura A: (0,3) -->
+  <circle
+     cx="250"
+     cy="50"
+     fill="#e63946"
+     r="8"
+     id="circle18" />
+  <text
+     fill="#f0f0f0"
+     font-family="Arial"
+     font-size="12px"
+     font-weight="bold"
+     x="265"
+     y="45"
+     id="text18">A(0,3)</text>
+  <text
+     fill="#a8dadc"
+     font-family="Arial"
+     font-size="10px"
+     x="265"
+     y="60"
+     id="text19">Estrutura Alpha</text>
+  <!-- Estrutura B: (4,0) -->
+  <circle
+     cx="450"
+     cy="200"
+     fill="#4cc9f0"
+     r="8"
+     id="circle19" />
+  <text
+     fill="#f0f0f0"
+     font-family="Arial"
+     font-size="12px"
+     font-weight="bold"
+     x="435"
+     y="190"
+     id="text20">B(4,0)</text>
+  <text
+     fill="#a8dadc"
+     font-family="Arial"
+     font-size="10px"
+     x="435"
+     y="205"
+     id="text21">Estrutura Beta</text>
+  <!-- Estrutura C: (-2,-1) -->
+  <circle
+     cx="150"
+     cy="250"
+     fill="#8ac926"
+     r="8"
+     id="circle21" />
+  <text
+     fill="#f0f0f0"
+     font-family="Arial"
+     font-size="12px"
+     font-weight="bold"
+     x="135"
+     y="240"
+     id="text22">C(-2,-1)</text>
+  <text
+     fill="#a8dadc"
+     font-family="Arial"
+     font-size="10px"
+     x="135"
+     y="255"
+     id="text23">Estrutura Gamma</text>
+  <!-- Triângulo definido pelos três pontos -->
+  <g
+     fill="#457b9d"
+     opacity="0.3"
+     stroke="#f0f0f0"
+     stroke-width="1"
+     id="g23">
+    <polygon
+       points="150,250 250,50 450,200 "
+       id="polygon23" />
+  </g>
+  <!-- Alturas - perpendiculares dos vértices aos lados opostos -->
+  <!-- Altura de A -->
+  <path
+     id="line23"
+     style="stroke:#e63946;stroke-width:1.5;stroke-dasharray:5, 3"
+     d="m 250,50 31.46058,185.00751"
+     sodipodi:nodetypes="cc" />
+  <!-- Pé da altura de A -->
+  <circle
+     cx="280.70963"
+     cy="229.75095"
+     fill="#e63946"
+     r="4"
+     id="circle23" />
+  <text
+     fill="#e63946"
+     font-family="Arial"
+     font-size="10px"
+     x="281.69836"
+     y="174.9324"
+     id="text24">H₁</text>
+  <!-- Altura de B -->
+  <path
+     id="line24"
+     style="stroke:#4cc9f0;stroke-width:1.5;stroke-dasharray:5, 3"
+     d="M 450,200 227.72466,93.20025"
+     sodipodi:nodetypes="cc" />
+  <!-- Pé da altura de B -->
+  <circle
+     cx="228.4756"
+     cy="92.449318"
+     fill="#4cc9f0"
+     r="4"
+     id="circle24" />
+  <text
+     fill="#4cc9f0"
+     font-family="Arial"
+     font-size="10px"
+     x="294.3204"
+     y="117.23029"
+     id="text25">H₂</text>
+  <!-- Altura de C -->
+  <path
+     id="line25"
+     style="stroke:#8ac926;stroke-width:1.5;stroke-dasharray:5, 3"
+     d="M 150,250 286.17021,73.660826"
+     sodipodi:nodetypes="cc" />
+  <!-- Pé da altura de C -->
+  <circle
+     cx="285.41928"
+     cy="75.162704"
+     fill="#8ac926"
+     r="4"
+     id="circle25" />
+  <text
+     fill="#8ac926"
+     font-family="Arial"
+     font-size="10px"
+     x="212.81602"
+     y="151.00751"
+     id="text26">H₃</text>
+  <!-- Ortocentro -->
+  <text
+     fill="#ffd166"
+     font-family="Arial"
+     font-size="14px"
+     font-weight="bold"
+     x="274.96246"
+     y="106.68336"
+     id="text27">H</text>
+  <text
+     fill="#a8dadc"
+     font-family="Arial"
+     font-size="10px"
+     x="296.50003"
+     y="-24.624954"
+     id="text28"
+     transform="rotate(30.393764)">Ortocentro</text>
+  <!-- Destacando a perpendicularidade das alturas -->
+  <!-- Ângulos retos no pé da altura de A -->
+  <!-- Ângulos retos no pé da altura de B -->
+  <!-- Ângulos retos no pé da altura de C -->
+  <!-- Painel com explicação do ortocentro -->
+  <g
+     transform="translate(-202.82854,64.505632)"
+     id="g34">
+    <rect
+       fill="#457b9d"
+       height="100.76971"
+       opacity="0.7"
+       rx="5.0662594"
+       width="172.25282"
+       x="477.59698"
+       y="190.73842"
+       id="rect30"
+       style="stroke-width:1.09601" />
+    <text
+       fill="#ffd166"
+       font-family="Arial"
+       font-size="14px"
+       font-weight="bold"
+       x="487.59698"
+       y="210.73842"
+       id="text30">Ortocentro (H)</text>
+    <text
+       fill="#f0f0f0"
+       font-family="Arial"
+       font-size="10px"
+       x="487.59698"
+       y="230.73842"
+       id="text31">• Ponto de interseção das três</text>
+    <text
+       fill="#f0f0f0"
+       font-family="Arial"
+       font-size="10px"
+       x="487.59698"
+       y="245.73842"
+       id="text32">alturas do triângulo</text>
+    <text
+       fill="#f0f0f0"
+       font-family="Arial"
+       font-size="10px"
+       x="487.59698"
+       y="260.73843"
+       id="text33">• Cada altura é perpendicular ao</text>
+    <text
+       fill="#f0f0f0"
+       font-family="Arial"
+       font-size="10px"
+       x="487.59698"
+       y="275.73843"
+       id="text34">lado oposto ao vértice</text>
+  </g>
+  <!-- Painel de aplicação prática -->
+  <g
+     transform="translate(41.226533,269.01126)"
+     id="g38">
+    <rect
+       fill="#e63946"
+       height="67.747185"
+       opacity="0.7"
+       rx="6.0822353"
+       width="206.79599"
+       x="-11.26408"
+       y="19.524405"
+       id="rect34"
+       style="stroke-width:1.08504" />
+    <text
+       fill="#f0f0f0"
+       font-family="Arial"
+       font-size="12px"
+       font-weight="bold"
+       x="2.4906132"
+       y="40.275345"
+       id="text35">APLICAÇÕES:</text>
+    <text
+       fill="#f0f0f0"
+       font-family="Arial"
+       font-size="10px"
+       x="-1.7622027"
+       y="55"
+       id="text37">• Estruturas com suportes perpendiculares</text>
+    <text
+       fill="#f0f0f0"
+       font-family="Arial"
+       font-size="10px"
+       x="0.23779726"
+       y="70"
+       id="text38">• Análise de forças ortogonais</text>
+  </g>
+  <!-- Ilustração prática do ortocentro -->
+  <!-- Título da visualização -->
+  <text
+     fill="#f0f0f0"
+     font-family="Arial"
+     font-size="18px"
+     font-weight="bold"
+     text-anchor="middle"
+     x="250"
+     y="25"
+     id="text44">Ortocentro: O Centro de Convergência Perpendicular</text>
+  <circle
+     cx="259.21152"
+     cy="107.4343"
+     fill="#ffd166"
+     r="10"
+     id="circle26" />
+</svg>

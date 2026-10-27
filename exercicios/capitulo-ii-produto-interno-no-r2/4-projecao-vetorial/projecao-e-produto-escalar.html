@@ -1,0 +1,29 @@
+<div class="exercise">
+<h3>PROJEÇÃO E O ÂNGULO — DUAS FACES DA MESMA MOEDA</h3>
+
+<p>Nos tópicos sobre ângulo e produto escalar, vimos que $\cos\theta = \frac{\vec{a} \cdot \vec{b}}{|\vec{a}||\vec{b}|}$. Na projeção, usamos $\frac{\vec{a} \cdot \vec{b}}{|\vec{b}|}$ como projeção escalar. Essas duas fórmulas estão conectadas: a projeção escalar também pode ser escrita como $|\vec{a}|\cos\theta$. Dados $\vec{a} = (6, 2)$ e $\vec{b} = (4, 3)$, calcule a projeção escalar e vetorial de $\vec{a}$ sobre $\vec{b}$. Depois, encontre o ângulo $\theta$ entre os vetores e verifique que $\frac{\vec{a} \cdot \vec{b}}{|\vec{b}|} = |\vec{a}|\cos\theta$. O que o sinal da projeção escalar diz sobre o ângulo?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVÊNCIA</summary>
+<div class="hint">
+<p>Calcule $\vec{a} \cdot \vec{b}$, $|\vec{a}|$ e $|\vec{b}|$. A projeção escalar é $\frac{\vec{a} \cdot \vec{b}}{|\vec{b}|}$. O ângulo vem de $\cos\theta = \frac{\vec{a} \cdot \vec{b}}{|\vec{a}||\vec{b}|}$. Compare os dois resultados numéricos.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Produto escalar: $\vec{a} \cdot \vec{b} = 6 \times 4 + 2 \times 3 = 24 + 6 = 30$.</li>
+<li>Módulos: $|\vec{a}| = \sqrt{36 + 4} = \sqrt{40} = 2\sqrt{10}$ e $|\vec{b}| = \sqrt{16 + 9} = \sqrt{25} = 5$.</li>
+<li>Projeção escalar: $\frac{30}{5} = 6$.</li>
+<li>Projeção vetorial: $\frac{30}{25}(4, 3) = \frac{6}{5}(4, 3) = \left(\frac{24}{5}, \frac{18}{5}\right) = (4{,}8,\; 3{,}6)$.</li>
+<li>Ângulo: $\cos\theta = \frac{30}{2\sqrt{10} \times 5} = \frac{30}{10\sqrt{10}} = \frac{3}{\sqrt{10}}$. Logo $\theta = \arccos\frac{3}{\sqrt{10}} \approx 18{,}4°$.</li>
+<li>Verificação: $|\vec{a}|\cos\theta = 2\sqrt{10} \times \frac{3}{\sqrt{10}} = 6$ ✓ — coincide com a projeção escalar.</li>
+<li>O sinal positivo da projeção escalar ($6 > 0$) confirma que $\theta$ é agudo ($\theta < 90°$).</li>
+</ol>
+<div class="formula">
+$$\text{comp}_{\vec{b}}\,\vec{a} = 6 = |\vec{a}|\cos\theta, \quad \text{proj}_{\vec{b}}\,\vec{a} = (4{,}8,\; 3{,}6), \quad \theta \approx 18{,}4°$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Projeção e ângulo são duas portas para a mesma sala. O ângulo diz "quão alinhados estão" em graus; a projeção diz "quanto efetivamente contribui" em comprimento. Na Zona Devastada, se o ângulo entre sua rota e a direção do perigo for agudo, a projeção é positiva — você está se aproximando. Se for obtuso, a projeção é negativa — está se afastando. Um número, duas informações complementares.</p>
+</details>
+</div>

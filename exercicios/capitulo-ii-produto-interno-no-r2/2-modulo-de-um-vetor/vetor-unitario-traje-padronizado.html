@@ -1,0 +1,26 @@
+<div class="exercise">
+<h3>O TRAJE PADRONIZADO: VETOR UNITÁRIO</h3>
+
+<p>O setor de armamento precisa comparar vetores de diferentes magnitudes, mas só interessa a <em>direção</em>. A solução é "padronizar": transformar qualquer vetor num vetor de tamanho 1 que aponta na mesma direção. Dado $\vec{v} = (3, 4)$, construa o vetor $\hat{v} = \frac{\vec{v}}{|\vec{v}|}$ (divida cada componente pelo módulo). Depois, calcule $|\hat{v}|$ para confirmar que o tamanho ficou exatamente 1.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Você já sabe que $|\vec{v}| = 5$. Divida cada componente de $\vec{v}$ por 5. Depois, calcule o módulo do resultado usando a mesma fórmula.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Módulo de $\vec{v}$: $|\vec{v}| = \sqrt{3^2 + 4^2} = 5$.</li>
+<li>Construa o unitário: $\hat{v} = \frac{1}{5}(3,4) = \left(\frac{3}{5}{,}\; \frac{4}{5}\right) = (0{,}6{,}\; 0{,}8)$.</li>
+<li>Verifique o módulo: $|\hat{v}| = \sqrt{(0{,}6)^2 + (0{,}8)^2} = \sqrt{0{,}36 + 0{,}64} = \sqrt{1} = 1$.</li>
+<li>Conferência via propriedade: $|\hat{v}| = \left|\frac{\vec{v}}{5}\right| = \frac{|\vec{v}|}{5} = \frac{5}{5} = 1$.</li>
+</ol>
+<div class="formula">
+$$\hat{v} = \frac{\vec{v}}{|\vec{v}|}, \quad |\hat{v}| = 1$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O vetor unitário é como um "traje padrão" — remove a informação de tamanho e conserva apenas a direção. Na Zona Devastada, quando dois batedores relatam direções de sinais de rádio com intensidades diferentes, normalizar permite comparar apenas a orientação. Todo vetor não-nulo pode ser decomposto como $\vec{v} = |\vec{v}| \cdot \hat{v}$ — tamanho vezes direção.</p>
+</details>
+</div>

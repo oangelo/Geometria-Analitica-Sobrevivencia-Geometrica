@@ -1,0 +1,33 @@
+<div class="exercise">
+<h3>Comunicação por Sinais: Ângulos e Frações</h3>
+
+<p><strong>Objetivo:</strong> Este exercício integra <strong>Frações</strong> e <strong>Trigonometria</strong>. Você calculará ângulos de transmissão de sinais e simplificará frações relacionadas à eficiência da comunicação.</p>
+
+<p>Dois postos de comunicação, $A$ e $B$, estão separados por uma distância de $800$ metros. Um sinal é transmitido do posto $A$ ao posto $B$, mas devido às irregularidades do terreno, o sinal precisa ser retransmitido por um ponto intermediário $P$. O ponto $P$ está a $300$ metros do posto $A$ e forma um ângulo de $60°$ com a linha reta $AB$.</p>
+
+<p><strong>(a)</strong> <strong>Desenhe no papel</strong> a configuração dos três pontos formando um triângulo.</p>
+<p><strong>(b)</strong> Use a lei dos cossenos para calcular a distância do ponto $P$ ao posto $B$.</p>
+<p><strong>(c)</strong> A eficiência do sinal é dada pela fração $\frac{\text{distância direta}}{\text{distância total do sinal}}$. Calcule essa fração e simplifique-a.</p>
+<p><strong>(d)</strong> Se a potência do sinal decai em $\frac{1}{4}$ a cada $100$ metros, qual é a fração da potência original que chega ao posto $B$ pelo caminho $A \to P \to B$?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>A lei dos cossenos diz: $c^2 = a^2 + b^2 - 2ab\cos(C)$. Identifique quem são $a$, $b$ e o ângulo $C$ no seu triângulo. Para a eficiência, a distância total do sinal é $AP + PB$. Para a potência, se decai $\frac{1}{4}$ a cada $100$ metros, calcule quantos "pedaços" de $100$ metros existem no caminho total.</p>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>Resolução passo a passo:</strong></p>
+<p><strong>(b)</strong> Pela lei dos cossenos, com $AP = 300$, $AB = 800$, ângulo $A = 60°$:</p>
+<p>$$PB^2 = 300^2 + 800^2 - 2 \cdot 300 \cdot 800 \cdot \cos(60°)$$</p>
+<p>$$PB^2 = 90000 + 640000 - 480000 \cdot \frac{1}{2}$$</p>
+<p>$$PB^2 = 730000 - 240000 = 490000$$</p>
+<p>$$PB = 700$ metros</p>
+<p><strong>(c)</strong> Distância total do sinal: $300 + 700 = 1000$ metros.</p>
+<p>Eficiência: $\frac{800}{1000} = \frac{4}{5} = 0{,}8$ ou $80\%$.</p>
+<p><strong>(d)</strong> Caminho total: $1000$ metros.</p>
+<p>Número de segmentos de $100$ metros: $1000 \div 100 = 10$.</p>
+<p>Potência final: $\left(\frac{1}{4}\right)^{10} = \frac{1}{1048576}$ (muito pequena!).</p>
+<p>Isso mostra que retransmissores são essenciais — o sinal não pode percorrer $1000$ metros sem amplificação.</p>
+</details>
+</div>

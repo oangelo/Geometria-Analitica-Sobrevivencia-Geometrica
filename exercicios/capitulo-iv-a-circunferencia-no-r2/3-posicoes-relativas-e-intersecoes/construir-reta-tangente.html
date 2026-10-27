@@ -1,0 +1,27 @@
+<div class="exercise">
+<h3>CONSTRUÇÃO DA ROTA TANGENTE</h3>
+
+<p>Agora que sabemos identificar uma reta tangente, vamos inverter o problema: dada a circunferência $(x - 1)^2 + (y - 2)^2 = 25$ e o ponto $P(4, 6)$ que pertence a ela, construa a reta tangente à circunferência que passa por $P$. A ferramenta é a perpendicularidade entre o raio e a reta tangente: o segmento do centro $C$ ao ponto $P$ é perpendicular à reta tangente no ponto de tangência. No papel, esboce o centro $C(1,2)$, a circunferência com raio 5, o ponto $P(4,6)$ e a reta tangente resultante.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Primeiro verifique que $P(4,6)$ pertence à circunferência: substitua na equação. Depois, encontre o vetor $\vec{CP}$ — ele é perpendicular à reta tangente, então suas componentes dão os coeficientes $a$ e $b$ da forma geral. Use a equação $a(x - x_P) + b(y - y_P) = 0$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Verifique que $P(4,6)$ pertence à circunferência: $(4 - 1)^2 + (6 - 2)^2 = 9 + 16 = 25 = r^2$ ✓.</li>
+<li>Vetor $\vec{CP} = (4 - 1, 6 - 2) = (3, 4)$. Este vetor é perpendicular à reta tangente.</li>
+<li>Equação da reta com vetor normal $(3, 4)$ passando por $P(4, 6)$: $3(x - 4) + 4(y - 6) = 0$, ou seja, $3x + 4y - 36 = 0$.</li>
+<li>Verificação — distância do centro $C(1,2)$ à reta: $d = \frac{|3 \cdot 1 + 4 \cdot 2 - 36|}{\sqrt{9 + 16}} = \frac{|3 + 8 - 36|}{5} = \frac{25}{5} = 5 = r$ ✓. Tangente confirmada.</li>
+</ol>
+<div class="formula">
+$$\vec{CP} = (3, 4) \quad \Rightarrow \quad \text{reta tangente: } 3(x - 4) + 4(y - 6) = 0$$
+$$3x + 4y - 36 = 0 \qquad d(C, r) = 5 = r \quad \checkmark$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Construir a tangente por um ponto conhecido é uma operação fundamental de evacuação: o ponto $P$ é o portão do abrigo na borda da zona, e a tangente é a rota que sai do abrigo tangenciando o perímetro de radiação. O raio $CP$ é perpendicular à rota — o evacuado segue na direção "ao largo" da zona, nunca entrando nela.</p>
+</details>
+</div>

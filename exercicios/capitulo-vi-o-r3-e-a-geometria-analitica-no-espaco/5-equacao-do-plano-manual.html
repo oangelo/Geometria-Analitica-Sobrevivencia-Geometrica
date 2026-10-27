@@ -1,0 +1,55 @@
+<section class="manual-contexto" data-context="manual-sobrevivencia">
+    <div class="terminal-border">
+        <h2 class="terminal-line">&gt; MANUAL DE SOBREVIVÊNCIA MATEMÁTICA: EQUAÇÃO DO PLANO</h2>
+
+        <h3>1. Contextualização: Superfícies na Zona Devastada</h3>
+        <p>Na Zona Devastada, paredes de abrigos, pisos, tetos, telhados de coleta de água — tudo são superfícies planas. No Capítulo III, aprendemos que uma reta no $\mathbb{R}^2$ é o conjunto de pontos perpendiculares a um vetor normal. Agora, no $\mathbb{R}^3$, generalizamos essa ideia: um <strong>plano</strong> é o conjunto de todos os pontos $P$ tal que o vetor $\overrightarrow{AP}$ é perpendicular a um vetor fixo $\vec{n}$.</p>
+        <p>Esta é a generalização natural da reta. Enquanto no $\mathbb{R}^2$ a reta divide o plano em dois semiplanos, no $\mathbb{R}^3$ o plano divide o espaço em dois semiespaços. Entender essa conexão é fundamental para reconstruir estruturas tridimensionais com precisão.</p>
+
+        <h3>2. Definição do Plano</h3>
+        <p>Seja $A(x_0, y_0, z_0)$ um ponto do plano e $\vec{n} = (a, b, c)$ um vetor normal (perpendicular) ao plano. Um ponto $P(x, y, z)$ pertence ao plano se, e somente se, o vetor $\overrightarrow{AP}$ é perpendicular a $\vec{n}$:</p>
+        <div class="formula">
+            $$\vec{n} \cdot \overrightarrow{AP} = 0$$
+        </div>
+        <p>Como $\overrightarrow{AP} = P - A = (x - x_0, y - y_0, z - z_0)$, expandimos:</p>
+        <div class="formula">
+            $$a(x - x_0) + b(y - y_0) + c(z - z_0) = 0$$
+        </div>
+        <p>Distribuindo e agrupando os termos constantes em $d$:</p>
+        <div class="formula">
+            $$ax + by + cz + d = 0 \quad \text{onde} \quad d = -(ax_0 + by_0 + cz_0)$$
+        </div>
+        <p>Esta é a <strong>equação geral do plano</strong>. Os coeficientes $(a, b, c)$ são exatamente as componentes do vetor normal $\vec{n}$.</p>
+
+        <h3>3. Vetor Normal e a Equação Geral</h3>
+        <p>Na equação $ax + by + cz + d = 0$, o vetor $\vec{n} = (a, b, c)$ é normal ao plano. Isso significa que qualquer vetor contido no plano é perpendicular a $\vec{n}$. Esta é a propriedade mais importante: <strong>os coeficientes da equação geral são as componentes do vetor normal</strong>.</p>
+        <div class="formula">
+            $$\text{Plano: } ax + by + cz + d = 0 \quad \Longleftrightarrow \quad \vec{n} = (a, b, c) \perp \text{ plano}$$
+        </div>
+
+        <h3>4. Plano por Três Pontos</h3>
+        <p>Dados três pontos não colineares $A$, $B$ e $C$, construímos dois vetores no plano: $\overrightarrow{AB}$ e $\overrightarrow{AC}$. O produto vetorial $\vec{n} = \overrightarrow{AB} \times \overrightarrow{AC}$ produz um vetor perpendicular a ambos, logo perpendicular ao plano. Com o vetor normal e qualquer um dos três pontos, aplicamos a definição.</p>
+        <div class="formula">
+            $$\vec{n} = \overrightarrow{AB} \times \overrightarrow{AC} \quad \Rightarrow \quad \vec{n} \cdot (P - A) = 0$$
+        </div>
+
+        <h3>5. Distância de Ponto a Plano</h3>
+        <p>A distância de um ponto $P_0(x_0, y_0, z_0)$ ao plano $ax + by + cz + d = 0$ é o comprimento da projeção do vetor $\overrightarrow{AP_0}$ (onde $A$ é qualquer ponto do plano) sobre a direção do vetor normal $\vec{n}$:</p>
+        <div class="formula">
+            $$d = \frac{|\vec{n} \cdot \overrightarrow{AP_0}|}{\|\vec{n}\|} = \frac{|ax_0 + by_0 + cz_0 + d|}{\sqrt{a^2 + b^2 + c^2}}$$
+        </div>
+        <p>Note que o numerador é o valor absoluto da equação do plano avaliada no ponto $P_0$ — se for zero, o ponto está no plano.</p>
+
+        <h3>6. Posições Relativas de Planos</h3>
+        <p>Dois planos são completamente caracterizados por seus vetores normais:</p>
+        <ul>
+            <li><strong>Paralelos</strong>: seus vetores normais são paralelos, ou seja, $\vec{n}_1 = k\vec{n}_2$ para algum $k \neq 0$.</li>
+            <li><strong>Perpendiculares</strong>: seus vetores normais são perpendiculares, ou seja, $\vec{n}_1 \cdot \vec{n}_2 = 0$.</li>
+            <li><strong>Concordantes (coincidentes)</strong>: paralelos e com um ponto em comum.</li>
+            <li><strong>Concorrentes</strong>: normais não paralelos — a interseção é uma reta.</li>
+        </ul>
+        <div class="formula">
+            $$\text{Paralelos: } \vec{n}_1 \times \vec{n}_2 = \vec{0} \qquad \text{Perpendiculares: } \vec{n}_1 \cdot \vec{n}_2 = 0$$
+        </div>
+    </div>
+</section>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gabarito - P1 2026.1 - Geometria Analítica</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <script>
+        // Configuração do MathJax para funcionar com <details>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            options: {
+                skipHtmlTags: ['details'] // Permite que MathJax renderize dentro de <details>
+            },
+            startup: {
+                ready: () => {
+                    MathJax.startup.defaultReady();
+                }
+            }
+        };
+    </script>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            background-color: #fff;
+            color: #000;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .header h1 {
+            text-align: center;
+            font-size: 16pt;
+            font-weight: bold;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .question {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+        }
+
+        .question:last-child {
+            border-bottom: none;
+        }
+        
+        .question-header {
+            font-weight: bold;
+            font-size: 13pt;
+            color: #000;
+            border-left: 4px solid #000;
+            padding: 8px 10px;
+            background-color: #f0f0f0;
+            margin-bottom: 12px;
+        }
+        
+        .subquestion {
+            margin: 10px 0 10px 20px;
+        }
+        
+        details {
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        summary {
+            font-weight: bold;
+            padding: 8px 12px;
+            cursor: pointer;
+            background-color: #e9e9e9;
+            font-size: 10pt;
+            border-radius: 3px;
+        }
+        .answer {
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            background-color: #fff;
+        }
+        .answer p {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Gabarito - P1 2026.1</h1>
+        </div>
+        <div class="content">
+            <!-- Questão 1 -->
+            <div class="question">
+                <div class="question-header">Questão 1: Vetor, ângulo com o eixo x e inclinação da reta (2,5 pts)</div>
+                <p>Considere o vetor \(\vec{v} = (3, 3\sqrt{3})\) representado a partir da origem do plano cartesiano, e a reta \(r\) que passa pela origem e pela extremidade de \(\vec{v}\).</p>
+                <p><em><b>Justificativa Didática:</b> Esta questão costura os Capítulos I, II e III: o aluno parte de um par ordenado, o desenha no plano e extrai o módulo; usa a trigonometria do triângulo retângulo para obter o ângulo com o eixo x; e conclui conectando esse ângulo ao coeficiente angular da reta \(y = ax + b\). O item final é uma verificação que reforça a ideia central: a inclinação da reta é a tangente do ângulo que seu vetor diretor forma com o eixo x.</em></p>
+                
+                <div class="subquestion">
+                    <strong>a)</strong> (0,5 pt) Represente \(\vec{v}\) geometricamente a partir da origem, destacando o triângulo retângulo formado com o eixo \(x\). Calcule o módulo \(|\vec{v}|\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>O vetor \(\vec{v} = (3, 3\sqrt{3})\) sai da origem até o ponto \((3, 3\sqrt{3})\). O triângulo retângulo tem catetos \(3\) (horizontal) e \(3\sqrt{3}\) (vertical), e o vetor como hipotenusa.</p>
+                            <p>\[|\vec{v}| = \sqrt{3^2 + (3\sqrt{3})^2} = \sqrt{9 + 27} = \sqrt{36} = 6\]</p>
+                            <p><strong>Resposta:</strong> \(|\vec{v}| = 6\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>b)</strong> (0,7 pt) Usando a função tangente no triângulo retângulo, determine o ângulo \(\theta\) que \(\vec{v}\) forma com o eixo \(x\) positivo.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>No triângulo retângulo, o cateto oposto a \(\theta\) é \(y_0 = 3\sqrt{3}\) e o cateto adjacente é \(x_0 = 3\):</p>
+                            <p>\[\tan \theta = \frac{\text{cateto oposto}}{\text{cateto adjacente}} = \frac{y_0}{x_0} = \frac{3\sqrt{3}}{3} = \sqrt{3}\]</p>
+                            <p>Como \(\tan 60^\circ = \sqrt{3}\):</p>
+                            <p><strong>Resposta:</strong> \(\theta = 60^\circ\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>c)</strong> (0,7 pt) Escreva a equação da reta \(r\) na forma reduzida \(y = ax + b\). Relacione o coeficiente angular \(a\) com \(\tan \theta\) e determine \(a\) e \(b\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>O vetor \(\vec{v}\) é um vetor diretor de \(r\). Para um vetor diretor \((x_0, y_0)\), a inclinação da reta é a razão entre as componentes:</p>
+                            <p>\[a = \frac{y_0}{x_0} = \frac{3\sqrt{3}}{3} = \sqrt{3} = \tan \theta\]</p>
+                            <p>Ou seja, o coeficiente angular \(a\) é exatamente a tangente do ângulo que o vetor diretor forma com o eixo x: \(a = \tan \theta\).</p>
+                            <p>Como a reta passa pela origem \((0, 0)\), o termo independente é \(b = 0\).</p>
+                            <p><strong>Resposta:</strong> \(a = \sqrt{3}\), \(b = 0\) e \(r: y = \sqrt{3}\,x\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>d)</strong> (0,6 pt) Tome o ponto \(P = 2\vec{v}\). Verifique que \(P\) pertence à reta \(r\) e que a inclinação \(\frac{y_P}{x_P}\) é igual a \(\tan \theta\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>\(P = 2\vec{v} = (6, 6\sqrt{3})\).</p>
+                            <p><b>Pertinência:</b> substituindo na equação \(y = \sqrt{3}x\):</p>
+                            <p>\(\sqrt{3} \cdot 6 = 6\sqrt{3} = y_P\). <strong>(Ok)</strong> Logo \(P \in r\).</p>
+                            <p><b>Inclinação:</b></p>
+                            <p>\[\frac{y_P}{x_P} = \frac{6\sqrt{3}}{6} = \sqrt{3} = \tan 60^\circ = \tan \theta\]</p>
+                            <p><strong>Resposta:</strong> \(P \in r\) e \(\frac{y_P}{x_P} = \sqrt{3} = \tan \theta\), confirmando o resultado.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Questão 2 -->
+            <div class="question">
+                <div class="question-header">Questão 2: Produto escalar, projeção vetorial e área (2,5 pts)</div>
+                <p>Considere os vetores \(\vec{u} = (3, 3\sqrt{3})\) e \(\vec{w} = (-2, 2\sqrt{3})\).</p>
+                <p><em><b>Justificativa Didática:</b> Avalia o núcleo do Capítulo II. O item (a) aplica o produto escalar ao cosseno do ângulo; o item (b) trabalha a projeção vetorial; o item (c) obtém o seno pela relação fundamental e calcula a área por base \(\times\) altura (base \(|\vec{w}|\), altura \(|\vec{u}|\sin\theta\)); e o item (d) é o item de verificação, que calcula a mesma área pelo determinante e reconfirma o seno pela razão \(\frac{|\det|}{|\vec{u}||\vec{w}|}\) — mostrando que os dois caminhos são equivalentes, pois \(|\vec{u}||\vec{w}|\sin\theta = |\det(\vec{u},\vec{w})|\).</em></p>
+                
+                <div class="subquestion">
+                    <strong>a)</strong> (0,4 pt) Calcule o produto escalar \(\vec{u} \cdot \vec{w}\) e o cosseno do ângulo entre os vetores.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>\[\vec{u} \cdot \vec{w} = 3(-2) + 3\sqrt{3}(2\sqrt{3}) = -6 + 18 = 12\]</p>
+                            <p>Módulos:</p>
+                            <p>\[|\vec{u}| = \sqrt{3^2 + (3\sqrt{3})^2} = 6, \qquad |\vec{w}| = \sqrt{(-2)^2 + (2\sqrt{3})^2} = \sqrt{4 + 12} = 4\]</p>
+                            <p>\[\cos \theta = \frac{\vec{u} \cdot \vec{w}}{|\vec{u}|\,|\vec{w}|} = \frac{12}{6 \cdot 4} = \frac{1}{2}\]</p>
+                            <p><strong>Resposta:</strong> \(\vec{u} \cdot \vec{w} = 12\), \(\cos \theta = \frac{1}{2}\) (ângulo de \(60^\circ\)).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>b)</strong> (0,6 pt) Calcule a projeção do vetor \(\vec{u}\) sobre o vetor \(\vec{w}\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>\[proj_{\vec{w}}\,\vec{u} = \frac{\vec{u} \cdot \vec{w}}{|\vec{w}|^2}\,\vec{w} = \frac{12}{4^2}\,(-2, 2\sqrt{3}) = \frac{3}{4}(-2, 2\sqrt{3})\]</p>
+                            <p>\[proj_{\vec{w}}\,\vec{u} = \left(-\frac{3}{2}, \frac{3\sqrt{3}}{2}\right)\]</p>
+                            <p><strong>Resposta:</strong> \(proj_{\vec{w}}\,\vec{u} = \left(-\frac{3}{2}, \frac{3\sqrt{3}}{2}\right)\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>c)</strong> (0,7 pt) Determine o seno do ângulo entre \(\vec{u}\) e \(\vec{w}\) usando a relação fundamental \(\sin^2\theta + \cos^2\theta = 1\) e calcule a área do triângulo determinado pelos vetores, com origem comum, tomando \(|\vec{w}|\) como base e \(|\vec{u}|\sin\theta\) como altura.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p><b>Seno:</b> como \(\cos \theta = \frac{1}{2}\),</p>
+                            <p>\[\sin \theta = \sqrt{1 - \cos^2\theta} = \sqrt{1 - \frac{1}{4}} = \sqrt{\frac{3}{4}} = \frac{\sqrt{3}}{2}\]</p>
+                            <p><b>Base e altura do triângulo:</b></p>
+                            <p>\[\text{Base} = |\vec{w}| = 4, \qquad \text{Altura} = |\vec{u}|\sin\theta = 6 \cdot \frac{\sqrt{3}}{2} = 3\sqrt{3}\]</p>
+                            <p>\[\text{Área} = \frac{1}{2} \cdot \text{Base} \cdot \text{Altura} = \frac{1}{2} \cdot 4 \cdot 3\sqrt{3} = 6\sqrt{3}\]</p>
+                            <p><strong>Resposta:</strong> \(\sin \theta = \frac{\sqrt{3}}{2}\) e Área \(= 6\sqrt{3}\) unidades de área.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>d)</strong> (0,8 pt) Verifique que a área é metade do módulo do determinante \(\det(\vec{u}, \vec{w})\) e que a razão \(\frac{|\det(\vec{u}, \vec{w})|}{|\vec{u}|\,|\vec{w}|}\) reproduz o seno obtido no item (c).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p><b>Determinante:</b></p>
+                            <p>\[\det(\vec{u}, \vec{w}) = \begin{vmatrix} 3 & -2 \\ 3\sqrt{3} & 2\sqrt{3} \end{vmatrix} = 3(2\sqrt{3}) - (-2)(3\sqrt{3}) = 6\sqrt{3} + 6\sqrt{3} = 12\sqrt{3}\]</p>
+                            <p><b>Área pelo determinante:</b></p>
+                            <p>\[\frac{1}{2}|\det(\vec{u}, \vec{w})| = \frac{1}{2} \cdot 12\sqrt{3} = 6\sqrt{3}\]</p>
+                            <p>que coincide com a área do item (c). <strong>(Ok)</strong></p>
+                            <p><b>Seno pelo determinante:</b></p>
+                            <p>\[\frac{|\det(\vec{u}, \vec{w})|}{|\vec{u}|\,|\vec{w}|} = \frac{12\sqrt{3}}{6 \cdot 4} = \frac{\sqrt{3}}{2}\]</p>
+                            <p>que reproduz o seno do item (c). <strong>(Ok)</strong></p>
+                            <p>Isso confirma a equivalência entre os dois caminhos: \(|\vec{u}|\,|\vec{w}|\sin\theta = |\det(\vec{u}, \vec{w})|\).</p>
+                            <p><strong>Resposta:</strong> Os dois métodos produzem a mesma área \(6\sqrt{3}\) e o mesmo seno \(\frac{\sqrt{3}}{2}\).</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Questão 3 -->
+            <div class="question">
+                <div class="question-header">Questão 3: Estudo da reta — perpendicularidade, interseção e distância (2,5 pts)</div>
+                <p>Seja \(r\) a reta de equação \(y = \sqrt{3}\,x\) e o ponto \(P = (5, 2)\).</p>
+                <p><em><b>Justificativa Didática:</b> Capítulo III em uma progressão coesa: reutiliza a reta construída na Questão 1, conectando inclinação, perpendicularidade (através da relação \(m_r \cdot m_s = -1\)), interseção de retas e, por fim, a distância de ponto a reta. O item final é duplamente verificador: confirma que o ponto de interseção satisfaz as duas equações e que a distância pela fórmula coincide com o comprimento do segmento perpendicular \(|\vec{PI}|\).</em></p>
+                
+                <div class="subquestion">
+                    <strong>a)</strong> (0,5 pt) Identifique o coeficiente angular de \(r\) e reescreva sua equação na forma geral \(ax + by + c = 0\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Na forma reduzida \(y = \sqrt{3}\,x\), o coeficiente angular é \(m_r = \sqrt{3}\).</p>
+                            <p>Passando para a forma geral:</p>
+                            <p>\[y = \sqrt{3}x \Rightarrow \sqrt{3}x - y = 0\]</p>
+                            <p>O vetor normal é \(\vec{n}_r = (\sqrt{3}, -1)\) e um vetor diretor é \(\vec{d}_r = (1, \sqrt{3})\).</p>
+                            <p><strong>Resposta:</strong> \(m_r = \sqrt{3}\) e \(r: \sqrt{3}x - y = 0\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>b)</strong> (0,7 pt) Determine a equação da reta \(s\), perpendicular a \(r\), que passa por \(P\), nas formas geral e reduzida. Verifique que \(m_r \cdot m_s = -1\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Se \(s \perp r\), o vetor diretor de \(r\), \(\vec{d}_r = (1, \sqrt{3})\), é um vetor normal de \(s\). Logo \(s\) tem a forma:</p>
+                            <p>\[x + \sqrt{3}y + c = 0\]</p>
+                            <p>Como \(P = (5, 2) \in s\):</p>
+                            <p>\[5 + 2\sqrt{3} + c = 0 \Rightarrow c = -5 - 2\sqrt{3}\]</p>
+                            <p>Forma geral: \(s: x + \sqrt{3}y = 5 + 2\sqrt{3}\).</p>
+                            <p>Forma reduzida:</p>
+                            <p>\[y = -\frac{1}{\sqrt{3}}x + \frac{5}{\sqrt{3}} + 2 \quad\Rightarrow\quad m_s = -\frac{1}{\sqrt{3}}\]</p>
+                            <p>Verificação da perpendicularidade:</p>
+                            <p>\[m_r \cdot m_s = \sqrt{3} \cdot \left(-\frac{1}{\sqrt{3}}\right) = -1\]</p>
+                            <p><strong>Resposta:</strong> \(s: x + \sqrt{3}y = 5 + 2\sqrt{3}\) e \(m_r \cdot m_s = -1\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>c)</strong> (0,7 pt) Calcule a interseção \(I = r \cap s\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Resolvemos o sistema formado pelas duas equações. Substituindo \(y = \sqrt{3}x\) em \(s\):</p>
+                            <p>\[x + \sqrt{3}(\sqrt{3}x) = 5 + 2\sqrt{3} \Rightarrow x + 3x = 5 + 2\sqrt{3}\]</p>
+                            <p>\[4x = 5 + 2\sqrt{3} \Rightarrow x = \frac{5 + 2\sqrt{3}}{4}\]</p>
+                            <p>\[y = \sqrt{3} \cdot \frac{5 + 2\sqrt{3}}{4} = \frac{5\sqrt{3} + 6}{4}\]</p>
+                            <p><strong>Resposta:</strong> \(I = \left(\frac{5 + 2\sqrt{3}}{4}, \frac{5\sqrt{3} + 6}{4}\right)\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>d)</strong> (0,6 pt) Verifique que \(I\) pertence a \(r\) e a \(s\), e que a distância de \(P\) a \(r\), calculada pela fórmula de distância de ponto a reta \(d = \frac{|ax_0 + by_0 + c|}{\sqrt{a^2 + b^2}}\), é igual a \(|\vec{PI}|\).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p><b>\(I \in r\):</b></p>
+                            <p>\[\sqrt{3}x - y = \frac{5\sqrt{3} + 6 - 5\sqrt{3} - 6}{4} = 0\]</p>
+                            <p><strong>(Ok)</strong></p>
+                            <p><b>\(I \in s\):</b></p>
+                            <p>\[x + \sqrt{3}y = \frac{5 + 2\sqrt{3} + 15 + 6\sqrt{3}}{4} = \frac{20 + 8\sqrt{3}}{4} = 5 + 2\sqrt{3}\]</p>
+                            <p><strong>(Ok)</strong></p>
+                            <p><b>Distância pela fórmula:</b> com \(r: \sqrt{3}x - y = 0\),</p>
+                            <p>\[d(P, r) = \frac{|\sqrt{3} \cdot 5 - 2|}{\sqrt{(\sqrt{3})^2 + (-1)^2}} = \frac{|5\sqrt{3} - 2|}{2}\]</p>
+                            <p><b>Distância pelo segmento perpendicular:</b> \(I\) é o pé da perpendicular, logo</p>
+                            <p>\[|\vec{PI}| = \sqrt{\left(\frac{5 + 2\sqrt{3}}{4} - 5\right)^2 + \left(\frac{5\sqrt{3} + 6}{4} - 2\right)^2} = \sqrt{\frac{(2\sqrt{3} - 15)^2 + (5\sqrt{3} - 2)^2}{16}}\]</p>
+                            <p>\[= \sqrt{\frac{237 - 60\sqrt{3} + 79 - 20\sqrt{3}}{16}} = \sqrt{\frac{316 - 80\sqrt{3}}{16}} = \sqrt{\frac{79 - 20\sqrt{3}}{4}}\]</p>
+                            <p>E, por outro lado, \(\frac{|5\sqrt{3} - 2|}{2} = \sqrt{\frac{(5\sqrt{3} - 2)^2}{4}} = \sqrt{\frac{79 - 20\sqrt{3}}{4}}\).</p>
+                            <p><strong>Resposta:</strong> \(I\) pertence a \(r\) e \(s\), e \(d(P, r) = |\vec{PI}| = \frac{|5\sqrt{3} - 2|}{2}\).</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Questão 4 -->
+            <div class="question">
+                <div class="question-header">Questão 4: A circunferência definida por três pontos (2,5 pts)</div>
+                <p>Determine a equação da circunferência que passa pelos pontos \(A = (7, 3)\), \(B = (2, 8)\) e \(C = (6, 6)\).</p>
+                <p><em><b>Justificativa Didática:</b> Capítulo IV em seu problema mais integrador: o centro da circunferência é obtido como o circuncentro do triângulo, interseção de duas mediatrizes (retas perpendiculares aos lados pelos pontos médios). O item final é a verificação clássica — como só duas mediatrizes foram usadas, substituir o terceiro ponto valida a coerência de todo o processo.</em></p>
+                
+                <div class="subquestion">
+                    <strong>a)</strong> (0,6 pt) Calcule os pontos médios \(M_{AB}\) e \(M_{AC}\) e escreva as equações das mediatrizes dos lados \(AB\) e \(AC\) (retas perpendiculares aos lados pelos respectivos pontos médios).
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Pontos médios:</p>
+                            <p>\[M_{AB} = \left(\frac{7 + 2}{2}, \frac{3 + 8}{2}\right) = \left(\frac{9}{2}, \frac{11}{2}\right)\]</p>
+                            <p>\[M_{AC} = \left(\frac{7 + 6}{2}, \frac{3 + 6}{2}\right) = \left(\frac{13}{2}, \frac{9}{2}\right)\]</p>
+                            <p><b>Mediatriz de \(AB\):</b> inclinação de \(AB\): \(m_{AB} = \frac{8 - 3}{2 - 7} = -1\), logo a perpendicular tem inclinação \(1\). Por \(M_{AB}\):</p>
+                            <p>\[y - \frac{11}{2} = x - \frac{9}{2} \Rightarrow y = x + 1\]</p>
+                            <p><b>Mediatriz de \(AC\):</b> inclinação de \(AC\): \(m_{AC} = \frac{6 - 3}{6 - 7} = -3\), logo a perpendicular tem inclinação \(\frac{1}{3}\). Por \(M_{AC}\):</p>
+                            <p>\[y - \frac{9}{2} = \frac{1}{3}\left(x - \frac{13}{2}\right) \Rightarrow y = \frac{x}{3} + \frac{7}{3}\]</p>
+                            <p><strong>Resposta:</strong> \(M_{AB} = \left(\frac{9}{2}, \frac{11}{2}\right)\), \(M_{AC} = \left(\frac{13}{2}, \frac{9}{2}\right)\); mediatrizes \(y = x + 1\) e \(y = \frac{x}{3} + \frac{7}{3}\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>b)</strong> (0,6 pt) Determine o circuncentro \(O\), interseção das duas mediatrizes.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Igualamos as duas equações:</p>
+                            <p>\[x + 1 = \frac{x}{3} + \frac{7}{3} \Rightarrow 3x + 3 = x + 7 \Rightarrow 2x = 4 \Rightarrow x = 2\]</p>
+                            <p>\[y = x + 1 = 3\]</p>
+                            <p><strong>Resposta:</strong> \(O = (2, 3)\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>c)</strong> (0,7 pt) Calcule o raio \(R\) e escreva a equação da circunferência.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>O raio é a distância do circuncentro a qualquer vértice. Usando \(A = (7, 3)\):</p>
+                            <p>\[R = d(O, A) = \sqrt{(7 - 2)^2 + (3 - 3)^2} = \sqrt{25 + 0} = 5\]</p>
+                            <p>Com centro \(O = (2, 3)\) e raio \(R = 5\):</p>
+                            <p>\[(x - 2)^2 + (y - 3)^2 = 25\]</p>
+                            <p><strong>Resposta:</strong> \(R = 5\) e \((x - 2)^2 + (y - 3)^2 = 25\).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="subquestion">
+                    <strong>d)</strong> (0,6 pt) Substitua o ponto \(C\) na equação obtida e confirme que ele pertence à circunferência.
+                    <details>
+                        <summary>Ver Resposta</summary>
+                        <div class="answer">
+                            <p>Para \(C = (6, 6)\):</p>
+                            <p>\[(6 - 2)^2 + (6 - 3)^2 = 4^2 + 3^2 = 16 + 9 = 25\]</p>
+                            <p>Como o resultado é exatamente \(R^2 = 25\), o ponto \(C\) pertence à circunferência. <strong>(Ok)</strong></p>
+                            <p><strong>Resposta:</strong> \(C = (6, 6)\) pertence à circunferência, validando a equação obtida.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

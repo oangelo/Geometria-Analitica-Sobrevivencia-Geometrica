@@ -1,0 +1,32 @@
+<div class="exercise">
+<h3>PARÂMETRO PARA PERPENDICULARIDADE</h3>
+
+<p>Nas missões anteriores, você verificou e construiu retas paralelas e perpendiculares com dados fixos. Agora o SUPERVISOR precisa ajustar um parâmetro. Duas retas são dadas por $r: y = (k+1)x + 3$ e $s: y = -\frac{1}{2}x + 5$, onde $k$ é um parâmetro de calibração do sensor de navegação. Encontre o valor de $k$ que torna $r$ perpendicular a $s$. Depois, verifique se, para esse valor de $k$, as retas $r$ e $s$ também são paralelas entre si — ou seja, confirme que perpendicularidade e paralelismo são mutuamente exclusivas.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Use a condição de perpendicularidade: $m_r \cdot m_s = -1$. Substitua $m_r = k+1$ e $m_s = -\frac{1}{2}$, e resolva para $k$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Identifique os coeficientes: $m_r = k + 1$ e $m_s = -\frac{1}{2}$.</li>
+<li>Condição de perpendicularidade: $m_r \cdot m_s = -1$.</li>
+<li>Monte a equação: $(k + 1) \cdot \left(-\frac{1}{2}\right) = -1$.</li>
+<li>Resolva: $-\frac{k+1}{2} = -1 \implies k + 1 = 2 \implies k = 1$.</li>
+<li>Verificação: para $k = 1$, temos $m_r = 1 + 1 = 2$.</li>
+<li>Confirme perpendicularidade: $2 \cdot \left(-\frac{1}{2}\right) = -1$ ✓.</li>
+<li>Verifique paralelismo: $m_r = 2$ e $m_s = -\frac{1}{2}$. Como $2 \neq -\frac{1}{2}$, as retas não são paralelas.</li>
+<li>Conclusão: para $k = 1$, as retas são perpendiculares mas não paralelas — as duas propriedades são mutuamente exclusivas.</li>
+</ol>
+<div class="formula">
+$$(k + 1) \cdot \left(-\frac{1}{2}\right) = -1 \implies k = 1$$
+$$m_r = 2, \quad m_s = -\frac{1}{2}, \quad m_r \cdot m_s = -1 \implies r \perp s$$
+$$m_r \neq m_s \implies r \text{ e } s \text{ não são paralelas}$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> Ajustar parâmetros é uma tarefa comum em campo — sensores de navegação precisam de calibração constante. A equação $(k+1) \cdot (-\frac{1}{2}) = -1$ traduz a necessidade operacional ("torne essas rotas perpendiculares") em um valor numérico exato ($k = 1$). Sem a matemática, o SUPERVISOR estaria ajustando no escuro.</p>
+</details>
+</div>

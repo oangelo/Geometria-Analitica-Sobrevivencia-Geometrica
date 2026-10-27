@@ -1,0 +1,41 @@
+<div class="exercise">
+<h3>COMPLETAR QUADRADOS: DA FORMA GERAL À CANÔNICA</h3>
+<p>O objetivo deste exercício é recuperar o centro e o raio de uma superfície esférica a partir de sua forma geral, usando a técnica de completar quadrados — a mesma ferramenta que aplicamos às circunferências no Capítulo IV, agora estendida para três variáveis.</p>
+<p>Um drone de reconhecimento transmitiu a seguinte equação descrevendo o perímetro de uma bolha de radiação:</p>
+<div class="formula">
+$$x^2 + y^2 + z^2 - 4x + 6y - 2z + 5 = 0$$
+</div>
+<p><strong>(a)</strong> Agrupe os termos em $x$, em $y$ e em $z$ separadamente, isolando a constante.</p>
+<p><strong>(b)</strong> Complete o quadrado em cada grupo: $x^2 - 4x$, $y^2 + 6y$ e $z^2 - 2z$.</p>
+<p><strong>(c)</strong> Escreva a equação na forma canônica e identifique o centro $C$ e o raio $r$.</p>
+<p><strong>(d)</strong> Verifique que a equação representa de fato uma superfície esférica real (ou seja, $r^2 > 0$).</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Para completar o quadrado de $x^2 + Dx$, some e subtraia $\left(\frac{D}{2}\right)^2$, obtendo $\left(x + \frac{D}{2}\right)^2 - \left(\frac{D}{2}\right)^2$. Faça o mesmo para $y$ e $z$. Transfira as constantes resultantes para o lado direito da equação. O lado direito final deve ser $r^2$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Equação dada: $x^2 + y^2 + z^2 - 4x + 6y - 2z + 5 = 0$</li>
+<li><strong>Item (a)</strong> — Agrupando: $(x^2 - 4x) + (y^2 + 6y) + (z^2 - 2z) = -5$</li>
+<li><strong>Item (b)</strong> — Completando quadrados:</li>
+<li>$x^2 - 4x = (x^2 - 4x + 4) - 4 = (x-2)^2 - 4$</li>
+<li>$y^2 + 6y = (y^2 + 6y + 9) - 9 = (y+3)^2 - 9$</li>
+<li>$z^2 - 2z = (z^2 - 2z + 1) - 1 = (z-1)^2 - 1$</li>
+<li>Substituindo: $(x-2)^2 - 4 + (y+3)^2 - 9 + (z-1)^2 - 1 = -5$</li>
+<li>$(x-2)^2 + (y+3)^2 + (z-1)^2 = -5 + 4 + 9 + 1 = 9$</li>
+<li><strong>Item (c)</strong> — Forma canônica: $(x-2)^2 + (y+3)^2 + (z-1)^2 = 9 = 3^2$</li>
+<li>Centro: $C = (2, -3, 1)$; raio: $r = 3$</li>
+<li><strong>Item (d)</strong> — Como $r^2 = 9 > 0$, trata-se de uma \u003cspan class="success">superfície esférica real</span>.</li>
+</ol>
+<div class="formula">
+$$(x-2)^2 + (y+3)^2 + (z-1)^2 = 9$$
+$$C = (2, -3, 1), \quad r = 3$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A forma geral é como recebemos dados de sensores em campo — brutos e sem estrutura óbvia. A técnica de completar quadrados é a ferramenta de decodificação. Aqui, a bolha de radiação tem centro em $(2, -3, 1)$ e raio $3$ unidades. Qualquer ponto a menos de $3$ unidades desse centro está dentro da zona contaminada.</p>
+</details>
+</div>

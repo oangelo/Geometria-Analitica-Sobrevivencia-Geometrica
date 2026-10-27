@@ -1,0 +1,24 @@
+<div class="exercise">
+<h3>PONTO DE ENCONTRO EQUIDISTANTE</h3>
+<p>Três grupos de sobreviventes estão posicionados em $A(1, 1)$, $B(7, 1)$ e $C(4, 7)$. Eles precisam estabelecer um ponto de encontro $G$ que minimize a distância total percorrida por todos os grupos. O objetivo deste exercício é usar o baricentro como critério de equidistância aproximada e compará-lo com outras estratégias. Desenhe o triângulo e os pontos calculados.</p>
+<p><strong>(a)</strong> Calcule o baricentro $G$ do triângulo $ABC$. Este será o ponto de encontro proposto.</p>
+<p><strong>(b)</strong> Calcule as distâncias de cada grupo ao baricentro: $\|AG\|$, $\|BG\|$ e $\|CG\|$. As distâncias são iguais? O baricentro é equidistante dos três vértices?</p>
+<p><strong>(c)</strong> Um sobrevivente sugere usar o ponto médio do lado $AB$ como ponto de encontro. Calcule $\|AM_{AB}\|$, $\|BM_{AB}\|$ e $\|CM_{AB}\|$. Compare com os resultados do item (b). Qual estratégia é mais justa para os três grupos?</p>
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>O baricentro <strong>não</strong> é equidistante dos vértices (isso é propriedade do circuncentro). No entanto, ele minimiza a soma das distâncias aos vértices, o que o torna o ponto de encontro mais "eficiente" no total. Calcule e compare para chegar a essa conclusão.</p>
+</details>
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>$G = \left(\frac{1 + 7 + 4}{3}, \frac{1 + 1 + 7}{3}\right) = (4, 3)$.</li>
+<li>$\|AG\| = \sqrt{(4 - 1)^2 + (3 - 1)^2} = \sqrt{9 + 4} = \sqrt{13} \approx 3{,}61$. $\|BG\| = \sqrt{(4 - 7)^2 + (3 - 1)^2} = \sqrt{9 + 4} = \sqrt{13} \approx 3{,}61$. $\|CG\| = \sqrt{(4 - 4)^2 + (3 - 7)^2} = 4$. As distâncias não são todas iguais (mas $A$ e $B$ estão igualmente distantes de $G$ devido à simetria).</li>
+<li>$M_{AB} = (4, 1)$. $\|AM_{AB}\| = 3$, $\|BM_{AB}\| = 3$, $\|CM_{AB}\| = \sqrt{0 + 36} = 6$. Soma: $3 + 3 + 6 = 12$. Com o baricentro: $\sqrt{13} + \sqrt{13} + 4 \approx 3{,}61 + 3{,}61 + 4 = 11{,}22$. O baricentro produz uma soma menor, sendo mais eficiente para o grupo como um todo.</li>
+</ol>
+<div class="formula">
+$$G = (4, 3), \quad \|AG\| = \|BG\| = \sqrt{13}, \quad \|CG\| = 4$$
+$$\text{Soma com } G \approx 11{,}22 < \text{Soma com } M_{AB} = 12$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O baricentro não é equidistante dos vértices (essa é propriedade do circuncentro), mas ele minimiza a soma total das distâncias percorridas. Na prática da Zona Devastada, isso significa que o baricentro é o ponto de encontro mais eficiente quando o objetivo é minimizar o esforço coletivo — mesmo que individualmente as distâncias não sejam iguais.</p>
+</details>
+</div>

@@ -1,0 +1,54 @@
+<div class="exercise">
+<h3>VERIFICAÇÃO DE BASE NO R³</h3>
+<p>O objetivo deste exercício é usar o produto misto para verificar se três vetores formam uma base para o $\mathbb{R}^3$ — ou seja, se são linearmente independentes e podem gerar qualquer vetor do espaço.</p>
+<p>Três vetores de sustentação de uma estrutura de abrigo são dados: $\vec{u} = (1, 2, -1)$, $\vec{v} = (3, 0, 2)$ e $\vec{w} = (2, -1, 1)$.</p>
+<p><strong>(a)</strong> Calcule o produto misto $[\vec{u}, \vec{v}, \vec{w}]$.</p>
+<p><strong>(b)</strong> Os vetores $\vec{u}$, $\vec{v}$ e $\vec{w}$ formam uma base do $\mathbb{R}^3$? Justifique.</p>
+<p><strong>(c)</strong> Se os vetores formam uma base, calcule o volume do paralelepípedo que eles definem. Interprete geometricamente o que aconteceria com esse volume se os três vetores fossem coplanares.</p>
+<p><strong>(d)</strong> Suponha que $\vec{w}$ fosse alterado para $\vec{w}' = (5, 3, 1)$. Verifique se $\{\vec{u}, \vec{v}, \vec{w}'\}$ ainda forma uma base. O que mudou?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Três vetores no $\mathbb{R}^3$ formam uma base se e somente se seu produto misto é diferente de zero. Isso é equivalente a dizer que o determinante da matriz formada pelos três vetores (como linhas ou colunas) é não-nulo. Use a fórmula do determinante 3×3.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>Item (a):</strong></p>
+<ol class="solution-steps">
+<li>$[\vec{u}, \vec{v}, \vec{w}] = \begin{vmatrix} 1 & 2 & -1 \\ 3 & 0 & 2 \\ 2 & -1 & 1 \end{vmatrix}$</li>
+<li>Expansão por Laplace (primeira linha): $1 \cdot \begin{vmatrix} 0 & 2 \\ -1 & 1 \end{vmatrix} - 2 \cdot \begin{vmatrix} 3 & 2 \\ 2 & 1 \end{vmatrix} + (-1) \cdot \begin{vmatrix} 3 & 0 \\ 2 & -1 \end{vmatrix}$</li>
+<li>$= 1[(0)(1) - (2)(-1)] - 2[(3)(1) - (2)(2)] + (-1)[(3)(-1) - (0)(2)]$</li>
+<li>$= 1(0 + 2) - 2(3 - 4) + (-1)(-3 - 0)$</li>
+<li>$= 1(2) - 2(-1) + (-1)(-3) = 2 + 2 + 3 = 7$</li>
+</ol>
+<div class="formula">
+$$[\vec{u}, \vec{v}, \vec{w}] = 7$$
+</div>
+
+<p><strong>Item (b):</strong></p>
+<p>Sim, os vetores formam uma base do $\mathbb{R}^3$ porque $[\vec{u}, \vec{v}, \vec{w}] = 7 \neq 0$. Quando o produto misto é não-nulo, os três vetores são linearmente independentes — nenhum deles pode ser escrito como combinação linear dos outros dois. Isso significa que qualquer vetor do $\mathbb{R}^3$ pode ser expresso como combinação linear de $\vec{u}$, $\vec{v}$ e $\vec{w}$.</p>
+
+<p><strong>Item (c):</strong></p>
+<ol class="solution-steps">
+<li>Volume do paralelepípedo: $|[\vec{u}, \vec{v}, \vec{w}]| = |7| = 7$ unidades cúbicas</li>
+</ol>
+<div class="formula">
+$$V = 7 \text{ unidades}^3$$
+</div>
+<p>Se os três vetores fossem coplanares, o produto misto seria zero e o volume seria nulo. Geometricamente, isso significaria que os vetores estão "achatados" em um plano — o paralelepípedo teria altura zero. Na estrutura do abrigo, isso indicaria que as três vigas de sustentação estão no mesmo plano, tornando a estrutura instável (não há "profundidade" para resistir a forças fora desse plano).</p>
+
+<p><strong>Item (d):</strong></p>
+<ol class="solution-steps">
+<li>$[\vec{u}, \vec{v}, \vec{w}'] = \begin{vmatrix} 1 & 2 & -1 \\ 3 & 0 & 2 \\ 5 & 3 & 1 \end{vmatrix}$</li>
+<li>$= 1[(0)(1) - (2)(3)] - 2[(3)(1) - (2)(5)] + (-1)[(3)(3) - (0)(5)]$</li>
+<li>$= 1(0 - 6) - 2(3 - 10) + (-1)(9 - 0)$</li>
+<li>$= -6 - 2(-7) - 9 = -6 + 14 - 9 = -1$</li>
+</ol>
+<p>Como $[\vec{u}, \vec{v}, \vec{w}'] = -1 \neq 0$, o conjunto $\{\vec{u}, \vec{v}, \vec{w}'\}$ <strong>também forma uma base</strong>. O sinal negativo indica que a orientação da base mudou (a ordem dos vetores define uma orientação "esquerda" em vez de "direita" segundo a regra da mão direita), mas a independência linear permanece. O volume do novo paralelepípedo seria $|-1| = 1$ unidade cúbica.</p>
+
+<p><strong>Reflexão de Sobrevivência:</strong> Uma base é o alicerce de toda coordenada no espaço. Sem uma base válida, não há como descrever posições unicamente. Na engenharia de abrigos, garantir que as vigas principais formam uma base é garantir que a estrutura tem rigidez em todas as direções — essencial para resistir a colapsos estruturais.</p>
+</details>
+</div>

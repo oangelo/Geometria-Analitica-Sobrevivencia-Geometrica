@@ -1,0 +1,32 @@
+<div class="exercise">
+<h3>Construção do Campo de Detecção Horizontal</h3>
+<p>O objetivo deste exercício é estender a construção para o caso em que o eixo de simetria é horizontal. Uma torre de vigilância está no foco $F(2,0)$ e a barreira de detecção está na reta vertical $x = -2$.</p>
+<p><strong>(a)</strong> Desenhe no papel o foco $F(2,0)$ e a diretriz $x = -2$. Marque o vértice $V$. Onde fica $V$? O eixo de simetria é horizontal ou vertical?</p>
+<p><strong>(b)</strong> Seja $P(x,y)$ um ponto qualquer do campo. Escreva $d(P,F)$ e $d(P,d)$. Note que agora a distância à diretriz é horizontal.</p>
+<p><strong>(c)</strong> Aplique a definição, eleve ao quadrado e simplifique até obter a equação.</p>
+<p><strong>(d)</strong> A equação obtida tem $y^2$ isolado ou $x^2$ isolado? O que isso diz sobre a orientação da parábola?</p>
+<p><strong>(e)</strong> Compare com os dois exercícios anteriores. Qual é a diferença fundamental entre parábolas com $x^2 = 4py$ e $y^2 = 4px$?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Agora a distância à diretriz é $|x - (-2)| = |x + 2|$, não envolve $y$. Quando elevar ao quadrado, expanda $(x-2)^2$ e $(x+2)^2$. Os termos em $x^2$ vão cancelar, sobrando $y^2$ em função de $x$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>O vértice $V$ é o ponto médio entre $F(2,0)$ e $x=-2$, logo $V(0,0)$. O eixo de simetria é o eixo $x$ (horizontal).</li>
+<li>$d(P,F) = \sqrt{(x-2)^2 + y^2}$ e $d(P,d) = |x + 2|$</li>
+<li>Igualando: $(x-2)^2 + y^2 = (x+2)^2$</li>
+<li>Expandindo: $x^2 - 4x + 4 + y^2 = x^2 + 4x + 4$</li>
+<li>Simplificando: $-4x + y^2 = 4x$, portanto $y^2 = 8x$</li>
+<li>A equação tem $y^2$ isolado. Isso significa que para cada $x$ há dois valores de $y$ (simetria vertical), característica de parábola horizontal.</li>
+</ol>
+<div class="formula">
+$$y^2 = 8x$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A chave está no que sobra após a simplificação: quando o foco está em $(0,p)$, sobra $x^2 = 4py$ (eixo vertical); quando o foco está em $(p,0)$, sobra $y^2 = 4px$ (eixo horizontal). A variável que aparece ao quadrado indica o eixo de simetria perpendicular a ela.</p>
+</details>
+</div>

@@ -1,0 +1,143 @@
+<section class="exercicio" data-topico="escalonamento" data-dificuldade="medio">
+  <p class="exercicio-enunciado">
+    <span class="exercicio-numero">3.</span>
+    Agora você escolhe o múltiplo. Considere
+    $\begin{cases} x + y + z = 6 \\ 2x - y + z = 3 \\ x + 2y - z = 2 \end{cases}$,
+    cuja matriz aumentada é
+    $\left[\begin{array}{ccc|c} 1 & 1 & 1 & 6 \\ 2 & -1 & 1 & 3 \\ 1 & 2 & -1 & 2 \end{array}\right]$.
+    Queremos zerar os coeficientes de $x$ abaixo do primeiro pivô.
+  </p>
+
+  <p class="questao">
+    Descubra o múltiplo $k$ para zerar o $x$ da linha 2.
+  </p>
+
+  <p class="dialogo">
+    Vamos usar $L_2 \leftarrow L_2 + kL_1$. O coeficiente de $x$ na linha 2 deve
+    virar $0$. Que valor de $k$ faz isso?
+  </p>
+  <p class="subitem">
+    a) Coeficiente de $x$ na linha 2: <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    b) Coeficiente de $x$ na linha 1 (pivô): <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    c) Para que (coeficiente da linha 2) $+\,k\cdot$(pivô) $= 0$, quanto vale
+    $k$? <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    d) Escreva a operação na forma $L_2 \leftarrow L_2 + kL_1$, com $k =$
+    <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    e) Aplicando a operação, a nova linha 2 fica: $($<span class="lacuna"></span>,
+    <span class="lacuna"></span>, <span class="lacuna"></span>$|$
+    <span class="lacuna"></span>$)$
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verifique: o primeiro número da nova linha 2 deve ser $0$. Substitua o $k$
+    encontrado em $2 + k\cdot 1$ — o resultado tem que dar exatamente zero.
+  </p>
+
+  <p class="questao">
+    Descubra o múltiplo $k$ para zerar o $x$ da linha 3.
+  </p>
+
+  <p class="dialogo">
+    Mesmo raciocínio, com $L_3 \leftarrow L_3 + kL_1$.
+  </p>
+  <p class="subitem">
+    a) Para que (coeficiente da linha 3) $+\,k\cdot$(pivô) $= 0$, quanto vale
+    $k$? <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    b) Escreva a operação com esse $k$: $L_3 \leftarrow L_3 + kL_1$, com $k =$
+    <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    c) Aplicando a operação, a nova linha 3 fica: $($<span class="lacuna"></span>,
+    <span class="lacuna"></span>, <span class="lacuna"></span>$|$
+    <span class="lacuna"></span>$)$
+  </p>
+  <p class="subitem">
+    d) Escreva a matriz aumentada após essas duas operações:
+  </p>
+  <div class="workspace"></div>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verifique: a coluna do $x$ deve ter $1$ na primeira linha e $0$ nas outras
+    duas. Se a linha 3 não zerou, confira o sinal do $k$.
+  </p>
+
+  <p class="questao">
+    Agora zere o $y$ da linha 3 — e decida se convém trocar linhas.
+  </p>
+
+  <p class="dialogo">
+    O próximo pivô é o coeficiente de $y$ na linha 2. Se ele não for $1$,
+    escalonar direto gera frações. Às vezes é melhor trocar a ordem das linhas.
+  </p>
+  <p class="subitem">
+    a) Qual é o coeficiente de $y$ na linha 2? <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    b) Qual é o coeficiente de $y$ na linha 3? <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    c) Qual das duas linhas tem pivô igual a $1$ (um bom pivô, sem frações)?
+    <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    d) Para colocar esse bom pivô na linha 2, troque as linhas. Escreva a
+    operação de troca entre $L_2$ e $L_3$: <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    e) Após a troca, escreva a matriz obtida:
+  </p>
+  <div class="workspace"></div>
+  <p class="subitem">
+    f) Agora use $L_3 \leftarrow L_3 + kL_2$. Para zerar o $y$ da linha 3,
+    quanto vale $k$? <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    g) Aplicando a operação, a nova linha 3 fica: $($<span class="lacuna"></span>,
+    <span class="lacuna"></span>, <span class="lacuna"></span>$|$
+    <span class="lacuna"></span>$)$
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verifique: depois da troca, a linha 2 tem pivô $1$ e a linha 3 deve zerar
+    o segundo coeficiente. Sem frações em nenhum passo — era o objetivo da
+    troca.
+  </p>
+
+  <p class="questao">
+    Escreva a matriz triangular e leia as incógnitas.
+  </p>
+
+  <p class="dialogo">
+    Pronto: abaixo da diagonal principal só há zeros. Traduza as linhas 3 e 2
+    de volta para equações.
+  </p>
+  <p class="subitem">
+    a) Escreva a matriz triangular final:
+  </p>
+  <div class="workspace"></div>
+  <p class="subitem">
+    b) Da linha 3, resolva: $z =$ <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    c) Da linha 2, resolva: $y =$ <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verifique: os três pivôs estão nas colunas de $x$, $y$ e $z$. Falta achar
+    $x$ pela retrosubstituição — exercício 5.
+  </p>
+</section>

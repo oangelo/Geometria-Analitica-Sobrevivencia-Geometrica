@@ -1,0 +1,29 @@
+<div class="exercise">
+<h3>O VETOR DESLOCAMENTO: DE $A$ ATÉ $B$</h3>
+
+<p>No mapa da Zona Devastada, o abrigo principal está em $A(2, 1)$ e uma estação de rádio em $B(6, 4)$. Para transmitir por rádio como chegar do abrigo à estação, o batedor precisa expressar o caminho como um vetor — o vetor deslocamento $\overrightarrow{AB}$. A regra é simples: subtraia as coordenadas do ponto de partida das coordenadas do ponto de chegada, componente a componente. O objetivo deste exercício é construir esse vetor e verificar que ele funciona.</p>
+
+<p><strong>(a)</strong> Calcule $\overrightarrow{AB} = B - A$ componente a componente. Lembre-se: primeiro a coordenada $x$, depois a $y$.</p>
+
+<p><strong>(b)</strong> Verifique: se você somar $\overrightarrow{AB}$ ao ponto $A$, deve obter $B$. Ou seja, confirme que $A + \overrightarrow{AB} = B$.</p>
+
+<p><strong>(c)</strong> Desenhe no papel: marque os pontos $A(2,1)$ e $B(6,4)$ no plano cartesiano e trace a seta de $A$ para $B$. Essa seta é a representação geométrica de $\overrightarrow{AB}$.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<p>O vetor deslocamento é $\overrightarrow{AB} = (x_B - x_A,\ y_B - y_A)$. Subtraia coordenada por coordenada: o "destino menos a partida". Para verificar, some o vetor ao ponto de partida.</p>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<p><strong>(a)</strong> $\overrightarrow{AB} = B - A = (6 - 2,\ 4 - 1) = (4, 3)$.</p>
+<p><strong>(b)</strong> Verificação: $A + \overrightarrow{AB} = (2, 1) + (4, 3) = (6, 4) = B$. Confere.</p>
+<p><strong>(c)</strong> No esboço, a seta parte de $A(2,1)$ e termina em $B(6,4)$. O vetor $(4,3)$ está "ancorado" em $A$ — se o desenharmos saindo da origem, obtemos uma seta paralela, de mesmo comprimento, mas em outra posição. Ambas representam o mesmo vetor $\overrightarrow{AB} = (4, 3)$.</p>
+<div class="formula">
+$$\overrightarrow{AB} = B - A = (x_B - x_A,\ y_B - y_A)$$
+$$\overrightarrow{AB} = (6, 4) - (2, 1) = (4, 3)$$
+$$A + \overrightarrow{AB} = (2, 1) + (4, 3) = (6, 4) = B \quad \checkmark$$
+</div>
+<p><strong>Reflexão:</strong> O vetor deslocamento compacta a navegação em dois números. Em vez de descrever "ande 4 para leste e 3 para norte" por rádio, basta transmitir $(4, 3)$. Efficient e menos sujeito a erros quando os mutantes estão por perto.</p>
+</details>
+</div>

@@ -1,0 +1,101 @@
+<section class="exercicio" data-topico="matriz-aumentada" data-dificuldade="facil">
+  <p class="exercicio-enunciado">
+    <span class="exercicio-numero">1.</span>
+    Um sistema linear pode ser escrito de forma compacta como uma
+    <strong>matriz aumentada</strong> $[A|B]$: cada linha guarda os coeficientes
+    de uma equação, as três primeiras colunas guardam os coeficientes de $x$,
+    $y$ e $z$ (nessa ordem) e a última coluna guarda os termos independentes.
+    Considere
+    $\begin{cases} x + y + z = 6 \\ x - y + z = 2 \\ x + y - z = 0 \end{cases}$.
+  </p>
+
+  <p class="questao">
+    Entenda a estrutura da matriz.
+  </p>
+
+  <p class="dialogo">
+    Antes de escrever números, identifique o papel de cada linha e de cada
+    coluna.
+  </p>
+  <p class="subitem">
+    a) Quantas linhas tem a matriz? <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    b) As três primeiras colunas guardam os coeficientes de quais incógnitas,
+    na ordem? <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    c) A última coluna guarda qual parte da equação? <span class="lacuna"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verifique: cada linha corresponde a uma equação e cada coluna a uma
+    incógnita. A barra vertical separa os coeficientes dos termos
+    independentes — ela não é uma operação, é só um separador visual.
+  </p>
+
+  <p class="questao">
+    Monte a matriz aumentada $[A|B]$.
+  </p>
+
+  <p class="dialogo">
+    Percorra cada equação e copie os coeficientes na ordem $x$, $y$, $z$,
+    separando os termos independentes por uma barra vertical. Cuidado com os
+    sinais negativos.
+  </p>
+  <p class="subitem">
+    a) Linha 1 (1ª equação), na ordem $x$, $y$, $z$: <span class="lacuna"></span>,
+    <span class="lacuna"></span>, <span class="lacuna"></span>;
+    termo independente: <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    b) Linha 2 (2ª equação): qual é o coeficiente de $y$? <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    c) Linha 3 (3ª equação): qual é o coeficiente de $z$? <span class="lacuna"></span>
+  </p>
+  <p class="subitem">
+    d) Escreva a matriz aumentada completa no espaço abaixo:
+  </p>
+  <div class="workspace"></div>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verifique: a matriz deve ter $3$ linhas e $4$ colunas (as três incógnitas
+    mais o termo independente). Confira a coluna do $z$ e a última coluna, onde
+    os sinais costumam escapar.
+  </p>
+
+  <p class="questao">
+    Faça o caminho inverso: da matriz para o sistema.
+  </p>
+
+  <p class="dialogo">
+    Cada linha da matriz é uma equação: os três primeiros números são os
+    coeficientes de $x$, $y$, $z$ e o último é o termo independente.
+  </p>
+
+  <p class="formula">
+    $$\left[\begin{array}{ccc|c} 2 & -1 & 3 & 7 \\ 1 & 0 & -1 & 2 \\ 0 & 4 & 1 & -1 \end{array}\right]$$
+  </p>
+
+  <p class="subitem">
+    a) Linha 1 → qual equação em $x$, $y$, $z$? <span class="lacuna-grande"></span>
+  </p>
+  <p class="subitem">
+    b) Linha 2 → escreva a equação (lembre: coeficiente $0$ em $y$ faz o termo
+    sumir): <span class="lacuna-grande"></span>
+  </p>
+  <p class="subitem">
+    c) Linha 3 → escreva a equação: <span class="lacuna-grande"></span>
+  </p>
+
+  <p class="checkpoint">
+    <span class="checkmark"></span>
+    Verifique: ao reescrever o sistema, cada equação deve usar os quatro
+    números da linha na mesma ordem. Se você trocou coeficiente com termo
+    independente, a equação fica deslocada — confira a última coluna em cada
+    linha.
+  </p>
+</section>

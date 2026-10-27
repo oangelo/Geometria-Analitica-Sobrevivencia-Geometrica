@@ -1,0 +1,31 @@
+<div class="exercise">
+<h3>MÓDULO DE VETOR NO R³</h3>
+<p>O objetivo deste exercício é calcular a magnitude de um vetor no espaço tridimensional. No Cap II, você viu que o módulo no R² é a hipotenusa de um triângulo retângulo. No R³, aplicamos Pitágoras duas vezes: primeiro no plano $xy$, depois incluindo $z$.</p>
+<p>Um sinal de socorro é emitido a partir da posição $S$ com intensidade proporcional ao módulo do vetor de deslocamento $\vec{v} = (4, -3, 12)$ que descreve a distância até o ponto de resgate.</p>
+<p><strong>(a)</strong> Calcule $|\vec{v}|$.</p>
+<p><strong>(b)</strong> Se a intensidade do sinal cai com o quadrado da distância, e a intensidade de referência é $I_0 = 100$ unidades a 1 unidade de distância, qual a intensidade do sinal na origem?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>A fórmula do módulo no R³ estende a do R²: $|\vec{v}| = \sqrt{v_1^2 + v_2^2 + v_3^2}$. Não reconstrua do zero — aplique diretamente. Para o item (b), a intensidade é $I = I_0 / d^2$ onde $d = |\vec{v}|$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Dado: $\vec{v} = (4, -3, 12)$</li>
+<li>Aplicando a fórmula do módulo: $|\vec{v}| = \sqrt{4^2 + (-3)^2 + 12^2}$</li>
+<li>$|\vec{v}| = \sqrt{16 + 9 + 144} = \sqrt{169}$</li>
+<li>$|\vec{v}| = 13$</li>
+<li><strong>Item (b)</strong> — Intensidade: $I = \dfrac{I_0}{|\vec{v}|^2} = \dfrac{100}{13^2} = \dfrac{100}{169}$</li>
+<li>$I \approx 0{,}59$ unidades</li>
+</ol>
+<div class="formula">
+$$|\vec{v}| = \sqrt{4^2 + (-3)^2 + 12^2} = 13$$
+$$I = \frac{100}{169} \approx 0{,}59$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> O número 13 é pitagórico no R³: $3^2 + 4^2 = 5^2$ no plano, e $5^2 + 12^2 = 13^2$ no espaço. Esta tripla $(5, 12, 13)$ é a extensão natural da tripla $(3, 4, 5)$. Reconhecer estas relações acelera cálculos em campo.</p>
+</details>
+</div>

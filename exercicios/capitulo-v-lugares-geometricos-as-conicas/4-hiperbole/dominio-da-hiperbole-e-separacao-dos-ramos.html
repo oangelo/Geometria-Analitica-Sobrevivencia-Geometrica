@@ -1,0 +1,36 @@
+<div class="exercise">
+<h3>Domínio da Hipérbole e Separação dos Ramos</h3>
+<p>O objetivo deste exercício é demonstrar uma propriedade fundamental da hipérbole: seus pontos satisfazem $|x| \geq a$ (para a horizontal), o que explica geometricamente por que a curva tem dois ramos separados. Considere a hipérbole $\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1$.</p>
+<p><strong>(a)</strong> A partir da equação, isole $\frac{x^2}{a^2}$:
+$$\frac{x^2}{a^2} = 1 + \frac{y^2}{b^2}$$
+Como $\frac{y^2}{b^2} \geq 0$ para todo $y$ real, o que isso implica sobre $\frac{x^2}{a^2}$?</p>
+<p><strong>(b)</strong> Mostre que $\frac{x^2}{a^2} \geq 1$ implica $x^2 \geq a^2$, e portanto $|x| \geq a$.</p>
+<p><strong>(c)</strong> Interprete geometricamente: a hipérbole só existe onde $x \leq -a$ ou $x \geq a$. Não há pontos da hipérbole na faixa $-a < x < a$. Desenhe essa faixa no eixo $x$ e explique por que a hipérbole "pula" essa região.</p>
+<p><strong>(d)</strong> Verifique numericamente: para a hipérbole $\frac{x^2}{9} - \frac{y^2}{4} = 1$ ($a = 3$), tente encontrar um ponto com $x = 2$ (que está na faixa proibida $-3 < 2 < 3$). O que acontece quando você substitui $x = 2$ na equação e tenta resolver para $y$?</p>
+<p><strong>(e)</strong> Agora tente $x = 5$ (fora da faixa proibida). Resolva para $y$ e verifique que obtém valores reais.</p>
+<p><strong>(f)</strong> Conecte com a definição: $|d(P,F_1) - d(P,F_2)| = 2a$. A distância entre os focos é $2c$. Pelo triângulo $PF_1F_2$, a diferença de dois lados é sempre menor que o terceiro lado. Mostre que isso implica $2a < 2c$, ou seja, $a < c$. Como os vértices estão em $(\pm a, 0)$ e os focos em $(\pm c, 0)$, os vértices estão <strong>entre</strong> os focos. Explique por que isso faz sentido com a separação dos ramos.</p>
+<p><strong>(g)</strong> Faça um esboço mostrando a faixa proibida $-a < x < a$ sombreada, os focos, os vértices, e os dois ramos da hipérbole.</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>No item (d), substitua $x = 2$ em $\frac{x^2}{9} - \frac{y^2}{4} = 1$: $\frac{4}{9} - \frac{y^2}{4} = 1$. Isole $y^2$ e veja se o resultado é positivo. No item (f), use a desigualdade triangular: $|d(P,F_1) - d(P,F_2)| \leq d(F_1, F_2) = 2c$. Como a diferença é exatamente $2a$, temos $2a \leq 2c$. A igualdade só ocorre se $P$ estiver na reta $F_1F_2$ entre os focos, mas nessa região a diferença varia de $-2c$ a $2c$ — o valor constante $2a$ só é atingido fora do segmento.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Isolando: $\frac{x^2}{a^2} = 1 + \frac{y^2}{b^2}$. Como $\frac{y^2}{b^2} \geq 0$, temos $\frac{x^2}{a^2} \geq 1$.</li>
+<li>Multiplicando por $a^2 > 0$: $x^2 \geq a^2$. Tirando raiz: $|x| \geq a$.</li>
+<li>Geometricamente: a hipérbole só existe em $x \leq -a$ (ramo esquerdo) ou $x \geq a$ (ramo direito). A faixa $-a < x < a$ é "proibida".</li>
+<li>Para $x = 2$ em $\frac{x^2}{9} - \frac{y^2}{4} = 1$: $\frac{4}{9} - \frac{y^2}{4} = 1 \Rightarrow -\frac{y^2}{4} = \frac{5}{9} \Rightarrow y^2 = -\frac{20}{9} < 0$. Impossível! ✓</li>
+<li>Para $x = 5$: $\frac{25}{9} - \frac{y^2}{4} = 1 \Rightarrow \frac{y^2}{4} = \frac{16}{9} \Rightarrow y^2 = \frac{64}{9} \Rightarrow y = \pm \frac{8}{3}$. Pontos: $(5, \frac{8}{3})$ e $(5, -\frac{8}{3})$ ✓</li>
+<li>Pela desigualdade triangular: $|d(P,F_1) - d(P,F_2)| \leq d(F_1,F_2) = 2c$. Como $|d(P,F_1) - d(P,F_2)| = 2a$, temos $2a \leq 2c$, logo $a \leq c$. Para hipérbole propriamente dita ($a > 0$), temos $a < c$.</li>
+<li>Os vértices $(\pm a, 0)$ estão entre os focos $(\pm c, 0)$ pois $a < c$. A hipérbole "começa" nos vértices e se afasta, nunca entrando na região entre $-a$ e $a$.</li>
+</ol>
+<div class="formula">$$\text{Domínio: } |x| \geq a \quad \text{(hipérbole horizontal)}$$</div>
+<div class="formula">$$\text{Faixa proibida: } -a < x < a$$</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A separação dos ramos é a característica distintiva da hipérbole. Na Zona Devastada, isso significa que uma hipérbole de detecção nunca forma uma região contínua — há sempre um "corredor seguro" entre os dois ramos. Se você está entre $-a$ e $a$, está fora da zona de detecção! Essa propriedade é única da hipérbole e não ocorre na elipse (que é uma curva fechada contínua) ou na parábola (que é uma curva aberta contínua).</p>
+</details>
+</div>

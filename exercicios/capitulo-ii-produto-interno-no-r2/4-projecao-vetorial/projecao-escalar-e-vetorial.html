@@ -1,0 +1,28 @@
+<div class="exercise">
+<h3>A SOMBRA DO VETOR</h3>
+
+<p>Uma patrulha da Zona Devastada precisa saber quanto do deslocamento $\vec{a} = (4, 3)$ está efetivamente "na direção" do suprimento mais próximo, indicado pelo vetor $\vec{b} = (1, 0)$. A ferramenta é a <strong>projeção vetorial</strong>: dado um vetor $\vec{a}$ e uma direção $\vec{b} \neq \vec{0}$, a projeção de $\vec{a}$ sobre $\vec{b}$ é $\text{proj}_{\vec{b}}\,\vec{a} = \left(\frac{\vec{a} \cdot \vec{b}}{\vec{b} \cdot \vec{b}}\right)\vec{b}$, e a <strong>projeção escalar</strong> é o comprimento com sinal $\frac{\vec{a} \cdot \vec{b}}{|\vec{b}|}$. No papel, esboce $\vec{a}$ e $\vec{b}$ a partir da mesma origem, trace a "sombra" de $\vec{a}$ sobre a linha de $\vec{b}$, e calcule tanto a projeção escalar quanto a projeção vetorial. Que fração do comprimento de $\vec{a}$ está efetivamente na direção de $\vec{b}$?</p>
+
+<details class="hint-details">
+<summary>DICA DE SOBREVIVÊNCIA</summary>
+<div class="hint">
+<p>Primeiro calcule $\vec{a} \cdot \vec{b}$ e $\vec{b} \cdot \vec{b}$. A projeção vetorial é um escalar vezes $\vec{b}$ — qual é esse escalar? Para a fração pedida, compare o módulo da projeção vetorial com $|\vec{a}|$.</p>
+</div>
+</details>
+
+<details>
+<summary>ACESSO NÍVEL: SUPERVISOR</summary>
+<ol class="solution-steps">
+<li>Calcule o produto escalar: $\vec{a} \cdot \vec{b} = 4 \times 1 + 3 \times 0 = 4$.</li>
+<li>Calcule $\vec{b} \cdot \vec{b} = 1^2 + 0^2 = 1$.</li>
+<li>Projeção vetorial: $\text{proj}_{\vec{b}}\,\vec{a} = \frac{4}{1}(1, 0) = (4, 0)$.</li>
+<li>Projeção escalar: $\frac{\vec{a} \cdot \vec{b}}{|\vec{b}|} = \frac{4}{1} = 4$.</li>
+<li>Módulo de $\vec{a}$: $|\vec{a}| = \sqrt{4^2 + 3^2} = \sqrt{25} = 5$. Módulo da projeção: $|(4,0)| = 4$.</li>
+<li>Fração: $\frac{4}{5} = 0{,}8$, ou seja, 80% do deslocamento está na direção de $\vec{b}$.</li>
+</ol>
+<div class="formula">
+$$\text{proj}_{\vec{b}}\,\vec{a} = (4, 0), \quad \text{comp}_{\vec{b}}\,\vec{a} = 4, \quad \frac{|\text{proj}_{\vec{b}}\,\vec{a}|}{|\vec{a}|} = \frac{4}{5} = 0{,}8$$
+</div>
+<p><strong>Reflexão de Sobrevivência:</strong> A projeção é como uma sombra: quando a "luz" vem perpendicularmente à direção de $\vec{b}$, a sombra de $\vec{a}$ sobre $\vec{b}$ é exatamente a componente útil. Na Zona Devastada, saber quanto do seu esforço realmente contribui para o objetivo — e quanto é desperdiçado em direções laterais — pode ser a diferença entre chegar ao suprimento ou ficar pelo caminho.</p>
+</details>
+</div>
